@@ -13,6 +13,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "axisforge-geometry"
+version = "0.2.0"
+dependencies = [
+ "axisforge-domain",
+ "thiserror",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.20.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
