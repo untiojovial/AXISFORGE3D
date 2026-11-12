@@ -1,0 +1,17 @@
+[package]
+name = "axisforge-domain"
+description = "Pure domain model for AXISFORGE: projects, robots, grippers, graspable objects and their invariants."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+serde.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

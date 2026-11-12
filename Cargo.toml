@@ -1,0 +1,39 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/domain",
+]
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.85"
+license = "Apache-2.0"
+repository = "https://github.com/untiojovial/Colegio-Rumareda"
+authors = ["AXISFORGE contributors"]
+
+[workspace.dependencies]
+axisforge-domain = { path = "crates/domain", version = "0.2.0" }
+axisforge-geometry = { path = "crates/geometry", version = "0.2.0" }
+axisforge-kinematics = { path = "crates/kinematics", version = "0.2.0" }
+axisforge-collision = { path = "crates/collision", version = "0.2.0" }
+axisforge-grasping = { path = "crates/grasping", version = "0.2.0" }
+axisforge-project-io = { path = "crates/project-io", version = "0.2.0" }
+axisforge-service = { path = "crates/service", version = "0.2.0" }
+
+serde = { version = "1.0.229", features = ["derive"] }
+# `float_roundtrip` is required, not optional: without it serde_json drops the
+# last significant digit of every f64, so saving and reloading a project would
+# silently change joint values and grasp poses.
+serde_json = { version = "1.0.151", features = ["float_roundtrip"] }
+thiserror = "2.0.20"
+anyhow = "1.0.104"
+uuid = { version = "1.26.0", features = ["v4", "serde"] }
+nalgebra = "0.34.2"
+clap = { version = "4.6.6", features = ["derive"] }
+tempfile = "3.27.0"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
