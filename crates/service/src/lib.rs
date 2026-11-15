@@ -93,6 +93,9 @@ pub enum Request {
         values: Option<Vec<f64>>,
         /// A part to draw and check as carried by the gripper.
         carry: Option<Carry>,
+        /// Identifier of a part the jaws are closed on but have not lifted:
+        /// it stays where it is, and the fingers touching it is not a contact.
+        grasping: Option<String>,
     },
     /// Solve inverse kinematics for the default tool frame.
     SolveIk {
@@ -375,15 +378,18 @@ impl Session {
             Request::Describe => Ok(Response::Description(self.describe())),
             Request::ListExtensions => Ok(Response::Extensions(self.registry.list())),
             Request::SetJoints { values } => {
-                let snapshot = self.snapshot(&values, None)?;
+                let snapshot = self.snapshot(&values, None, None)?;
                 self.values = values;
                 Ok(Response::Snapshot(Box::new(snapshot)))
             }
-            Request::Snapshot { values, carry } => {
+            Request::Snapshot {
+                values,
+                carry,
+                grasping,
+            } => {
                 let values = values.unwrap_or_else(|| self.values.clone());
-                Ok(Response::Snapshot(Box::new(
-                    self.snapshot(&values, carry.as_ref())?,
-                )))
+                let snapshot = self.snapshot(&values, carry.as_ref(), grasping.as_deref())?;
+                Ok(Response::Snapshot(Box::new(snapshot)))
             }
             Request::SolveIk { position, rpy } => {
                 let frame = self.default_frame()?;
@@ -497,7 +503,12 @@ impl Session {
         }
     }
 
-    fn snapshot(&self, values: &[f64], carry: Option<&Carry>) -> Result<Snapshot, ServiceError> {
+    fn snapshot(
+        &self,
+        values: &[f64],
+        carry: Option<&Carry>,
+        grasping: Option<&str>,
+    ) -> Result<Snapshot, ServiceError> {
         let pose = forward_kinematics(&self.model, values)?;
         let attachment = match (carry, &self.project.robot.gripper) {
             (Some(carry), Some(gripper)) => Some(Attachment {
@@ -542,9 +553,18 @@ impl Session {
             }
         }
 
+        let mut extra_ignored = Vec::new();
+        if let Some(body_id) = grasping {
+            if self.project.environment.body(body_id).is_none() {
+                return Err(DomainError::dangling("world body", body_id, "snapshot").into());
+            }
+            for finger in &self.project.robot.require_gripper()?.finger_link_ids {
+                extra_ignored.push((finger.clone(), body_id.to_owned()));
+            }
+        }
         let options = SceneOptions {
             attachment,
-            extra_ignored: Vec::new(),
+            extra_ignored,
         };
         let collision = Scene::build(&self.project, &self.model, &pose, &options)?.check(0.0);
         let frame = self.model.default_frame();
@@ -710,6 +730,45 @@ mod tests {
             (z - 0.54).abs() < 1e-3,
             "the cube should be 10 cm above its rest height, z = {z}"
         );
+    }
+
+    #[test]
+    fn closing_on_a_part_is_a_contact_unless_it_is_being_grasped() {
+        let mut session = Session::demo().unwrap();
+        let cube = session
+            .project()
+            .environment
+            .body_by_name("cube")
+            .unwrap()
+            .id
+            .clone();
+        let reply = call(
+            &mut session,
+            &format!(r#"{{"op":"plan_pick","bodyId":"{cube}"}}"#),
+        );
+        let closed = &reply["data"]["plans"][0]["graspClosed"];
+        let contacts = |session: &mut Session, extra: serde_json::Value| {
+            let mut request = serde_json::json!({ "op": "snapshot", "values": closed });
+            request
+                .as_object_mut()
+                .unwrap()
+                .extend(extra.as_object().unwrap().clone());
+            let reply = call(session, &request.to_string());
+            assert_eq!(reply["ok"], true, "{reply}");
+            reply["data"]["collision"]["contacts"]
+                .as_array()
+                .unwrap()
+                .len()
+        };
+        // Jaws on the part, unannounced: the fingers are touching something.
+        assert!(contacts(&mut session, serde_json::json!({})) > 0);
+        // Announced as a grasp: touching the part is the point.
+        assert_eq!(
+            contacts(&mut session, serde_json::json!({ "grasping": cube })),
+            0
+        );
+        let unknown = call(&mut session, r#"{"op":"snapshot","grasping":"ghost"}"#);
+        assert_eq!(unknown["ok"], false);
     }
 
     #[test]

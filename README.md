@@ -16,8 +16,8 @@ six axes and a parallel-jaw gripper.
   cancellation.
 - **Collision**: GJK distance between boxes, spheres, cylinders, capsules and
   convex hulls; clearance and contact reports; carried parts.
-- **Grasping**: enumerate antipodal grasps of a part, score them (friction-cone
-  force closure, stroke, grip force), and plan a pick — pre-grasp, grasp,
+- **Grasping**: enumerate antipodal grasps of a part, measure them in wrench
+  space (force closure, epsilon), and plan a pick — pre-grasp, grasp,
   close, lift — that the arm can reach and perform without collision. Every
   rejected grasp comes back with its reason.
 
@@ -51,5 +51,9 @@ The viewer page needs the `wasm32-unknown-unknown` target
 Dependencies point inward only: `domain` knows nothing about rendering or any
 UI, and front ends never recompute a pose.
 
+Other libraries plug in as quality measures or candidate generators through
+the extension registry in `crates/grasping`.
+
 See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for what is and is not
-built.
+built, and [docs/PLAN_DE_MEJORA.md](docs/PLAN_DE_MEJORA.md) for the plan to a
+sellable product.
