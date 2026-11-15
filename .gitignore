@@ -1,2 +1,7 @@
-target/
-*.tmp
+/target
+**/target
+node_modules/
+dist/
+/build
+*.log
+.DS_Store
