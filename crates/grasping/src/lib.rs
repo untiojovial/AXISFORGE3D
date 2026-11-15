@@ -24,7 +24,7 @@
 //!
 //! let project = templates::pick_and_place_cell()?;
 //! let cube = project.environment.body_by_name("cube").expect("the demo cube");
-//! let home = [0.0, 0.6, 1.2, 0.0, 1.3, 0.0, 0.0, 0.0];
+//! let home = [0.0, 0.3, 1.0, 0.0, 1.84, 0.0, 0.0, 0.0];
 //! let report = plan_pick(
 //!     &project,
 //!     &cube.id,

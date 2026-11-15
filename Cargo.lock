@@ -66,6 +66,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "axisforge-project-io"
+version = "0.2.0"
+dependencies = [
+ "axisforge-domain",
+ "serde",
+ "serde_json",
+ "thiserror",
+]
+
+[[package]]
+name = "axisforge-service"
+version = "0.2.0"
+dependencies = [
+ "axisforge-collision",
+ "axisforge-domain",
+ "axisforge-grasping",
+ "axisforge-kinematics",
+ "axisforge-project-io",
+ "serde",
+ "serde_json",
+ "thiserror",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.20.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"

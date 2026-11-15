@@ -1,0 +1,18 @@
+[package]
+name = "axisforge-project-io"
+description = "The versioned AXISFORGE project file format, with atomic saving."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lints.rust]
+unsafe_code = "deny"
+
+[dependencies]
+axisforge-domain = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }

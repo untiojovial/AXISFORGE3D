@@ -546,8 +546,8 @@ mod tests {
 
     fn cell() -> (Project, Vec<f64>) {
         let project = templates::pick_and_place_cell().unwrap();
-        // A bent, elbow-up posture over the table: a sensible "home".
-        let seed = vec![0.0, 0.6, 1.2, 0.0, 1.3, 0.0, 0.0, 0.0];
+        // Elbow up, gripper pointing down above the table, clear of everything.
+        let seed = vec![0.0, 0.3, 1.0, 0.0, 1.84, 0.0, 0.0, 0.0];
         (project, seed)
     }
 

@@ -1,0 +1,22 @@
+[package]
+name = "axisforge-service"
+description = "The application service of AXISFORGE 3D: one JSON command interface over the engine."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lints.rust]
+unsafe_code = "deny"
+
+[dependencies]
+axisforge-domain = { workspace = true }
+axisforge-kinematics = { workspace = true }
+axisforge-collision = { workspace = true }
+axisforge-grasping = { workspace = true }
+axisforge-project-io = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
