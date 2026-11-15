@@ -24,7 +24,7 @@ use axisforge_domain::{
     templates, DomainError, JointKind, JointRole, Project, Quat, Shape, Transform, Vec3,
     SAFETY_NOTICE,
 };
-use axisforge_grasping::{plan_pick, PlanReport, PlannerOptions};
+use axisforge_grasping::{plan_pick_with, ExtensionInfo, PlanReport, PlannerOptions, Registry};
 use axisforge_kinematics::{
     conditioning, forward_kinematics, frame_pose, ik, jacobian, CancellationToken,
     ConditioningReport, IkOptions, IkSolution, KinematicModel, TaskSpace,
@@ -80,6 +80,8 @@ pub enum Request {
     ExportProject,
     /// Describe the robot, its joints and the world's bodies.
     Describe,
+    /// List the quality measures and candidate generators that are plugged in.
+    ListExtensions,
     /// Set the robot's configuration and return what it looks like.
     SetJoints {
         /// One value per actuated joint, in configuration order.
@@ -195,6 +197,14 @@ pub struct Drawable {
     pub shape: Shape,
     /// sRGB colour, `#rrggbb`.
     pub color: String,
+    /// How metallic the surface looks, `[0, 1]`.
+    pub metalness: f64,
+    /// How rough the surface looks, `[0, 1]`.
+    pub roughness: f64,
+    /// `true` when the shape is part of what is normally drawn.
+    pub visual: bool,
+    /// `true` when the shape is what collision checking uses.
+    pub collision: bool,
     /// World pose of the shape.
     pub pose: Transform,
 }
@@ -205,7 +215,7 @@ pub struct Drawable {
 pub struct Snapshot {
     /// The configuration evaluated.
     pub values: Vec<f64>,
-    /// Every visual shape, posed.
+    /// Every shape, posed: what is drawn and what is collided, each flagged.
     pub drawables: Vec<Drawable>,
     /// World pose of the default tool frame, when the robot has one.
     pub tool_pose: Option<Transform>,
@@ -231,6 +241,29 @@ pub enum Response {
     Ik(IkSolution),
     /// A pick-planning result.
     Plan(Box<PlanReport>),
+    /// The plugged-in extensions.
+    Extensions(Vec<ExtensionInfo>),
+}
+
+fn drawable(
+    owner_id: &str,
+    owner_name: &str,
+    is_link: bool,
+    geometry: &axisforge_domain::GeometryInstance,
+    owner_pose: &Transform,
+) -> Drawable {
+    Drawable {
+        owner_id: owner_id.to_owned(),
+        owner_name: owner_name.to_owned(),
+        is_link,
+        shape: geometry.shape.clone(),
+        color: geometry.material.color.clone(),
+        metalness: geometry.material.metalness,
+        roughness: geometry.material.roughness,
+        visual: geometry.is_visual(),
+        collision: geometry.is_collision(),
+        pose: owner_pose.compose(&geometry.origin),
+    }
 }
 
 /// A project, a robot configuration, and the engine wired around them.
@@ -239,6 +272,7 @@ pub struct Session {
     project: Project,
     model: KinematicModel,
     values: Vec<f64>,
+    registry: Registry,
 }
 
 impl Session {
@@ -268,7 +302,21 @@ impl Session {
             project,
             model,
             values,
+            registry: Registry::standard(),
         })
+    }
+
+    /// Swaps in another session's project while keeping this one's registered
+    /// extensions: loading a file must not unplug a library.
+    fn replace(&mut self, other: Self) {
+        let registry = std::mem::take(&mut self.registry);
+        *self = other;
+        self.registry = registry;
+    }
+
+    /// The extension registry, for a host to plug libraries into.
+    pub fn registry_mut(&mut self) -> &mut Registry {
+        &mut self.registry
     }
 
     /// The project.
@@ -314,17 +362,18 @@ impl Session {
     ) -> Result<Response, ServiceError> {
         match request {
             Request::LoadDemo => {
-                *self = Self::demo()?;
+                self.replace(Self::demo()?);
                 Ok(Response::Description(self.describe()))
             }
             Request::LoadProject { text } => {
-                *self = Self::with_project(axisforge_project_io::from_json(&text)?)?;
+                self.replace(Self::with_project(axisforge_project_io::from_json(&text)?)?);
                 Ok(Response::Description(self.describe()))
             }
             Request::ExportProject => Ok(Response::ProjectText(axisforge_project_io::to_json(
                 &self.project,
             )?)),
             Request::Describe => Ok(Response::Description(self.describe())),
+            Request::ListExtensions => Ok(Response::Extensions(self.registry.list())),
             Request::SetJoints { values } => {
                 let snapshot = self.snapshot(&values, None)?;
                 self.values = values;
@@ -352,7 +401,8 @@ impl Session {
                 Ok(Response::Ik(solution))
             }
             Request::PlanPick { body_id, options } => {
-                let report = plan_pick(
+                let report = plan_pick_with(
+                    &self.registry,
                     &self.project,
                     &body_id,
                     &self.values,
@@ -467,15 +517,14 @@ impl Session {
                 .model
                 .link_index(&link.id)
                 .ok_or_else(|| DomainError::dangling("link", link.id.clone(), "snapshot"))?;
-            for geometry in link.visual_geometries() {
-                drawables.push(Drawable {
-                    owner_id: link.id.clone(),
-                    owner_name: link.name.clone(),
-                    is_link: true,
-                    shape: geometry.shape.clone(),
-                    color: geometry.material.color.clone(),
-                    pose: pose.link(index).compose(&geometry.origin),
-                });
+            for geometry in &link.geometries {
+                drawables.push(drawable(
+                    &link.id,
+                    &link.name,
+                    true,
+                    geometry,
+                    &pose.link(index),
+                ));
             }
         }
         for body in &self.project.environment.bodies {
@@ -488,15 +537,8 @@ impl Session {
                 }
                 None => body.pose,
             };
-            for geometry in body.geometries.iter().filter(|g| g.is_visual()) {
-                drawables.push(Drawable {
-                    owner_id: body.id.clone(),
-                    owner_name: body.name.clone(),
-                    is_link: false,
-                    shape: geometry.shape.clone(),
-                    color: geometry.material.color.clone(),
-                    pose: world.compose(&geometry.origin),
-                });
+            for geometry in &body.geometries {
+                drawables.push(drawable(&body.id, &body.name, false, geometry, &world));
             }
         }
 
@@ -567,8 +609,32 @@ mod tests {
         let mut session = Session::demo().unwrap();
         let reply = call(&mut session, r#"{"op":"snapshot"}"#);
         assert_eq!(reply["kind"], "snapshot");
-        // 7 arm shapes + palm + 2 fingers + table + cube + dowel.
-        assert_eq!(reply["data"]["drawables"].as_array().unwrap().len(), 13);
+        let drawables = reply["data"]["drawables"].as_array().unwrap();
+        // What collision checking sees: base, six links, palm, two fingers,
+        // the table top and legs, and the two parts.
+        assert_eq!(
+            drawables.iter().filter(|d| d["collision"] == true).count(),
+            17
+        );
+        // Every owner is drawn, and each drawn shape carries its finish.
+        for owner in [
+            "base",
+            "axis 3 link",
+            "gripper palm",
+            "gripper left finger",
+            "table",
+            "cube",
+        ] {
+            assert!(
+                drawables
+                    .iter()
+                    .any(|d| d["ownerName"] == owner && d["visual"] == true),
+                "{owner} is not drawn"
+            );
+        }
+        assert!(drawables
+            .iter()
+            .all(|d| d["roughness"].is_number() && d["metalness"].is_number()));
         assert_eq!(
             reply["data"]["collision"]["contacts"]
                 .as_array()
@@ -708,6 +774,99 @@ mod tests {
         );
         assert_eq!(reply["ok"], true, "{reply}");
         assert_eq!(session.project(), &before);
+    }
+
+    #[test]
+    fn extensions_are_listed_and_selectable_by_name() {
+        let mut session = Session::demo().unwrap();
+        let reply = call(&mut session, r#"{"op":"list_extensions"}"#);
+        let ids: Vec<&str> = reply["data"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|e| e["id"].as_str().unwrap())
+            .collect();
+        assert_eq!(ids, ["antipodal", "wrench_space", "primitive_antipodal"]);
+
+        let cube = session
+            .project()
+            .environment
+            .body_by_name("cube")
+            .unwrap()
+            .id
+            .clone();
+        let reply = call(
+            &mut session,
+            &format!(
+                r#"{{"op":"plan_pick","bodyId":"{cube}","options":{{"qualityMeasure":"antipodal","nrGrasps":1}}}}"#
+            ),
+        );
+        assert_eq!(
+            reply["data"]["plans"][0]["quality"]["measure"], "antipodal",
+            "{reply}"
+        );
+        let reply = call(
+            &mut session,
+            &format!(
+                r#"{{"op":"plan_pick","bodyId":"{cube}","options":{{"qualityMeasure":"nope"}}}}"#
+            ),
+        );
+        assert_eq!(reply["ok"], false);
+        assert!(reply["error"].as_str().unwrap().contains("wrench_space"));
+    }
+
+    #[test]
+    fn a_plugged_in_library_survives_loading_another_project() {
+        use axisforge_grasping::{Measurement, QualityInput, QualityMeasure};
+        struct Flat;
+        impl QualityMeasure for Flat {
+            fn id(&self) -> &'static str {
+                "flat"
+            }
+            fn summary(&self) -> &'static str {
+                "Always the same."
+            }
+            fn measure(&self, _: &QualityInput<'_>) -> Measurement {
+                Measurement {
+                    quality: 1.0,
+                    normalized: 1.0,
+                    force_closure: true,
+                }
+            }
+        }
+        let mut session = Session::demo().unwrap();
+        session
+            .registry_mut()
+            .register_measure(std::sync::Arc::new(Flat))
+            .unwrap();
+        call(&mut session, r#"{"op":"load_demo"}"#);
+        let reply = call(&mut session, r#"{"op":"list_extensions"}"#);
+        assert!(
+            reply["data"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .any(|e| e["id"] == "flat"),
+            "{reply}"
+        );
+    }
+
+    #[test]
+    fn the_wasm_build_would_refuse_a_time_budget_but_native_accepts_it() {
+        let mut session = Session::demo().unwrap();
+        let cube = session
+            .project()
+            .environment
+            .body_by_name("cube")
+            .unwrap()
+            .id
+            .clone();
+        let reply = call(
+            &mut session,
+            &format!(r#"{{"op":"plan_pick","bodyId":"{cube}","options":{{"timeoutSeconds":30}}}}"#),
+        );
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert_eq!(reply["data"]["timedOut"], false);
     }
 
     #[test]

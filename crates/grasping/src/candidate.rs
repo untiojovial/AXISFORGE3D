@@ -16,6 +16,8 @@ use std::f64::consts::PI;
 use axisforge_domain::{DomainError, DomainResult, Quat, Shape, Transform, Vec3, WorldBody};
 use serde::{Deserialize, Serialize};
 
+use crate::wrench::ContactPoint;
+
 /// Gap kept between the palm and the part's near face, metres.
 const PALM_CLEARANCE: f64 = 0.002;
 /// Gap kept between the fingertips and whatever is beyond the far face, metres.
@@ -33,6 +35,9 @@ pub struct SynthesisOptions {
     ///
     /// Taken from the gripper; it decides how deep a grasp can sit.
     pub finger_depth: f64,
+    /// Width of each gripping pad, metres. Taken from the gripper; with the
+    /// depth it bounds the contact patch.
+    pub finger_width: f64,
 }
 
 impl Default for SynthesisOptions {
@@ -41,6 +46,7 @@ impl Default for SynthesisOptions {
             angular_samples: 8,
             axial_samples: 3,
             finger_depth: 0.045,
+            finger_width: 0.025,
         }
     }
 }
@@ -65,6 +71,12 @@ pub struct GraspCandidate {
     pub normal_b: Vec3,
     /// Distance from the part's geometric centre to the closing line, metres.
     pub center_offset: f64,
+    /// Where the pads touch the part: the corners of each contact patch.
+    ///
+    /// Four per side on a flat face, two where a flat pad meets a curved wall
+    /// along a line, one on a sphere.
+    #[serde(default)]
+    pub contacts: Vec<ContactPoint>,
 }
 
 impl GraspCandidate {
@@ -91,7 +103,47 @@ impl GraspCandidate {
     }
 }
 
-/// Pushes candidates for one closing axis of a part, in the part's own frame.
+/// The part of a body's surface a pad can press on, for one side of a grasp.
+///
+/// Given in the plane of the pad, relative to the grasp's origin: an interval
+/// along `lateral_axis` (which must be parallel to closing x approach) and an
+/// interval along the approach direction. A zero-width interval is a line
+/// contact; two of them, a point contact.
+#[derive(Debug, Clone, Copy)]
+struct Region {
+    lateral_axis: Vec3,
+    lateral: (f64, f64),
+    along: (f64, f64),
+}
+
+impl Region {
+    /// A single point: a curved surface meeting a flat pad.
+    fn point() -> Self {
+        Self {
+            lateral_axis: Vec3::X,
+            lateral: (0.0, 0.0),
+            along: (0.0, 0.0),
+        }
+    }
+}
+
+/// One family of grasps: a closing line, an approach, and the surface there.
+struct Hold<'n> {
+    name: &'n str,
+    /// The point on the closing line at the part's mid-depth, part frame.
+    origin: Vec3,
+    closing: Vec3,
+    approach: Vec3,
+    /// Distance between the two contact surfaces.
+    width: f64,
+    /// Thickness of the part along the approach.
+    depth: f64,
+    /// A circular cross-section in the closing-approach plane.
+    round: bool,
+    region: Region,
+}
+
+/// Collects candidates for a part, converting from its frame to the world.
 struct Builder<'a> {
     pose: Transform,
     options: &'a SynthesisOptions,
@@ -99,24 +151,10 @@ struct Builder<'a> {
 }
 
 impl Builder<'_> {
-    /// Adds grasps closing along `closing` with contacts `width` apart, for one
-    /// approach direction through a part that is `depth` thick along it.
-    ///
-    /// `round` marks a circular cross-section in the closing-approach plane.
-    /// `origin` is the point on the closing line at the part's mid-depth. Both
-    /// jaw assignments are emitted, because the two wrist orientations differ
-    /// in reachability even though the contacts are the same.
-    #[allow(clippy::too_many_arguments)] // One grasp family; a struct would only rename these.
-    fn add(
-        &mut self,
-        name: &str,
-        origin: Vec3,
-        closing: Vec3,
-        approach: Vec3,
-        width: f64,
-        depth: f64,
-        round: bool,
-    ) {
+    /// Adds the grasps of one family: centred and, where it helps, shallow,
+    /// each with both jaw assignments. The two wrist orientations differ in
+    /// reachability even though the contacts are the same.
+    fn add(&mut self, hold: &Hold<'_>) {
         // How far past the near face the grasp centre may sit before the palm
         // would touch the part.
         let deepest = self.options.finger_depth * 0.5 - PALM_CLEARANCE;
@@ -125,37 +163,101 @@ impl Builder<'_> {
         // surface normals no longer oppose each other. Such grasps cannot be
         // made shallower; if the part is too thick for the fingers, the
         // collision check on the palm is what rejects them.
-        let centred = if round {
-            depth * 0.5
+        let centred = if hold.round {
+            hold.depth * 0.5
         } else {
-            (depth * 0.5).min(deepest)
+            (hold.depth * 0.5).min(deepest)
         };
         let mut depths = vec![("", centred)];
         // A shallower hold keeps the fingertips from protruding past the far
         // face, which matters when the part rests on that face.
-        let flush = depth - self.options.finger_depth * 0.5 - TIP_CLEARANCE;
-        if !round && flush > 0.0 && flush < centred - 1.0e-9 {
+        let flush = hold.depth - self.options.finger_depth * 0.5 - TIP_CLEARANCE;
+        if !hold.round && flush > 0.0 && flush < centred - 1.0e-9 {
             depths.push((" shallow", flush));
         }
         for (suffix, from_near_face) in depths {
-            let local_center = origin.add(&approach.scaled(from_near_face - depth * 0.5));
+            let along_center = from_near_face - hold.depth * 0.5;
+            let local_center = hold.origin.add(&hold.approach.scaled(along_center));
             for (flip, sign) in [("", 1.0), (" flipped", -1.0)] {
-                let closing_local = closing.scaled(sign);
+                let closing_local = hold.closing.scaled(sign);
                 let closing_world = self.pose.apply_direction(&closing_local);
+                let contacts = self
+                    .pad_contacts(hold, &closing_local, along_center)
+                    .into_iter()
+                    .map(|(point, side)| ContactPoint {
+                        point: self.pose.apply(&point),
+                        normal: closing_world.scaled(side),
+                    })
+                    .collect();
                 self.out.push(GraspCandidate {
-                    label: format!("{name}{suffix}{flip}"),
+                    label: format!("{}{suffix}{flip}", hold.name),
                     center: self.pose.apply(&local_center),
-                    approach: self.pose.apply_direction(&approach),
+                    approach: self.pose.apply_direction(&hold.approach),
                     closing: closing_world,
-                    width,
+                    width: hold.width,
                     normal_a: closing_world,
                     normal_b: closing_world.scaled(-1.0),
                     center_offset: local_center
                         .sub(&closing_local.scaled(local_center.dot(&closing_local)))
                         .norm(),
+                    contacts,
                 });
             }
         }
+    }
+
+    /// Where the two pads touch the part: the corners of the overlap between
+    /// each pad's face and the part's surface, in the part's frame, with the
+    /// side (+1 or -1 along the closing direction) each point is on.
+    ///
+    /// Corners are enough: the wrenches of every point of a flat patch are
+    /// convex combinations of the wrenches at its corners.
+    fn pad_contacts(
+        &self,
+        hold: &Hold<'_>,
+        closing_local: &Vec3,
+        along_center: f64,
+    ) -> Vec<(Vec3, f64)> {
+        let lateral = closing_local.cross(&hold.approach);
+        let region = &hold.region;
+        let (l0, l1) = if region.lateral_axis.dot(&lateral) >= 0.0 {
+            region.lateral
+        } else {
+            (-region.lateral.1, -region.lateral.0)
+        };
+        let half_width = self.options.finger_width * 0.5;
+        let half_depth = self.options.finger_depth * 0.5;
+        let l = (l0.max(-half_width), l1.min(half_width));
+        let a = (
+            region.along.0.max(along_center - half_depth),
+            region.along.1.min(along_center + half_depth),
+        );
+        if l.0 > l.1 + 1.0e-12 || a.0 > a.1 + 1.0e-12 {
+            // The pad does not reach the surface at all.
+            return Vec::new();
+        }
+        let ends = |(low, high): (f64, f64)| {
+            if high - low < 1.0e-9 {
+                vec![0.5 * (low + high)]
+            } else {
+                vec![low, high]
+            }
+        };
+        let mut points = Vec::new();
+        for side in [1.0, -1.0] {
+            for lv in ends(l) {
+                for av in ends(a) {
+                    points.push((
+                        hold.origin
+                            .add(&lateral.scaled(lv))
+                            .add(&hold.approach.scaled(av))
+                            .add(&closing_local.scaled(side * hold.width * 0.5)),
+                        side,
+                    ));
+                }
+            }
+        }
+        points
     }
 }
 
@@ -183,22 +285,27 @@ fn box_grasps(builder: &mut Builder<'_>, size: &Vec3) {
             if a == c {
                 continue;
             }
+            let l = 3 - a - c;
             for sign in [1.0, -1.0] {
                 let approach = axis.scaled(sign);
-                let name = format!(
-                    "box close {} approach {}",
-                    axis_name(closing),
-                    axis_name(&approach)
-                );
-                builder.add(
-                    &name,
-                    Vec3::ZERO,
-                    *closing,
+                builder.add(&Hold {
+                    name: &format!(
+                        "box close {} approach {}",
+                        axis_name(closing),
+                        axis_name(&approach)
+                    ),
+                    origin: Vec3::ZERO,
+                    closing: *closing,
                     approach,
-                    extents[c],
-                    extents[a],
-                    false,
-                );
+                    width: extents[c],
+                    depth: extents[a],
+                    round: false,
+                    region: Region {
+                        lateral_axis: axes[l],
+                        lateral: (-extents[l] * 0.5, extents[l] * 0.5),
+                        along: (-extents[a] * 0.5, extents[a] * 0.5),
+                    },
+                });
             }
         }
     }
@@ -221,18 +328,23 @@ fn axial_grasps(builder: &mut Builder<'_>, radius: f64, length: f64, is_capsule:
         let closing = Vec3::new(angle.cos(), angle.sin(), 0.0);
         let side = Vec3::new(-angle.sin(), angle.cos(), 0.0);
         for sign in [1.0, -1.0] {
-            // Along the axis: over the end of the part.
+            // Along the axis, over the end of the part. A flat pad meets the
+            // curved wall along a line parallel to the axis.
             let along = Vec3::Z.scaled(sign);
-            let name = format!("side {k} approach {}", axis_name(&along));
-            builder.add(
-                &name,
-                Vec3::ZERO,
+            builder.add(&Hold {
+                name: &format!("side {k} approach {}", axis_name(&along)),
+                origin: Vec3::ZERO,
                 closing,
-                along,
-                2.0 * radius,
-                total,
-                false,
-            );
+                approach: along,
+                width: 2.0 * radius,
+                depth: total,
+                round: false,
+                region: Region {
+                    lateral_axis: side,
+                    lateral: (0.0, 0.0),
+                    along: (-length * 0.5, length * 0.5),
+                },
+            });
             // Across the axis, at several heights along the straight wall.
             for h in 0..heights {
                 let fraction = if heights == 1 {
@@ -240,38 +352,49 @@ fn axial_grasps(builder: &mut Builder<'_>, radius: f64, length: f64, is_capsule:
                 } else {
                     h as f64 / (heights - 1) as f64 - 0.5
                 };
-                let name = format!(
-                    "side {k} height {h} radial {}",
-                    if sign > 0.0 { "+" } else { "-" }
-                );
-                let origin = Vec3::new(0.0, 0.0, fraction * length * 0.5);
-                builder.add(
-                    &name,
-                    origin,
+                let height = fraction * length * 0.5;
+                builder.add(&Hold {
+                    name: &format!(
+                        "side {k} height {h} radial {}",
+                        if sign > 0.0 { "+" } else { "-" }
+                    ),
+                    origin: Vec3::new(0.0, 0.0, height),
                     closing,
-                    side.scaled(sign),
-                    2.0 * radius,
-                    2.0 * radius,
-                    true,
-                );
+                    approach: side.scaled(sign),
+                    width: 2.0 * radius,
+                    depth: 2.0 * radius,
+                    round: true,
+                    region: Region {
+                        lateral_axis: Vec3::Z,
+                        lateral: (-length * 0.5 - height, length * 0.5 - height),
+                        along: (0.0, 0.0),
+                    },
+                });
             }
         }
     }
     // A cylinder's flat ends oppose each other; a capsule's do not.
     if !is_capsule {
+        // The square inscribed in the end disc: a pad pressing on the end is
+        // credited with no more than that, which under-states the contact.
+        let half = radius * std::f64::consts::FRAC_1_SQRT_2;
         for k in 0..angular {
             let angle = 2.0 * PI * k as f64 / angular as f64;
             let approach = Vec3::new(angle.cos(), angle.sin(), 0.0);
-            let name = format!("ends approach {k}");
-            builder.add(
-                &name,
-                Vec3::ZERO,
-                Vec3::Z,
+            builder.add(&Hold {
+                name: &format!("ends approach {k}"),
+                origin: Vec3::ZERO,
+                closing: Vec3::Z,
                 approach,
-                length,
-                2.0 * radius,
-                false,
-            );
+                width: length,
+                depth: 2.0 * radius,
+                round: false,
+                region: Region {
+                    lateral_axis: Vec3::Z.cross(&approach),
+                    lateral: (-half, half),
+                    along: (-half, half),
+                },
+            });
         }
     }
 }
@@ -286,20 +409,20 @@ fn sphere_grasps(builder: &mut Builder<'_>, radius: f64) {
             }
             for sign in [1.0, -1.0] {
                 let approach = axis.scaled(sign);
-                let name = format!(
-                    "sphere close {} approach {}",
-                    axis_name(closing),
-                    axis_name(&approach)
-                );
-                builder.add(
-                    &name,
-                    Vec3::ZERO,
-                    *closing,
+                builder.add(&Hold {
+                    name: &format!(
+                        "sphere close {} approach {}",
+                        axis_name(closing),
+                        axis_name(&approach)
+                    ),
+                    origin: Vec3::ZERO,
+                    closing: *closing,
                     approach,
-                    2.0 * radius,
-                    2.0 * radius,
-                    true,
-                );
+                    width: 2.0 * radius,
+                    depth: 2.0 * radius,
+                    round: true,
+                    region: Region::point(),
+                });
             }
         }
     }
@@ -515,6 +638,96 @@ mod tests {
         assert!(candidates
             .iter()
             .all(|c| (c.width - 0.05).abs() < 1e-12 && c.center_offset < 1e-12));
+    }
+
+    #[test]
+    fn contact_patches_have_the_expected_shape() {
+        let options = SynthesisOptions::default();
+        let count = |shape: Shape, label: &str| {
+            let body = part(shape, Transform::IDENTITY);
+            let all = synthesize(&body, &options).unwrap();
+            all.iter()
+                .find(|c| c.label == label)
+                .unwrap_or_else(|| panic!("{label}"))
+                .contacts
+                .len()
+        };
+        // Flat faces: a four-cornered patch per pad.
+        assert_eq!(
+            count(
+                Shape::Box {
+                    size: Vec3::new(0.04, 0.04, 0.04)
+                },
+                "box close +x approach -z"
+            ),
+            8
+        );
+        // A flat pad on a curved wall: a line per pad.
+        assert_eq!(
+            count(
+                Shape::Cylinder {
+                    radius: 0.015,
+                    length: 0.09
+                },
+                "side 0 approach -z"
+            ),
+            4
+        );
+        assert_eq!(
+            count(
+                Shape::Cylinder {
+                    radius: 0.015,
+                    length: 0.09
+                },
+                "side 0 height 1 radial +"
+            ),
+            4
+        );
+        assert_eq!(
+            count(
+                Shape::Cylinder {
+                    radius: 0.015,
+                    length: 0.09
+                },
+                "ends approach 0"
+            ),
+            8
+        );
+        // A sphere: a point per pad.
+        assert_eq!(
+            count(
+                Shape::Sphere { radius: 0.02 },
+                "sphere close +x approach -z"
+            ),
+            2
+        );
+    }
+
+    #[test]
+    fn contact_patches_stay_within_both_the_pad_and_the_part() {
+        let options = SynthesisOptions::default();
+        let size = Vec3::new(0.04, 0.07, 0.03);
+        let body = part(Shape::Box { size }, Transform::IDENTITY);
+        for c in synthesize(&body, &options).unwrap() {
+            assert_eq!(c.contacts.len(), 8, "{}", c.label);
+            let lateral = c.closing.cross(&c.approach);
+            for contact in &c.contacts {
+                let p = contact.point;
+                for (v, half) in [(p.x, size.x), (p.y, size.y), (p.z, size.z)] {
+                    assert!(
+                        v.abs() <= half * 0.5 + 1e-12,
+                        "{}: {p:?} leaves the part",
+                        c.label
+                    );
+                }
+                let from_center = p.sub(&c.center);
+                assert!(from_center.dot(&lateral).abs() <= options.finger_width * 0.5 + 1e-12);
+                assert!(from_center.dot(&c.approach).abs() <= options.finger_depth * 0.5 + 1e-12);
+                assert!((from_center.dot(&c.closing).abs() - c.width * 0.5).abs() < 1e-12);
+                // The normal points away from the part on the side it is on.
+                assert!(contact.normal.dot(&from_center) > 0.0, "{}", c.label);
+            }
+        }
     }
 
     #[test]

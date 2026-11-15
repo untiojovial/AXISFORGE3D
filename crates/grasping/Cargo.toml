@@ -16,3 +16,6 @@ axisforge-domain = { workspace = true }
 axisforge-kinematics = { workspace = true }
 axisforge-collision = { workspace = true }
 serde = { workspace = true }
+
+[dev-dependencies]
+serde_json = { workspace = true }

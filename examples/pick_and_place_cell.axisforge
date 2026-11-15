@@ -53,12 +53,99 @@
                 "length": 0.12
               },
               "material": {
-                "color": "#4a5568",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "c6a30e51-3263-3bbc-fdd5-ac3ba221fe8c",
+              "name": "foot",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.009
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.09,
+                "length": 0.018
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "ab59496e-67c3-5552-5655-23e85987cea2",
+              "name": "column",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.063
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.072,
+                "length": 0.09
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "0e7c36b9-f243-e58e-0744-b9ede99539de",
+              "name": "ring",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.11399999999999999
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0774,
+                "length": 0.012
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
             }
           ]
         },
@@ -101,12 +188,128 @@
                 "length": 0.18
               },
               "material": {
-                "color": "#8fa6c0",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "ab95e73c-b003-887f-1f4a-36d6e80be0cf",
+              "name": "tube",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.09
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.044800000000000006,
+                "length": 0.18
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "a2ae466c-d9e3-0caa-0b58-1e39c8d11a9a",
+              "name": "collar",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.16249999999999998
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.051800000000000006,
+                "length": 0.035
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "7c815697-cc8d-b948-8172-f03377db91f8",
+              "name": "housing",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.03150000000000001
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0574,
+                "length": 0.06300000000000001
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "fb96c090-198e-badb-e9bd-97796e9aa58b",
+              "name": "seam",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.004200000000000001
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.058800000000000005,
+                "length": 0.008400000000000001
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
             }
           ]
         },
@@ -149,12 +352,157 @@
                 "length": 0.34
               },
               "material": {
-                "color": "#8fa6c0",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "08379115-266e-2f0a-efa2-3ced9780c25a",
+              "name": "tube",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.17
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0352,
+                "length": 0.34
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "243a552f-03af-a53f-699d-b5e6476fba6f",
+              "name": "collar",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.32625000000000004
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0407,
+                "length": 0.0275
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "87a635b5-6631-89f3-afc5-bdebae4e45a3",
+              "name": "housing",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.044000000000000004,
+                "length": 0.060500000000000005
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "edae3d5d-8691-f64b-3cd5-438442c8d65b",
+              "name": "cap a",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.033,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0363,
+                "length": 0.0055000000000000005
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
+            },
+            {
+              "id": "edaafd5d-868f-53b4-3cd1-c38442c5c704",
+              "name": "cap b",
+              "origin": {
+                "translation": {
+                  "x": -0.0,
+                  "y": -0.033,
+                  "z": -0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0363,
+                "length": 0.0055000000000000005
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
             }
           ]
         },
@@ -197,12 +545,157 @@
                 "length": 0.28
               },
               "material": {
-                "color": "#8fa6c0",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "c2686ea0-5fae-9fa9-e19a-76e6f39f2439",
+              "name": "tube",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.14
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.032,
+                "length": 0.28
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "7705de00-6a48-fc2c-9374-8c46a76552dc",
+              "name": "collar",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.2675
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.037,
+                "length": 0.025
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "f2b54945-590b-bbfa-39c8-f5a4f95fb8aa",
+              "name": "housing",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.04000000000000001,
+                "length": 0.05500000000000001
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "b00c841e-d9d3-7d3a-d054-286e3502014a",
+              "name": "cap a",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.03,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.033,
+                "length": 0.005000000000000001
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
+            },
+            {
+              "id": "b002441e-d9ca-bbf5-d049-e86e34f94005",
+              "name": "cap b",
+              "origin": {
+                "translation": {
+                  "x": -0.0,
+                  "y": -0.03,
+                  "z": -0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.033,
+                "length": 0.005000000000000001
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
             }
           ]
         },
@@ -245,12 +738,128 @@
                 "length": 0.12
               },
               "material": {
-                "color": "#8fa6c0",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "d86d4d46-085e-918c-d806-bd63f7a18f5c",
+              "name": "tube",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.06
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0256,
+                "length": 0.12
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "d44702a2-18a7-c3d9-432a-ba7b882f4889",
+              "name": "collar",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.11
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0296,
+                "length": 0.02
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "334dfb6f-3be0-bfd5-6bb6-9bee0888f785",
+              "name": "housing",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.018000000000000002
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.032799999999999996,
+                "length": 0.036000000000000004
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "fbe94067-6d77-3068-22aa-31915b469f98",
+              "name": "seam",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0024
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0336,
+                "length": 0.0048
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
             }
           ]
         },
@@ -293,12 +902,157 @@
                 "length": 0.1
               },
               "material": {
-                "color": "#8fa6c0",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "84c691f0-5edc-3e4b-3115-c398b64eed5b",
+              "name": "tube",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.05
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.022400000000000003,
+                "length": 0.1
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "6d0af34a-cd35-ef56-aaf1-7d629b504406",
+              "name": "collar",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.09125
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.025900000000000003,
+                "length": 0.0175
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "f19f0841-df37-c5f4-91b5-b15123f363e4",
+              "name": "housing",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.028000000000000004,
+                "length": 0.038500000000000006
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "f26d8916-bd1d-8358-3780-491b91bc8928",
+              "name": "cap a",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.021,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.023100000000000002,
+                "length": 0.0035000000000000005
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
+            },
+            {
+              "id": "f2710916-bd20-92af-3783-891b91bf2bbf",
+              "name": "cap b",
+              "origin": {
+                "translation": {
+                  "x": -0.0,
+                  "y": -0.021,
+                  "z": -0.0
+                },
+                "rotation": {
+                  "x": -0.7071067811865475,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 0.7071067811865475
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.023100000000000002,
+                "length": 0.0035000000000000005
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
             }
           ]
         },
@@ -341,12 +1095,128 @@
                 "length": 0.06
               },
               "material": {
-                "color": "#8fa6c0",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "d5c499da-85eb-4e26-dbee-d3bd132afaf6",
+              "name": "tube",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.03
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.0192,
+                "length": 0.06
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "53412f5b-46c9-618b-bab4-183e56fbcd7b",
+              "name": "collar",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0525
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.022199999999999998,
+                "length": 0.015
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "377f3c33-524a-775f-2fff-8dab4fb61bcf",
+              "name": "housing",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0135
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.024599999999999997,
+                "length": 0.027
+              },
+              "material": {
+                "color": "#e7ebee",
+                "opacity": 1.0,
+                "metalness": 0.15,
+                "roughness": 0.42
+              },
+              "role": "visual"
+            },
+            {
+              "id": "8ae1b830-e675-fb5a-8cc0-3b74719af30a",
+              "name": "seam",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0018
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.025199999999999997,
+                "length": 0.0036
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
             }
           ]
         },
@@ -392,12 +1262,76 @@
                 }
               },
               "material": {
-                "color": "#c9d4e2",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "cc0fe492-332c-76d6-c44f-603e26826126",
+              "name": "grip",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0015,
+                  "z": 0.0225
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.025,
+                  "y": 0.003,
+                  "z": 0.045
+                }
+              },
+              "material": {
+                "color": "#1c2024",
+                "opacity": 1.0,
+                "metalness": 0.0,
+                "roughness": 0.92
+              },
+              "role": "visual"
+            },
+            {
+              "id": "858edf1b-ac79-945e-a85c-5bd3a13ff28e",
+              "name": "body",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.007500000000000001,
+                  "z": 0.0225
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.025,
+                  "y": 0.009000000000000001,
+                  "z": 0.045
+                }
+              },
+              "material": {
+                "color": "#c4ccd4",
+                "opacity": 1.0,
+                "metalness": 0.85,
+                "roughness": 0.32
+              },
+              "role": "visual"
             }
           ]
         },
@@ -443,12 +1377,76 @@
                 }
               },
               "material": {
-                "color": "#c9d4e2",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "4be176e6-c556-3fab-f5de-13ab6fac21bb",
+              "name": "grip",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": -0.0015,
+                  "z": 0.0225
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.025,
+                  "y": 0.003,
+                  "z": 0.045
+                }
+              },
+              "material": {
+                "color": "#1c2024",
+                "opacity": 1.0,
+                "metalness": 0.0,
+                "roughness": 0.92
+              },
+              "role": "visual"
+            },
+            {
+              "id": "ac4b749e-ea3e-8703-2f20-105796071e33",
+              "name": "body",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": -0.007500000000000001,
+                  "z": 0.0225
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.025,
+                  "y": 0.009000000000000001,
+                  "z": 0.045
+                }
+              },
+              "material": {
+                "color": "#c4ccd4",
+                "opacity": 1.0,
+                "metalness": 0.85,
+                "roughness": 0.32
+              },
+              "role": "visual"
             }
           ]
         },
@@ -494,12 +1492,137 @@
                 }
               },
               "material": {
-                "color": "#3f4a5a",
+                "color": "#9aa7b4",
                 "opacity": 1.0,
                 "metalness": 0.1,
                 "roughness": 0.65
               },
-              "role": "both"
+              "role": "collision"
+            },
+            {
+              "id": "7b016793-864a-ab0d-ca68-93457f131d1d",
+              "name": "adapter",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.005000000000000001
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.020000000000000004,
+                "length": 0.010000000000000002
+              },
+              "material": {
+                "color": "#c4ccd4",
+                "opacity": 1.0,
+                "metalness": 0.85,
+                "roughness": 0.32
+              },
+              "role": "visual"
+            },
+            {
+              "id": "428a755d-9904-6e0a-a42b-687008725dba",
+              "name": "body",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0245
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.036800000000000006,
+                  "y": 0.08320000000000001,
+                  "z": 0.028999999999999998
+                }
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "visual"
+            },
+            {
+              "id": "b5ebdbee-47c0-0305-68c0-69c846f38d15",
+              "name": "stripe",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0245
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.03760000000000001,
+                  "y": 0.031200000000000002,
+                  "z": 0.004
+                }
+              },
+              "material": {
+                "color": "#0f8a94",
+                "opacity": 1.0,
+                "metalness": 0.35,
+                "roughness": 0.35
+              },
+              "role": "visual"
+            },
+            {
+              "id": "15417542-38ca-7846-e5ed-3aaec8322576",
+              "name": "rail",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.045000000000000005
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.028000000000000004,
+                  "y": 0.10400000000000001,
+                  "z": 0.010000000000000002
+                }
+              },
+              "material": {
+                "color": "#c4ccd4",
+                "opacity": 1.0,
+                "metalness": 0.85,
+                "roughness": 0.32
+              },
+              "role": "visual"
             }
           ]
         }
@@ -868,6 +1991,7 @@
         },
         "maxOpening": 0.08,
         "fingerDepth": 0.045,
+        "fingerWidth": 0.025,
         "maxGripForce": 90.0
       },
       "basePose": {
@@ -931,10 +2055,138 @@
                 }
               },
               "material": {
-                "color": "#6b5b4a",
+                "color": "#c9b79c",
                 "opacity": 1.0,
-                "metalness": 0.1,
-                "roughness": 0.65
+                "metalness": 0.0,
+                "roughness": 0.62
+              },
+              "role": "both"
+            },
+            {
+              "id": "ab31b7b5-687e-11e8-151a-60acb1c47b18",
+              "name": "leg a",
+              "origin": {
+                "translation": {
+                  "x": 0.22,
+                  "y": 0.31999999999999995,
+                  "z": -0.21000000000000002
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.04,
+                  "y": 0.04,
+                  "z": 0.39
+                }
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "both"
+            },
+            {
+              "id": "ab34f7b5-6880-b47f-151d-e0acb1c78a6f",
+              "name": "leg b",
+              "origin": {
+                "translation": {
+                  "x": 0.22,
+                  "y": -0.31999999999999995,
+                  "z": -0.21000000000000002
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.04,
+                  "y": 0.04,
+                  "z": 0.39
+                }
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "both"
+            },
+            {
+              "id": "ab3877b5-6883-c3d6-1521-20acb1ca2d06",
+              "name": "leg c",
+              "origin": {
+                "translation": {
+                  "x": -0.22,
+                  "y": 0.31999999999999995,
+                  "z": -0.21000000000000002
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.04,
+                  "y": 0.04,
+                  "z": 0.39
+                }
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
+              },
+              "role": "both"
+            },
+            {
+              "id": "ab20b7b5-686f-9eb5-1509-60acb1b607e5",
+              "name": "leg d",
+              "origin": {
+                "translation": {
+                  "x": -0.22,
+                  "y": -0.31999999999999995,
+                  "z": -0.21000000000000002
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.04,
+                  "y": 0.04,
+                  "z": 0.39
+                }
+              },
+              "material": {
+                "color": "#2a3138",
+                "opacity": 1.0,
+                "metalness": 0.45,
+                "roughness": 0.5
               },
               "role": "both"
             }
@@ -987,10 +2239,10 @@
                 }
               },
               "material": {
-                "color": "#d08a3e",
+                "color": "#e2852b",
                 "opacity": 1.0,
-                "metalness": 0.1,
-                "roughness": 0.65
+                "metalness": 0.0,
+                "roughness": 0.45
               },
               "role": "both"
             }
@@ -1040,10 +2292,10 @@
                 "length": 0.09
               },
               "material": {
-                "color": "#9fb08a",
+                "color": "#3f7fa8",
                 "opacity": 1.0,
-                "metalness": 0.1,
-                "roughness": 0.65
+                "metalness": 0.7,
+                "roughness": 0.3
               },
               "role": "both"
             }

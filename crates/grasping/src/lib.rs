@@ -49,8 +49,16 @@ pub mod candidate;
 pub mod hull;
 pub mod planner;
 pub mod quality;
+pub mod registry;
 pub mod wrench;
 
 pub use candidate::{synthesize, GraspCandidate, SynthesisOptions};
-pub use planner::{plan_pick, GraspPlan, PlanReport, PlannerOptions, Rejection, RejectionReason};
-pub use quality::{evaluate, GraspQuality, GRIP_SAFETY_FACTOR};
+pub use planner::{
+    plan_pick, plan_pick_with, GraspPlan, PlanReport, PlannerOptions, Rejection, RejectionReason,
+};
+pub use quality::{
+    evaluate, AntipodalMeasure, GraspQuality, Measurement, QualityInput, QualityMeasure,
+    WrenchSpaceMeasure, GRIP_SAFETY_FACTOR,
+};
+pub use registry::{CandidateGenerator, ExtensionInfo, ExtensionKind, Registry};
+pub use wrench::{grasp_wrench_space, ContactPoint, WrenchOptions, WrenchSpace};

@@ -147,7 +147,7 @@ impl Hull {
         scale: f64,
         tolerance: f64,
     ) -> Result<Self, HullError> {
-        let simplex = initial_simplex(&points, dim, scale)?;
+        let simplex = initial_simplex(points, dim, scale)?;
         let mut interior = vec![0.0; dim];
         for index in &simplex {
             for (slot, value) in interior.iter_mut().zip(&points[*index]) {

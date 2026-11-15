@@ -120,6 +120,7 @@ dependencies = [
  "axisforge-domain",
  "axisforge-kinematics",
  "serde",
+ "serde_json",
 ]
 
 [[package]]

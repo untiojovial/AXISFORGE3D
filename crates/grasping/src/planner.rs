@@ -24,18 +24,50 @@
 //! [`crate::quality`]. A plan is an engineering proposal to be validated on
 //! the real cell, not a guarantee; see [`axisforge_domain::SAFETY_NOTICE`].
 
+use std::cell::RefCell;
+use std::collections::BTreeMap;
+
 use axisforge_collision::{Attachment, Scene, SceneOptions};
 use axisforge_domain::{DomainError, DomainResult, Gripper, Project, Transform, Vec3, WorldBody};
 use axisforge_kinematics::{forward_kinematics, ik, CancellationToken, IkOptions, KinematicModel};
 use serde::{Deserialize, Serialize};
 
-use crate::candidate::{synthesize, GraspCandidate, SynthesisOptions};
-use crate::quality::{evaluate, GraspQuality};
+use crate::candidate::{GraspCandidate, SynthesisOptions};
+use crate::quality::{
+    evaluate, grip_load, preliminary_score, GraspQuality, QualityInput, QualityMeasure,
+};
+use crate::registry::Registry;
+use crate::wrench::WrenchOptions;
 
 /// How a pick is planned.
+///
+/// The first group of fields follows the vocabulary of established grasp
+/// planners (the `GraspStudio` library of Simox in particular), so a setup described in those
+/// terms carries over: how many grasps to find, the quality they must reach,
+/// whether force closure is required, a time budget, and the friction-cone
+/// model. The semantics are this engine's own and are documented per field.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(default, rename_all = "camelCase")]
 pub struct PlannerOptions {
+    /// Stop after this many feasible grasps.
+    #[serde(alias = "maxPlans")]
+    pub nr_grasps: usize,
+    /// Smallest acceptable value of the quality measure. For `wrench_space`
+    /// this is epsilon, in units of the contact force.
+    pub min_quality: f64,
+    /// Require force closure as judged by the quality measure.
+    pub force_closure: bool,
+    /// Give up after this many seconds. Needs a clock: refused on builds
+    /// without one (WebAssembly), where `maxCandidates` bounds the work instead.
+    pub timeout_seconds: Option<f64>,
+    /// Examine at most this many candidates.
+    pub max_candidates: Option<usize>,
+    /// Name of the quality measure, from the extension registry.
+    pub quality_measure: String,
+    /// Name of the candidate generator, from the extension registry.
+    pub candidate_generator: String,
+    /// Contact model: unit force, friction coefficient, friction-cone samples.
+    pub quality: WrenchOptions,
     /// Distance backed off along the approach for the pre-grasp, metres.
     pub standoff: f64,
     /// Height the part is raised after closing, metres.
@@ -46,8 +78,6 @@ pub struct PlannerOptions {
     pub collision_margin: f64,
     /// Joint-space samples checked along the approach and along the lift.
     pub path_samples: usize,
-    /// Stop after this many feasible plans.
-    pub max_plans: usize,
     /// Sampling density for round parts.
     pub angular_samples: usize,
     /// Inverse-kinematics settings for the pre-grasp solve.
@@ -57,12 +87,19 @@ pub struct PlannerOptions {
 impl Default for PlannerOptions {
     fn default() -> Self {
         Self {
+            nr_grasps: 3,
+            min_quality: 0.0,
+            force_closure: true,
+            timeout_seconds: None,
+            max_candidates: None,
+            quality_measure: "wrench_space".to_owned(),
+            candidate_generator: "primitive_antipodal".to_owned(),
+            quality: WrenchOptions::default(),
             standoff: 0.08,
             lift_height: 0.10,
             jaw_clearance: 0.005,
             collision_margin: 0.001,
             path_samples: 6,
-            max_plans: 3,
             angular_samples: 8,
             ik: IkOptions {
                 restarts: 6,
@@ -72,14 +109,68 @@ impl Default for PlannerOptions {
     }
 }
 
+impl PlannerOptions {
+    /// Checks the numeric settings.
+    ///
+    /// # Errors
+    /// When a value is non-finite, negative where that is meaningless, or a
+    /// time budget is requested on a build with no clock.
+    pub fn validate(&self) -> DomainResult<()> {
+        let mut checks = vec![
+            (self.min_quality, "minQuality"),
+            (self.standoff, "standoff"),
+            (self.lift_height, "liftHeight"),
+            (self.jaw_clearance, "jawClearance"),
+            (self.collision_margin, "collisionMargin"),
+            (self.quality.unit_force, "quality.unitForce"),
+            (self.quality.torsional_friction, "quality.torsionalFriction"),
+        ];
+        if let Some(mu) = self.quality.friction_coefficient {
+            checks.push((mu, "quality.frictionCoefficient"));
+        }
+        if let Some(timeout) = self.timeout_seconds {
+            checks.push((timeout, "timeoutSeconds"));
+        }
+        for (value, what) in checks {
+            if !value.is_finite() {
+                return Err(DomainError::NonFinite {
+                    context: format!("planner options {what}"),
+                });
+            }
+            if value < 0.0 {
+                return Err(DomainError::NegativeValue {
+                    context: format!("planner options {what}"),
+                    value,
+                });
+            }
+        }
+        if self.quality.unit_force <= 0.0 {
+            return Err(DomainError::NegativeValue {
+                context: "planner options quality.unitForce must be positive".to_owned(),
+                value: self.quality.unit_force,
+            });
+        }
+        #[cfg(target_arch = "wasm32")]
+        if self.timeout_seconds.is_some() {
+            return Err(DomainError::unsupported(
+                "timeoutSeconds needs a clock, which this build does not have; \
+                 use maxCandidates to bound the search instead",
+            ));
+        }
+        Ok(())
+    }
+}
+
 /// Why a candidate was not turned into a plan.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum RejectionReason {
     /// The part is wider than the jaws open, with clearance.
     TooWide,
-    /// The contact normals fall outside the friction cone.
+    /// The quality measure does not find the grasp in force closure.
     NoForceClosure,
+    /// The quality measure's value is below the requested minimum.
+    BelowMinQuality,
     /// The gripper cannot clamp hard enough to hold the part's weight.
     InsufficientGripForce,
     /// The arm cannot reach the pre-grasp pose.
@@ -110,6 +201,10 @@ pub struct Rejection {
     pub reason: RejectionReason,
     /// Specifics: the numbers or the names of what collided.
     pub detail: String,
+    /// Midpoint between the contacts of the rejected grasp, world coordinates.
+    pub center: Vec3,
+    /// Unit direction the gripper would have approached along.
+    pub approach: Vec3,
 }
 
 /// A feasible pick: four configurations, full width, in configuration order.
@@ -154,6 +249,12 @@ pub struct PlanReport {
     pub candidates_examined: usize,
     /// `true` when a caller cancelled the search; the lists are partial.
     pub cancelled: bool,
+    /// `true` when the time budget ran out; the lists are partial.
+    pub timed_out: bool,
+    /// Name of the quality measure used.
+    pub quality_measure: String,
+    /// Name of the candidate generator used.
+    pub candidate_generator: String,
 }
 
 struct Context<'a> {
@@ -166,6 +267,10 @@ struct Context<'a> {
     jaws: Vec<usize>,
     options: &'a PlannerOptions,
     cancel: &'a CancellationToken,
+    measure: &'a dyn QualityMeasure,
+    /// Quality by contact set: the two jaw assignments of a grasp share their
+    /// contacts, and the measure need not be run twice for them.
+    measured: RefCell<BTreeMap<String, GraspQuality>>,
 }
 
 type Fail = (RejectionReason, String);
@@ -275,8 +380,19 @@ impl Context<'_> {
         Ok(Ok(closest))
     }
 
-    /// The checks that need no kinematics: stroke, force closure, grip force.
-    fn gate(&self, candidate: &GraspCandidate, quality: &GraspQuality) -> Result<(), Fail> {
+    fn quality_input<'c>(&'c self, candidate: &'c GraspCandidate) -> QualityInput<'c> {
+        QualityInput {
+            candidate,
+            gripper: self.gripper,
+            body: self.body,
+            up: self.project.environment.ground_normal(),
+            wrench: &self.options.quality,
+        }
+    }
+
+    /// The checks that need neither kinematics nor the quality measure:
+    /// stroke and grip force.
+    fn gate(&self, candidate: &GraspCandidate) -> Result<(), Fail> {
         let options = self.options;
         if candidate.width + 2.0 * options.jaw_clearance > self.gripper.max_opening {
             return Err((
@@ -289,27 +405,56 @@ impl Context<'_> {
                 ),
             ));
         }
-        if !quality.force_closure {
-            return Err((
-                RejectionReason::NoForceClosure,
-                format!(
-                    "contact normals are {:.1} deg off the closing line; the friction cone is {:.1} deg",
-                    quality.antipodal_angle.to_degrees(),
-                    quality.friction_cone_half_angle.to_degrees()
-                ),
-            ));
-        }
-        if !quality.grip_force_sufficient {
+        let (required, sufficient) = grip_load(&self.quality_input(candidate));
+        if !sufficient {
             return Err((
                 RejectionReason::InsufficientGripForce,
                 format!(
                     "needs {:.0} N; the gripper supplies {:.0} N",
-                    quality.required_grip_force.unwrap_or(f64::INFINITY),
+                    required.unwrap_or(f64::INFINITY),
                     self.gripper.max_grip_force
                 ),
             ));
         }
         Ok(())
+    }
+
+    /// Runs the quality measure, once per distinct contact set, and applies
+    /// the force-closure and minimum-quality requirements.
+    ///
+    /// This comes after reachability and collision checks because it is the
+    /// most expensive step and most candidates never get this far.
+    fn judge(&self, candidate: &GraspCandidate) -> Result<GraspQuality, Fail> {
+        let key = contact_key(candidate);
+        let cached = key
+            .as_ref()
+            .and_then(|k| self.measured.borrow().get(k).cloned());
+        let quality = cached.unwrap_or_else(|| {
+            let quality = evaluate(self.measure, &self.quality_input(candidate));
+            if let Some(key) = key {
+                self.measured.borrow_mut().insert(key, quality.clone());
+            }
+            quality
+        });
+        if self.options.force_closure && !quality.force_closure {
+            return Err((
+                RejectionReason::NoForceClosure,
+                format!(
+                    "'{}' finds no force closure with {} contact points and friction {:.2}",
+                    quality.measure, quality.contact_count, quality.friction_coefficient
+                ),
+            ));
+        }
+        if quality.quality < self.options.min_quality {
+            return Err((
+                RejectionReason::BelowMinQuality,
+                format!(
+                    "'{}' gives {:.4}; the minimum is {:.4}",
+                    quality.measure, quality.quality, self.options.min_quality
+                ),
+            ));
+        }
+        Ok(quality)
     }
 
     fn attempt(
@@ -318,14 +463,7 @@ impl Context<'_> {
         seed: &[f64],
     ) -> DomainResult<Result<GraspPlan, Fail>> {
         let options = self.options;
-        let quality = evaluate(
-            candidate,
-            self.gripper,
-            &self.body.physical,
-            &self.project.environment.ground_normal(),
-        );
-
-        if let Err(fail) = self.gate(candidate, &quality) {
+        if let Err(fail) = self.gate(candidate) {
             return Ok(Err(fail));
         }
 
@@ -414,6 +552,11 @@ impl Context<'_> {
             RejectionReason::LiftCollision
         ));
 
+        let quality = match self.judge(candidate) {
+            Ok(quality) => quality,
+            Err(fail) => return Ok(Err(fail)),
+        };
+
         Ok(Ok(GraspPlan {
             candidate: candidate.clone(),
             quality,
@@ -429,16 +572,93 @@ impl Context<'_> {
     }
 }
 
-/// Plans picks of the world body `body_id` with the project's robot.
+/// A key identifying a candidate's contact set, or `None` when it has none.
+fn contact_key(candidate: &GraspCandidate) -> Option<String> {
+    if candidate.contacts.is_empty() {
+        return None;
+    }
+    let mut parts: Vec<String> = candidate
+        .contacts
+        .iter()
+        .map(|c| {
+            // Whole nanometres, so that 0.0 and -0.0 give the same key.
+            #[allow(clippy::cast_possible_truncation)]
+            let q = |v: f64, unit: f64| (v / unit).round() as i64;
+            format!(
+                "{},{},{},{},{},{}",
+                q(c.point.x, 1.0e-9),
+                q(c.point.y, 1.0e-9),
+                q(c.point.z, 1.0e-9),
+                q(c.normal.x, 1.0e-6),
+                q(c.normal.y, 1.0e-6),
+                q(c.normal.z, 1.0e-6)
+            )
+        })
+        .collect();
+    parts.sort_unstable();
+    Some(parts.join(";"))
+}
+
+/// Examines candidates in order until enough plans are found or a limit is hit.
+fn search(
+    context: &Context<'_>,
+    ranked: &[(f64, GraspCandidate)],
+    seed: &[f64],
+    report: &mut PlanReport,
+) -> DomainResult<()> {
+    #[cfg(not(target_arch = "wasm32"))]
+    let deadline = context
+        .options
+        .timeout_seconds
+        .map(|seconds| std::time::Instant::now() + std::time::Duration::from_secs_f64(seconds));
+    for (_, candidate) in ranked {
+        if context.cancel.is_cancelled() {
+            report.cancelled = true;
+            break;
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        if deadline.is_some_and(|deadline| std::time::Instant::now() >= deadline) {
+            report.timed_out = true;
+            break;
+        }
+        if report.plans.len() >= context.options.nr_grasps.max(1)
+            || context
+                .options
+                .max_candidates
+                .is_some_and(|limit| report.candidates_examined >= limit)
+        {
+            break;
+        }
+        report.candidates_examined += 1;
+        match context.attempt(candidate, seed)? {
+            Ok(plan) => report.plans.push(plan),
+            Err((reason, detail)) => {
+                // A cancelled IK solve looks like "unreachable"; do not record
+                // a verdict the search did not actually reach.
+                if context.cancel.is_cancelled() {
+                    report.cancelled = true;
+                    report.candidates_examined -= 1;
+                    break;
+                }
+                report.rejections.push(Rejection {
+                    label: candidate.label.clone(),
+                    reason,
+                    detail,
+                    center: candidate.center,
+                    approach: candidate.approach,
+                });
+            }
+        }
+    }
+    Ok(())
+}
+
+/// Plans picks of the world body `body_id` with the built-in extensions.
 ///
-/// `seed` is the robot's current configuration, full width; the arm's part of
-/// it is where the pre-grasp search starts.
+/// See [`plan_pick_with`].
 ///
 /// # Errors
-/// A request that cannot be planned at all: no gripper, an unknown or
-/// non-graspable body, a body synthesis does not support, or a malformed seed.
-/// Finding no feasible grasp is *not* an error; the report then has no plans
-/// and a rejection for every candidate.
+/// As [`plan_pick_with`].
 pub fn plan_pick(
     project: &Project,
     body_id: &str,
@@ -446,6 +666,39 @@ pub fn plan_pick(
     options: &PlannerOptions,
     cancel: &CancellationToken,
 ) -> DomainResult<PlanReport> {
+    plan_pick_with(
+        &Registry::standard(),
+        project,
+        body_id,
+        seed,
+        options,
+        cancel,
+    )
+}
+
+/// Plans picks of the world body `body_id` with the project's robot, using
+/// the quality measure and candidate generator the options name in `registry`.
+///
+/// `seed` is the robot's current configuration, full width; the arm's part of
+/// it is where the pre-grasp search starts.
+///
+/// # Errors
+/// A request that cannot be planned at all: no gripper, an unknown or
+/// non-graspable body, a body the generator does not support, an unknown
+/// extension name, invalid options, or a malformed seed. Finding no feasible
+/// grasp is *not* an error; the report then has no plans and a rejection for
+/// every candidate examined.
+pub fn plan_pick_with(
+    registry: &Registry,
+    project: &Project,
+    body_id: &str,
+    seed: &[f64],
+    options: &PlannerOptions,
+    cancel: &CancellationToken,
+) -> DomainResult<PlanReport> {
+    options.validate()?;
+    let measure = registry.measure(&options.quality_measure)?;
+    let generator = registry.generator(&options.candidate_generator)?;
     let gripper = project.robot.require_gripper()?;
     let body = project
         .environment
@@ -478,17 +731,9 @@ pub fn plan_pick(
     let synthesis = SynthesisOptions {
         angular_samples: options.angular_samples,
         finger_depth: gripper.finger_depth,
+        finger_width: gripper.finger_width,
         ..SynthesisOptions::default()
     };
-    let up = project.environment.ground_normal();
-    let mut ranked: Vec<(f64, GraspCandidate)> = synthesize(body, &synthesis)?
-        .into_iter()
-        .map(|c| (evaluate(&c, gripper, &body.physical, &up).score, c))
-        .collect();
-    // A stable sort keeps synthesis order among equal scores, so the same
-    // request always examines candidates in the same order.
-    ranked.sort_by(|a, b| b.0.total_cmp(&a.0));
-
     let context = Context {
         project,
         model: &model,
@@ -499,7 +744,18 @@ pub fn plan_pick(
         jaws,
         options,
         cancel,
+        measure,
+        measured: RefCell::new(BTreeMap::new()),
     };
+    let mut ranked: Vec<(f64, GraspCandidate)> = generator
+        .generate(body, &synthesis)?
+        .into_iter()
+        .map(|c| (preliminary_score(&context.quality_input(&c)), c))
+        .collect();
+    // A stable sort keeps the generator's order among equal scores, so the
+    // same request always examines candidates in the same order.
+    ranked.sort_by(|a, b| b.0.total_cmp(&a.0));
+
     let mut report = PlanReport {
         body_id: body.id.clone(),
         plans: Vec::new(),
@@ -507,34 +763,16 @@ pub fn plan_pick(
         candidates_total: ranked.len(),
         candidates_examined: 0,
         cancelled: false,
+        timed_out: false,
+        quality_measure: measure.id().to_owned(),
+        candidate_generator: generator.id().to_owned(),
     };
-    for (_, candidate) in &ranked {
-        if cancel.is_cancelled() {
-            report.cancelled = true;
-            break;
-        }
-        if report.plans.len() >= options.max_plans.max(1) {
-            break;
-        }
-        report.candidates_examined += 1;
-        match context.attempt(candidate, seed)? {
-            Ok(plan) => report.plans.push(plan),
-            Err((reason, detail)) => {
-                // A cancelled IK solve looks like "unreachable"; do not record
-                // a verdict the search did not actually reach.
-                if cancel.is_cancelled() {
-                    report.cancelled = true;
-                    report.candidates_examined -= 1;
-                    break;
-                }
-                report.rejections.push(Rejection {
-                    label: candidate.label.clone(),
-                    reason,
-                    detail,
-                });
-            }
-        }
-    }
+    search(&context, &ranked, seed, &mut report)?;
+    // Candidates were examined in order of a cheap estimate; the plans are
+    // returned in order of their measured score.
+    report
+        .plans
+        .sort_by(|a, b| b.quality.score.total_cmp(&a.quality.score));
     Ok(report)
 }
 
@@ -742,7 +980,7 @@ mod tests {
     fn grasps_from_below_the_table_are_rejected_not_planned() {
         let (project, seed) = cell();
         let options = PlannerOptions {
-            max_plans: 1000,
+            nr_grasps: 1000,
             ..PlannerOptions::default()
         };
         let id = project.environment.body_by_name("cube").unwrap().id.clone();
@@ -760,6 +998,248 @@ mod tests {
             );
         }
         assert!(!report.rejections.is_empty());
+    }
+
+    fn plan_with(
+        project: &Project,
+        name: &str,
+        seed: &[f64],
+        options: &PlannerOptions,
+    ) -> PlanReport {
+        let id = project.environment.body_by_name(name).unwrap().id.clone();
+        plan_pick(project, &id, seed, options, &CancellationToken::new()).unwrap()
+    }
+
+    #[test]
+    fn plans_carry_wrench_space_quality_by_default() {
+        let (project, seed) = cell();
+        let report = plan(&project, "cube", &seed);
+        assert_eq!(report.quality_measure, "wrench_space");
+        assert_eq!(report.candidate_generator, "primitive_antipodal");
+        let best = &report.plans[0];
+        assert_eq!(best.quality.measure, "wrench_space");
+        assert!(
+            best.quality.quality > 0.0 && best.quality.contact_count == 8,
+            "{:?}",
+            best.quality
+        );
+    }
+
+    #[test]
+    fn a_minimum_quality_out_of_reach_rejects_otherwise_feasible_grasps() {
+        let (project, seed) = cell();
+        let options = PlannerOptions {
+            min_quality: 10.0,
+            nr_grasps: 1000,
+            ..PlannerOptions::default()
+        };
+        let report = plan_with(&project, "cube", &seed, &options);
+        assert!(report.plans.is_empty());
+        let below: Vec<_> = report
+            .rejections
+            .iter()
+            .filter(|r| r.reason == RejectionReason::BelowMinQuality)
+            .collect();
+        // Exactly the grasps that were feasible without the requirement.
+        let baseline = PlannerOptions {
+            nr_grasps: 1000,
+            ..PlannerOptions::default()
+        };
+        assert_eq!(
+            below.len(),
+            plan_with(&project, "cube", &seed, &baseline).plans.len()
+        );
+        assert!(below[0].detail.contains("minimum"), "{}", below[0].detail);
+    }
+
+    fn with_ball(mut project: Project) -> Project {
+        let cube = project
+            .environment
+            .bodies
+            .iter_mut()
+            .find(|b| b.name == "cube")
+            .unwrap();
+        cube.geometries[0].shape = Shape::Sphere { radius: 0.02 };
+        // Held a little off the table: a ball this size resting on it leaves
+        // no room for fingertips below its equator, and that is not what is
+        // under test. Not higher, or the pre-grasp leaves the wrist's range.
+        cube.pose.translation.z = 0.45;
+        project
+    }
+
+    #[test]
+    fn a_ball_fails_force_closure_with_hard_contacts_and_passes_with_soft_pads() {
+        let (project, seed) = cell();
+        let project = with_ball(project);
+        let hard = plan(&project, "cube", &seed);
+        assert!(hard.plans.is_empty());
+        assert!(hard
+            .rejections
+            .iter()
+            .any(|r| r.reason == RejectionReason::NoForceClosure));
+
+        let soft = PlannerOptions {
+            quality: WrenchOptions {
+                torsional_friction: 0.004,
+                ..WrenchOptions::default()
+            },
+            ..PlannerOptions::default()
+        };
+        assert!(!plan_with(&project, "cube", &seed, &soft).plans.is_empty());
+
+        // Not requiring force closure also lets it through, and says what it found.
+        let lax = PlannerOptions {
+            force_closure: false,
+            ..PlannerOptions::default()
+        };
+        let report = plan_with(&project, "cube", &seed, &lax);
+        assert!(!report.plans.is_empty());
+        assert!(!report.plans[0].quality.force_closure);
+    }
+
+    #[test]
+    fn the_antipodal_measure_can_be_selected_by_name() {
+        let (project, seed) = cell();
+        let options = PlannerOptions {
+            quality_measure: "antipodal".to_owned(),
+            ..PlannerOptions::default()
+        };
+        let report = plan_with(&project, "cube", &seed, &options);
+        assert_eq!(report.plans[0].quality.measure, "antipodal");
+    }
+
+    #[test]
+    fn a_registered_library_is_used_by_the_planner() {
+        use crate::quality::Measurement;
+        use std::sync::atomic::{AtomicUsize, Ordering};
+        use std::sync::Arc;
+
+        struct Counting(AtomicUsize);
+        impl QualityMeasure for Counting {
+            fn id(&self) -> &'static str {
+                "counting"
+            }
+            fn summary(&self) -> &'static str {
+                "Counts how often it is asked."
+            }
+            fn measure(&self, _: &QualityInput<'_>) -> Measurement {
+                self.0.fetch_add(1, Ordering::Relaxed);
+                Measurement {
+                    quality: 0.25,
+                    normalized: 0.25,
+                    force_closure: true,
+                }
+            }
+        }
+
+        let (project, seed) = cell();
+        let library = Arc::new(Counting(AtomicUsize::new(0)));
+        let mut registry = Registry::standard();
+        registry.register_measure(library.clone()).unwrap();
+        let options = PlannerOptions {
+            quality_measure: "counting".to_owned(),
+            nr_grasps: 1000,
+            ..PlannerOptions::default()
+        };
+        let id = project.environment.body_by_name("cube").unwrap().id.clone();
+        let report = plan_pick_with(
+            &registry,
+            &project,
+            &id,
+            &seed,
+            &options,
+            &CancellationToken::new(),
+        )
+        .unwrap();
+        assert!(!report.plans.is_empty());
+        assert!(report
+            .plans
+            .iter()
+            .all(|p| (p.quality.quality - 0.25).abs() < 1e-12));
+        // Both jaw assignments of a grasp share contacts, so it is asked once per pair.
+        let calls = library.0.load(Ordering::Relaxed);
+        assert!(
+            calls > 0 && calls < report.plans.len(),
+            "{calls} calls for {} plans",
+            report.plans.len()
+        );
+    }
+
+    #[test]
+    fn unknown_extension_names_and_bad_options_are_errors() {
+        let (project, seed) = cell();
+        let id = project.environment.body_by_name("cube").unwrap().id.clone();
+        let token = CancellationToken::new();
+        let bad_measure = PlannerOptions {
+            quality_measure: "nope".to_owned(),
+            ..PlannerOptions::default()
+        };
+        let error = plan_pick(&project, &id, &seed, &bad_measure, &token).unwrap_err();
+        assert!(error.to_string().contains("wrench_space"), "{error}");
+        let bad_generator = PlannerOptions {
+            candidate_generator: "nope".to_owned(),
+            ..PlannerOptions::default()
+        };
+        assert!(plan_pick(&project, &id, &seed, &bad_generator, &token).is_err());
+        let negative = PlannerOptions {
+            min_quality: -1.0,
+            ..PlannerOptions::default()
+        };
+        assert!(plan_pick(&project, &id, &seed, &negative, &token).is_err());
+        let zero_force = PlannerOptions {
+            quality: WrenchOptions {
+                unit_force: 0.0,
+                ..WrenchOptions::default()
+            },
+            ..PlannerOptions::default()
+        };
+        assert!(plan_pick(&project, &id, &seed, &zero_force, &token).is_err());
+    }
+
+    #[test]
+    fn the_candidate_limit_and_the_time_budget_stop_the_search() {
+        let (project, seed) = cell();
+        let limited = PlannerOptions {
+            max_candidates: Some(5),
+            nr_grasps: 1000,
+            ..PlannerOptions::default()
+        };
+        let report = plan_with(&project, "cube", &seed, &limited);
+        assert_eq!(report.candidates_examined, 5);
+        assert!(!report.timed_out);
+
+        let no_time = PlannerOptions {
+            timeout_seconds: Some(0.0),
+            ..PlannerOptions::default()
+        };
+        let report = plan_with(&project, "cube", &seed, &no_time);
+        assert!(report.timed_out);
+        assert_eq!(report.candidates_examined, 0);
+    }
+
+    #[test]
+    fn the_old_option_name_is_still_accepted() {
+        let options: PlannerOptions = serde_json::from_str(r#"{"maxPlans": 7}"#).unwrap();
+        assert_eq!(options.nr_grasps, 7);
+        let options: PlannerOptions =
+            serde_json::from_str(r#"{"nrGrasps": 2, "minQuality": 0.01, "forceClosure": false}"#)
+                .unwrap();
+        assert!(options.nr_grasps == 2 && !options.force_closure);
+    }
+
+    #[test]
+    fn rejections_say_where_the_grasp_was() {
+        let (project, seed) = cell();
+        let options = PlannerOptions {
+            nr_grasps: 1000,
+            ..PlannerOptions::default()
+        };
+        let report = plan_with(&project, "cube", &seed, &options);
+        let cube = project.environment.body_by_name("cube").unwrap();
+        for rejection in &report.rejections {
+            assert!(rejection.center.distance(&cube.pose.translation) < 0.03);
+            assert!((rejection.approach.norm() - 1.0).abs() < 1e-9);
+        }
     }
 
     #[test]

@@ -236,6 +236,13 @@ impl GeometryInstance {
         self
     }
 
+    /// Sets how metallic and how rough the surface looks, builder style.
+    pub fn with_finish(mut self, metalness: f64, roughness: f64) -> Self {
+        self.material.metalness = metalness;
+        self.material.roughness = roughness;
+        self
+    }
+
     /// Sets the role, builder style.
     pub fn with_role(mut self, role: GeometryRole) -> Self {
         self.role = role;

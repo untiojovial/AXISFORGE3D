@@ -27,6 +27,11 @@ pub enum JawCoupling {
     Independent,
 }
 
+/// Pad width assumed for a gripper saved before the field existed.
+fn default_finger_width() -> f64 {
+    0.025
+}
+
 /// A parallel-jaw gripper, described in terms of joints that already exist.
 ///
 /// This type holds no kinematics of its own. The jaws are ordinary prismatic
@@ -70,6 +75,12 @@ pub struct Gripper {
     /// An object deeper than this cannot be enclosed, so a grasp whose required
     /// depth exceeds it is rejected rather than reported as reachable.
     pub finger_depth: f64,
+    /// Width of each gripping pad, across both the approach and closing axes, metres.
+    ///
+    /// With the depth this is the area a pad can press on, which is what lets
+    /// two fingers resist a part twisting between them.
+    #[serde(default = "default_finger_width")]
+    pub finger_width: f64,
     /// Greatest clamping force the jaws can apply, newtons.
     pub max_grip_force: f64,
 }
@@ -213,6 +224,7 @@ impl Gripper {
         for (value, what) in [
             (self.max_opening, "maxOpening"),
             (self.finger_depth, "fingerDepth"),
+            (self.finger_width, "fingerWidth"),
             (self.max_grip_force, "maxGripForce"),
         ] {
             if !value.is_finite() {

@@ -65,6 +65,60 @@ pub fn stable_id(namespace: &str, kind: &str, name: &str) -> String {
     )
 }
 
+/// Colours and finishes shared by the templates, so every robot they build
+/// reads as one product.
+mod look {
+    /// Painted covers.
+    pub const COVER: (&str, f64, f64) = ("#e7ebee", 0.15, 0.42);
+    /// Dark structural parts and seams.
+    pub const DARK: (&str, f64, f64) = ("#2a3138", 0.45, 0.5);
+    /// Accent rings and caps.
+    pub const ACCENT: (&str, f64, f64) = ("#0f8a94", 0.35, 0.35);
+    /// Bare machined aluminium.
+    pub const ALUMINIUM: (&str, f64, f64) = ("#c4ccd4", 0.85, 0.32);
+    /// Rubber gripping pads.
+    pub const RUBBER: (&str, f64, f64) = ("#1c2024", 0.0, 0.92);
+}
+
+/// A drawn-only shape with one of the shared finishes.
+///
+/// Collision geometry is declared separately and kept simple; what is drawn
+/// stays inside it, so two things that look as if they touch are never
+/// reported clear.
+fn drawn(
+    namespace: &str,
+    name: &str,
+    shape: Shape,
+    origin: Transform,
+    look: (&str, f64, f64),
+) -> GeometryInstance {
+    GeometryInstance::visual(stable_id(namespace, "visual", name), name, shape)
+        .with_origin(origin)
+        .with_color(look.0)
+        .with_finish(look.1, look.2)
+}
+
+/// A cylinder along an arbitrary axis, centred at `center`.
+fn drawn_cylinder(
+    namespace: &str,
+    name: &str,
+    (radius, length): (f64, f64),
+    center: Vec3,
+    axis: &Vec3,
+    look: (&str, f64, f64),
+) -> GeometryInstance {
+    // A cylinder's own axis is +Z; turn that onto the wanted axis. Parallel
+    // axes need no turning, and a failed arc (a degenerate axis) leaves it be.
+    let rotation = Quat::from_rotation_arc(&Vec3::Z, axis).unwrap_or(Quat::IDENTITY);
+    drawn(
+        namespace,
+        name,
+        Shape::Cylinder { radius, length },
+        Transform::new(center, rotation),
+        look,
+    )
+}
+
 /// One axis of a serial chain, as the caller describes it.
 #[derive(Debug, Clone)]
 pub struct AxisSpec {
@@ -171,27 +225,7 @@ pub fn build_serial_chain(robot_name: &str, axes: &[AxisSpec]) -> DomainResult<R
         }
     }
 
-    let base_radius = 0.09;
-    let base_height = 0.12;
-    let mut links = vec![Link::new(stable_id(robot_name, "link", "base"), "base")
-        .with_inertial(Inertial::point_mass(8.0))
-        .with_geometry(
-            GeometryInstance::visual(
-                stable_id(robot_name, "geometry", "base"),
-                "pedestal",
-                Shape::Cylinder {
-                    radius: base_radius,
-                    length: base_height,
-                },
-            )
-            .with_origin(Transform::from_translation(Vec3::new(
-                0.0,
-                0.0,
-                base_height * 0.5,
-            )))
-            .with_color("#4a5568")
-            .with_role(GeometryRole::Both),
-        )];
+    let mut links = vec![build_base(robot_name)];
     let mut joints = Vec::with_capacity(axes.len());
     let mut parent_link_id = links[0].id.clone();
 
@@ -240,41 +274,148 @@ pub fn build_serial_chain(robot_name: &str, axes: &[AxisSpec]) -> DomainResult<R
     Ok(robot)
 }
 
+/// Builds the pedestal the first axis stands on.
+fn build_base(robot_name: &str) -> Link {
+    let base_radius = 0.09;
+    let base_height = 0.12;
+    let base_ns = format!("{robot_name}::base");
+    Link::new(stable_id(robot_name, "link", "base"), "base")
+        .with_inertial(Inertial::point_mass(8.0))
+        .with_geometry(
+            GeometryInstance::visual(
+                stable_id(robot_name, "geometry", "base"),
+                "pedestal",
+                Shape::Cylinder {
+                    radius: base_radius,
+                    length: base_height,
+                },
+            )
+            .with_origin(Transform::from_translation(Vec3::new(
+                0.0,
+                0.0,
+                base_height * 0.5,
+            )))
+            .with_role(GeometryRole::Collision),
+        )
+        .with_geometry(drawn_cylinder(
+            &base_ns,
+            "foot",
+            (base_radius, 0.018),
+            Vec3::new(0.0, 0.0, 0.009),
+            &Vec3::Z,
+            look::DARK,
+        ))
+        .with_geometry(drawn_cylinder(
+            &base_ns,
+            "column",
+            (base_radius * 0.8, base_height - 0.03),
+            Vec3::new(0.0, 0.0, 0.018 + (base_height - 0.03) * 0.5),
+            &Vec3::Z,
+            look::COVER,
+        ))
+        .with_geometry(drawn_cylinder(
+            &base_ns,
+            "ring",
+            (base_radius * 0.86, 0.012),
+            Vec3::new(0.0, 0.0, base_height - 0.006),
+            &Vec3::Z,
+            look::ACCENT,
+        ))
+}
+
 /// Builds the link a serial-chain axis drives.
 ///
-/// The capsule runs from the joint origin along `+Z`, so the next axis's
-/// offset and the drawn geometry agree by construction.
+/// The collision capsule runs from the joint origin along `+Z`, so the next
+/// axis's offset and the geometry agree by construction. What is drawn — a
+/// joint housing across the axis, a tube, and trim — fits inside that capsule.
 fn build_axis_link(robot_name: &str, spec: &AxisSpec) -> Link {
     let link_name = format!("{} link", spec.name);
-    Link::new(stable_id(robot_name, "link", &link_name), &link_name)
+    let ns = format!("{robot_name}::{link_name}");
+    let (r, length) = (spec.link_radius, spec.link_length);
+    let axis = spec.axis.normalized("axis").unwrap_or(Vec3::Z);
+    let across = axis.dot(&Vec3::Z).abs() < 0.5;
+    let mut link = Link::new(stable_id(robot_name, "link", &link_name), &link_name)
         .with_inertial(Inertial {
             mass: spec.mass,
-            center_of_mass: Vec3::new(0.0, 0.0, spec.link_length * 0.5),
+            center_of_mass: Vec3::new(0.0, 0.0, length * 0.5),
             // A thin rod about its end, and a disc about its own axis: enough
             // for a plausible payload estimate, and honestly approximate.
             inertia_diagonal: Vec3::new(
-                spec.mass * spec.link_length * spec.link_length / 12.0,
-                spec.mass * spec.link_length * spec.link_length / 12.0,
-                spec.mass * spec.link_radius * spec.link_radius * 0.5,
+                spec.mass * length * length / 12.0,
+                spec.mass * length * length / 12.0,
+                spec.mass * r * r * 0.5,
             ),
         })
         .with_geometry(
             GeometryInstance::visual(
                 stable_id(robot_name, "geometry", &link_name),
                 "shell",
-                Shape::Capsule {
-                    radius: spec.link_radius,
-                    length: spec.link_length,
-                },
+                Shape::Capsule { radius: r, length },
             )
             .with_origin(Transform::from_translation(Vec3::new(
                 0.0,
                 0.0,
-                spec.link_length * 0.5,
+                length * 0.5,
             )))
-            .with_color("#8fa6c0")
-            .with_role(GeometryRole::Both),
+            .with_role(GeometryRole::Collision),
         )
+        .with_geometry(drawn_cylinder(
+            &ns,
+            "tube",
+            (r * 0.64, length),
+            Vec3::new(0.0, 0.0, length * 0.5),
+            &Vec3::Z,
+            look::COVER,
+        ))
+        .with_geometry(drawn_cylinder(
+            &ns,
+            "collar",
+            (r * 0.74, r * 0.5),
+            Vec3::new(0.0, 0.0, length - r * 0.25),
+            &Vec3::Z,
+            look::DARK,
+        ));
+    if across {
+        // A pitch joint: a motor housing lying across the arm, capped at both ends.
+        link = link.with_geometry(drawn_cylinder(
+            &ns,
+            "housing",
+            (r * 0.8, r * 1.1),
+            Vec3::ZERO,
+            &axis,
+            look::COVER,
+        ));
+        for (name, side) in [("cap a", 1.0), ("cap b", -1.0)] {
+            link = link.with_geometry(drawn_cylinder(
+                &ns,
+                name,
+                (r * 0.66, r * 0.1),
+                axis.scaled(side * r * 0.6),
+                &axis,
+                look::ACCENT,
+            ));
+        }
+    } else {
+        // A roll joint: a seam where the two halves turn against each other.
+        link = link
+            .with_geometry(drawn_cylinder(
+                &ns,
+                "housing",
+                (r * 0.82, r * 0.9),
+                Vec3::new(0.0, 0.0, r * 0.45),
+                &Vec3::Z,
+                look::COVER,
+            ))
+            .with_geometry(drawn_cylinder(
+                &ns,
+                "seam",
+                (r * 0.84, r * 0.12),
+                Vec3::new(0.0, 0.0, r * 0.06),
+                &Vec3::Z,
+                look::ACCENT,
+            ));
+    }
+    link
 }
 
 /// How a parallel-jaw gripper should be built.
@@ -426,6 +567,7 @@ pub fn attach_parallel_gripper(
         closing_axis: Vec3::Y,
         max_opening: spec.max_opening,
         finger_depth: spec.finger_depth,
+        finger_width: spec.finger_width,
         max_grip_force: spec.max_grip_force,
     };
 
@@ -448,6 +590,13 @@ fn build_palm(
 ) -> (Link, Joint) {
     let palm_name = format!("{} palm", spec.name);
     let palm_id = stable_id(namespace, "link", &palm_name);
+    let size = Vec3::new(
+        spec.finger_width * 1.6,
+        spec.max_opening + 2.0 * spec.finger_thickness,
+        spec.palm_length,
+    );
+    let ns = format!("{namespace}::palm");
+    let at = |z: f64| Transform::from_translation(Vec3::new(0.0, 0.0, z));
     let palm = Link::new(&palm_id, &palm_name)
         .with_inertial(Inertial {
             mass: spec.mass * 0.6,
@@ -458,22 +607,47 @@ fn build_palm(
             GeometryInstance::visual(
                 stable_id(namespace, "geometry", &palm_name),
                 "housing",
-                Shape::Box {
-                    size: Vec3::new(
-                        spec.finger_width * 1.6,
-                        spec.max_opening + 2.0 * spec.finger_thickness,
-                        spec.palm_length,
-                    ),
-                },
+                Shape::Box { size },
             )
-            .with_origin(Transform::from_translation(Vec3::new(
-                0.0,
-                0.0,
-                spec.palm_length * 0.5,
-            )))
-            .with_color("#3f4a5a")
-            .with_role(GeometryRole::Both),
-        );
+            .with_origin(at(spec.palm_length * 0.5))
+            .with_role(GeometryRole::Collision),
+        )
+        // A round adapter plate, a dark body, and the rail the jaws ride on.
+        .with_geometry(drawn_cylinder(
+            &ns,
+            "adapter",
+            (size.x.min(size.y) * 0.5, spec.palm_length * 0.2),
+            Vec3::new(0.0, 0.0, spec.palm_length * 0.1),
+            &Vec3::Z,
+            look::ALUMINIUM,
+        ))
+        .with_geometry(drawn(
+            &ns,
+            "body",
+            Shape::Box {
+                size: Vec3::new(size.x * 0.92, size.y * 0.8, spec.palm_length * 0.58),
+            },
+            at(spec.palm_length * 0.49),
+            look::DARK,
+        ))
+        .with_geometry(drawn(
+            &ns,
+            "stripe",
+            Shape::Box {
+                size: Vec3::new(size.x * 0.94, size.y * 0.3, spec.palm_length * 0.08),
+            },
+            at(spec.palm_length * 0.49),
+            look::ACCENT,
+        ))
+        .with_geometry(drawn(
+            &ns,
+            "rail",
+            Shape::Box {
+                size: Vec3::new(size.x * 0.7, size.y, spec.palm_length * 0.2),
+            },
+            at(spec.palm_length * 0.9),
+            look::ALUMINIUM,
+        ));
     let palm_joint = Joint::fixed(
         stable_id(namespace, "joint", &palm_name),
         format!("{} mount", spec.name),
@@ -499,14 +673,28 @@ fn build_jaw(
 ) -> DomainResult<(Link, Joint)> {
     let finger_name = format!("{} {label} finger", spec.name);
     let finger_id = stable_id(namespace, "link", &finger_name);
+    let ns = format!("{namespace}::{label} finger");
+    let (w, t, d) = (spec.finger_width, spec.finger_thickness, spec.finger_depth);
+    // The pad is the inner quarter of the finger; the rest is the metal behind it.
+    let pad = t * 0.25;
+    let slab = |thickness: f64, from_face: f64| {
+        (
+            Shape::Box {
+                size: Vec3::new(w, thickness, d),
+            },
+            Transform::from_translation(Vec3::new(
+                0.0,
+                direction * (from_face + thickness * 0.5),
+                d * 0.5,
+            )),
+        )
+    };
+    let (pad_shape, pad_at) = slab(pad, 0.0);
+    let (body_shape, body_at) = slab(t - pad, pad);
     let finger = Link::new(&finger_id, &finger_name)
         .with_inertial(Inertial {
             mass: spec.mass * 0.2,
-            center_of_mass: Vec3::new(
-                0.0,
-                direction * spec.finger_thickness * 0.5,
-                spec.finger_depth * 0.5,
-            ),
+            center_of_mass: Vec3::new(0.0, direction * t * 0.5, d * 0.5),
             inertia_diagonal: Vec3::new(1.0e-5, 1.0e-5, 1.0e-5),
         })
         .with_geometry(
@@ -514,17 +702,18 @@ fn build_jaw(
                 stable_id(namespace, "geometry", &finger_name),
                 "pad",
                 Shape::Box {
-                    size: Vec3::new(spec.finger_width, spec.finger_thickness, spec.finger_depth),
+                    size: Vec3::new(w, t, d),
                 },
             )
             .with_origin(Transform::from_translation(Vec3::new(
                 0.0,
-                direction * spec.finger_thickness * 0.5,
-                spec.finger_depth * 0.5,
+                direction * t * 0.5,
+                d * 0.5,
             )))
-            .with_color("#c9d4e2")
-            .with_role(GeometryRole::Both),
-        );
+            .with_role(GeometryRole::Collision),
+        )
+        .with_geometry(drawn(&ns, "grip", pad_shape, pad_at, look::RUBBER))
+        .with_geometry(drawn(&ns, "body", body_shape, body_at, look::ALUMINIUM));
     let jaw = Joint::prismatic(
         stable_id(namespace, "joint", &finger_name),
         format!("{} {label} jaw", spec.name),
@@ -647,6 +836,58 @@ pub fn six_axis_with_gripper() -> DomainResult<RobotSystem> {
     Ok(robot)
 }
 
+/// Builds the work table: a top and four legs, all obstacles.
+fn build_table(namespace: &str, table_height: f64) -> crate::environment::WorldBody {
+    use crate::environment::WorldBody;
+
+    let table_top = 0.03;
+    let (table_x, table_y) = (0.5, 0.7);
+    let mut table = WorldBody::obstacle(
+        stable_id(namespace, "body", "table"),
+        "table",
+        Transform::from_translation(Vec3::new(0.45, 0.0, table_height - table_top * 0.5)),
+        GeometryInstance::visual(
+            stable_id(namespace, "geometry", "table"),
+            "top",
+            Shape::Box {
+                size: Vec3::new(table_x, table_y, table_top),
+            },
+        )
+        .with_color("#c9b79c")
+        .with_finish(0.0, 0.62)
+        .with_role(GeometryRole::Both),
+    );
+    // Four legs, obstacles like the top: an arm reaching under the table
+    // should be told about them.
+    let leg = 0.04;
+    let leg_height = table_height - table_top;
+    for (name, sx, sy) in [
+        ("leg a", 1.0, 1.0),
+        ("leg b", 1.0, -1.0),
+        ("leg c", -1.0, 1.0),
+        ("leg d", -1.0, -1.0),
+    ] {
+        table.geometries.push(
+            GeometryInstance::visual(
+                stable_id(namespace, "geometry", &format!("table {name}")),
+                name,
+                Shape::Box {
+                    size: Vec3::new(leg, leg, leg_height),
+                },
+            )
+            .with_origin(Transform::from_translation(Vec3::new(
+                sx * (table_x * 0.5 - leg * 0.75),
+                sy * (table_y * 0.5 - leg * 0.75),
+                -(table_top + leg_height) * 0.5,
+            )))
+            .with_color(look::DARK.0)
+            .with_finish(look::DARK.1, look::DARK.2)
+            .with_role(GeometryRole::Both),
+        );
+    }
+    table
+}
+
 /// A complete pick-and-place cell: the gripper arm, a table and two parts.
 ///
 /// This is the demo project: it is the smallest scene in which every stage of
@@ -665,21 +906,10 @@ pub fn pick_and_place_cell() -> DomainResult<Project> {
     );
 
     let table_height = 0.42;
-    let table_top = 0.03;
-    project.environment.bodies.push(WorldBody::obstacle(
-        stable_id(namespace, "body", "table"),
-        "table",
-        Transform::from_translation(Vec3::new(0.45, 0.0, table_height - table_top * 0.5)),
-        GeometryInstance::visual(
-            stable_id(namespace, "geometry", "table"),
-            "top",
-            Shape::Box {
-                size: Vec3::new(0.5, 0.7, table_top),
-            },
-        )
-        .with_color("#6b5b4a")
-        .with_role(GeometryRole::Both),
-    ));
+    project
+        .environment
+        .bodies
+        .push(build_table(namespace, table_height));
 
     // A 40 mm cube: inside the 80 mm stroke with room for approach error.
     let cube_size = 0.04;
@@ -694,7 +924,8 @@ pub fn pick_and_place_cell() -> DomainResult<Project> {
                 size: Vec3::new(cube_size, cube_size, cube_size),
             },
         )
-        .with_color("#d08a3e")
+        .with_color("#e2852b")
+        .with_finish(0.0, 0.45)
         .with_role(GeometryRole::Both),
         PhysicalProperties {
             mass: 0.18,
@@ -717,7 +948,8 @@ pub fn pick_and_place_cell() -> DomainResult<Project> {
                 length: dowel_length,
             },
         )
-        .with_color("#9fb08a")
+        .with_color("#3f7fa8")
+        .with_finish(0.7, 0.3)
         .with_role(GeometryRole::Both),
         PhysicalProperties {
             mass: 0.09,
