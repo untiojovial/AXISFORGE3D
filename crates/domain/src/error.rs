@@ -119,6 +119,13 @@ pub enum DomainError {
         actual: usize,
     },
 
+    /// A request was well-formed but asks for something that cannot be done.
+    #[error("{reason}")]
+    Unsupported {
+        /// What was asked and why it cannot be done.
+        reason: String,
+    },
+
     /// A gripper was required but the robot does not have one.
     #[error("robot `{robot}` has no gripper: {detail}")]
     NoGripper {
@@ -146,6 +153,13 @@ impl DomainError {
     /// Builds a [`DomainError::InvalidTree`].
     pub fn tree(reason: impl Into<String>) -> Self {
         Self::InvalidTree {
+            reason: reason.into(),
+        }
+    }
+
+    /// Builds a [`DomainError::Unsupported`].
+    pub fn unsupported(reason: impl Into<String>) -> Self {
+        Self::Unsupported {
             reason: reason.into(),
         }
     }

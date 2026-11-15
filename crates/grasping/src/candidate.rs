@@ -312,7 +312,7 @@ fn sphere_grasps(builder: &mut Builder<'_>, radius: f64) {
 /// always yields the same list.
 ///
 /// # Errors
-/// [`DomainError::InvalidTree`] when the body has several geometries or a mesh:
+/// [`DomainError::Unsupported`] when the body has several geometries or a mesh:
 /// neither has a single set of opposing faces to write grasps down from, and
 /// returning an empty list would read as "this part cannot be held".
 pub fn synthesize(
@@ -320,7 +320,7 @@ pub fn synthesize(
     options: &SynthesisOptions,
 ) -> DomainResult<Vec<GraspCandidate>> {
     let geometry = body.single_geometry().ok_or_else(|| {
-        DomainError::tree(format!(
+        DomainError::unsupported(format!(
             "body '{}' has {} geometries; grasp synthesis needs exactly one primitive",
             body.name,
             body.geometries.len()
@@ -340,7 +340,7 @@ pub fn synthesize(
         Shape::Capsule { radius, length } => axial_grasps(&mut builder, *radius, *length, true),
         Shape::Sphere { radius } => sphere_grasps(&mut builder, *radius),
         Shape::Mesh { .. } => {
-            return Err(DomainError::tree(format!(
+            return Err(DomainError::unsupported(format!(
                 "body '{}' is a mesh; grasp synthesis supports boxes, cylinders, capsules and \
                  spheres only",
                 body.name

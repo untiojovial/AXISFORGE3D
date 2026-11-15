@@ -1,0 +1,25 @@
+[package]
+name = "axisforge-cli"
+description = "Command-line front end for AXISFORGE 3D."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+publish = false
+
+[[bin]]
+name = "axisforge"
+path = "src/main.rs"
+
+[lints.rust]
+unsafe_code = "deny"
+
+[dependencies]
+axisforge-domain = { workspace = true }
+axisforge-project-io = { workspace = true }
+axisforge-service = { workspace = true }
+anyhow = { workspace = true }
+clap = { workspace = true }
+serde_json = { workspace = true }

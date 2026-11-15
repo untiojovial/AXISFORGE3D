@@ -60,7 +60,7 @@ pub enum ProjectIoError {
     },
     /// The text is not valid JSON of the expected shape.
     #[error("not a valid project file: {0}")]
-    Malformed(#[from] serde_json::Error),
+    Malformed(String),
     /// The `format` tag is not [`FORMAT_TAG`].
     #[error("unexpected format tag `{found}`; expected `{FORMAT_TAG}`")]
     WrongFormat {
@@ -75,7 +75,21 @@ pub enum ProjectIoError {
     },
     /// The file parsed but the project in it is not coherent.
     #[error("the project is invalid: {0}")]
-    Invalid(#[from] DomainError),
+    Invalid(DomainError),
+}
+
+// The messages above already include the cause, so these conversions do not
+// also expose it as a `source`; a chained printer would say everything twice.
+impl From<serde_json::Error> for ProjectIoError {
+    fn from(error: serde_json::Error) -> Self {
+        Self::Malformed(error.to_string())
+    }
+}
+
+impl From<DomainError> for ProjectIoError {
+    fn from(error: DomainError) -> Self {
+        Self::Invalid(error)
+    }
 }
 
 #[derive(Serialize, Deserialize)]

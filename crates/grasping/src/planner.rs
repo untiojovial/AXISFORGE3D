@@ -452,7 +452,7 @@ pub fn plan_pick(
         .body(body_id)
         .ok_or_else(|| DomainError::dangling("world body", body_id, "plan_pick"))?;
     if !body.is_graspable() {
-        return Err(DomainError::tree(format!(
+        return Err(DomainError::unsupported(format!(
             "body '{}' is not marked manipulable, so it is not a pick target",
             body.name
         )));

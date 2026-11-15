@@ -1,0 +1,1082 @@
+{
+  "format": "axisforge-project",
+  "version": 2,
+  "project": {
+    "id": "bf7b2b88-2e44-3f0b-5ccf-cc48faaebdfb",
+    "name": "Pick and place cell",
+    "metadata": {
+      "author": "",
+      "description": "A six-axis arm with a parallel-jaw gripper, a work table, and two parts to pick.",
+      "tags": []
+    },
+    "robot": {
+      "id": "b040df01-a85e-919a-01bf-50a93dcad76a",
+      "name": "Six axis",
+      "rootLinkId": "bcfe0662-85b8-bc58-fb03-c28fe8bc3a68",
+      "links": [
+        {
+          "id": "bcfe0662-85b8-bc58-fb03-c28fe8bc3a68",
+          "name": "base",
+          "inertial": {
+            "mass": 8.0,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "inertiaDiagonal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "geometries": [
+            {
+              "id": "96c6244c-3b4c-ffd0-70f2-7e475d808900",
+              "name": "pedestal",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.06
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.09,
+                "length": 0.12
+              },
+              "material": {
+                "color": "#4a5568",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "9b7baba7-a991-d229-1b83-3cdbbcd6bad9",
+          "name": "axis 1 link",
+          "inertial": {
+            "mass": 3.0,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.09
+            },
+            "inertiaDiagonal": {
+              "x": 0.008100000000000001,
+              "y": 0.008100000000000001,
+              "z": 0.0073500000000000015
+            }
+          },
+          "geometries": [
+            {
+              "id": "01e83743-cc07-5071-d92a-94c27a639d81",
+              "name": "shell",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.09
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "capsule",
+                "radius": 0.07,
+                "length": 0.18
+              },
+              "material": {
+                "color": "#8fa6c0",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "a1a25b5f-cd69-317c-ebd2-6a515db7e3ac",
+          "name": "axis 2 link",
+          "inertial": {
+            "mass": 4.5,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.17
+            },
+            "inertiaDiagonal": {
+              "x": 0.04335,
+              "y": 0.04335,
+              "z": 0.00680625
+            }
+          },
+          "geometries": [
+            {
+              "id": "1481df83-21da-92c4-7519-df2c2f628a94",
+              "name": "shell",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.17
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "capsule",
+                "radius": 0.055,
+                "length": 0.34
+              },
+              "material": {
+                "color": "#8fa6c0",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "37193d1d-130c-8a3b-d387-b8ad035b3feb",
+          "name": "axis 3 link",
+          "inertial": {
+            "mass": 3.2,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.14
+            },
+            "inertiaDiagonal": {
+              "x": 0.02090666666666667,
+              "y": 0.02090666666666667,
+              "z": 0.004000000000000001
+            }
+          },
+          "geometries": [
+            {
+              "id": "64d130fd-0fab-c743-edd3-8e72b0521553",
+              "name": "shell",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.14
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "capsule",
+                "radius": 0.05,
+                "length": 0.28
+              },
+              "material": {
+                "color": "#8fa6c0",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "f014b8aa-0fb9-7a9e-39f4-7221ff52ed8e",
+          "name": "axis 4 link",
+          "inertial": {
+            "mass": 1.4,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.06
+            },
+            "inertiaDiagonal": {
+              "x": 0.0016799999999999999,
+              "y": 0.0016799999999999999,
+              "z": 0.00112
+            }
+          },
+          "geometries": [
+            {
+              "id": "60998523-9c6e-30c6-65f6-44d0cfad0fd6",
+              "name": "shell",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.06
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "capsule",
+                "radius": 0.04,
+                "length": 0.12
+              },
+              "material": {
+                "color": "#8fa6c0",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "55b3aed2-db75-9a15-1f7b-7bb28b9b5e05",
+          "name": "axis 5 link",
+          "inertial": {
+            "mass": 1.0,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.05
+            },
+            "inertiaDiagonal": {
+              "x": 0.0008333333333333335,
+              "y": 0.0008333333333333335,
+              "z": 0.0006125000000000001
+            }
+          },
+          "geometries": [
+            {
+              "id": "b9d17964-34ac-c25d-bd83-98f9ad5b076d",
+              "name": "shell",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.05
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "capsule",
+                "radius": 0.035,
+                "length": 0.1
+              },
+              "material": {
+                "color": "#8fa6c0",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "563bb412-97b2-d878-77fa-ed82affa70a8",
+          "name": "axis 6 link",
+          "inertial": {
+            "mass": 0.6,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.03
+            },
+            "inertiaDiagonal": {
+              "x": 0.00017999999999999996,
+              "y": 0.00017999999999999996,
+              "z": 0.00026999999999999995
+            }
+          },
+          "geometries": [
+            {
+              "id": "4efdc5ea-11b7-d6e0-a8b4-a9a67d631e70",
+              "name": "shell",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.03
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "capsule",
+                "radius": 0.03,
+                "length": 0.06
+              },
+              "material": {
+                "color": "#8fa6c0",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "c86c72c4-51f9-5c13-0707-e17763a51c03",
+          "name": "gripper left finger",
+          "inertial": {
+            "mass": 0.17,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.006,
+              "z": 0.0225
+            },
+            "inertiaDiagonal": {
+              "x": 0.00001,
+              "y": 0.00001,
+              "z": 0.00001
+            }
+          },
+          "geometries": [
+            {
+              "id": "4e1628ed-9892-6583-0d46-e549e1ca6fd3",
+              "name": "pad",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.006,
+                  "z": 0.0225
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.025,
+                  "y": 0.012,
+                  "z": 0.045
+                }
+              },
+              "material": {
+                "color": "#c9d4e2",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "bafc21fd-f384-f414-175d-d37e27ec99c4",
+          "name": "gripper right finger",
+          "inertial": {
+            "mass": 0.17,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": -0.006,
+              "z": 0.0225
+            },
+            "inertiaDiagonal": {
+              "x": 0.00001,
+              "y": 0.00001,
+              "z": 0.00001
+            }
+          },
+          "geometries": [
+            {
+              "id": "c1eac15a-1720-7e44-a1c6-03481bfe48d4",
+              "name": "pad",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": -0.006,
+                  "z": 0.0225
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.025,
+                  "y": 0.012,
+                  "z": 0.045
+                }
+              },
+              "material": {
+                "color": "#c9d4e2",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        },
+        {
+          "id": "5324060b-9209-34c1-6ace-87f875ef0431",
+          "name": "gripper palm",
+          "inertial": {
+            "mass": 0.51,
+            "centerOfMass": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.025
+            },
+            "inertiaDiagonal": {
+              "x": 0.001,
+              "y": 0.001,
+              "z": 0.001
+            }
+          },
+          "geometries": [
+            {
+              "id": "b4e2cc7b-99ab-58b1-3e71-78f79cbf8201",
+              "name": "housing",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.025
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.04000000000000001,
+                  "y": 0.10400000000000001,
+                  "z": 0.05
+                }
+              },
+              "material": {
+                "color": "#3f4a5a",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ]
+        }
+      ],
+      "joints": [
+        {
+          "id": "8a0611a7-e54e-b69b-b97b-e220e210902b",
+          "name": "axis 1",
+          "kind": "revolute",
+          "role": "manipulator",
+          "parentLinkId": "bcfe0662-85b8-bc58-fb03-c28fe8bc3a68",
+          "childLinkId": "9b7baba7-a991-d229-1b83-3cdbbcd6bad9",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.12
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          },
+          "limits": {
+            "lower": -3.141592653589793,
+            "upper": 3.141592653589793
+          },
+          "maxVelocity": 3.141592653589793,
+          "maxAcceleration": 6.283185307179586,
+          "maxEffort": 120.0
+        },
+        {
+          "id": "8a0291a7-e54b-a744-b978-a220e20ded94",
+          "name": "axis 2",
+          "kind": "revolute",
+          "role": "manipulator",
+          "parentLinkId": "9b7baba7-a991-d229-1b83-3cdbbcd6bad9",
+          "childLinkId": "a1a25b5f-cd69-317c-ebd2-6a515db7e3ac",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.18
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "limits": {
+            "lower": -2.1,
+            "upper": 2.1
+          },
+          "maxVelocity": 3.141592653589793,
+          "maxAcceleration": 6.283185307179586,
+          "maxEffort": 120.0
+        },
+        {
+          "id": "89ff51a7-e549-04ad-b975-2220e20ade3d",
+          "name": "axis 3",
+          "kind": "revolute",
+          "role": "manipulator",
+          "parentLinkId": "a1a25b5f-cd69-317c-ebd2-6a515db7e3ac",
+          "childLinkId": "37193d1d-130c-8a3b-d387-b8ad035b3feb",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.34
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "limits": {
+            "lower": -2.4,
+            "upper": 2.4
+          },
+          "maxVelocity": 3.141592653589793,
+          "maxAcceleration": 6.283185307179586,
+          "maxEffort": 120.0
+        },
+        {
+          "id": "8a1711a7-e55d-29ce-b98c-e220e21f035e",
+          "name": "axis 4",
+          "kind": "revolute",
+          "role": "manipulator",
+          "parentLinkId": "37193d1d-130c-8a3b-d387-b8ad035b3feb",
+          "childLinkId": "f014b8aa-0fb9-7a9e-39f4-7221ff52ed8e",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.28
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          },
+          "limits": {
+            "lower": -3.141592653589793,
+            "upper": 3.141592653589793
+          },
+          "maxVelocity": 3.141592653589793,
+          "maxAcceleration": 6.283185307179586,
+          "maxEffort": 120.0
+        },
+        {
+          "id": "8a1391a7-e55a-1a77-b989-a220e21c60c7",
+          "name": "axis 5",
+          "kind": "revolute",
+          "role": "manipulator",
+          "parentLinkId": "f014b8aa-0fb9-7a9e-39f4-7221ff52ed8e",
+          "childLinkId": "55b3aed2-db75-9a15-1f7b-7bb28b9b5e05",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.12
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "limits": {
+            "lower": -2.0,
+            "upper": 2.0
+          },
+          "maxVelocity": 3.141592653589793,
+          "maxAcceleration": 6.283185307179586,
+          "maxEffort": 120.0
+        },
+        {
+          "id": "8a1011a7-e557-0b20-b986-2220e2195170",
+          "name": "axis 6",
+          "kind": "revolute",
+          "role": "manipulator",
+          "parentLinkId": "55b3aed2-db75-9a15-1f7b-7bb28b9b5e05",
+          "childLinkId": "563bb412-97b2-d878-77fa-ed82affa70a8",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.1
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          },
+          "limits": {
+            "lower": -3.141592653589793,
+            "upper": 3.141592653589793
+          },
+          "maxVelocity": 3.141592653589793,
+          "maxAcceleration": 6.283185307179586,
+          "maxEffort": 120.0
+        },
+        {
+          "id": "4dbd48c2-7bbb-6e9d-fd67-7920804908cd",
+          "name": "gripper mount",
+          "kind": "fixed",
+          "role": "manipulator",
+          "parentLinkId": "563bb412-97b2-d878-77fa-ed82affa70a8",
+          "childLinkId": "5324060b-9209-34c1-6ace-87f875ef0431",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.06
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          },
+          "limits": {
+            "lower": 0.0,
+            "upper": 0.0
+          },
+          "maxVelocity": null,
+          "maxAcceleration": null,
+          "maxEffort": null
+        },
+        {
+          "id": "9f2e5442-2010-39e7-287d-9fac05683f57",
+          "name": "gripper left jaw",
+          "kind": "prismatic",
+          "role": "end_effector",
+          "parentLinkId": "5324060b-9209-34c1-6ace-87f875ef0431",
+          "childLinkId": "c86c72c4-51f9-5c13-0707-e17763a51c03",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.05
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "limits": {
+            "lower": 0.0,
+            "upper": 0.04
+          },
+          "maxVelocity": 0.15,
+          "maxAcceleration": 1.5,
+          "maxEffort": 90.0
+        },
+        {
+          "id": "5b9ed90f-4f7c-f900-3441-278c61e21030",
+          "name": "gripper right jaw",
+          "kind": "prismatic",
+          "role": "end_effector",
+          "parentLinkId": "5324060b-9209-34c1-6ace-87f875ef0431",
+          "childLinkId": "bafc21fd-f384-f414-175d-d37e27ec99c4",
+          "origin": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.05
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "axis": {
+            "x": 0.0,
+            "y": -1.0,
+            "z": 0.0
+          },
+          "limits": {
+            "lower": 0.0,
+            "upper": 0.04
+          },
+          "maxVelocity": 0.15,
+          "maxAcceleration": 1.5,
+          "maxEffort": 90.0
+        }
+      ],
+      "toolFrames": [
+        {
+          "id": "2bd20b49-4a3f-3733-1bd8-006f8309fd63",
+          "name": "flange",
+          "linkId": "563bb412-97b2-d878-77fa-ed82affa70a8",
+          "offset": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.06
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          }
+        },
+        {
+          "id": "02462025-d8ac-0bce-3e05-0e6515bc889e",
+          "name": "gripper grasp",
+          "linkId": "5324060b-9209-34c1-6ace-87f875ef0431",
+          "offset": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.07250000000000001
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          }
+        }
+      ],
+      "defaultToolFrameId": "02462025-d8ac-0bce-3e05-0e6515bc889e",
+      "gripper": {
+        "id": "69626053-74b0-fd18-802f-aec4f8733b68",
+        "name": "gripper",
+        "palmLinkId": "5324060b-9209-34c1-6ace-87f875ef0431",
+        "jawJointIds": [
+          "9f2e5442-2010-39e7-287d-9fac05683f57",
+          "5b9ed90f-4f7c-f900-3441-278c61e21030"
+        ],
+        "fingerLinkIds": [
+          "c86c72c4-51f9-5c13-0707-e17763a51c03",
+          "bafc21fd-f384-f414-175d-d37e27ec99c4"
+        ],
+        "graspFrameId": "02462025-d8ac-0bce-3e05-0e6515bc889e",
+        "coupling": "symmetric",
+        "approachAxis": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "closingAxis": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        },
+        "maxOpening": 0.08,
+        "fingerDepth": 0.045,
+        "maxGripForce": 90.0
+      },
+      "basePose": {
+        "translation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        }
+      }
+    },
+    "environment": {
+      "groundHeight": 0.0,
+      "groundCollides": true,
+      "bodies": [
+        {
+          "id": "14c489d6-2a49-58a5-e484-e02bb481ac55",
+          "name": "table",
+          "kind": "obstacle",
+          "pose": {
+            "translation": {
+              "x": 0.45,
+              "y": 0.0,
+              "z": 0.40499999999999997
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "geometries": [
+            {
+              "id": "45affd69-d81d-bdd5-0f0a-a665e9026885",
+              "name": "top",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.5,
+                  "y": 0.7,
+                  "z": 0.03
+                }
+              },
+              "material": {
+                "color": "#6b5b4a",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ],
+          "physical": {
+            "mass": 0.5,
+            "frictionCoefficient": 0.5
+          }
+        },
+        {
+          "id": "2e467253-eb01-55c2-5c46-83770ffb4bd2",
+          "name": "cube",
+          "kind": "manipulable",
+          "pose": {
+            "translation": {
+              "x": 0.42,
+              "y": -0.1,
+              "z": 0.44
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "geometries": [
+            {
+              "id": "d892957b-5327-3452-1c78-4a8bd8432b22",
+              "name": "body",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "box",
+                "size": {
+                  "x": 0.04,
+                  "y": 0.04,
+                  "z": 0.04
+                }
+              },
+              "material": {
+                "color": "#d08a3e",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ],
+          "physical": {
+            "mass": 0.18,
+            "frictionCoefficient": 0.6
+          }
+        },
+        {
+          "id": "85ee6624-b28d-f578-3aaa-b2ccc251f868",
+          "name": "dowel",
+          "kind": "manipulable",
+          "pose": {
+            "translation": {
+              "x": 0.46,
+              "y": 0.12,
+              "z": 0.46499999999999997
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "geometries": [
+            {
+              "id": "9bd5d00a-e5ee-09e8-d6b9-82af89485a58",
+              "name": "body",
+              "origin": {
+                "translation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "rotation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              },
+              "shape": {
+                "kind": "cylinder",
+                "radius": 0.015,
+                "length": 0.09
+              },
+              "material": {
+                "color": "#9fb08a",
+                "opacity": 1.0,
+                "metalness": 0.1,
+                "roughness": 0.65
+              },
+              "role": "both"
+            }
+          ],
+          "physical": {
+            "mass": 0.09,
+            "frictionCoefficient": 0.45
+          }
+        }
+      ],
+      "ignoredPairs": [
+        {
+          "first": "bafc21fd-f384-f414-175d-d37e27ec99c4",
+          "second": "c86c72c4-51f9-5c13-0707-e17763a51c03",
+          "reason": "fingers of gripper 'gripper' meet when closed"
+        },
+        {
+          "first": "bcfe0662-85b8-bc58-fb03-c28fe8bc3a68",
+          "second": "world::ground",
+          "reason": "the pedestal rests on the floor"
+        },
+        {
+          "first": "14c489d6-2a49-58a5-e484-e02bb481ac55",
+          "second": "world::ground",
+          "reason": "the table stands on the floor"
+        }
+      ]
+    },
+    "trajectories": [],
+    "resources": [],
+    "units": {
+      "length": "meters",
+      "angle": "degrees"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+[package]
+name = "axisforge-wasm"
+description = "The AXISFORGE 3D engine as a WebAssembly module with a plain C ABI."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+axisforge-service = { workspace = true }

@@ -39,14 +39,14 @@ const SINGULARITY_THRESHOLD: f64 = 0.01;
 #[derive(Debug, thiserror::Error)]
 pub enum ServiceError {
     /// The request was well-formed but the engine refused it.
-    #[error("{0}")]
+    #[error(transparent)]
     Domain(#[from] DomainError),
     /// A project file could not be read or written.
-    #[error("{0}")]
+    #[error(transparent)]
     ProjectIo(#[from] ProjectIoError),
     /// The request text was not a valid request.
     #[error("malformed request: {0}")]
-    Malformed(#[from] serde_json::Error),
+    Malformed(String),
 }
 
 /// A part carried by the gripper, for drawing and collision checking.
@@ -57,6 +57,12 @@ pub struct Carry {
     pub body_id: String,
     /// Pose of the body in the palm link's frame.
     pub part_in_palm: Transform,
+}
+
+impl From<serde_json::Error> for ServiceError {
+    fn from(error: serde_json::Error) -> Self {
+        Self::Malformed(error.to_string())
+    }
 }
 
 /// A command for the session.
@@ -391,7 +397,7 @@ impl Session {
 
     fn default_frame(&self) -> Result<usize, DomainError> {
         self.model.default_frame().ok_or_else(|| {
-            DomainError::tree(format!(
+            DomainError::unsupported(format!(
                 "robot '{}' has several tool frames and no default; declare one",
                 self.project.robot.name
             ))
