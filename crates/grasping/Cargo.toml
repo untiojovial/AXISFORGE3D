@@ -1,0 +1,18 @@
+[package]
+name = "axisforge-grasping"
+description = "Grasp synthesis, quality metrics and pick planning for parallel-jaw grippers in AXISFORGE 3D."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lints.rust]
+unsafe_code = "deny"
+
+[dependencies]
+axisforge-domain = { workspace = true }
+axisforge-kinematics = { workspace = true }
+axisforge-collision = { workspace = true }
+serde = { workspace = true }

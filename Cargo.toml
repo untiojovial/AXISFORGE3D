@@ -5,6 +5,7 @@ members = [
     "crates/geometry",
     "crates/kinematics",
     "crates/collision",
+    "crates/grasping",
 ]
 
 [workspace.package]

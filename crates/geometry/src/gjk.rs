@@ -176,6 +176,11 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
     };
     let mut iterations = 0;
     let mut status = GjkStatus::IterationLimit;
+    // The support plane through `w` with normal `v` separates the origin from
+    // the whole difference body, so `v.w / |v|` never exceeds the true core
+    // distance. Together with `|v|`, which never undershoots it, this brackets
+    // the answer even when the loop does not converge.
+    let mut lower_bound = 0.0_f64;
 
     while iterations < MAX_ITERATIONS {
         iterations += 1;
@@ -200,6 +205,10 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
         if !simplex.is_empty() && vv - v.dot(&next.w) <= RELATIVE_TOLERANCE * scale {
             status = GjkStatus::Separated;
             break;
+        }
+
+        if !simplex.is_empty() && vv > 0.0 {
+            lower_bound = lower_bound.max(v.dot(&next.w) / vv.sqrt());
         }
 
         simplex.push(next);
@@ -233,17 +242,28 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
     let core_distance = closest.v.norm();
     let separation = core_distance - inflation;
     if separation <= 0.0 {
+        // `|v|` is the distance to an actual point of the difference body, so
+        // the true core distance is no larger. If even that is within the
+        // inflation radii the bodies overlap for certain, converged or not.
         return Distance {
             distance: 0.0,
             witness_a: closest.pa,
             witness_b: closest.pb,
             direction: None,
             iterations,
-            status: if status == GjkStatus::IterationLimit {
-                GjkStatus::IterationLimit
-            } else {
-                GjkStatus::Intersecting
-            },
+            status: GjkStatus::Intersecting,
+        };
+    }
+    if status == GjkStatus::IterationLimit {
+        // Not converged and not provably overlapping: hand back the certified
+        // lower bound, which may be zero, and say that it is one.
+        return Distance {
+            distance: (lower_bound - inflation).max(0.0),
+            witness_a: closest.pa,
+            witness_b: closest.pb,
+            direction: None,
+            iterations,
+            status,
         };
     }
 
@@ -629,6 +649,42 @@ mod tests {
                 result.distance
             );
         }
+    }
+
+    #[test]
+    fn overlap_through_inflation_is_conclusive_even_on_a_curved_pair() {
+        // Observed in the pick planner: a capsule whose core passes 19 mm from
+        // a cylinder, with a 50 mm radius. The cores never touch, and against
+        // a curved rim the iteration closes in too slowly to converge, so the
+        // result used to come back as IterationLimit. But `|v|` already proves
+        // the overlap: it bounds the core distance from above.
+        let capsule = ConvexBody::capsule(
+            0.05,
+            0.28,
+            Transform::new(
+                Vec3::new(
+                    0.376_083_084_505_546_8,
+                    0.092_033_812_386_882_9,
+                    0.440_668_934_568_045_9,
+                ),
+                Quat::new(
+                    -0.103_841_148_989_534_02,
+                    0.861_185_269_309_956_4,
+                    0.059_565_328_426_179_23,
+                    0.493_992_833_297_764_2,
+                ),
+            ),
+        );
+        let cylinder = ConvexBody::new(
+            ConvexCore::Cylinder {
+                radius: 0.015,
+                half_length: 0.045,
+            },
+            Transform::from_translation(Vec3::new(0.46, 0.12, 0.465)),
+        );
+        let result = distance(&capsule, &cylinder);
+        assert_eq!(result.status, GjkStatus::Intersecting, "{result:?}");
+        assert!(result.distance.abs() < 1e-15);
     }
 
     #[test]
