@@ -1,0 +1,18 @@
+[package]
+name = "axisforge-kinematics"
+description = "Forward kinematics, Jacobians, conditioning and inverse kinematics for AXISFORGE 3D."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lints.rust]
+unsafe_code = "deny"
+
+[dependencies]
+axisforge-domain = { workspace = true }
+nalgebra = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
