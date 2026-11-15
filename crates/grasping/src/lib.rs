@@ -46,8 +46,10 @@
 )]
 
 pub mod candidate;
+pub mod hull;
 pub mod planner;
 pub mod quality;
+pub mod wrench;
 
 pub use candidate::{synthesize, GraspCandidate, SynthesisOptions};
 pub use planner::{plan_pick, GraspPlan, PlanReport, PlannerOptions, Rejection, RejectionReason};
