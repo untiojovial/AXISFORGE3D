@@ -37,6 +37,28 @@ impl<F: Fn(&str) -> Option<Vec<u8>>> MeshSource for F {
     }
 }
 
+/// Files supplied in memory, as when a user picks them in a browser.
+///
+/// A reference is looked up as written first, then by its file name alone:
+/// a description says `package://robot/meshes/base.stl`, and the person who
+/// picked the files has a `base.stl`. Two supplied files with the same name
+/// make that second lookup ambiguous, and it then finds nothing rather than
+/// guessing.
+impl MeshSource for BTreeMap<String, Vec<u8>> {
+    fn load(&self, reference: &str) -> Option<Vec<u8>> {
+        if let Some(bytes) = self.get(reference) {
+            return Some(bytes.clone());
+        }
+        let base = |path: &str| path.rsplit(['/', '\\']).next().unwrap_or(path).to_owned();
+        let wanted = base(reference);
+        let mut matches = self.iter().filter(|(name, _)| base(name) == wanted);
+        match (matches.next(), matches.next()) {
+            (Some((_, bytes)), None) => Some(bytes.clone()),
+            _ => None,
+        }
+    }
+}
+
 /// A mesh source with no files: every mesh reference becomes a warning.
 #[derive(Debug, Clone, Copy, Default)]
 pub struct NoMeshes;
@@ -444,9 +466,20 @@ impl RobotAssembly {
             ));
         }
         if self.default_frame.is_none() {
-            // The tip behind the most manipulator axes is the arm's end; among
-            // equals the first by name, so the choice does not depend on order.
-            tips.sort_by(|a, b| b.0.cmp(&a.0).then_with(|| a.2.cmp(&b.2)));
+            // The tip behind the most manipulator axes is the arm's end. Among
+            // equals, a name that says "tool", "tcp" or "flange" is the
+            // conventional mounting frame (ROS-Industrial's `tool0`, for
+            // one); after that the first by name, so the choice does not
+            // depend on the order of the file.
+            let conventional = |name: &str| {
+                let lower = name.to_ascii_lowercase();
+                !(lower.contains("tool") || lower.contains("tcp") || lower.contains("flange"))
+            };
+            tips.sort_by(|a, b| {
+                b.0.cmp(&a.0)
+                    .then_with(|| conventional(&a.2).cmp(&conventional(&b.2)))
+                    .then_with(|| a.2.cmp(&b.2))
+            });
             if let Some((_, link_id, _)) = tips.first() {
                 self.default_frame = self
                     .frames
@@ -462,5 +495,30 @@ impl RobotAssembly {
                 }
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn supplied_files_are_found_by_reference_or_by_file_name_when_unambiguous() {
+        let mut files = BTreeMap::new();
+        files.insert("base.stl".to_owned(), vec![1]);
+        files.insert("a/link.stl".to_owned(), vec![2]);
+        files.insert("b/link.stl".to_owned(), vec![3]);
+        assert_eq!(files.load("package://robot/meshes/base.stl"), Some(vec![1]));
+        assert_eq!(
+            files.load("a/link.stl"),
+            Some(vec![2]),
+            "an exact match wins"
+        );
+        assert_eq!(
+            files.load("meshes/link.stl"),
+            None,
+            "two candidates: no guess"
+        );
+        assert_eq!(files.load("missing.stl"), None);
     }
 }

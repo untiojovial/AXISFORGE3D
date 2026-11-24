@@ -28,7 +28,7 @@
     clippy::module_name_repetitions
 )]
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 use axisforge_domain::{
     DomainError, DomainResult, GeometryInstance, Project, Shape, Transform, Vec3, GROUND_OWNER_ID,
@@ -167,6 +167,61 @@ fn mesh_vertices<'a>(project: &'a Project, geometry: &GeometryInstance) -> Optio
     }
 }
 
+/// Pairs of robot links that are never measured.
+///
+/// Links joined by a joint touch by construction. Links joined only through
+/// fixed joints are one rigid body: their distance never changes, so measuring
+/// it can only ever repeat the same answer, and an overlap between them would
+/// be a permanent contact.
+fn robot_exemptions(robot: &axisforge_domain::RobotSystem) -> BTreeSet<(String, String)> {
+    let mut ignored: BTreeSet<(String, String)> = robot
+        .joints
+        .iter()
+        .map(|joint| ordered(&joint.parent_link_id, &joint.child_link_id))
+        .collect();
+    for group in rigid_groups(robot) {
+        for (i, first) in group.iter().enumerate() {
+            for second in &group[i + 1..] {
+                ignored.insert(ordered(first, second));
+            }
+        }
+    }
+    ignored
+}
+
+/// The representative of `id`'s set, compressing the path on the way.
+fn find_root(parents: &mut BTreeMap<String, String>, id: &str) -> String {
+    let parent = parents[id].clone();
+    if parent == id {
+        return parent;
+    }
+    let top = find_root(parents, &parent);
+    parents.insert(id.to_owned(), top.clone());
+    top
+}
+
+/// Sets of link ids joined to each other only through fixed joints.
+fn rigid_groups(robot: &axisforge_domain::RobotSystem) -> Vec<Vec<String>> {
+    let mut parents: BTreeMap<String, String> = robot
+        .links
+        .iter()
+        .map(|l| (l.id.clone(), l.id.clone()))
+        .collect();
+    for joint in robot.joints.iter().filter(|j| !j.is_actuated()) {
+        let parent_set = find_root(&mut parents, &joint.parent_link_id);
+        let child_set = find_root(&mut parents, &joint.child_link_id);
+        if parent_set != child_set {
+            parents.insert(parent_set, child_set);
+        }
+    }
+    let mut groups: BTreeMap<String, Vec<String>> = BTreeMap::new();
+    for link in &robot.links {
+        let top = find_root(&mut parents, &link.id);
+        groups.entry(top).or_default().push(link.id.clone());
+    }
+    groups.into_values().filter(|g| g.len() > 1).collect()
+}
+
 impl Scene {
     /// Assembles the scene for `project` with the robot at `pose`.
     ///
@@ -200,10 +255,7 @@ impl Scene {
                 });
             }
         }
-        // Links joined by a joint touch by construction.
-        for joint in &project.robot.joints {
-            ignored.insert(ordered(&joint.parent_link_id, &joint.child_link_id));
-        }
+        ignored.extend(robot_exemptions(&project.robot));
 
         for world_body in &project.environment.bodies {
             let attachment = options
@@ -489,6 +541,52 @@ mod tests {
             scene.check(0.0).is_clear(),
             "{:?}",
             scene.check(0.0).contacts
+        );
+    }
+
+    #[test]
+    fn parts_fixed_to_the_same_link_are_not_measured_against_each_other() {
+        // Two bodies bolted to the last link through separate fixed joints,
+        // overlapping: they are one rigid body, and must not read as a contact.
+        let (mut project, _) = cell();
+        let wrist = project
+            .robot
+            .joint_by_name("axis 6")
+            .unwrap()
+            .child_link_id
+            .clone();
+        for name in ["bracket a", "bracket b"] {
+            let id = axisforge_domain::templates::stable_id("test", "link", name);
+            project.robot.links.push(
+                axisforge_domain::Link::new(&id, name).with_geometry(
+                    axisforge_domain::GeometryInstance::visual(
+                        format!("{id}-g"),
+                        "block",
+                        Shape::Box {
+                            size: Vec3::new(0.03, 0.03, 0.03),
+                        },
+                    )
+                    .with_origin(Transform::from_translation(Vec3::new(0.0, 0.07, 0.03)))
+                    .with_role(axisforge_domain::GeometryRole::Both),
+                ),
+            );
+            project.robot.joints.push(axisforge_domain::Joint::fixed(
+                format!("{id}-j"),
+                format!("{name} mount"),
+                &wrist,
+                &id,
+                Transform::IDENTITY,
+            ));
+        }
+        project.validate().unwrap();
+        let model = KinematicModel::from_robot(&project.robot).unwrap();
+        let report = check(&project, &model, &vec![0.0; model.dof()]);
+        assert!(
+            !report.contacts.iter().any(
+                |c| c.first_name.starts_with("bracket") && c.second_name.starts_with("bracket")
+            ),
+            "{:?}",
+            report.contacts
         );
     }
 

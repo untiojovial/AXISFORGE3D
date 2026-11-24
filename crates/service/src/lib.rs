@@ -22,15 +22,19 @@
 use axisforge_collision::{Attachment, CollisionReport, Scene, SceneOptions};
 use axisforge_domain::{
     templates, DomainError, JointKind, JointRole, Project, Quat, Shape, Transform, Vec3,
-    SAFETY_NOTICE,
+    GROUND_OWNER_ID, SAFETY_NOTICE,
 };
 use axisforge_grasping::{plan_pick_with, ExtensionInfo, PlanReport, PlannerOptions, Registry};
 use axisforge_kinematics::{
     conditioning, forward_kinematics, frame_pose, ik, jacobian, CancellationToken,
     ConditioningReport, IkOptions, IkSolution, KinematicModel, TaskSpace,
 };
+use axisforge_project_io::import::{ImportError, ImportOptions};
+use axisforge_project_io::simox::{import_simox_object, import_simox_robot};
+use axisforge_project_io::urdf::import_urdf;
 use axisforge_project_io::ProjectIoError;
 use serde::{Deserialize, Serialize};
+use std::collections::BTreeMap;
 
 /// Smallest singular value below which a pose is flagged near-singular.
 const SINGULARITY_THRESHOLD: f64 = 0.01;
@@ -44,6 +48,9 @@ pub enum ServiceError {
     /// A project file could not be read or written.
     #[error(transparent)]
     ProjectIo(#[from] ProjectIoError),
+    /// A robot or object description could not be imported.
+    #[error(transparent)]
+    Import(#[from] ImportError),
     /// The request text was not a valid request.
     #[error("malformed request: {0}")]
     Malformed(String),
@@ -111,6 +118,42 @@ pub enum Request {
         /// Planner settings; defaults when omitted.
         options: Option<PlannerOptions>,
     },
+    /// Replace the project with a robot imported from URDF or Simox XML.
+    ImportRobot {
+        /// `urdf` or `simox`.
+        format: String,
+        /// The description's text.
+        text: String,
+        /// Mesh files it refers to, by the reference as written, base64-encoded.
+        #[serde(default)]
+        files: BTreeMap<String, String>,
+        /// Joints that drive an end effector, beyond any the file declares.
+        #[serde(default)]
+        end_effector_joints: Vec<String>,
+        /// Mount AXISFORGE's parallel gripper on this tool frame; the robot's
+        /// default tool frame when the name is empty.
+        #[serde(default)]
+        attach_gripper: Option<String>,
+        /// Place the robot in the demo cell, with its table and parts.
+        #[serde(default)]
+        into_demo_cell: bool,
+    },
+    /// Add a part from a Simox manipulation object.
+    AddObject {
+        /// The `<ManipulationObject>` text.
+        text: String,
+        /// Mesh files it refers to, base64-encoded.
+        #[serde(default)]
+        files: BTreeMap<String, String>,
+        /// Where to place it, metres.
+        position: Vec3,
+    },
+    /// Return the vertex and index buffers of mesh resources, for drawing.
+    GetResources {
+        /// Resource ids; every resource when empty.
+        #[serde(default)]
+        ids: Vec<String>,
+    },
     /// Move a world body or change its physical properties.
     UpdateBody {
         /// Identifier of the body.
@@ -124,6 +167,28 @@ pub enum Request {
         /// New friction coefficient.
         friction_coefficient: Option<f64>,
     },
+}
+
+/// The outcome of an import: the new state, and what did not carry over.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ImportReport {
+    /// The session after the import.
+    pub description: Description,
+    /// Everything that could not be carried over exactly.
+    pub warnings: Vec<String>,
+}
+
+/// A mesh resource's buffers.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MeshData {
+    /// Resource id, as referenced by mesh shapes.
+    pub id: String,
+    /// Vertex positions, `[x, y, z, ...]`, in the mesh's own units.
+    pub vertices: Vec<f64>,
+    /// Triangle indices, three per face.
+    pub indices: Vec<u32>,
 }
 
 /// One actuated joint, as a front end needs it for a slider.
@@ -246,6 +311,10 @@ pub enum Response {
     Plan(Box<PlanReport>),
     /// The plugged-in extensions.
     Extensions(Vec<ExtensionInfo>),
+    /// What an import produced.
+    Imported(Box<ImportReport>),
+    /// Mesh buffers.
+    Resources(Vec<MeshData>),
 }
 
 fn drawable(
@@ -267,6 +336,105 @@ fn drawable(
         collision: geometry.is_collision(),
         pose: owner_pose.compose(&geometry.origin),
     }
+}
+
+/// Decodes base64 file contents supplied with an import.
+fn decode_files(
+    files: &BTreeMap<String, String>,
+) -> Result<BTreeMap<String, Vec<u8>>, ServiceError> {
+    use base64::Engine as _;
+    files
+        .iter()
+        .map(|(name, data)| {
+            base64::engine::general_purpose::STANDARD
+                .decode(data)
+                .map(|bytes| (name.clone(), bytes))
+                .map_err(|e| {
+                    ServiceError::Malformed(format!("file `{name}` is not valid base64: {e}"))
+                })
+        })
+        .collect()
+}
+
+/// Mounts the gripper and places the robot in the demo cell, as requested.
+fn prepare_import(
+    mut project: Project,
+    attach_gripper: Option<&str>,
+    into_demo_cell: bool,
+    warnings: &mut Vec<String>,
+) -> Result<Project, ServiceError> {
+    if let Some(frame) = attach_gripper {
+        if project.robot.gripper.is_some() {
+            return Err(DomainError::unsupported("the robot already has a gripper").into());
+        }
+        let mount = if frame.is_empty() {
+            project.robot.default_tool_frame().cloned()
+        } else {
+            project
+                .robot
+                .tool_frames
+                .iter()
+                .find(|f| f.name == frame)
+                .cloned()
+        }
+        .ok_or_else(|| {
+            DomainError::unsupported(format!(
+                "no tool frame `{frame}` to mount the gripper on; frames: {}",
+                project
+                    .robot
+                    .tool_frames
+                    .iter()
+                    .map(|f| f.name.as_str())
+                    .collect::<Vec<_>>()
+                    .join(", ")
+            ))
+        })?;
+        templates::attach_parallel_gripper(
+            &mut project.robot,
+            &mount.id,
+            &templates::GripperSpec::default(),
+        )?;
+        warnings.push(format!(
+            "AXISFORGE's parallel gripper was mounted on `{}`; its jaws close along that frame's Y and it approaches along its Z",
+            mount.name
+        ));
+    }
+    if into_demo_cell {
+        let cell = templates::pick_and_place_cell()?;
+        project.environment = cell.environment;
+        // The demo cell's exemptions name the demo robot's links; keep only the
+        // ones about the world, and add this robot's own.
+        let known: std::collections::BTreeSet<String> = project
+            .environment
+            .bodies
+            .iter()
+            .map(|b| b.id.clone())
+            .chain([GROUND_OWNER_ID.to_owned()])
+            .collect();
+        let kept: Vec<_> = project
+            .environment
+            .ignored_pairs
+            .pairs()
+            .iter()
+            .filter(|p| known.contains(&p.first) && known.contains(&p.second))
+            .cloned()
+            .collect();
+        project.environment.ignored_pairs = axisforge_domain::IgnoredPairs::new();
+        for pair in kept {
+            project
+                .environment
+                .ignored_pairs
+                .ignore(&pair.first, &pair.second, pair.reason);
+        }
+        project.environment.ignored_pairs.ignore(
+            &project.robot.root_link_id,
+            GROUND_OWNER_ID,
+            "the robot's base rests on the floor",
+        );
+        templates::register_gripper_exemptions(&mut project.environment, &project.robot);
+    }
+    project.validate()?;
+    Ok(project)
 }
 
 /// A project, a robot configuration, and the engine wired around them.
@@ -417,38 +585,149 @@ impl Session {
                 )?;
                 Ok(Response::Plan(Box::new(report)))
             }
+            Request::ImportRobot {
+                format,
+                text,
+                files,
+                end_effector_joints,
+                attach_gripper,
+                into_demo_cell,
+            } => self.import_robot(
+                &format,
+                &text,
+                &files,
+                end_effector_joints,
+                attach_gripper.as_deref(),
+                into_demo_cell,
+            ),
+            Request::AddObject {
+                text,
+                files,
+                position,
+            } => self.add_object(&text, &files, position),
+            Request::GetResources { ids } => Ok(Response::Resources(
+                self.project
+                    .resources
+                    .iter()
+                    .filter(|r| ids.is_empty() || ids.contains(&r.id))
+                    .map(|r| MeshData {
+                        id: r.id.clone(),
+                        vertices: r.vertices.clone(),
+                        indices: r.indices.clone(),
+                    })
+                    .collect(),
+            )),
             Request::UpdateBody {
                 body_id,
                 position,
                 yaw,
                 mass,
                 friction_coefficient,
-            } => {
-                // Edit a copy and validate it, so a refused edit changes nothing.
-                let mut project = self.project.clone();
-                let body = project
-                    .environment
-                    .bodies
-                    .iter_mut()
-                    .find(|b| b.id == body_id)
-                    .ok_or_else(|| DomainError::dangling("world body", body_id, "update_body"))?;
-                if let Some(position) = position {
-                    body.pose.translation = position;
-                }
-                if let Some(yaw) = yaw {
-                    body.pose.rotation = Quat::from_axis_angle(&Vec3::Z, yaw)?;
-                }
-                if let Some(mass) = mass {
-                    body.physical.mass = mass;
-                }
-                if let Some(mu) = friction_coefficient {
-                    body.physical.friction_coefficient = mu;
-                }
-                project.validate()?;
-                self.project = project;
-                Ok(Response::Description(self.describe()))
-            }
+            } => self.update_body(body_id, position, yaw, mass, friction_coefficient),
         }
+    }
+
+    fn update_body(
+        &mut self,
+        body_id: String,
+        position: Option<Vec3>,
+        yaw: Option<f64>,
+        mass: Option<f64>,
+        friction_coefficient: Option<f64>,
+    ) -> Result<Response, ServiceError> {
+        // Edit a copy and validate it, so a refused edit changes nothing.
+        let mut project = self.project.clone();
+        let body = project
+            .environment
+            .bodies
+            .iter_mut()
+            .find(|b| b.id == body_id)
+            .ok_or_else(|| DomainError::dangling("world body", body_id, "update_body"))?;
+        if let Some(position) = position {
+            body.pose.translation = position;
+        }
+        if let Some(yaw) = yaw {
+            body.pose.rotation = Quat::from_axis_angle(&Vec3::Z, yaw)?;
+        }
+        if let Some(mass) = mass {
+            body.physical.mass = mass;
+        }
+        if let Some(mu) = friction_coefficient {
+            body.physical.friction_coefficient = mu;
+        }
+        project.validate()?;
+        self.project = project;
+        Ok(Response::Description(self.describe()))
+    }
+
+    fn import_robot(
+        &mut self,
+        format: &str,
+        text: &str,
+        files: &BTreeMap<String, String>,
+        end_effector_joints: Vec<String>,
+        attach_gripper: Option<&str>,
+        into_demo_cell: bool,
+    ) -> Result<Response, ServiceError> {
+        let source = decode_files(files)?;
+        let options = ImportOptions {
+            end_effector_joints,
+        };
+        let imported = match format {
+            "urdf" => import_urdf(text, &source, &options)?,
+            "simox" => import_simox_robot(text, &source, &options)?,
+            other => {
+                return Err(DomainError::unsupported(format!(
+                    "unknown description format `{other}`; `urdf` and `simox` are supported"
+                ))
+                .into())
+            }
+        };
+        let mut warnings = imported.warnings;
+        let project = prepare_import(
+            imported.project,
+            attach_gripper,
+            into_demo_cell,
+            &mut warnings,
+        )?;
+        self.replace(Self::with_project(project)?);
+        Ok(Response::Imported(Box::new(ImportReport {
+            description: self.describe(),
+            warnings,
+        })))
+    }
+
+    fn add_object(
+        &mut self,
+        text: &str,
+        files: &BTreeMap<String, String>,
+        position: Vec3,
+    ) -> Result<Response, ServiceError> {
+        let source = decode_files(files)?;
+        let mut imported = import_simox_object(text, &source)?;
+        if self
+            .project
+            .environment
+            .body_by_name(&imported.body.name)
+            .is_some()
+        {
+            return Err(DomainError::DuplicateName {
+                kind: "world body",
+                name: imported.body.name,
+            }
+            .into());
+        }
+        imported.body.pose.translation = position;
+        // Edit a copy and validate it, so a refused import changes nothing.
+        let mut project = self.project.clone();
+        project.environment.bodies.push(imported.body);
+        project.resources.extend(imported.resources);
+        project.validate()?;
+        self.project = project;
+        Ok(Response::Imported(Box::new(ImportReport {
+            description: self.describe(),
+            warnings: imported.warnings,
+        })))
     }
 
     fn default_frame(&self) -> Result<usize, DomainError> {
@@ -926,6 +1205,157 @@ mod tests {
         );
         assert_eq!(reply["ok"], true, "{reply}");
         assert_eq!(reply["data"]["timedOut"], false);
+    }
+
+    const UR5: &str = include_str!("../../project-io/tests/data/ur5/ur5_robot.urdf");
+
+    fn import_ur5(session: &mut Session) -> serde_json::Value {
+        let request = serde_json::json!({
+            "op": "import_robot",
+            "format": "urdf",
+            "text": UR5,
+            "attachGripper": "",
+            "intoDemoCell": true,
+        });
+        call(session, &request.to_string())
+    }
+
+    #[test]
+    fn an_imported_ur5_gets_a_gripper_and_a_cell() {
+        let mut session = Session::demo().unwrap();
+        let reply = import_ur5(&mut session);
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert_eq!(reply["kind"], "imported");
+        let d = &reply["data"]["description"];
+        assert_eq!(d["robotName"], "ur5");
+        assert_eq!(d["axisCount"], 6);
+        assert_eq!(
+            d["joints"].as_array().unwrap().len(),
+            8,
+            "six axes and two jaws"
+        );
+        assert_eq!(d["gripper"], "gripper");
+        let warnings = reply["data"]["warnings"].as_array().unwrap();
+        assert!(
+            warnings
+                .iter()
+                .any(|w| w.as_str().unwrap().contains("mounted on `tool0`")),
+            "the conventional mounting frame is preferred: {warnings:?}"
+        );
+        let names: Vec<&str> = d["bodies"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|b| b["name"].as_str().unwrap())
+            .collect();
+        assert_eq!(names, ["table", "cube", "dowel"]);
+    }
+
+    #[test]
+    fn an_imported_ur5_can_plan_a_pick() {
+        let mut session = Session::demo().unwrap();
+        import_ur5(&mut session);
+        // Elbow up over the table, gripper pointing down.
+        let ready = serde_json::json!({
+            "op": "set_joints",
+            "values": [0.0, -1.2, 1.6, -1.97, -1.57, 0.0, 0.0, 0.0],
+        });
+        assert_eq!(call(&mut session, &ready.to_string())["ok"], true);
+        let cube = session
+            .project()
+            .environment
+            .body_by_name("cube")
+            .unwrap()
+            .id
+            .clone();
+        let reply = call(
+            &mut session,
+            &format!(r#"{{"op":"plan_pick","bodyId":"{cube}"}}"#),
+        );
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert!(
+            !reply["data"]["plans"].as_array().unwrap().is_empty(),
+            "rejections: {}",
+            reply["data"]["rejections"]
+        );
+    }
+
+    #[test]
+    fn mesh_files_travel_as_base64_and_come_back_as_buffers() {
+        use base64::Engine as _;
+        let urdf = r#"<robot name="m"><link name="a"><visual><geometry><mesh filename="package://m/part.stl"/></geometry></visual></link>
+            <link name="b"/><joint name="j" type="revolute"><parent link="a"/><child link="b"/><origin xyz="0 0 0.1"/><limit lower="-1" upper="1"/></joint></robot>"#;
+        let stl = "solid s\nfacet normal 0 0 1\nouter loop\nvertex 0 0 0\nvertex 0.1 0 0\nvertex 0 0.1 0\nendloop\nendfacet\nendsolid s\n";
+        let mut session = Session::demo().unwrap();
+        let request = serde_json::json!({
+            "op": "import_robot", "format": "urdf", "text": urdf,
+            "files": { "part.stl": base64::engine::general_purpose::STANDARD.encode(stl) },
+        });
+        let reply = call(&mut session, &request.to_string());
+        assert_eq!(reply["ok"], true, "{reply}");
+        let resources = call(&mut session, r#"{"op":"get_resources"}"#);
+        let mesh = &resources["data"][0];
+        assert_eq!(mesh["indices"].as_array().unwrap().len(), 3);
+        assert_eq!(mesh["vertices"].as_array().unwrap().len(), 9);
+        // The snapshot refers to it by id.
+        let snapshot = call(&mut session, r#"{"op":"snapshot"}"#);
+        assert!(snapshot["data"]["drawables"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|d| d["shape"]["resourceId"] == mesh["id"]));
+        let bad = serde_json::json!({"op": "import_robot", "format": "urdf", "text": urdf, "files": {"part.stl": "%%%"}});
+        assert!(call(&mut session, &bad.to_string())["error"]
+            .as_str()
+            .unwrap()
+            .contains("base64"));
+    }
+
+    #[test]
+    fn a_failed_import_leaves_the_session_as_it_was() {
+        let mut session = Session::demo().unwrap();
+        let before = session.project().clone();
+        let reply = call(
+            &mut session,
+            r#"{"op":"import_robot","format":"urdf","text":"<robot name='x'/>"}"#,
+        );
+        assert_eq!(reply["ok"], false);
+        assert!(
+            reply["error"].as_str().unwrap().contains("no links"),
+            "{reply}"
+        );
+        assert_eq!(session.project(), &before);
+        let other = call(
+            &mut session,
+            r#"{"op":"import_robot","format":"sdf","text":"<sdf/>"}"#,
+        );
+        assert!(other["error"]
+            .as_str()
+            .unwrap()
+            .contains("`urdf` and `simox`"));
+    }
+
+    #[test]
+    fn a_simox_object_can_be_added_as_a_part() {
+        let mut session = Session::demo().unwrap();
+        let object = "<ManipulationObject name='Block'><Visualization><Primitives><Box width='40' height='30' depth='50'/></Primitives><UseAsCollisionModel/></Visualization><Physics><Mass value='120' units='g'/></Physics></ManipulationObject>";
+        let request = serde_json::json!({"op": "add_object", "text": object, "position": {"x": 0.4, "y": 0.0, "z": 0.445}});
+        let reply = call(&mut session, &request.to_string());
+        assert_eq!(reply["ok"], true, "{reply}");
+        let block = reply["data"]["description"]["bodies"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|b| b["name"] == "Block")
+            .unwrap()
+            .clone();
+        assert_eq!(block["graspable"], true);
+        assert!((block["mass"].as_f64().unwrap() - 0.12).abs() < 1e-12);
+        let again = call(&mut session, &request.to_string());
+        assert_eq!(
+            again["ok"], false,
+            "a second part with the same name is refused"
+        );
     }
 
     #[test]

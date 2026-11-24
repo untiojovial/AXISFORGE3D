@@ -20,6 +20,7 @@
 
 pub mod import;
 pub mod mesh;
+pub mod simox;
 pub mod urdf;
 
 use std::fs;

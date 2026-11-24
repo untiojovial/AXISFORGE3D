@@ -12,7 +12,11 @@ use crate::math::{Transform, Vec3};
 
 /// A parametric shape, in SI units.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(tag = "kind", rename_all = "camelCase")]
+#[serde(
+    tag = "kind",
+    rename_all = "camelCase",
+    rename_all_fields = "camelCase"
+)]
 pub enum Shape {
     /// Axis-aligned box centred on its own origin.
     Box {
@@ -44,6 +48,10 @@ pub enum Shape {
     /// A mesh resource referenced by id, with a per-axis scale.
     Mesh {
         /// Identifier into [`crate::project::Project::resources`].
+        ///
+        /// Written `resourceId`; `resource_id`, which earlier builds wrote, is
+        /// still read.
+        #[serde(alias = "resource_id")]
         resource_id: String,
         /// Dimensionless scale applied to the stored mesh.
         scale: Vec3,
@@ -325,6 +333,21 @@ mod tests {
             scale: Vec3::new(1.0, 1.0, 1.0),
         };
         assert!(mesh.largest_extent().is_none());
+    }
+
+    #[test]
+    fn a_mesh_reference_is_written_in_camel_case_and_the_old_spelling_still_reads() {
+        let shape = Shape::Mesh {
+            resource_id: "r".to_owned(),
+            scale: Vec3::new(1.0, 1.0, 1.0),
+        };
+        let text = serde_json::to_string(&shape).unwrap();
+        assert!(text.contains("\"resourceId\":\"r\""), "{text}");
+        let old: Shape = serde_json::from_str(
+            r#"{"kind":"mesh","resource_id":"r","scale":{"x":1,"y":1,"z":1}}"#,
+        )
+        .unwrap();
+        assert_eq!(old, shape);
     }
 
     #[test]

@@ -9,7 +9,8 @@ use std::process::ExitCode;
 use anyhow::{anyhow, Context, Result};
 use axisforge_domain::{templates, SAFETY_NOTICE};
 use axisforge_kinematics::{forward_kinematics, KinematicModel};
-use axisforge_project_io::import::ImportOptions;
+use axisforge_project_io::import::{ImportOptions, Imported};
+use axisforge_project_io::simox::{import_simox_object, import_simox_robot};
 use axisforge_project_io::urdf::import_urdf;
 use axisforge_service::{Request, Response, Session};
 use clap::{Parser, Subcommand};
@@ -55,6 +56,31 @@ enum Command {
         #[arg(long, value_delimiter = ',')]
         end_effector: Vec<String>,
     },
+    /// Import a Simox robot XML into a project file.
+    ImportSimox {
+        /// The robot XML. Mesh files are looked for relative to it.
+        file: PathBuf,
+        /// Where to write the project.
+        #[arg(long)]
+        out: PathBuf,
+        /// Extra joints that drive an end effector, comma separated. Actors of
+        /// the file's own <Endeffector> are recognized without this.
+        #[arg(long, value_delimiter = ',')]
+        end_effector: Vec<String>,
+    },
+    /// Add a Simox manipulation object to a project as a part to pick.
+    AddObject {
+        /// The project file.
+        project: PathBuf,
+        /// The Simox <ManipulationObject> XML.
+        object: PathBuf,
+        /// Where to put the object, metres, as `x,y,z`.
+        #[arg(long, value_delimiter = ',', num_args = 3)]
+        at: Vec<f64>,
+        /// Where to write the project; the input project when omitted.
+        #[arg(long)]
+        out: Option<PathBuf>,
+    },
     /// Print the world pose of every link for given joint values, as JSON.
     Fk {
         /// The project file.
@@ -73,6 +99,24 @@ enum Command {
         #[arg(long)]
         json: bool,
     },
+}
+
+/// Saves an imported project and prints what was and was not carried over.
+fn report_import(imported: &Imported, out: &Path) -> Result<()> {
+    axisforge_project_io::save(&imported.project, out)?;
+    let robot = &imported.project.robot;
+    println!(
+        "wrote {}: {} ({} axes, {} links, {} meshes)",
+        out.display(),
+        robot.name,
+        robot.axis_count(),
+        robot.links.len(),
+        imported.project.resources.len()
+    );
+    for warning in &imported.warnings {
+        println!("  warning: {warning}");
+    }
+    Ok(())
 }
 
 /// Finds a mesh a description refers to, relative to the description's folder.
@@ -175,16 +219,54 @@ fn run(cli: Cli) -> Result<()> {
                 end_effector_joints: end_effector,
             };
             let imported = import_urdf(&text, &meshes, &options)?;
-            axisforge_project_io::save(&imported.project, &out)?;
-            let robot = &imported.project.robot;
-            println!(
-                "wrote {}: {} ({} axes, {} links, {} meshes)",
-                out.display(),
-                robot.name,
-                robot.axis_count(),
-                robot.links.len(),
-                imported.project.resources.len()
-            );
+            report_import(&imported, &out)?;
+        }
+        Command::ImportSimox {
+            file,
+            out,
+            end_effector,
+        } => {
+            let text = std::fs::read_to_string(&file)
+                .with_context(|| format!("reading {}", file.display()))?;
+            let folder = file.parent().map(Path::to_path_buf).unwrap_or_default();
+            let meshes = move |reference: &str| load_mesh(&folder, reference);
+            let options = ImportOptions {
+                end_effector_joints: end_effector,
+            };
+            let imported = import_simox_robot(&text, &meshes, &options)?;
+            report_import(&imported, &out)?;
+        }
+        Command::AddObject {
+            project,
+            object,
+            at,
+            out,
+        } => {
+            let mut target = axisforge_project_io::load(&project)?;
+            let text = std::fs::read_to_string(&object)
+                .with_context(|| format!("reading {}", object.display()))?;
+            let folder = object.parent().map(Path::to_path_buf).unwrap_or_default();
+            let meshes = move |reference: &str| load_mesh(&folder, reference);
+            let mut imported = import_simox_object(&text, &meshes)?;
+            if target
+                .environment
+                .body_by_name(&imported.body.name)
+                .is_some()
+            {
+                return Err(anyhow!(
+                    "the project already has a body named '{}'",
+                    imported.body.name
+                ));
+            }
+            if let [x, y, z] = at[..] {
+                imported.body.pose.translation = axisforge_domain::Vec3::new(x, y, z);
+            }
+            let name = imported.body.name.clone();
+            target.environment.bodies.push(imported.body);
+            target.resources.extend(imported.resources);
+            let out = out.unwrap_or(project);
+            axisforge_project_io::save(&target, &out)?;
+            println!("added '{name}' to {}", out.display());
             for warning in &imported.warnings {
                 println!("  warning: {warning}");
             }

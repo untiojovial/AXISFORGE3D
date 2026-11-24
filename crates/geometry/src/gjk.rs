@@ -16,40 +16,45 @@
 //!
 //! # Numerics
 //!
-//! Two scale-related faults are easy to write here and both were observed
-//! before the tolerances below were made relative to what is being measured:
+//! The true distance between the cores always lies between two numbers the
+//! iteration has in hand: `|v|`, the distance to an actual point of `A - B`,
+//! and `v.w / |v|`, the offset of a supporting plane that `A - B` lies wholly
+//! beyond. The loop stops in one of three ways.
 //!
-//! 1. **The convergence test.** The residual `|v|^2 - v.w` is computed by
-//!    subtraction, so its rounding error is proportional to `|v| * |w|`, not to
-//!    `|v|^2`. Testing it against `|v|^2` alone makes the test unsatisfiable
-//!    whenever the bodies are small but far from the origin — a centimetre-scale
-//!    link against a hundred-metre ground slab has support points seventy
-//!    metres out while `|v|` is centimetres, leaving a residual several times
-//!    the threshold no matter how many iterations run.
+//! 1. **The bracket closes.** When `|v|` minus the best lower bound found so
+//!    far is within `RELATIVE_TOLERANCE * max(|v|, |w|)`, the answer is `|v|`.
+//!    The tolerance scales with the largest support point because the lower
+//!    bound is computed from it, and its rounding grows with its magnitude,
+//!    not with the distance.
+//! 2. **The iteration stops making progress.** `|v|` falls strictly at every
+//!    exact step. Near contact with a large body it can stop falling while the
+//!    bracket is still open: `v` is a combination of points tens of metres out,
+//!    its rounding tilts it by `eps * |w| / |v|`, and that tilt alone moves the
+//!    lower bound by more than the tolerance. The step the next support point
+//!    asks for is then below double precision, and the loop would repeat it to
+//!    the iteration limit. It stops instead and reports the **lower bound**,
+//!    which is certified and errs toward less clearance, never more.
+//! 3. **The iteration limit.** Reported as `IterationLimit`, with the lower
+//!    bound, so a caller knows the result is not a proof.
 //!
-//! 2. **The degenerate simplex.** When the iteration cannot converge it keeps
-//!    adding points, and the fourth one lands coplanar with the first three. A
-//!    tetrahedron solver that does not notice reads a flat simplex as "the
-//!    origin is inside" and reports a contact between bodies that are nowhere
-//!    near each other. Inventing a collision is the dangerous direction of
-//!    this error: a user trusts a clear report less readily than a warning.
+//! `tests/near_contact.rs` holds this to account: a tilted box from 10 cm down
+//! to 0.1 micrometre above a 100 m floor is never overestimated, is conclusive
+//! and at most a micrometre short for every gap of a micrometre or more, and
+//! never needs more than 16 iterations. Removing the progress check fails it,
+//! and so does the GJK this replaces, which ran to the iteration limit in 464
+//! of 2000 such cases, 74 of them at gaps between 1 mm and 10 cm. Keeping the
+//! best lower bound rather than the latest is sound and can only tighten the
+//! bracket, but no test here distinguishes it from using the latest one.
+//! Below a micrometre at that scale the rounding exceeds the gap, and an
+//! inconclusive answer is the correct one.
 //!
-//! The convergence test below scales its threshold by `|v| * |w|` as well as
-//! `|v|^2`, and `a_small_tilted_body_far_from_the_origin_still_converges` holds
-//! it to that: reverting the scaling makes that test and the tilted-cylinder
-//! test run to the iteration limit. The tilt is what makes them bite — an
-//! axis-aligned capsule returns a duplicate support point and terminates on
-//! that check before the residual is ever consulted.
-//!
-//! The second fault is handled structurally rather than by a test. The simplex
+//! A flat simplex is handled structurally rather than by a test. The simplex
 //! solver enumerates every sub-simplex and skips any whose Gram matrix is
 //! singular at the simplex's own scale, so a flat tetrahedron falls back to its
 //! faces by construction; "the origin is inside" is only ever concluded from a
-//! subset that passed that check. Removing the check does not change any result
-//! this crate's tests measure, and even with both faults injected the solver
-//! reports `IterationLimit` rather than a contact. So no test here pins the
-//! degeneracy threshold down: it stands as defence in depth against a future
-//! solver change, not as a guarded invariant.
+//! subset that passed that check. Read as "inside", a flat simplex would invent
+//! a contact between bodies nowhere near each other. No test here pins the
+//! threshold down: it is defence in depth against a future solver change.
 
 use axisforge_domain::Vec3;
 
@@ -63,7 +68,18 @@ use crate::support::ConvexBody;
 pub const MAX_ITERATIONS: usize = 64;
 
 /// Relative tolerance of the convergence test, dimensionless.
-const RELATIVE_TOLERANCE: f64 = 1.0e-12;
+///
+/// The test bounds the gap between the distance's upper bound `|v|` and its
+/// lower bound `v.w / |v|`, so on convergence the reported distance is within
+/// `RELATIVE_TOLERANCE * max(|v|, |w|)` of the true one: under a nanometre in
+/// a metre-scale cell. A tighter value buys nothing measurable and fails to
+/// converge on nearly parallel faces, where each iteration swaps between
+/// almost equivalent corners and improves by about 1e-13 (observed between a
+/// UR5's flange box and a gripper palm 5 mm away).
+const RELATIVE_TOLERANCE: f64 = 1.0e-10;
+
+/// Relative decrease of |v| below which an iteration counts as making no progress.
+const STALL_TOLERANCE: f64 = 4.0 * f64::EPSILON;
 
 /// Absolute floor for the convergence scale, square metres.
 ///
@@ -155,8 +171,6 @@ struct Closest {
 /// their cores, which is exact: the Minkowski sum of a convex body and a ball
 /// of radius `r` is that body's surface pushed out by `r` in every direction.
 pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
-    let inflation = a.inflation + b.inflation;
-
     // Seed the search with the vector between the bodies' origins. Any
     // direction works, but this one usually lands within a couple of
     // iterations of the answer.
@@ -181,6 +195,10 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
     // distance. Together with `|v|`, which never undershoots it, this brackets
     // the answer even when the loop does not converge.
     let mut lower_bound = 0.0_f64;
+    // Largest support-point magnitude seen: the scale of the bound's rounding.
+    let mut reach = 0.0_f64;
+    // Set when the iteration stops at a fixed point rather than a closed bracket.
+    let mut stalled = false;
 
     while iterations < MAX_ITERATIONS {
         iterations += 1;
@@ -197,22 +215,36 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
         }
 
         let v = closest.v;
-        let vv = v.norm_squared();
-        // `vv - v.w` is a subtraction of like-sized quantities, so its error
-        // tracks `|v| * |w|`. Scaling the threshold by only `vv` makes the
-        // test unsatisfiable for small bodies far from the origin.
-        let scale = vv.max(v.norm() * next.w.norm()).max(ABSOLUTE_TOLERANCE);
-        if !simplex.is_empty() && vv - v.dot(&next.w) <= RELATIVE_TOLERANCE * scale {
-            status = GjkStatus::Separated;
-            break;
+        let upper = v.norm();
+        if !simplex.is_empty() && upper > 0.0 {
+            lower_bound = lower_bound.max(v.dot(&next.w) / upper);
+            reach = reach.max(next.w.norm());
+            // The true core distance lies in [lower_bound, upper]. Testing the
+            // best bound found so far, not only this iteration's, is what
+            // stops a loop that cycles between nearly equivalent simplices:
+            // each step there may be poor while an earlier one already closed
+            // the gap. The tolerance scales with the largest support point
+            // seen, because the bound is computed from it and its rounding
+            // error grows with its magnitude, not with the distance.
+            if upper - lower_bound <= RELATIVE_TOLERANCE * upper.max(reach) {
+                status = GjkStatus::Separated;
+                break;
+            }
         }
 
-        if !simplex.is_empty() && vv > 0.0 {
-            lower_bound = lower_bound.max(v.dot(&next.w) / vv.sqrt());
-        }
-
+        // Before the first support point, `upper` is the seed, not a distance.
+        let measured = !simplex.is_empty();
         simplex.push(next);
         closest = solve_simplex(&mut simplex);
+
+        // |v| falls strictly at every exact GJK step. Once it stops falling,
+        // the step the support point asks for is below what double precision
+        // can represent, and the remaining gap between the bounds is rounding:
+        // continuing would repeat this step until the iteration limit.
+        if measured && upper > 0.0 && closest.v.norm() >= upper * (1.0 - STALL_TOLERANCE) {
+            stalled = true;
+            break;
+        }
 
         if closest.contains_origin {
             return Distance {
@@ -239,6 +271,30 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
         }
     }
 
+    conclude(
+        &closest,
+        a.inflation,
+        b.inflation,
+        lower_bound,
+        iterations,
+        status,
+        stalled,
+    )
+}
+
+/// Turns the loop's final state into a reported distance.
+///
+/// See the module documentation for which bound is reported when.
+fn conclude(
+    closest: &Closest,
+    inflation_a: f64,
+    inflation_b: f64,
+    lower_bound: f64,
+    iterations: usize,
+    status: GjkStatus,
+    stalled: bool,
+) -> Distance {
+    let inflation = inflation_a + inflation_b;
     let core_distance = closest.v.norm();
     let separation = core_distance - inflation;
     if separation <= 0.0 {
@@ -254,16 +310,24 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
             status: GjkStatus::Intersecting,
         };
     }
-    if status == GjkStatus::IterationLimit {
-        // Not converged and not provably overlapping: hand back the certified
-        // lower bound, which may be zero, and say that it is one.
+    if stalled || status == GjkStatus::IterationLimit {
+        // The bracket [lower_bound, |v|] did not close to tolerance. Report the
+        // lower bound: it is certified, and it errs toward less clearance,
+        // never more. Stalled at a fixed point with that bound clear of the
+        // inflation radii, the result is still a proof of separation.
+        let certified = lower_bound - inflation;
+        let conclusive = stalled && certified > 0.0;
         return Distance {
-            distance: (lower_bound - inflation).max(0.0),
+            distance: certified.max(0.0),
             witness_a: closest.pa,
             witness_b: closest.pb,
             direction: None,
             iterations,
-            status,
+            status: if conclusive {
+                GjkStatus::Separated
+            } else {
+                GjkStatus::IterationLimit
+            },
         };
     }
 
@@ -273,8 +337,8 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
     let toward_a = closest.v.scaled(1.0 / core_distance);
     Distance {
         distance: separation,
-        witness_a: closest.pa.sub(&toward_a.scaled(a.inflation)),
-        witness_b: closest.pb.add(&toward_a.scaled(b.inflation)),
+        witness_a: closest.pa.sub(&toward_a.scaled(inflation_a)),
+        witness_b: closest.pb.add(&toward_a.scaled(inflation_b)),
         direction: Some(toward_a.scaled(-1.0)),
         iterations,
         status,
@@ -554,13 +618,10 @@ mod tests {
 
     #[test]
     fn a_small_tilted_body_far_from_the_origin_still_converges() {
-        // The observed failure: a centimetre-scale link above a hundred-metre
-        // ground slab. Support points sit seventy metres out while `|v|` is
-        // centimetres, so testing the residual against `|v|^2` alone leaves it
-        // several times over threshold and the loop runs to the iteration
-        // limit. The *tilt* matters: an axis-aligned capsule returns the same
-        // support point twice and terminates on the duplicate check instead,
-        // never reaching the residual test at all.
+        // A centimetre-scale link above a hundred-metre ground slab: support
+        // points seventy metres out while `|v|` is a few centimetres. Tilted,
+        // so that no support point repeats and the loop has to stop on the
+        // bracket rather than on a duplicate vertex.
         let slab = ConvexBody::new(
             ConvexCore::Box {
                 half_extents: Vec3::new(50.0, 50.0, 0.01),
@@ -591,8 +652,7 @@ mod tests {
     #[test]
     fn a_tilted_cylinder_against_a_wide_slab_also_converges() {
         // A cylinder's rim is a continuum of support points, so no duplicate
-        // ever recurs: the residual test is the only thing that can stop the
-        // loop, which makes this the sharpest case for its scaling.
+        // ever recurs: the bracket is the only thing that can stop the loop.
         let slab = ConvexBody::new(
             ConvexCore::Box {
                 half_extents: Vec3::new(50.0, 50.0, 0.01),
@@ -685,6 +745,52 @@ mod tests {
         let result = distance(&capsule, &cylinder);
         assert_eq!(result.status, GjkStatus::Intersecting, "{result:?}");
         assert!(result.distance.abs() < 1e-15);
+    }
+
+    #[test]
+    fn nearly_parallel_faces_converge() {
+        // The case that did not converge with a 1e-12 tolerance: a 1 cm cube
+        // and a gripper palm, faces 5 mm apart and parallel to within 1e-8 rad.
+        let small = ConvexBody::new(
+            ConvexCore::Box {
+                half_extents: Vec3::new(0.005, 0.005, 0.005),
+            },
+            Transform::new(
+                Vec3::new(
+                    0.257_500_002_241_321_8,
+                    -0.099_999_986_922_729_07,
+                    0.440_000_010_595_935_9,
+                ),
+                Quat::new(
+                    0.999_999_999_999_998_7,
+                    1.634_750_557_144_571e-8,
+                    4.047_316_538_715_725e-8,
+                    -2.334_403_559_238_481e-8,
+                ),
+            ),
+        );
+        let palm = ConvexBody::new(
+            ConvexCore::Box {
+                half_extents: Vec3::new(0.02, 0.052, 0.025),
+            },
+            Transform::new(
+                Vec3::new(
+                    0.292_500_002_241_321_67,
+                    -0.099_999_985_778_526_17,
+                    0.440_000_013_428_935_13,
+                ),
+                Quat::new(
+                    0.499_999_983_264_13,
+                    0.499_999_976_265_151_64,
+                    0.500_000_040_079_904_3,
+                    0.500_000_000_390_811_5,
+                ),
+            ),
+        );
+        let result = distance(&small, &palm);
+        assert_eq!(result.status, GjkStatus::Separated, "{result:?}");
+        assert!((result.distance - 0.005).abs() < 1e-9, "{result:?}");
+        assert!(result.iterations < 16, "took {}", result.iterations);
     }
 
     #[test]
