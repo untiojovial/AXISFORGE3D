@@ -23,11 +23,12 @@ const PALM_CLEARANCE: f64 = 0.002;
 /// Gap kept between the fingertips and whatever is beyond the far face, metres.
 const TIP_CLEARANCE: f64 = 0.002;
 
-/// How densely round shapes are sampled.
+/// How densely parts are sampled, and the pads that will hold them.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(default, rename_all = "camelCase")]
 pub struct SynthesisOptions {
-    /// Closing directions tried around a cylinder, capsule or sphere.
+    /// Closing directions tried around a cylinder, capsule or sphere; for a
+    /// sampled surface, approach directions tried around each closing line.
     pub angular_samples: usize,
     /// Grasp heights tried along a cylinder's or capsule's axis.
     pub axial_samples: usize,
@@ -38,6 +39,13 @@ pub struct SynthesisOptions {
     /// Width of each gripping pad, metres. Taken from the gripper; with the
     /// depth it bounds the contact patch.
     pub finger_width: f64,
+    /// Points drawn on the surface of a part that is not a single primitive.
+    pub surface_samples: usize,
+    /// How far below a pad's stop the surface still counts as touching it,
+    /// metres: a stand-in for the pad's compliance.
+    pub contact_tolerance: f64,
+    /// Seed of the surface sampling; the same seed gives the same grasps.
+    pub seed: u64,
 }
 
 impl Default for SynthesisOptions {
@@ -47,6 +55,9 @@ impl Default for SynthesisOptions {
             axial_samples: 3,
             finger_depth: 0.045,
             finger_width: 0.025,
+            surface_samples: 48,
+            contact_tolerance: 0.000_3,
+            seed: 1,
         }
     }
 }

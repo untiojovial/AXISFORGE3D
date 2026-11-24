@@ -3,7 +3,9 @@
 //! Three layers, each usable on its own:
 //!
 //! - [`candidate`] enumerates the antipodal two-finger grasps of a box,
-//!   cylinder, capsule or sphere from its dimensions.
+//!   cylinder, capsule or sphere from its dimensions; [`surface`] finds the
+//!   grasps of any other part, a mesh included, by sampling its surface and
+//!   closing the pads on it until they touch.
 //! - [`quality`] scores a grasp for a gripper and a part: friction-cone force
 //!   closure, stroke margin, required grip force, and how far off-centre it is.
 //! - [`planner`] turns a part into executable picks — pre-grasp, grasp, close,
@@ -50,15 +52,21 @@ pub mod hull;
 pub mod planner;
 pub mod quality;
 pub mod registry;
+pub mod surface;
 pub mod wrench;
 
 pub use candidate::{synthesize, GraspCandidate, SynthesisOptions};
 pub use planner::{
     plan_pick, plan_pick_with, GraspPlan, PlanReport, PlannerOptions, Rejection, RejectionReason,
+    AUTO_GENERATOR,
 };
 pub use quality::{
     evaluate, AntipodalMeasure, GraspQuality, Measurement, QualityInput, QualityMeasure,
     WrenchSpaceMeasure, GRIP_SAFETY_FACTOR,
 };
-pub use registry::{CandidateGenerator, ExtensionInfo, ExtensionKind, Registry};
+pub use registry::{
+    CandidateGenerator, ExtensionInfo, ExtensionKind, PrimitiveAntipodalGenerator, Registry,
+    SurfaceNormalGenerator,
+};
+pub use surface::{synthesize_surface, Closure, PartSurface};
 pub use wrench::{grasp_wrench_space, ContactPoint, WrenchOptions, WrenchSpace};

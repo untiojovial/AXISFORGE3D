@@ -14,11 +14,12 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use axisforge_domain::{DomainError, DomainResult, WorldBody};
+use axisforge_domain::{DomainError, DomainResult, Resource, WorldBody};
 use serde::{Deserialize, Serialize};
 
 use crate::candidate::{synthesize, GraspCandidate, SynthesisOptions};
 use crate::quality::{AntipodalMeasure, QualityMeasure, WrenchSpaceMeasure};
+use crate::surface::synthesize_surface;
 
 /// A way of proposing grasps for a part. Implement this to plug in another library.
 pub trait CandidateGenerator: Send + Sync {
@@ -26,13 +27,15 @@ pub trait CandidateGenerator: Send + Sync {
     fn id(&self) -> &'static str;
     /// One line saying what it generates, for listings.
     fn summary(&self) -> &'static str;
-    /// Proposes grasps for `body`, in world coordinates.
+    /// Proposes grasps for `body`, in world coordinates. `resources` are
+    /// the project's meshes, for bodies that refer to them.
     ///
     /// # Errors
     /// When the generator does not support the body.
     fn generate(
         &self,
         body: &WorldBody,
+        resources: &[Resource],
         options: &SynthesisOptions,
     ) -> DomainResult<Vec<GraspCandidate>>;
 }
@@ -54,9 +57,34 @@ impl CandidateGenerator for PrimitiveAntipodalGenerator {
     fn generate(
         &self,
         body: &WorldBody,
+        _resources: &[Resource],
         options: &SynthesisOptions,
     ) -> DomainResult<Vec<GraspCandidate>> {
         synthesize(body, options)
+    }
+}
+
+/// Grasps of any part, sampled on its surface: meshes, assembled parts, and
+/// primitives alike. See [`synthesize_surface`].
+#[derive(Debug, Clone, Copy, Default)]
+pub struct SurfaceNormalGenerator;
+
+impl CandidateGenerator for SurfaceNormalGenerator {
+    fn id(&self) -> &'static str {
+        "surface_normal"
+    }
+
+    fn summary(&self) -> &'static str {
+        "Points sampled on the part's surface; the jaws close along each point's normal,          approached from several directions, and the contacts are where the pads stop.          Works on meshes and assembled parts."
+    }
+
+    fn generate(
+        &self,
+        body: &WorldBody,
+        resources: &[Resource],
+        options: &SynthesisOptions,
+    ) -> DomainResult<Vec<GraspCandidate>> {
+        synthesize_surface(body, resources, options)
     }
 }
 
@@ -124,6 +152,7 @@ impl Registry {
         let _ = registry.register_measure(Arc::new(WrenchSpaceMeasure));
         let _ = registry.register_measure(Arc::new(AntipodalMeasure));
         let _ = registry.register_generator(Arc::new(PrimitiveAntipodalGenerator));
+        let _ = registry.register_generator(Arc::new(SurfaceNormalGenerator));
         registry
     }
 
@@ -237,7 +266,15 @@ mod tests {
             .into_iter()
             .map(|e| e.id)
             .collect();
-        assert_eq!(ids, ["antipodal", "wrench_space", "primitive_antipodal"]);
+        assert_eq!(
+            ids,
+            [
+                "antipodal",
+                "wrench_space",
+                "primitive_antipodal",
+                "surface_normal"
+            ]
+        );
     }
 
     #[test]

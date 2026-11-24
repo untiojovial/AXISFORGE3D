@@ -15,7 +15,9 @@
 //! gripper is specified by: the stroke left over, and the clamping force
 //! needed to carry the part's weight by friction with a safety factor.
 //!
-//! The part's centre of mass is assumed to be its geometric centre.
+//! The part's centre of mass is assumed to be its geometric centre: the centre
+//! of a primitive, the volume centroid of a closed mesh (see
+//! [`crate::surface::PartSurface`]).
 
 use axisforge_domain::{Gripper, Vec3, WorldBody, STANDARD_GRAVITY};
 use serde::{Deserialize, Serialize};
@@ -39,6 +41,51 @@ pub struct QualityInput<'a> {
     pub up: Vec3,
     /// Friction and contact-model settings.
     pub wrench: &'a WrenchOptions,
+    /// The point torques are taken about: the part's centre of mass.
+    pub center_of_mass: Vec3,
+    /// The length torques are divided by: the part's bounding radius.
+    pub torque_scale: f64,
+}
+
+impl<'a> QualityInput<'a> {
+    /// An input for a part that is a single primitive, with its centre and
+    /// bounding radius taken from the shape. For any other part, set
+    /// [`QualityInput::center_of_mass`] and [`QualityInput::torque_scale`]
+    /// from its surface instead.
+    pub fn new(
+        candidate: &'a GraspCandidate,
+        gripper: &'a Gripper,
+        body: &'a WorldBody,
+        up: Vec3,
+        wrench: &'a WrenchOptions,
+    ) -> Self {
+        let (center_of_mass, torque_scale) = primitive_frame(body);
+        Self {
+            candidate,
+            gripper,
+            body,
+            up,
+            wrench,
+            center_of_mass,
+            torque_scale,
+        }
+    }
+}
+
+/// The centre and bounding radius of a single-primitive body; the body's
+/// origin and one metre otherwise.
+pub fn primitive_frame(body: &WorldBody) -> (Vec3, f64) {
+    let center = body
+        .single_geometry()
+        .map_or(body.pose.translation, |geometry| {
+            body.pose.compose(&geometry.origin).translation
+        });
+    let scale = body
+        .single_geometry()
+        .and_then(|geometry| geometry.shape.local_half_extents())
+        .map_or(1.0, |half| half.norm())
+        .max(1.0e-6);
+    (center, scale)
 }
 
 impl QualityInput<'_> {
@@ -49,22 +96,14 @@ impl QualityInput<'_> {
             .unwrap_or(self.body.physical.friction_coefficient)
     }
 
-    /// The point torques are taken about: the part's geometric centre.
+    /// The point torques are taken about: the part's centre of mass.
     pub fn center_of_mass(&self) -> Vec3 {
-        self.body
-            .single_geometry()
-            .map_or(self.body.pose.translation, |geometry| {
-                self.body.pose.compose(&geometry.origin).translation
-            })
+        self.center_of_mass
     }
 
     /// The length torques are divided by: the part's bounding radius.
     pub fn torque_scale(&self) -> f64 {
-        self.body
-            .single_geometry()
-            .and_then(|geometry| geometry.shape.local_half_extents())
-            .map_or(1.0, |half| half.norm())
-            .max(1.0e-6)
+        self.torque_scale.max(1.0e-6)
     }
 }
 
@@ -243,13 +282,18 @@ pub fn grip_load(input: &QualityInput<'_>) -> (Option<f64>, bool) {
     (basics.required_grip_force, basics.grip_force_sufficient)
 }
 
-/// A cheap ranking of a candidate from stroke, grip force and centring alone.
+/// A cheap ranking of a candidate from stroke, grip force, centring and
+/// approach direction.
 ///
 /// Used to decide the order in which candidates are examined, before the
 /// quality measure — which may be expensive — has been run on any of them.
+/// Approaches from above come first and approaches from below last: a
+/// resting part has its support underneath, and an arm standing beside a
+/// table reaches down onto it far more often than across it.
 pub fn preliminary_score(input: &QualityInput<'_>) -> f64 {
     let [width, force, center] = basics(input).terms;
-    (0.15 * width + 0.2 * force + 0.25 * center) / 0.6
+    let from_above = 0.5 * (1.0 - input.candidate.approach.dot(&input.up));
+    (0.15 * width + 0.2 * force + 0.25 * center + 0.3 * from_above) / 0.9
 }
 
 /// Evaluates a candidate with the given quality measure.
@@ -316,13 +360,7 @@ mod tests {
         let gripper = gripper();
         evaluate(
             measure,
-            &QualityInput {
-                candidate,
-                gripper: &gripper,
-                body,
-                up: Vec3::Z,
-                wrench,
-            },
+            &QualityInput::new(candidate, &gripper, body, Vec3::Z, wrench),
         )
     }
 
@@ -457,13 +495,7 @@ mod tests {
         candidate.normal_a = Vec3::new(tilt.cos(), tilt.sin(), 0.0);
         let gripper = gripper();
         let wrench = WrenchOptions::default();
-        let input = QualityInput {
-            candidate,
-            gripper: &gripper,
-            body: &body,
-            up: Vec3::Z,
-            wrench: &wrench,
-        };
+        let input = QualityInput::new(candidate, &gripper, &body, Vec3::Z, &wrench);
         let q = evaluate(&AntipodalMeasure, &input);
         assert!((q.antipodal_angle - tilt).abs() < 1e-12);
         assert!(!q.force_closure);

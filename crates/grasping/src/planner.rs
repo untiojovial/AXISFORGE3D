@@ -28,16 +28,23 @@ use std::cell::RefCell;
 use std::collections::BTreeMap;
 
 use axisforge_collision::{Attachment, Scene, SceneOptions};
-use axisforge_domain::{DomainError, DomainResult, Gripper, Project, Transform, Vec3, WorldBody};
+use axisforge_domain::{
+    DomainError, DomainResult, Gripper, Project, Shape, Transform, Vec3, WorldBody,
+};
 use axisforge_kinematics::{forward_kinematics, ik, CancellationToken, IkOptions, KinematicModel};
 use serde::{Deserialize, Serialize};
 
 use crate::candidate::{GraspCandidate, SynthesisOptions};
 use crate::quality::{
-    evaluate, grip_load, preliminary_score, GraspQuality, QualityInput, QualityMeasure,
+    evaluate, grip_load, preliminary_score, primitive_frame, GraspQuality, QualityInput,
+    QualityMeasure,
 };
 use crate::registry::Registry;
+use crate::surface::PartSurface;
 use crate::wrench::WrenchOptions;
+
+/// The generator name that picks one by the part's shape.
+pub const AUTO_GENERATOR: &str = "auto";
 
 /// How a pick is planned.
 ///
@@ -64,7 +71,9 @@ pub struct PlannerOptions {
     pub max_candidates: Option<usize>,
     /// Name of the quality measure, from the extension registry.
     pub quality_measure: String,
-    /// Name of the candidate generator, from the extension registry.
+    /// Name of the candidate generator, from the extension registry, or
+    /// `auto`: `primitive_antipodal` for a part that is a single primitive,
+    /// `surface_normal` for anything else. The report names the one used.
     pub candidate_generator: String,
     /// Contact model: unit force, friction coefficient, friction-cone samples.
     pub quality: WrenchOptions,
@@ -78,8 +87,14 @@ pub struct PlannerOptions {
     pub collision_margin: f64,
     /// Joint-space samples checked along the approach and along the lift.
     pub path_samples: usize,
-    /// Sampling density for round parts.
+    /// Sampling density for round parts, and approach directions tried
+    /// around each closing line on a sampled surface.
     pub angular_samples: usize,
+    /// Points sampled on the surface of a part that is not a single primitive.
+    pub surface_samples: usize,
+    /// How far below a pad's stop the part still counts as touching it,
+    /// metres: a stand-in for the pad's compliance.
+    pub contact_tolerance: f64,
     /// Inverse-kinematics settings for the pre-grasp solve.
     pub ik: IkOptions,
 }
@@ -93,7 +108,7 @@ impl Default for PlannerOptions {
             timeout_seconds: None,
             max_candidates: None,
             quality_measure: "wrench_space".to_owned(),
-            candidate_generator: "primitive_antipodal".to_owned(),
+            candidate_generator: AUTO_GENERATOR.to_owned(),
             quality: WrenchOptions::default(),
             standoff: 0.08,
             lift_height: 0.10,
@@ -101,6 +116,8 @@ impl Default for PlannerOptions {
             collision_margin: 0.001,
             path_samples: 6,
             angular_samples: 8,
+            surface_samples: 48,
+            contact_tolerance: 0.000_3,
             ik: IkOptions {
                 restarts: 6,
                 ..IkOptions::default()
@@ -122,6 +139,7 @@ impl PlannerOptions {
             (self.lift_height, "liftHeight"),
             (self.jaw_clearance, "jawClearance"),
             (self.collision_margin, "collisionMargin"),
+            (self.contact_tolerance, "contactTolerance"),
             (self.quality.unit_force, "quality.unitForce"),
             (self.quality.torsional_friction, "quality.torsionalFriction"),
         ];
@@ -268,6 +286,9 @@ struct Context<'a> {
     options: &'a PlannerOptions,
     cancel: &'a CancellationToken,
     measure: &'a dyn QualityMeasure,
+    /// The part's centre of mass and bounding radius, for the quality measure.
+    center_of_mass: Vec3,
+    torque_scale: f64,
     /// Quality by contact set: the two jaw assignments of a grasp share their
     /// contacts, and the measure need not be run twice for them.
     measured: RefCell<BTreeMap<String, GraspQuality>>,
@@ -387,6 +408,8 @@ impl Context<'_> {
             body: self.body,
             up: self.project.environment.ground_normal(),
             wrench: &self.options.quality,
+            center_of_mass: self.center_of_mass,
+            torque_scale: self.torque_scale,
         }
     }
 
@@ -698,12 +721,25 @@ pub fn plan_pick_with(
 ) -> DomainResult<PlanReport> {
     options.validate()?;
     let measure = registry.measure(&options.quality_measure)?;
-    let generator = registry.generator(&options.candidate_generator)?;
     let gripper = project.robot.require_gripper()?;
     let body = project
         .environment
         .body(body_id)
         .ok_or_else(|| DomainError::dangling("world body", body_id, "plan_pick"))?;
+    // A single primitive has exact grasps and an exact centre; anything else
+    // is handled through its surface.
+    let primitive = body
+        .single_geometry()
+        .is_some_and(|g| !matches!(g.shape, Shape::Mesh { .. }));
+    let generator = registry.generator(if options.candidate_generator == AUTO_GENERATOR {
+        if primitive {
+            "primitive_antipodal"
+        } else {
+            "surface_normal"
+        }
+    } else {
+        &options.candidate_generator
+    })?;
     if !body.is_graspable() {
         return Err(DomainError::unsupported(format!(
             "body '{}' is not marked manipulable, so it is not a pick target",
@@ -732,7 +768,15 @@ pub fn plan_pick_with(
         angular_samples: options.angular_samples,
         finger_depth: gripper.finger_depth,
         finger_width: gripper.finger_width,
+        surface_samples: options.surface_samples,
+        contact_tolerance: options.contact_tolerance,
         ..SynthesisOptions::default()
+    };
+    let (center_of_mass, torque_scale) = if primitive {
+        primitive_frame(body)
+    } else {
+        let surface = PartSurface::of(body, &project.resources)?;
+        (surface.center_of_mass, surface.radius)
     };
     let context = Context {
         project,
@@ -745,10 +789,12 @@ pub fn plan_pick_with(
         options,
         cancel,
         measure,
+        center_of_mass,
+        torque_scale,
         measured: RefCell::new(BTreeMap::new()),
     };
     let mut ranked: Vec<(f64, GraspCandidate)> = generator
-        .generate(body, &synthesis)?
+        .generate(body, &project.resources, &synthesis)?
         .into_iter()
         .map(|c| (preliminary_score(&context.quality_input(&c)), c))
         .collect();
@@ -1163,6 +1209,205 @@ mod tests {
             "{calls} calls for {} plans",
             report.plans.len()
         );
+    }
+
+    /// The demo cube replaced by the same cube as a twelve-triangle mesh.
+    fn with_mesh_cube(mut project: Project) -> Project {
+        use axisforge_domain::{GeometryInstance, GeometryRole, Resource};
+        let index = project
+            .environment
+            .bodies
+            .iter()
+            .position(|b| b.name == "cube")
+            .unwrap();
+        let primitive = project.environment.bodies[index].clone();
+        let mut at_origin = primitive.clone();
+        at_origin.pose = Transform::IDENTITY;
+        at_origin.geometries[0].origin = Transform::IDENTITY;
+        let surface = PartSurface::of(&at_origin, &[]).unwrap();
+        project.resources.push(Resource {
+            id: "cube-mesh".to_owned(),
+            name: "cube.stl".to_owned(),
+            media_type: "model/stl".to_owned(),
+            vertices: surface.vertices.iter().flat_map(|v| v.to_array()).collect(),
+            indices: surface.triangles.iter().flatten().copied().collect(),
+        });
+        let geometry = &primitive.geometries[0];
+        project.environment.bodies[index].geometries = vec![GeometryInstance::visual(
+            "cube-mesh-geometry",
+            "cube mesh",
+            Shape::Mesh {
+                resource_id: "cube-mesh".to_owned(),
+                scale: Vec3::new(1.0, 1.0, 1.0),
+            },
+        )
+        .with_origin(geometry.origin)
+        .with_role(GeometryRole::Both)];
+        project.validate().unwrap();
+        project
+    }
+
+    #[test]
+    fn a_mesh_part_is_planned_through_its_surface() {
+        let (project, seed) = cell();
+        let project = with_mesh_cube(project);
+        let report = plan(&project, "cube", &seed);
+        assert_eq!(report.candidate_generator, "surface_normal");
+        assert!(!report.plans.is_empty(), "{:?}", report.rejections);
+        for plan in &report.plans {
+            assert!(plan.quality.force_closure);
+            // A 40 mm cube is 40 mm across whichever way it is held.
+            assert!(
+                (plan.candidate.width - 0.04).abs() < 1e-9,
+                "{}",
+                plan.candidate.width
+            );
+        }
+    }
+
+    #[test]
+    fn the_pad_model_reproduces_the_primitive_contacts() {
+        // Closing the pads at each primitive candidate's own pose must give
+        // that candidate's width and contacts: the analytic model and the
+        // surface model describe the same physical pads.
+        let (project, seed) = cell();
+        let synthesis = SynthesisOptions::default();
+        let pad = (synthesis.finger_width, synthesis.finger_depth);
+        let mut compared = 0;
+        for (name, cylinder_sides_only) in [("cube", false), ("dowel", true)] {
+            let body = project.environment.body_by_name(name).unwrap();
+            let axis = body.pose.apply_direction(&Vec3::Z);
+            let surface = PartSurface::of(body, &[]).unwrap();
+            for candidate in crate::candidate::synthesize(body, &synthesis).unwrap() {
+                if cylinder_sides_only && candidate.closing.dot(&axis).abs() > 1e-9 {
+                    continue;
+                }
+                let closure = surface
+                    .close(
+                        &candidate.center,
+                        &candidate.closing,
+                        &candidate.approach,
+                        pad,
+                        0.0,
+                    )
+                    .unwrap_or_else(|| panic!("{}: no closure", candidate.label));
+                assert!(
+                    (closure.width - candidate.width).abs() < 1e-9,
+                    "{}: width {} vs {}",
+                    candidate.label,
+                    closure.width,
+                    candidate.width
+                );
+                let found: Vec<_> = closure.positive.iter().chain(&closure.negative).collect();
+                assert_eq!(
+                    found.len(),
+                    candidate.contacts.len(),
+                    "{}: {found:?}",
+                    candidate.label
+                );
+                for expected in &candidate.contacts {
+                    assert!(
+                        found
+                            .iter()
+                            .any(|c| c.point.distance(&expected.point) < 1e-8
+                                && c.normal.distance(&expected.normal) < 1e-9),
+                        "{}: no match for {expected:?} in {found:?}",
+                        candidate.label
+                    );
+                }
+                compared += 1;
+            }
+        }
+        assert!(compared >= 60, "{compared} candidates compared");
+
+        // Planned end to end as a mesh, the cube must still be held in force
+        // closure, with an epsilon of the same order as the exact grasps'.
+        let mesh_project = with_mesh_cube(project.clone());
+        let options = PlannerOptions {
+            nr_grasps: 1,
+            ..PlannerOptions::default()
+        };
+        let both = |project: &Project, generator: &str| {
+            let id = project.environment.body_by_name("cube").unwrap().id.clone();
+            plan_pick(
+                project,
+                &id,
+                &seed,
+                &PlannerOptions {
+                    candidate_generator: generator.to_owned(),
+                    ..options.clone()
+                },
+                &CancellationToken::new(),
+            )
+            .unwrap()
+        };
+        let exact = both(&project, "primitive_antipodal");
+        let sampled = both(&mesh_project, "auto");
+        assert_eq!(sampled.candidate_generator, "surface_normal");
+        let best = |r: &PlanReport| r.plans[0].quality.quality;
+        // Sampling may not land on the very best primitive hold, but it must
+        // find one in force closure of the same order.
+        assert!(sampled.plans[0].quality.force_closure);
+        println!("epsilon: sampled {} exact {}", best(&sampled), best(&exact));
+        assert!(
+            best(&sampled) > 0.3 * best(&exact),
+            "{} vs {}",
+            best(&sampled),
+            best(&exact)
+        );
+    }
+
+    #[test]
+    fn an_assembled_part_is_no_longer_refused() {
+        // A "T" of two boxes: the primitive generator cannot hold it, the
+        // surface generator can.
+        let (mut project, seed) = cell();
+        let index = project
+            .environment
+            .bodies
+            .iter()
+            .position(|b| b.name == "cube")
+            .unwrap();
+        let mut stem = project.environment.bodies[index].geometries[0].clone();
+        stem.id = "stem".to_owned();
+        stem.shape = Shape::Box {
+            size: Vec3::new(0.02, 0.02, 0.04),
+        };
+        stem.origin = Transform::from_translation(Vec3::new(0.0, 0.0, 0.03));
+        project.environment.bodies[index].geometries.push(stem);
+        project.validate().unwrap();
+        let exact = plan_pick(
+            &project,
+            &project.environment.bodies[index].id,
+            &seed,
+            &PlannerOptions {
+                candidate_generator: "primitive_antipodal".to_owned(),
+                ..PlannerOptions::default()
+            },
+            &CancellationToken::new(),
+        );
+        assert!(exact.is_err(), "two geometries have no single set of faces");
+        let report = plan(&project, "cube", &seed);
+        assert_eq!(report.candidate_generator, "surface_normal");
+        assert!(!report.plans.is_empty(), "{:?}", report.rejections);
+        assert!(report.plans.iter().all(|p| p.quality.force_closure));
+    }
+
+    #[test]
+    fn a_mesh_part_without_its_mesh_is_an_error() {
+        let (project, seed) = cell();
+        let mut project = with_mesh_cube(project);
+        project.resources.clear();
+        let id = project.environment.body_by_name("cube").unwrap().id.clone();
+        let error = plan_pick(
+            &project,
+            &id,
+            &seed,
+            &PlannerOptions::default(),
+            &CancellationToken::new(),
+        )
+        .unwrap_err();
+        assert!(error.to_string().contains("cube-mesh"), "{error}");
     }
 
     #[test]

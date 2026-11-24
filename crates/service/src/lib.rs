@@ -1216,7 +1216,15 @@ mod tests {
             .iter()
             .map(|e| e["id"].as_str().unwrap())
             .collect();
-        assert_eq!(ids, ["antipodal", "wrench_space", "primitive_antipodal"]);
+        assert_eq!(
+            ids,
+            [
+                "antipodal",
+                "wrench_space",
+                "primitive_antipodal",
+                "surface_normal"
+            ]
+        );
 
         let cube = session
             .project()
