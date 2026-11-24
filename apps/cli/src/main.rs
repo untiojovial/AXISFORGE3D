@@ -161,11 +161,10 @@ fn report_import(imported: &Imported, out: &Path) -> Result<()> {
 /// under the folder and each of its ancestors, with and without the package
 /// name. Failing that, a file of the same name anywhere under the folder is
 /// used if there is exactly one, as the viewer does with the files it is
-/// given. Only STL and OBJ files are ever opened: a description is untrusted,
+/// given. Only STL, OBJ and COLLADA files are ever opened: a description is untrusted,
 /// and a "mesh" reference is no reason to read arbitrary files.
 fn load_mesh(folder: &Path, reference: &str) -> Option<Vec<u8>> {
-    let lower = reference.to_ascii_lowercase();
-    if !(lower.ends_with(".stl") || lower.ends_with(".obj")) {
+    if !axisforge_project_io::mesh::is_supported(reference) {
         return None;
     }
     let mut candidates: Vec<PathBuf> = Vec::new();

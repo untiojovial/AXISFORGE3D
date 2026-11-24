@@ -832,7 +832,7 @@ async function importFiles() {
   }
   try {
     const files = {};
-    for (const f of picked.filter((f) => /\.(stl|obj)$/i.test(f.name))) files[f.name] = toBase64(await readFile(f));
+    for (const f of picked.filter((f) => /\.(stl|obj|dae)$/i.test(f.name))) files[f.name] = toBase64(await readFile(f));
     const text = new TextDecoder().decode(await readFile(descriptions[0]));
     if (/\.urdf$/i.test(descriptions[0].name)) { importRobot("urdf", text, files); return; }
     if (/<\s*ManipulationObject[\s>]/i.test(text)) { addObject(text, files); return; }

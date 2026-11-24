@@ -395,6 +395,11 @@ impl Scene {
             }
         }
         contacts.sort_by(|a, b| a.distance.total_cmp(&b.distance));
+        // A mesh collides as several pieces; two owners touching through
+        // more than one pair of pieces are still one contact, reported at its
+        // closest.
+        let mut seen = BTreeSet::new();
+        contacts.retain(|c| seen.insert(ordered(&c.first_id, &c.second_id)));
         CollisionReport {
             contacts,
             closest,
@@ -588,6 +593,48 @@ mod tests {
             "{:?}",
             report.contacts
         );
+    }
+
+    #[test]
+    fn an_owner_touching_through_several_pieces_is_one_contact() {
+        // A link made of three boxes, all sunk into the table: one contact.
+        let (mut project, _) = cell();
+        let table = project.environment.body_by_name("table").unwrap().clone();
+        let top = table.pose.translation.z;
+        let id = axisforge_domain::templates::stable_id("test", "link", "pieces");
+        let mut link = axisforge_domain::Link::new(&id, "pieces");
+        for (i, x) in [0.3, 0.4, 0.5].iter().enumerate() {
+            link.geometries.push(
+                axisforge_domain::GeometryInstance::visual(
+                    format!("{id}-{i}"),
+                    "piece",
+                    Shape::Box {
+                        size: Vec3::new(0.05, 0.05, 0.05),
+                    },
+                )
+                .with_origin(Transform::from_translation(Vec3::new(*x, 0.0, top)))
+                .with_role(axisforge_domain::GeometryRole::Collision),
+            );
+        }
+        project.robot.links.push(link);
+        let root = project.robot.root_link_id.clone();
+        project.robot.joints.push(axisforge_domain::Joint::fixed(
+            format!("{id}-j"),
+            "pieces mount",
+            &root,
+            &id,
+            Transform::IDENTITY,
+        ));
+        project.validate().unwrap();
+        let model = KinematicModel::from_robot(&project.robot).unwrap();
+        let report = check(&project, &model, &vec![0.0; model.dof()]);
+        let with_table: Vec<_> = report
+            .contacts
+            .iter()
+            .filter(|c| c.first_name == "pieces" || c.second_name == "pieces")
+            .collect();
+        assert_eq!(with_table.len(), 1, "{:?}", report.contacts);
+        assert!(with_table[0].distance <= 0.0, "sunk pieces touch");
     }
 
     #[test]

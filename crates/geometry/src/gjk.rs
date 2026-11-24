@@ -246,6 +246,10 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
             break;
         }
 
+        debug_assert!(
+            closest.contains_origin || simplex.len() <= 3,
+            "a simplex that does not hold the origin has at most three points"
+        );
         if closest.contains_origin {
             return Distance {
                 distance: 0.0,
@@ -403,9 +407,13 @@ fn solve_simplex(simplex: &mut Vec<Vertex>) -> Closest {
             .fold(Vec3::ZERO, |acc, (i, w)| acc.add(&points[*i].scaled(*w)));
         let norm_squared = point.norm_squared();
 
-        // A full-dimensional subset whose projection of the origin lands
-        // strictly inside means the origin is enclosed.
-        if indices.len() == count && count == 4 {
+        // A tetrahedron whose barycentric projection of the origin is valid
+        // holds the origin, and the tetrahedron lies inside the difference
+        // body. This is decided by the weights, never by how small the
+        // projected point came out: at a 100 m scale rounding leaves it at
+        // 1e-8, and an absolute threshold then let the loop keep four points
+        // and add a fifth.
+        if indices.len() == 4 {
             origin_enclosed = true;
         }
 
@@ -452,7 +460,7 @@ fn solve_simplex(simplex: &mut Vec<Vertex>) -> Closest {
         v,
         pa,
         pb,
-        contains_origin: origin_enclosed && v.norm_squared() <= f64::EPSILON,
+        contains_origin: origin_enclosed,
     }
 }
 
@@ -550,6 +558,38 @@ mod tests {
             },
             Transform::from_translation(at),
         )
+    }
+
+    /// The simplex GJK built for the 100 m ground slab against a UR5 link
+    /// resting on it: a nearly flat tetrahedron holding the origin, whose
+    /// projected point rounding left at 3.4e-8. It used to be kept whole as
+    /// "not containing the origin", and the next iteration indexed past the
+    /// end of a five-point simplex.
+    #[test]
+    // The coordinates are the recorded ones, digit for digit.
+    #[allow(clippy::unreadable_literal)]
+    fn a_wide_flat_tetrahedron_around_the_origin_is_recognised() {
+        let points = [
+            Vec3::new(50.853645460368035, 50.156649895095825, 0.024034969295091562),
+            Vec3::new(-49.21822877073198, -49.9423144831419, -0.002106857216041688),
+            Vec3::new(-49.21992438131471, 50.15664995097518, -0.012463939106164501),
+            Vec3::new(
+                50.81840156173837,
+                -49.902237914419175,
+                -0.044223558818618766,
+            ),
+        ];
+        let mut simplex: Vec<Vertex> = points
+            .iter()
+            .map(|w| Vertex {
+                w: *w,
+                pa: Vec3::ZERO,
+                pb: w.scaled(-1.0),
+            })
+            .collect();
+        let closest = solve_simplex(&mut simplex);
+        assert!(closest.contains_origin, "{:?}", closest.v);
+        assert!(closest.v.norm() < 1.0e-6);
     }
 
     #[test]

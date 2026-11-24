@@ -95,15 +95,16 @@ struct Reader<'a, 'm> {
 }
 
 impl Reader<'_, '_> {
-    /// One `<visual>` or `<collision>` element as a geometry, or `None` when
-    /// its mesh could not be loaded.
+    /// One `<visual>` or `<collision>` element as geometries: one for a
+    /// primitive, one per coloured part for a mesh, none when its mesh could
+    /// not be loaded.
     fn geometry(
         &mut self,
         node: Node<'_, '_>,
         link: &str,
         role: GeometryRole,
         index: usize,
-    ) -> Result<Option<GeometryInstance>, ImportError> {
+    ) -> Result<Vec<GeometryInstance>, ImportError> {
         let kind = if role == GeometryRole::Visual {
             "visual"
         } else {
@@ -113,17 +114,31 @@ impl Reader<'_, '_> {
         let shape_node = element(node, "geometry")
             .and_then(|g| g.children().find(Node::is_element))
             .ok_or_else(|| ImportError::Malformed(format!("{what}: no <geometry> shape")))?;
-        let shape = match shape_node.tag_name().name() {
-            "box" => Shape::Box {
-                size: vec3(required(shape_node, "size", &what)?, &what)?,
-            },
-            "sphere" => Shape::Sphere {
-                radius: number(required(shape_node, "radius", &what)?, &what)?,
-            },
-            "cylinder" => Shape::Cylinder {
-                radius: number(required(shape_node, "radius", &what)?, &what)?,
-                length: number(required(shape_node, "length", &what)?, &what)?,
-            },
+        // Each shape with the colour its file gives it, if any, and its role.
+        let shapes: Vec<(Shape, Option<String>, GeometryRole)> = match shape_node.tag_name().name()
+        {
+            "box" => vec![(
+                Shape::Box {
+                    size: vec3(required(shape_node, "size", &what)?, &what)?,
+                },
+                None,
+                role,
+            )],
+            "sphere" => vec![(
+                Shape::Sphere {
+                    radius: number(required(shape_node, "radius", &what)?, &what)?,
+                },
+                None,
+                role,
+            )],
+            "cylinder" => vec![(
+                Shape::Cylinder {
+                    radius: number(required(shape_node, "radius", &what)?, &what)?,
+                    length: number(required(shape_node, "length", &what)?, &what)?,
+                },
+                None,
+                role,
+            )],
             "mesh" => {
                 let reference = required(shape_node, "filename", &what)?;
                 let scale = shape_node
@@ -131,10 +146,22 @@ impl Reader<'_, '_> {
                     .map_or(Ok(Vec3::new(1.0, 1.0, 1.0)), |t| {
                         vec3(t, &format!("{what} mesh scale"))
                     })?;
-                match self.meshes.resource(reference) {
-                    Some(resource_id) => Shape::Mesh { resource_id, scale },
-                    None => return Ok(None),
-                }
+                let Some(parts) = self.meshes.parts(reference, role) else {
+                    return Ok(Vec::new());
+                };
+                parts
+                    .into_iter()
+                    .map(|part| {
+                        (
+                            Shape::Mesh {
+                                resource_id: part.resource_id,
+                                scale,
+                            },
+                            part.color,
+                            part.role,
+                        )
+                    })
+                    .collect()
             }
             other => {
                 return Err(ImportError::Unsupported(format!(
@@ -142,24 +169,56 @@ impl Reader<'_, '_> {
                 )));
             }
         };
-        let name = format!("{kind} {index}");
+        let declared = self.declared_colour(node, role, &what)?;
+        let origin = origin(node, &what)?;
         let ns = format!("{}::{link}", self.robot);
-        let mut geometry = GeometryInstance::visual(stable_id(&ns, "geometry", &name), name, shape)
-            .with_origin(origin(node, &what)?)
-            .with_role(role);
-        if role == GeometryRole::Visual {
-            if let Some(material) = element(node, "material") {
-                let inline = colour(material, &what)?;
-                let named = material
-                    .attribute("name")
-                    .and_then(|n| self.materials.get(n));
-                if let Some(Colour { hex, opacity }) = inline.as_ref().or(named) {
-                    geometry.material.color.clone_from(hex);
-                    geometry.material.opacity = *opacity;
-                }
+        let several = shapes.len() > 1;
+        let mut geometries = Vec::new();
+        for (part, (shape, file_color, part_role)) in shapes.into_iter().enumerate() {
+            let name = if several {
+                format!("{kind} {index} part {}", part + 1)
+            } else {
+                format!("{kind} {index}")
+            };
+            let mut geometry =
+                GeometryInstance::visual(stable_id(&ns, "geometry", &name), name, shape)
+                    .with_origin(origin)
+                    .with_role(part_role);
+            // The mesh's own colours win over the URDF material, as RViz
+            // draws them; the material still colours parts that have none.
+            if let Some(Colour { hex, opacity }) = &declared {
+                geometry.material.color.clone_from(hex);
+                geometry.material.opacity = *opacity;
             }
+            if let Some(hex) = file_color.filter(|_| part_role != GeometryRole::Collision) {
+                geometry.material.color = hex;
+            }
+            geometries.push(geometry);
         }
-        Ok(Some(geometry))
+        Ok(geometries)
+    }
+
+    /// The colour a `<visual>` element's `<material>` gives, inline or by name.
+    fn declared_colour(
+        &self,
+        node: Node<'_, '_>,
+        role: GeometryRole,
+        what: &str,
+    ) -> Result<Option<Colour>, ImportError> {
+        let Some(material) = element(node, "material").filter(|_| role == GeometryRole::Visual)
+        else {
+            return Ok(None);
+        };
+        let inline = colour(material, what)?;
+        Ok(inline.or_else(|| {
+            material
+                .attribute("name")
+                .and_then(|n| self.materials.get(n))
+                .map(|c| Colour {
+                    hex: c.hex.clone(),
+                    opacity: c.opacity,
+                })
+        }))
     }
 
     fn inertial(&mut self, node: Node<'_, '_>, link: &str) -> Result<Inertial, ImportError> {
@@ -654,12 +713,71 @@ mod tests {
     }
 
     #[test]
+    fn a_collada_mesh_becomes_one_geometry_per_colour() {
+        // Two triangles, one red and one with no material.
+        let dae = r##"<COLLADA><asset><up_axis>Y_UP</up_axis></asset>
+            <library_effects><effect id="fx"><profile_COMMON><technique><phong>
+              <diffuse><color>1 0 0 1</color></diffuse></phong></technique></profile_COMMON></effect></library_effects>
+            <library_materials><material id="red"><instance_effect url="#fx"/></material></library_materials>
+            <library_geometries><geometry id="g"><mesh>
+              <source id="s"><float_array id="a" count="9">0 0 0 1 0 0 0 1 0</float_array>
+                <technique_common><accessor source="#a" count="3" stride="3"/></technique_common></source>
+              <vertices id="v"><input semantic="POSITION" source="#s"/></vertices>
+              <triangles material="red" count="1"><input semantic="VERTEX" source="#v" offset="0"/><p>0 1 2</p></triangles>
+              <triangles count="1"><input semantic="VERTEX" source="#v" offset="0"/><p>0 2 1</p></triangles>
+            </mesh></geometry></library_geometries>
+            <library_visual_scenes><visual_scene id="vs"><node><instance_geometry url="#g"/></node></visual_scene></library_visual_scenes>
+            <scene><instance_visual_scene url="#vs"/></scene></COLLADA>"##;
+        let text = r#"<robot name="c"><material name="blue"><color rgba="0 0 1 0.5"/></material>
+            <link name="a">
+              <visual><geometry><mesh filename="package://c/arm.dae"/></geometry><material name="blue"/></visual>
+              <collision><geometry><mesh filename="package://c/arm.dae"/></geometry></collision>
+            </link><link name="b"/>
+            <joint name="j" type="revolute"><parent link="a"/><child link="b"/><origin xyz="0 0 0.1"/><limit lower="-1" upper="1"/></joint>
+            </robot>"#;
+        let mut files = BTreeMap::new();
+        files.insert("arm.dae".to_owned(), dae.as_bytes().to_vec());
+        let imported = import_urdf(text, &files, &ImportOptions::default()).unwrap();
+        // Two coloured parts to draw; for collision the two triangles share
+        // every edge, one closed piece, so one more resource for the whole.
+        assert_eq!(imported.project.resources.len(), 3);
+        let link = imported.project.robot.link_by_name("a").unwrap();
+        let visual: Vec<_> = link
+            .geometries
+            .iter()
+            .filter(|g| g.role == GeometryRole::Visual)
+            .collect();
+        let collision: Vec<_> = link
+            .geometries
+            .iter()
+            .filter(|g| g.role == GeometryRole::Collision)
+            .collect();
+        assert_eq!((visual.len(), collision.len()), (2, 1));
+        // The file's red wins over the URDF's blue; the part without a colour
+        // takes the URDF's. Both keep the URDF's opacity.
+        assert_eq!(visual[0].material.color, "#ff0000");
+        assert_eq!(visual[1].material.color, "#0000ff");
+        assert!(visual
+            .iter()
+            .all(|g| (g.material.opacity - 0.5).abs() < 1e-12));
+        assert_ne!(visual[0].id, visual[1].id);
+        assert!(
+            imported
+                .warnings
+                .iter()
+                .any(|w| w.contains("Y_UP") && w.ends_with(": arm.dae")),
+            "{:?}",
+            imported.warnings
+        );
+    }
+
+    #[test]
     fn meshes_are_loaded_once_scaled_and_missing_ones_reported() {
         let text = r#"<robot name="m"><link name="a">
             <visual><geometry><mesh filename="package://m/meshes/part.stl" scale="0.001 0.001 0.001"/></geometry></visual>
             <collision><geometry><mesh filename="package://m/meshes/part.stl"/></geometry></collision>
             <visual><geometry><mesh filename="missing.obj"/></geometry></visual>
-            <visual><geometry><mesh filename="package://m/meshes/visual/shape.dae"/></geometry></visual>
+            <visual><geometry><mesh filename="package://m/meshes/visual/shape.ply"/></geometry></visual>
         </link><link name="b"/>
         <joint name="j" type="revolute"><parent link="a"/><child link="b"/><origin xyz="0 0 0.1"/><limit lower="-1" upper="1"/></joint>
         </robot>"#;
@@ -669,7 +787,7 @@ mod tests {
             calls.set(calls.get() + 1);
             match reference {
                 "package://m/meshes/part.stl" => Some(stl.as_bytes().to_vec()),
-                "package://m/meshes/visual/shape.dae" => Some(b"<COLLADA/>".to_vec()),
+                "package://m/meshes/visual/shape.ply" => Some(b"ply".to_vec()),
                 _ => None,
             }
         };
@@ -682,7 +800,7 @@ mod tests {
         assert_eq!(
             calls.get(),
             2,
-            "each readable reference is asked for once, the .dae never"
+            "each readable reference is asked for once, the .ply never"
         );
         let link = imported.project.robot.link_by_name("a").unwrap();
         let Shape::Mesh { scale, resource_id } = &link.geometries[0].shape else {
@@ -703,7 +821,7 @@ mod tests {
             imported
                 .warnings
                 .iter()
-                .any(|w| w.ends_with("not supported; STL and OBJ are): shape.dae")),
+                .any(|w| w.ends_with("not supported; STL, OBJ and COLLADA are): shape.ply")),
             "file names, not package paths: {:?}",
             imported.warnings
         );

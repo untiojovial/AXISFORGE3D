@@ -20,8 +20,8 @@ six axes and a parallel-jaw gripper.
   space (force closure, epsilon), and plan a pick — pre-grasp, grasp,
   close, lift — that the arm can reach and perform without collision. Every
   rejected grasp comes back with its reason.
-- **Import**: URDF robots and Simox robot and object XML, with STL and OBJ
-  meshes. Forward kinematics of imported robots is checked against an
+- **Import**: URDF robots and Simox robot and object XML, with STL, OBJ and
+  COLLADA meshes. Forward kinematics of imported robots is checked against an
   independent reference (`tools/verify`).
 
 ## Try it

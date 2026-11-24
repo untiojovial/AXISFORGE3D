@@ -323,20 +323,26 @@ impl GeometryReader<'_, '_> {
                 .map(str::trim)
                 .filter(|t| !t.is_empty())
                 .ok_or_else(|| ImportError::Malformed(format!("{what}: <File> names no file")))?;
-            if let Some(resource_id) = self.meshes.resource(reference) {
+            if let Some(parts) = self.meshes.parts(reference, role) {
                 if attr(file, "boundingbox").is_some_and(|v| v.eq_ignore_ascii_case("true")) {
                     self.warnings.push(format!(
                         "{what}: Simox collides with the bounding box of `{reference}`; its convex hull is used instead"
                     ));
                 }
-                out.push(self.instance(
-                    Shape::Mesh {
-                        resource_id,
-                        scale: Vec3::new(1.0, 1.0, 1.0),
-                    },
-                    Transform::IDENTITY,
-                    role,
-                ));
+                for part in parts {
+                    let mut geometry = self.instance(
+                        Shape::Mesh {
+                            resource_id: part.resource_id,
+                            scale: Vec3::new(1.0, 1.0, 1.0),
+                        },
+                        Transform::IDENTITY,
+                        part.role,
+                    );
+                    if let Some(hex) = part.color {
+                        geometry.material.color = hex;
+                    }
+                    out.push(geometry);
+                }
             }
         }
         if let Some(primitives) = child(node, "primitives") {

@@ -45,3 +45,26 @@ postures each:
 
 The DH agreement is limited by the URDF itself, which writes pi/2 as
 `1.57079632679`. The acceptance bound for phase 1 is 0.1 mm.
+
+## COLLADA meshes, recorded on 2026-11-24
+
+The UR5's visual meshes are COLLADA files exported from CAD with Blender; its
+collision meshes are STL files modelled separately. Reading both and
+comparing bounding boxes checks the COLLADA reader's units, scene transforms
+and indices against something it did not produce:
+
+| UR5 link | Visual triangles | Worst bound difference |
+| --- | --- | --- |
+| base | 1 932 | 0.27 mm |
+| shoulder | 13 488 | 0.25 mm |
+| upperarm | 29 428 | 0.40 mm |
+| forearm | 21 022 | 0.53 mm |
+| wrist1 | 14 072 | 0.15 mm |
+| wrist2 | 14 072 | 0.14 mm |
+| wrist3 | 1 658 | 0.02 mm |
+
+The differences are the two models' own: the collision meshes are coarser.
+`crates/project-io/tests/collada_against_collision_meshes.rs` repeats the
+check for `base` and `wrist3` within 1 mm in `cargo test`. All 11 Kinova
+Jaco2 meshes also read, from 452 to 44 578 triangles, in at most 26 ms each.
+

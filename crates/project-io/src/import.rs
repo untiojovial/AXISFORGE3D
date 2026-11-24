@@ -137,14 +137,45 @@ pub(crate) fn hex_color(red: f64, green: f64, blue: f64) -> String {
     format!("#{:02x}{:02x}{:02x}", byte(red), byte(green), byte(blue))
 }
 
+/// Most closed pieces a collision mesh is split into; beyond that it stays
+/// one hull.
+const MAX_COLLISION_PIECES: usize = 16;
+
+/// One piece of a loaded mesh file, stored as a project resource.
+#[derive(Debug, Clone, PartialEq)]
+pub(crate) struct MeshPart {
+    pub resource_id: String,
+    /// `#rrggbb` when the file colours this piece.
+    pub color: Option<String>,
+    /// What the piece is for: drawing, collision, or both when one resource
+    /// serves both.
+    pub role: GeometryRole,
+}
+
+/// A file that was read, and the resources made from it so far.
+struct Loaded {
+    file_name: String,
+    media_type: &'static str,
+    parsed: mesh::Parsed,
+    visual: Option<Vec<MeshPart>>,
+    collision: Option<Vec<MeshPart>>,
+}
+
 /// Loads referenced meshes once each and turns them into project resources.
+///
+/// A file is drawn by its coloured parts and collides as its whole mesh,
+/// split into closed pieces when it has some (see [`mesh::Mesh::closed_pieces`]).
+/// The two are kept apart because a colour says nothing about shape: the
+/// hulls of the parts of one colour need not cover the solid.
 pub(crate) struct MeshStore<'a> {
     namespace: String,
     source: &'a dyn MeshSource,
-    /// Resource id by reference, or `None` for a reference that failed.
-    loaded: BTreeMap<String, Option<String>>,
+    /// Files by reference, or `None` for a reference that failed.
+    loaded: BTreeMap<String, Option<Loaded>>,
     /// References that failed, grouped by the reason they failed.
     failures: BTreeMap<String, Vec<String>>,
+    /// Notes from files that were read, grouped by note.
+    notes: BTreeMap<String, Vec<String>>,
     pub resources: Vec<Resource>,
 }
 
@@ -155,19 +186,48 @@ impl<'a> MeshStore<'a> {
             source,
             loaded: BTreeMap::new(),
             failures: BTreeMap::new(),
+            notes: BTreeMap::new(),
             resources: Vec::new(),
         }
     }
 
-    /// The resource id for a mesh reference, loading it on first use.
+    /// The resources a mesh reference needs in `role`, loading the file on
+    /// first use. `Both` yields one resource for both when that is possible,
+    /// and separate drawing and collision pieces when it is not.
     ///
     /// A mesh that cannot be found or read yields `None`; the failure is
     /// reported once, grouped with others that failed for the same reason,
     /// by [`MeshStore::report`].
-    pub fn resource(&mut self, reference: &str) -> Option<String> {
-        if let Some(known) = self.loaded.get(reference) {
-            return known.clone();
+    pub fn parts(&mut self, reference: &str, role: GeometryRole) -> Option<Vec<MeshPart>> {
+        if !self.loaded.contains_key(reference) {
+            let loaded = self.load(reference);
+            self.loaded.insert(reference.to_owned(), loaded);
         }
+        let namespace = self.namespace.clone();
+        let loaded = self.loaded.get_mut(reference)?.as_mut()?;
+        let resources = &mut self.resources;
+        let visual = visual_parts(loaded, reference, &namespace, resources);
+        if role == GeometryRole::Visual {
+            return Some(visual);
+        }
+        let collision = collision_parts(loaded, reference, &namespace, resources);
+        if role == GeometryRole::Collision {
+            return Some(collision);
+        }
+        // One resource serving both is drawn and collided as itself.
+        if let ([drawn], [collided]) = (visual.as_slice(), collision.as_slice()) {
+            if drawn.resource_id == collided.resource_id {
+                return Some(vec![MeshPart {
+                    role: GeometryRole::Both,
+                    ..drawn.clone()
+                }]);
+            }
+        }
+        Some(visual.into_iter().chain(collision).collect())
+    }
+
+    /// Reads a referenced file, or records why it could not be.
+    fn load(&mut self, reference: &str) -> Option<Loaded> {
         let file_name = reference.rsplit(['/', '\\']).next().unwrap_or(reference);
         let extension = file_name
             .rsplit('.')
@@ -176,36 +236,40 @@ impl<'a> MeshStore<'a> {
             .to_ascii_lowercase();
         // Decided before asking the source, so a format that cannot be read is
         // reported as such rather than as a missing file.
-        let readable = matches!(extension.as_str(), "stl" | "obj");
+        let readable = mesh::is_supported(file_name);
         let bytes = if readable {
             self.source.load(reference)
         } else {
             None
         };
-        let outcome: Result<mesh::Mesh, String> = match bytes {
+        let outcome: Result<mesh::Parsed, String> = match bytes {
             _ if !readable => Err(format!(
-                "`.{extension}` files are not supported; STL and OBJ are"
+                "`.{extension}` files are not supported; STL, OBJ and COLLADA are"
             )),
             None => Err("the file was not provided".to_owned()),
             Some(bytes) => {
-                mesh::parse(file_name, &bytes).map_err(|error: MeshError| error.to_string())
+                mesh::parse_parts(file_name, &bytes).map_err(|error: MeshError| error.to_string())
             }
         };
-        let id = match outcome {
-            Ok(mesh) => {
-                let id = stable_id(&self.namespace, "resource", reference);
-                self.resources.push(Resource {
-                    id: id.clone(),
-                    name: file_name.to_owned(),
-                    media_type: if file_name.to_ascii_lowercase().ends_with(".obj") {
-                        "model/obj".to_owned()
-                    } else {
-                        "model/stl".to_owned()
+        match outcome {
+            Ok(mut parsed) => {
+                for note in std::mem::take(&mut parsed.notes) {
+                    self.notes
+                        .entry(note)
+                        .or_default()
+                        .push(reference.to_owned());
+                }
+                Some(Loaded {
+                    file_name: file_name.to_owned(),
+                    media_type: match extension.as_str() {
+                        "obj" => "model/obj",
+                        "dae" => "model/vnd.collada+xml",
+                        _ => "model/stl",
                     },
-                    vertices: mesh.vertices,
-                    indices: mesh.indices,
-                });
-                Some(id)
+                    parsed,
+                    visual: None,
+                    collision: None,
+                })
             }
             Err(reason) => {
                 self.failures
@@ -214,31 +278,154 @@ impl<'a> MeshStore<'a> {
                     .push(reference.to_owned());
                 None
             }
-        };
-        self.loaded.insert(reference.to_owned(), id.clone());
-        id
+        }
     }
 }
 
+/// Adds a mesh as a resource and returns its id.
+fn add_resource(
+    resources: &mut Vec<Resource>,
+    id: String,
+    name: String,
+    media_type: &str,
+    mesh: mesh::Mesh,
+) -> String {
+    resources.push(Resource {
+        id: id.clone(),
+        name,
+        media_type: media_type.to_owned(),
+        vertices: mesh.vertices,
+        indices: mesh.indices,
+    });
+    id
+}
+
+/// The coloured parts of a loaded file, made into resources on first use.
+fn visual_parts(
+    loaded: &mut Loaded,
+    reference: &str,
+    namespace: &str,
+    resources: &mut Vec<Resource>,
+) -> Vec<MeshPart> {
+    if let Some(parts) = &loaded.visual {
+        return parts.clone();
+    }
+    let several = loaded.parsed.parts.len() > 1;
+    let mut parts = Vec::new();
+    for (index, part) in loaded.parsed.parts.iter().enumerate() {
+        let (key, name) = if several {
+            (
+                format!("{reference}#{index}"),
+                format!("{} part {}", loaded.file_name, index + 1),
+            )
+        } else {
+            (reference.to_owned(), loaded.file_name.clone())
+        };
+        let id = add_resource(
+            resources,
+            stable_id(namespace, "resource", &key),
+            name,
+            loaded.media_type,
+            part.mesh.clone(),
+        );
+        parts.push(MeshPart {
+            resource_id: id,
+            color: part.color.clone(),
+            role: GeometryRole::Visual,
+        });
+    }
+    loaded.visual = Some(parts.clone());
+    parts
+}
+
+/// The collision pieces of a loaded file, made into resources on first use.
+fn collision_parts(
+    loaded: &mut Loaded,
+    reference: &str,
+    namespace: &str,
+    resources: &mut Vec<Resource>,
+) -> Vec<MeshPart> {
+    if let Some(parts) = &loaded.collision {
+        return parts.clone();
+    }
+    let single = loaded.parsed.parts.len() == 1;
+    let whole = if single {
+        loaded.parsed.parts[0].mesh.clone()
+    } else {
+        // Re-welding cannot exceed the limits the parts were read within.
+        loaded.parsed.clone().merged().unwrap_or_default()
+    };
+    let color = if single {
+        loaded.parsed.parts[0].color.clone()
+    } else {
+        None
+    };
+    let parts = match whole.closed_pieces(MAX_COLLISION_PIECES) {
+        Some(pieces) => pieces
+            .into_iter()
+            .enumerate()
+            .map(|(index, piece)| MeshPart {
+                resource_id: add_resource(
+                    resources,
+                    stable_id(namespace, "resource", &format!("{reference}#piece{index}")),
+                    format!("{} piece {}", loaded.file_name, index + 1),
+                    loaded.media_type,
+                    piece,
+                ),
+                color: color.clone(),
+                role: GeometryRole::Collision,
+            })
+            .collect(),
+        // One piece of one part is the drawing resource itself.
+        None if single => {
+            let mut drawn = visual_parts(loaded, reference, namespace, resources);
+            drawn[0].role = GeometryRole::Collision;
+            drawn
+        }
+        None => vec![MeshPart {
+            resource_id: add_resource(
+                resources,
+                stable_id(namespace, "resource", &format!("{reference}#whole")),
+                format!("{} (whole)", loaded.file_name),
+                loaded.media_type,
+                whole,
+            ),
+            color,
+            role: GeometryRole::Collision,
+        }],
+    };
+    loaded.collision = Some(parts.clone());
+    parts
+}
+
 impl MeshStore<'_> {
-    /// One warning per distinct reason a mesh was not imported.
+    /// One warning per distinct reason a mesh was not imported, and one per
+    /// distinct note from the files that were.
     pub fn report(&self, warnings: &mut Vec<String>) {
+        for (note, references) in &self.notes {
+            warnings.push(format!("{note}: {}", file_names(references)));
+        }
         for (reason, references) in &self.failures {
-            // File names read better than `package://` paths in a warning.
-            let names: Vec<&str> = references
-                .iter()
-                .map(|r| r.rsplit(['/', '\\']).next().unwrap_or(r))
-                .collect();
-            let listed = if names.len() <= 3 {
-                names.join(", ")
-            } else {
-                format!("{}, and {} more", names[..3].join(", "), names.len() - 3)
-            };
             warnings.push(format!(
-                "{} mesh file(s) were not imported ({reason}): {listed}",
-                references.len()
+                "{} mesh file(s) were not imported ({reason}): {}",
+                references.len(),
+                file_names(references)
             ));
         }
+    }
+}
+
+/// File names, which read better than `package://` paths in a warning, at
+/// most three of them.
+fn file_names(references: &[String]) -> String {
+    let names: Vec<&str> = references
+        .iter()
+        .map(|r| r.rsplit(['/', '\\']).next().unwrap_or(r))
+        .collect();
+    if names.len() <= 3 {
+        names.join(", ")
+    } else {
+        format!("{}, and {} more", names[..3].join(", "), names.len() - 3)
     }
 }
 

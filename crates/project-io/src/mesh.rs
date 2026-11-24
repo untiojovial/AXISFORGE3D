@@ -1,6 +1,6 @@
-//! Triangle meshes from STL and OBJ files.
+//! Triangle meshes from STL, OBJ and COLLADA files.
 //!
-//! Both readers produce the same thing: vertex positions and triangle indices,
+//! Every reader produces the same thing: vertex positions and triangle indices,
 //! with identical positions welded into one vertex. Welding matters for STL,
 //! which repeats every vertex once per triangle; without it a mesh takes three
 //! to six times the space and its convex hull is computed from mostly
@@ -34,6 +34,64 @@ impl Mesh {
     /// The number of distinct vertices.
     pub fn vertex_count(&self) -> usize {
         self.vertices.len() / 3
+    }
+
+    /// The mesh split into its connected pieces, when there are two to
+    /// `limit` of them and every one is a closed surface; `None` otherwise.
+    ///
+    /// Collision treats a mesh as the convex hull of what it is given. The
+    /// hulls of closed pieces together still contain the whole solid, and are
+    /// much tighter than one hull around a link made of several shells. Open
+    /// pieces give no such guarantee (six loose faces of a box have flat
+    /// hulls and leave its inside uncovered), so then the mesh stays whole.
+    pub fn closed_pieces(&self, limit: usize) -> Option<Vec<Mesh>> {
+        fn root(parent: &mut [usize], mut i: usize) -> usize {
+            while parent[i] != i {
+                parent[i] = parent[parent[i]];
+                i = parent[i];
+            }
+            i
+        }
+        let count = self.vertex_count();
+        let mut parent: Vec<usize> = (0..count).collect();
+        let mut edges: HashMap<(u32, u32), u32> = HashMap::new();
+        for face in self.indices.chunks_exact(3) {
+            for (a, b) in [(face[0], face[1]), (face[1], face[2]), (face[2], face[0])] {
+                *edges.entry((a.min(b), a.max(b))).or_insert(0) += 1;
+                let (ra, rb) = (root(&mut parent, a as usize), root(&mut parent, b as usize));
+                if ra != rb {
+                    parent[rb] = ra;
+                }
+            }
+        }
+        // Closed: every edge is shared by exactly two triangles.
+        if edges.values().any(|n| *n != 2) {
+            return None;
+        }
+        let mut piece_of: HashMap<usize, usize> = HashMap::new();
+        let mut pieces: Vec<(Mesh, HashMap<u32, u32>)> = Vec::new();
+        for face in self.indices.chunks_exact(3) {
+            let key = root(&mut parent, face[0] as usize);
+            let next = pieces.len();
+            let index = *piece_of.entry(key).or_insert(next);
+            if index == next {
+                if next == limit {
+                    return None;
+                }
+                pieces.push((Mesh::default(), HashMap::new()));
+            }
+            let (mesh, remap) = &mut pieces[index];
+            for &vertex in face {
+                let local = *remap.entry(vertex).or_insert_with(|| {
+                    let at = vertex as usize * 3;
+                    mesh.vertices.extend_from_slice(&self.vertices[at..at + 3]);
+                    // At most as many vertices as the whole mesh, which fits.
+                    u32::try_from(mesh.vertices.len() / 3 - 1).unwrap_or(u32::MAX)
+                });
+                mesh.indices.push(local);
+            }
+        }
+        (pieces.len() > 1).then(|| pieces.into_iter().map(|(mesh, _)| mesh).collect())
     }
 
     /// The smallest and largest coordinate on each axis, or `None` when empty.
@@ -71,13 +129,73 @@ pub enum MeshError {
     #[error("the mesh file contains no triangles")]
     Empty,
     /// The file extension is not one this crate reads.
-    #[error("unsupported mesh format `{0}`; STL and OBJ are supported")]
+    #[error("unsupported mesh format `{0}`; STL, OBJ and COLLADA (.dae) are supported")]
     UnsupportedFormat(String),
+    /// The file is larger than the format's limit, checked before parsing.
+    #[error("the mesh file is {bytes} bytes; the limit is {limit}")]
+    FileTooLarge {
+        /// Its size.
+        bytes: usize,
+        /// The limit for its format.
+        limit: usize,
+    },
+}
+
+/// One piece of a mesh file, drawn in one colour.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Part {
+    /// The triangles.
+    pub mesh: Mesh,
+    /// `#rrggbb` when the file gives this piece a colour.
+    pub color: Option<String>,
+}
+
+/// Everything read from a mesh file.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Parsed {
+    /// The pieces, at least one, in the order the file first uses them.
+    pub parts: Vec<Part>,
+    /// What the file asked for that was not done, for the import report.
+    pub notes: Vec<String>,
+}
+
+impl Parsed {
+    /// All parts as one mesh, welded again.
+    ///
+    /// # Errors
+    /// [`MeshError::TooLarge`] cannot happen for parts that were read within
+    /// the limit, but the welder checks it anyway.
+    pub fn merged(self) -> Result<Mesh, MeshError> {
+        if self.parts.len() == 1 {
+            return Ok(self
+                .parts
+                .into_iter()
+                .next()
+                .map(|p| p.mesh)
+                .unwrap_or_default());
+        }
+        let mut welder = Welder::default();
+        for part in &self.parts {
+            let mesh = &part.mesh;
+            for face in mesh.indices.chunks_exact(3) {
+                let corner = |i: u32| {
+                    let at = i as usize * 3;
+                    [
+                        mesh.vertices[at],
+                        mesh.vertices[at + 1],
+                        mesh.vertices[at + 2],
+                    ]
+                };
+                welder.triangle([corner(face[0]), corner(face[1]), corner(face[2])])?;
+            }
+        }
+        welder.finish()
+    }
 }
 
 /// Collects triangles, welding identical positions.
 #[derive(Default)]
-struct Welder {
+pub(crate) struct Welder {
     mesh: Mesh,
     seen: HashMap<[u64; 3], u32>,
 }
@@ -103,7 +221,7 @@ impl Welder {
         Ok(index)
     }
 
-    fn triangle(&mut self, corners: [[f64; 3]; 3]) -> Result<(), MeshError> {
+    pub(crate) fn triangle(&mut self, corners: [[f64; 3]; 3]) -> Result<(), MeshError> {
         if self.mesh.triangle_count() >= MAX_TRIANGLES {
             return Err(MeshError::TooLarge {
                 found: self.mesh.triangle_count() + 1,
@@ -122,7 +240,12 @@ impl Welder {
         Ok(())
     }
 
-    fn finish(self) -> Result<Mesh, MeshError> {
+    /// `true` once at least one triangle with area was added.
+    pub(crate) fn has_triangles(&self) -> bool {
+        !self.mesh.indices.is_empty()
+    }
+
+    pub(crate) fn finish(self) -> Result<Mesh, MeshError> {
         if self.mesh.indices.is_empty() {
             return Err(MeshError::Empty);
         }
@@ -130,22 +253,44 @@ impl Welder {
     }
 }
 
-/// Reads a mesh, choosing the format from the file name's extension.
-///
-/// # Errors
-/// [`MeshError::UnsupportedFormat`] for any extension but `.stl` and `.obj`,
-/// or the format's own errors.
-pub fn parse(file_name: &str, bytes: &[u8]) -> Result<Mesh, MeshError> {
-    let extension = file_name
+/// `true` for the file extensions [`parse`] reads, compared case-insensitively.
+pub fn is_supported(file_name: &str) -> bool {
+    matches!(extension(file_name).as_str(), "stl" | "obj" | "dae")
+}
+
+fn extension(file_name: &str) -> String {
+    file_name
         .rsplit('.')
         .next()
         .unwrap_or("")
-        .to_ascii_lowercase();
-    match extension.as_str() {
-        "stl" => parse_stl(bytes),
-        "obj" => parse_obj(bytes),
+        .to_ascii_lowercase()
+}
+
+/// Reads a mesh file into its coloured parts, choosing the format from the
+/// file name's extension. STL and OBJ files are one part with no colour.
+///
+/// # Errors
+/// [`MeshError::UnsupportedFormat`] for any extension but `.stl`, `.obj` and
+/// `.dae`, or the format's own errors.
+pub fn parse_parts(file_name: &str, bytes: &[u8]) -> Result<Parsed, MeshError> {
+    let single = |mesh: Mesh| Parsed {
+        parts: vec![Part { mesh, color: None }],
+        notes: Vec::new(),
+    };
+    match extension(file_name).as_str() {
+        "stl" => parse_stl(bytes).map(single),
+        "obj" => parse_obj(bytes).map(single),
+        "dae" => crate::collada::parse(bytes),
         other => Err(MeshError::UnsupportedFormat(other.to_owned())),
     }
+}
+
+/// Reads a mesh file as one mesh, all its parts welded together.
+///
+/// # Errors
+/// As [`parse_parts`].
+pub fn parse(file_name: &str, bytes: &[u8]) -> Result<Mesh, MeshError> {
+    parse_parts(file_name, bytes)?.merged()
 }
 
 /// Reads an STL file, binary or ASCII.
@@ -303,6 +448,7 @@ pub fn parse_obj(bytes: &[u8]) -> Result<Mesh, MeshError> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::fmt::Write as _;
 
     /// A unit tetrahedron as ASCII STL.
     const TETRA: &str = "solid t
@@ -419,6 +565,47 @@ endsolid t
     fn non_finite_coordinates_are_rejected() {
         let bytes = binary_stl(&[[[f32::NAN, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]]);
         assert!(matches!(parse_stl(&bytes), Err(MeshError::Malformed(_))));
+    }
+
+    /// Two separate closed tetrahedra, and the same with one face missing.
+    #[test]
+    fn closed_shells_split_and_open_ones_do_not() {
+        let tetra = |dx: f64| {
+            let mut text = String::from("solid t\n");
+            for face in [
+                [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [1.0, 0.0, 0.0]],
+                [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, 1.0]],
+                [[0.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 1.0, 0.0]],
+                [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],
+            ] {
+                text.push_str("facet normal 0 0 0\nouter loop\n");
+                for v in face {
+                    let _ = writeln!(text, "vertex {} {} {}", v[0] + dx, v[1], v[2]);
+                }
+                text.push_str("endloop\nendfacet\n");
+            }
+            text + "endsolid t\n"
+        };
+        let two = format!("{}{}", tetra(0.0), tetra(5.0)).replace("endsolid t\nsolid t\n", "");
+        let mesh = parse_stl(two.as_bytes()).unwrap();
+        let pieces = mesh.closed_pieces(16).expect("two closed pieces");
+        assert_eq!(pieces.len(), 2);
+        assert!(pieces
+            .iter()
+            .all(|p| p.triangle_count() == 4 && p.vertex_count() == 4));
+        let (low, _) = pieces[1].bounds().unwrap();
+        let expected = [5.0, 0.0, 0.0];
+        assert!(
+            (0..3).all(|i| (low[i] - expected[i]).abs() < 1e-12),
+            "each piece keeps its own vertices: {low:?}"
+        );
+        assert_eq!(mesh.closed_pieces(1), None, "over the limit stays whole");
+        let single = parse_stl(tetra(0.0).as_bytes()).unwrap();
+        assert_eq!(single.closed_pieces(16), None, "one piece needs no split");
+        // Drop the second tetrahedron's last face: it is no longer closed.
+        let cut = two.rfind("facet normal").unwrap();
+        let open = format!("{}endsolid t\n", &two[..cut]);
+        assert_eq!(parse_stl(open.as_bytes()).unwrap().closed_pieces(16), None);
     }
 
     #[test]

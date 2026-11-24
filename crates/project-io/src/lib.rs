@@ -18,6 +18,7 @@
 #![warn(missing_docs, clippy::all, clippy::pedantic)]
 #![allow(clippy::must_use_candidate, clippy::missing_errors_doc)]
 
+pub mod collada;
 pub mod import;
 pub mod mesh;
 pub mod simox;

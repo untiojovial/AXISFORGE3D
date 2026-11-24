@@ -9,7 +9,7 @@ L (meses) de una persona, y es una estimación, no un compromiso.
 
 ## 1. Dónde estamos
 
-Hecho y probado (278 pruebas automáticas, sin avisos del analizador):
+Hecho y probado (291 pruebas automáticas, sin avisos del analizador):
 
 - Modelo de robot, cinemática directa e inversa, jacobiano y condicionamiento.
 - Colisiones por GJK entre primitivas y envolventes convexas.
@@ -23,8 +23,8 @@ Hecho y probado (278 pruebas automáticas, sin avisos del analizador):
 - Registro de extensiones para conectar bibliotecas (sección 4).
 - Formato de proyecto versionado, CLI, motor en WebAssembly y visor web con
   render de estudio.
-- Importación de robots URDF y XML de Simox, objetos de Simox y mallas STL y
-  OBJ, en la CLI y en el visor (fase 1).
+- Importación de robots URDF y XML de Simox, objetos de Simox y mallas STL,
+  OBJ y COLLADA, en la CLI y en el visor (fase 1).
 
 Lo que hoy impide venderlo:
 
@@ -32,7 +32,7 @@ Lo que hoy impide venderlo:
 | --- | --- |
 | Solo recogida, sin depósito ni trayectorias | Un cliente quiere el ciclo completo |
 | Piezas solo primitivas | Las piezas reales son mallas CAD |
-| Mallas COLLADA (.dae) y Open Inventor (.iv) sin leer | Muchos modelos publicados las usan; esos eslabones quedan sin colisión |
+| Mallas Open Inventor (.iv) sin leer | Casi todos los modelos de Simox las usan; esos eslabones quedan sin colisión |
 | Visor de demostración, no editor | No se puede crear ni guardar una celda propia |
 | Una sola pinza (paralela de dos dedos) | Ventosas y manos multidedo quedan fuera |
 | Sin instalador, licencias ni soporte | No hay nada que entregar ni cobrar |
@@ -51,15 +51,20 @@ Lo que hoy impide venderlo:
 cinemática directa coincide con la de referencia a menos de 0,1 mm en diez
 posturas cada uno.
 
-**Estado: criterio de aceptación cumplido; la descomposición convexa queda
-pendiente.**
+**Estado: criterio de aceptación cumplido. Queda pendiente la descomposición
+convexa de piezas cóncavas de una sola cáscara y la lectura de Open
+Inventor.**
 
 - Hecho: importador URDF (enlaces, articulaciones de revolución, prismáticas,
   continuas y fijas, límites, orígenes, mallas STL y OBJ con escala,
   materiales); importador del XML de robots de Simox (unidades, `Transform`
   con todos sus hijos, DH, desfases, primitivas, efector final) y de objetos
-  `ManipulationObject`; lector de STL binario y ASCII y de OBJ; mallas en el
-  visor y en colisión como envolvente convexa. El visor importa archivos y
+  `ManipulationObject`; lector de STL binario y ASCII, de OBJ y de COLLADA
+  (triángulos, polilistas, polígonos, tiras y abanicos; nodos con matriz,
+  traslación, giro y escala; `instance_node`; unidad; color difuso de cada
+  material). Las mallas se dibujan con sus colores y chocan como la
+  envolvente convexa de cada cáscara cerrada que contienen, o de la malla
+  entera si alguna está abierta. El visor importa archivos y
   trae un UR5 real de ejemplo; la CLI tiene `import-urdf`, `import-simox`,
   `add-object` y `fk`, con `--gripper` y `--demo-cell` para planificar en
   seguida.
@@ -69,16 +74,20 @@ pendiente.**
   en 340 poses de eslabón. El UR5 se compara además con los parámetros DH que
   publica Universal Robots, que no comparten nada con el URDF: 4,7e-9 mm, y
   esa comprobación corre en `cargo test`.
-- Dibujo: el UR5 con sus mallas STL; el Kinova y el Z1 publican sus mallas
-  visuales en COLLADA, así que se dibujan con un esqueleto y avisan de ello.
-- Fallo encontrado por el camino: el GJK no convergía cerca del contacto
-  entre caras casi paralelas (464 de 2000 casos de prueba entre 0,1 µm y
-  10 cm). Corregido; ahora nunca sobrestima la holgura y una prueba de 600
-  casos lo vigila.
-- Pendiente: descomposición convexa (una malla cóncava choca como su
-  envolvente: puede ver choques que no hay, nunca pasar por alto uno);
-  lectura de COLLADA y de Open Inventor (los eslabones afectados no tienen
-  colisión, y la etiqueta de contacto y el veredicto del plan lo dicen);
+- Dibujo: el UR5 y el Kinova con sus mallas COLLADA reales y sus colores.
+  Las mallas visuales del UR5 coinciden con sus mallas de colisión STL,
+  modeladas aparte, a menos de 0,53 mm en los siete eslabones.
+- Fallos encontrados por el camino, los dos en el cálculo de distancias
+  (GJK): no convergía cerca del contacto entre caras casi paralelas (464 de
+  2000 casos de prueba entre 0,1 µm y 10 cm), y con una malla apoyada en el
+  suelo de 100 m podía tomar un tetraedro casi plano que contenía el origen
+  por uno que no, y acabar leyendo fuera de un vector: el motor se caía al
+  importar un robot con mallas reales. Corregidos los dos; pruebas de 600 y
+  2000 casos los vigilan.
+- Pendiente: descomposición convexa de una cáscara cóncava (hoy choca como
+  su envolvente: puede ver choques que no hay, nunca pasar por alto uno);
+  lectura de Open Inventor (los eslabones afectados no tienen colisión, y la
+  etiqueta de contacto y el veredicto del plan lo dicen);
   robots de siete ejes como el Panda se rechazan, porque el producto es de uno
   a seis; las articulaciones `mimic` se importan como independientes, con
   aviso; las flotantes y planas se rechazan.
@@ -230,8 +239,8 @@ biblioteca). Leer sus formatos de archivo no tiene esa carga.
 | --- | --- | --- |
 | El modelo de contacto no predice la realidad | Agarres "buenos" que fallan | Validación con hardware desde la fase 3; publicar el margen |
 | Envolvente convexa 6D lenta con muchos contactos | Planificación lenta con mallas | Ya se mide una vez por conjunto de contactos; reducir contactos por agrupación; medir antes de optimizar |
-| Piezas cóncavas | Colisión y contactos incorrectos | Descomposición convexa, pendiente de la fase 1; hasta entonces la envolvente convexa da choques de más, nunca de menos |
-| Mallas que no se leen (.dae, .iv) | Eslabones sin colisión | Aviso en la etiqueta de contacto y en el plan; leer COLLADA y Open Inventor |
+| Piezas cóncavas | Colisión y contactos incorrectos | Ya se separan las cáscaras cerradas; falta descomponer una cáscara cóncava. Hasta entonces la envolvente da choques de más, nunca de menos |
+| Mallas que no se leen (.iv) | Eslabones sin colisión | Aviso en la etiqueta de contacto y en el plan; leer Open Inventor |
 | Responsabilidad legal por uso en maquinaria | Reclamaciones | Aviso de seguridad en toda salida; revisión legal en la fase 5; no certificar lo que no se ha certificado |
 | Dependencia de una sola persona | Parón | Documentación, pruebas y CI como parte de cada fase |
 
