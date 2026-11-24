@@ -106,6 +106,33 @@ Inventor.**
 encuentra agarres con cierre de fuerza en al menos las mismas piezas que
 GraspStudio con parámetros equivalentes, y se documenta cada diferencia.
 
+**Estado: primer paso hecho (agarre de mallas con pinza paralela); la
+comparación con GraspStudio, los efectores de varios dedos, los conjuntos
+de agarres guardados y la ventosa siguen pendientes.**
+
+- Hecho: generador `surface_normal` con las dos familias (cerrar a lo largo
+  de la normal, llegar por ella), cada una a la profundidad que permite la
+  palma y en variante corta que no toca el lado lejano; cierre hasta
+  contacto de almohadillas planas sobre la geometría real, con tolerancia de
+  0,3 mm y la normal de la superficie donde aprieta el borde de la
+  almohadilla; calidad tomada en el centro de masas real de la malla; `auto`
+  elige el generador según la pieza. Una pieza se añade desde un STL, OBJ o
+  COLLADA suelto, en el visor, la CLI y el servicio.
+- Comprobado: cerrar las almohadillas en cada pose del generador de
+  primitivas reproduce exactamente su anchura, sus contactos y sus normales
+  (caja y cilindro); el cubo planificado como malla da épsilon 0,382 frente
+  a 0,386 exacto; una pieza de dos cajas, antes rechazada, se planifica.
+- Banco YCB (los 16 objetos de GRASPA, detalle en `tools/verify/README.md`):
+  la síntesis encuentra agarres con cierre de fuerza que caben en la pinza
+  en 15 de 16 (la que falta es una lata de 102 mm que la pinza de 80 mm no
+  puede coger); el brazo de demostración recoge 9. Fallan por su alcance,
+  por piezas más anchas que la carrera y por piezas planas o cóncavas, que
+  chocan como su envolvente convexa.
+- Pendiente: ejecutar GraspStudio con parámetros equivalentes y comparar en
+  veinte piezas (exige compilar Simox con Qt y Coin3D); descomposición
+  convexa de cáscaras cóncavas, que es lo que más agarres reales recuperaría;
+  manos de varios dedos, preformas, conjuntos de agarres guardados y ventosa.
+
 ### Fase 3. Movimiento completo (L)
 
 - Planificador de trayectorias sin colisión (RRT bidireccional con suavizado).
