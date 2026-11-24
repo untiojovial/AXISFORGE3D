@@ -13,6 +13,8 @@ Stated plainly, so nobody has to discover it.
 | IK: damped least squares, restarts, limits, cancellation | Done. One solver. |
 | Collision scenes, carried parts, exemptions | Done. Meshes collide as convex hulls. |
 | Grasp synthesis for box, cylinder, capsule, sphere | Done |
+| Grasp synthesis for any part (meshes, assembled parts): surface sampling, pads closed until contact | Done. Matches the primitive generator exactly where both apply; evaluated on 16 YCB objects (`tools/verify`). |
+| Parts from a bare STL/OBJ/COLLADA file | Done. Units given or guessed and reported; mass from volume or a default, reported. |
 | Grasp quality: wrench-space force closure and epsilon, stroke, grip force | Done. Contact patches with Coulomb friction; optional soft-pad torsion. |
 | Planner parameters in GraspStudio vocabulary (nrGrasps, minQuality, forceClosure, friction cone) | Done. Own semantics; values not comparable one-to-one with Simox. |
 | Extension registry for quality measures and candidate generators | Done, Rust crates only. |
@@ -36,8 +38,12 @@ Stated plainly, so nobody has to discover it.
   number of joint-space samples, not continuously.
 - **Pick only.** There is no place planning, no transport path planning between
   cells, and no trajectory timing.
-- **Primitives only for grasping.** Mesh parts and multi-geometry parts are
-  refused with a reason.
+- **Concave parts collide as hulls.** A mesh part collides as the convex hull
+  of each closed shell, so a gripper reaching into a concavity (a mug's
+  handle, between a clamp's jaws) is rejected even where it would fit.
+- **Pad contact model.** The pads are flat and rigid apart from a contact
+  tolerance (0.3 mm by default) standing in for their compliance; contacts
+  are capped at six per pad, which can only understate quality.
 - **One gripper type.** Parallel jaws; no suction, no multi-finger hands.
 - **Unreadable meshes.** Links whose only meshes are Open Inventor (`.iv`)
   are drawn as a skeleton and are not collision-checked. The engine lists

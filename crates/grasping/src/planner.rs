@@ -793,10 +793,18 @@ pub fn plan_pick_with(
         torque_scale,
         measured: RefCell::new(BTreeMap::new()),
     };
+    // Candidates the gripper cannot make at all (wider than its stroke, or
+    // needing more force than it has) go after every other: they are
+    // rejected cheaply, but each still counts against `maxCandidates`, and a
+    // sampled surface yields many of them.
     let mut ranked: Vec<(f64, GraspCandidate)> = generator
         .generate(body, &project.resources, &synthesis)?
         .into_iter()
-        .map(|c| (preliminary_score(&context.quality_input(&c)), c))
+        .map(|c| {
+            let score = preliminary_score(&context.quality_input(&c));
+            let makeable = context.gate(&c).is_ok();
+            (if makeable { score + 1.0 } else { score }, c)
+        })
         .collect();
     // A stable sort keeps the generator's order among equal scores, so the
     // same request always examines candidates in the same order.

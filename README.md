@@ -16,7 +16,9 @@ six axes and a parallel-jaw gripper.
   cancellation.
 - **Collision**: GJK distance between boxes, spheres, cylinders, capsules and
   convex hulls; clearance and contact reports; carried parts.
-- **Grasping**: enumerate antipodal grasps of a part, measure them in wrench
+- **Grasping**: enumerate antipodal grasps of a primitive part, or sample the
+  surface of any other (a mesh from CAD) and close the pads on it until they
+  touch; measure them in wrench
   space (force closure, epsilon), and plan a pick — pre-grasp, grasp,
   close, lift — that the arm can reach and perform without collision. Every
   rejected grasp comes back with its reason.

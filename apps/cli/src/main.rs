@@ -65,6 +65,9 @@ enum Command {
         /// Where to write it.
         #[arg(long, default_value = "examples/pick_and_place_cell.axisforge")]
         out: PathBuf,
+        /// Leave the table empty: no cube, no dowel.
+        #[arg(long)]
+        no_parts: bool,
     },
     /// Check that a project file is well-formed and coherent.
     Validate {
@@ -121,6 +124,9 @@ enum Command {
         /// A bare mesh's part name; the file name without extension when omitted.
         #[arg(long)]
         name: Option<String>,
+        /// The part's mass, kilograms, replacing the estimate or default.
+        #[arg(long)]
+        mass: Option<f64>,
         /// Where to write the project; the input project when omitted.
         #[arg(long)]
         out: Option<PathBuf>,
@@ -241,11 +247,34 @@ fn session_for(file: &std::path::Path) -> Result<Session> {
 
 fn run(cli: Cli) -> Result<()> {
     match cli.command {
-        Command::Demo { out } => {
+        Command::Demo { out, no_parts } => {
             if let Some(parent) = out.parent().filter(|p| !p.as_os_str().is_empty()) {
                 std::fs::create_dir_all(parent)?;
             }
-            axisforge_project_io::save(&templates::pick_and_place_cell()?, &out)?;
+            let mut cell = templates::pick_and_place_cell()?;
+            if no_parts {
+                cell.environment.bodies.retain(|b| !b.is_graspable());
+                let kept: std::collections::BTreeSet<String> = cell
+                    .environment
+                    .bodies
+                    .iter()
+                    .map(|b| b.id.clone())
+                    .chain(cell.robot.links.iter().map(|l| l.id.clone()))
+                    .chain([axisforge_domain::GROUND_OWNER_ID.to_owned()])
+                    .collect();
+                let pairs: Vec<_> = cell.environment.ignored_pairs.pairs().to_vec();
+                cell.environment.ignored_pairs = axisforge_domain::IgnoredPairs::new();
+                for pair in pairs
+                    .into_iter()
+                    .filter(|p| kept.contains(&p.first) && kept.contains(&p.second))
+                {
+                    cell.environment
+                        .ignored_pairs
+                        .ignore(&pair.first, &pair.second, pair.reason);
+                }
+                cell.validate()?;
+            }
+            axisforge_project_io::save(&cell, &out)?;
             println!("wrote {}", out.display());
         }
         Command::Validate { file } => {
@@ -322,6 +351,7 @@ fn run(cli: Cli) -> Result<()> {
             at,
             units,
             name,
+            mass,
             out,
         } => {
             let mut target = axisforge_project_io::load(&project)?;
@@ -369,6 +399,15 @@ fn run(cli: Cli) -> Result<()> {
             }
             if let [x, y, z] = at[..] {
                 imported.body.pose.translation = axisforge_domain::Vec3::new(x, y, z);
+            }
+            if let Some(mass) = mass {
+                if !(mass.is_finite() && mass > 0.0) {
+                    return Err(anyhow!("a mass of {mass} kg is not a positive number"));
+                }
+                imported.body.physical.mass = mass;
+                imported
+                    .warnings
+                    .retain(|w| !w.contains("mass") || !w.contains("before planning"));
             }
             let name = imported.body.name.clone();
             target.environment.bodies.push(imported.body);

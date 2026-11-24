@@ -31,7 +31,6 @@ Lo que hoy impide venderlo:
 | Carencia | Por qué bloquea la venta |
 | --- | --- |
 | Solo recogida, sin depósito ni trayectorias | Un cliente quiere el ciclo completo |
-| Piezas solo primitivas | Las piezas reales son mallas CAD |
 | Mallas Open Inventor (.iv) sin leer | Casi todos los modelos de Simox las usan; esos eslabones quedan sin colisión |
 | Visor de demostración, no editor | No se puede crear ni guardar una celda propia |
 | Una sola pinza (paralela de dos dedos) | Ventosas y manos multidedo quedan fuera |
@@ -173,8 +172,8 @@ Simox mientras no se replique su normalización (fase 2).
 | Muestras del cono de fricción | `quality.frictionConeSamples` | Hecho |
 | Calidad del agarre y prueba de cierre de fuerza | `quality.quality` (épsilon), `quality.forceClosure` | Hecho |
 | Punto central de agarre (GCP) y TCP | marco de agarre de la pinza | Hecho |
-| Aproximación por normal de superficie | `candidateGenerator` | Parcial: hoy solo `primitive_antipodal`; el muestreo por normal es la fase 2 |
-| Cerrar actuadores hasta contacto | — | Fase 2 |
+| Aproximación por normal de superficie | `candidateGenerator: "surface_normal"` (y `auto`, por defecto) | Hecho: se llega por la normal o se cierra a lo largo de ella |
+| Cerrar actuadores hasta contacto | almohadillas que avanzan hasta tocar la geometría real | Hecho para la pinza paralela; manos de varios dedos, fase 2 |
 | Preformas del efector | — | Fase 2 |
 | Objeto manipulable con conjunto de agarres guardado | — | Fase 2 |
 | Formato XML de robot y objeto | `import_simox_robot`, `import_simox_object`; `axisforge import-simox`, `add-object` | Hecho, solo lectura; las mallas .iv no se leen |
