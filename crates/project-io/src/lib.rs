@@ -18,6 +18,10 @@
 #![warn(missing_docs, clippy::all, clippy::pedantic)]
 #![allow(clippy::must_use_candidate, clippy::missing_errors_doc)]
 
+pub mod import;
+pub mod mesh;
+pub mod urdf;
+
 use std::fs;
 use std::io::Write;
 use std::path::{Path, PathBuf};

@@ -1,0 +1,466 @@
+//! What every robot importer shares: options, the report, mesh loading and
+//! the steps that turn a bare kinematic tree into a usable project.
+//!
+//! An importer reads a foreign format into links and joints and hands them to
+//! [`RobotAssembly::finish`], which does the same things for all of them:
+//! marks end-effector joints, adds a tool frame at every tip of the tree,
+//! gives links with nothing to draw a stand-in skeleton, and validates the
+//! result. Everything an importer could not carry over is recorded as a
+//! warning in the report rather than dropped silently.
+
+use std::collections::{BTreeMap, BTreeSet};
+
+use axisforge_domain::{
+    templates::stable_id, DomainError, GeometryInstance, GeometryRole, Joint, JointRole, Link,
+    Project, Quat, Resource, RobotSystem, Shape, ToolFrame, Transform, Vec3, MAX_AXES,
+};
+
+use crate::mesh::{self, MeshError};
+
+/// Largest description file accepted, bytes.
+pub const MAX_DESCRIPTION_BYTES: usize = 16 * 1024 * 1024;
+
+/// Where an importer gets the mesh files a description refers to.
+///
+/// The importer never touches the file system itself. The command line gives
+/// it a source that reads from disk; the browser gives it one backed by the
+/// files the user picked. `reference` is the path exactly as written in the
+/// description; returning `None` means the file is not available.
+pub trait MeshSource {
+    /// The bytes of the referenced file, if it can be found.
+    fn load(&self, reference: &str) -> Option<Vec<u8>>;
+}
+
+impl<F: Fn(&str) -> Option<Vec<u8>>> MeshSource for F {
+    fn load(&self, reference: &str) -> Option<Vec<u8>> {
+        self(reference)
+    }
+}
+
+/// A mesh source with no files: every mesh reference becomes a warning.
+#[derive(Debug, Clone, Copy, Default)]
+pub struct NoMeshes;
+
+impl MeshSource for NoMeshes {
+    fn load(&self, _: &str) -> Option<Vec<u8>> {
+        None
+    }
+}
+
+/// How a description is imported.
+#[derive(Debug, Clone, PartialEq, Default)]
+pub struct ImportOptions {
+    /// Names of joints that actuate an end effector rather than position it.
+    ///
+    /// Such joints do not count toward the six-axis limit and are left alone
+    /// by inverse kinematics. Foreign formats rarely say which these are.
+    pub end_effector_joints: Vec<String>,
+}
+
+/// The outcome of an import.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Imported {
+    /// The project, validated.
+    pub project: Project,
+    /// Everything that could not be carried over exactly.
+    pub warnings: Vec<String>,
+}
+
+/// What can go wrong importing a description.
+#[derive(Debug, thiserror::Error)]
+pub enum ImportError {
+    /// The description is larger than [`MAX_DESCRIPTION_BYTES`].
+    #[error("the description is {size} bytes; the limit is {MAX_DESCRIPTION_BYTES}")]
+    TooLarge {
+        /// Its size.
+        size: usize,
+    },
+    /// The text is not well-formed XML, or not the expected kind of document.
+    #[error("not a valid description: {0}")]
+    Malformed(String),
+    /// The description uses something this importer does not handle.
+    #[error("unsupported: {0}")]
+    Unsupported(String),
+    /// The description was read, but the robot it describes is not coherent.
+    #[error("the imported robot is invalid: {0}")]
+    Invalid(DomainError),
+}
+
+impl From<DomainError> for ImportError {
+    fn from(error: DomainError) -> Self {
+        Self::Invalid(error)
+    }
+}
+
+/// Parses whitespace-separated numbers, requiring exactly `count` finite ones.
+pub(crate) fn numbers(text: &str, count: usize, what: &str) -> Result<Vec<f64>, ImportError> {
+    let values: Result<Vec<f64>, _> = text.split_whitespace().map(str::parse::<f64>).collect();
+    match values {
+        Ok(values) if values.len() == count && values.iter().all(|v| v.is_finite()) => Ok(values),
+        _ => Err(ImportError::Malformed(format!(
+            "{what}: expected {count} finite numbers, found `{text}`"
+        ))),
+    }
+}
+
+/// Parses one finite number.
+pub(crate) fn number(text: &str, what: &str) -> Result<f64, ImportError> {
+    Ok(numbers(text, 1, what)?[0])
+}
+
+/// `#rrggbb` for colour components in `[0, 1]`.
+pub(crate) fn hex_color(red: f64, green: f64, blue: f64) -> String {
+    #[allow(clippy::cast_possible_truncation, clippy::cast_sign_loss)]
+    let byte = |v: f64| (v.clamp(0.0, 1.0) * 255.0).round() as u8;
+    format!("#{:02x}{:02x}{:02x}", byte(red), byte(green), byte(blue))
+}
+
+/// Loads referenced meshes once each and turns them into project resources.
+pub(crate) struct MeshStore<'a> {
+    namespace: String,
+    source: &'a dyn MeshSource,
+    /// Resource id by reference, or `None` for a reference that failed.
+    loaded: BTreeMap<String, Option<String>>,
+    /// References that failed, grouped by the reason they failed.
+    failures: BTreeMap<String, Vec<String>>,
+    pub resources: Vec<Resource>,
+}
+
+impl<'a> MeshStore<'a> {
+    pub fn new(namespace: &str, source: &'a dyn MeshSource) -> Self {
+        Self {
+            namespace: namespace.to_owned(),
+            source,
+            loaded: BTreeMap::new(),
+            failures: BTreeMap::new(),
+            resources: Vec::new(),
+        }
+    }
+
+    /// The resource id for a mesh reference, loading it on first use.
+    ///
+    /// A mesh that cannot be found or read yields `None`; the failure is
+    /// reported once, grouped with others that failed for the same reason,
+    /// by [`MeshStore::report`].
+    pub fn resource(&mut self, reference: &str) -> Option<String> {
+        if let Some(known) = self.loaded.get(reference) {
+            return known.clone();
+        }
+        let file_name = reference.rsplit(['/', '\\']).next().unwrap_or(reference);
+        let extension = file_name
+            .rsplit('.')
+            .next()
+            .unwrap_or("")
+            .to_ascii_lowercase();
+        // Decided before asking the source, so a format that cannot be read is
+        // reported as such rather than as a missing file.
+        let readable = matches!(extension.as_str(), "stl" | "obj");
+        let bytes = if readable {
+            self.source.load(reference)
+        } else {
+            None
+        };
+        let outcome: Result<mesh::Mesh, String> = match bytes {
+            _ if !readable => Err(format!(
+                "`.{extension}` files are not supported; STL and OBJ are"
+            )),
+            None => Err("the file was not provided".to_owned()),
+            Some(bytes) => {
+                mesh::parse(file_name, &bytes).map_err(|error: MeshError| error.to_string())
+            }
+        };
+        let id = match outcome {
+            Ok(mesh) => {
+                let id = stable_id(&self.namespace, "resource", reference);
+                self.resources.push(Resource {
+                    id: id.clone(),
+                    name: file_name.to_owned(),
+                    media_type: if file_name.to_ascii_lowercase().ends_with(".obj") {
+                        "model/obj".to_owned()
+                    } else {
+                        "model/stl".to_owned()
+                    },
+                    vertices: mesh.vertices,
+                    indices: mesh.indices,
+                });
+                Some(id)
+            }
+            Err(reason) => {
+                self.failures
+                    .entry(reason)
+                    .or_default()
+                    .push(reference.to_owned());
+                None
+            }
+        };
+        self.loaded.insert(reference.to_owned(), id.clone());
+        id
+    }
+}
+
+impl MeshStore<'_> {
+    /// One warning per distinct reason a mesh was not imported.
+    pub fn report(&self, warnings: &mut Vec<String>) {
+        for (reason, references) in &self.failures {
+            let listed = if references.len() <= 3 {
+                references.join(", ")
+            } else {
+                format!(
+                    "{}, and {} more",
+                    references[..3].join(", "),
+                    references.len() - 3
+                )
+            };
+            warnings.push(format!(
+                "{} mesh file(s) were not imported ({reason}): {listed}",
+                references.len()
+            ));
+        }
+    }
+}
+
+/// A kinematic tree read from a foreign format, before it becomes a robot.
+pub(crate) struct RobotAssembly {
+    pub name: String,
+    pub root_link: String,
+    pub links: Vec<Link>,
+    pub joints: Vec<Joint>,
+    pub base_pose: Transform,
+    /// Tool frames the format itself declared.
+    pub frames: Vec<ToolFrame>,
+    /// Name of the frame the format marks as the default, if any.
+    pub default_frame: Option<String>,
+    /// Joint names the format itself marks as end-effector actuators.
+    pub end_effector_joints: BTreeSet<String>,
+    pub resources: Vec<Resource>,
+    pub warnings: Vec<String>,
+}
+
+impl RobotAssembly {
+    /// Applies the shared steps and validates the result.
+    pub fn finish(mut self, options: &ImportOptions) -> Result<Imported, ImportError> {
+        // Roles first: they decide which joints count as axes.
+        let mut end_effector = self.end_effector_joints.clone();
+        for name in &options.end_effector_joints {
+            if !self.joints.iter().any(|joint| joint.name == *name) {
+                return Err(ImportError::Malformed(format!(
+                    "end-effector joint `{name}` is not a joint of this robot; its joints are: {}",
+                    self.joints
+                        .iter()
+                        .map(|j| j.name.as_str())
+                        .collect::<Vec<_>>()
+                        .join(", ")
+                )));
+            }
+            end_effector.insert(name.clone());
+        }
+        for joint in &mut self.joints {
+            if end_effector.contains(&joint.name) && joint.is_actuated() {
+                joint.role = JointRole::EndEffector;
+            }
+        }
+        let axes: Vec<&str> = self
+            .joints
+            .iter()
+            .filter(|joint| joint.is_manipulator_axis())
+            .map(|joint| joint.name.as_str())
+            .collect();
+        if axes.len() > MAX_AXES {
+            return Err(ImportError::Unsupported(format!(
+                "the robot has {} actuated joints and at most {MAX_AXES} can be manipulator \
+                 axes. Name the ones that drive an end effector (gripper fingers, hand joints) \
+                 as end-effector joints. Actuated joints: {}",
+                axes.len(),
+                axes.join(", ")
+            )));
+        }
+
+        self.add_skeleton();
+        self.add_tip_frames();
+
+        let robot = RobotSystem {
+            id: stable_id(&self.name, "robot", &self.name),
+            name: self.name.clone(),
+            root_link_id: self.root_link,
+            links: self.links,
+            joints: self.joints,
+            default_tool_frame_id: None,
+            tool_frames: self.frames,
+            gripper: None,
+            base_pose: self.base_pose,
+        };
+        let mut robot = robot;
+        robot.default_tool_frame_id = self
+            .default_frame
+            .as_ref()
+            .and_then(|name| robot.tool_frames.iter().find(|f| f.name == *name))
+            .map(|frame| frame.id.clone());
+        let mut project = Project::new(
+            stable_id(&self.name, "project", &self.name),
+            &self.name,
+            robot,
+        );
+        project.resources = self.resources;
+        project.validate()?;
+        Ok(Imported {
+            project,
+            warnings: self.warnings,
+        })
+    }
+
+    /// Gives every link with nothing to draw something to draw.
+    ///
+    /// A link whose visual geometry could not be imported but whose collision
+    /// geometry could is drawn with the collision geometry: it is the right
+    /// shape, only coarser. A link with neither gets a small ball at its origin
+    /// and a rod to each child joint, so the kinematic structure is visible.
+    fn add_skeleton(&mut self) {
+        let mut stand_ins = 0;
+        for link in &mut self.links {
+            if link.geometries.iter().any(GeometryInstance::is_visual) {
+                continue;
+            }
+            let mut any = false;
+            for geometry in &mut link.geometries {
+                if geometry.role == GeometryRole::Collision {
+                    geometry.role = GeometryRole::Both;
+                    any = true;
+                }
+            }
+            if any {
+                stand_ins += 1;
+            }
+        }
+        if stand_ins > 0 {
+            self.warnings.push(format!(
+                "{stand_ins} link(s) are drawn with their collision geometry, because their \
+                 visual geometry could not be imported"
+            ));
+        }
+        let lengths: Vec<f64> = self
+            .joints
+            .iter()
+            .map(|joint| joint.origin.translation.norm())
+            .filter(|length| *length > 1.0e-6)
+            .collect();
+        if lengths.is_empty() {
+            return;
+        }
+        #[allow(clippy::cast_precision_loss)]
+        let typical = lengths.iter().sum::<f64>() / lengths.len() as f64;
+        let radius = (0.06 * typical).clamp(0.003, 0.04);
+        let mut bare = 0;
+        for link in &mut self.links {
+            if link.geometries.iter().any(GeometryInstance::is_visual) {
+                continue;
+            }
+            bare += 1;
+            let ns = format!("{}::{}::skeleton", self.name, link.name);
+            link.geometries.push(
+                GeometryInstance::visual(
+                    stable_id(&ns, "geometry", "node"),
+                    "skeleton node",
+                    Shape::Sphere {
+                        radius: radius * 1.4,
+                    },
+                )
+                .with_color("#8b98a5")
+                .with_finish(0.2, 0.6)
+                .with_role(GeometryRole::Visual),
+            );
+            for joint in self
+                .joints
+                .iter()
+                .filter(|joint| joint.parent_link_id == link.id)
+            {
+                let reach = joint.origin.translation;
+                let length = reach.norm();
+                if length < 1.0e-6 {
+                    continue;
+                }
+                let rotation = Quat::from_rotation_arc(&Vec3::Z, &reach.scaled(1.0 / length))
+                    .unwrap_or(Quat::IDENTITY);
+                link.geometries.push(
+                    GeometryInstance::visual(
+                        stable_id(&ns, "geometry", &joint.name),
+                        format!("skeleton to {}", joint.name),
+                        Shape::Cylinder { radius, length },
+                    )
+                    .with_origin(Transform::new(reach.scaled(0.5), rotation))
+                    .with_color("#b3bdc7")
+                    .with_finish(0.2, 0.6)
+                    .with_role(GeometryRole::Visual),
+                );
+            }
+        }
+        if bare > 0 {
+            self.warnings.push(format!(
+                "{bare} link(s) had no geometry that could be imported; they are drawn as a \
+                 skeleton and take no part in collision checking"
+            ));
+        }
+    }
+
+    /// Adds a tool frame at every tip of the tree that the format did not
+    /// already give one, and picks a default when the format named none.
+    fn add_tip_frames(&mut self) {
+        let parents: BTreeSet<&str> = self
+            .joints
+            .iter()
+            .map(|joint| joint.parent_link_id.as_str())
+            .collect();
+        let framed: BTreeSet<String> = self.frames.iter().map(|f| f.link_id.clone()).collect();
+        let mut tips: Vec<(usize, String, String)> = Vec::new();
+        for link in &self.links {
+            if parents.contains(link.id.as_str()) || link.id == self.root_link {
+                continue;
+            }
+            // How many manipulator axes lie between the root and this tip.
+            let mut depth = 0;
+            let mut cursor = link.id.as_str();
+            while let Some(joint) = self.joints.iter().find(|j| j.child_link_id == cursor) {
+                if joint.is_manipulator_axis() {
+                    depth += 1;
+                }
+                cursor = joint.parent_link_id.as_str();
+            }
+            tips.push((depth, link.id.clone(), link.name.clone()));
+        }
+        let taken: BTreeSet<String> = self.frames.iter().map(|f| f.name.clone()).collect();
+        for (_, link_id, link_name) in &tips {
+            if framed.contains(link_id) {
+                continue;
+            }
+            let name = if taken.contains(link_name) {
+                format!("{link_name} tip")
+            } else {
+                link_name.clone()
+            };
+            self.frames.push(ToolFrame::new(
+                stable_id(&self.name, "frame", &name),
+                name,
+                link_id,
+                Transform::IDENTITY,
+            ));
+        }
+        if self.default_frame.is_none() {
+            // The tip behind the most manipulator axes is the arm's end; among
+            // equals the first by name, so the choice does not depend on order.
+            tips.sort_by(|a, b| b.0.cmp(&a.0).then_with(|| a.2.cmp(&b.2)));
+            if let Some((_, link_id, _)) = tips.first() {
+                self.default_frame = self
+                    .frames
+                    .iter()
+                    .find(|f| f.link_id == *link_id)
+                    .map(|f| f.name.clone());
+                if tips.len() > 1 {
+                    self.warnings.push(format!(
+                        "the robot has {} tips; `{}` was taken as the default tool frame",
+                        tips.len(),
+                        self.default_frame.clone().unwrap_or_default()
+                    ));
+                }
+            }
+        }
+    }
+}

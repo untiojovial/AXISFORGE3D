@@ -18,6 +18,7 @@ unsafe_code = "deny"
 
 [dependencies]
 axisforge-domain = { workspace = true }
+axisforge-kinematics = { workspace = true }
 axisforge-project-io = { workspace = true }
 axisforge-service = { workspace = true }
 anyhow = { workspace = true }

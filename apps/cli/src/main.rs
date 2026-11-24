@@ -3,11 +3,14 @@
 //! Every subcommand goes through the same service the other front ends use,
 //! so what the terminal prints is what the viewer would draw.
 
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 
 use anyhow::{anyhow, Context, Result};
 use axisforge_domain::{templates, SAFETY_NOTICE};
+use axisforge_kinematics::{forward_kinematics, KinematicModel};
+use axisforge_project_io::import::ImportOptions;
+use axisforge_project_io::urdf::import_urdf;
 use axisforge_service::{Request, Response, Session};
 use clap::{Parser, Subcommand};
 
@@ -40,6 +43,26 @@ enum Command {
         /// The project file.
         file: PathBuf,
     },
+    /// Import a URDF robot description into a project file.
+    ImportUrdf {
+        /// The URDF file. Mesh files are looked for relative to it.
+        file: PathBuf,
+        /// Where to write the project.
+        #[arg(long)]
+        out: PathBuf,
+        /// Joints that drive an end effector, comma separated. They do not
+        /// count toward the six-axis limit.
+        #[arg(long, value_delimiter = ',')]
+        end_effector: Vec<String>,
+    },
+    /// Print the world pose of every link for given joint values, as JSON.
+    Fk {
+        /// The project file.
+        file: PathBuf,
+        /// Joint values as `name=value`, SI units. Unnamed joints stay at zero.
+        #[arg(long = "set")]
+        set: Vec<String>,
+    },
     /// Plan picks of a body and report plans and rejections.
     Plan {
         /// The project file.
@@ -50,6 +73,34 @@ enum Command {
         #[arg(long)]
         json: bool,
     },
+}
+
+/// Finds a mesh a description refers to, relative to the description's folder.
+///
+/// `package://name/rest` has no fixed meaning outside ROS, so `rest` is tried
+/// under the folder and each of its ancestors, with and without the package
+/// name. Only STL and OBJ files are ever opened: a description is untrusted,
+/// and a "mesh" reference is no reason to read arbitrary files.
+fn load_mesh(folder: &Path, reference: &str) -> Option<Vec<u8>> {
+    let lower = reference.to_ascii_lowercase();
+    if !(lower.ends_with(".stl") || lower.ends_with(".obj")) {
+        return None;
+    }
+    let mut candidates: Vec<PathBuf> = Vec::new();
+    if let Some(rest) = reference.strip_prefix("package://") {
+        let without_package = rest.split_once('/').map_or(rest, |(_, tail)| tail);
+        for ancestor in folder.ancestors().take(6) {
+            candidates.push(ancestor.join(rest));
+            candidates.push(ancestor.join(without_package));
+        }
+    } else if let Some(path) = reference.strip_prefix("file://") {
+        candidates.push(PathBuf::from(path));
+    } else {
+        candidates.push(folder.join(reference));
+    }
+    candidates
+        .into_iter()
+        .find_map(|path| std::fs::read(path).ok())
 }
 
 fn session_for(file: &std::path::Path) -> Result<Session> {
@@ -110,6 +161,65 @@ fn run(cli: Cli) -> Result<()> {
                     body.name, body.graspable, body.mass, body.friction_coefficient
                 );
             }
+        }
+        Command::ImportUrdf {
+            file,
+            out,
+            end_effector,
+        } => {
+            let text = std::fs::read_to_string(&file)
+                .with_context(|| format!("reading {}", file.display()))?;
+            let folder = file.parent().map(Path::to_path_buf).unwrap_or_default();
+            let meshes = move |reference: &str| load_mesh(&folder, reference);
+            let options = ImportOptions {
+                end_effector_joints: end_effector,
+            };
+            let imported = import_urdf(&text, &meshes, &options)?;
+            axisforge_project_io::save(&imported.project, &out)?;
+            let robot = &imported.project.robot;
+            println!(
+                "wrote {}: {} ({} axes, {} links, {} meshes)",
+                out.display(),
+                robot.name,
+                robot.axis_count(),
+                robot.links.len(),
+                imported.project.resources.len()
+            );
+            for warning in &imported.warnings {
+                println!("  warning: {warning}");
+            }
+        }
+        Command::Fk { file, set } => {
+            let project = axisforge_project_io::load(&file)?;
+            let model = KinematicModel::from_robot(&project.robot)?;
+            let mut values = vec![0.0; model.dof()];
+            for assignment in &set {
+                let (name, value) = assignment
+                    .split_once('=')
+                    .ok_or_else(|| anyhow!("`{assignment}` is not of the form name=value"))?;
+                let index = (0..model.dof())
+                    .find(|i| model.joint_for_value(*i).is_some_and(|j| j.name == name))
+                    .ok_or_else(|| anyhow!("no actuated joint named '{name}'"))?;
+                values[index] = value.parse().with_context(|| format!("value of {name}"))?;
+            }
+            let pose = forward_kinematics(&model, &values)?;
+            let mut out = serde_json::Map::new();
+            for (index, link) in model.links().iter().enumerate() {
+                let t = pose.link(index);
+                out.insert(
+                    link.name.clone(),
+                    serde_json::json!([
+                        t.translation.x,
+                        t.translation.y,
+                        t.translation.z,
+                        t.rotation.x,
+                        t.rotation.y,
+                        t.rotation.z,
+                        t.rotation.w
+                    ]),
+                );
+            }
+            println!("{}", serde_json::Value::Object(out));
         }
         Command::Plan { file, body, json } => {
             let mut session = session_for(&file)?;
