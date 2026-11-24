@@ -21,8 +21,8 @@
 
 use axisforge_collision::{Attachment, CollisionReport, Scene, SceneOptions};
 use axisforge_domain::{
-    templates, DomainError, JointKind, JointRole, Project, Quat, Shape, Transform, Vec3,
-    GROUND_OWNER_ID, SAFETY_NOTICE,
+    templates, DomainError, GeometryInstance, JointKind, JointRole, Project, Quat, Shape,
+    Transform, Vec3, GROUND_OWNER_ID, SAFETY_NOTICE,
 };
 use axisforge_grasping::{plan_pick_with, ExtensionInfo, PlanReport, PlannerOptions, Registry};
 use axisforge_kinematics::{
@@ -147,6 +147,11 @@ pub enum Request {
         files: BTreeMap<String, String>,
         /// Where to place it, metres.
         position: Vec3,
+        /// When given, `position.z` is ignored and the object is lowered or
+        /// raised until its lowest point is at this height, metres: resting on
+        /// a surface at that height.
+        #[serde(default)]
+        rest_on: Option<f64>,
     },
     /// Return the vertex and index buffers of mesh resources, for drawing.
     GetResources {
@@ -247,6 +252,10 @@ pub struct Description {
     pub gripper_max_opening: Option<f64>,
     /// Ground height, metres.
     pub ground_height: f64,
+    /// Names of links that move but have no collision geometry, usually
+    /// because their meshes could not be imported. Nothing checks what they
+    /// touch, so a front end must say so next to any clearance or plan.
+    pub links_without_collision: Vec<String>,
     /// The notice every front end must display alongside results.
     pub safety_notice: String,
 }
@@ -356,8 +365,44 @@ fn decode_files(
         .collect()
 }
 
-/// Mounts the gripper and places the robot in the demo cell, as requested.
-fn prepare_import(
+/// The lowest world height any of a body's geometry reaches, metres.
+fn lowest_point(
+    body: &axisforge_domain::WorldBody,
+    resources: &[axisforge_domain::Resource],
+) -> Result<f64, ServiceError> {
+    let mut lowest = f64::INFINITY;
+    for geometry in &body.geometries {
+        let vertices = match &geometry.shape {
+            Shape::Mesh { resource_id, .. } => resources
+                .iter()
+                .find(|r| r.id == *resource_id)
+                .map(|r| r.vertices.as_slice()),
+            _ => None,
+        };
+        let convex = axisforge_geometry::body_from_geometry(geometry, &body.pose, vertices)?;
+        lowest = lowest.min(convex.aabb().min.z);
+    }
+    if lowest.is_finite() {
+        Ok(lowest)
+    } else {
+        Err(
+            DomainError::unsupported(format!("body '{}' has no geometry to rest on", body.name))
+                .into(),
+        )
+    }
+}
+
+/// Mounts AXISFORGE's parallel gripper and places the robot in the demo cell,
+/// as requested, so an imported robot can plan picks.
+///
+/// `attach_gripper` names the tool frame to mount on; an empty name means the
+/// robot's default tool frame. Notes on what was done go to `warnings`.
+///
+/// # Errors
+///
+/// When the robot already has a gripper, the frame does not exist, or the
+/// result does not validate.
+pub fn prepare_import(
     mut project: Project,
     attach_gripper: Option<&str>,
     into_demo_cell: bool,
@@ -426,15 +471,55 @@ fn prepare_import(
                 .ignored_pairs
                 .ignore(&pair.first, &pair.second, pair.reason);
         }
-        project.environment.ignored_pairs.ignore(
-            &project.robot.root_link_id,
-            GROUND_OWNER_ID,
-            "the robot's base rests on the floor",
-        );
+        // Descriptions often hang the base under a `world` link with a fixed
+        // joint, so every link welded to the root stands on the floor with it.
+        for link in links_fixed_to_root(&project.robot) {
+            project.environment.ignored_pairs.ignore(
+                &link,
+                GROUND_OWNER_ID,
+                "the robot's base rests on the floor",
+            );
+        }
         templates::register_gripper_exemptions(&mut project.environment, &project.robot);
     }
     project.validate()?;
     Ok(project)
+}
+
+/// Names of the links that an actuated joint moves and that carry no
+/// collision geometry.
+pub fn links_without_collision(robot: &axisforge_domain::RobotSystem) -> Vec<String> {
+    robot
+        .joints
+        .iter()
+        .filter(|joint| joint.is_actuated())
+        .filter_map(|joint| robot.link(&joint.child_link_id))
+        .filter(|link| !link.geometries.iter().any(GeometryInstance::is_collision))
+        .map(|link| link.name.clone())
+        .collect()
+}
+
+/// The root link and every link joined to it through fixed joints only.
+fn links_fixed_to_root(robot: &axisforge_domain::RobotSystem) -> Vec<String> {
+    let mut found = vec![robot.root_link_id.clone()];
+    let mut next = 0;
+    while next < found.len() {
+        let link = found[next].clone();
+        next += 1;
+        for joint in robot.joints.iter().filter(|j| !j.is_actuated()) {
+            let other = if joint.parent_link_id == link {
+                &joint.child_link_id
+            } else if joint.child_link_id == link {
+                &joint.parent_link_id
+            } else {
+                continue;
+            };
+            if !found.contains(other) {
+                found.push(other.clone());
+            }
+        }
+    }
+    found
 }
 
 /// A project, a robot configuration, and the engine wired around them.
@@ -604,7 +689,8 @@ impl Session {
                 text,
                 files,
                 position,
-            } => self.add_object(&text, &files, position),
+                rest_on,
+            } => self.add_object(&text, &files, position, rest_on),
             Request::GetResources { ids } => Ok(Response::Resources(
                 self.project
                     .resources
@@ -702,6 +788,7 @@ impl Session {
         text: &str,
         files: &BTreeMap<String, String>,
         position: Vec3,
+        rest_on: Option<f64>,
     ) -> Result<Response, ServiceError> {
         let source = decode_files(files)?;
         let mut imported = import_simox_object(text, &source)?;
@@ -718,6 +805,10 @@ impl Session {
             .into());
         }
         imported.body.pose.translation = position;
+        if let Some(surface) = rest_on {
+            let lowest = lowest_point(&imported.body, &imported.resources)?;
+            imported.body.pose.translation.z += surface - lowest;
+        }
         // Edit a copy and validate it, so a refused import changes nothing.
         let mut project = self.project.clone();
         project.environment.bodies.push(imported.body);
@@ -778,6 +869,7 @@ impl Session {
             gripper: gripper.map(|g| g.name.clone()),
             gripper_max_opening: gripper.map(|g| g.max_opening),
             ground_height: self.project.environment.ground_height,
+            links_without_collision: links_without_collision(&self.project.robot),
             safety_notice: SAFETY_NOTICE.to_owned(),
         }
     }
@@ -1312,6 +1404,29 @@ mod tests {
     }
 
     #[test]
+    fn moving_links_without_collision_geometry_are_named() {
+        let mut session = Session::demo().unwrap();
+        let reply = call(&mut session, r#"{"op":"describe"}"#);
+        assert_eq!(
+            reply["data"]["linksWithoutCollision"],
+            serde_json::json!([])
+        );
+        // `b` moves and its only mesh is COLLADA, so it ends up a skeleton;
+        // `tip` is a fixed frame and has nothing to check.
+        let urdf = r#"<robot name="d"><link name="a"><collision><geometry><box size="0.1 0.1 0.1"/></geometry></collision></link>
+            <link name="b"><visual><geometry><mesh filename="arm.dae"/></geometry></visual></link><link name="tip"/>
+            <joint name="j" type="revolute"><parent link="a"/><child link="b"/><origin xyz="0 0 0.1"/><limit lower="-1" upper="1"/></joint>
+            <joint name="f" type="fixed"><parent link="b"/><child link="tip"/><origin xyz="0 0 0.2"/></joint></robot>"#;
+        let request = serde_json::json!({ "op": "import_robot", "format": "urdf", "text": urdf });
+        let reply = call(&mut session, &request.to_string());
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert_eq!(
+            reply["data"]["description"]["linksWithoutCollision"],
+            serde_json::json!(["b"])
+        );
+    }
+
+    #[test]
     fn a_failed_import_leaves_the_session_as_it_was() {
         let mut session = Session::demo().unwrap();
         let before = session.project().clone();
@@ -1339,7 +1454,7 @@ mod tests {
     fn a_simox_object_can_be_added_as_a_part() {
         let mut session = Session::demo().unwrap();
         let object = "<ManipulationObject name='Block'><Visualization><Primitives><Box width='40' height='30' depth='50'/></Primitives><UseAsCollisionModel/></Visualization><Physics><Mass value='120' units='g'/></Physics></ManipulationObject>";
-        let request = serde_json::json!({"op": "add_object", "text": object, "position": {"x": 0.4, "y": 0.0, "z": 0.445}});
+        let request = serde_json::json!({"op": "add_object", "text": object, "position": {"x": 0.4, "y": 0.0, "z": 9.0}, "restOn": 0.42});
         let reply = call(&mut session, &request.to_string());
         assert_eq!(reply["ok"], true, "{reply}");
         let block = reply["data"]["description"]["bodies"]
@@ -1351,6 +1466,11 @@ mod tests {
             .clone();
         assert_eq!(block["graspable"], true);
         assert!((block["mass"].as_f64().unwrap() - 0.12).abs() < 1e-12);
+        // Resting on the table top: its 50 mm depth puts its centre 25 mm up.
+        assert!(
+            (block["position"]["z"].as_f64().unwrap() - 0.445).abs() < 1e-12,
+            "{block}"
+        );
         let again = call(&mut session, &request.to_string());
         assert_eq!(
             again["ok"], false,

@@ -12,8 +12,8 @@ use axisforge_kinematics::{forward_kinematics, KinematicModel};
 use axisforge_project_io::import::{ImportOptions, Imported};
 use axisforge_project_io::simox::{import_simox_object, import_simox_robot};
 use axisforge_project_io::urdf::import_urdf;
-use axisforge_service::{Request, Response, Session};
-use clap::{Parser, Subcommand};
+use axisforge_service::{prepare_import, Request, Response, Session};
+use clap::{Args, Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(
@@ -24,6 +24,38 @@ use clap::{Parser, Subcommand};
 struct Cli {
     #[command(subcommand)]
     command: Command,
+}
+
+/// What to add around an imported robot so it can plan picks right away.
+#[derive(Args)]
+struct Placement {
+    /// Mount AXISFORGE's parallel gripper on this tool frame; `default` picks
+    /// the robot's default tool frame.
+    #[arg(long, value_name = "FRAME")]
+    gripper: Option<String>,
+    /// Put the robot in the demo pick-and-place cell: a table, a cube and a
+    /// dowel.
+    #[arg(long)]
+    demo_cell: bool,
+}
+
+impl Placement {
+    fn apply(&self, imported: &mut Imported) -> Result<()> {
+        if self.gripper.is_none() && !self.demo_cell {
+            return Ok(());
+        }
+        let frame = self
+            .gripper
+            .as_deref()
+            .map(|f| if f == "default" { "" } else { f });
+        imported.project = prepare_import(
+            imported.project.clone(),
+            frame,
+            self.demo_cell,
+            &mut imported.warnings,
+        )?;
+        Ok(())
+    }
 }
 
 #[derive(Subcommand)]
@@ -55,6 +87,8 @@ enum Command {
         /// count toward the six-axis limit.
         #[arg(long, value_delimiter = ',')]
         end_effector: Vec<String>,
+        #[command(flatten)]
+        placement: Placement,
     },
     /// Import a Simox robot XML into a project file.
     ImportSimox {
@@ -67,6 +101,8 @@ enum Command {
         /// the file's own <Endeffector> are recognized without this.
         #[arg(long, value_delimiter = ',')]
         end_effector: Vec<String>,
+        #[command(flatten)]
+        placement: Placement,
     },
     /// Add a Simox manipulation object to a project as a part to pick.
     AddObject {
@@ -123,7 +159,9 @@ fn report_import(imported: &Imported, out: &Path) -> Result<()> {
 ///
 /// `package://name/rest` has no fixed meaning outside ROS, so `rest` is tried
 /// under the folder and each of its ancestors, with and without the package
-/// name. Only STL and OBJ files are ever opened: a description is untrusted,
+/// name. Failing that, a file of the same name anywhere under the folder is
+/// used if there is exactly one, as the viewer does with the files it is
+/// given. Only STL and OBJ files are ever opened: a description is untrusted,
 /// and a "mesh" reference is no reason to read arbitrary files.
 fn load_mesh(folder: &Path, reference: &str) -> Option<Vec<u8>> {
     let lower = reference.to_ascii_lowercase();
@@ -142,9 +180,40 @@ fn load_mesh(folder: &Path, reference: &str) -> Option<Vec<u8>> {
     } else {
         candidates.push(folder.join(reference));
     }
-    candidates
+    if let Some(bytes) = candidates
         .into_iter()
         .find_map(|path| std::fs::read(path).ok())
+    {
+        return Some(bytes);
+    }
+    let name = reference.rsplit(['/', '\\']).next()?;
+    let mut found = Vec::new();
+    find_by_name(folder, name, 4, &mut found);
+    match found.as_slice() {
+        [only] => std::fs::read(only).ok(),
+        _ => None,
+    }
+}
+
+/// Collects up to two files called `name` under `folder`, at most `depth`
+/// folders down, without following symbolic links.
+fn find_by_name(folder: &Path, name: &str, depth: usize, found: &mut Vec<PathBuf>) {
+    let Ok(entries) = std::fs::read_dir(folder) else {
+        return;
+    };
+    for entry in entries.flatten() {
+        if found.len() > 1 {
+            return;
+        }
+        let Ok(kind) = entry.file_type() else {
+            continue;
+        };
+        if kind.is_file() && entry.file_name() == name {
+            found.push(entry.path());
+        } else if kind.is_dir() && depth > 0 {
+            find_by_name(&entry.path(), name, depth - 1, found);
+        }
+    }
 }
 
 fn session_for(file: &std::path::Path) -> Result<Session> {
@@ -210,6 +279,7 @@ fn run(cli: Cli) -> Result<()> {
             file,
             out,
             end_effector,
+            placement,
         } => {
             let text = std::fs::read_to_string(&file)
                 .with_context(|| format!("reading {}", file.display()))?;
@@ -218,13 +288,15 @@ fn run(cli: Cli) -> Result<()> {
             let options = ImportOptions {
                 end_effector_joints: end_effector,
             };
-            let imported = import_urdf(&text, &meshes, &options)?;
+            let mut imported = import_urdf(&text, &meshes, &options)?;
+            placement.apply(&mut imported)?;
             report_import(&imported, &out)?;
         }
         Command::ImportSimox {
             file,
             out,
             end_effector,
+            placement,
         } => {
             let text = std::fs::read_to_string(&file)
                 .with_context(|| format!("reading {}", file.display()))?;
@@ -233,7 +305,8 @@ fn run(cli: Cli) -> Result<()> {
             let options = ImportOptions {
                 end_effector_joints: end_effector,
             };
-            let imported = import_simox_robot(&text, &meshes, &options)?;
+            let mut imported = import_simox_robot(&text, &meshes, &options)?;
+            placement.apply(&mut imported)?;
             report_import(&imported, &out)?;
         }
         Command::AddObject {
@@ -322,6 +395,15 @@ fn run(cli: Cli) -> Result<()> {
             else {
                 return Err(anyhow!("unexpected reply"));
             };
+            // On stderr, so `--json` output stays a single document.
+            let blind = axisforge_service::links_without_collision(&session.project().robot);
+            if !blind.is_empty() {
+                eprintln!(
+                    "warning: {} moving link(s) have no collision geometry and were not checked: {}",
+                    blind.len(),
+                    blind.join(", ")
+                );
+            }
             if json {
                 println!("{}", serde_json::to_string_pretty(&report)?);
                 return Ok(());
@@ -362,5 +444,44 @@ fn main() -> ExitCode {
             eprintln!("error: {error:#}");
             ExitCode::FAILURE
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn meshes_are_found_by_path_then_by_unambiguous_name() {
+        let root = std::env::temp_dir().join(format!("axisforge-cli-mesh-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&root);
+        std::fs::create_dir_all(root.join("pkg/meshes/collision")).unwrap();
+        std::fs::create_dir_all(root.join("flat/meshes")).unwrap();
+        std::fs::create_dir_all(root.join("flat/a")).unwrap();
+        std::fs::create_dir_all(root.join("flat/b")).unwrap();
+        std::fs::write(root.join("pkg/meshes/collision/base.stl"), b"by path").unwrap();
+        std::fs::write(root.join("flat/meshes/base.stl"), b"by name").unwrap();
+        std::fs::write(root.join("flat/a/twice.stl"), b"a").unwrap();
+        std::fs::write(root.join("flat/b/twice.stl"), b"b").unwrap();
+        std::fs::write(root.join("flat/secret.txt"), b"no").unwrap();
+
+        let by_path = load_mesh(&root.join("pkg"), "package://pkg/meshes/collision/base.stl");
+        assert_eq!(by_path.as_deref(), Some(&b"by path"[..]));
+        let by_name = load_mesh(
+            &root.join("flat"),
+            "package://robot/meshes/ur5/collision/base.stl",
+        );
+        assert_eq!(by_name.as_deref(), Some(&b"by name"[..]));
+        assert_eq!(
+            load_mesh(&root.join("flat"), "package://robot/twice.stl"),
+            None,
+            "ambiguous"
+        );
+        assert_eq!(
+            load_mesh(&root.join("flat"), "secret.txt"),
+            None,
+            "not a mesh"
+        );
+        std::fs::remove_dir_all(&root).unwrap();
     }
 }

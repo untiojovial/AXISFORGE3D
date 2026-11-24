@@ -95,7 +95,7 @@
   .viewport canvas { display: block; width: 100%; height: 100%; }
   .viewport__hint { position: absolute; left: 10px; bottom: 8px; font-family: var(--mono); font-size: var(--step-0); color: var(--muted); background: var(--panel); border: 1px solid var(--rule); padding: 3px 7px; border-radius: 2px; pointer-events: none; }
   .viewport__flag { position: absolute; right: 10px; top: 8px; max-width: calc(100% - 20px); z-index: 1; font-family: var(--mono); font-size: var(--step-0); font-weight: 600; letter-spacing: 0.04em; padding: 3px 8px; border-radius: 2px; border: 1px solid; background: var(--panel); }
-  .flag--ok { color: var(--ok); border-color: var(--ok); } .flag--alert { color: var(--alert); border-color: var(--alert); }
+  .flag--ok { color: var(--ok); border-color: var(--ok); } .flag--warn { color: var(--warn); border-color: var(--warn); } .flag--alert { color: var(--alert); border-color: var(--alert); }
   .phases { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
   .phases__label { font-family: var(--mono); font-size: var(--step-0); color: var(--faint); margin-left: auto; }
   .readouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); background: var(--panel); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
@@ -131,6 +131,10 @@
   details.module > summary .module__note::after { content: " \25BE"; }
   details.module:not([open]) > summary { border-bottom: 0; }
   .viewport__hint { max-width: calc(100% - 20px); }
+  .licenses { flex-basis: 100%; font-size: var(--step-0); color: var(--faint); }
+  .licenses summary { cursor: pointer; }
+  .licenses pre { white-space: pre-wrap; font-family: var(--mono); font-size: 0.6875rem; max-height: 220px; overflow: auto; background: var(--panel); border: 1px solid var(--rule); padding: 8px; border-radius: 2px; }
+  .field input[type="file"] { padding: 4px; font-family: var(--ui); }
   @media (max-width: 1100px) { .viewport__hint { display: none; } }
   @media (max-width: 560px) { .legend { display: none; } .viewbar { max-width: calc(100% - 20px); top: 36px; } }
 </style>

@@ -12,6 +12,17 @@ import base64, pathlib, sys
 viewer, wasm, out = map(pathlib.Path, sys.argv[1:])
 read = lambda name: (viewer / name).read_text(encoding="utf-8")
 head, body, script = read("styles.part.css.html"), read("body.part.html"), read("script.part.js")
+import html, json
+sample = viewer / "samples" / "ur5"
+samples = {"ur5": {
+    "urdf": (sample / "robot.urdf").read_text(encoding="utf-8"),
+    "files": {m.name: base64.b64encode(m.read_bytes()).decode() for m in sorted((sample / "meshes").glob("*.stl"))},
+}}
+assert body.count("__THIRD_PARTY_LICENSE__") == 1 and script.count("__SAMPLES__") == 1
+body = body.replace("__THIRD_PARTY_LICENSE__", html.escape((sample / "LICENSE").read_text(encoding="utf-8")).strip())
+# json.dumps escapes every non-ASCII character, and "</" is broken up so the
+# embedded text can never close the surrounding <script> element.
+script = script.replace("__SAMPLES__", json.dumps(samples).replace("</", "<\\/"))
 # The markup uses entities; the script is escaped here, so the page does not
 # depend on the charset it happens to be served with.
 assert all(ord(c) < 128 for c in head + body), "non-ASCII in markup: use entities"

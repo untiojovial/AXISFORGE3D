@@ -18,6 +18,9 @@ Stated plainly, so nobody has to discover it.
 | Extension registry for quality measures and candidate generators | Done, Rust crates only. |
 | Pick planner: pre-grasp, grasp, close, lift | Done |
 | Project file format, atomic save | Done |
+| URDF import | Done. STL and OBJ meshes; COLLADA is not read. FK checked against an independent reference and against the UR5's published DH parameters. |
+| Simox robot and object XML import | Done. Open Inventor (`.iv`) meshes are not read. |
+| Mesh reading: binary and ASCII STL, OBJ | Done. Meshes collide as convex hulls. |
 | Service, CLI, WebAssembly build, browser viewer | Done |
 
 ## Known limits
@@ -35,6 +38,15 @@ Stated plainly, so nobody has to discover it.
 - **Primitives only for grasping.** Mesh parts and multi-geometry parts are
   refused with a reason.
 - **One gripper type.** Parallel jaws; no suction, no multi-finger hands.
+- **Unreadable meshes.** Links whose only meshes are COLLADA or Open Inventor
+  are drawn as a skeleton and are not collision-checked. The engine lists
+  them (`linksWithoutCollision`), the viewer's contact badge and plan verdict
+  say so, and the CLI warns on `plan`.
+- **Concave meshes** collide as their convex hull: extra contacts are
+  possible, missed ones are not. There is no convex decomposition yet.
+- **Import scope.** Robots with more than six manipulator axes are refused;
+  floating and planar joints are refused; `mimic` joints become independent,
+  with a warning.
 
 ## Not built
 
@@ -43,7 +55,8 @@ built several of them, but that work was lost with its container before it
 could be pushed, and they have not been rebuilt:
 
 - Tauri desktop shell and the React/Zustand editor (undo/redo, inspector).
-- URDF import and export.
+- URDF export.
+- Convex decomposition of concave meshes.
 - Additional IK solvers (pseudoinverse, CCD).
 - Robot Doctor diagnostics.
 - ADRs, threat model, contribution docs, CI workflow, Playwright suite.

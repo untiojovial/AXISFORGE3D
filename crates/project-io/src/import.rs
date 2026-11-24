@@ -224,14 +224,15 @@ impl MeshStore<'_> {
     /// One warning per distinct reason a mesh was not imported.
     pub fn report(&self, warnings: &mut Vec<String>) {
         for (reason, references) in &self.failures {
-            let listed = if references.len() <= 3 {
-                references.join(", ")
+            // File names read better than `package://` paths in a warning.
+            let names: Vec<&str> = references
+                .iter()
+                .map(|r| r.rsplit(['/', '\\']).next().unwrap_or(r))
+                .collect();
+            let listed = if names.len() <= 3 {
+                names.join(", ")
             } else {
-                format!(
-                    "{}, and {} more",
-                    references[..3].join(", "),
-                    references.len() - 3
-                )
+                format!("{}, and {} more", names[..3].join(", "), names.len() - 3)
             };
             warnings.push(format!(
                 "{} mesh file(s) were not imported ({reason}): {listed}",

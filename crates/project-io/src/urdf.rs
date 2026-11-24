@@ -659,7 +659,7 @@ mod tests {
             <visual><geometry><mesh filename="package://m/meshes/part.stl" scale="0.001 0.001 0.001"/></geometry></visual>
             <collision><geometry><mesh filename="package://m/meshes/part.stl"/></geometry></collision>
             <visual><geometry><mesh filename="missing.obj"/></geometry></visual>
-            <visual><geometry><mesh filename="shape.dae"/></geometry></visual>
+            <visual><geometry><mesh filename="package://m/meshes/visual/shape.dae"/></geometry></visual>
         </link><link name="b"/>
         <joint name="j" type="revolute"><parent link="a"/><child link="b"/><origin xyz="0 0 0.1"/><limit lower="-1" upper="1"/></joint>
         </robot>"#;
@@ -669,7 +669,7 @@ mod tests {
             calls.set(calls.get() + 1);
             match reference {
                 "package://m/meshes/part.stl" => Some(stl.as_bytes().to_vec()),
-                "shape.dae" => Some(b"<COLLADA/>".to_vec()),
+                "package://m/meshes/visual/shape.dae" => Some(b"<COLLADA/>".to_vec()),
                 _ => None,
             }
         };
@@ -699,10 +699,14 @@ mod tests {
             .warnings
             .iter()
             .any(|w| w.contains("missing.obj") && w.contains("not provided")));
-        assert!(imported
-            .warnings
-            .iter()
-            .any(|w| w.contains("shape.dae") && w.contains("not supported")));
+        assert!(
+            imported
+                .warnings
+                .iter()
+                .any(|w| w.ends_with("not supported; STL and OBJ are): shape.dae")),
+            "file names, not package paths: {:?}",
+            imported.warnings
+        );
         assert_eq!(
             imported
                 .warnings

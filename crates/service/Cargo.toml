@@ -13,6 +13,7 @@ unsafe_code = "deny"
 
 [dependencies]
 axisforge-domain = { workspace = true }
+axisforge-geometry = { workspace = true }
 axisforge-kinematics = { workspace = true }
 axisforge-collision = { workspace = true }
 axisforge-grasping = { workspace = true }

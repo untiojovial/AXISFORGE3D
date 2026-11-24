@@ -20,6 +20,9 @@ six axes and a parallel-jaw gripper.
   space (force closure, epsilon), and plan a pick — pre-grasp, grasp,
   close, lift — that the arm can reach and perform without collision. Every
   rejected grasp comes back with its reason.
+- **Import**: URDF robots and Simox robot and object XML, with STL and OBJ
+  meshes. Forward kinematics of imported robots is checked against an
+  independent reference (`tools/verify`).
 
 ## Try it
 
@@ -28,6 +31,11 @@ cargo test --workspace                      # the whole suite
 cargo run -p axisforge-cli -- demo          # writes examples/pick_and_place_cell.axisforge
 cargo run -p axisforge-cli -- plan examples/pick_and_place_cell.axisforge cube
 apps/viewer/build.sh /tmp/axisforge.html    # engine as WebAssembly inside one HTML page
+
+# Import a real robot, mount the gripper, put it in the demo cell, plan:
+cargo run -p axisforge-cli -- import-urdf apps/viewer/samples/ur5/robot.urdf \
+    --gripper default --demo-cell --out /tmp/ur5.axisforge
+cargo run -p axisforge-cli -- plan /tmp/ur5.axisforge cube
 ```
 
 The viewer page needs the `wasm32-unknown-unknown` target
@@ -42,7 +50,7 @@ The viewer page needs the `wasm32-unknown-unknown` target
 | `crates/kinematics` | FK, Jacobian, conditioning, IK. The only place robotics maths lives. |
 | `crates/collision` | Scenes and clearance checks. |
 | `crates/grasping` | Grasp synthesis, quality, pick planner. |
-| `crates/project-io` | Versioned project files, saved atomically. |
+| `crates/project-io` | Versioned project files, saved atomically; URDF, Simox XML, STL and OBJ import. |
 | `crates/service` | One JSON command interface used by every front end. |
 | `crates/wasm` | The service as a zero-import WebAssembly module. |
 | `apps/cli` | Command-line front end. |

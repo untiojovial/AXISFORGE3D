@@ -10,6 +10,22 @@
 
   <div class="bench" id="bench">
     <div class="rail">
+      <details class="module" id="import-module">
+        <summary class="module__head"><h2 class="module__title">Importar robot u objeto</h2><span class="module__note">URDF &middot; Simox XML</span></summary>
+        <div class="module__body">
+          <div class="field field--wide"><label for="import-files">Archivos</label><input id="import-files" type="file" multiple accept=".urdf,.xml,.stl,.obj"></div>
+          <p class="hint">Selecciona la descripci&oacute;n (.urdf, o .xml de Simox con &lt;Robot&gt; o &lt;ManipulationObject&gt;) junto con sus mallas STL u OBJ. Las mallas se buscan por nombre de archivo. Las mallas COLLADA (.dae) y Open Inventor (.iv) a&uacute;n no se leen.</p>
+          <label class="check" for="imp-gripper"><input id="imp-gripper" type="checkbox" checked> Montar la pinza paralela de AXISFORGE</label>
+          <label class="check" for="imp-cell"><input id="imp-cell" type="checkbox" checked> Colocar el robot en la celda de demostraci&oacute;n</label>
+          <div class="field field--wide"><label for="imp-eef">Articulaciones de pinza del archivo (opcional)</label><input id="imp-eef" type="text" placeholder="p. ej. finger_joint1, finger_joint2"></div>
+          <div class="row">
+            <button class="btn btn--primary" id="btn-import" type="button">Importar</button>
+            <button class="btn" id="btn-sample" type="button">Ejemplo: UR5 (URDF real)</button>
+          </div>
+          <div class="verdict" id="import-result" hidden><div class="verdict__head" id="import-head"></div><div class="verdict__detail" id="import-detail"></div><ul class="rejlist" id="import-warnings"></ul></div>
+        </div>
+      </details>
+
       <section class="module" aria-label="Pieza">
         <div class="module__head"><h2 class="module__title">Pieza</h2><span class="module__note" id="gripper-note">&mdash;</span></div>
         <div class="module__body">
@@ -117,7 +133,11 @@
 
   <footer class="footing">
     <span><strong>Simulaci&oacute;n: no es una certificaci&oacute;n de seguridad funcional.</strong> Los resultados son aproximaciones de ingenier&iacute;a. El contacto se modela con parches de puntos y fricci&oacute;n de Coulomb, y las colisiones del recorrido se comprueban por muestras, no de forma continua. Valida todo movimiento en la celda real antes de operar maquinaria.</span>
-    <span>Dimensiones de demostraci&oacute;n. Este robot no corresponde a ninguna m&aacute;quina comercial.</span>
+    <span>El robot de la celda de demostraci&oacute;n no corresponde a ninguna m&aacute;quina comercial.</span>
+    <details class="licenses"><summary>Licencias de terceros</summary>
+      <p>El ejemplo UR5 usa <code>robot.urdf</code> y mallas de colisi&oacute;n del proyecto example-robot-data, sin modificar:</p>
+      <pre>__THIRD_PARTY_LICENSE__</pre>
+    </details>
   </footer>
 </div>
 

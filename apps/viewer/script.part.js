@@ -22,6 +22,12 @@ const EXTENSIONS = {
   primitive_antipodal: "Agarres antipodales de cajas, cilindros, cápsulas y esferas, enumerados a partir de sus dimensiones.",
 };
 const PHASES = ["Inicio", "Pre-agarre", "Agarre (abierta)", "Cierre", "Elevación"];
+// Embedded by build.sh: a real UR5 URDF and its collision meshes (BSD-3).
+const SAMPLES = __SAMPLES__;
+// Height of the demo cell's table top, metres: where imported parts are set down.
+const DEMO_TABLE_TOP = 0.42;
+// A ready pose for the UR5 sample: elbow up over the table, gripper pointing down.
+const UR5_READY = [-0.49, -1.45, 0.64, -0.76, -1.57, -2.06, 0.0, 0.0];
 
 let engine = null;        // (request) => reply
 let info = null;          // last description
@@ -263,7 +269,29 @@ function roundedBox(w, h, d) {
   return geometry.translate(0, 0, -(d - 2 * r) / 2);
 }
 
+/* Imported meshes, by resource id. Shared between drawables and kept across
+   rebuilds, so they are fetched from the engine and uploaded to the GPU once. */
+const meshCache = new Map();
+
+function loadMeshes(drawables) {
+  const missing = [...new Set(drawables.filter((d) => d.shape.kind === "mesh").map((d) => d.shape.resourceId))]
+    .filter((id) => !meshCache.has(id));
+  if (!missing.length) return;
+  const reply = engine({ op: "get_resources", ids: missing });
+  if (!reply.ok) return;
+  for (const mesh of reply.data) {
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.Float32BufferAttribute(mesh.vertices, 3));
+    geometry.setIndex(mesh.indices);
+    geometry.computeVertexNormals();
+    geometry.computeBoundingSphere();
+    geometry.userData.shared = true;
+    meshCache.set(mesh.id, geometry);
+  }
+}
+
 function geometryFor(shape) {
+  if (shape.kind === "mesh") return meshCache.get(shape.resourceId) || new THREE.BoxGeometry(0.01, 0.01, 0.01);
   if (shape.kind === "box") return roundedBox(shape.size.x, shape.size.y, shape.size.z);
   if (shape.kind === "sphere") return new THREE.SphereGeometry(shape.radius, 48, 32);
   if (shape.kind === "cylinder") return chamferedCylinder(shape.radius, shape.length);
@@ -275,12 +303,15 @@ function syncMeshes(drawables, contactIds) {
   const next = drawables.map((d) => JSON.stringify(d.shape) + d.visual + d.collision).join("|");
   if (next !== signature) {
     signature = next;
-    meshes.forEach((m) => { scene.remove(m); m.geometry.dispose(); m.material.dispose(); });
+    meshes.forEach((m) => { scene.remove(m); if (!m.geometry.userData.shared) m.geometry.dispose(); m.material.dispose(); });
+    loadMeshes(drawables);
     meshes = drawables.map((d) => {
       const material = d.visual
-        ? new THREE.MeshStandardMaterial({ envMapIntensity: 0.9 })
+        // Imported meshes are faceted CAD exports; flat shading shows their edges as edges.
+        ? new THREE.MeshStandardMaterial({ envMapIntensity: 0.9, flatShading: d.shape.kind === "mesh" })
         : new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.22, depthWrite: false, wireframe: false });
       const mesh = new THREE.Mesh(geometryFor(d.shape), material);
+      if (d.shape.kind === "mesh") mesh.scale.set(d.shape.scale.x, d.shape.scale.y, d.shape.scale.z);
       mesh.castShadow = d.visual; mesh.receiveShadow = d.visual;
       scene.add(mesh);
       return mesh;
@@ -367,12 +398,16 @@ function showCandidates() {
 }
 
 /* ============================================================= state view */
+/* Moving links whose collisions nothing checks (their meshes were not imported). */
+function unchecked() { return (info && info.linksWithoutCollision) || []; }
+
 function draw() {
   const request = { op: "snapshot", values };
   if (carry) request.carry = carry;
   else if (grasping) request.grasping = grasping;
   const reply = engine(request);
   const flag = $("contact-flag");
+  flag.title = "";
   if (!reply.ok) { flag.textContent = reply.error; flag.className = "viewport__flag flag--alert"; return; }
   const s = reply.data;
   const contacts = s.collision.contacts;
@@ -385,6 +420,9 @@ function draw() {
     flag.className = "viewport__flag flag--alert";
   } else if (!s.collision.conclusive) {
     flag.textContent = "holgura no demostrada"; flag.className = "viewport__flag flag--alert";
+  } else if (unchecked().length) {
+    flag.textContent = "libre · " + unchecked().length + " eslabones sin comprobar"; flag.className = "viewport__flag flag--warn";
+    flag.title = "Sin geometría de colisión: " + unchecked().join(", ");
   } else { flag.textContent = "libre"; flag.className = "viewport__flag flag--ok"; }
 
   // The grasp markers sit where the part rests; once it is carried they would float.
@@ -436,7 +474,8 @@ function unit(j) { return j.kind === "revolute" ? { k: 180 / Math.PI, s: "°", d
 function buildAxes() {
   const host = $("axes");
   host.textContent = "";
-  $("dof-note").textContent = info.axisCount + " ejes + " + (info.joints.length - info.axisCount) + " mordazas";
+  const extra = info.joints.length - info.axisCount;
+  $("dof-note").textContent = info.robotName + " · " + info.axisCount + " ejes" + (extra ? " + " + extra + " de pinza" : "");
   $("gripper-note").textContent = info.gripper ? "pinza · " + fmt(info.gripperMaxOpening * 1000, 0) + " mm" : "sin pinza";
   let separated = false;
   info.joints.forEach((j, i) => {
@@ -604,10 +643,12 @@ function runPlan() {
   report = reply.data;
   $("plan-note").textContent = report.qualityMeasure + " · " + fmt(elapsed, 0) + " ms";
   const n = report.plans.length;
-  verdict.className = "verdict " + (n ? "verdict--ok" : "verdict--warn");
+  const blind = unchecked();
+  verdict.className = "verdict " + (n && !blind.length ? "verdict--ok" : "verdict--warn");
   $("plan-head").textContent = n ? (n === 1 ? "1 agarre viable" : n + " agarres viables") : "Ningún agarre viable";
   $("plan-detail").textContent = "Se examinaron " + report.candidatesExamined + " de " + report.candidatesTotal + " agarres candidatos para «" + b.name + "»; " + report.rejections.length + " descartados." +
-    (n ? "" : " Prueba a mover la pieza, aligerarla, aumentar la fricción o relajar los parámetros.");
+    (n ? "" : " Prueba a mover la pieza, aligerarla, aumentar la fricción o relajar los parámetros.") +
+    (blind.length ? " Atención: " + blind.length + " eslabones móviles no tienen geometría de colisión (" + blind.join(", ") + "); sus choques no se han comprobado." : "");
 
   const host = $("plans");
   host.textContent = "";
@@ -710,16 +751,136 @@ function play() {
 }
 
 /* ================================================================= wiring */
+/* ================================================================= import */
+function frameScene() {
+  const box = new THREE.Box3();
+  meshes.forEach((m) => { if (m.visible) box.expandByObject(m); });
+  if (box.isEmpty()) return;
+  const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+  goal.target.copy(center);
+  goal.dist = Math.max(0.8, Math.max(size.x, size.y, size.z) * 1.7);
+  dirty = true;
+}
+
+function readFile(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error("no se pudo leer " + file.name));
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+function toBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let text = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) text += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return btoa(text);
+}
+
+function showImport(kind, head, detail, warnings) {
+  const box = $("import-result");
+  box.hidden = false;
+  box.className = "verdict verdict--" + kind;
+  $("import-head").textContent = head;
+  $("import-detail").textContent = detail;
+  const list = $("import-warnings");
+  list.textContent = "";
+  (warnings || []).forEach((w) => { const li = document.createElement("li"); li.textContent = w; list.appendChild(li); });
+}
+
+/* After the engine holds a new robot: rebuild everything that depends on it. */
+function adoptRobot(description, ready) {
+  info = description;
+  if (ready && ready.length === info.joints.length) {
+    const reply = engine({ op: "set_joints", values: ready });
+    if (reply.ok) info.joints.forEach((j, i) => { j.value = ready[i]; });
+  }
+  home = info.joints.map((j) => j.value);
+  values = home.slice();
+  signature = "";
+  clearPlan();
+  buildAxes();
+  fillBodies();
+  draw();
+  frameScene();
+}
+
+function importRobot(format, text, files, ready) {
+  const eef = $("imp-eef").value.split(",").map((s) => s.trim()).filter(Boolean);
+  const reply = engine({
+    op: "import_robot", format, text, files,
+    endEffectorJoints: eef,
+    attachGripper: $("imp-gripper").checked ? "" : null,
+    intoDemoCell: $("imp-cell").checked,
+  });
+  if (!reply.ok) { showImport("alert", "No se pudo importar", reply.error, []); return; }
+  const d = reply.data.description;
+  adoptRobot(d, ready);
+  showImport("ok", "Importado: " + d.robotName,
+    d.axisCount + " ejes, " + d.joints.length + " articulaciones móviles" + (d.gripper ? ", con pinza" : ", sin pinza") + ". " +
+    (reply.data.warnings.length ? "Lo que no se pudo trasladar exactamente:" : "Todo se trasladó."), reply.data.warnings);
+}
+
+async function importFiles() {
+  const picked = [...$("import-files").files];
+  if (!picked.length) { showImport("warn", "Sin archivos", "Elige primero la descripción y sus mallas.", []); return; }
+  const descriptions = picked.filter((f) => /\.(urdf|xml)$/i.test(f.name));
+  if (descriptions.length !== 1) {
+    showImport("warn", "Falta la descripción", descriptions.length ? "Elige una sola descripción (.urdf o .xml) a la vez." : "Entre los archivos debe haber un .urdf o un .xml de Simox.", []);
+    return;
+  }
+  try {
+    const files = {};
+    for (const f of picked.filter((f) => /\.(stl|obj)$/i.test(f.name))) files[f.name] = toBase64(await readFile(f));
+    const text = new TextDecoder().decode(await readFile(descriptions[0]));
+    if (/\.urdf$/i.test(descriptions[0].name)) { importRobot("urdf", text, files); return; }
+    if (/<\s*ManipulationObject[\s>]/i.test(text)) { addObject(text, files); return; }
+    if (/<\s*Robot[\s>]/i.test(text)) {
+      // A URDF saved as .xml has a lower-case <robot name=...>; Simox's has Type and RootNode.
+      importRobot(/RootNode\s*=/i.test(text) ? "simox" : "urdf", text, files);
+      return;
+    }
+    showImport("alert", "Formato no reconocido", "El .xml no contiene <Robot> ni <ManipulationObject>.", []);
+  } catch (error) {
+    showImport("alert", "No se pudo leer", error.message, []);
+  }
+}
+
+function addObject(text, files) {
+  const onTable = info.bodies.some((b) => b.name === "table");
+  const reply = engine({
+    op: "add_object", text, files,
+    position: { x: 0.40, y: 0.0, z: 0 },
+    restOn: onTable ? DEMO_TABLE_TOP : info.groundHeight,
+  });
+  if (!reply.ok) { showImport("alert", "No se pudo añadir el objeto", reply.error, []); return; }
+  info = reply.data.description;
+  const added = info.bodies[info.bodies.length - 1];
+  signature = "";
+  clearPlan();
+  fillBodies();
+  $("body").value = added.id;
+  fillBodyFields();
+  draw();
+  showImport("ok", "Pieza añadida: " + added.name, "Colocada " + (onTable ? "sobre la mesa" : "en el suelo") + ". Ajusta su posición, masa y fricción en «Pieza».", reply.data.warnings);
+}
+
 function wire() {
   $("body").addEventListener("change", () => { fillBodyFields(); clearPlan(); draw(); });
   $("btn-plan").addEventListener("click", runPlan);
+  $("btn-import").addEventListener("click", importFiles);
+  $("btn-sample").addEventListener("click", () => {
+    $("imp-gripper").checked = true; $("imp-cell").checked = true; $("imp-eef").value = "";
+    importRobot("urdf", SAMPLES.ur5.urdf, SAMPLES.ur5.files, UR5_READY);
+  });
   $("btn-apply").addEventListener("click", () => { if (applyBody()) { clearPlan(); fillBodyFields(); draw(); } });
   $("btn-reset").addEventListener("click", () => {
     const reply = engine({ op: "load_demo" });
     if (!reply.ok) return;
-    info = reply.data; values = home.slice();
     $("edit-error").hidden = true;
-    clearPlan(); fillBodies(); draw();
+    $("import-result").hidden = true;
+    adoptRobot(reply.data, null);
   });
   $("btn-home").addEventListener("click", () => { stopPlayback(); values = home.slice(); carry = null; grasping = null; setPhaseLabel(plan ? PHASES[0] : "sin plan"); draw(); });
   $("btn-play").addEventListener("click", play);
