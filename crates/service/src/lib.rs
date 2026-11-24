@@ -30,6 +30,7 @@ use axisforge_kinematics::{
     ConditioningReport, IkOptions, IkSolution, KinematicModel, TaskSpace,
 };
 use axisforge_project_io::import::{ImportError, ImportOptions};
+use axisforge_project_io::object::import_mesh_object;
 use axisforge_project_io::simox::{import_simox_object, import_simox_robot};
 use axisforge_project_io::urdf::import_urdf;
 use axisforge_project_io::ProjectIoError;
@@ -150,6 +151,26 @@ pub enum Request {
         /// When given, `position.z` is ignored and the object is lowered or
         /// raised until its lowest point is at this height, metres: resting on
         /// a surface at that height.
+        #[serde(default)]
+        rest_on: Option<f64>,
+    },
+    /// Add a part straight from one mesh file (STL, OBJ or COLLADA).
+    AddMeshObject {
+        /// The file's name; its extension decides the format.
+        file: String,
+        /// The file's contents, base64-encoded.
+        data: String,
+        /// The part's name; the file's name without extension when omitted.
+        /// A name already taken gets a number added.
+        #[serde(default)]
+        name: Option<String>,
+        /// The file's units: `m`, `mm`, or `auto` (guessed from the size,
+        /// and reported) when omitted.
+        #[serde(default)]
+        units: Option<String>,
+        /// Where to place the centre of its base, metres.
+        position: Vec3,
+        /// As for [`Request::AddObject`].
         #[serde(default)]
         rest_on: Option<f64>,
     },
@@ -380,7 +401,11 @@ fn lowest_point(
             _ => None,
         };
         let convex = axisforge_geometry::body_from_geometry(geometry, &body.pose, vertices)?;
-        lowest = lowest.min(convex.aabb().min.z);
+        // The support point straight down, not the bounding box: a mesh's box
+        // is symmetric about its origin, and a part whose origin is at its
+        // base would stand that far above the surface.
+        let down = convex.core_support(&Vec3::new(0.0, 0.0, -1.0)).z - convex.inflation;
+        lowest = lowest.min(down);
     }
     if lowest.is_finite() {
         Ok(lowest)
@@ -691,18 +716,15 @@ impl Session {
                 position,
                 rest_on,
             } => self.add_object(&text, &files, position, rest_on),
-            Request::GetResources { ids } => Ok(Response::Resources(
-                self.project
-                    .resources
-                    .iter()
-                    .filter(|r| ids.is_empty() || ids.contains(&r.id))
-                    .map(|r| MeshData {
-                        id: r.id.clone(),
-                        vertices: r.vertices.clone(),
-                        indices: r.indices.clone(),
-                    })
-                    .collect(),
-            )),
+            Request::AddMeshObject {
+                file,
+                data,
+                name,
+                units,
+                position,
+                rest_on,
+            } => self.add_mesh_object(&file, &data, name, units.as_deref(), position, rest_on),
+            Request::GetResources { ids } => Ok(Response::Resources(self.mesh_data(&ids))),
             Request::UpdateBody {
                 body_id,
                 position,
@@ -783,6 +805,63 @@ impl Session {
         })))
     }
 
+    /// The buffers of the resources named in `ids`, or of all when empty.
+    fn mesh_data(&self, ids: &[String]) -> Vec<MeshData> {
+        self.project
+            .resources
+            .iter()
+            .filter(|r| ids.is_empty() || ids.contains(&r.id))
+            .map(|r| MeshData {
+                id: r.id.clone(),
+                vertices: r.vertices.clone(),
+                indices: r.indices.clone(),
+            })
+            .collect()
+    }
+
+    fn add_mesh_object(
+        &mut self,
+        file: &str,
+        data: &str,
+        name: Option<String>,
+        units: Option<&str>,
+        position: Vec3,
+        rest_on: Option<f64>,
+    ) -> Result<Response, ServiceError> {
+        let scale = match units.unwrap_or("auto") {
+            "auto" => None,
+            "m" => Some(1.0),
+            "mm" => Some(0.001),
+            other => {
+                return Err(DomainError::unsupported(format!(
+                    "units `{other}`: use `m`, `mm` or `auto`"
+                ))
+                .into())
+            }
+        };
+        let mut files = BTreeMap::new();
+        files.insert(file.to_owned(), data.to_owned());
+        let bytes = decode_files(&files)?.remove(file).unwrap_or_default();
+        let stem = file
+            .rsplit(['/', '\\'])
+            .next()
+            .unwrap_or(file)
+            .rsplit_once('.')
+            .map_or(file, |(stem, _)| stem);
+        let base = name
+            .filter(|n| !n.trim().is_empty())
+            .unwrap_or_else(|| stem.to_owned());
+        // A free name, so adding the same file twice gives two parts.
+        let mut name = base.clone();
+        let mut n = 2;
+        while self.project.environment.body_by_name(&name).is_some() {
+            name = format!("{base} {n}");
+            n += 1;
+        }
+        let imported = import_mesh_object(&name, file, &bytes, scale)?;
+        self.place_object(imported, position, rest_on)
+    }
+
     fn add_object(
         &mut self,
         text: &str,
@@ -791,7 +870,17 @@ impl Session {
         rest_on: Option<f64>,
     ) -> Result<Response, ServiceError> {
         let source = decode_files(files)?;
-        let mut imported = import_simox_object(text, &source)?;
+        let imported = import_simox_object(text, &source)?;
+        self.place_object(imported, position, rest_on)
+    }
+
+    /// Adds an imported object at `position`, standing on `rest_on` if given.
+    fn place_object(
+        &mut self,
+        mut imported: axisforge_project_io::simox::ImportedObject,
+        position: Vec3,
+        rest_on: Option<f64>,
+    ) -> Result<Response, ServiceError> {
         if self
             .project
             .environment
@@ -1432,6 +1521,106 @@ mod tests {
             reply["data"]["description"]["linksWithoutCollision"],
             serde_json::json!(["b"])
         );
+    }
+
+    #[test]
+    fn a_mesh_file_is_added_as_a_part_and_planned() {
+        use base64::Engine as _;
+        use std::fmt::Write as _;
+        // A 30 x 50 x 20 mm box as an ASCII STL, in millimetres.
+        let (x, y, z) = (30.0, 50.0, 20.0);
+        let corner = |i: usize| {
+            [
+                if i & 1 == 0 { 0.0 } else { x },
+                if i & 2 == 0 { 0.0 } else { y },
+                if i & 4 == 0 { 0.0 } else { z },
+            ]
+        };
+        let mut stl = String::from("solid box\n");
+        for [a, b, c, d] in [
+            [0, 2, 3, 1],
+            [4, 5, 7, 6],
+            [0, 1, 5, 4],
+            [2, 6, 7, 3],
+            [0, 4, 6, 2],
+            [1, 3, 7, 5],
+        ] {
+            for t in [[a, b, c], [a, c, d]] {
+                stl.push_str("facet normal 0 0 0\nouter loop\n");
+                for i in t {
+                    let p = corner(i);
+                    let _ = writeln!(stl, "vertex {} {} {}", p[0], p[1], p[2]);
+                }
+                stl.push_str("endloop\nendfacet\n");
+            }
+        }
+        stl.push_str("endsolid box\n");
+        let mut session = Session::demo().unwrap();
+        let request = serde_json::json!({
+            "op": "add_mesh_object", "file": "block.stl",
+            "data": base64::engine::general_purpose::STANDARD.encode(&stl),
+            "position": {"x": 0.42, "y": -0.1, "z": 0.0}, "restOn": 0.42,
+        });
+        let reply = call(&mut session, &request.to_string());
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert!(reply["data"]["warnings"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|w| w.as_str().unwrap().contains("millimetres")));
+        let block = session.project().environment.body_by_name("block").unwrap();
+        assert!(
+            (block.pose.translation.z - 0.42).abs() < 1e-9,
+            "{:?}",
+            block.pose
+        );
+        // 30 x 50 x 20 mm of water.
+        assert!(
+            (block.physical.mass - 0.03).abs() < 1e-9,
+            "{}",
+            block.physical.mass
+        );
+        let id = block.id.clone();
+        // The same file again is a second part, not a clash.
+        let reply = call(&mut session, &request.to_string());
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert!(session
+            .project()
+            .environment
+            .body_by_name("block 2")
+            .is_some());
+        // Move the cube out of the way and pick the block.
+        let cube = session
+            .project()
+            .environment
+            .body_by_name("cube")
+            .unwrap()
+            .id
+            .clone();
+        let other = session
+            .project()
+            .environment
+            .body_by_name("block 2")
+            .unwrap()
+            .id
+            .clone();
+        for (body, y) in [(cube, 0.3), (other, -0.3)] {
+            let r = call(&mut session, &serde_json::json!({"op": "update_body", "bodyId": body, "position": {"x": 0.45, "y": y, "z": 0.44}}).to_string());
+            assert_eq!(r["ok"], true, "{r}");
+        }
+        let reply = call(
+            &mut session,
+            &format!(r#"{{"op":"plan_pick","bodyId":"{id}"}}"#),
+        );
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert_eq!(reply["data"]["candidateGenerator"], "surface_normal");
+        assert!(
+            !reply["data"]["plans"].as_array().unwrap().is_empty(),
+            "{}",
+            reply["data"]["rejections"]
+        );
+        let bad = serde_json::json!({"op": "add_mesh_object", "file": "b.stl", "data": "", "units": "inch", "position": {"x": 0.0, "y": 0.0, "z": 0.0}});
+        assert_eq!(call(&mut session, &bad.to_string())["ok"], false);
     }
 
     #[test]

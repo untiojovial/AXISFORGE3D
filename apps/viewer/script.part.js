@@ -20,6 +20,7 @@ const EXTENSIONS = {
   wrench_space: "Espacio de llaves de los parches de contacto: cierre de fuerza y épsilon (distancia del origen a la envolvente de las llaves).",
   antipodal: "Prueba antipodal de dos puntos contra el cono de fricción. No tiene en cuenta el par alrededor de la línea de cierre.",
   primitive_antipodal: "Agarres antipodales de cajas, cilindros, cápsulas y esferas, enumerados a partir de sus dimensiones.",
+  surface_normal: "Puntos muestreados en la superficie de la pieza: las mordazas cierran a lo largo de la normal o llegan por ella, y los contactos salen de donde las almohadillas tocan. Sirve para mallas y piezas compuestas.",
 };
 const PHASES = ["Inicio", "Pre-agarre", "Agarre (abierta)", "Cierre", "Elevación"];
 // Embedded by build.sh: a real UR5 URDF and its collision meshes (BSD-3).
@@ -570,6 +571,11 @@ function fillExtensions() {
   list.textContent = "";
   const selects = { quality_measure: $("o-measure"), candidate_generator: $("o-generator") };
   Object.values(selects).forEach((s) => { s.textContent = ""; });
+  // "auto" is the planner's own choice: exact grasps for a primitive, the
+  // surface for anything else.
+  const auto = document.createElement("option");
+  auto.value = "auto"; auto.textContent = "auto (según la pieza)";
+  selects.candidate_generator.appendChild(auto);
   reply.data.forEach((e) => {
     const li = document.createElement("li"), name = document.createElement("b"), kind = document.createElement("i"), text = document.createElement("span");
     name.textContent = e.id;
@@ -582,6 +588,7 @@ function fillExtensions() {
     selects[e.kind].appendChild(option);
   });
   $("o-measure").value = "wrench_space";
+  $("o-generator").value = "auto";
   $("ext-note").textContent = reply.data.length + " registradas";
 }
 
@@ -611,7 +618,7 @@ function plannerOptions() {
 
 const DEFAULTS = { "o-nr": "3", "o-minq": "0", "o-mu": "", "o-cone": "8", "o-force": "1", "o-torsion": "0", "o-standoff": "80", "o-lift": "100", "o-jaw": "5", "o-max": "" };
 function noteParams() {
-  const changed = Object.entries(DEFAULTS).some(([id, value]) => $(id).value !== value) || !$("o-fc").checked || $("o-measure").value !== "wrench_space";
+  const changed = Object.entries(DEFAULTS).some(([id, value]) => $(id).value !== value) || !$("o-fc").checked || $("o-measure").value !== "wrench_space" || $("o-generator").value !== "auto";
   $("params-note").textContent = changed ? "modificados" : "por defecto";
 }
 
@@ -826,6 +833,11 @@ async function importFiles() {
   const picked = [...$("import-files").files];
   if (!picked.length) { showImport("warn", "Sin archivos", "Elige primero la descripción y sus mallas.", []); return; }
   const descriptions = picked.filter((f) => /\.(urdf|xml)$/i.test(f.name));
+  // One mesh and no description: a part straight from CAD.
+  if (!descriptions.length && picked.length === 1 && /\.(stl|obj|dae)$/i.test(picked[0].name)) {
+    try { addMeshObject(picked[0].name, toBase64(await readFile(picked[0]))); } catch (error) { showImport("alert", "No se pudo leer", error.message, []); }
+    return;
+  }
   if (descriptions.length !== 1) {
     showImport("warn", "Falta la descripción", descriptions.length ? "Elige una sola descripción (.urdf o .xml) a la vez." : "Entre los archivos debe haber un .urdf o un .xml de Simox.", []);
     return;
@@ -847,14 +859,13 @@ async function importFiles() {
   }
 }
 
-function addObject(text, files) {
+/* Where a new part goes: in front of the robot, on the table if there is one. */
+function partPlacement() {
   const onTable = info.bodies.some((b) => b.name === "table");
-  const reply = engine({
-    op: "add_object", text, files,
-    position: { x: 0.40, y: 0.0, z: 0 },
-    restOn: onTable ? DEMO_TABLE_TOP : info.groundHeight,
-  });
-  if (!reply.ok) { showImport("alert", "No se pudo añadir el objeto", reply.error, []); return; }
+  return { onTable, position: { x: 0.40, y: 0.0, z: 0 }, restOn: onTable ? DEMO_TABLE_TOP : info.groundHeight };
+}
+
+function adoptPart(reply) {
   info = reply.data.description;
   const added = info.bodies[info.bodies.length - 1];
   signature = "";
@@ -863,7 +874,24 @@ function addObject(text, files) {
   $("body").value = added.id;
   fillBodyFields();
   draw();
-  showImport("ok", "Pieza añadida: " + added.name, "Colocada " + (onTable ? "sobre la mesa" : "en el suelo") + ". Ajusta su posición, masa y fricción en «Pieza».", reply.data.warnings);
+  return added;
+}
+
+function addMeshObject(file, data) {
+  const where = partPlacement();
+  const units = $("imp-units").value;
+  const reply = engine({ op: "add_mesh_object", file, data, units, position: where.position, restOn: where.restOn });
+  if (!reply.ok) { showImport("alert", "No se pudo añadir la pieza", reply.error, []); return; }
+  const added = adoptPart(reply);
+  showImport("ok", "Pieza añadida: " + added.name, "Malla colocada " + (where.onTable ? "sobre la mesa" : "en el suelo") + ". Se agarrará por su superficie. Revisa su masa y fricción en «Pieza».", reply.data.warnings);
+}
+
+function addObject(text, files) {
+  const where = partPlacement();
+  const reply = engine({ op: "add_object", text, files, position: where.position, restOn: where.restOn });
+  if (!reply.ok) { showImport("alert", "No se pudo añadir el objeto", reply.error, []); return; }
+  const added = adoptPart(reply);
+  showImport("ok", "Pieza añadida: " + added.name, "Colocada " + (where.onTable ? "sobre la mesa" : "en el suelo") + ". Ajusta su posición, masa y fricción en «Pieza».", reply.data.warnings);
 }
 
 function wire() {
@@ -886,7 +914,7 @@ function wire() {
   $("btn-play").addEventListener("click", play);
   $("btn-defaults").addEventListener("click", () => {
     Object.entries(DEFAULTS).forEach(([id, value]) => { $(id).value = value; });
-    $("o-fc").checked = true; $("o-measure").value = "wrench_space";
+    $("o-fc").checked = true; $("o-measure").value = "wrench_space"; $("o-generator").value = "auto";
     noteParams();
   });
   $("params").addEventListener("input", noteParams);

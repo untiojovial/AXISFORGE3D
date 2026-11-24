@@ -108,11 +108,19 @@ enum Command {
     AddObject {
         /// The project file.
         project: PathBuf,
-        /// The Simox <ManipulationObject> XML.
+        /// The Simox <ManipulationObject> XML, or a bare STL, OBJ or COLLADA
+        /// mesh, whose origin is then the centre of its base.
         object: PathBuf,
-        /// Where to put the object, metres, as `x,y,z`.
-        #[arg(long, value_delimiter = ',', num_args = 3)]
+        /// Where to put the object, metres, as `x y z`.
+        #[arg(long, num_args = 3, allow_negative_numbers = true)]
         at: Vec<f64>,
+        /// A bare mesh's units: `m` or `mm`; guessed from its size and
+        /// reported when omitted.
+        #[arg(long)]
+        units: Option<String>,
+        /// A bare mesh's part name; the file name without extension when omitted.
+        #[arg(long)]
+        name: Option<String>,
         /// Where to write the project; the input project when omitted.
         #[arg(long)]
         out: Option<PathBuf>,
@@ -312,14 +320,43 @@ fn run(cli: Cli) -> Result<()> {
             project,
             object,
             at,
+            units,
+            name,
             out,
         } => {
             let mut target = axisforge_project_io::load(&project)?;
-            let text = std::fs::read_to_string(&object)
-                .with_context(|| format!("reading {}", object.display()))?;
-            let folder = object.parent().map(Path::to_path_buf).unwrap_or_default();
-            let meshes = move |reference: &str| load_mesh(&folder, reference);
-            let mut imported = import_simox_object(&text, &meshes)?;
+            let file_name = object
+                .file_name()
+                .and_then(|n| n.to_str())
+                .unwrap_or_default()
+                .to_owned();
+            let mut imported = if axisforge_project_io::mesh::is_supported(&file_name) {
+                let scale = match units.as_deref() {
+                    None => None,
+                    Some("m") => Some(1.0),
+                    Some("mm") => Some(0.001),
+                    Some(other) => return Err(anyhow!("units `{other}`: use `m` or `mm`")),
+                };
+                let bytes = std::fs::read(&object)
+                    .with_context(|| format!("reading {}", object.display()))?;
+                let stem = object
+                    .file_stem()
+                    .and_then(|n| n.to_str())
+                    .unwrap_or("part")
+                    .to_owned();
+                axisforge_project_io::object::import_mesh_object(
+                    &name.unwrap_or(stem),
+                    &file_name,
+                    &bytes,
+                    scale,
+                )?
+            } else {
+                let text = std::fs::read_to_string(&object)
+                    .with_context(|| format!("reading {}", object.display()))?;
+                let folder = object.parent().map(Path::to_path_buf).unwrap_or_default();
+                let meshes = move |reference: &str| load_mesh(&folder, reference);
+                import_simox_object(&text, &meshes)?
+            };
             if target
                 .environment
                 .body_by_name(&imported.body.name)

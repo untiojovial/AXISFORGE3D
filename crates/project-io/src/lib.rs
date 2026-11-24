@@ -21,6 +21,7 @@
 pub mod collada;
 pub mod import;
 pub mod mesh;
+pub mod object;
 pub mod simox;
 pub mod urdf;
 

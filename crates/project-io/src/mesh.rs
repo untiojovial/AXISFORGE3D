@@ -94,6 +94,39 @@ impl Mesh {
         (pieces.len() > 1).then(|| pieces.into_iter().map(|(mesh, _)| mesh).collect())
     }
 
+    /// The enclosed volume, when the mesh is a closed surface (every edge
+    /// shared by exactly two triangles); `None` otherwise.
+    pub fn volume(&self) -> Option<f64> {
+        let mut edges: HashMap<(u32, u32), u32> = HashMap::new();
+        for face in self.indices.chunks_exact(3) {
+            for (a, b) in [(face[0], face[1]), (face[1], face[2]), (face[2], face[0])] {
+                *edges.entry((a.min(b), a.max(b))).or_insert(0) += 1;
+            }
+        }
+        if edges.is_empty() || edges.values().any(|n| *n != 2) {
+            return None;
+        }
+        let corner = |i: u32| {
+            let at = i as usize * 3;
+            [
+                self.vertices[at],
+                self.vertices[at + 1],
+                self.vertices[at + 2],
+            ]
+        };
+        let signed: f64 = self
+            .indices
+            .chunks_exact(3)
+            .map(|f| {
+                let [a, b, c] = [corner(f[0]), corner(f[1]), corner(f[2])];
+                (a[0] * (b[1] * c[2] - b[2] * c[1]) - a[1] * (b[0] * c[2] - b[2] * c[0])
+                    + a[2] * (b[0] * c[1] - b[1] * c[0]))
+                    / 6.0
+            })
+            .sum();
+        Some(signed.abs())
+    }
+
     /// The smallest and largest coordinate on each axis, or `None` when empty.
     pub fn bounds(&self) -> Option<([f64; 3], [f64; 3])> {
         let mut chunks = self.vertices.chunks_exact(3);
