@@ -43,7 +43,8 @@ pub struct PartSurface {
     /// Triangles as vertex indices, wound outward where the source was.
     pub triangles: Vec<[u32; 3]>,
     /// Centre of mass: the volume centroid when every geometry is a closed
-    /// surface, otherwise the area centroid.
+    /// surface, or all of them together are (a part cut into pieces),
+    /// otherwise the area centroid.
     pub center_of_mass: Vec3,
     /// Largest distance from the centre of mass to a vertex.
     pub radius: f64,
@@ -369,6 +370,14 @@ impl PartSurface {
             } else {
                 solid = false;
                 break;
+            }
+        }
+        // A part cut into convex pieces for collision has open pieces that
+        // close up together along their seams: take the union's volume.
+        if !solid {
+            if let Some((v, m)) = solid_moments(&vertices, &triangles) {
+                let sign = if v < 0.0 { -1.0 } else { 1.0 };
+                (solid, volume, moment) = (true, sign * v, m.scaled(sign));
             }
         }
         let center_of_mass = if solid && volume > 1.0e-15 {

@@ -36,8 +36,10 @@
 
 pub mod aabb;
 pub mod gjk;
+pub mod hull3;
 pub mod support;
 
 pub use aabb::Aabb;
 pub use gjk::{Distance, GjkStatus};
+pub use hull3::{convex_hull, Hull3};
 pub use support::{body_from_geometry, body_from_shape, ConvexBody, ConvexCore};

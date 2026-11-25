@@ -339,6 +339,35 @@ fn visual_parts(
 }
 
 /// The collision pieces of a loaded file, made into resources on first use.
+/// Most pieces a mesh collides as, over all its shells.
+const MAX_TOTAL_PIECES: usize = 32;
+
+/// The pieces a mesh collides as: its closed shells, each cut into convex
+/// pieces where it is concave (see [`crate::decompose`]). `None` when the
+/// mesh should collide whole: it is open, or one convex shell.
+fn collision_pieces(whole: &mesh::Mesh) -> Option<Vec<mesh::Mesh>> {
+    let shells = whole
+        .closed_pieces(MAX_COLLISION_PIECES)
+        .unwrap_or_else(|| vec![whole.clone()]);
+    let options = crate::decompose::DecompositionOptions {
+        max_pieces: (MAX_TOTAL_PIECES / shells.len()).clamp(1, 12),
+        ..Default::default()
+    };
+    let several = shells.len() > 1;
+    let mut pieces = Vec::new();
+    let mut cut = false;
+    for shell in shells {
+        match crate::decompose::decompose(&shell, &options) {
+            Some(parts) => {
+                cut = true;
+                pieces.extend(parts);
+            }
+            None => pieces.push(shell),
+        }
+    }
+    (several || cut).then_some(pieces)
+}
+
 fn collision_parts(
     loaded: &mut Loaded,
     reference: &str,
@@ -360,7 +389,7 @@ fn collision_parts(
     } else {
         None
     };
-    let parts = match whole.closed_pieces(MAX_COLLISION_PIECES) {
+    let parts = match collision_pieces(&whole) {
         Some(pieces) => pieces
             .into_iter()
             .enumerate()
