@@ -13,3 +13,9 @@ Se renderizaron 352 vistas RGB-D sobre 22 objetos y se extrajeron embeddings con
 - [Trazabilidad robótica](robot/TRACEABILITY.md), [resultados nativos](robot/native_dev_results.json)
 - [Protocolo](PROTOCOL.md), [comparadores](bo/IMPLEMENTATION.md), [resultados del piloto inicial](bo/results/smoke/summary.csv)
 - [Auditoría interna](audit/REVIEW.md), [evaluación de novedad](NOVELTY_ASSESSMENT.md)
+
+## Resultado ampliado
+
+Con 16 objetos históricos y seis de validación, 1.620 consultas dieron 87 planes viables y 1.533 rechazos F1. Las políticas consultaron 256 pares distintos. La política adaptativa y sus controles equiponderado y sin actualización por evidencia empataron en calidad media acumulada. En el sondeo dinámico condicionado, 3 de 6 poses cumplieron el criterio de sujeción, todas en el mismo objeto. El test final y la validación en robot siguen pendientes.
+
+[Resultados y costes](RESULTS.md) · [Reproducción completa](REPRODUCIBILITY.md) · [Estado de los 30 entregables](STATUS.md)
