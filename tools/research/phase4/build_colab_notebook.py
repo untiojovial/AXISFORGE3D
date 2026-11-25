@@ -1,18 +1,247 @@
-import base64,gzip,json
+"""Build the self-contained Colab notebook for the frozen visual features.
+
+The notebook embeds the runtime code, the sealed development job and the CPU
+reference for DINOv2, so it needs no repository checkout. It runs one or more
+of OpenCLIP, DINOv2 and DINOv3 in a single pass and leaves, for each, a
+bundle the repository's importer verifies.
+"""
+import base64, gzip, json
 from pathlib import Path
-root=Path(__file__).resolve().parents[3]
-files=['research_grasping/__init__.py','research_grasping/phase4/__init__.py','research_grasping/phase4/jobs.py','research_grasping/phase4/bundle_io.py','research_grasping/phase4/orchestrator.py','research_grasping/phase4/frozen_models.py','research_grasping/phase4/spatial.py','research_grasping/phase3/__init__.py','research_grasping/phase3/vision_openclip.py','research_grasping/representations/__init__.py','research_grasping/representations/geometry.py','research_grasping/representations/dino.py','research/phase3/dataset/manifest.lock.json','research/phase4/automation/rgb_views.lock.json','research/phase4/embedding_experiment/development-images.zip','tools/research/phase4/download_models.py','tools/research/phase4/run_experiments.py']
-payload={p:base64.b64encode(gzip.compress((root/p).read_bytes(),mtime=0)).decode() for p in files}
-def md(s):return {'cell_type':'markdown','metadata':{},'source':s.splitlines(True)}
-def code(s):return {'cell_type':'code','metadata':{},'execution_count':None,'outputs':[],'source':s.splitlines(True)}
-nb={'nbformat':4,'nbformat_minor':5,'metadata':{'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},'colab':{'provenance':[]}},'cells':[
-md('''# AxisForge Phase IV: frozen visual features\n\nRun all to process the embedded development-only job. The sealed development images are embedded; default OpenCLIP runs without a file upload. Select a GPU in Colab if available; CPU is supported. Results are written per object and a bundle is downloaded at the end. For persistent resume, set WORK_DIR to an authorized mounted Drive directory before running. No final-test objects are accepted. Existing 96×96 renders are reused; upsampling is not a higher-resolution render. The notebook contains its runtime code and sealed manifest, and needs no repository checkout.\n\nDefault OpenCLIP checkpoint comes from its official OpenCLIP GitHub release and is hash checked. To run DINO, select dinov2 or dinov3 in MODEL. On a new job the official Hub revision is resolved once and saved for resume. You may also supply an exact revision; DINOv3 requires the user's own approved access and, when needed, an HF_TOKEN environment variable. This notebook does not accept licenses or print credentials. Embedding redistribution must comply with applicable model and source-data terms.\n'''),
-code("%pip install -q 'torch==2.9.1' 'torchvision==0.24.1' 'open_clip_torch==4.2.2' 'transformers==4.57.3' 'safetensors>=0.8,<0.9' pillow numpy huggingface_hub\n"),
-code("import base64, gzip, json, os, pathlib\nos.chdir('/content')\npayload = "+repr(payload)+"\nfor name, value in payload.items():\n    target=pathlib.Path(name); target.parent.mkdir(parents=True, exist_ok=True)\n    target.write_bytes(gzip.decompress(base64.b64decode(value)))\n"),
-code('''# Change these values before running for an authorized DINO model.\nMODEL = 'openclip'  # openclip | dinov2 | dinov3\nREVISION = None  # optional exact DINO revision. Defaults to the official revision on first run\nWORK_DIR = '/content/axisforge-work'\nJOB_PATH = '/content/research/phase4/embedding_experiment/development-images.zip'\nBUNDLE_PATH = '/content/axisforge-bundle.zip'\nBATCH_SIZE = 8\n'''),
-code('''from google.colab import files\nfrom pathlib import Path\nif not Path(JOB_PATH).is_file():\n    print('Upload the development job ZIP prepared locally.')\n    uploaded = files.upload()\n    if len(uploaded) != 1: raise ValueError('Upload exactly one job ZIP')\n    Path(JOB_PATH).write_bytes(next(iter(uploaded.values())))\nfrom research_grasping.phase4.bundle_io import load_job\njob = load_job(JOB_PATH)\nprint('Verified job', job['job_id'], 'objects', len(job['objects']))\n'''),
-code('''import hashlib, subprocess, sys, torch\nfrom pathlib import Path\nfrom research_grasping.phase4.jobs import sha_file\nfrom research_grasping.phase4.frozen_models import load_frozen\nfrom research_grasping.phase4.orchestrator import run_extraction, export_bundle\ndevice='cuda' if torch.cuda.is_available() else 'cpu'\nprint('Device:', device)\nif MODEL == 'openclip':\n    import urllib.request\n    checkpoint=Path('/content/vit_b_32-quickgelu-laion400m_e31-d867053b.pt')\n    if not checkpoint.exists():\n        url='https://github.com/mlfoundations/open_clip/releases/download/v0.2-weights/vit_b_32-quickgelu-laion400m_e31-d867053b.pt'\n        urllib.request.urlretrieve(url, checkpoint)\n    REVISION='v0.2-weights'\n    adapter=load_frozen(MODEL, checkpoint, device=device)\nelse:\n    import json, os, re\n    from huggingface_hub import HfApi\n    if MODEL=='dinov3' and not os.getenv('HF_TOKEN'):\n        from google.colab import userdata\n        token=userdata.get('HF_TOKEN')\n        if not token: raise RuntimeError('Add your authorized HF_TOKEN to Colab Secrets and enable notebook access')\n        os.environ['HF_TOKEN']=token\n    from research_grasping.phase4.jobs import atomic, canonical\n    official={'dinov2':'facebook/dinov2-small','dinov3':'facebook/dinov3-vits16-pretrain-lvd1689m'}[MODEL]\n    pin=Path(WORK_DIR)/MODEL/'model-source.json'\n    if pin.exists():\n        old=json.loads(pin.read_text())\n        if old['repo_id']!=official or (REVISION is not None and REVISION!=old['revision']): raise ValueError('Different pinned model in WORK_DIR')\n        REVISION=old['revision']\n    source=HfApi().model_info(official,revision=REVISION,files_metadata=True,token=os.getenv('HF_TOKEN'))\n    if not re.fullmatch('[a-f0-9]{40}',source.sha): raise ValueError('Hub did not resolve an exact revision')\n    weights=next(f for f in source.siblings if f.rfilename=='model.safetensors')\n    if weights.lfs is None or not re.fullmatch('[a-f0-9]{64}',weights.lfs.sha256): raise ValueError('Missing official weight digest')\n    REVISION=source.sha\n    pins={'repo_id':official,'revision':REVISION,'weights_sha256':weights.lfs.sha256}\n    if pin.exists() and pins!=old: raise ValueError('Official metadata differs from prior pin')\n    atomic(pin,canonical(pins))\n    checkpoint=Path('/content/axisforge-model')\n    subprocess.run([sys.executable, 'tools/research/phase4/download_models.py', '--model', MODEL, '--revision', REVISION, '--out', str(checkpoint)],check=True)\n    if sha_file(checkpoint/'model.safetensors')!=pins['weights_sha256']: raise ValueError('Downloaded checkpoint differs from official metadata')\n    print('Official revision', REVISION, 'weights',pins['weights_sha256'],'processor',sha_file(checkpoint/'preprocessor_config.json'))\n    adapter=load_frozen(MODEL, checkpoint, config_sha256=sha_file(checkpoint/'config.json'), weights_sha256=sha_file(checkpoint/'model.safetensors'), processor_sha256=sha_file(checkpoint/'preprocessor_config.json'), device=device, model_revision=REVISION)\nWORK_DIR=str(Path(WORK_DIR)/MODEL)\nstate=run_extraction(JOB_PATH, WORK_DIR, adapter, model_revision=REVISION, device=device, batch_size=BATCH_SIZE)\nprint('Status:', state['status'])\nindex=export_bundle(JOB_PATH, WORK_DIR, BUNDLE_PATH)\nprint('Bundle contains',len(index['objects']),'objects.')\n'''),
-code('''from google.colab import files\nfiles.download(BUNDLE_PATH)\n'''),
-md('''Import the downloaded bundle into the originating AxisForge workspace using the same trusted job ZIP:\n\n```bash\nPYTHONPATH=. python tools/research/phase4/import_embedding_bundle.py --job /path/job.zip --bundle /path/axisforge-bundle.zip --destination /path/imported\n```\n\nFor DINO include --expected-revision, --expected-checkpoint-sha256 and --expected-processor-sha256, obtained independently from the official checkout at the same revision.\n\nThe importer verifies archive safety, job identity, ordered views and feature hashes before invoking the development-only analysis callback. No remote run is claimed until its returned bundle is verified. Hashes establish integrity, not proof that an untrusted runner actually used the claimed model; independently audit provenance and execution before scientific use.\n''') ]}
-for i,cell in enumerate(nb['cells']): cell['id']=f'axisforge-{i}'
-(root/'notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb').write_text(json.dumps(nb,indent=1)+'\n')
+
+root = Path(__file__).resolve().parents[3]
+files = ['research_grasping/__init__.py', 'research_grasping/phase4/__init__.py', 'research_grasping/phase4/jobs.py',
+         'research_grasping/phase4/bundle_io.py', 'research_grasping/phase4/orchestrator.py',
+         'research_grasping/phase4/frozen_models.py', 'research_grasping/phase4/spatial.py',
+         'research_grasping/phase3/__init__.py', 'research_grasping/phase3/vision_openclip.py',
+         'research_grasping/representations/__init__.py', 'research_grasping/representations/geometry.py',
+         'research_grasping/representations/dino.py', 'research/phase3/dataset/manifest.lock.json',
+         'research/phase4/automation/rgb_views.lock.json',
+         'research/phase4/embedding_experiment/development-images.zip',
+         'research/phase4/embedding_experiment/dinov2/global_embeddings.npz',
+         'tools/research/phase4/download_models.py', 'tools/research/phase4/run_experiments.py']
+payload = {p: base64.b64encode(gzip.compress((root / p).read_bytes(), mtime=0)).decode() for p in files}
+
+
+def md(s): return {'cell_type': 'markdown', 'metadata': {}, 'source': s.splitlines(True)}
+
+
+def code(s): return {'cell_type': 'code', 'metadata': {}, 'execution_count': None, 'outputs': [], 'source': s.splitlines(True)}
+
+
+INTRO = '''# AxisForge · características visuales congeladas (OpenCLIP, DINOv2, DINOv3)
+
+Ejecuta todo (*Entorno de ejecución → Ejecutar todo*). Procesa las 352 vistas de desarrollo ya selladas
+(22 objetos × 16 vistas) y deja, por cada modelo, un ZIP de características que el repositorio importa y verifica.
+No hace falta clonar el repositorio: el código y las imágenes van dentro del notebook. Con GPU va más rápido;
+en CPU también funciona (DINOv2-small tarda menos de un minuto).
+
+**DINOv2** (`facebook/dinov2-small`, Apache-2.0) no necesita cuenta.
+
+**DINOv3** (`facebook/dinov3-vits16-pretrain-lvd1689m`) está restringido por Meta. Una vez por cuenta:
+
+1. Entra en https://huggingface.co/facebook/dinov3-vits16-pretrain-lvd1689m con tu cuenta, lee la licencia y
+   solicita acceso. Meta lo aprueba a mano; hasta entonces la descarga devuelve 401/403.
+2. Crea un token de lectura en https://huggingface.co/settings/tokens.
+3. En Colab, abre el panel de la llave (*Secrets*), crea `HF_TOKEN` con ese token y activa *Notebook access*.
+
+Después añade `'dinov3'` a `MODELS` en la celda de configuración. El notebook no acepta licencias en tu nombre
+ni imprime el token. La redistribución de las características debe respetar las licencias del modelo y de los
+datos (vistas derivadas de Google Scanned Objects, adaptación MuJoCo de Kevin Zakka, CC BY 4.0).
+'''
+
+INSTALL = '''# install: dependencias, sin reinstalar el PyTorch que ya trae Colab
+import importlib.metadata as metadata, subprocess, sys
+wanted = ['open_clip_torch==4.2.2', 'transformers==4.57.3', 'safetensors>=0.8,<0.9',
+          'huggingface_hub>=0.36,<1.0', 'pillow', 'numpy']
+try:
+    print('torch', metadata.version('torch'), '· torchvision', metadata.version('torchvision'))
+except metadata.PackageNotFoundError:
+    wanted += ['torch==2.9.1', 'torchvision==0.24.1']
+subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', *wanted], check=True)
+'''
+
+CONFIG = '''# Configuración. Añade 'dinov3' cuando tu cuenta tenga el acceso aprobado.
+MODELS = ['dinov2']      # cualquiera de 'openclip', 'dinov2', 'dinov3'
+REVISIONS = {}           # opcional, p. ej. {'dinov2': '<SHA de 40 caracteres>'}; por defecto, la revisión oficial actual
+WORK_DIR = '/content/axisforge-work'      # pon una carpeta de Drive montado para reanudar entre sesiones
+JOB_PATH = '/content/research/phase4/embedding_experiment/development-images.zip'
+OUT_DIR = '/content/axisforge-bundles'
+BATCH_SIZE = 16
+'''
+
+JOB = '''from pathlib import Path
+if not Path(JOB_PATH).is_file():
+    from google.colab import files
+    print('Sube el ZIP del trabajo de imágenes preparado en local.')
+    uploaded = files.upload()
+    if len(uploaded) != 1: raise ValueError('Sube exactamente un ZIP')
+    Path(JOB_PATH).write_bytes(next(iter(uploaded.values())))
+from research_grasping.phase4.bundle_io import load_job
+job = load_job(JOB_PATH)
+print('Trabajo verificado', job['job_id'], '·', len(job['objects']), 'objetos')
+'''
+
+ACCESS = '''import os
+OFFICIAL = {'dinov2': 'facebook/dinov2-small', 'dinov3': 'facebook/dinov3-vits16-pretrain-lvd1689m'}
+unknown = sorted(set(MODELS) - {'openclip', 'dinov2', 'dinov3'})
+if unknown or not MODELS: raise ValueError(f'MODELS admite openclip, dinov2 y dinov3; revisa {unknown or MODELS}')
+STEPS = ('Pasos: (1) solicita acceso en https://huggingface.co/' + OFFICIAL['dinov3'] + ' con tu cuenta y espera la '
+         'aprobación de Meta; (2) crea un token de lectura; (3) guárdalo como secreto HF_TOKEN de Colab con '
+         '"Notebook access" activado. O quita dinov3 de MODELS.')
+
+def secret_token():
+    if os.getenv('HF_TOKEN'):
+        return os.environ['HF_TOKEN']
+    try:
+        from google.colab import userdata
+        token = userdata.get('HF_TOKEN')
+    except Exception as exc:  # secreto ausente, sin permiso del notebook, o fuera de Colab
+        raise RuntimeError('No hay un HF_TOKEN disponible para DINOv3. ' + STEPS) from exc
+    if not token:
+        raise RuntimeError('El secreto HF_TOKEN está vacío. ' + STEPS)
+    return token
+
+if 'dinov3' in MODELS:
+    os.environ['HF_TOKEN'] = secret_token()
+    from huggingface_hub import hf_hub_download
+    from huggingface_hub.errors import GatedRepoError, HfHubHTTPError
+    try:
+        hf_hub_download(OFFICIAL['dinov3'], 'config.json', token=os.environ['HF_TOKEN'],
+                        local_dir='/content/models/dinov3-access-check')
+    except GatedRepoError as exc:
+        raise RuntimeError('Tu cuenta todavía no tiene acceso aprobado a DINOv3. ' + STEPS) from exc
+    except HfHubHTTPError as exc:
+        raise RuntimeError('Hugging Face rechazó el token para DINOv3 (' + type(exc).__name__ + '). ' + STEPS) from exc
+    print('Acceso a DINOv3 comprobado.')
+'''
+
+RUN = '''import json, re, subprocess, sys
+from pathlib import Path
+import torch
+from research_grasping.phase4.jobs import canonical, sha_file
+from research_grasping.phase4.frozen_models import load_frozen
+from research_grasping.phase4.orchestrator import atomic, run_extraction, export_bundle
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print('Dispositivo:', device, '· torch', torch.__version__)
+
+def official_checkpoint(kind):
+    from huggingface_hub import HfApi
+    repo = OFFICIAL[kind]
+    token = os.getenv('HF_TOKEN') if kind == 'dinov3' else None
+    pin_path = Path(WORK_DIR) / kind / 'model-source.json'
+    revision = REVISIONS.get(kind)
+    old = json.loads(pin_path.read_text()) if pin_path.exists() else None
+    if old:
+        if old['repo_id'] != repo or (revision and revision != old['revision']):
+            raise ValueError('WORK_DIR ya tiene fijado otro modelo; usa un WORK_DIR nuevo')
+        revision = old['revision']
+    info = HfApi().model_info(repo, revision=revision, files_metadata=True, token=token)
+    if not re.fullmatch('[a-f0-9]{40}', info.sha): raise ValueError('El Hub no resolvió una revisión exacta')
+    weights = next(f for f in info.siblings if f.rfilename == 'model.safetensors')
+    if weights.lfs is None or not re.fullmatch('[a-f0-9]{64}', weights.lfs.sha256):
+        raise ValueError('Falta el digest oficial de los pesos')
+    pins = {'repo_id': repo, 'revision': info.sha, 'weights_sha256': weights.lfs.sha256}
+    if old and pins != old: raise ValueError('Los metadatos oficiales difieren del fijado anterior')
+    atomic(pin_path, canonical(pins))
+    checkpoint = Path('/content/models') / kind
+    subprocess.run([sys.executable, 'tools/research/phase4/download_models.py', '--model', kind,
+                    '--revision', info.sha, '--out', str(checkpoint)], check=True)
+    hashes = {n: sha_file(checkpoint / n) for n in ('config.json', 'model.safetensors', 'preprocessor_config.json')}
+    if hashes['model.safetensors'] != pins['weights_sha256']:
+        raise ValueError('Los pesos descargados no coinciden con el digest oficial')
+    return checkpoint, info.sha, hashes
+
+def run_model(kind):
+    if kind == 'openclip':
+        import urllib.request
+        checkpoint = Path('/content/vit_b_32-quickgelu-laion400m_e31-d867053b.pt')
+        if not checkpoint.exists():
+            urllib.request.urlretrieve('https://github.com/mlfoundations/open_clip/releases/download/'
+                                       'v0.2-weights/vit_b_32-quickgelu-laion400m_e31-d867053b.pt', checkpoint)
+        revision = 'v0.2-weights'
+        adapter = load_frozen(kind, checkpoint, device=device)
+        pins = {'revision': revision, 'checkpoint_sha256': adapter.provenance['weights_sha256']}
+    else:
+        checkpoint, revision, hashes = official_checkpoint(kind)
+        adapter = load_frozen(kind, checkpoint, config_sha256=hashes['config.json'],
+                              weights_sha256=hashes['model.safetensors'],
+                              processor_sha256=hashes['preprocessor_config.json'],
+                              device=device, model_revision=revision)
+        pins = {'revision': revision, 'checkpoint_sha256': hashes['model.safetensors'],
+                'processor_sha256': hashes['preprocessor_config.json'], 'config_sha256': hashes['config.json']}
+    state = run_extraction(JOB_PATH, Path(WORK_DIR) / kind, adapter, model_revision=revision,
+                           device=device, batch_size=BATCH_SIZE)
+    bundle = Path(OUT_DIR) / f'{kind}_development.zip'
+    index = export_bundle(JOB_PATH, Path(WORK_DIR) / kind, bundle)
+    pins.update(model=kind, bundle=bundle.name, bundle_sha256=sha_file(bundle), status=state['status'],
+                device=device, torch=torch.__version__, objects=len(index['objects']))
+    return pins
+
+RESULTS = {}
+for kind in MODELS:
+    print('==', kind)
+    RESULTS[kind] = run_model(kind)
+    print(json.dumps(RESULTS[kind], indent=1))
+Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
+(Path(OUT_DIR) / 'pins.json').write_text(json.dumps(RESULTS, indent=1, sort_keys=True) + '\\n')
+for kind, pin in RESULTS.items():
+    flags = '' if kind == 'openclip' else (f" --expected-revision {pin['revision']}"
+             f" --expected-checkpoint-sha256 {pin['checkpoint_sha256']}"
+             f" --expected-processor-sha256 {pin['processor_sha256']}")
+    print(f"\\nImportar {kind} en el repositorio:\\nPYTHONPATH=. python tools/research/phase4/import_embedding_bundle.py "
+          f"--job research/phase4/embedding_experiment/development-images.zip --bundle {pin['bundle']} "
+          f"--destination imported-{kind} --analysis-out {kind}_analysis.json{flags}")
+'''
+
+COMPARE = '''# Si se ejecutó DINOv2, compara sus vectores globales con la referencia CPU del repositorio.
+import io, zipfile
+import numpy as np
+if 'dinov2' in RESULTS:
+    reference = np.load('research/phase4/embedding_experiment/dinov2/global_embeddings.npz', allow_pickle=False)
+    with zipfile.ZipFile(Path(OUT_DIR) / RESULTS['dinov2']['bundle']) as bundle:
+        index = json.loads(bundle.read('index.json'))
+        ran = {row['object_id']: np.load(io.BytesIO(bundle.read(row['file'])))['global_embeddings'] for row in index['objects']}
+    worst = 1.0
+    for name, expected in zip(reference['ids'].tolist(), reference['global_embeddings']):
+        got = ran[name]
+        cosine = (got * expected).sum(axis=1) / np.linalg.norm(got, axis=1) / np.linalg.norm(expected, axis=1)
+        worst = min(worst, float(cosine.min()))
+    print(f'Coseno mínimo frente a la referencia CPU: {worst:.6f} (1 en CPU; en GPU cerca de 1 por redondeos)')
+    if worst < 0.999: print('AVISO: diferencia mayor de lo esperado; revisa versión de torch/transformers y procesado.')
+'''
+
+DOWNLOAD = '''from google.colab import files
+for pin in RESULTS.values():
+    files.download(str(Path(OUT_DIR) / pin['bundle']))
+files.download(str(Path(OUT_DIR) / 'pins.json'))
+'''
+
+OUTRO = '''## Llevar los resultados al repositorio
+
+La celda de ejecución imprime, por modelo, la orden de importación con la revisión y los hashes que la
+verifican. El importador comprueba la seguridad del ZIP, la identidad del trabajo, el orden de las vistas y
+los hashes de cada fichero antes de lanzar el análisis de desarrollo, y deja el análisis comparable con
+`research/phase4/embedding_experiment/foundation_comparison.json`:
+
+```bash
+PYTHONPATH=. python -m research_grasping.phase4.model_comparison \\
+  --inputs research/phase4/embedding_experiment/openclip_analysis.json \\
+           research/phase4/embedding_experiment/dinov2/analysis.json dinov3_analysis.json \\
+  --out foundation_comparison.json
+```
+
+Los hashes prueban integridad, no que un entorno ajeno usara de verdad el modelo declarado: audita la
+procedencia antes de usar los resultados científicamente.
+'''
+
+nb = {'nbformat': 4, 'nbformat_minor': 5,
+      'metadata': {'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
+                   'accelerator': 'GPU', 'colab': {'provenance': [], 'gpuType': 'T4'}},
+      'cells': [md(INTRO), code(INSTALL),
+                code("import base64, gzip, json, os, pathlib\nos.chdir('/content')\npayload = " + repr(payload) +
+                     "\nfor name, value in payload.items():\n    target=pathlib.Path(name); target.parent.mkdir(parents=True, exist_ok=True)\n"
+                     "    target.write_bytes(gzip.decompress(base64.b64decode(value)))\n"),
+                code(CONFIG), code(JOB), code(ACCESS), code(RUN), code(COMPARE), code(DOWNLOAD), md(OUTRO)]}
+for i, cell in enumerate(nb['cells']):
+    cell['id'] = f'axisforge-{i}'
+(root / 'notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb').write_text(json.dumps(nb, indent=1) + '\n')
