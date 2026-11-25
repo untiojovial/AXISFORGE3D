@@ -1,0 +1,45 @@
+{
+  "problem": "10D Sphere sum(x_i^2), bounds [-5,5], minimum 0",
+  "budget_per_method": 25,
+  "local_pool_size": 32,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "results": [
+    {
+      "seed": 0,
+      "local_bo_best": 25.81637467954425,
+      "random_best": 50.728602689915846,
+      "local_bo_seconds": 0.025636576999659155
+    },
+    {
+      "seed": 1,
+      "local_bo_best": 35.44255759144158,
+      "random_best": 49.436483899316954,
+      "local_bo_seconds": 0.018162275000122463
+    },
+    {
+      "seed": 2,
+      "local_bo_best": 3.851025987153741,
+      "random_best": 54.47991396712363,
+      "local_bo_seconds": 0.016813896999792632
+    },
+    {
+      "seed": 3,
+      "local_bo_best": 9.9392412445069,
+      "random_best": 31.26777771414641,
+      "local_bo_seconds": 0.016356108999843855
+    },
+    {
+      "seed": 4,
+      "local_bo_best": 13.351932762365168,
+      "random_best": 40.582627905320535,
+      "local_bo_seconds": 0.015030385000045499
+    }
+  ],
+  "status": "development benchmark; no inferential or superiority claim"
+}

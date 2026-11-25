@@ -1,0 +1,220 @@
+{
+  "problem": "10D Sphere sum(x_i^2), bounds [-5,5], minimum 0",
+  "budget_per_method": 25,
+  "local_pool_size": 32,
+  "seeds": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330
+  ],
+  "results": [
+    {
+      "seed": 301,
+      "local_bo_best": 1.8274409348864016,
+      "random_best": 33.84901720142088,
+      "local_bo_seconds": 0.01639705299930938
+    },
+    {
+      "seed": 302,
+      "local_bo_best": 27.74463781751445,
+      "random_best": 39.91622139777269,
+      "local_bo_seconds": 0.015557851999801642
+    },
+    {
+      "seed": 303,
+      "local_bo_best": 6.35408574723293,
+      "random_best": 38.096995311196515,
+      "local_bo_seconds": 0.014382647000275028
+    },
+    {
+      "seed": 304,
+      "local_bo_best": 2.40599647185877,
+      "random_best": 52.42105294882931,
+      "local_bo_seconds": 0.014480112999990524
+    },
+    {
+      "seed": 305,
+      "local_bo_best": 3.1205574659030604,
+      "random_best": 45.541289341628044,
+      "local_bo_seconds": 0.014385762000529212
+    },
+    {
+      "seed": 306,
+      "local_bo_best": 4.392377753391332,
+      "random_best": 35.0198043230145,
+      "local_bo_seconds": 0.01603908400011278
+    },
+    {
+      "seed": 307,
+      "local_bo_best": 24.13173729573925,
+      "random_best": 49.523542546983144,
+      "local_bo_seconds": 0.01488967900058924
+    },
+    {
+      "seed": 308,
+      "local_bo_best": 27.748723671669186,
+      "random_best": 47.671767576414055,
+      "local_bo_seconds": 0.01526610300061293
+    },
+    {
+      "seed": 309,
+      "local_bo_best": 3.400490465427558,
+      "random_best": 38.01942214111179,
+      "local_bo_seconds": 0.01453180099997553
+    },
+    {
+      "seed": 310,
+      "local_bo_best": 9.9513203449409,
+      "random_best": 32.81110171294584,
+      "local_bo_seconds": 0.017188531000101648
+    },
+    {
+      "seed": 311,
+      "local_bo_best": 38.3549265111473,
+      "random_best": 51.41835436799253,
+      "local_bo_seconds": 0.014977550999901723
+    },
+    {
+      "seed": 312,
+      "local_bo_best": 12.599078852939561,
+      "random_best": 21.182844929570237,
+      "local_bo_seconds": 0.014709637999658298
+    },
+    {
+      "seed": 313,
+      "local_bo_best": 7.971162998289927,
+      "random_best": 51.68901955112334,
+      "local_bo_seconds": 0.013930446999438573
+    },
+    {
+      "seed": 314,
+      "local_bo_best": 18.59848750571154,
+      "random_best": 39.353333599259436,
+      "local_bo_seconds": 0.013987323000037577
+    },
+    {
+      "seed": 315,
+      "local_bo_best": 12.92321676473061,
+      "random_best": 28.07639385308506,
+      "local_bo_seconds": 0.01416598099967814
+    },
+    {
+      "seed": 316,
+      "local_bo_best": 1.809959086781696,
+      "random_best": 50.44115778094956,
+      "local_bo_seconds": 0.015046714000163774
+    },
+    {
+      "seed": 317,
+      "local_bo_best": 3.4955697146579845,
+      "random_best": 35.00983248517213,
+      "local_bo_seconds": 0.01568947899977502
+    },
+    {
+      "seed": 318,
+      "local_bo_best": 4.931381902409335,
+      "random_best": 40.9605047175501,
+      "local_bo_seconds": 0.015356779999819992
+    },
+    {
+      "seed": 319,
+      "local_bo_best": 9.059476603592904,
+      "random_best": 28.580054226181268,
+      "local_bo_seconds": 0.014476848000413156
+    },
+    {
+      "seed": 320,
+      "local_bo_best": 25.5909249788721,
+      "random_best": 54.5762470999932,
+      "local_bo_seconds": 0.014885292000144545
+    },
+    {
+      "seed": 321,
+      "local_bo_best": 4.567127235592634,
+      "random_best": 47.6341891368378,
+      "local_bo_seconds": 0.014255465000132972
+    },
+    {
+      "seed": 322,
+      "local_bo_best": 7.252863670822331,
+      "random_best": 43.48118148994504,
+      "local_bo_seconds": 0.014990890999797557
+    },
+    {
+      "seed": 323,
+      "local_bo_best": 4.746424870464306,
+      "random_best": 35.29088118102653,
+      "local_bo_seconds": 0.014251868999963335
+    },
+    {
+      "seed": 324,
+      "local_bo_best": 10.999847892354483,
+      "random_best": 30.461634798370348,
+      "local_bo_seconds": 0.01386410800023441
+    },
+    {
+      "seed": 325,
+      "local_bo_best": 2.3327016651853745,
+      "random_best": 28.66839611947324,
+      "local_bo_seconds": 0.014252739999392361
+    },
+    {
+      "seed": 326,
+      "local_bo_best": 2.2425450011478314,
+      "random_best": 46.610641882488224,
+      "local_bo_seconds": 0.014148074999866367
+    },
+    {
+      "seed": 327,
+      "local_bo_best": 25.15756267276489,
+      "random_best": 46.365371743488964,
+      "local_bo_seconds": 0.0143621550005264
+    },
+    {
+      "seed": 328,
+      "local_bo_best": 11.424280810038344,
+      "random_best": 38.80302420224471,
+      "local_bo_seconds": 0.014754515999811701
+    },
+    {
+      "seed": 329,
+      "local_bo_best": 8.365160361902005,
+      "random_best": 45.6941535316707,
+      "local_bo_seconds": 0.016751395000028424
+    },
+    {
+      "seed": 330,
+      "local_bo_best": 13.983623273532377,
+      "random_best": 37.809170681019936,
+      "local_bo_seconds": 0.018539360999966448
+    }
+  ],
+  "status": "confirmatory seed cohort"
+}

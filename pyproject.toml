@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axisforge-bo"
+version = "0.1.0"
+description = "Scientific Bayesian optimization for externally evaluated experiments"
+readme = "docs/axisforge-bo/README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = ["numpy>=2.0,<3", "scipy>=1.15,<2"]
+
+[project.optional-dependencies]
+research = ["torch>=2.9,<3", "gpytorch>=1.15,<1.16", "botorch>=0.18.1,<0.19"]
+test = ["pytest>=8,<10", "coverage[toml]>=7.6,<8", "mpmath>=1.3", "scikit-learn>=1.6,<2"]
+mcmc = ["botorch[fully-bayesian]>=0.18.1,<0.19"]
+
+[tool.setuptools.packages.find]
+include = ["axisforge_bo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.coverage.run]
+branch = true
+source = ["axisforge_bo"]
+
+[tool.setuptools.package-data]
+"axisforge_bo.integrations" = ["*.js"]

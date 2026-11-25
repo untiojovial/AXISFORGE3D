@@ -79,3 +79,7 @@ the extension registry in `crates/grasping`.
 See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for what is and is not
 built, and [docs/PLAN_DE_MEJORA.md](docs/PLAN_DE_MEJORA.md) for the plan to a
 sellable product.
+
+## AxisForgeBO
+
+The independent Python research package supports Bayesian optimization of external objectives. Installation, examples, scientific evidence and limitations are in the [AxisForgeBO guide](docs/axisforge-bo/README.md).
