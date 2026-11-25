@@ -1,0 +1,11 @@
+{
+  "schema": 1, "seeds": [11, 29, 47], "budget": 10, "initial": 2,
+  "methods": ["random", "sobol", "target", "adaptive"], "candidate_grid": 63,
+  "offset_limit_m": 0.03, "length_scale": 0.2, "noise_variance": 0.01,
+  "dt_s": 0.001, "solver": "Newton",
+  "history": [
+    {"id": "light", "mass_kg": 0.05, "friction": 1.0},
+    {"id": "heavy", "mass_kg": 5.0, "friction": 0.6}
+  ],
+  "historical_grid": 9, "context": "same 40 mm cube; geometry only", "device": "CPU"
+}

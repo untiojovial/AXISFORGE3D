@@ -1,0 +1,18 @@
+{
+  "source_sha256": "3b44e30ba7a476b9c50a7ff146db5061a2aa1761db173485611afd65d4b57cb1",
+  "source": "Pérez González, tabla 6.1 y figuras 6.3–6.4, páginas impresas 44, 50 y 52",
+  "interpretation": "transcription_of_publication",
+  "reported_maximum_quality": {
+    "Boat": 0.45, "Bottle": 0.72, "Duck": 0.40, "Charger": 0.42,
+    "Mouse": 0.35, "Ice Cream": 0.34, "Trophy": 0.40, "Jar": 0.50
+  },
+  "first_sequence": ["Boat", "Bottle", "Ice Cream", "Jar", "Mouse", "Charger", "Duck", "Trophy"],
+  "second_sequence_positions_3_through_8": ["Trophy", "Duck", "Charger", "Mouse", "Jar", "Ice Cream"],
+  "second_sequence_positions_1_and_2": null,
+  "second_prefix_note": "Page 47 announces reversing Boat/Bottle, but figure 6.4 shows only positions 3-8 and provides no execution log of the first two positions.",
+  "initial_and_sequential_budgets": {"EI": [30, 70], "LCB": [30, 70], "cAopt": [2, 30]},
+  "reported_visual_dimensions": 384, "reported_spatial_dimensions": 3,
+  "reported_training_input_dimensions": 387, "reported_context_dimensions": 20,
+  "original_source_revision": null, "original_checkpoints": null, "split_indices": null,
+  "metric_units": null, "coordinate_convention": null, "mesh_hashes": null
+}

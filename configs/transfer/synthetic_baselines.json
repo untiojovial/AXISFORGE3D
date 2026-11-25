@@ -1,0 +1,10 @@
+{
+  "status": "exploratory, frozen before execution; design pending independent review",
+  "seed_start": 40, "seeds": 8,
+  "scenarios": ["related", "adversarial"],
+  "methods": ["random", "sobol", "target", "context", "adaptive", "rgpe", "icm_fixed"],
+  "budget": 12, "initial": 3, "history_points": 8, "history_tasks": 3,
+  "candidate_count": 128, "length_scale": 0.2, "noise_variance": 0.0025,
+  "eta": 0.2, "floor": 0.1, "tau": 1.0, "rgpe_samples": 256, "icm_correlation": 0.5,
+  "notes": "Single Sobol prefix for all methods; posterior ranking uses MC seeded per seed and iteration. ICM correlation fixed, RGPE tutorial-inspired EI variant."
+}

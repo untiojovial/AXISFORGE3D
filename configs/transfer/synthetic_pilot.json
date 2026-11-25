@@ -1,0 +1,9 @@
+{
+  "status": "exploratory pilot, fixed before execution; not confirmatory",
+  "seed_start": 20, "seeds": 8, "scenarios": ["related", "adversarial"],
+  "methods": ["random", "sobol", "target", "context", "uniform", "adaptive"],
+  "budget": 12, "initial": 3, "history_points": 8, "history_tasks": 3,
+  "candidate_count": 128, "length_scale": 0.2, "noise_variance": 0.0025,
+  "eta": 0.2, "floor": 0.1, "tau": 1.0,
+  "notes": "Paired initialization, candidate sets and noise seeds. Utilities are synthetic; target is sin(2 pi x + phase), adversarial historical functions have opposite sign. Source contexts [0.1,0.2,0.3] and target [0]. Final test protocol not frozen."
+}
