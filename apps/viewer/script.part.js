@@ -39,6 +39,9 @@ let grasping = null;      // part the jaws are closed on but have not lifted
 let report = null;        // last plan report
 let plan = null;          // selected plan
 let playing = 0;          // animation token; 0 when idle
+let placed = null;        // part drawn where a cycle set it down
+let cycleView = null;     // last planned cycle
+let cyclePlaying = 0;     // cycle animation token; 0 when idle
 const layers = { candidates: true, cones: true, frames: false, collision: false };
 
 async function boot() {
@@ -406,6 +409,7 @@ function draw() {
   const request = { op: "snapshot", values };
   if (carry) request.carry = carry;
   else if (grasping) request.grasping = grasping;
+  if (placed) request.placed = placed;
   const reply = engine(request);
   const flag = $("contact-flag");
   flag.title = "";
@@ -565,6 +569,7 @@ function applyBody() {
 
 function clearPlan() {
   stopPlayback();
+  clearCycle();
   report = null; plan = null; carry = null; grasping = null;
   $("plan-module").hidden = true;
   setPlayable(false);
@@ -786,6 +791,120 @@ function play() {
   requestAnimationFrame(tick);
 }
 
+/* ================================================================= cycle */
+const SEGMENT_NAMES = {
+  open: "Abrir pinza", approach: "Aproximación", descend: "Descenso", close: "Cierre",
+  lift: "Elevación", transfer: "Transporte", lower: "Bajada", release: "Soltar",
+  retreat: "Retirada", return: "Regreso", rest: "Reposo",
+};
+const PLANNERS = { straight: "recto", rrt: "RRT", gripper: "pinza" };
+
+function stopCycle() { cyclePlaying = 0; $("btn-cycle-play").textContent = "Reproducir ciclo"; }
+
+function clearCycle() {
+  stopCycle();
+  cycleView = null; placed = null;
+  $("cycle-verdict").hidden = true;
+  $("cycle-segments").textContent = "";
+  $("cycle-exports").hidden = true;
+  $("btn-cycle-play").disabled = true;
+  $("cycle-note").textContent = "recoger, llevar y dejar";
+}
+
+function runCycle() {
+  if (!applyBody()) return;
+  clearPlan();
+  values = home.slice();
+  engine({ op: "set_joints", values });
+  const b = selectedBody();
+  const target = { x: Number($("cx").value) / 1000, y: Number($("cy").value) / 1000, z: b.position.z };
+  const speed = Math.min(1, Math.max(0.05, Number($("cspeed").value) / 100));
+  const grasp = Object.assign(plannerOptions(), { nrGrasps: 6 });
+  const started = performance.now();
+  const reply = engine({ op: "plan_cycle", bodyId: b.id, target, options: { speedScale: speed, grasp } });
+  const elapsed = performance.now() - started;
+  const verdict = $("cycle-verdict");
+  verdict.hidden = false;
+  $("cycle-note").textContent = fmt(elapsed, 0) + " ms";
+  if (!reply.ok) {
+    verdict.className = "verdict verdict--alert";
+    $("cycle-head").textContent = "No se pudo planificar el ciclo";
+    $("cycle-detail").textContent = reply.error;
+    draw();
+    return;
+  }
+  const view = reply.data, cycle = view.report.cycle;
+  if (!cycle) {
+    verdict.className = "verdict verdict--alert";
+    $("cycle-head").textContent = "Ningún ciclo completo";
+    $("cycle-detail").textContent = view.report.graspsFound + " agarres viables; ninguno permite el ciclo entero. " +
+      view.report.attempts.slice(0, 3).map((a) => (SEGMENT_NAMES[a.segment] || a.segment) + ": " + a.reason).join(" · ");
+    draw();
+    return;
+  }
+  cycleView = view;
+  const program = view.programSeconds, diff = Math.abs(program - cycle.cycleTime) / cycle.cycleTime * 100;
+  verdict.className = "verdict verdict--ok";
+  $("cycle-head").textContent = "Ciclo de " + fmt(cycle.cycleTime, 2) + " s";
+  $("cycle-detail").textContent = "«" + view.partName + "» con el agarre " + cycle.grasp.candidate.label +
+    ". El programa, re-cronometrado como lo ejecutaría un controlador, tarda " + fmt(program, 2) + " s (diferencia " + fmt(diff, 3) + " %). " +
+    "Holgura demostrada ≥ " + fmt(cycle.clearance * 1000, 1) + " mm en todo el recorrido; la mínima medida es " + fmt(cycle.closest * 1000, 1) + " mm." +
+    (view.report.assumedLimits.length ? " Límites de velocidad supuestos para: " + view.report.assumedLimits.join(", ") + "." : "");
+  const list = $("cycle-segments");
+  list.textContent = "";
+  cycle.segments.forEach((s) => {
+    const li = document.createElement("li"), name = document.createElement("span"), numbers = document.createElement("span");
+    name.textContent = (SEGMENT_NAMES[s.name] || s.name) + " · " + (PLANNERS[s.planner] || s.planner) + (s.moves.length > 1 ? " · " + s.moves.length + " tramos" : "");
+    numbers.textContent = fmt(s.duration + s.dwell, 2) + " s · ≥ " + fmt(s.clearance * 1000, 1) + " mm";
+    li.title = s.allowedContacts.length ? "Se permite el contacto " + s.allowedContacts.join(", ") : "";
+    li.append(name, numbers);
+    list.appendChild(li);
+  });
+  $("cycle-exports").hidden = false;
+  $("btn-cycle-play").disabled = false;
+  showCycleAt(0);
+}
+
+function showCycleAt(t) {
+  const samples = cycleView.samples, cycle = cycleView.report.cycle;
+  const i = Math.min(samples.points.length - 1, Math.max(0, Math.round(t / samples.period)));
+  const point = samples.points[i];
+  values = point.positions.slice();
+  carry = point.part === "carried" ? { bodyId: cycle.bodyId, partInPalm: cycle.grasp.partInPalm } : null;
+  placed = point.part === "placed" ? { bodyId: cycle.bodyId, pose: cycle.placePose } : null;
+  grasping = null;
+  const segment = cycle.segments.find((s) => t < s.startTime + s.duration + s.dwell) || cycle.segments[cycle.segments.length - 1];
+  setPhaseLabel((SEGMENT_NAMES[segment.name] || segment.name) + " · " + fmt(Math.min(t, cycle.cycleTime), 1) + " / " + fmt(cycle.cycleTime, 1) + " s");
+  draw();
+}
+
+function playCycle() {
+  if (!cycleView) return;
+  if (cyclePlaying) { stopCycle(); return; }
+  stopPlayback();
+  const token = cyclePlaying = performance.now(), total = cycleView.report.cycle.cycleTime;
+  $("btn-cycle-play").textContent = "Detener";
+  const tick = (now) => {
+    if (cyclePlaying !== token) return;
+    const t = (now - token) / 1000;
+    showCycleAt(t);
+    if (t >= total) { stopCycle(); return; }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function exportCycle(format) {
+  const reply = engine({ op: "export_cycle", format });
+  if (!reply.ok) { $("cycle-detail").textContent = reply.error; return; }
+  const file = reply.data;
+  const url = URL.createObjectURL(new Blob([file.text], { type: file.mediaType }));
+  const a = document.createElement("a");
+  a.href = url; a.download = file.fileName;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 /* ================================================================= wiring */
 /* ================================================================= import */
 function frameScene() {
@@ -934,7 +1053,7 @@ function wire() {
   });
   $("btn-apply").addEventListener("click", () => { if (applyBody()) { clearPlan(); fillBodyFields(); draw(); } });
   const loadCell = () => {
-    const reply = engine({ op: "load_demo", gripper: $("cell-gripper").value });
+    const reply = engine({ op: "load_demo", gripper: $("cell-gripper").value, obstacles: $("cell-obstacles").value });
     if (!reply.ok) return;
     $("edit-error").hidden = true;
     $("import-result").hidden = true;
@@ -942,7 +1061,11 @@ function wire() {
   };
   $("btn-reset").addEventListener("click", loadCell);
   $("cell-gripper").addEventListener("change", loadCell);
-  $("btn-home").addEventListener("click", () => { stopPlayback(); values = home.slice(); carry = null; grasping = null; setPhaseLabel(plan ? PHASES[0] : "sin plan"); draw(); });
+  $("cell-obstacles").addEventListener("change", loadCell);
+  $("btn-cycle").addEventListener("click", runCycle);
+  $("btn-cycle-play").addEventListener("click", playCycle);
+  document.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click", () => exportCycle(b.dataset.export)));
+  $("btn-home").addEventListener("click", () => { stopPlayback(); stopCycle(); values = home.slice(); carry = null; grasping = null; placed = null; setPhaseLabel(plan ? PHASES[0] : "sin plan"); draw(); });
   $("btn-play").addEventListener("click", play);
   $("btn-defaults").addEventListener("click", () => {
     Object.entries(DEFAULTS).forEach(([id, value]) => { $(id).value = value; });

@@ -33,6 +33,7 @@
         <div class="module__body">
           <div class="fields">
             <div class="field field--wide"><label for="cell-gripper">Pinza de la celda de demostraci&oacute;n</label><select id="cell-gripper"><option value="parallel" selected>pinza paralela</option><option value="three_finger">pinza de tres dedos</option><option value="hand">mano de tres dedos</option></select></div>
+            <div class="field field--wide"><label for="cell-obstacles">Obst&aacute;culos en la mesa</label><select id="cell-obstacles"><option value="none" selected>ninguno</option><option value="wall">pared</option><option value="posts">dos postes</option></select></div>
             <div class="field field--wide"><label for="body">Pieza a coger</label><select id="body"></select></div>
             <div class="field"><label for="bx">X &middot; mm</label><input id="bx" type="number" step="10"></div>
             <div class="field"><label for="by">Y &middot; mm</label><input id="by" type="number" step="10"></div>
@@ -79,6 +80,29 @@
           <div class="plans" id="plans"></div>
           <ul class="reasons" id="reasons"></ul>
           <details id="rej-details"><summary>Ver cada agarre descartado</summary><ul class="rejlist" id="rejlist"></ul></details>
+        </div>
+      </section>
+
+      <section class="module" aria-label="Ciclo" id="cycle-module">
+        <div class="module__head"><h2 class="module__title">Ciclo completo</h2><span class="module__note" id="cycle-note">recoger, llevar y dejar</span></div>
+        <div class="module__body">
+          <div class="fields">
+            <div class="field"><label for="cx">Destino X &middot; mm</label><input id="cx" type="number" step="10" value="330"></div>
+            <div class="field"><label for="cy">Destino Y &middot; mm</label><input id="cy" type="number" step="10" value="210"></div>
+            <div class="field"><label for="cspeed">Velocidad &middot; % del l&iacute;mite</label><input id="cspeed" type="number" min="5" max="100" step="5" value="50"></div>
+          </div>
+          <div class="row">
+            <button class="btn btn--primary" id="btn-cycle" type="button">Planificar ciclo</button>
+            <button class="btn" id="btn-cycle-play" type="button" disabled>Reproducir ciclo</button>
+          </div>
+          <div class="verdict" id="cycle-verdict" hidden><div class="verdict__head" id="cycle-head"></div><div class="verdict__detail" id="cycle-detail"></div></div>
+          <ul class="reasons" id="cycle-segments"></ul>
+          <div class="row" id="cycle-exports" hidden>
+            <button class="btn" type="button" data-export="urscript">Programa URScript</button>
+            <button class="btn" type="button" data-export="csv">Trayectoria CSV</button>
+            <button class="btn" type="button" data-export="json">Trayectoria JSON</button>
+          </div>
+          <p class="hint">Desde la postura actual hasta el destino y de vuelta. Cada tramo se demuestra libre de choques de forma continua, no por muestras; los movimientos libres se buscan con un RRT bidireccional y se acortan. Los tiempos son perfiles trapezoidales dentro de los l&iacute;mites de velocidad y aceleraci&oacute;n de cada eje, con parada en cada punto. Las funciones de pinza del programa URScript solo esperan: sustit&uacute;yelas por las de tu pinza.</p>
         </div>
       </section>
 
