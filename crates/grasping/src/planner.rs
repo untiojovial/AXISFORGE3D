@@ -1034,6 +1034,13 @@ pub struct ResearchCandidate {
     pub quality_elapsed_s: Option<f64>,
     /// Seconds in the native attempt, including any repeated quality work.
     pub attempt_elapsed_s: Option<f64>,
+    /// The planner's own estimate used to rank candidates (before any prior).
+    #[serde(default)]
+    pub preliminary_score: f64,
+    /// Whether the candidate passes the stroke and grip-force checks; the
+    /// planner examines these first.
+    #[serde(default)]
+    pub makeable: bool,
 }
 
 /// Generate without score sorting; optionally evaluate one generator-order index.
@@ -1134,6 +1141,8 @@ pub fn research_candidates(
             continue;
         }
         let grasp_pose = context.grasp_pose(&candidate)?;
+        let preliminary_score = preliminary_score(&context.quality_input(&candidate));
+        let makeable = context.gate(&candidate).is_ok();
         let mut record = ResearchCandidate {
             id,
             candidate,
@@ -1143,6 +1152,8 @@ pub fn research_candidates(
             quality: None,
             quality_elapsed_s: None,
             attempt_elapsed_s: None,
+            preliminary_score,
+            makeable,
         };
         if evaluate_index.is_some() {
             let start = std::time::Instant::now();

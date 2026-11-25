@@ -1,0 +1,36 @@
+{
+ "runs": [
+  {
+   "evaluation": "research/phase4/grasp_prior/evaluation.json",
+   "rows": 374,
+   "mismatches": 0,
+   "examples": []
+  },
+  {
+   "evaluation": "research/phase4/grasp_prior/new_parts/evaluation.json",
+   "rows": 1846,
+   "mismatches": 0,
+   "examples": []
+  },
+  {
+   "evaluation": "research/phase4/grasp_prior/scale/test/evaluation.json",
+   "rows": 1950,
+   "mismatches": 0,
+   "examples": []
+  },
+  {
+   "evaluation": "research/phase4/grasp_prior/development_combined.json",
+   "rows": 572,
+   "mismatches": 0,
+   "examples": []
+  },
+  {
+   "evaluation": "research/phase4/grasp_prior/scale/development/evaluation.json",
+   "rows": 2046,
+   "mismatches": 0,
+   "examples": []
+  }
+ ],
+ "rows": 6788,
+ "mismatches": 0
+}

@@ -1,0 +1,4189 @@
+{
+ "rule": {
+  "name_jaccard": 0.5,
+  "d2_cosine": 0.99,
+  "dinov3_cosine": 0.9
+ },
+ "flagged": 126,
+ "variants": [
+  "Canon_Ink_Cartridge_Green_6",
+  "Canon_Pixma_Ink_Cartridge_251_M",
+  "Canon_Pixma_Ink_Cartridge_8",
+  "Canon_Pixma_Ink_Cartridge_8_Green",
+  "Canon_Pixma_Ink_Cartridge_Cyan_251",
+  "CoQ10_BjTLbuRVt1t",
+  "Cole_Hardware_Plant_Saucer_Glazed_9",
+  "Cole_Hardware_Saucer_Electric",
+  "Ecoforms_Plant_Container_S14Turquoise",
+  "Ecoforms_Plant_Container_S24NATURAL",
+  "Ecoforms_Plant_Saucer_S14MOCHA",
+  "Ecoforms_Plant_Saucer_S14NATURAL",
+  "Ecoforms_Plant_Saucer_S17MOCHA",
+  "Ecoforms_Plant_Saucer_S20MOCHA",
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+  "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+  "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+  "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+  "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+  "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+  "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+  "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+  "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+  "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+  "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+  "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+  "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+  "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+  "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+  "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+  "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+  "Perricone_MD_Blue_Plasma_Orbital",
+  "Perricone_MD_Face_Finishing_Moisturizer",
+  "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+  "Perricone_MD_No_Bronzer_Bronzer",
+  "Perricone_MD_No_Mascara_Mascara",
+  "Perricone_MD_Photo_Plasma",
+  "Perricone_MD_Vitamin_C_Ester_Serum",
+  "Pokmon_X_Nintendo_3DS_Game",
+  "Pokmon_Y_Nintendo_3DS_Game",
+  "QAbsorb_CoQ10_53iUqjWjW3O",
+  "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+  "SAMe_200_KX7ZmOw47co",
+  "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+  "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+  "Super_Mario_3D_World_Wii_U_Game",
+  "Tag_Dishtowel_18_x_26"
+ ],
+ "lookalikes_only": [
+  "3M_Antislip_Surfacing_Light_Duty_White",
+  "Beta_Glucan",
+  "Bifidus_Balance_FOS",
+  "Blackcurrant_Lutein",
+  "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+  "Borage_GLA240Gamma_Tocopherol",
+  "Brother_Ink_Cartridge_Magenta_LC75M",
+  "Canon_Pixma_Chromalife_100_Magenta_8",
+  "Chef_Style_Round_Cake_Pan_9_inch_pan",
+  "Cole_Hardware_Dishtowel_Blue",
+  "Cole_Hardware_Dishtowel_BlueWhite",
+  "Cole_Hardware_Dishtowel_Multicolors",
+  "Cole_Hardware_Dishtowel_Red",
+  "Cole_Hardware_Dishtowel_Stripe",
+  "Crayola_Bonus_64_Crayons",
+  "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+  "Dell_Ink_Cartridge",
+  "Dell_Ink_Cartridge_Yellow_31",
+  "Ecoforms_Plate_S20Avocado",
+  "Epson_273XL_Ink_Cartridge_Magenta",
+  "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+  "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+  "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+  "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+  "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+  "FemDophilus",
+  "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+  "HP_1800_Tablet_8GB_7",
+  "HP_Card_Invitation_Kit",
+  "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+  "Inositol",
+  "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+  "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+  "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+  "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+  "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+  "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+  "Kotex_U_Barely_There_Liners_Thin_60_count",
+  "Krill_Oil",
+  "Lactoferrin",
+  "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+  "Lutein",
+  "MK7",
+  "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+  "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+  "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+  "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+  "Nestle_Nips_Hard_Candy_Peanut_Butter",
+  "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+  "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+  "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+  "Perricone_MD_High_Potency_Evening_Repair",
+  "Perricone_MD_Neuropeptide_Facial_Conformer",
+  "Perricone_MD_The_Crease_Cure_Duo",
+  "Perricone_MD_The_Power_Treatments",
+  "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+  "Pet_Dophilus_powder",
+  "Phillips_Caplets_Size_24",
+  "Phillips_Colon_Health_Probiotic_Capsule",
+  "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+  "PhosphOmega",
+  "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+  "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+  "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+  "Sleep_Optimizer",
+  "Sony_Acid_Music_Studio",
+  "Sony_Downloadable_Loops",
+  "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+  "Tag_Dishtowel_Green",
+  "Twinlab_Nitric_Fuel",
+  "Twinlab_Premium_Creatine_Fuel_Powder",
+  "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+  "Wilton_Easy_Layers_Cake_Pan_Set",
+  "Womens_Multi_13"
+ ],
+ "parts": [
+  {
+   "test": "Ecoforms_Plant_Saucer_S14MOCHA",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ1HARVEST",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.869,
+     "dinov3_cosine": 0.6843
+    },
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ8COR",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.8793,
+     "dinov3_cosine": 0.6559
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_High_Potency_Evening_Repair",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.9342
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9997,
+     "dinov3_cosine": 0.9885
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.999,
+     "dinov3_cosine": 0.9903
+    },
+    {
+     "library": "Ultra_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9535
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_Neuropeptide_Facial_Conformer",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "JarroSil_Activated_Silicon",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9946,
+     "dinov3_cosine": 0.9256
+    },
+    {
+     "library": "Perricoen_MD_No_Concealer_Concealer",
+     "name_jaccard": 0.125,
+     "d2_cosine": 0.9929,
+     "dinov3_cosine": 0.9566
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.999,
+     "dinov3_cosine": 0.952
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9975,
+     "dinov3_cosine": 0.9635
+    },
+    {
+     "library": "Ultra_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9937,
+     "dinov3_cosine": 0.9735
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9911,
+     "dinov3_cosine": 0.9357
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.417,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9884
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9898
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.778,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9935
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.545,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9915
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.455,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9948
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.993,
+     "dinov3_cosine": 0.91
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9929,
+     "dinov3_cosine": 0.9055
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9917,
+     "dinov3_cosine": 0.9433
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9355
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9474
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9914,
+     "dinov3_cosine": 0.9387
+    }
+   ]
+  },
+  {
+   "test": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9952
+    }
+   ]
+  },
+  {
+   "test": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9909,
+     "dinov3_cosine": 0.9123
+    },
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.182,
+     "d2_cosine": 0.9991,
+     "dinov3_cosine": 0.9769
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9954,
+     "dinov3_cosine": 0.9252
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9938,
+     "dinov3_cosine": 0.9035
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.991,
+     "dinov3_cosine": 0.9359
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9922
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9881
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.333,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9941
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.994
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9953
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.9053
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.9057
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9928,
+     "dinov3_cosine": 0.9389
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9911,
+     "dinov3_cosine": 0.9279
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9904,
+     "dinov3_cosine": 0.9456
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9918,
+     "dinov3_cosine": 0.9477
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.991,
+     "dinov3_cosine": 0.939
+    }
+   ]
+  },
+  {
+   "test": "Cole_Hardware_Dishtowel_Blue",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.948
+    }
+   ]
+  },
+  {
+   "test": "Cole_Hardware_Plant_Saucer_Glazed_9",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Cole_Hardware_Saucer_Glazed_6",
+     "name_jaccard": 0.8,
+     "d2_cosine": 0.8673,
+     "dinov3_cosine": 0.9561
+    },
+    {
+     "library": "Ecoforms_Plant_Container_S24Turquoise",
+     "name_jaccard": 0.125,
+     "d2_cosine": 0.9971,
+     "dinov3_cosine": 0.9338
+    }
+   ]
+  },
+  {
+   "test": "Cole_Hardware_Dishtowel_Red",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.1,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9802
+    }
+   ]
+  },
+  {
+   "test": "Borage_GLA240Gamma_Tocopherol",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9923
+    }
+   ]
+  },
+  {
+   "test": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Pokmon_Conquest_Nintendo_DS_Game",
+     "name_jaccard": 0.2,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9771
+    }
+   ]
+  },
+  {
+   "test": "Bifidus_Balance_FOS",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "5_HTP",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9954,
+     "dinov3_cosine": 0.9685
+    },
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9887
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9992,
+     "dinov3_cosine": 0.9868
+    },
+    {
+     "library": "NattoMax",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9951,
+     "dinov3_cosine": 0.9719
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9949,
+     "dinov3_cosine": 0.9693
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9993,
+     "dinov3_cosine": 0.99
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9996,
+     "dinov3_cosine": 0.9854
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9908,
+     "dinov3_cosine": 0.9319
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9949
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.778,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9793
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9866
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9881
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9887
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9943,
+     "dinov3_cosine": 0.9015
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9941,
+     "dinov3_cosine": 0.9058
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9923,
+     "dinov3_cosine": 0.9285
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9923,
+     "dinov3_cosine": 0.9455
+    }
+   ]
+  },
+  {
+   "test": "Canon_Ink_Cartridge_Green_6",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9834,
+     "dinov3_cosine": 0.9064
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.9947,
+     "dinov3_cosine": 0.9405
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.9942,
+     "dinov3_cosine": 0.9429
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.2,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.9727
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.2,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9708
+    }
+   ]
+  },
+  {
+   "test": "QAbsorb_CoQ10_53iUqjWjW3O",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9958,
+     "dinov3_cosine": 0.9592
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9978,
+     "dinov3_cosine": 0.9656
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.667,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9753
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9976,
+     "dinov3_cosine": 0.9743
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9973,
+     "dinov3_cosine": 0.9653
+    }
+   ]
+  },
+  {
+   "test": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.214,
+     "d2_cosine": 0.9985,
+     "dinov3_cosine": 0.9521
+    }
+   ]
+  },
+  {
+   "test": "Canon_Pixma_Ink_Cartridge_8_Green",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.667,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9914
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9931,
+     "dinov3_cosine": 0.9281
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9932,
+     "dinov3_cosine": 0.9204
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_The_Power_Treatments",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "CrackerBox",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.997,
+     "dinov3_cosine": 0.9125
+    },
+    {
+     "library": "Crayola_Crayons_120_crayons",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9953,
+     "dinov3_cosine": 0.9645
+    },
+    {
+     "library": "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9954,
+     "dinov3_cosine": 0.9622
+    }
+   ]
+  },
+  {
+   "test": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.235,
+     "d2_cosine": 0.993,
+     "dinov3_cosine": 0.991
+    },
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.9456
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9989,
+     "dinov3_cosine": 0.9793
+    },
+    {
+     "library": "Perricone_MD_Nutritive_Cleanser",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9959,
+     "dinov3_cosine": 0.964
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9988,
+     "dinov3_cosine": 0.9807
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9912,
+     "dinov3_cosine": 0.94
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.308,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9926
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9804
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.333,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9884
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9871
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9905
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9934,
+     "dinov3_cosine": 0.9041
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9933,
+     "dinov3_cosine": 0.9086
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9912,
+     "dinov3_cosine": 0.9516
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9914,
+     "dinov3_cosine": 0.9402
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.991,
+     "dinov3_cosine": 0.9601
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9913,
+     "dinov3_cosine": 0.9461
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9906,
+     "dinov3_cosine": 0.9085
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.385,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9844
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9913
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9906
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9902
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9925
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9937,
+     "dinov3_cosine": 0.9115
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9936,
+     "dinov3_cosine": 0.913
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.99,
+     "dinov3_cosine": 0.9143
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9924,
+     "dinov3_cosine": 0.9062
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9902,
+     "dinov3_cosine": 0.9256
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9924,
+     "dinov3_cosine": 0.9231
+    }
+   ]
+  },
+  {
+   "test": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9901,
+     "dinov3_cosine": 0.9546
+    },
+    {
+     "library": "Nescafe_Memento_Latte_Caramel_8_08_oz_23_g_packets_64_oz_184_g",
+     "name_jaccard": 0.045,
+     "d2_cosine": 0.9963,
+     "dinov3_cosine": 0.9855
+    },
+    {
+     "library": "Nescafe_Momento_Mocha_Specialty_Coffee_Mix_8_ct",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9962,
+     "dinov3_cosine": 0.9764
+    },
+    {
+     "library": "Nestle_Skinny_Cow_Dreamy_Clusters_Candy_Dark_Chocolate_6_pack_1_oz_pouches",
+     "name_jaccard": 0.333,
+     "d2_cosine": 0.9902,
+     "dinov3_cosine": 0.981
+    }
+   ]
+  },
+  {
+   "test": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.053,
+     "d2_cosine": 0.9967,
+     "dinov3_cosine": 0.9028
+    }
+   ]
+  },
+  {
+   "test": "Pokmon_X_Nintendo_3DS_Game",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Pokmon_Conquest_Nintendo_DS_Game",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9787
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9918,
+     "dinov3_cosine": 0.897
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.889,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.8882
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9916,
+     "dinov3_cosine": 0.8917
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.989
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9921
+    }
+   ]
+  },
+  {
+   "test": "Phillips_Colon_Health_Probiotic_Capsule",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9963,
+     "dinov3_cosine": 0.9549
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9966,
+     "dinov3_cosine": 0.9742
+    },
+    {
+     "library": "Perricone_MD_Vitamin_C_Ester_15",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9954,
+     "dinov3_cosine": 0.9709
+    },
+    {
+     "library": "Philips_EcoVantage_43_W_Light_Bulbs_Natural_Light_2_pack",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9982,
+     "dinov3_cosine": 0.9752
+    }
+   ]
+  },
+  {
+   "test": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.176,
+     "d2_cosine": 0.9946,
+     "dinov3_cosine": 0.977
+    },
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9929,
+     "dinov3_cosine": 0.9289
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9992,
+     "dinov3_cosine": 0.9819
+    },
+    {
+     "library": "Perricone_MD_Nutritive_Cleanser",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9968,
+     "dinov3_cosine": 0.9427
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9984,
+     "dinov3_cosine": 0.9862
+    }
+   ]
+  },
+  {
+   "test": "Epson_273XL_Ink_Cartridge_Magenta",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.182,
+     "d2_cosine": 0.9909,
+     "dinov3_cosine": 0.9335
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.182,
+     "d2_cosine": 0.9911,
+     "dinov3_cosine": 0.9331
+    }
+   ]
+  },
+  {
+   "test": "Canon_Pixma_Ink_Cartridge_251_M",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.667,
+     "d2_cosine": 0.9997,
+     "dinov3_cosine": 0.9144
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9919,
+     "dinov3_cosine": 0.9307
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.992,
+     "dinov3_cosine": 0.9223
+    }
+   ]
+  },
+  {
+   "test": "Twinlab_Premium_Creatine_Fuel_Powder",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9994,
+     "dinov3_cosine": 0.9432
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9907,
+     "dinov3_cosine": 0.9121
+    }
+   ]
+  },
+  {
+   "test": "Canon_Pixma_Chromalife_100_Magenta_8",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.25,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9887
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9932,
+     "dinov3_cosine": 0.9305
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9932,
+     "dinov3_cosine": 0.9175
+    }
+   ]
+  },
+  {
+   "test": "Cole_Hardware_Dishtowel_Stripe",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9748
+    }
+   ]
+  },
+  {
+   "test": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.562,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9683
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9943,
+     "dinov3_cosine": 0.9775
+    },
+    {
+     "library": "Perricone_MD_Nutritive_Cleanser",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9955,
+     "dinov3_cosine": 0.9321
+    },
+    {
+     "library": "Perricone_MD_Vitamin_C_Ester_15",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9918,
+     "dinov3_cosine": 0.9331
+    }
+   ]
+  },
+  {
+   "test": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+     "name_jaccard": 0.048,
+     "d2_cosine": 0.9947,
+     "dinov3_cosine": 0.932
+    },
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9901,
+     "dinov3_cosine": 0.9176
+    },
+    {
+     "library": "Nestle_Skinny_Cow_Dreamy_Clusters_Candy_Dark_Chocolate_6_pack_1_oz_pouches",
+     "name_jaccard": 0.048,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9863
+    }
+   ]
+  },
+  {
+   "test": "HP_Card_Invitation_Kit",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9948,
+     "dinov3_cosine": 0.9077
+    },
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9951,
+     "dinov3_cosine": 0.9772
+    },
+    {
+     "library": "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.997,
+     "dinov3_cosine": 0.9544
+    }
+   ]
+  },
+  {
+   "test": "Pet_Dophilus_powder",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9955,
+     "dinov3_cosine": 0.941
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9978,
+     "dinov3_cosine": 0.9294
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9976,
+     "dinov3_cosine": 0.923
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9971,
+     "dinov3_cosine": 0.923
+    }
+   ]
+  },
+  {
+   "test": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Playmates_nickelodeon_teenage_mutant_ninja_turtles_shredder",
+     "name_jaccard": 0.625,
+     "d2_cosine": 0.9833,
+     "dinov3_cosine": 0.8177
+    }
+   ]
+  },
+  {
+   "test": "Sony_Downloadable_Loops",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9997,
+     "dinov3_cosine": 0.9753
+    },
+    {
+     "library": "Nestle_Skinny_Cow_Dreamy_Clusters_Candy_Dark_Chocolate_6_pack_1_oz_pouches",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9916,
+     "dinov3_cosine": 0.9202
+    }
+   ]
+  },
+  {
+   "test": "Ecoforms_Plant_Saucer_S14NATURAL",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ1HARVEST",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.87,
+     "dinov3_cosine": 0.6938
+    },
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ8COR",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.8773,
+     "dinov3_cosine": 0.6635
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9912,
+     "dinov3_cosine": 0.9279
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.417,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9885
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9942
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.455,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9963
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.308,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9927
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.6,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9969
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.778,
+     "d2_cosine": 0.993,
+     "dinov3_cosine": 0.9101
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.778,
+     "d2_cosine": 0.9929,
+     "dinov3_cosine": 0.9062
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9916,
+     "dinov3_cosine": 0.9382
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9306
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9415
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9914,
+     "dinov3_cosine": 0.9319
+    }
+   ]
+  },
+  {
+   "test": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Weston_No_33_Signature_Sausage_Tonic_12_fl_oz",
+     "name_jaccard": 0.462,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9753
+    }
+   ]
+  },
+  {
+   "test": "Phillips_Caplets_Size_24",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "JarroSil_Activated_Silicon_5exdZHIeLAp",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9947,
+     "dinov3_cosine": 0.954
+    },
+    {
+     "library": "Perricone_MD_Face_Finishing_Moisturizer_4_oz",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9982,
+     "dinov3_cosine": 0.9172
+    }
+   ]
+  },
+  {
+   "test": "Tag_Dishtowel_18_x_26",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.571,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.979
+    }
+   ]
+  },
+  {
+   "test": "Ecoforms_Plate_S20Avocado",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Room_Essentials_Salad_Plate_Turquoise",
+     "name_jaccard": 0.143,
+     "d2_cosine": 0.9963,
+     "dinov3_cosine": 0.9559
+    }
+   ]
+  },
+  {
+   "test": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9955,
+     "dinov3_cosine": 0.9531
+    }
+   ]
+  },
+  {
+   "test": "Wilton_Easy_Layers_Cake_Pan_Set",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9965,
+     "dinov3_cosine": 0.9412
+    },
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.995,
+     "dinov3_cosine": 0.9283
+    },
+    {
+     "library": "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9965,
+     "dinov3_cosine": 0.9131
+    }
+   ]
+  },
+  {
+   "test": "Twinlab_Nitric_Fuel",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9993,
+     "dinov3_cosine": 0.9394
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9901,
+     "dinov3_cosine": 0.9116
+    }
+   ]
+  },
+  {
+   "test": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Pokmon_Conquest_Nintendo_DS_Game",
+     "name_jaccard": 0.2,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9763
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9907,
+     "dinov3_cosine": 0.9163
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.99
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.778,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9876
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9933
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9914
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9934
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9937,
+     "dinov3_cosine": 0.9094
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9935,
+     "dinov3_cosine": 0.9118
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9908,
+     "dinov3_cosine": 0.9246
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9923,
+     "dinov3_cosine": 0.9132
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9904,
+     "dinov3_cosine": 0.9419
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9924,
+     "dinov3_cosine": 0.9291
+    }
+   ]
+  },
+  {
+   "test": "Sony_Acid_Music_Studio",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9956,
+     "dinov3_cosine": 0.9014
+    },
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9994,
+     "dinov3_cosine": 0.9796
+    },
+    {
+     "library": "Nestle_Skinny_Cow_Dreamy_Clusters_Candy_Dark_Chocolate_6_pack_1_oz_pouches",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9907,
+     "dinov3_cosine": 0.9191
+    },
+    {
+     "library": "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9919,
+     "dinov3_cosine": 0.9556
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9934,
+     "dinov3_cosine": 0.9025
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.267,
+     "d2_cosine": 0.9935,
+     "dinov3_cosine": 0.9095
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.267,
+     "d2_cosine": 0.993,
+     "dinov3_cosine": 0.9055
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.357,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9958
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.357,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9897
+    }
+   ]
+  },
+  {
+   "test": "Cole_Hardware_Saucer_Electric",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Cole_Hardware_Saucer_Glazed_6",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9258,
+     "dinov3_cosine": 0.9668
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9913,
+     "dinov3_cosine": 0.92
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.7,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9804
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9885
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9904
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9916
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.333,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.991
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.993,
+     "dinov3_cosine": 0.904
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9236
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9912,
+     "dinov3_cosine": 0.9152
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9914,
+     "dinov3_cosine": 0.9299
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9912,
+     "dinov3_cosine": 0.9235
+    }
+   ]
+  },
+  {
+   "test": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Razer_Taipan_White_Ambidextrous_Gaming_Mouse",
+     "name_jaccard": 0.714,
+     "d2_cosine": 0.9973,
+     "dinov3_cosine": 0.9701
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_The_Crease_Cure_Duo",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9917,
+     "dinov3_cosine": 0.9228
+    },
+    {
+     "library": "Nestle_Skinny_Cow_Dreamy_Clusters_Candy_Dark_Chocolate_6_pack_1_oz_pouches",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.998,
+     "dinov3_cosine": 0.9676
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_Photo_Plasma",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9921,
+     "dinov3_cosine": 0.936
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9921,
+     "dinov3_cosine": 0.9157
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9925,
+     "dinov3_cosine": 0.9292
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9923,
+     "dinov3_cosine": 0.9314
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9916,
+     "dinov3_cosine": 0.9318
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.6,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.987
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.4,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9502
+    },
+    {
+     "library": "Perricone_MD_Vitamin_C_Ester_15",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.9901,
+     "dinov3_cosine": 0.9329
+    },
+    {
+     "library": "Philips_EcoVantage_43_W_Light_Bulbs_Natural_Light_2_pack",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9989,
+     "dinov3_cosine": 0.9679
+    }
+   ]
+  },
+  {
+   "test": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.267,
+     "d2_cosine": 0.9993,
+     "dinov3_cosine": 0.9692
+    }
+   ]
+  },
+  {
+   "test": "Ecoforms_Plant_Container_S24NATURAL",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Ecoforms_Plant_Container_S24Turquoise",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9972
+    }
+   ]
+  },
+  {
+   "test": "Lutein",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "5_HTP",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.992,
+     "dinov3_cosine": 0.9804
+    },
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9825
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9906
+    },
+    {
+     "library": "NattoMax",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9917,
+     "dinov3_cosine": 0.9836
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9975,
+     "dinov3_cosine": 0.9742
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.974
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9794
+    }
+   ]
+  },
+  {
+   "test": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.571,
+     "d2_cosine": 0.9997,
+     "dinov3_cosine": 0.9222
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.9921,
+     "dinov3_cosine": 0.9389
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.9298
+    }
+   ]
+  },
+  {
+   "test": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.2,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9262
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.333,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9904
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.333,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9816
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_Vitamin_C_Ester_Serum",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9911,
+     "dinov3_cosine": 0.9657
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9909,
+     "dinov3_cosine": 0.9279
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.991,
+     "dinov3_cosine": 0.9371
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9914,
+     "dinov3_cosine": 0.9475
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9919,
+     "dinov3_cosine": 0.9457
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.375,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9585
+    },
+    {
+     "library": "Perricone_MD_Vitamin_C_Ester_15",
+     "name_jaccard": 0.667,
+     "d2_cosine": 0.9652,
+     "dinov3_cosine": 0.9874
+    },
+    {
+     "library": "Ultra_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9955,
+     "dinov3_cosine": 0.964
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.992,
+     "dinov3_cosine": 0.9357
+    },
+    {
+     "library": "Nescafe_Memento_Latte_Caramel_8_08_oz_23_g_packets_64_oz_184_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9962,
+     "dinov3_cosine": 0.9675
+    },
+    {
+     "library": "Nescafe_Momento_Mocha_Specialty_Coffee_Mix_8_ct",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9965,
+     "dinov3_cosine": 0.9531
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9944,
+     "dinov3_cosine": 0.9509
+    },
+    {
+     "library": "Perricone_MD_Nutritive_Cleanser",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9943,
+     "dinov3_cosine": 0.9959
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9974,
+     "dinov3_cosine": 0.9461
+    }
+   ]
+  },
+  {
+   "test": "Kotex_U_Barely_There_Liners_Thin_60_count",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Perricone_MD_Nutritive_Cleanser",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9906,
+     "dinov3_cosine": 0.9253
+    },
+    {
+     "library": "Perricone_MD_Vitamin_C_Ester_15",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9994,
+     "dinov3_cosine": 0.9371
+    },
+    {
+     "library": "Philips_EcoVantage_43_W_Light_Bulbs_Natural_Light_2_pack",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9907,
+     "dinov3_cosine": 0.9644
+    }
+   ]
+  },
+  {
+   "test": "Krill_Oil",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "5_HTP",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9926,
+     "dinov3_cosine": 0.982
+    },
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9889
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9931
+    },
+    {
+     "library": "NattoMax",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9923,
+     "dinov3_cosine": 0.9856
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9973,
+     "dinov3_cosine": 0.9713
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9811
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9831
+    }
+   ]
+  },
+  {
+   "test": "3M_Antislip_Surfacing_Light_Duty_White",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Cole_Hardware_Antislip_Surfacing_White_2_x_60",
+     "name_jaccard": 0.333,
+     "d2_cosine": 0.9909,
+     "dinov3_cosine": 0.9047
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9923,
+     "dinov3_cosine": 0.8944
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9925,
+     "dinov3_cosine": 0.9028
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9928,
+     "dinov3_cosine": 0.8924
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9932
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9869
+    }
+   ]
+  },
+  {
+   "test": "Lactoferrin",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9963,
+     "dinov3_cosine": 0.9655
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9981,
+     "dinov3_cosine": 0.974
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9929
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9979,
+     "dinov3_cosine": 0.9598
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9977,
+     "dinov3_cosine": 0.9613
+    }
+   ]
+  },
+  {
+   "test": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Playmates_nickelodeon_teenage_mutant_ninja_turtles_shredder",
+     "name_jaccard": 0.625,
+     "d2_cosine": 0.9921,
+     "dinov3_cosine": 0.8739
+    }
+   ]
+  },
+  {
+   "test": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Seagate_1TB_Backup_Plus_portable_drive_Silver",
+     "name_jaccard": 0.75,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9933
+    }
+   ]
+  },
+  {
+   "test": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9906,
+     "dinov3_cosine": 0.9645
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9954,
+     "dinov3_cosine": 0.9694
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9937,
+     "dinov3_cosine": 0.9617
+    }
+   ]
+  },
+  {
+   "test": "SAMe_200_KX7ZmOw47co",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.992,
+     "dinov3_cosine": 0.9882
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9935,
+     "dinov3_cosine": 0.9817
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9936,
+     "dinov3_cosine": 0.9613
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9938,
+     "dinov3_cosine": 0.9698
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9931,
+     "dinov3_cosine": 0.9757
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9931,
+     "dinov3_cosine": 0.9733
+    },
+    {
+     "library": "Perricone_MD_Vitamin_C_Ester_15",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9968,
+     "dinov3_cosine": 0.9657
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.667,
+     "d2_cosine": 0.9731,
+     "dinov3_cosine": 0.9838
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9908,
+     "dinov3_cosine": 0.935
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9895
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9897
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9947
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.994
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9959
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9939,
+     "dinov3_cosine": 0.9039
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9937,
+     "dinov3_cosine": 0.9054
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9902,
+     "dinov3_cosine": 0.9406
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9322
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9904,
+     "dinov3_cosine": 0.9485
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9381
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9909,
+     "dinov3_cosine": 0.9347
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.385,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9856
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.545,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9898
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.308,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9942
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.286,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9933
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9952
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9932,
+     "dinov3_cosine": 0.9049
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9931,
+     "dinov3_cosine": 0.9069
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9918,
+     "dinov3_cosine": 0.9339
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.992,
+     "dinov3_cosine": 0.925
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9908,
+     "dinov3_cosine": 0.9396
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.992,
+     "dinov3_cosine": 0.9298
+    }
+   ]
+  },
+  {
+   "test": "Ecoforms_Plant_Container_S14Turquoise",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Ecoforms_Plant_Container_S24Turquoise",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.8068,
+     "dinov3_cosine": 0.9788
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_Face_Finishing_Moisturizer",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Perricone_MD_Face_Finishing_Moisturizer_4_oz",
+     "name_jaccard": 0.833,
+     "d2_cosine": 0.9883,
+     "dinov3_cosine": 0.9628
+    }
+   ]
+  },
+  {
+   "test": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9951,
+     "dinov3_cosine": 0.968
+    },
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9947,
+     "dinov3_cosine": 0.931
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.364,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9868
+    },
+    {
+     "library": "Perricone_MD_Nutritive_Cleanser",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9972,
+     "dinov3_cosine": 0.932
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9981,
+     "dinov3_cosine": 0.9807
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9911,
+     "dinov3_cosine": 0.9303
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.364,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9899
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.4,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.99
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.4,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9917
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.364,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9959
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.556,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.994
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.556,
+     "d2_cosine": 0.9928,
+     "dinov3_cosine": 0.9077
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.556,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9089
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9916,
+     "dinov3_cosine": 0.9303
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9916,
+     "dinov3_cosine": 0.9183
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9901,
+     "dinov3_cosine": 0.9464
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9917,
+     "dinov3_cosine": 0.9471
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9357
+    }
+   ]
+  },
+  {
+   "test": "HP_1800_Tablet_8GB_7",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Beyonc_Life_is_But_a_Dream_DVD",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9987,
+     "dinov3_cosine": 0.9073
+    }
+   ]
+  },
+  {
+   "test": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.4,
+     "d2_cosine": 0.9996,
+     "dinov3_cosine": 0.9525
+    }
+   ]
+  },
+  {
+   "test": "Dell_Ink_Cartridge_Yellow_31",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.429,
+     "d2_cosine": 0.9942,
+     "dinov3_cosine": 0.9103
+    }
+   ]
+  },
+  {
+   "test": "Brother_Ink_Cartridge_Magenta_LC75M",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9926,
+     "dinov3_cosine": 0.9431
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9921,
+     "dinov3_cosine": 0.9467
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.182,
+     "d2_cosine": 0.9951,
+     "dinov3_cosine": 0.9596
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.182,
+     "d2_cosine": 0.9952,
+     "dinov3_cosine": 0.9516
+    }
+   ]
+  },
+  {
+   "test": "Ecoforms_Plant_Saucer_S20MOCHA",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ1HARVEST",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.6931,
+     "dinov3_cosine": 0.6642
+    },
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ8COR",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9962,
+     "dinov3_cosine": 0.6464
+    },
+    {
+     "library": "Room_Essentials_Salad_Plate_Turquoise",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9962,
+     "dinov3_cosine": 0.9557
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9913,
+     "dinov3_cosine": 0.9289
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.385,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9794
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.545,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9908
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.7,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9929
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.5,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9925
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.417,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9947
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9934,
+     "dinov3_cosine": 0.9025
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9932,
+     "dinov3_cosine": 0.9023
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9914,
+     "dinov3_cosine": 0.9293
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9919,
+     "dinov3_cosine": 0.9222
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9912,
+     "dinov3_cosine": 0.9323
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9919,
+     "dinov3_cosine": 0.9249
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.7,
+     "d2_cosine": 0.9942,
+     "dinov3_cosine": 0.9017
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9944,
+     "dinov3_cosine": 0.9006
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9946,
+     "dinov3_cosine": 0.8939
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9917
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9932
+    }
+   ]
+  },
+  {
+   "test": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "JarroSil_Activated_Silicon",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9957,
+     "dinov3_cosine": 0.9194
+    },
+    {
+     "library": "Perricoen_MD_No_Concealer_Concealer",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9925,
+     "dinov3_cosine": 0.9017
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9453
+    },
+    {
+     "library": "Ultra_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9948,
+     "dinov3_cosine": 0.9637
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9907,
+     "dinov3_cosine": 0.928
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.988
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.778,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9897
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9952
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.308,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9924
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.455,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9951
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9071
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9926,
+     "dinov3_cosine": 0.9068
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9923,
+     "dinov3_cosine": 0.936
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9913,
+     "dinov3_cosine": 0.9268
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.991,
+     "dinov3_cosine": 0.937
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9913,
+     "dinov3_cosine": 0.9307
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9911,
+     "dinov3_cosine": 0.9262
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.385,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9847
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.545,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.991
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.308,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9943
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9919
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.417,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9947
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9926,
+     "dinov3_cosine": 0.9066
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.417,
+     "d2_cosine": 0.9925,
+     "dinov3_cosine": 0.9074
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9925,
+     "dinov3_cosine": 0.927
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.991,
+     "dinov3_cosine": 0.9172
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9901,
+     "dinov3_cosine": 0.9346
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9915,
+     "dinov3_cosine": 0.9331
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.991,
+     "dinov3_cosine": 0.9223
+    }
+   ]
+  },
+  {
+   "test": "Dell_Ink_Cartridge",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.9986,
+     "dinov3_cosine": 0.9246
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.9987,
+     "dinov3_cosine": 0.9187
+    }
+   ]
+  },
+  {
+   "test": "Canon_Pixma_Ink_Cartridge_8",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.8,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9884
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.994,
+     "dinov3_cosine": 0.9272
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.286,
+     "d2_cosine": 0.9941,
+     "dinov3_cosine": 0.9211
+    }
+   ]
+  },
+  {
+   "test": "CoQ10_BjTLbuRVt1t",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "5_HTP",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.993,
+     "dinov3_cosine": 0.9485
+    },
+    {
+     "library": "CoQ10",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.973
+    },
+    {
+     "library": "CoQ10_wSSVoxVppVD",
+     "name_jaccard": 0.333,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9719
+    },
+    {
+     "library": "DIM_CDG",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9915
+    },
+    {
+     "library": "NattoMax",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9935,
+     "dinov3_cosine": 0.9477
+    }
+   ]
+  },
+  {
+   "test": "Cole_Hardware_Dishtowel_BlueWhite",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.1,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9251
+    }
+   ]
+  },
+  {
+   "test": "Cole_Hardware_Dishtowel_Multicolors",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.1,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9419
+    }
+   ]
+  },
+  {
+   "test": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+     "name_jaccard": 0.048,
+     "d2_cosine": 0.9958,
+     "dinov3_cosine": 0.9195
+    },
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9908,
+     "dinov3_cosine": 0.9004
+    },
+    {
+     "library": "Nestle_Skinny_Cow_Dreamy_Clusters_Candy_Dark_Chocolate_6_pack_1_oz_pouches",
+     "name_jaccard": 0.1,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.988
+    }
+   ]
+  },
+  {
+   "test": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.182,
+     "d2_cosine": 0.992,
+     "dinov3_cosine": 0.9205
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.3,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9902
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.444,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9828
+    }
+   ]
+  },
+  {
+   "test": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "JarroSil_Activated_Silicon_5exdZHIeLAp",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9941,
+     "dinov3_cosine": 0.951
+    },
+    {
+     "library": "Perricone_MD_Face_Finishing_Moisturizer_4_oz",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.997,
+     "dinov3_cosine": 0.9284
+    }
+   ]
+  },
+  {
+   "test": "Pokmon_Y_Nintendo_3DS_Game",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Pokmon_Conquest_Nintendo_DS_Game",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9825
+    }
+   ]
+  },
+  {
+   "test": "PhosphOmega",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9997,
+     "dinov3_cosine": 0.9683
+    }
+   ]
+  },
+  {
+   "test": "Tag_Dishtowel_Green",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9997,
+     "dinov3_cosine": 0.9172
+    }
+   ]
+  },
+  {
+   "test": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Granimals_20_Wooden_ABC_Blocks_Wagon",
+     "name_jaccard": 0.857,
+     "d2_cosine": 0.5675,
+     "dinov3_cosine": 0.3755
+    }
+   ]
+  },
+  {
+   "test": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9991,
+     "dinov3_cosine": 0.9193
+    }
+   ]
+  },
+  {
+   "test": "Womens_Multi_13",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9985,
+     "dinov3_cosine": 0.932
+    }
+   ]
+  },
+  {
+   "test": "Ecoforms_Plant_Saucer_S17MOCHA",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ1HARVEST",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.7732,
+     "dinov3_cosine": 0.6876
+    },
+    {
+     "library": "Ecoforms_Plant_Saucer_SQ8COR",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9622,
+     "dinov3_cosine": 0.6627
+    }
+   ]
+  },
+  {
+   "test": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Ecoforms_Plant_Container_S24Turquoise",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9975,
+     "dinov3_cosine": 0.9406
+    }
+   ]
+  },
+  {
+   "test": "Beta_Glucan",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "5_HTP",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9919,
+     "dinov3_cosine": 0.9793
+    },
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9996,
+     "dinov3_cosine": 0.9853
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9964
+    },
+    {
+     "library": "NattoMax",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9917,
+     "dinov3_cosine": 0.9807
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9976,
+     "dinov3_cosine": 0.9737
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9853
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9876
+    }
+   ]
+  },
+  {
+   "test": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Granimals_20_Wooden_ABC_Blocks_Wagon",
+     "name_jaccard": 0.857,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9072
+    }
+   ]
+  },
+  {
+   "test": "Inositol",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "LTyrosine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.994
+    }
+   ]
+  },
+  {
+   "test": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Beyonc_Life_is_But_a_Dream_DVD",
+     "name_jaccard": 0.083,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9654
+    },
+    {
+     "library": "Mario_Party_9_Wii_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9481
+    },
+    {
+     "library": "New_Super_Mario_BrosWii_Wii_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9207
+    }
+   ]
+  },
+  {
+   "test": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+   "tiers": [
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Seagate_1TB_Backup_Plus_portable_drive_Silver",
+     "name_jaccard": 0.667,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9878
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_No_Bronzer_Bronzer",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "GelatinBox",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9905,
+     "dinov3_cosine": 0.914
+    },
+    {
+     "library": "JarroSil_Activated_Silicon_5exdZHIeLAp",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9936,
+     "dinov3_cosine": 0.9445
+    },
+    {
+     "library": "Perricoen_MD_No_Concealer_Concealer",
+     "name_jaccard": 0.333,
+     "d2_cosine": 0.9926,
+     "dinov3_cosine": 0.9835
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9667,
+     "dinov3_cosine": 0.989
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.96,
+     "dinov3_cosine": 0.9893
+    },
+    {
+     "library": "Perricone_MD_No_Lipstick_Lipstick",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9604,
+     "dinov3_cosine": 0.974
+    }
+   ]
+  },
+  {
+   "test": "Super_Mario_3D_World_Wii_U_Game",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Beyonc_Life_is_But_a_Dream_DVD",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9226
+    },
+    {
+     "library": "Mario_Party_9_Wii_Game",
+     "name_jaccard": 0.429,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9695
+    },
+    {
+     "library": "New_Super_Mario_BrosWii_Wii_Game",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9928
+    }
+   ]
+  },
+  {
+   "test": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Canon_Pixma_Ink_Cartridge_8_Red",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9943,
+     "dinov3_cosine": 0.919
+    },
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.062,
+     "d2_cosine": 0.9972,
+     "dinov3_cosine": 0.9592
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.133,
+     "d2_cosine": 0.9972,
+     "dinov3_cosine": 0.9581
+    }
+   ]
+  },
+  {
+   "test": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Cole_Hardware_Antislip_Surfacing_White_2_x_60",
+     "name_jaccard": 0.091,
+     "d2_cosine": 0.9983,
+     "dinov3_cosine": 0.9454
+    }
+   ]
+  },
+  {
+   "test": "Sleep_Optimizer",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Epson_Ink_Cartridge_126_Yellow",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9946,
+     "dinov3_cosine": 0.9556
+    },
+    {
+     "library": "Epson_Ink_Cartridge_Black_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9941,
+     "dinov3_cosine": 0.9558
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9936,
+     "dinov3_cosine": 0.9432
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9938,
+     "dinov3_cosine": 0.9447
+    }
+   ]
+  },
+  {
+   "test": "Blackcurrant_Lutein",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "5_HTP",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9929,
+     "dinov3_cosine": 0.977
+    },
+    {
+     "library": "AllergenFree_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9824
+    },
+    {
+     "library": "Hyaluronic_Acid",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9937
+    },
+    {
+     "library": "NattoMax",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9794
+    },
+    {
+     "library": "QAbsorb_CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.997,
+     "dinov3_cosine": 0.9758
+    },
+    {
+     "library": "QHPomegranate",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9846
+    },
+    {
+     "library": "Theanine",
+     "name_jaccard": 0.0,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9903
+    }
+   ]
+  },
+  {
+   "test": "MK7",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "5_HTP",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9524
+    },
+    {
+     "library": "CoQ10",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9998,
+     "dinov3_cosine": 0.9692
+    },
+    {
+     "library": "CoQ10_wSSVoxVppVD",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9692
+    },
+    {
+     "library": "DIM_CDG",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9935
+    },
+    {
+     "library": "NattoMax",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9933,
+     "dinov3_cosine": 0.952
+    }
+   ]
+  },
+  {
+   "test": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40",
+     "name_jaccard": 0.25,
+     "d2_cosine": 0.9942,
+     "dinov3_cosine": 0.9845
+    },
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9919,
+     "dinov3_cosine": 0.9448
+    },
+    {
+     "library": "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9991,
+     "dinov3_cosine": 0.9907
+    },
+    {
+     "library": "Perricone_MD_Nutritive_Cleanser",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9962,
+     "dinov3_cosine": 0.9621
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9984,
+     "dinov3_cosine": 0.9867
+    }
+   ]
+  },
+  {
+   "test": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9909,
+     "dinov3_cosine": 0.9224
+    },
+    {
+     "library": "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.417,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9891
+    },
+    {
+     "library": "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9886
+    },
+    {
+     "library": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor",
+     "name_jaccard": 0.778,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.992
+    },
+    {
+     "library": "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993",
+     "name_jaccard": 0.545,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9933
+    },
+    {
+     "library": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+     "name_jaccard": 0.455,
+     "d2_cosine": 1.0,
+     "dinov3_cosine": 0.9938
+    },
+    {
+     "library": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9928,
+     "dinov3_cosine": 0.9005
+    },
+    {
+     "library": "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.9072
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9922,
+     "dinov3_cosine": 0.9371
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9913,
+     "dinov3_cosine": 0.925
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.99,
+     "dinov3_cosine": 0.9502
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9914,
+     "dinov3_cosine": 0.9486
+    },
+    {
+     "library": "Perricone_MD_OVM",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9913,
+     "dinov3_cosine": 0.9406
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_No_Mascara_Mascara",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9949,
+     "dinov3_cosine": 0.9518
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9952,
+     "dinov3_cosine": 0.9807
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9959,
+     "dinov3_cosine": 0.9853
+    },
+    {
+     "library": "Perricone_MD_No_Lipstick_Lipstick",
+     "name_jaccard": 0.6,
+     "d2_cosine": 0.9033,
+     "dinov3_cosine": 0.9294
+    }
+   ]
+  },
+  {
+   "test": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Pokmon_Conquest_Nintendo_DS_Game",
+     "name_jaccard": 0.2,
+     "d2_cosine": 0.9999,
+     "dinov3_cosine": 0.9805
+    }
+   ]
+  },
+  {
+   "test": "Crayola_Bonus_64_Crayons",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Kid_Icarus_Uprising_Nintendo_3DS_Game",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9971,
+     "dinov3_cosine": 0.9339
+    },
+    {
+     "library": "Nescafe_Memento_Latte_Caramel_8_08_oz_23_g_packets_64_oz_184_g",
+     "name_jaccard": 0.077,
+     "d2_cosine": 0.9947,
+     "dinov3_cosine": 0.9318
+    },
+    {
+     "library": "Nescafe_Momento_Mocha_Specialty_Coffee_Mix_8_ct",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9951,
+     "dinov3_cosine": 0.9317
+    },
+    {
+     "library": "Perricone_MD_The_Cold_Plasma_Face_Eyes_Duo",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9937,
+     "dinov3_cosine": 0.9138
+    },
+    {
+     "library": "SAMe_200",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.935
+    }
+   ]
+  },
+  {
+   "test": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9957,
+     "dinov3_cosine": 0.9298
+    }
+   ]
+  },
+  {
+   "test": "Perricone_MD_Blue_Plasma_Orbital",
+   "tiers": [
+    "lookalike",
+    "variant"
+   ],
+   "matches": [
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.222,
+     "d2_cosine": 0.9974,
+     "dinov3_cosine": 0.9807
+    },
+    {
+     "library": "Perricone_MD_Cold_Plasma",
+     "name_jaccard": 0.5,
+     "d2_cosine": 0.9734,
+     "dinov3_cosine": 0.99
+    },
+    {
+     "library": "Ultra_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9936,
+     "dinov3_cosine": 0.9613
+    }
+   ]
+  },
+  {
+   "test": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "Travel_Smart_Neck_Rest_Inflatable",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9967,
+     "dinov3_cosine": 0.9434
+    }
+   ]
+  },
+  {
+   "test": "FemDophilus",
+   "tiers": [
+    "lookalike"
+   ],
+   "matches": [
+    {
+     "library": "JarroSil_Activated_Silicon",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9927,
+     "dinov3_cosine": 0.941
+    },
+    {
+     "library": "Perricone_MD_AcylGlutathione_Deep_Crease_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9931,
+     "dinov3_cosine": 0.9677
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Foundation_No_1",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9973,
+     "dinov3_cosine": 0.9739
+    },
+    {
+     "library": "Perricone_MD_No_Foundation_Serum",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.996,
+     "dinov3_cosine": 0.976
+    },
+    {
+     "library": "Ultra_JarroDophilus",
+     "name_jaccard": 0.0,
+     "d2_cosine": 0.9979,
+     "dinov3_cosine": 0.9781
+    }
+   ]
+  }
+ ]
+}

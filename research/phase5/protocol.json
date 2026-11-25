@@ -1,0 +1,201 @@
+{
+ "phase": "V",
+ "primary_experiment": "B",
+ "primary_gripper": 80,
+ "equivalence_margin": 1.25,
+ "experiments": [
+  "B",
+  "A",
+  "C"
+ ],
+ "grippers": [
+  80,
+  40,
+  120
+ ],
+ "primary": [
+  {
+   "a": "learned",
+   "b": "box",
+   "kind": "superiority",
+   "question": "RQ1: does a candidate classifier learned from the library beat transferring grasps from parts of similar size?"
+  },
+  {
+   "a": "afat",
+   "b": "learned",
+   "kind": "superiority",
+   "question": "RQ5: does adaptive stacking of transfer sources improve on the learned classifier?"
+  },
+  {
+   "a": "afat",
+   "b": "afat-novis",
+   "kind": "equivalence",
+   "question": "RQ2/RQ3: inside the best system, is the image model (DINOv3) worth less than a 25% change in candidates examined?"
+  },
+  {
+   "a": "visual:dinov3",
+   "b": "visual:vit-random",
+   "kind": "superiority",
+   "question": "RQ3: does pretraining beat the same ViT with random weights (5 initialisations pooled)?"
+  }
+ ],
+ "secondary": [
+  [
+   "learned",
+   "default"
+  ],
+  [
+   "afat",
+   "default"
+  ],
+  [
+   "box",
+   "default"
+  ],
+  [
+   "pooled",
+   "default"
+  ],
+  [
+   "visual:dinov3",
+   "default"
+  ],
+  [
+   "visual:dinov2",
+   "default"
+  ],
+  [
+   "visual:d2",
+   "default"
+  ],
+  [
+   "fusion:dinov3",
+   "default"
+  ],
+  [
+   "random-order",
+   "default"
+  ],
+  [
+   "heuristic:com",
+   "default"
+  ],
+  [
+   "heuristic:narrow",
+   "default"
+  ],
+  [
+   "heuristic:antipodal",
+   "default"
+  ],
+  [
+   "heuristic:topdown",
+   "default"
+  ],
+  [
+   "visual:dinov3",
+   "box"
+  ],
+  [
+   "fusion:dinov3",
+   "box"
+  ],
+  [
+   "visual:d2",
+   "box"
+  ],
+  [
+   "visual:dinov3-metric",
+   "box"
+  ],
+  [
+   "visual:dinov3-metric",
+   "visual:dinov3"
+  ],
+  [
+   "visual:dinov3",
+   "visual:dinov2"
+  ],
+  [
+   "fusion:dinov3",
+   "fusion:vit-random"
+  ],
+  [
+   "afat",
+   "afat-novis"
+  ],
+  [
+   "afat",
+   "learned"
+  ],
+  [
+   "learned",
+   "box"
+  ],
+  [
+   "visual:dinov3",
+   "visual:vit-random"
+  ],
+  [
+   "afat",
+   "self"
+  ],
+  [
+   "learned",
+   "random-order"
+  ]
+ ],
+ "budget_methods": [
+  "default",
+  "random-order",
+  "heuristic:antipodal",
+  "learned",
+  "box",
+  "pooled",
+  "visual:dinov3",
+  "visual:vit-random",
+  "fusion:dinov3",
+  "afat",
+  "afat-novis",
+  "self"
+ ],
+ "budgets": [
+  1,
+  5,
+  10,
+  20,
+  50,
+  100
+ ],
+ "bootstrap": {
+  "seed": 20261128,
+  "draws": 10000
+ },
+ "decision": {
+  "superiority": "Holm-adjusted Wilcoxon p < 0.05 across the three superiority contrasts and a 95% bootstrap interval excluding 1",
+  "equivalence": "95% percentile bootstrap interval of the geometric-mean ratio inside [0.8, 1.25] (two one-sided tests at 2.5%)"
+ },
+ "unit": "part (test parts are never in the library; rows of one part are not independent)",
+ "dynamic": {
+  "methods": [
+   "default",
+   "box",
+   "learned",
+   "afat",
+   "visual:dinov3"
+  ],
+  "gripper": 80,
+  "perturbations": 6,
+  "chase_limit": 20
+ },
+ "planner_confirmation": {
+  "methods": [
+   "default",
+   "box",
+   "learned",
+   "afat"
+  ],
+  "gripper": 80,
+  "target": 1
+ }
+}
