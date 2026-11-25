@@ -1,0 +1,10 @@
+{
+  "manifest_sha256": "6c5291288adcd365b873a4c983b30b9f19fb2ed0110a0575112514b866cdf660",
+  "phase": "development",
+  "base_commit": "e4e4f70795f0d880b817510e35180408de36e13a",
+  "train_size": 16,
+  "validation_size": 6,
+  "test_size": 8,
+  "utility_f12": "native wrench_space score if native plan feasible, otherwise 0",
+  "physical_failures_consume_attempt": true
+}
