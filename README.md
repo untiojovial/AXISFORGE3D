@@ -8,6 +8,8 @@ three-finger gripper or a multi-finger hand.
 > certification. Validate all motion on the real cell before operating
 > machinery.
 
+Phase IV evaluates frozen OpenCLIP features from 352 development views, tests two ways of finding feasible grasps, and expands the MuJoCo pilot to 84 poses. The report includes the observed failures, downloadable embeddings and a self-contained Colab notebook. [Phase IV results and reproducibility](research/phase4/README.md)
+
 Phase III connects the native grasp planner to multiview perception and Bayesian optimization on 30 public objects. The development report includes paired benchmarks, a MuJoCo contact probe, and the limits found in internal review. [Phase III results and reproducibility](research/phase3/README.md)
 
 ## What it does
