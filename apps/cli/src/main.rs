@@ -179,6 +179,14 @@ enum Command {
         /// Print the full report as JSON instead of a summary.
         #[arg(long)]
         json: bool,
+        /// Scores from an outside model (a visual prior, for one) that set the
+        /// order candidates are examined in: a JSON list of {label, score}, or
+        /// {"candidates": [...], "weight": W}.
+        #[arg(long, value_name = "FILE")]
+        prior: Option<PathBuf>,
+        /// Stop after this many feasible grasps.
+        #[arg(long, default_value_t = 3)]
+        nr_grasps: usize,
     },
     /// Export generator-order grasp candidates, optionally evaluating one index.
     ResearchCandidates {
@@ -212,6 +220,9 @@ enum Command {
         /// all zeros, when omitted.
         #[arg(long, num_args = 1.., value_name = "VALUES", allow_negative_numbers = true)]
         start: Option<Vec<f64>>,
+        /// Scores that order the grasp candidates, as for `plan --prior`.
+        #[arg(long, value_name = "FILE")]
+        prior: Option<PathBuf>,
         /// Write the program: `urscript`, `csv` or `json`.
         #[arg(long, value_name = "FORMAT")]
         export: Option<String>,
@@ -245,6 +256,35 @@ impl From<DemoObstacles> for templates::Obstacles {
     }
 }
 
+/// Reads candidate scores from an outside model into the planner options.
+fn load_prior(path: &Path, options: &mut axisforge_grasping::PlannerOptions) -> Result<()> {
+    #[derive(serde::Deserialize)]
+    #[serde(untagged)]
+    enum PriorFile {
+        List(Vec<axisforge_grasping::CandidatePrior>),
+        Object {
+            candidates: Vec<axisforge_grasping::CandidatePrior>,
+            #[serde(default)]
+            weight: Option<f64>,
+        },
+    }
+    let text =
+        std::fs::read_to_string(path).with_context(|| format!("reading {}", path.display()))?;
+    let parsed: PriorFile = serde_json::from_str(&text)
+        .with_context(|| format!("{} is not a list of {{label, score}}", path.display()))?;
+    match parsed {
+        PriorFile::List(candidates) => options.candidate_prior = candidates,
+        PriorFile::Object { candidates, weight } => {
+            options.candidate_prior = candidates;
+            if let Some(weight) = weight {
+                options.prior_weight = weight;
+            }
+        }
+    }
+    options.validate()?;
+    Ok(())
+}
+
 /// Plans a cycle and prints, or writes, what came of it.
 #[allow(clippy::too_many_arguments)]
 fn run_cycle(
@@ -253,6 +293,7 @@ fn run_cycle(
     to: &[f64],
     speed: f64,
     start: Option<&[f64]>,
+    prior: Option<&Path>,
     export: Option<&str>,
     out: Option<&Path>,
     json: bool,
@@ -289,10 +330,13 @@ fn run_cycle(
         to[1],
         to.get(2).copied().unwrap_or(part.pose.translation.z),
     );
-    let options = axisforge_motion::CycleOptions {
+    let mut options = axisforge_motion::CycleOptions {
         speed_scale: speed,
         ..Default::default()
     };
+    if let Some(path) = prior {
+        load_prior(path, &mut options.grasp)?;
+    }
     let Response::Cycle(view) = session.handle(
         Request::PlanCycle {
             body_id,
@@ -695,7 +739,20 @@ fn run(cli: Cli) -> Result<()> {
             }
             println!("{}", serde_json::Value::Object(out));
         }
-        Command::Plan { file, body, json } => {
+        Command::Plan {
+            file,
+            body,
+            json,
+            prior,
+            nr_grasps,
+        } => {
+            let mut options = axisforge_grasping::PlannerOptions {
+                nr_grasps,
+                ..Default::default()
+            };
+            if let Some(path) = &prior {
+                load_prior(path, &mut options)?;
+            }
             let mut session = session_for(&file)?;
             let body_id = session
                 .project()
@@ -707,7 +764,7 @@ fn run(cli: Cli) -> Result<()> {
             let Response::Plan(report) = session.handle(
                 Request::PlanPick {
                     body_id,
-                    options: None,
+                    options: Some(options),
                 },
                 &Default::default(),
             )?
@@ -734,6 +791,12 @@ fn run(cli: Cli) -> Result<()> {
                 report.candidates_examined,
                 report.candidates_total
             );
+            if prior.is_some() {
+                println!(
+                    "  prior: {} candidate(s) scored, {} label(s) matched nothing",
+                    report.prior_matched, report.prior_unmatched
+                );
+            }
             for plan in &report.plans {
                 let hold = match &plan.candidate.hand {
                     Some(hand) => format!(
@@ -800,6 +863,7 @@ fn run(cli: Cli) -> Result<()> {
             to,
             speed,
             start,
+            prior,
             export,
             out,
             json,
@@ -809,6 +873,7 @@ fn run(cli: Cli) -> Result<()> {
             &to,
             speed,
             start.as_deref(),
+            prior.as_deref(),
             export.as_deref(),
             out.as_deref(),
             json,

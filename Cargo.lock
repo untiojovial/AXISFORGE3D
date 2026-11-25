@@ -85,6 +85,7 @@ dependencies = [
  "axisforge-project-io",
  "axisforge-service",
  "clap",
+ "serde",
  "serde_json",
 ]
 

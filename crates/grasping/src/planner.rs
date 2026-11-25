@@ -103,6 +103,28 @@ pub struct PlannerOptions {
     /// For a hand, the preshape to approach in; the gripper's first when
     /// unset. Ignored by a parallel-jaw gripper.
     pub preshape: Option<String>,
+    /// Scores in `[0, 1]` from an outside model (a learned or visual prior),
+    /// by candidate label, that decide the order candidates are examined in.
+    ///
+    /// A prior only changes the order: every candidate examined is checked
+    /// exactly as without one, so it can make the search faster or slower but
+    /// never accept a grasp the checks would refuse. Candidates the gripper
+    /// cannot make at all still go last.
+    pub candidate_prior: Vec<CandidatePrior>,
+    /// How much the prior weighs against the planner's own cheap estimate,
+    /// which lies in `[0, 1]`: at the default 2 the prior decides the order
+    /// and the estimate breaks ties.
+    pub prior_weight: f64,
+}
+
+/// One candidate's score from an outside model.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CandidatePrior {
+    /// The candidate's label, as the planner and `research-candidates` report it.
+    pub label: String,
+    /// Its score, in `[0, 1]`; higher is examined earlier.
+    pub score: f64,
 }
 
 impl Default for PlannerOptions {
@@ -129,6 +151,8 @@ impl Default for PlannerOptions {
                 ..IkOptions::default()
             },
             preshape: None,
+            candidate_prior: Vec::new(),
+            prior_weight: 2.0,
         }
     }
 }
@@ -174,6 +198,27 @@ impl PlannerOptions {
                 context: "planner options quality.unitForce must be positive".to_owned(),
                 value: self.quality.unit_force,
             });
+        }
+        if !self.prior_weight.is_finite() || !(0.0..=5.0).contains(&self.prior_weight) {
+            return Err(DomainError::unsupported(format!(
+                "priorWeight must be in [0, 5]; it is {}",
+                self.prior_weight
+            )));
+        }
+        let mut labels = std::collections::BTreeSet::new();
+        for prior in &self.candidate_prior {
+            if !prior.score.is_finite() || !(0.0..=1.0).contains(&prior.score) {
+                return Err(DomainError::unsupported(format!(
+                    "the prior for '{}' is {}; scores must be in [0, 1]",
+                    prior.label, prior.score
+                )));
+            }
+            if !labels.insert(prior.label.as_str()) {
+                return Err(DomainError::unsupported(format!(
+                    "the prior lists '{}' twice",
+                    prior.label
+                )));
+            }
         }
         #[cfg(target_arch = "wasm32")]
         if self.timeout_seconds.is_some() {
@@ -280,6 +325,13 @@ pub struct PlanReport {
     pub quality_measure: String,
     /// Name of the candidate generator used.
     pub candidate_generator: String,
+    /// Candidates that had a score in the prior, when one was given.
+    #[serde(default)]
+    pub prior_matched: usize,
+    /// Labels in the prior that matched no candidate: a prior made for other
+    /// options or another part.
+    #[serde(default)]
+    pub prior_unmatched: usize,
 }
 
 struct Context<'a> {
@@ -719,6 +771,40 @@ fn search(
     Ok(())
 }
 
+/// Candidates in the order they are examined, with how many of them the
+/// prior scored and how many of its labels matched none.
+fn rank(
+    context: &Context<'_>,
+    candidates: Vec<GraspCandidate>,
+) -> (Vec<(f64, GraspCandidate)>, usize, usize) {
+    let options = context.options;
+    let prior: BTreeMap<&str, f64> = options
+        .candidate_prior
+        .iter()
+        .map(|p| (p.label.as_str(), p.score))
+        .collect();
+    let mut matched = 0;
+    let mut ranked: Vec<(f64, GraspCandidate)> = candidates
+        .into_iter()
+        .map(|c| {
+            let mut score = preliminary_score(&context.quality_input(&c));
+            if let Some(p) = prior.get(c.label.as_str()) {
+                matched += 1;
+                score += options.prior_weight * p;
+            }
+            // Makeable first whatever the prior says: the estimate is at most
+            // 1 and the weighted prior at most 5.
+            let makeable = context.gate(&c).is_ok();
+            (if makeable { score + 10.0 } else { score }, c)
+        })
+        .collect();
+    // A stable sort keeps the generator's order among equal scores, so the
+    // same request always examines candidates in the same order.
+    ranked.sort_by(|a, b| b.0.total_cmp(&a.0));
+    let unmatched = prior.len().saturating_sub(matched);
+    (ranked, matched, unmatched)
+}
+
 /// What a hand synthesis takes from the planner's options.
 fn hand_synthesis(options: &PlannerOptions, seed: u64) -> HandSynthesis {
     HandSynthesis {
@@ -904,17 +990,7 @@ pub fn plan_pick_with(
             &hand_synthesis(options, synthesis.seed),
         )?,
     };
-    let mut ranked: Vec<(f64, GraspCandidate)> = candidates
-        .into_iter()
-        .map(|c| {
-            let score = preliminary_score(&context.quality_input(&c));
-            let makeable = context.gate(&c).is_ok();
-            (if makeable { score + 1.0 } else { score }, c)
-        })
-        .collect();
-    // A stable sort keeps the generator's order among equal scores, so the
-    // same request always examines candidates in the same order.
-    ranked.sort_by(|a, b| b.0.total_cmp(&a.0));
+    let (ranked, prior_matched, prior_unmatched) = rank(&context, candidates);
 
     let mut report = PlanReport {
         body_id: body.id.clone(),
@@ -926,6 +1002,8 @@ pub fn plan_pick_with(
         timed_out: false,
         quality_measure: measure.id().to_owned(),
         candidate_generator: generator.map_or(HAND_GENERATOR, |g| g.id()).to_owned(),
+        prior_matched,
+        prior_unmatched,
     };
     search(&context, &ranked, seed, &mut report)?;
     // Candidates were examined in order of a cheap estimate; the plans are
@@ -960,6 +1038,7 @@ pub struct ResearchCandidate {
 
 /// Generate without score sorting; optionally evaluate one generator-order index.
 /// No quality or IK is run when `evaluate_index` is `None`.
+#[allow(clippy::too_many_lines)] // Mirrors plan_pick_with's set-up step by step, so the two can be compared.
 pub fn research_candidates(
     project: &Project,
     body_id: &str,
@@ -1081,7 +1160,7 @@ pub fn research_candidates(
                         detail,
                         center: record.candidate.center,
                         approach: record.candidate.approach,
-                    })
+                    });
                 }
             }
         }

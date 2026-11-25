@@ -5,6 +5,9 @@ use crate::ResearchCandidate;
 /// fifth slot requests an opening-incompatible control when available. The
 /// other slots prefer the opening-compatible stratum. Both fall back to the
 /// other stratum when exhausted. Original IDs remain valid for evaluation.
+///
+/// # Panics
+/// Never: a slot is filled only while unchosen records remain.
 pub fn diverse_research_candidates(
     records: &[ResearchCandidate],
     limit: usize,

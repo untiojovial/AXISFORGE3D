@@ -60,8 +60,8 @@ pub mod wrench;
 pub use candidate::{synthesize, GraspCandidate, SynthesisOptions};
 pub use hand::{synthesize_hand, Hand, HandGrasp, HandSynthesis, HAND_GENERATOR};
 pub use planner::{
-    plan_pick, plan_pick_with, research_candidates, GraspPlan, PlanReport, PlannerOptions,
-    Rejection, RejectionReason, ResearchCandidate, AUTO_GENERATOR,
+    plan_pick, plan_pick_with, research_candidates, CandidatePrior, GraspPlan, PlanReport,
+    PlannerOptions, Rejection, RejectionReason, ResearchCandidate, AUTO_GENERATOR,
 };
 pub use quality::{
     evaluate, AntipodalMeasure, GraspQuality, Measurement, QualityInput, QualityMeasure,
