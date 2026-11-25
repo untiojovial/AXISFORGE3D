@@ -1,0 +1,4903 @@
+{
+ "40": {
+  "parts": 200,
+  "viable": 58,
+  "without": 142,
+  "reasons_all": {
+   "too_wide": 201206,
+   "pregrasp_unreachable": 25775,
+   "pregrasp_collision": 5859,
+   "approach_collision": 2520,
+   "feasible": 2138,
+   "no_force_closure": 1804,
+   "grasp_unreachable": 1158,
+   "lift_unreachable": 448
+  },
+  "reasons_without": {
+   "too_wide": 147904,
+   "pregrasp_unreachable": 12292,
+   "pregrasp_collision": 4376,
+   "approach_collision": 1919,
+   "grasp_unreachable": 689,
+   "no_force_closure": 90,
+   "lift_unreachable": 14
+  },
+  "main_reason_without": {
+   "too_wide": 142
+  },
+  "candidates_without_mean": 1178.056338028169,
+  "solve_s_without_mean": 0.778105633802817,
+  "solve_s_mean": 2.003125,
+  "per_candidate_ms_median": 0.787,
+  "detail": [
+   {
+    "part": "Android_Lego",
+    "candidates": 1378,
+    "feasible": 59,
+    "solve_s": 9.952,
+    "per_candidate_ms": 7.222,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Star_Wars_Rogue_Squadron_Nintendo_64",
+    "candidates": 1424,
+    "feasible": 98,
+    "solve_s": 5.963,
+    "per_candidate_ms": 4.188,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S14MOCHA",
+    "candidates": 1254,
+    "feasible": 0,
+    "solve_s": 0.73,
+    "per_candidate_ms": 0.582,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Breyer_Horse_Of_The_Year_2015",
+    "candidates": 956,
+    "feasible": 8,
+    "solve_s": 1.729,
+    "per_candidate_ms": 1.809,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_High_Potency_Evening_Repair",
+    "candidates": 1226,
+    "feasible": 0,
+    "solve_s": 0.144,
+    "per_candidate_ms": 0.117,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Neuropeptide_Facial_Conformer",
+    "candidates": 1260,
+    "feasible": 0,
+    "solve_s": 0.324,
+    "per_candidate_ms": 0.257,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Mini_Honey_Dipper",
+    "candidates": 1506,
+    "feasible": 154,
+    "solve_s": 6.325,
+    "per_candidate_ms": 4.2,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1114,
+    "feasible": 0,
+    "solve_s": 0.204,
+    "per_candidate_ms": 0.183,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "OXO_Cookie_Spatula",
+    "candidates": 946,
+    "feasible": 2,
+    "solve_s": 0.922,
+    "per_candidate_ms": 0.975,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+    "candidates": 1148,
+    "feasible": 0,
+    "solve_s": 0.349,
+    "per_candidate_ms": 0.304,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Simon_Swipe_Game",
+    "candidates": 1092,
+    "feasible": 0,
+    "solve_s": 0.586,
+    "per_candidate_ms": 0.537,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nintendo_Mario_Action_Figure",
+    "candidates": 1142,
+    "feasible": 2,
+    "solve_s": 1.531,
+    "per_candidate_ms": 1.341,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "3M_Vinyl_Tape_Green_1_x_36_yd",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 0.881,
+    "per_candidate_ms": 0.622,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+    "candidates": 1374,
+    "feasible": 77,
+    "solve_s": 4.839,
+    "per_candidate_ms": 3.522,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Firming_Neck_Therapy_Treatment",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.155,
+    "per_candidate_ms": 0.135,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+    "candidates": 1130,
+    "feasible": 0,
+    "solve_s": 0.161,
+    "per_candidate_ms": 0.142,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "SCHOOL_BUS",
+    "candidates": 1632,
+    "feasible": 0,
+    "solve_s": 1.612,
+    "per_candidate_ms": 0.988,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Blue",
+    "candidates": 1174,
+    "feasible": 0,
+    "solve_s": 1.253,
+    "per_candidate_ms": 1.067,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Object",
+    "candidates": 1072,
+    "feasible": 0,
+    "solve_s": 1.8,
+    "per_candidate_ms": 1.679,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Neuropeptide_Firming_Moisturizer",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.595,
+    "per_candidate_ms": 0.516,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total",
+    "candidates": 1356,
+    "feasible": 71,
+    "solve_s": 6.248,
+    "per_candidate_ms": 4.608,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Cole_Hardware_Plant_Saucer_Glazed_9",
+    "candidates": 1164,
+    "feasible": 0,
+    "solve_s": 0.341,
+    "per_candidate_ms": 0.293,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Red",
+    "candidates": 1154,
+    "feasible": 0,
+    "solve_s": 2.05,
+    "per_candidate_ms": 1.776,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Borage_GLA240Gamma_Tocopherol",
+    "candidates": 1150,
+    "feasible": 0,
+    "solve_s": 0.514,
+    "per_candidate_ms": 0.447,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "SPEED_BOAT",
+    "candidates": 1082,
+    "feasible": 2,
+    "solve_s": 0.933,
+    "per_candidate_ms": 0.862,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+    "candidates": 1420,
+    "feasible": 0,
+    "solve_s": 0.769,
+    "per_candidate_ms": 0.542,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion",
+    "candidates": 982,
+    "feasible": 24,
+    "solve_s": 1.151,
+    "per_candidate_ms": 1.172,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj",
+    "candidates": 1328,
+    "feasible": 6,
+    "solve_s": 3.236,
+    "per_candidate_ms": 2.437,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Prostate_Optimizer",
+    "candidates": 1150,
+    "feasible": 0,
+    "solve_s": 1.259,
+    "per_candidate_ms": 1.095,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_Lion_Action_Figure",
+    "candidates": 1160,
+    "feasible": 12,
+    "solve_s": 2.689,
+    "per_candidate_ms": 2.318,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "PEEKABOO_ROLLER",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 1.096,
+    "per_candidate_ms": 0.951,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Bifidus_Balance_FOS",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.469,
+    "per_candidate_ms": 0.407,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1134,
+    "feasible": 0,
+    "solve_s": 0.2,
+    "per_candidate_ms": 0.176,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3D_Dollhouse_Happy_Brother",
+    "candidates": 1280,
+    "feasible": 20,
+    "solve_s": 3.44,
+    "per_candidate_ms": 2.688,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Canon_Ink_Cartridge_Green_6",
+    "candidates": 1352,
+    "feasible": 4,
+    "solve_s": 0.972,
+    "per_candidate_ms": 0.719,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "QAbsorb_CoQ10_53iUqjWjW3O",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.56,
+    "per_candidate_ms": 0.486,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Wooden_ABC_123_Blocks_50_pack",
+    "candidates": 1002,
+    "feasible": 0,
+    "solve_s": 0.857,
+    "per_candidate_ms": 0.855,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+    "candidates": 1366,
+    "feasible": 55,
+    "solve_s": 5.083,
+    "per_candidate_ms": 3.721,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_8_Green",
+    "candidates": 1400,
+    "feasible": 26,
+    "solve_s": 6.909,
+    "per_candidate_ms": 4.935,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "RESCUE_CREW",
+    "candidates": 1148,
+    "feasible": 8,
+    "solve_s": 2.041,
+    "per_candidate_ms": 1.778,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_The_Power_Treatments",
+    "candidates": 1018,
+    "feasible": 0,
+    "solve_s": 0.081,
+    "per_candidate_ms": 0.08,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Google_Cardboard_Original_package",
+    "candidates": 1282,
+    "feasible": 0,
+    "solve_s": 1.119,
+    "per_candidate_ms": 0.873,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+    "candidates": 1070,
+    "feasible": 0,
+    "solve_s": 0.162,
+    "per_candidate_ms": 0.151,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+    "candidates": 1134,
+    "feasible": 0,
+    "solve_s": 0.297,
+    "per_candidate_ms": 0.262,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+    "candidates": 1132,
+    "feasible": 0,
+    "solve_s": 0.209,
+    "per_candidate_ms": 0.185,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_S_Bayala_Unicorn_70432",
+    "candidates": 1080,
+    "feasible": 16,
+    "solve_s": 1.748,
+    "per_candidate_ms": 1.619,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+    "candidates": 1082,
+    "feasible": 0,
+    "solve_s": 0.151,
+    "per_candidate_ms": 0.14,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+    "candidates": 1298,
+    "feasible": 38,
+    "solve_s": 6.409,
+    "per_candidate_ms": 4.938,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Pokmon_X_Nintendo_3DS_Game",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 0.932,
+    "per_candidate_ms": 0.658,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1104,
+    "feasible": 0,
+    "solve_s": 0.346,
+    "per_candidate_ms": 0.313,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Phillips_Colon_Health_Probiotic_Capsule",
+    "candidates": 1138,
+    "feasible": 0,
+    "solve_s": 0.157,
+    "per_candidate_ms": 0.138,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+    "candidates": 1060,
+    "feasible": 0,
+    "solve_s": 0.237,
+    "per_candidate_ms": 0.224,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_273XL_Ink_Cartridge_Magenta",
+    "candidates": 1358,
+    "feasible": 24,
+    "solve_s": 2.804,
+    "per_candidate_ms": 2.065,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Threshold_Bamboo_Ceramic_Soap_Dish",
+    "candidates": 1126,
+    "feasible": 0,
+    "solve_s": 0.711,
+    "per_candidate_ms": 0.631,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_Hereford_Bull",
+    "candidates": 1124,
+    "feasible": 0,
+    "solve_s": 0.969,
+    "per_candidate_ms": 0.862,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_251_M",
+    "candidates": 1434,
+    "feasible": 60,
+    "solve_s": 6.378,
+    "per_candidate_ms": 4.448,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Twinlab_Premium_Creatine_Fuel_Powder",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.817,
+    "per_candidate_ms": 0.709,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Canon_Pixma_Chromalife_100_Magenta_8",
+    "candidates": 1414,
+    "feasible": 12,
+    "solve_s": 5.518,
+    "per_candidate_ms": 3.902,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Stripe",
+    "candidates": 1128,
+    "feasible": 0,
+    "solve_s": 1.248,
+    "per_candidate_ms": 1.106,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+    "candidates": 1082,
+    "feasible": 0,
+    "solve_s": 0.339,
+    "per_candidate_ms": 0.313,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+    "candidates": 1076,
+    "feasible": 0,
+    "solve_s": 0.108,
+    "per_candidate_ms": 0.1,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "HP_Card_Invitation_Kit",
+    "candidates": 1246,
+    "feasible": 0,
+    "solve_s": 0.135,
+    "per_candidate_ms": 0.108,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Pet_Dophilus_powder",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.472,
+    "per_candidate_ms": 0.41,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+    "candidates": 1104,
+    "feasible": 2,
+    "solve_s": 2.017,
+    "per_candidate_ms": 1.827,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Sony_Downloadable_Loops",
+    "candidates": 1308,
+    "feasible": 0,
+    "solve_s": 0.48,
+    "per_candidate_ms": 0.367,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Fujifilm_instax_SHARE_SP1_10_photos",
+    "candidates": 1206,
+    "feasible": 0,
+    "solve_s": 0.951,
+    "per_candidate_ms": 0.789,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "YumYum_D3_Liquid",
+    "candidates": 1702,
+    "feasible": 0,
+    "solve_s": 0.541,
+    "per_candidate_ms": 0.318,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+    "candidates": 1122,
+    "feasible": 0,
+    "solve_s": 0.881,
+    "per_candidate_ms": 0.785,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S14NATURAL",
+    "candidates": 1314,
+    "feasible": 0,
+    "solve_s": 1.296,
+    "per_candidate_ms": 0.986,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+    "candidates": 1132,
+    "feasible": 0,
+    "solve_s": 0.506,
+    "per_candidate_ms": 0.447,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 0,
+    "solve_s": 0.238,
+    "per_candidate_ms": 0.211,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+    "candidates": 1030,
+    "feasible": 0,
+    "solve_s": 0.966,
+    "per_candidate_ms": 0.938,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Phillips_Caplets_Size_24",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.174,
+    "per_candidate_ms": 0.151,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Tag_Dishtowel_18_x_26",
+    "candidates": 1114,
+    "feasible": 0,
+    "solve_s": 1.122,
+    "per_candidate_ms": 1.007,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plate_S20Avocado",
+    "candidates": 1222,
+    "feasible": 0,
+    "solve_s": 0.829,
+    "per_candidate_ms": 0.678,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Android_Figure_Panda",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.84,
+    "per_candidate_ms": 0.729,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shurtape_Tape_Purple_CP28",
+    "candidates": 1144,
+    "feasible": 0,
+    "solve_s": 0.248,
+    "per_candidate_ms": 0.217,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_Allosaurus",
+    "candidates": 888,
+    "feasible": 4,
+    "solve_s": 2.454,
+    "per_candidate_ms": 2.764,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+    "candidates": 1146,
+    "feasible": 0,
+    "solve_s": 0.338,
+    "per_candidate_ms": 0.295,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Wilton_Easy_Layers_Cake_Pan_Set",
+    "candidates": 1042,
+    "feasible": 0,
+    "solve_s": 0.377,
+    "per_candidate_ms": 0.362,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Twinlab_Nitric_Fuel",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.594,
+    "per_candidate_ms": 0.516,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+    "candidates": 1410,
+    "feasible": 0,
+    "solve_s": 0.818,
+    "per_candidate_ms": 0.58,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1128,
+    "feasible": 0,
+    "solve_s": 0.197,
+    "per_candidate_ms": 0.175,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Sony_Acid_Music_Studio",
+    "candidates": 1328,
+    "feasible": 0,
+    "solve_s": 0.123,
+    "per_candidate_ms": 0.093,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+    "candidates": 1092,
+    "feasible": 0,
+    "solve_s": 0.257,
+    "per_candidate_ms": 0.235,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Saucer_Electric",
+    "candidates": 1280,
+    "feasible": 0,
+    "solve_s": 0.747,
+    "per_candidate_ms": 0.584,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Spectrum_Wall_Mount",
+    "candidates": 994,
+    "feasible": 20,
+    "solve_s": 2.47,
+    "per_candidate_ms": 2.485,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1114,
+    "feasible": 0,
+    "solve_s": 0.275,
+    "per_candidate_ms": 0.247,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "CARSII",
+    "candidates": 1094,
+    "feasible": 0,
+    "solve_s": 1.241,
+    "per_candidate_ms": 1.134,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+    "candidates": 1080,
+    "feasible": 0,
+    "solve_s": 1.919,
+    "per_candidate_ms": 1.777,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+    "candidates": 1124,
+    "feasible": 0,
+    "solve_s": 0.353,
+    "per_candidate_ms": 0.314,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_The_Crease_Cure_Duo",
+    "candidates": 1064,
+    "feasible": 0,
+    "solve_s": 0.201,
+    "per_candidate_ms": 0.189,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Photo_Plasma",
+    "candidates": 1138,
+    "feasible": 0,
+    "solve_s": 0.584,
+    "per_candidate_ms": 0.513,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+    "candidates": 1382,
+    "feasible": 76,
+    "solve_s": 3.345,
+    "per_candidate_ms": 2.42,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "GoPro_HERO3_Composite_Cable",
+    "candidates": 1420,
+    "feasible": 0,
+    "solve_s": 3.724,
+    "per_candidate_ms": 2.623,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+    "candidates": 1140,
+    "feasible": 4,
+    "solve_s": 2.014,
+    "per_candidate_ms": 1.767,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plant_Container_S24NATURAL",
+    "candidates": 1234,
+    "feasible": 0,
+    "solve_s": 0.912,
+    "per_candidate_ms": 0.739,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o",
+    "candidates": 1364,
+    "feasible": 18,
+    "solve_s": 3.889,
+    "per_candidate_ms": 2.851,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Lutein",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.418,
+    "per_candidate_ms": 0.363,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+    "candidates": 1428,
+    "feasible": 66,
+    "solve_s": 12.777,
+    "per_candidate_ms": 8.947,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+    "candidates": 1450,
+    "feasible": 68,
+    "solve_s": 7.856,
+    "per_candidate_ms": 5.418,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Vitamin_C_Ester_Serum",
+    "candidates": 1142,
+    "feasible": 0,
+    "solve_s": 0.101,
+    "per_candidate_ms": 0.088,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "VEGETABLE_GARDEN",
+    "candidates": 950,
+    "feasible": 0,
+    "solve_s": 0.631,
+    "per_candidate_ms": 0.664,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crayola_Crayons_Washable_24_crayons",
+    "candidates": 1422,
+    "feasible": 81,
+    "solve_s": 5.839,
+    "per_candidate_ms": 4.106,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+    "candidates": 1082,
+    "feasible": 0,
+    "solve_s": 0.106,
+    "per_candidate_ms": 0.098,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Kotex_U_Barely_There_Liners_Thin_60_count",
+    "candidates": 1120,
+    "feasible": 0,
+    "solve_s": 0.565,
+    "per_candidate_ms": 0.504,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "My_First_Rolling_Lion",
+    "candidates": 1046,
+    "feasible": 33,
+    "solve_s": 3.947,
+    "per_candidate_ms": 3.773,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Krill_Oil",
+    "candidates": 1146,
+    "feasible": 0,
+    "solve_s": 0.415,
+    "per_candidate_ms": 0.362,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3M_Antislip_Surfacing_Light_Duty_White",
+    "candidates": 1456,
+    "feasible": 0,
+    "solve_s": 0.846,
+    "per_candidate_ms": 0.581,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1108,
+    "feasible": 0,
+    "solve_s": 0.213,
+    "per_candidate_ms": 0.192,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "FIRE_ENGINE",
+    "candidates": 1218,
+    "feasible": 28,
+    "solve_s": 4.353,
+    "per_candidate_ms": 3.574,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nikon_1_AW1_w11275mm_Lens_Silver",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.654,
+    "per_candidate_ms": 0.568,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g",
+    "candidates": 1370,
+    "feasible": 78,
+    "solve_s": 7.786,
+    "per_candidate_ms": 5.683,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Lactoferrin",
+    "candidates": 1146,
+    "feasible": 0,
+    "solve_s": 0.6,
+    "per_candidate_ms": 0.524,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+    "candidates": 1012,
+    "feasible": 8,
+    "solve_s": 3.41,
+    "per_candidate_ms": 3.37,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+    "candidates": 1432,
+    "feasible": 174,
+    "solve_s": 8.98,
+    "per_candidate_ms": 6.271,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+    "candidates": 1392,
+    "feasible": 2,
+    "solve_s": 1.389,
+    "per_candidate_ms": 0.998,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+    "candidates": 1270,
+    "feasible": 0,
+    "solve_s": 0.279,
+    "per_candidate_ms": 0.22,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "SAMe_200_KX7ZmOw47co",
+    "candidates": 1116,
+    "feasible": 0,
+    "solve_s": 0.349,
+    "per_candidate_ms": 0.313,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+    "candidates": 1124,
+    "feasible": 0,
+    "solve_s": 0.247,
+    "per_candidate_ms": 0.22,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+    "candidates": 1120,
+    "feasible": 0,
+    "solve_s": 0.704,
+    "per_candidate_ms": 0.629,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+    "candidates": 1134,
+    "feasible": 0,
+    "solve_s": 0.305,
+    "per_candidate_ms": 0.269,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Container_S14Turquoise",
+    "candidates": 1272,
+    "feasible": 0,
+    "solve_s": 0.85,
+    "per_candidate_ms": 0.668,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Face_Finishing_Moisturizer",
+    "candidates": 1148,
+    "feasible": 0,
+    "solve_s": 0.233,
+    "per_candidate_ms": 0.203,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Threshold_Ramekin_White_Porcelain",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.349,
+    "per_candidate_ms": 0.303,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Dino_4",
+    "candidates": 1096,
+    "feasible": 0,
+    "solve_s": 1.721,
+    "per_candidate_ms": 1.57,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crayola_Crayons_24_count",
+    "candidates": 1444,
+    "feasible": 90,
+    "solve_s": 10.942,
+    "per_candidate_ms": 7.578,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Home_Fashions_Washcloth_Linen",
+    "candidates": 1100,
+    "feasible": 0,
+    "solve_s": 2.561,
+    "per_candidate_ms": 2.328,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+    "candidates": 1214,
+    "feasible": 0,
+    "solve_s": 0.42,
+    "per_candidate_ms": 0.346,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shurtape_30_Day_Removal_UV_Delct_15",
+    "candidates": 1412,
+    "feasible": 0,
+    "solve_s": 0.428,
+    "per_candidate_ms": 0.303,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+    "candidates": 1136,
+    "feasible": 0,
+    "solve_s": 0.363,
+    "per_candidate_ms": 0.32,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "HP_1800_Tablet_8GB_7",
+    "candidates": 1364,
+    "feasible": 0,
+    "solve_s": 1.223,
+    "per_candidate_ms": 0.897,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Plate_S11Turquoise",
+    "candidates": 1246,
+    "feasible": 0,
+    "solve_s": 1.065,
+    "per_candidate_ms": 0.855,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+    "candidates": 1016,
+    "feasible": 0,
+    "solve_s": 1.148,
+    "per_candidate_ms": 1.13,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+    "candidates": 1078,
+    "feasible": 0,
+    "solve_s": 1.945,
+    "per_candidate_ms": 1.804,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Dell_Ink_Cartridge_Yellow_31",
+    "candidates": 1410,
+    "feasible": 6,
+    "solve_s": 2.723,
+    "per_candidate_ms": 1.931,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Brother_Ink_Cartridge_Magenta_LC75M",
+    "candidates": 1374,
+    "feasible": 25,
+    "solve_s": 3.082,
+    "per_candidate_ms": 2.243,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S20MOCHA",
+    "candidates": 1240,
+    "feasible": 0,
+    "solve_s": 2.779,
+    "per_candidate_ms": 2.241,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1132,
+    "feasible": 0,
+    "solve_s": 0.358,
+    "per_candidate_ms": 0.316,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1102,
+    "feasible": 0,
+    "solve_s": 0.314,
+    "per_candidate_ms": 0.285,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+    "candidates": 1414,
+    "feasible": 0,
+    "solve_s": 0.443,
+    "per_candidate_ms": 0.313,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Hey_You_Pikachu_Nintendo_64",
+    "candidates": 1398,
+    "feasible": 65,
+    "solve_s": 9.997,
+    "per_candidate_ms": 7.151,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 0,
+    "solve_s": 0.469,
+    "per_candidate_ms": 0.415,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+    "candidates": 1130,
+    "feasible": 0,
+    "solve_s": 0.493,
+    "per_candidate_ms": 0.436,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Dell_Ink_Cartridge",
+    "candidates": 1068,
+    "feasible": 10,
+    "solve_s": 3.731,
+    "per_candidate_ms": 3.493,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "REEF_ZENFUN",
+    "candidates": 970,
+    "feasible": 4,
+    "solve_s": 1.841,
+    "per_candidate_ms": 1.898,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+    "candidates": 1172,
+    "feasible": 0,
+    "solve_s": 1.729,
+    "per_candidate_ms": 1.475,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_8",
+    "candidates": 1386,
+    "feasible": 24,
+    "solve_s": 18.81,
+    "per_candidate_ms": 13.571,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz",
+    "candidates": 1146,
+    "feasible": 0,
+    "solve_s": 0.364,
+    "per_candidate_ms": 0.318,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "CoQ10_BjTLbuRVt1t",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.977,
+    "per_candidate_ms": 0.848,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_BlueWhite",
+    "candidates": 1098,
+    "feasible": 0,
+    "solve_s": 1.988,
+    "per_candidate_ms": 1.811,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Now_Designs_Snack_Bags_Bicycle_2_count",
+    "candidates": 1246,
+    "feasible": 0,
+    "solve_s": 1.755,
+    "per_candidate_ms": 1.409,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Multicolors",
+    "candidates": 1064,
+    "feasible": 0,
+    "solve_s": 1.877,
+    "per_candidate_ms": 1.764,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3D_Dollhouse_Lamp",
+    "candidates": 950,
+    "feasible": 2,
+    "solve_s": 2.37,
+    "per_candidate_ms": 2.495,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+    "candidates": 1080,
+    "feasible": 0,
+    "solve_s": 0.23,
+    "per_candidate_ms": 0.213,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+    "candidates": 1398,
+    "feasible": 22,
+    "solve_s": 9.53,
+    "per_candidate_ms": 6.817,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.339,
+    "per_candidate_ms": 0.294,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Pokmon_Y_Nintendo_3DS_Game",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 1.483,
+    "per_candidate_ms": 1.047,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "WHALE_WHISTLE_6PCS_SET",
+    "candidates": 1332,
+    "feasible": 0,
+    "solve_s": 1.044,
+    "per_candidate_ms": 0.784,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "PhosphOmega",
+    "candidates": 1150,
+    "feasible": 0,
+    "solve_s": 0.602,
+    "per_candidate_ms": 0.523,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Tag_Dishtowel_Green",
+    "candidates": 1012,
+    "feasible": 0,
+    "solve_s": 1.955,
+    "per_candidate_ms": 1.932,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+    "candidates": 2166,
+    "feasible": 2,
+    "solve_s": 5.429,
+    "per_candidate_ms": 2.506,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Home_Fashions_Washcloth_Olive_Green",
+    "candidates": 1106,
+    "feasible": 0,
+    "solve_s": 2.761,
+    "per_candidate_ms": 2.496,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+    "candidates": 1408,
+    "feasible": 56,
+    "solve_s": 15.402,
+    "per_candidate_ms": 10.939,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Womens_Multi_13",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.659,
+    "per_candidate_ms": 0.572,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "JarroDophilusFOS_Value_Size",
+    "candidates": 1142,
+    "feasible": 0,
+    "solve_s": 1.389,
+    "per_candidate_ms": 1.216,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Android_Figure_Chrome",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.957,
+    "per_candidate_ms": 0.831,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S17MOCHA",
+    "candidates": 1282,
+    "feasible": 0,
+    "solve_s": 1.234,
+    "per_candidate_ms": 0.963,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Thomas_Friends_Woodan_Railway_Henry",
+    "candidates": 1160,
+    "feasible": 8,
+    "solve_s": 3.42,
+    "per_candidate_ms": 2.948,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+    "candidates": 1084,
+    "feasible": 0,
+    "solve_s": 0.895,
+    "per_candidate_ms": 0.826,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Beta_Glucan",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.651,
+    "per_candidate_ms": 0.565,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+    "candidates": 988,
+    "feasible": 2,
+    "solve_s": 1.39,
+    "per_candidate_ms": 1.407,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Inositol",
+    "candidates": 1150,
+    "feasible": 0,
+    "solve_s": 0.802,
+    "per_candidate_ms": 0.697,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+    "candidates": 1356,
+    "feasible": 0,
+    "solve_s": 1.226,
+    "per_candidate_ms": 0.904,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Magnifying_Glassassrt",
+    "candidates": 1222,
+    "feasible": 4,
+    "solve_s": 1.834,
+    "per_candidate_ms": 1.501,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+    "candidates": 1414,
+    "feasible": 170,
+    "solve_s": 13.948,
+    "per_candidate_ms": 9.864,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.351,
+    "per_candidate_ms": 0.305,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_No_Bronzer_Bronzer",
+    "candidates": 1238,
+    "feasible": 0,
+    "solve_s": 0.491,
+    "per_candidate_ms": 0.397,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Sushi_Mat",
+    "candidates": 1100,
+    "feasible": 0,
+    "solve_s": 1.946,
+    "per_candidate_ms": 1.769,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Beetle_Adventure_Racing_Nintendo_64",
+    "candidates": 1384,
+    "feasible": 57,
+    "solve_s": 8.802,
+    "per_candidate_ms": 6.36,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Super_Mario_3D_World_Wii_U_Game",
+    "candidates": 1370,
+    "feasible": 0,
+    "solve_s": 1.189,
+    "per_candidate_ms": 0.868,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+    "candidates": 1336,
+    "feasible": 0,
+    "solve_s": 0.739,
+    "per_candidate_ms": 0.553,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+    "candidates": 1150,
+    "feasible": 0,
+    "solve_s": 0.242,
+    "per_candidate_ms": 0.21,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3D_Dollhouse_TablePurple",
+    "candidates": 1114,
+    "feasible": 0,
+    "solve_s": 0.977,
+    "per_candidate_ms": 0.877,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Kotobuki_Saucer_Dragon_Fly",
+    "candidates": 1256,
+    "feasible": 0,
+    "solve_s": 1.946,
+    "per_candidate_ms": 1.549,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Sleep_Optimizer",
+    "candidates": 1392,
+    "feasible": 31,
+    "solve_s": 3.155,
+    "per_candidate_ms": 2.267,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Blackcurrant_Lutein",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.626,
+    "per_candidate_ms": 0.543,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "MK7",
+    "candidates": 1148,
+    "feasible": 0,
+    "solve_s": 0.727,
+    "per_candidate_ms": 0.633,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+    "candidates": 1060,
+    "feasible": 0,
+    "solve_s": 0.42,
+    "per_candidate_ms": 0.396,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 0,
+    "solve_s": 0.422,
+    "per_candidate_ms": 0.373,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_African_Black_Rhino",
+    "candidates": 1150,
+    "feasible": 6,
+    "solve_s": 2.204,
+    "per_candidate_ms": 1.917,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "ROAD_CONSTRUCTION_SET",
+    "candidates": 1022,
+    "feasible": 2,
+    "solve_s": 2.749,
+    "per_candidate_ms": 2.69,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_No_Mascara_Mascara",
+    "candidates": 1106,
+    "feasible": 0,
+    "solve_s": 0.355,
+    "per_candidate_ms": 0.321,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+    "candidates": 1384,
+    "feasible": 0,
+    "solve_s": 1.526,
+    "per_candidate_ms": 1.103,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crayola_Bonus_64_Crayons",
+    "candidates": 1258,
+    "feasible": 0,
+    "solve_s": 0.533,
+    "per_candidate_ms": 0.424,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "FIRE_TRUCK",
+    "candidates": 1146,
+    "feasible": 58,
+    "solve_s": 5.117,
+    "per_candidate_ms": 4.465,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+    "candidates": 1368,
+    "feasible": 54,
+    "solve_s": 4.312,
+    "per_candidate_ms": 3.152,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Blue_Plasma_Orbital",
+    "candidates": 1146,
+    "feasible": 0,
+    "solve_s": 1.187,
+    "per_candidate_ms": 1.036,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+    "candidates": 1310,
+    "feasible": 0,
+    "solve_s": 0.858,
+    "per_candidate_ms": 0.655,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "FemDophilus",
+    "candidates": 1130,
+    "feasible": 0,
+    "solve_s": 0.313,
+    "per_candidate_ms": 0.277,
+    "main_reason": "too_wide"
+   }
+  ]
+ },
+ "80": {
+  "parts": 200,
+  "viable": 151,
+  "without": 49,
+  "reasons_all": {
+   "too_wide": 111824,
+   "pregrasp_unreachable": 85058,
+   "pregrasp_collision": 14456,
+   "feasible": 12585,
+   "approach_collision": 7082,
+   "no_force_closure": 5647,
+   "grasp_unreachable": 2795,
+   "lift_unreachable": 1461
+  },
+  "reasons_without": {
+   "too_wide": 29144,
+   "pregrasp_unreachable": 19739,
+   "pregrasp_collision": 6713,
+   "approach_collision": 2977,
+   "grasp_unreachable": 1065,
+   "no_force_closure": 54,
+   "lift_unreachable": 20
+  },
+  "main_reason_without": {
+   "too_wide": 41,
+   "pregrasp_unreachable": 8
+  },
+  "candidates_without_mean": 1218.6122448979593,
+  "solve_s_without_mean": 1.0514081632653063,
+  "solve_s_mean": 4.32812,
+  "per_candidate_ms_median": 3.259,
+  "detail": [
+   {
+    "part": "Android_Lego",
+    "candidates": 1378,
+    "feasible": 61,
+    "solve_s": 11.662,
+    "per_candidate_ms": 8.463,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Star_Wars_Rogue_Squadron_Nintendo_64",
+    "candidates": 1424,
+    "feasible": 98,
+    "solve_s": 7.5,
+    "per_candidate_ms": 5.267,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S14MOCHA",
+    "candidates": 1254,
+    "feasible": 0,
+    "solve_s": 0.855,
+    "per_candidate_ms": 0.682,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Breyer_Horse_Of_The_Year_2015",
+    "candidates": 956,
+    "feasible": 22,
+    "solve_s": 4.651,
+    "per_candidate_ms": 4.865,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_High_Potency_Evening_Repair",
+    "candidates": 1226,
+    "feasible": 230,
+    "solve_s": 10.71,
+    "per_candidate_ms": 8.736,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Neuropeptide_Facial_Conformer",
+    "candidates": 1260,
+    "feasible": 240,
+    "solve_s": 12.467,
+    "per_candidate_ms": 9.894,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Mini_Honey_Dipper",
+    "candidates": 1506,
+    "feasible": 154,
+    "solve_s": 7.819,
+    "per_candidate_ms": 5.192,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1114,
+    "feasible": 74,
+    "solve_s": 4.422,
+    "per_candidate_ms": 3.969,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "OXO_Cookie_Spatula",
+    "candidates": 946,
+    "feasible": 6,
+    "solve_s": 1.213,
+    "per_candidate_ms": 1.282,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+    "candidates": 1148,
+    "feasible": 173,
+    "solve_s": 6.505,
+    "per_candidate_ms": 5.666,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Simon_Swipe_Game",
+    "candidates": 1092,
+    "feasible": 0,
+    "solve_s": 1.661,
+    "per_candidate_ms": 1.521,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nintendo_Mario_Action_Figure",
+    "candidates": 1142,
+    "feasible": 132,
+    "solve_s": 11.327,
+    "per_candidate_ms": 9.919,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3M_Vinyl_Tape_Green_1_x_36_yd",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 1.167,
+    "per_candidate_ms": 0.824,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+    "candidates": 1374,
+    "feasible": 77,
+    "solve_s": 5.151,
+    "per_candidate_ms": 3.749,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Firming_Neck_Therapy_Treatment",
+    "candidates": 1152,
+    "feasible": 229,
+    "solve_s": 7.7,
+    "per_candidate_ms": 6.684,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+    "candidates": 1130,
+    "feasible": 59,
+    "solve_s": 3.594,
+    "per_candidate_ms": 3.181,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "SCHOOL_BUS",
+    "candidates": 1632,
+    "feasible": 64,
+    "solve_s": 6.168,
+    "per_candidate_ms": 3.779,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Blue",
+    "candidates": 1174,
+    "feasible": 0,
+    "solve_s": 1.323,
+    "per_candidate_ms": 1.127,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Object",
+    "candidates": 1072,
+    "feasible": 59,
+    "solve_s": 6.589,
+    "per_candidate_ms": 6.146,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Neuropeptide_Firming_Moisturizer",
+    "candidates": 1152,
+    "feasible": 178,
+    "solve_s": 12.2,
+    "per_candidate_ms": 10.59,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total",
+    "candidates": 1356,
+    "feasible": 77,
+    "solve_s": 6.695,
+    "per_candidate_ms": 4.937,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Cole_Hardware_Plant_Saucer_Glazed_9",
+    "candidates": 1164,
+    "feasible": 0,
+    "solve_s": 0.706,
+    "per_candidate_ms": 0.607,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Red",
+    "candidates": 1154,
+    "feasible": 0,
+    "solve_s": 1.468,
+    "per_candidate_ms": 1.272,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Borage_GLA240Gamma_Tocopherol",
+    "candidates": 1150,
+    "feasible": 165,
+    "solve_s": 7.674,
+    "per_candidate_ms": 6.673,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "SPEED_BOAT",
+    "candidates": 1082,
+    "feasible": 2,
+    "solve_s": 1.504,
+    "per_candidate_ms": 1.39,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+    "candidates": 1420,
+    "feasible": 0,
+    "solve_s": 0.739,
+    "per_candidate_ms": 0.52,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion",
+    "candidates": 982,
+    "feasible": 76,
+    "solve_s": 2.699,
+    "per_candidate_ms": 2.748,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj",
+    "candidates": 1328,
+    "feasible": 56,
+    "solve_s": 9.604,
+    "per_candidate_ms": 7.232,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Prostate_Optimizer",
+    "candidates": 1150,
+    "feasible": 150,
+    "solve_s": 8.052,
+    "per_candidate_ms": 7.002,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Schleich_Lion_Action_Figure",
+    "candidates": 1160,
+    "feasible": 66,
+    "solve_s": 7.666,
+    "per_candidate_ms": 6.609,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "PEEKABOO_ROLLER",
+    "candidates": 1152,
+    "feasible": 140,
+    "solve_s": 8.617,
+    "per_candidate_ms": 7.48,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Bifidus_Balance_FOS",
+    "candidates": 1152,
+    "feasible": 188,
+    "solve_s": 6.876,
+    "per_candidate_ms": 5.969,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1134,
+    "feasible": 62,
+    "solve_s": 4.273,
+    "per_candidate_ms": 3.768,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "3D_Dollhouse_Happy_Brother",
+    "candidates": 1280,
+    "feasible": 94,
+    "solve_s": 10.586,
+    "per_candidate_ms": 8.27,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Canon_Ink_Cartridge_Green_6",
+    "candidates": 1352,
+    "feasible": 34,
+    "solve_s": 3.593,
+    "per_candidate_ms": 2.658,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "QAbsorb_CoQ10_53iUqjWjW3O",
+    "candidates": 1152,
+    "feasible": 170,
+    "solve_s": 6.843,
+    "per_candidate_ms": 5.94,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Wooden_ABC_123_Blocks_50_pack",
+    "candidates": 1002,
+    "feasible": 51,
+    "solve_s": 3.208,
+    "per_candidate_ms": 3.202,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+    "candidates": 1366,
+    "feasible": 55,
+    "solve_s": 4.065,
+    "per_candidate_ms": 2.976,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_8_Green",
+    "candidates": 1400,
+    "feasible": 26,
+    "solve_s": 6.21,
+    "per_candidate_ms": 4.436,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "RESCUE_CREW",
+    "candidates": 1148,
+    "feasible": 22,
+    "solve_s": 3.203,
+    "per_candidate_ms": 2.79,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_The_Power_Treatments",
+    "candidates": 1018,
+    "feasible": 34,
+    "solve_s": 2.238,
+    "per_candidate_ms": 2.198,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Google_Cardboard_Original_package",
+    "candidates": 1282,
+    "feasible": 0,
+    "solve_s": 0.809,
+    "per_candidate_ms": 0.631,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+    "candidates": 1070,
+    "feasible": 29,
+    "solve_s": 1.894,
+    "per_candidate_ms": 1.77,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+    "candidates": 1134,
+    "feasible": 51,
+    "solve_s": 5.181,
+    "per_candidate_ms": 4.569,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+    "candidates": 1132,
+    "feasible": 47,
+    "solve_s": 3.715,
+    "per_candidate_ms": 3.282,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Schleich_S_Bayala_Unicorn_70432",
+    "candidates": 1080,
+    "feasible": 44,
+    "solve_s": 6.528,
+    "per_candidate_ms": 6.044,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+    "candidates": 1082,
+    "feasible": 41,
+    "solve_s": 3.091,
+    "per_candidate_ms": 2.857,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+    "candidates": 1298,
+    "feasible": 38,
+    "solve_s": 6.496,
+    "per_candidate_ms": 5.005,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Pokmon_X_Nintendo_3DS_Game",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 0.756,
+    "per_candidate_ms": 0.534,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1104,
+    "feasible": 33,
+    "solve_s": 1.642,
+    "per_candidate_ms": 1.487,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Phillips_Colon_Health_Probiotic_Capsule",
+    "candidates": 1138,
+    "feasible": 77,
+    "solve_s": 5.952,
+    "per_candidate_ms": 5.23,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+    "candidates": 1060,
+    "feasible": 40,
+    "solve_s": 2.312,
+    "per_candidate_ms": 2.181,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Epson_273XL_Ink_Cartridge_Magenta",
+    "candidates": 1358,
+    "feasible": 24,
+    "solve_s": 2.042,
+    "per_candidate_ms": 1.504,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Threshold_Bamboo_Ceramic_Soap_Dish",
+    "candidates": 1126,
+    "feasible": 2,
+    "solve_s": 1.019,
+    "per_candidate_ms": 0.905,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Schleich_Hereford_Bull",
+    "candidates": 1124,
+    "feasible": 28,
+    "solve_s": 4.748,
+    "per_candidate_ms": 4.224,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_251_M",
+    "candidates": 1434,
+    "feasible": 60,
+    "solve_s": 4.992,
+    "per_candidate_ms": 3.481,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Twinlab_Premium_Creatine_Fuel_Powder",
+    "candidates": 1152,
+    "feasible": 164,
+    "solve_s": 8.918,
+    "per_candidate_ms": 7.741,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Canon_Pixma_Chromalife_100_Magenta_8",
+    "candidates": 1414,
+    "feasible": 14,
+    "solve_s": 4.957,
+    "per_candidate_ms": 3.506,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Stripe",
+    "candidates": 1128,
+    "feasible": 0,
+    "solve_s": 1.087,
+    "per_candidate_ms": 0.964,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+    "candidates": 1082,
+    "feasible": 30,
+    "solve_s": 2.073,
+    "per_candidate_ms": 1.916,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+    "candidates": 1076,
+    "feasible": 36,
+    "solve_s": 1.89,
+    "per_candidate_ms": 1.757,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "HP_Card_Invitation_Kit",
+    "candidates": 1246,
+    "feasible": 52,
+    "solve_s": 2.899,
+    "per_candidate_ms": 2.327,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Pet_Dophilus_powder",
+    "candidates": 1152,
+    "feasible": 202,
+    "solve_s": 7.418,
+    "per_candidate_ms": 6.439,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+    "candidates": 1104,
+    "feasible": 30,
+    "solve_s": 6.389,
+    "per_candidate_ms": 5.787,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Sony_Downloadable_Loops",
+    "candidates": 1308,
+    "feasible": 49,
+    "solve_s": 2.881,
+    "per_candidate_ms": 2.203,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Fujifilm_instax_SHARE_SP1_10_photos",
+    "candidates": 1206,
+    "feasible": 61,
+    "solve_s": 4.865,
+    "per_candidate_ms": 4.034,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "YumYum_D3_Liquid",
+    "candidates": 1702,
+    "feasible": 302,
+    "solve_s": 16.07,
+    "per_candidate_ms": 9.442,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+    "candidates": 1122,
+    "feasible": 0,
+    "solve_s": 1.613,
+    "per_candidate_ms": 1.438,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S14NATURAL",
+    "candidates": 1314,
+    "feasible": 0,
+    "solve_s": 0.937,
+    "per_candidate_ms": 0.713,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+    "candidates": 1132,
+    "feasible": 0,
+    "solve_s": 1.015,
+    "per_candidate_ms": 0.897,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 71,
+    "solve_s": 3.817,
+    "per_candidate_ms": 3.378,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+    "candidates": 1030,
+    "feasible": 56,
+    "solve_s": 3.98,
+    "per_candidate_ms": 3.864,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Phillips_Caplets_Size_24",
+    "candidates": 1152,
+    "feasible": 93,
+    "solve_s": 6.179,
+    "per_candidate_ms": 5.364,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Tag_Dishtowel_18_x_26",
+    "candidates": 1114,
+    "feasible": 0,
+    "solve_s": 1.08,
+    "per_candidate_ms": 0.969,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plate_S20Avocado",
+    "candidates": 1222,
+    "feasible": 0,
+    "solve_s": 0.844,
+    "per_candidate_ms": 0.691,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Android_Figure_Panda",
+    "candidates": 1152,
+    "feasible": 164,
+    "solve_s": 7.765,
+    "per_candidate_ms": 6.74,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shurtape_Tape_Purple_CP28",
+    "candidates": 1144,
+    "feasible": 0,
+    "solve_s": 0.404,
+    "per_candidate_ms": 0.353,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_Allosaurus",
+    "candidates": 888,
+    "feasible": 6,
+    "solve_s": 3.489,
+    "per_candidate_ms": 3.929,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+    "candidates": 1146,
+    "feasible": 153,
+    "solve_s": 5.601,
+    "per_candidate_ms": 4.887,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Wilton_Easy_Layers_Cake_Pan_Set",
+    "candidates": 1042,
+    "feasible": 39,
+    "solve_s": 2.678,
+    "per_candidate_ms": 2.57,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Twinlab_Nitric_Fuel",
+    "candidates": 1152,
+    "feasible": 169,
+    "solve_s": 8.211,
+    "per_candidate_ms": 7.128,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+    "candidates": 1410,
+    "feasible": 0,
+    "solve_s": 0.655,
+    "per_candidate_ms": 0.465,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1128,
+    "feasible": 73,
+    "solve_s": 5.022,
+    "per_candidate_ms": 4.452,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Sony_Acid_Music_Studio",
+    "candidates": 1328,
+    "feasible": 58,
+    "solve_s": 2.186,
+    "per_candidate_ms": 1.646,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+    "candidates": 1092,
+    "feasible": 27,
+    "solve_s": 1.529,
+    "per_candidate_ms": 1.4,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Cole_Hardware_Saucer_Electric",
+    "candidates": 1280,
+    "feasible": 0,
+    "solve_s": 0.849,
+    "per_candidate_ms": 0.663,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Spectrum_Wall_Mount",
+    "candidates": 994,
+    "feasible": 20,
+    "solve_s": 2.316,
+    "per_candidate_ms": 2.33,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1114,
+    "feasible": 49,
+    "solve_s": 4.281,
+    "per_candidate_ms": 3.843,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "CARSII",
+    "candidates": 1094,
+    "feasible": 10,
+    "solve_s": 2.008,
+    "per_candidate_ms": 1.835,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+    "candidates": 1080,
+    "feasible": 0,
+    "solve_s": 1.983,
+    "per_candidate_ms": 1.836,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+    "candidates": 1124,
+    "feasible": 0,
+    "solve_s": 0.705,
+    "per_candidate_ms": 0.627,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_The_Crease_Cure_Duo",
+    "candidates": 1064,
+    "feasible": 80,
+    "solve_s": 4.382,
+    "per_candidate_ms": 4.118,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Photo_Plasma",
+    "candidates": 1138,
+    "feasible": 78,
+    "solve_s": 4.281,
+    "per_candidate_ms": 3.762,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+    "candidates": 1382,
+    "feasible": 76,
+    "solve_s": 2.853,
+    "per_candidate_ms": 2.064,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "GoPro_HERO3_Composite_Cable",
+    "candidates": 1420,
+    "feasible": 4,
+    "solve_s": 3.776,
+    "per_candidate_ms": 2.659,
+    "main_reason": "approach_collision"
+   },
+   {
+    "part": "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+    "candidates": 1140,
+    "feasible": 96,
+    "solve_s": 10.119,
+    "per_candidate_ms": 8.876,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Container_S24NATURAL",
+    "candidates": 1234,
+    "feasible": 0,
+    "solve_s": 0.944,
+    "per_candidate_ms": 0.765,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o",
+    "candidates": 1364,
+    "feasible": 58,
+    "solve_s": 7.131,
+    "per_candidate_ms": 5.228,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Lutein",
+    "candidates": 1152,
+    "feasible": 178,
+    "solve_s": 7.275,
+    "per_candidate_ms": 6.315,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+    "candidates": 1428,
+    "feasible": 66,
+    "solve_s": 10.377,
+    "per_candidate_ms": 7.267,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+    "candidates": 1450,
+    "feasible": 68,
+    "solve_s": 6.414,
+    "per_candidate_ms": 4.423,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Vitamin_C_Ester_Serum",
+    "candidates": 1142,
+    "feasible": 67,
+    "solve_s": 3.492,
+    "per_candidate_ms": 3.058,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "VEGETABLE_GARDEN",
+    "candidates": 950,
+    "feasible": 4,
+    "solve_s": 1.128,
+    "per_candidate_ms": 1.187,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Crayola_Crayons_Washable_24_crayons",
+    "candidates": 1422,
+    "feasible": 87,
+    "solve_s": 5.914,
+    "per_candidate_ms": 4.159,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+    "candidates": 1082,
+    "feasible": 38,
+    "solve_s": 1.935,
+    "per_candidate_ms": 1.788,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Kotex_U_Barely_There_Liners_Thin_60_count",
+    "candidates": 1120,
+    "feasible": 58,
+    "solve_s": 2.976,
+    "per_candidate_ms": 2.657,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "My_First_Rolling_Lion",
+    "candidates": 1046,
+    "feasible": 37,
+    "solve_s": 3.426,
+    "per_candidate_ms": 3.275,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Krill_Oil",
+    "candidates": 1146,
+    "feasible": 186,
+    "solve_s": 6.413,
+    "per_candidate_ms": 5.596,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3M_Antislip_Surfacing_Light_Duty_White",
+    "candidates": 1456,
+    "feasible": 0,
+    "solve_s": 0.731,
+    "per_candidate_ms": 0.502,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1108,
+    "feasible": 31,
+    "solve_s": 1.615,
+    "per_candidate_ms": 1.458,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "FIRE_ENGINE",
+    "candidates": 1218,
+    "feasible": 82,
+    "solve_s": 6.969,
+    "per_candidate_ms": 5.722,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nikon_1_AW1_w11275mm_Lens_Silver",
+    "candidates": 1152,
+    "feasible": 191,
+    "solve_s": 7.784,
+    "per_candidate_ms": 6.757,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g",
+    "candidates": 1370,
+    "feasible": 78,
+    "solve_s": 6.459,
+    "per_candidate_ms": 4.715,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Lactoferrin",
+    "candidates": 1146,
+    "feasible": 192,
+    "solve_s": 6.64,
+    "per_candidate_ms": 5.794,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+    "candidates": 1012,
+    "feasible": 44,
+    "solve_s": 7.053,
+    "per_candidate_ms": 6.969,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+    "candidates": 1432,
+    "feasible": 174,
+    "solve_s": 8.145,
+    "per_candidate_ms": 5.688,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+    "candidates": 1392,
+    "feasible": 8,
+    "solve_s": 1.857,
+    "per_candidate_ms": 1.334,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+    "candidates": 1270,
+    "feasible": 132,
+    "solve_s": 7.517,
+    "per_candidate_ms": 5.919,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "SAMe_200_KX7ZmOw47co",
+    "candidates": 1116,
+    "feasible": 61,
+    "solve_s": 3.619,
+    "per_candidate_ms": 3.243,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+    "candidates": 1124,
+    "feasible": 62,
+    "solve_s": 3.528,
+    "per_candidate_ms": 3.139,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+    "candidates": 1120,
+    "feasible": 0,
+    "solve_s": 0.996,
+    "per_candidate_ms": 0.889,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+    "candidates": 1134,
+    "feasible": 83,
+    "solve_s": 4.17,
+    "per_candidate_ms": 3.677,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plant_Container_S14Turquoise",
+    "candidates": 1272,
+    "feasible": 0,
+    "solve_s": 0.816,
+    "per_candidate_ms": 0.642,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Face_Finishing_Moisturizer",
+    "candidates": 1148,
+    "feasible": 195,
+    "solve_s": 7.347,
+    "per_candidate_ms": 6.4,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Threshold_Ramekin_White_Porcelain",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.831,
+    "per_candidate_ms": 0.721,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Dino_4",
+    "candidates": 1096,
+    "feasible": 69,
+    "solve_s": 10.561,
+    "per_candidate_ms": 9.636,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crayola_Crayons_24_count",
+    "candidates": 1444,
+    "feasible": 94,
+    "solve_s": 7.828,
+    "per_candidate_ms": 5.421,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Home_Fashions_Washcloth_Linen",
+    "candidates": 1100,
+    "feasible": 0,
+    "solve_s": 1.963,
+    "per_candidate_ms": 1.785,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+    "candidates": 1214,
+    "feasible": 41,
+    "solve_s": 2.392,
+    "per_candidate_ms": 1.97,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Shurtape_30_Day_Removal_UV_Delct_15",
+    "candidates": 1412,
+    "feasible": 0,
+    "solve_s": 0.509,
+    "per_candidate_ms": 0.36,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+    "candidates": 1136,
+    "feasible": 58,
+    "solve_s": 3.172,
+    "per_candidate_ms": 2.792,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "HP_1800_Tablet_8GB_7",
+    "candidates": 1364,
+    "feasible": 0,
+    "solve_s": 0.824,
+    "per_candidate_ms": 0.604,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Plate_S11Turquoise",
+    "candidates": 1246,
+    "feasible": 0,
+    "solve_s": 0.874,
+    "per_candidate_ms": 0.701,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+    "candidates": 1016,
+    "feasible": 0,
+    "solve_s": 1.096,
+    "per_candidate_ms": 1.079,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+    "candidates": 1078,
+    "feasible": 0,
+    "solve_s": 1.311,
+    "per_candidate_ms": 1.216,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Dell_Ink_Cartridge_Yellow_31",
+    "candidates": 1410,
+    "feasible": 10,
+    "solve_s": 2.303,
+    "per_candidate_ms": 1.633,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Brother_Ink_Cartridge_Magenta_LC75M",
+    "candidates": 1374,
+    "feasible": 25,
+    "solve_s": 2.298,
+    "per_candidate_ms": 1.672,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S20MOCHA",
+    "candidates": 1240,
+    "feasible": 0,
+    "solve_s": 1.462,
+    "per_candidate_ms": 1.179,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1132,
+    "feasible": 85,
+    "solve_s": 4.458,
+    "per_candidate_ms": 3.938,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1102,
+    "feasible": 37,
+    "solve_s": 2.355,
+    "per_candidate_ms": 2.137,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+    "candidates": 1414,
+    "feasible": 105,
+    "solve_s": 5.563,
+    "per_candidate_ms": 3.934,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Hey_You_Pikachu_Nintendo_64",
+    "candidates": 1398,
+    "feasible": 65,
+    "solve_s": 6.974,
+    "per_candidate_ms": 4.989,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 71,
+    "solve_s": 3.462,
+    "per_candidate_ms": 3.064,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+    "candidates": 1130,
+    "feasible": 75,
+    "solve_s": 4.283,
+    "per_candidate_ms": 3.79,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Dell_Ink_Cartridge",
+    "candidates": 1068,
+    "feasible": 10,
+    "solve_s": 2.436,
+    "per_candidate_ms": 2.281,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "REEF_ZENFUN",
+    "candidates": 970,
+    "feasible": 6,
+    "solve_s": 1.735,
+    "per_candidate_ms": 1.789,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+    "candidates": 1172,
+    "feasible": 0,
+    "solve_s": 1.29,
+    "per_candidate_ms": 1.101,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_8",
+    "candidates": 1386,
+    "feasible": 24,
+    "solve_s": 10.381,
+    "per_candidate_ms": 7.49,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz",
+    "candidates": 1146,
+    "feasible": 142,
+    "solve_s": 6.118,
+    "per_candidate_ms": 5.339,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "CoQ10_BjTLbuRVt1t",
+    "candidates": 1152,
+    "feasible": 201,
+    "solve_s": 7.14,
+    "per_candidate_ms": 6.198,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_BlueWhite",
+    "candidates": 1098,
+    "feasible": 0,
+    "solve_s": 1.366,
+    "per_candidate_ms": 1.244,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Now_Designs_Snack_Bags_Bicycle_2_count",
+    "candidates": 1246,
+    "feasible": 0,
+    "solve_s": 0.903,
+    "per_candidate_ms": 0.725,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Multicolors",
+    "candidates": 1064,
+    "feasible": 0,
+    "solve_s": 1.492,
+    "per_candidate_ms": 1.402,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "3D_Dollhouse_Lamp",
+    "candidates": 950,
+    "feasible": 105,
+    "solve_s": 6.939,
+    "per_candidate_ms": 7.304,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+    "candidates": 1080,
+    "feasible": 41,
+    "solve_s": 1.586,
+    "per_candidate_ms": 1.469,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+    "candidates": 1398,
+    "feasible": 22,
+    "solve_s": 5.879,
+    "per_candidate_ms": 4.205,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+    "candidates": 1152,
+    "feasible": 95,
+    "solve_s": 6.606,
+    "per_candidate_ms": 5.734,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Pokmon_Y_Nintendo_3DS_Game",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 0.932,
+    "per_candidate_ms": 0.658,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "WHALE_WHISTLE_6PCS_SET",
+    "candidates": 1332,
+    "feasible": 0,
+    "solve_s": 1.582,
+    "per_candidate_ms": 1.188,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "PhosphOmega",
+    "candidates": 1150,
+    "feasible": 157,
+    "solve_s": 5.977,
+    "per_candidate_ms": 5.197,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Tag_Dishtowel_Green",
+    "candidates": 1012,
+    "feasible": 0,
+    "solve_s": 1.28,
+    "per_candidate_ms": 1.265,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+    "candidates": 2166,
+    "feasible": 64,
+    "solve_s": 7.246,
+    "per_candidate_ms": 3.345,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Home_Fashions_Washcloth_Olive_Green",
+    "candidates": 1106,
+    "feasible": 0,
+    "solve_s": 2.192,
+    "per_candidate_ms": 1.982,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+    "candidates": 1408,
+    "feasible": 60,
+    "solve_s": 11.935,
+    "per_candidate_ms": 8.477,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Womens_Multi_13",
+    "candidates": 1152,
+    "feasible": 168,
+    "solve_s": 7.176,
+    "per_candidate_ms": 6.229,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "JarroDophilusFOS_Value_Size",
+    "candidates": 1142,
+    "feasible": 126,
+    "solve_s": 5.053,
+    "per_candidate_ms": 4.425,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Android_Figure_Chrome",
+    "candidates": 1152,
+    "feasible": 152,
+    "solve_s": 7.466,
+    "per_candidate_ms": 6.481,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S17MOCHA",
+    "candidates": 1282,
+    "feasible": 0,
+    "solve_s": 0.926,
+    "per_candidate_ms": 0.722,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Thomas_Friends_Woodan_Railway_Henry",
+    "candidates": 1160,
+    "feasible": 39,
+    "solve_s": 7.611,
+    "per_candidate_ms": 6.561,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+    "candidates": 1084,
+    "feasible": 0,
+    "solve_s": 0.908,
+    "per_candidate_ms": 0.838,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Beta_Glucan",
+    "candidates": 1152,
+    "feasible": 166,
+    "solve_s": 6.922,
+    "per_candidate_ms": 6.009,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+    "candidates": 988,
+    "feasible": 18,
+    "solve_s": 3.933,
+    "per_candidate_ms": 3.981,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Inositol",
+    "candidates": 1150,
+    "feasible": 166,
+    "solve_s": 7.091,
+    "per_candidate_ms": 6.166,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+    "candidates": 1356,
+    "feasible": 0,
+    "solve_s": 0.755,
+    "per_candidate_ms": 0.557,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Magnifying_Glassassrt",
+    "candidates": 1222,
+    "feasible": 8,
+    "solve_s": 1.435,
+    "per_candidate_ms": 1.174,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+    "candidates": 1414,
+    "feasible": 170,
+    "solve_s": 8.32,
+    "per_candidate_ms": 5.884,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.408,
+    "per_candidate_ms": 0.354,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_No_Bronzer_Bronzer",
+    "candidates": 1238,
+    "feasible": 259,
+    "solve_s": 8.321,
+    "per_candidate_ms": 6.721,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Sushi_Mat",
+    "candidates": 1100,
+    "feasible": 0,
+    "solve_s": 1.139,
+    "per_candidate_ms": 1.035,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Beetle_Adventure_Racing_Nintendo_64",
+    "candidates": 1384,
+    "feasible": 57,
+    "solve_s": 5.736,
+    "per_candidate_ms": 4.145,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Super_Mario_3D_World_Wii_U_Game",
+    "candidates": 1370,
+    "feasible": 0,
+    "solve_s": 0.634,
+    "per_candidate_ms": 0.463,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+    "candidates": 1336,
+    "feasible": 53,
+    "solve_s": 4.792,
+    "per_candidate_ms": 3.587,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+    "candidates": 1150,
+    "feasible": 0,
+    "solve_s": 0.539,
+    "per_candidate_ms": 0.469,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3D_Dollhouse_TablePurple",
+    "candidates": 1114,
+    "feasible": 18,
+    "solve_s": 2.006,
+    "per_candidate_ms": 1.801,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Kotobuki_Saucer_Dragon_Fly",
+    "candidates": 1256,
+    "feasible": 0,
+    "solve_s": 1.172,
+    "per_candidate_ms": 0.933,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Sleep_Optimizer",
+    "candidates": 1392,
+    "feasible": 31,
+    "solve_s": 2.884,
+    "per_candidate_ms": 2.072,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Blackcurrant_Lutein",
+    "candidates": 1152,
+    "feasible": 177,
+    "solve_s": 7.112,
+    "per_candidate_ms": 6.174,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "MK7",
+    "candidates": 1148,
+    "feasible": 188,
+    "solve_s": 6.258,
+    "per_candidate_ms": 5.451,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+    "candidates": 1060,
+    "feasible": 38,
+    "solve_s": 2.258,
+    "per_candidate_ms": 2.13,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 75,
+    "solve_s": 3.071,
+    "per_candidate_ms": 2.718,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Schleich_African_Black_Rhino",
+    "candidates": 1150,
+    "feasible": 36,
+    "solve_s": 5.368,
+    "per_candidate_ms": 4.668,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "ROAD_CONSTRUCTION_SET",
+    "candidates": 1022,
+    "feasible": 4,
+    "solve_s": 1.981,
+    "per_candidate_ms": 1.938,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_No_Mascara_Mascara",
+    "candidates": 1106,
+    "feasible": 185,
+    "solve_s": 5.715,
+    "per_candidate_ms": 5.167,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+    "candidates": 1384,
+    "feasible": 0,
+    "solve_s": 0.988,
+    "per_candidate_ms": 0.714,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crayola_Bonus_64_Crayons",
+    "candidates": 1258,
+    "feasible": 84,
+    "solve_s": 4.238,
+    "per_candidate_ms": 3.369,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "FIRE_TRUCK",
+    "candidates": 1146,
+    "feasible": 62,
+    "solve_s": 6.389,
+    "per_candidate_ms": 5.575,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+    "candidates": 1368,
+    "feasible": 54,
+    "solve_s": 3.57,
+    "per_candidate_ms": 2.61,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Blue_Plasma_Orbital",
+    "candidates": 1146,
+    "feasible": 65,
+    "solve_s": 4.93,
+    "per_candidate_ms": 4.302,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+    "candidates": 1310,
+    "feasible": 20,
+    "solve_s": 1.983,
+    "per_candidate_ms": 1.514,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "FemDophilus",
+    "candidates": 1130,
+    "feasible": 224,
+    "solve_s": 7.946,
+    "per_candidate_ms": 7.032,
+    "main_reason": "too_wide"
+   }
+  ]
+ },
+ "120": {
+  "parts": 200,
+  "viable": 157,
+  "without": 43,
+  "reasons_all": {
+   "pregrasp_unreachable": 115837,
+   "too_wide": 58392,
+   "pregrasp_collision": 24751,
+   "feasible": 18059,
+   "approach_collision": 10043,
+   "no_force_closure": 8528,
+   "grasp_unreachable": 3501,
+   "lift_unreachable": 1797
+  },
+  "reasons_without": {
+   "pregrasp_unreachable": 21572,
+   "too_wide": 19754,
+   "pregrasp_collision": 6251,
+   "approach_collision": 3721,
+   "grasp_unreachable": 1064,
+   "no_force_closure": 110,
+   "lift_unreachable": 24
+  },
+  "main_reason_without": {
+   "pregrasp_unreachable": 27,
+   "too_wide": 16
+  },
+  "candidates_without_mean": 1220.8372093023256,
+  "solve_s_without_mean": 1.5823023255813953,
+  "solve_s_mean": 8.17476,
+  "per_candidate_ms_median": 6.1005,
+  "detail": [
+   {
+    "part": "Android_Lego",
+    "candidates": 1378,
+    "feasible": 149,
+    "solve_s": 33.705,
+    "per_candidate_ms": 24.459,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Star_Wars_Rogue_Squadron_Nintendo_64",
+    "candidates": 1424,
+    "feasible": 98,
+    "solve_s": 13.945,
+    "per_candidate_ms": 9.793,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S14MOCHA",
+    "candidates": 1254,
+    "feasible": 0,
+    "solve_s": 1.552,
+    "per_candidate_ms": 1.238,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Breyer_Horse_Of_The_Year_2015",
+    "candidates": 956,
+    "feasible": 22,
+    "solve_s": 11.339,
+    "per_candidate_ms": 11.861,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_High_Potency_Evening_Repair",
+    "candidates": 1226,
+    "feasible": 232,
+    "solve_s": 23.69,
+    "per_candidate_ms": 19.323,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Neuropeptide_Facial_Conformer",
+    "candidates": 1260,
+    "feasible": 240,
+    "solve_s": 24.915,
+    "per_candidate_ms": 19.774,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Mini_Honey_Dipper",
+    "candidates": 1506,
+    "feasible": 156,
+    "solve_s": 15.296,
+    "per_candidate_ms": 10.157,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1114,
+    "feasible": 200,
+    "solve_s": 18.81,
+    "per_candidate_ms": 16.885,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "OXO_Cookie_Spatula",
+    "candidates": 946,
+    "feasible": 10,
+    "solve_s": 3.053,
+    "per_candidate_ms": 3.227,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+    "candidates": 1148,
+    "feasible": 175,
+    "solve_s": 15.284,
+    "per_candidate_ms": 13.314,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Simon_Swipe_Game",
+    "candidates": 1092,
+    "feasible": 0,
+    "solve_s": 3.169,
+    "per_candidate_ms": 2.902,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nintendo_Mario_Action_Figure",
+    "candidates": 1142,
+    "feasible": 146,
+    "solve_s": 24.618,
+    "per_candidate_ms": 21.557,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "3M_Vinyl_Tape_Green_1_x_36_yd",
+    "candidates": 1416,
+    "feasible": 2,
+    "solve_s": 3.629,
+    "per_candidate_ms": 2.563,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+    "candidates": 1374,
+    "feasible": 77,
+    "solve_s": 10.457,
+    "per_candidate_ms": 7.611,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Firming_Neck_Therapy_Treatment",
+    "candidates": 1152,
+    "feasible": 243,
+    "solve_s": 17.249,
+    "per_candidate_ms": 14.973,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+    "candidates": 1130,
+    "feasible": 191,
+    "solve_s": 18.428,
+    "per_candidate_ms": 16.308,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "SCHOOL_BUS",
+    "candidates": 1632,
+    "feasible": 78,
+    "solve_s": 13.099,
+    "per_candidate_ms": 8.026,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Blue",
+    "candidates": 1174,
+    "feasible": 0,
+    "solve_s": 2.77,
+    "per_candidate_ms": 2.359,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Object",
+    "candidates": 1072,
+    "feasible": 85,
+    "solve_s": 17.006,
+    "per_candidate_ms": 15.864,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Neuropeptide_Firming_Moisturizer",
+    "candidates": 1152,
+    "feasible": 198,
+    "solve_s": 24.634,
+    "per_candidate_ms": 21.384,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total",
+    "candidates": 1356,
+    "feasible": 77,
+    "solve_s": 15.05,
+    "per_candidate_ms": 11.099,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Plant_Saucer_Glazed_9",
+    "candidates": 1164,
+    "feasible": 0,
+    "solve_s": 1.72,
+    "per_candidate_ms": 1.478,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Red",
+    "candidates": 1154,
+    "feasible": 0,
+    "solve_s": 3.384,
+    "per_candidate_ms": 2.932,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Borage_GLA240Gamma_Tocopherol",
+    "candidates": 1150,
+    "feasible": 165,
+    "solve_s": 16.7,
+    "per_candidate_ms": 14.522,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "SPEED_BOAT",
+    "candidates": 1082,
+    "feasible": 20,
+    "solve_s": 6.477,
+    "per_candidate_ms": 5.986,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+    "candidates": 1420,
+    "feasible": 0,
+    "solve_s": 1.281,
+    "per_candidate_ms": 0.902,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion",
+    "candidates": 982,
+    "feasible": 82,
+    "solve_s": 6.84,
+    "per_candidate_ms": 6.965,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj",
+    "candidates": 1328,
+    "feasible": 74,
+    "solve_s": 20.359,
+    "per_candidate_ms": 15.331,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Prostate_Optimizer",
+    "candidates": 1150,
+    "feasible": 150,
+    "solve_s": 16.988,
+    "per_candidate_ms": 14.772,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_Lion_Action_Figure",
+    "candidates": 1160,
+    "feasible": 88,
+    "solve_s": 18.375,
+    "per_candidate_ms": 15.841,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "PEEKABOO_ROLLER",
+    "candidates": 1152,
+    "feasible": 140,
+    "solve_s": 15.486,
+    "per_candidate_ms": 13.443,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Bifidus_Balance_FOS",
+    "candidates": 1152,
+    "feasible": 190,
+    "solve_s": 14.653,
+    "per_candidate_ms": 12.72,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1134,
+    "feasible": 166,
+    "solve_s": 14.878,
+    "per_candidate_ms": 13.12,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3D_Dollhouse_Happy_Brother",
+    "candidates": 1280,
+    "feasible": 94,
+    "solve_s": 19.274,
+    "per_candidate_ms": 15.058,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Canon_Ink_Cartridge_Green_6",
+    "candidates": 1352,
+    "feasible": 44,
+    "solve_s": 8.295,
+    "per_candidate_ms": 6.135,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "QAbsorb_CoQ10_53iUqjWjW3O",
+    "candidates": 1152,
+    "feasible": 170,
+    "solve_s": 14.094,
+    "per_candidate_ms": 12.234,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Wooden_ABC_123_Blocks_50_pack",
+    "candidates": 1002,
+    "feasible": 53,
+    "solve_s": 8.569,
+    "per_candidate_ms": 8.552,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+    "candidates": 1366,
+    "feasible": 55,
+    "solve_s": 8.142,
+    "per_candidate_ms": 5.96,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_8_Green",
+    "candidates": 1400,
+    "feasible": 70,
+    "solve_s": 16.696,
+    "per_candidate_ms": 11.926,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "RESCUE_CREW",
+    "candidates": 1148,
+    "feasible": 100,
+    "solve_s": 17.761,
+    "per_candidate_ms": 15.471,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Perricone_MD_The_Power_Treatments",
+    "candidates": 1018,
+    "feasible": 34,
+    "solve_s": 3.566,
+    "per_candidate_ms": 3.503,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Google_Cardboard_Original_package",
+    "candidates": 1282,
+    "feasible": 0,
+    "solve_s": 1.476,
+    "per_candidate_ms": 1.151,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+    "candidates": 1070,
+    "feasible": 85,
+    "solve_s": 6.491,
+    "per_candidate_ms": 6.066,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+    "candidates": 1134,
+    "feasible": 183,
+    "solve_s": 19.83,
+    "per_candidate_ms": 17.487,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+    "candidates": 1132,
+    "feasible": 165,
+    "solve_s": 16.61,
+    "per_candidate_ms": 14.673,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_S_Bayala_Unicorn_70432",
+    "candidates": 1080,
+    "feasible": 48,
+    "solve_s": 16.894,
+    "per_candidate_ms": 15.643,
+    "main_reason": "no_force_closure"
+   },
+   {
+    "part": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+    "candidates": 1082,
+    "feasible": 43,
+    "solve_s": 5.983,
+    "per_candidate_ms": 5.53,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+    "candidates": 1298,
+    "feasible": 108,
+    "solve_s": 19.652,
+    "per_candidate_ms": 15.14,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Pokmon_X_Nintendo_3DS_Game",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 1.084,
+    "per_candidate_ms": 0.766,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1104,
+    "feasible": 107,
+    "solve_s": 7.329,
+    "per_candidate_ms": 6.639,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Phillips_Colon_Health_Probiotic_Capsule",
+    "candidates": 1138,
+    "feasible": 183,
+    "solve_s": 25.923,
+    "per_candidate_ms": 22.779,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+    "candidates": 1060,
+    "feasible": 104,
+    "solve_s": 9.404,
+    "per_candidate_ms": 8.872,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_273XL_Ink_Cartridge_Magenta",
+    "candidates": 1358,
+    "feasible": 122,
+    "solve_s": 11.857,
+    "per_candidate_ms": 8.731,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Threshold_Bamboo_Ceramic_Soap_Dish",
+    "candidates": 1126,
+    "feasible": 26,
+    "solve_s": 6.316,
+    "per_candidate_ms": 5.609,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_Hereford_Bull",
+    "candidates": 1124,
+    "feasible": 32,
+    "solve_s": 10.514,
+    "per_candidate_ms": 9.354,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_251_M",
+    "candidates": 1434,
+    "feasible": 74,
+    "solve_s": 12.535,
+    "per_candidate_ms": 8.741,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Twinlab_Premium_Creatine_Fuel_Powder",
+    "candidates": 1152,
+    "feasible": 168,
+    "solve_s": 19.154,
+    "per_candidate_ms": 16.627,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Canon_Pixma_Chromalife_100_Magenta_8",
+    "candidates": 1414,
+    "feasible": 50,
+    "solve_s": 13.094,
+    "per_candidate_ms": 9.26,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Stripe",
+    "candidates": 1128,
+    "feasible": 0,
+    "solve_s": 2.537,
+    "per_candidate_ms": 2.249,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+    "candidates": 1082,
+    "feasible": 100,
+    "solve_s": 10.426,
+    "per_candidate_ms": 9.636,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+    "candidates": 1076,
+    "feasible": 36,
+    "solve_s": 3.901,
+    "per_candidate_ms": 3.625,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "HP_Card_Invitation_Kit",
+    "candidates": 1246,
+    "feasible": 52,
+    "solve_s": 6.551,
+    "per_candidate_ms": 5.258,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Pet_Dophilus_powder",
+    "candidates": 1152,
+    "feasible": 204,
+    "solve_s": 14.498,
+    "per_candidate_ms": 12.585,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+    "candidates": 1104,
+    "feasible": 58,
+    "solve_s": 15.332,
+    "per_candidate_ms": 13.888,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Sony_Downloadable_Loops",
+    "candidates": 1308,
+    "feasible": 49,
+    "solve_s": 5.926,
+    "per_candidate_ms": 4.531,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Fujifilm_instax_SHARE_SP1_10_photos",
+    "candidates": 1206,
+    "feasible": 127,
+    "solve_s": 15.974,
+    "per_candidate_ms": 13.245,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "YumYum_D3_Liquid",
+    "candidates": 1702,
+    "feasible": 302,
+    "solve_s": 30.037,
+    "per_candidate_ms": 17.648,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+    "candidates": 1122,
+    "feasible": 0,
+    "solve_s": 4.725,
+    "per_candidate_ms": 4.211,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S14NATURAL",
+    "candidates": 1314,
+    "feasible": 0,
+    "solve_s": 2.022,
+    "per_candidate_ms": 1.539,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+    "candidates": 1132,
+    "feasible": 0,
+    "solve_s": 2.231,
+    "per_candidate_ms": 1.971,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 187,
+    "solve_s": 17.849,
+    "per_candidate_ms": 15.796,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+    "candidates": 1030,
+    "feasible": 58,
+    "solve_s": 8.426,
+    "per_candidate_ms": 8.181,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Phillips_Caplets_Size_24",
+    "candidates": 1152,
+    "feasible": 191,
+    "solve_s": 19.435,
+    "per_candidate_ms": 16.871,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Tag_Dishtowel_18_x_26",
+    "candidates": 1114,
+    "feasible": 0,
+    "solve_s": 2.164,
+    "per_candidate_ms": 1.943,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Ecoforms_Plate_S20Avocado",
+    "candidates": 1222,
+    "feasible": 0,
+    "solve_s": 1.897,
+    "per_candidate_ms": 1.552,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Android_Figure_Panda",
+    "candidates": 1152,
+    "feasible": 170,
+    "solve_s": 15.781,
+    "per_candidate_ms": 13.699,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Shurtape_Tape_Purple_CP28",
+    "candidates": 1144,
+    "feasible": 6,
+    "solve_s": 3.267,
+    "per_candidate_ms": 2.856,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Schleich_Allosaurus",
+    "candidates": 888,
+    "feasible": 6,
+    "solve_s": 7.025,
+    "per_candidate_ms": 7.911,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+    "candidates": 1146,
+    "feasible": 153,
+    "solve_s": 13.522,
+    "per_candidate_ms": 11.799,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Wilton_Easy_Layers_Cake_Pan_Set",
+    "candidates": 1042,
+    "feasible": 39,
+    "solve_s": 5.086,
+    "per_candidate_ms": 4.881,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Twinlab_Nitric_Fuel",
+    "candidates": 1152,
+    "feasible": 171,
+    "solve_s": 12.548,
+    "per_candidate_ms": 10.892,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+    "candidates": 1410,
+    "feasible": 0,
+    "solve_s": 1.36,
+    "per_candidate_ms": 0.965,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1128,
+    "feasible": 169,
+    "solve_s": 11.796,
+    "per_candidate_ms": 10.457,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Sony_Acid_Music_Studio",
+    "candidates": 1328,
+    "feasible": 58,
+    "solve_s": 3.809,
+    "per_candidate_ms": 2.868,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+    "candidates": 1092,
+    "feasible": 103,
+    "solve_s": 4.006,
+    "per_candidate_ms": 3.668,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Saucer_Electric",
+    "candidates": 1280,
+    "feasible": 0,
+    "solve_s": 1.108,
+    "per_candidate_ms": 0.866,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Spectrum_Wall_Mount",
+    "candidates": 994,
+    "feasible": 36,
+    "solve_s": 3.805,
+    "per_candidate_ms": 3.828,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1114,
+    "feasible": 141,
+    "solve_s": 7.906,
+    "per_candidate_ms": 7.097,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "CARSII",
+    "candidates": 1094,
+    "feasible": 10,
+    "solve_s": 2.228,
+    "per_candidate_ms": 2.037,
+    "main_reason": "approach_collision"
+   },
+   {
+    "part": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+    "candidates": 1080,
+    "feasible": 2,
+    "solve_s": 3.11,
+    "per_candidate_ms": 2.88,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+    "candidates": 1124,
+    "feasible": 0,
+    "solve_s": 0.845,
+    "per_candidate_ms": 0.752,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_The_Crease_Cure_Duo",
+    "candidates": 1064,
+    "feasible": 80,
+    "solve_s": 4.703,
+    "per_candidate_ms": 4.42,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Photo_Plasma",
+    "candidates": 1138,
+    "feasible": 180,
+    "solve_s": 10.799,
+    "per_candidate_ms": 9.489,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+    "candidates": 1382,
+    "feasible": 76,
+    "solve_s": 2.972,
+    "per_candidate_ms": 2.151,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "GoPro_HERO3_Composite_Cable",
+    "candidates": 1420,
+    "feasible": 4,
+    "solve_s": 4.182,
+    "per_candidate_ms": 2.945,
+    "main_reason": "approach_collision"
+   },
+   {
+    "part": "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+    "candidates": 1140,
+    "feasible": 115,
+    "solve_s": 12.394,
+    "per_candidate_ms": 10.872,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Ecoforms_Plant_Container_S24NATURAL",
+    "candidates": 1234,
+    "feasible": 0,
+    "solve_s": 1.077,
+    "per_candidate_ms": 0.873,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o",
+    "candidates": 1364,
+    "feasible": 83,
+    "solve_s": 8.956,
+    "per_candidate_ms": 6.566,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Lutein",
+    "candidates": 1152,
+    "feasible": 180,
+    "solve_s": 7.815,
+    "per_candidate_ms": 6.784,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+    "candidates": 1428,
+    "feasible": 78,
+    "solve_s": 11.71,
+    "per_candidate_ms": 8.2,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+    "candidates": 1450,
+    "feasible": 68,
+    "solve_s": 8.212,
+    "per_candidate_ms": 5.663,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Vitamin_C_Ester_Serum",
+    "candidates": 1142,
+    "feasible": 217,
+    "solve_s": 8.947,
+    "per_candidate_ms": 7.835,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "VEGETABLE_GARDEN",
+    "candidates": 950,
+    "feasible": 4,
+    "solve_s": 1.378,
+    "per_candidate_ms": 1.451,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crayola_Crayons_Washable_24_crayons",
+    "candidates": 1422,
+    "feasible": 229,
+    "solve_s": 12.658,
+    "per_candidate_ms": 8.902,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+    "candidates": 1082,
+    "feasible": 74,
+    "solve_s": 3.379,
+    "per_candidate_ms": 3.123,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Kotex_U_Barely_There_Liners_Thin_60_count",
+    "candidates": 1120,
+    "feasible": 147,
+    "solve_s": 6.324,
+    "per_candidate_ms": 5.646,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "My_First_Rolling_Lion",
+    "candidates": 1046,
+    "feasible": 47,
+    "solve_s": 4.492,
+    "per_candidate_ms": 4.294,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Krill_Oil",
+    "candidates": 1146,
+    "feasible": 188,
+    "solve_s": 7.204,
+    "per_candidate_ms": 6.286,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "3M_Antislip_Surfacing_Light_Duty_White",
+    "candidates": 1456,
+    "feasible": 0,
+    "solve_s": 0.931,
+    "per_candidate_ms": 0.639,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1108,
+    "feasible": 99,
+    "solve_s": 3.996,
+    "per_candidate_ms": 3.606,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "FIRE_ENGINE",
+    "candidates": 1218,
+    "feasible": 102,
+    "solve_s": 8.034,
+    "per_candidate_ms": 6.596,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Nikon_1_AW1_w11275mm_Lens_Silver",
+    "candidates": 1152,
+    "feasible": 193,
+    "solve_s": 8.282,
+    "per_candidate_ms": 7.189,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g",
+    "candidates": 1370,
+    "feasible": 78,
+    "solve_s": 7.37,
+    "per_candidate_ms": 5.38,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Lactoferrin",
+    "candidates": 1146,
+    "feasible": 192,
+    "solve_s": 7.527,
+    "per_candidate_ms": 6.568,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+    "candidates": 1012,
+    "feasible": 60,
+    "solve_s": 9.64,
+    "per_candidate_ms": 9.526,
+    "main_reason": "no_force_closure"
+   },
+   {
+    "part": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+    "candidates": 1432,
+    "feasible": 192,
+    "solve_s": 8.844,
+    "per_candidate_ms": 6.176,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+    "candidates": 1392,
+    "feasible": 14,
+    "solve_s": 2.676,
+    "per_candidate_ms": 1.922,
+    "main_reason": "approach_collision"
+   },
+   {
+    "part": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+    "candidates": 1270,
+    "feasible": 132,
+    "solve_s": 7.502,
+    "per_candidate_ms": 5.907,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "SAMe_200_KX7ZmOw47co",
+    "candidates": 1116,
+    "feasible": 148,
+    "solve_s": 6.32,
+    "per_candidate_ms": 5.663,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+    "candidates": 1124,
+    "feasible": 194,
+    "solve_s": 8.576,
+    "per_candidate_ms": 7.63,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+    "candidates": 1120,
+    "feasible": 0,
+    "solve_s": 1.093,
+    "per_candidate_ms": 0.976,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+    "candidates": 1134,
+    "feasible": 207,
+    "solve_s": 10.648,
+    "per_candidate_ms": 9.39,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Container_S14Turquoise",
+    "candidates": 1272,
+    "feasible": 0,
+    "solve_s": 1.053,
+    "per_candidate_ms": 0.828,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Face_Finishing_Moisturizer",
+    "candidates": 1148,
+    "feasible": 217,
+    "solve_s": 8.77,
+    "per_candidate_ms": 7.639,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Threshold_Ramekin_White_Porcelain",
+    "candidates": 1152,
+    "feasible": 59,
+    "solve_s": 2.683,
+    "per_candidate_ms": 2.329,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Dino_4",
+    "candidates": 1096,
+    "feasible": 81,
+    "solve_s": 11.647,
+    "per_candidate_ms": 10.627,
+    "main_reason": "no_force_closure"
+   },
+   {
+    "part": "Crayola_Crayons_24_count",
+    "candidates": 1444,
+    "feasible": 212,
+    "solve_s": 13.123,
+    "per_candidate_ms": 9.088,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Home_Fashions_Washcloth_Linen",
+    "candidates": 1100,
+    "feasible": 0,
+    "solve_s": 2.107,
+    "per_candidate_ms": 1.915,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+    "candidates": 1214,
+    "feasible": 151,
+    "solve_s": 6.124,
+    "per_candidate_ms": 5.044,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shurtape_30_Day_Removal_UV_Delct_15",
+    "candidates": 1412,
+    "feasible": 6,
+    "solve_s": 1.894,
+    "per_candidate_ms": 1.341,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+    "candidates": 1136,
+    "feasible": 190,
+    "solve_s": 7.578,
+    "per_candidate_ms": 6.671,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "HP_1800_Tablet_8GB_7",
+    "candidates": 1364,
+    "feasible": 0,
+    "solve_s": 1.278,
+    "per_candidate_ms": 0.937,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Plate_S11Turquoise",
+    "candidates": 1246,
+    "feasible": 0,
+    "solve_s": 0.994,
+    "per_candidate_ms": 0.798,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+    "candidates": 1016,
+    "feasible": 0,
+    "solve_s": 1.472,
+    "per_candidate_ms": 1.449,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+    "candidates": 1078,
+    "feasible": 0,
+    "solve_s": 1.381,
+    "per_candidate_ms": 1.281,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Dell_Ink_Cartridge_Yellow_31",
+    "candidates": 1410,
+    "feasible": 29,
+    "solve_s": 4.681,
+    "per_candidate_ms": 3.32,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Brother_Ink_Cartridge_Magenta_LC75M",
+    "candidates": 1374,
+    "feasible": 109,
+    "solve_s": 5.072,
+    "per_candidate_ms": 3.691,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S20MOCHA",
+    "candidates": 1240,
+    "feasible": 0,
+    "solve_s": 1.679,
+    "per_candidate_ms": 1.354,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1132,
+    "feasible": 179,
+    "solve_s": 9.411,
+    "per_candidate_ms": 8.314,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+    "candidates": 1102,
+    "feasible": 113,
+    "solve_s": 4.911,
+    "per_candidate_ms": 4.456,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+    "candidates": 1414,
+    "feasible": 215,
+    "solve_s": 10.574,
+    "per_candidate_ms": 7.478,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Hey_You_Pikachu_Nintendo_64",
+    "candidates": 1398,
+    "feasible": 65,
+    "solve_s": 7.219,
+    "per_candidate_ms": 5.164,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 217,
+    "solve_s": 10.305,
+    "per_candidate_ms": 9.119,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+    "candidates": 1130,
+    "feasible": 193,
+    "solve_s": 9.149,
+    "per_candidate_ms": 8.096,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Dell_Ink_Cartridge",
+    "candidates": 1068,
+    "feasible": 72,
+    "solve_s": 5.513,
+    "per_candidate_ms": 5.162,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "REEF_ZENFUN",
+    "candidates": 970,
+    "feasible": 18,
+    "solve_s": 3.07,
+    "per_candidate_ms": 3.165,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+    "candidates": 1172,
+    "feasible": 0,
+    "solve_s": 1.699,
+    "per_candidate_ms": 1.45,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Canon_Pixma_Ink_Cartridge_8",
+    "candidates": 1386,
+    "feasible": 52,
+    "solve_s": 11.372,
+    "per_candidate_ms": 8.205,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz",
+    "candidates": 1146,
+    "feasible": 158,
+    "solve_s": 6.256,
+    "per_candidate_ms": 5.459,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "CoQ10_BjTLbuRVt1t",
+    "candidates": 1152,
+    "feasible": 201,
+    "solve_s": 7.165,
+    "per_candidate_ms": 6.22,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_BlueWhite",
+    "candidates": 1098,
+    "feasible": 0,
+    "solve_s": 1.278,
+    "per_candidate_ms": 1.164,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Now_Designs_Snack_Bags_Bicycle_2_count",
+    "candidates": 1246,
+    "feasible": 0,
+    "solve_s": 0.952,
+    "per_candidate_ms": 0.764,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Cole_Hardware_Dishtowel_Multicolors",
+    "candidates": 1064,
+    "feasible": 0,
+    "solve_s": 1.575,
+    "per_candidate_ms": 1.48,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "3D_Dollhouse_Lamp",
+    "candidates": 950,
+    "feasible": 105,
+    "solve_s": 6.779,
+    "per_candidate_ms": 7.136,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+    "candidates": 1080,
+    "feasible": 41,
+    "solve_s": 1.711,
+    "per_candidate_ms": 1.584,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+    "candidates": 1398,
+    "feasible": 24,
+    "solve_s": 6.336,
+    "per_candidate_ms": 4.532,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+    "candidates": 1152,
+    "feasible": 223,
+    "solve_s": 12.532,
+    "per_candidate_ms": 10.878,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Pokmon_Y_Nintendo_3DS_Game",
+    "candidates": 1416,
+    "feasible": 0,
+    "solve_s": 0.907,
+    "per_candidate_ms": 0.641,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "WHALE_WHISTLE_6PCS_SET",
+    "candidates": 1332,
+    "feasible": 0,
+    "solve_s": 1.668,
+    "per_candidate_ms": 1.252,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "PhosphOmega",
+    "candidates": 1150,
+    "feasible": 157,
+    "solve_s": 7.357,
+    "per_candidate_ms": 6.397,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Tag_Dishtowel_Green",
+    "candidates": 1012,
+    "feasible": 2,
+    "solve_s": 1.529,
+    "per_candidate_ms": 1.511,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+    "candidates": 2166,
+    "feasible": 64,
+    "solve_s": 7.082,
+    "per_candidate_ms": 3.27,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Home_Fashions_Washcloth_Olive_Green",
+    "candidates": 1106,
+    "feasible": 0,
+    "solve_s": 2.507,
+    "per_candidate_ms": 2.267,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+    "candidates": 1408,
+    "feasible": 69,
+    "solve_s": 11.726,
+    "per_candidate_ms": 8.328,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Womens_Multi_13",
+    "candidates": 1152,
+    "feasible": 170,
+    "solve_s": 7.901,
+    "per_candidate_ms": 6.859,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "JarroDophilusFOS_Value_Size",
+    "candidates": 1142,
+    "feasible": 128,
+    "solve_s": 5.636,
+    "per_candidate_ms": 4.935,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Android_Figure_Chrome",
+    "candidates": 1152,
+    "feasible": 158,
+    "solve_s": 7.685,
+    "per_candidate_ms": 6.671,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Ecoforms_Plant_Saucer_S17MOCHA",
+    "candidates": 1282,
+    "feasible": 0,
+    "solve_s": 0.986,
+    "per_candidate_ms": 0.769,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Thomas_Friends_Woodan_Railway_Henry",
+    "candidates": 1160,
+    "feasible": 39,
+    "solve_s": 7.456,
+    "per_candidate_ms": 6.428,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+    "candidates": 1084,
+    "feasible": 0,
+    "solve_s": 0.956,
+    "per_candidate_ms": 0.882,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Beta_Glucan",
+    "candidates": 1152,
+    "feasible": 168,
+    "solve_s": 8.079,
+    "per_candidate_ms": 7.013,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+    "candidates": 988,
+    "feasible": 18,
+    "solve_s": 4.068,
+    "per_candidate_ms": 4.117,
+    "main_reason": "approach_collision"
+   },
+   {
+    "part": "Inositol",
+    "candidates": 1150,
+    "feasible": 166,
+    "solve_s": 8.674,
+    "per_candidate_ms": 7.543,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+    "candidates": 1356,
+    "feasible": 0,
+    "solve_s": 1.032,
+    "per_candidate_ms": 0.761,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Magnifying_Glassassrt",
+    "candidates": 1222,
+    "feasible": 8,
+    "solve_s": 2.284,
+    "per_candidate_ms": 1.869,
+    "main_reason": "approach_collision"
+   },
+   {
+    "part": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+    "candidates": 1414,
+    "feasible": 194,
+    "solve_s": 9.295,
+    "per_candidate_ms": 6.574,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+    "candidates": 1152,
+    "feasible": 0,
+    "solve_s": 0.479,
+    "per_candidate_ms": 0.416,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_No_Bronzer_Bronzer",
+    "candidates": 1238,
+    "feasible": 259,
+    "solve_s": 9.587,
+    "per_candidate_ms": 7.744,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Sushi_Mat",
+    "candidates": 1100,
+    "feasible": 0,
+    "solve_s": 1.311,
+    "per_candidate_ms": 1.192,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Beetle_Adventure_Racing_Nintendo_64",
+    "candidates": 1384,
+    "feasible": 57,
+    "solve_s": 6.443,
+    "per_candidate_ms": 4.655,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Super_Mario_3D_World_Wii_U_Game",
+    "candidates": 1370,
+    "feasible": 0,
+    "solve_s": 0.695,
+    "per_candidate_ms": 0.507,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+    "candidates": 1336,
+    "feasible": 179,
+    "solve_s": 8.37,
+    "per_candidate_ms": 6.265,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+    "candidates": 1150,
+    "feasible": 0,
+    "solve_s": 0.734,
+    "per_candidate_ms": 0.638,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "3D_Dollhouse_TablePurple",
+    "candidates": 1114,
+    "feasible": 119,
+    "solve_s": 6.934,
+    "per_candidate_ms": 6.224,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "Kotobuki_Saucer_Dragon_Fly",
+    "candidates": 1256,
+    "feasible": 0,
+    "solve_s": 1.825,
+    "per_candidate_ms": 1.453,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Sleep_Optimizer",
+    "candidates": 1392,
+    "feasible": 123,
+    "solve_s": 5.473,
+    "per_candidate_ms": 3.932,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Blackcurrant_Lutein",
+    "candidates": 1152,
+    "feasible": 177,
+    "solve_s": 7.372,
+    "per_candidate_ms": 6.399,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "MK7",
+    "candidates": 1148,
+    "feasible": 188,
+    "solve_s": 6.389,
+    "per_candidate_ms": 5.565,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+    "candidates": 1060,
+    "feasible": 98,
+    "solve_s": 4.908,
+    "per_candidate_ms": 4.63,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+    "candidates": 1130,
+    "feasible": 207,
+    "solve_s": 7.711,
+    "per_candidate_ms": 6.824,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Schleich_African_Black_Rhino",
+    "candidates": 1150,
+    "feasible": 42,
+    "solve_s": 6.369,
+    "per_candidate_ms": 5.538,
+    "main_reason": "pregrasp_collision"
+   },
+   {
+    "part": "ROAD_CONSTRUCTION_SET",
+    "candidates": 1022,
+    "feasible": 8,
+    "solve_s": 2.845,
+    "per_candidate_ms": 2.784,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Perricone_MD_No_Mascara_Mascara",
+    "candidates": 1106,
+    "feasible": 189,
+    "solve_s": 7.225,
+    "per_candidate_ms": 6.533,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+    "candidates": 1384,
+    "feasible": 0,
+    "solve_s": 1.045,
+    "per_candidate_ms": 0.755,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Crayola_Bonus_64_Crayons",
+    "candidates": 1258,
+    "feasible": 84,
+    "solve_s": 5.269,
+    "per_candidate_ms": 4.188,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "FIRE_TRUCK",
+    "candidates": 1146,
+    "feasible": 72,
+    "solve_s": 7.714,
+    "per_candidate_ms": 6.731,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+    "candidates": 1368,
+    "feasible": 54,
+    "solve_s": 3.664,
+    "per_candidate_ms": 2.678,
+    "main_reason": "pregrasp_unreachable"
+   },
+   {
+    "part": "Perricone_MD_Blue_Plasma_Orbital",
+    "candidates": 1146,
+    "feasible": 195,
+    "solve_s": 12.718,
+    "per_candidate_ms": 11.098,
+    "main_reason": "feasible"
+   },
+   {
+    "part": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+    "candidates": 1310,
+    "feasible": 118,
+    "solve_s": 4.893,
+    "per_candidate_ms": 3.735,
+    "main_reason": "too_wide"
+   },
+   {
+    "part": "FemDophilus",
+    "candidates": 1130,
+    "feasible": 238,
+    "solve_s": 9.652,
+    "per_candidate_ms": 8.542,
+    "main_reason": "feasible"
+   }
+  ]
+ }
+}

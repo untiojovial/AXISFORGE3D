@@ -1,0 +1,186 @@
+{
+ "methods": {
+  "afat": {
+   "parts": 151,
+   "first_held": 0.9337748344370861,
+   "first_robust": 0.5298013245033113,
+   "first_held_of_6": 5.145695364238411,
+   "held_by_perturbation": {
+    "nominal": 0.9337748344370861,
+    "mass x2": 0.5298013245033113,
+    "mass x0.5": 0.8741721854304636,
+    "friction 0.3": 0.9205298013245033,
+    "pose noise 1": 0.9668874172185431,
+    "pose noise 2": 0.9205298013245033
+   },
+   "dynamic_found": 0.9867549668874173,
+   "dynamic_examined_median": 1.0
+  },
+  "box": {
+   "parts": 151,
+   "first_held": 0.9337748344370861,
+   "first_robust": 0.5364238410596026,
+   "first_held_of_6": 5.2052980132450335,
+   "held_by_perturbation": {
+    "nominal": 0.9337748344370861,
+    "mass x2": 0.5364238410596026,
+    "mass x0.5": 0.9006622516556292,
+    "friction 0.3": 0.9337748344370861,
+    "pose noise 1": 0.9735099337748344,
+    "pose noise 2": 0.9271523178807947
+   },
+   "dynamic_found": 0.9867549668874173,
+   "dynamic_examined_median": 1.0
+  },
+  "default": {
+   "parts": 151,
+   "first_held": 0.8874172185430463,
+   "first_robust": 0.6423841059602649,
+   "first_held_of_6": 5.125827814569536,
+   "held_by_perturbation": {
+    "nominal": 0.8874172185430463,
+    "mass x2": 0.6490066225165563,
+    "mass x0.5": 0.8874172185430463,
+    "friction 0.3": 0.8741721854304636,
+    "pose noise 1": 0.9602649006622517,
+    "pose noise 2": 0.8675496688741722
+   },
+   "dynamic_found": 0.9867549668874173,
+   "dynamic_examined_median": 4.0
+  },
+  "learned": {
+   "parts": 151,
+   "first_held": 0.9470198675496688,
+   "first_robust": 0.4900662251655629,
+   "first_held_of_6": 5.105960264900662,
+   "held_by_perturbation": {
+    "nominal": 0.9470198675496688,
+    "mass x2": 0.4900662251655629,
+    "mass x0.5": 0.8741721854304636,
+    "friction 0.3": 0.9271523178807947,
+    "pose noise 1": 0.9602649006622517,
+    "pose noise 2": 0.9072847682119205
+   },
+   "dynamic_found": 0.9867549668874173,
+   "dynamic_examined_median": 1.0
+  },
+  "visual:dinov3": {
+   "parts": 151,
+   "first_held": 0.9072847682119205,
+   "first_robust": 0.5562913907284768,
+   "first_held_of_6": 5.0927152317880795,
+   "held_by_perturbation": {
+    "nominal": 0.9072847682119205,
+    "mass x2": 0.5562913907284768,
+    "mass x0.5": 0.8940397350993378,
+    "friction 0.3": 0.8940397350993378,
+    "pose noise 1": 0.9403973509933775,
+    "pose noise 2": 0.9006622516556292
+   },
+   "dynamic_found": 0.9867549668874173,
+   "dynamic_examined_median": 1.0
+  }
+ },
+ "to_first_held_vs_default": [
+  {
+   "a": "afat",
+   "b": "default",
+   "target": 1,
+   "parts": 149,
+   "ratio": 0.22063615030214181,
+   "ci95": [
+    0.16299628786318893,
+    0.29786282068723946
+   ],
+   "ci90": [
+    0.1719098546666182,
+    0.2835182128397986
+   ],
+   "better": 88,
+   "equal": 51,
+   "worse": 10,
+   "wilcoxon_p": 3.904017262249009e-14,
+   "margin": 1.25,
+   "equivalent": false,
+   "tost_p": 0.9999999999999699,
+   "median_a": 1.0,
+   "median_b": 4.0,
+   "holm_p": 1.1712051786747026e-13
+  },
+  {
+   "a": "box",
+   "b": "default",
+   "target": 1,
+   "parts": 149,
+   "ratio": 0.3784331933453162,
+   "ci95": [
+    0.27633054285534703,
+    0.5124688459615477
+   ],
+   "ci90": [
+    0.29213786170241796,
+    0.4901584202056501
+   ],
+   "better": 71,
+   "equal": 55,
+   "worse": 23,
+   "wilcoxon_p": 3.498835633119899e-08,
+   "margin": 1.25,
+   "equivalent": false,
+   "tost_p": 0.9999974490179112,
+   "median_a": 1.0,
+   "median_b": 4.0,
+   "holm_p": 6.997671266239798e-08
+  },
+  {
+   "a": "learned",
+   "b": "default",
+   "target": 1,
+   "parts": 149,
+   "ratio": 0.20563348721027996,
+   "ci95": [
+    0.15089555195911175,
+    0.2793813812925199
+   ],
+   "ci90": [
+    0.15950705713969962,
+    0.26702037791344035
+   ],
+   "better": 86,
+   "equal": 53,
+   "worse": 10,
+   "wilcoxon_p": 1.3019428521496728e-14,
+   "margin": 1.25,
+   "equivalent": false,
+   "tost_p": 0.9999999999999943,
+   "median_a": 1.0,
+   "median_b": 4.0,
+   "holm_p": 5.207771408598691e-14
+  },
+  {
+   "a": "visual:dinov3",
+   "b": "default",
+   "target": 1,
+   "parts": 149,
+   "ratio": 0.4625762403601053,
+   "ci95": [
+    0.32645337687918363,
+    0.6482007822179411
+   ],
+   "ci90": [
+    0.34796897647032504,
+    0.6103899445960221
+   ],
+   "better": 72,
+   "equal": 39,
+   "worse": 38,
+   "wilcoxon_p": 4.960584495726418e-05,
+   "margin": 1.25,
+   "equivalent": false,
+   "tost_p": 0.9990481785198673,
+   "median_a": 1.0,
+   "median_b": 4.0,
+   "holm_p": 4.960584495726418e-05
+  }
+ ]
+}

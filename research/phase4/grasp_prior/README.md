@@ -1,6 +1,8 @@
 # Prior visual de agarre: DINOv2, DINOv3 y OpenCLIP en el planificador
 
-Estado: **INTEGRADO Y EVALUADO**. Las características de un modelo de visión congelado ordenan la búsqueda
+Estado: **INTEGRADO Y EVALUADO**. Continúa en la [Fase V](../../phase5/README.md): con 200 piezas nuevas, un
+clasificador aprendido de candidatos supera a todas estas vecinas (0,57 frente al tamaño), y DINOv3 no aporta
+dentro del mejor sistema (equivalencia demostrada). Las características de un modelo de visión congelado ordenan la búsqueda
 del planificador nativo de agarres. La evaluación deja fuera una pieza cada vez.
 
 > **Prueba con piezas nuevas ([informe](new_parts/README.md)).** Con un protocolo fijado antes, en 50

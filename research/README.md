@@ -1,5 +1,10 @@
 # AxisForgeBO y agarre robótico · Fase II
 
+> **Fase V (2026-11-26).** Respuesta a la revisión de la Fase IV, con protocolo fijado antes de los datos,
+> 200 piezas nuevas, tres experimentos de generalización, tres pinzas y validación dinámica en MuJoCo:
+> [resultados](phase5/README.md) · [protocolo](phase5/PROTOCOL.md) · [respuesta a la revisión](phase5/RESPONSE.md) ·
+> [esquema del manuscrito](phase5/MANUSCRIPT.md). Lo que sigue describe la Fase II.
+
 **Resultado provisional.** La biblioteca y el simulador quedaron integrados en un merge de dos padres, con una referencia CPU probada. Se implementó un mecanismo de transferencia que actualiza la confianza en cada tarea histórica al observar resultados en la tarea actual. Los bancos sintéticos y los ensayos en MuJoCo proporcionan diagnósticos. La ventaja científica en objetos nuevos con pesos fundacionales preentrenados sigue sin demostrar. La rama de investigación corresponde a AxisForgeBO 0.2.0; el merge de referencia conserva la versión 0.1.0. [Integración](GIT_INTEGRATION.md) · [Auditoría independiente](audit/PHASE_II_INITIAL_REVIEW.md)
 
 El paquete de la fase II pasó **196 pruebas Python** desde una instalación limpia con todos los extras; el simulador integrado pasó **353 pruebas Rust**. El núcleo alcanzó 95,26 % de líneas y 88,66 % de ramas. El nuevo paquete de investigación quedó en 65,15 % y 57,84 %. [Verificación](REPRODUCIBILITY.md)

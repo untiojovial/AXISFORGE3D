@@ -1,5 +1,7 @@
 # Fase IV — estado de la investigación
 
+> La revisión de esta fase se responde en la [Fase V](../phase5/README.md) ([respuesta punto por punto](../phase5/RESPONSE.md)).
+
 **Desarrollo ejecutado. Evaluación confirmatoria cerrada.** La evaluación independiente acepta diagnósticos exploratorios sobre los 22 objetos autorizados. La recuperación de agarres y la superioridad de la transferencia siguen sin demostrarse. Los ocho objetos de test permanecen reservados. Este informe distingue una implementación que funciona, un resultado de simulación y una hipótesis validada.
 
 | Hito | Estado y evidencia disponible |

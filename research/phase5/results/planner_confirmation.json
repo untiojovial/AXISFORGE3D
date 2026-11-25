@@ -1,0 +1,6407 @@
+{
+ "runs": 800,
+ "mismatches": 0,
+ "examples": [],
+ "rows": [
+  {
+   "part": "Android_Lego",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Lego",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Lego",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Lego",
+   "method": "afat",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Star_Wars_Rogue_Squadron_Nintendo_64",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Star_Wars_Rogue_Squadron_Nintendo_64",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Star_Wars_Rogue_Squadron_Nintendo_64",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Star_Wars_Rogue_Squadron_Nintendo_64",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14MOCHA",
+   "method": "default",
+   "simulated": 1254,
+   "planner": 1254,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14MOCHA",
+   "method": "box",
+   "simulated": 1254,
+   "planner": 1254,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14MOCHA",
+   "method": "learned",
+   "simulated": 1254,
+   "planner": 1254,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14MOCHA",
+   "method": "afat",
+   "simulated": 1254,
+   "planner": 1254,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Breyer_Horse_Of_The_Year_2015",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Breyer_Horse_Of_The_Year_2015",
+   "method": "box",
+   "simulated": 57,
+   "planner": 57,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Breyer_Horse_Of_The_Year_2015",
+   "method": "learned",
+   "simulated": 11,
+   "planner": 11,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Breyer_Horse_Of_The_Year_2015",
+   "method": "afat",
+   "simulated": 15,
+   "planner": 15,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_High_Potency_Evening_Repair",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_High_Potency_Evening_Repair",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_High_Potency_Evening_Repair",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_High_Potency_Evening_Repair",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Facial_Conformer",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Facial_Conformer",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Facial_Conformer",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Facial_Conformer",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Mini_Honey_Dipper",
+   "method": "default",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Mini_Honey_Dipper",
+   "method": "box",
+   "simulated": 259,
+   "planner": 259,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Mini_Honey_Dipper",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Mini_Honey_Dipper",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "OXO_Cookie_Spatula",
+   "method": "default",
+   "simulated": 99,
+   "planner": 99,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "OXO_Cookie_Spatula",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "OXO_Cookie_Spatula",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "OXO_Cookie_Spatula",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Simon_Swipe_Game",
+   "method": "default",
+   "simulated": 1092,
+   "planner": 1092,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Simon_Swipe_Game",
+   "method": "box",
+   "simulated": 1092,
+   "planner": 1092,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Simon_Swipe_Game",
+   "method": "learned",
+   "simulated": 1092,
+   "planner": 1092,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Simon_Swipe_Game",
+   "method": "afat",
+   "simulated": 1092,
+   "planner": 1092,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Nintendo_Mario_Action_Figure",
+   "method": "default",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nintendo_Mario_Action_Figure",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nintendo_Mario_Action_Figure",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nintendo_Mario_Action_Figure",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3M_Vinyl_Tape_Green_1_x_36_yd",
+   "method": "default",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3M_Vinyl_Tape_Green_1_x_36_yd",
+   "method": "box",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3M_Vinyl_Tape_Green_1_x_36_yd",
+   "method": "learned",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3M_Vinyl_Tape_Green_1_x_36_yd",
+   "method": "afat",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Firming_Neck_Therapy_Treatment",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Firming_Neck_Therapy_Treatment",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Firming_Neck_Therapy_Treatment",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Firming_Neck_Therapy_Treatment",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SCHOOL_BUS",
+   "method": "default",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SCHOOL_BUS",
+   "method": "box",
+   "simulated": 15,
+   "planner": 15,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SCHOOL_BUS",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SCHOOL_BUS",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Blue",
+   "method": "default",
+   "simulated": 1174,
+   "planner": 1174,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Blue",
+   "method": "box",
+   "simulated": 1174,
+   "planner": 1174,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Blue",
+   "method": "learned",
+   "simulated": 1174,
+   "planner": 1174,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Blue",
+   "method": "afat",
+   "simulated": 1174,
+   "planner": 1174,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Object",
+   "method": "default",
+   "simulated": 13,
+   "planner": 13,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Object",
+   "method": "box",
+   "simulated": 13,
+   "planner": 13,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Object",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Object",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Firming_Moisturizer",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Firming_Moisturizer",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Firming_Moisturizer",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Neuropeptide_Firming_Moisturizer",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Plant_Saucer_Glazed_9",
+   "method": "default",
+   "simulated": 1164,
+   "planner": 1164,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Plant_Saucer_Glazed_9",
+   "method": "box",
+   "simulated": 1164,
+   "planner": 1164,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Plant_Saucer_Glazed_9",
+   "method": "learned",
+   "simulated": 1164,
+   "planner": 1164,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Plant_Saucer_Glazed_9",
+   "method": "afat",
+   "simulated": 1164,
+   "planner": 1164,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Red",
+   "method": "default",
+   "simulated": 1154,
+   "planner": 1154,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Red",
+   "method": "box",
+   "simulated": 1154,
+   "planner": 1154,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Red",
+   "method": "learned",
+   "simulated": 1154,
+   "planner": 1154,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Red",
+   "method": "afat",
+   "simulated": 1154,
+   "planner": 1154,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Borage_GLA240Gamma_Tocopherol",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Borage_GLA240Gamma_Tocopherol",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Borage_GLA240Gamma_Tocopherol",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Borage_GLA240Gamma_Tocopherol",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SPEED_BOAT",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SPEED_BOAT",
+   "method": "box",
+   "simulated": 73,
+   "planner": 73,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SPEED_BOAT",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SPEED_BOAT",
+   "method": "afat",
+   "simulated": 4,
+   "planner": 4,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+   "method": "default",
+   "simulated": 1420,
+   "planner": 1420,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+   "method": "box",
+   "simulated": 1420,
+   "planner": 1420,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+   "method": "learned",
+   "simulated": 1420,
+   "planner": 1420,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+   "method": "afat",
+   "simulated": 1420,
+   "planner": 1420,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Prostate_Optimizer",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Prostate_Optimizer",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Prostate_Optimizer",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Prostate_Optimizer",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Lion_Action_Figure",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Lion_Action_Figure",
+   "method": "box",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Lion_Action_Figure",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Lion_Action_Figure",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "PEEKABOO_ROLLER",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "PEEKABOO_ROLLER",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "PEEKABOO_ROLLER",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "PEEKABOO_ROLLER",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Bifidus_Balance_FOS",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Bifidus_Balance_FOS",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Bifidus_Balance_FOS",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Bifidus_Balance_FOS",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+   "method": "default",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_Happy_Brother",
+   "method": "default",
+   "simulated": 49,
+   "planner": 49,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_Happy_Brother",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_Happy_Brother",
+   "method": "learned",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_Happy_Brother",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Ink_Cartridge_Green_6",
+   "method": "default",
+   "simulated": 83,
+   "planner": 83,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Ink_Cartridge_Green_6",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Ink_Cartridge_Green_6",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Ink_Cartridge_Green_6",
+   "method": "afat",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "QAbsorb_CoQ10_53iUqjWjW3O",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "QAbsorb_CoQ10_53iUqjWjW3O",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "QAbsorb_CoQ10_53iUqjWjW3O",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "QAbsorb_CoQ10_53iUqjWjW3O",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wooden_ABC_123_Blocks_50_pack",
+   "method": "default",
+   "simulated": 19,
+   "planner": 19,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wooden_ABC_123_Blocks_50_pack",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wooden_ABC_123_Blocks_50_pack",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wooden_ABC_123_Blocks_50_pack",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+   "method": "default",
+   "simulated": 85,
+   "planner": 85,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8_Green",
+   "method": "default",
+   "simulated": 61,
+   "planner": 61,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8_Green",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8_Green",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8_Green",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "RESCUE_CREW",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "RESCUE_CREW",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "RESCUE_CREW",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "RESCUE_CREW",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_The_Power_Treatments",
+   "method": "default",
+   "simulated": 91,
+   "planner": 91,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_The_Power_Treatments",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_The_Power_Treatments",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_The_Power_Treatments",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Google_Cardboard_Original_package",
+   "method": "default",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Google_Cardboard_Original_package",
+   "method": "box",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Google_Cardboard_Original_package",
+   "method": "learned",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Google_Cardboard_Original_package",
+   "method": "afat",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+   "method": "default",
+   "simulated": 103,
+   "planner": 103,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+   "method": "box",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_S_Bayala_Unicorn_70432",
+   "method": "default",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_S_Bayala_Unicorn_70432",
+   "method": "box",
+   "simulated": 19,
+   "planner": 19,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_S_Bayala_Unicorn_70432",
+   "method": "learned",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_S_Bayala_Unicorn_70432",
+   "method": "afat",
+   "simulated": 6,
+   "planner": 6,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+   "method": "default",
+   "simulated": 67,
+   "planner": 67,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+   "method": "default",
+   "simulated": 79,
+   "planner": 79,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Pokmon_X_Nintendo_3DS_Game",
+   "method": "default",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Pokmon_X_Nintendo_3DS_Game",
+   "method": "box",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Pokmon_X_Nintendo_3DS_Game",
+   "method": "learned",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Pokmon_X_Nintendo_3DS_Game",
+   "method": "afat",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "default",
+   "simulated": 117,
+   "planner": 117,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Colon_Health_Probiotic_Capsule",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Colon_Health_Probiotic_Capsule",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Colon_Health_Probiotic_Capsule",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Colon_Health_Probiotic_Capsule",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+   "method": "default",
+   "simulated": 43,
+   "planner": 43,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_273XL_Ink_Cartridge_Magenta",
+   "method": "default",
+   "simulated": 141,
+   "planner": 141,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_273XL_Ink_Cartridge_Magenta",
+   "method": "box",
+   "simulated": 15,
+   "planner": 15,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_273XL_Ink_Cartridge_Magenta",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_273XL_Ink_Cartridge_Magenta",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Threshold_Bamboo_Ceramic_Soap_Dish",
+   "method": "default",
+   "simulated": 97,
+   "planner": 97,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Threshold_Bamboo_Ceramic_Soap_Dish",
+   "method": "box",
+   "simulated": 43,
+   "planner": 43,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Threshold_Bamboo_Ceramic_Soap_Dish",
+   "method": "learned",
+   "simulated": 93,
+   "planner": 93,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Threshold_Bamboo_Ceramic_Soap_Dish",
+   "method": "afat",
+   "simulated": 103,
+   "planner": 103,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Hereford_Bull",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Hereford_Bull",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Hereford_Bull",
+   "method": "learned",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Hereford_Bull",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_251_M",
+   "method": "default",
+   "simulated": 83,
+   "planner": 83,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_251_M",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_251_M",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_251_M",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Premium_Creatine_Fuel_Powder",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Premium_Creatine_Fuel_Powder",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Premium_Creatine_Fuel_Powder",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Premium_Creatine_Fuel_Powder",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Chromalife_100_Magenta_8",
+   "method": "default",
+   "simulated": 93,
+   "planner": 93,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Chromalife_100_Magenta_8",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Chromalife_100_Magenta_8",
+   "method": "learned",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Chromalife_100_Magenta_8",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Stripe",
+   "method": "default",
+   "simulated": 1128,
+   "planner": 1128,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Stripe",
+   "method": "box",
+   "simulated": 1128,
+   "planner": 1128,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Stripe",
+   "method": "learned",
+   "simulated": 1128,
+   "planner": 1128,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Stripe",
+   "method": "afat",
+   "simulated": 1128,
+   "planner": 1128,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+   "method": "default",
+   "simulated": 85,
+   "planner": 85,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+   "method": "default",
+   "simulated": 57,
+   "planner": 57,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "HP_Card_Invitation_Kit",
+   "method": "default",
+   "simulated": 79,
+   "planner": 79,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "HP_Card_Invitation_Kit",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "HP_Card_Invitation_Kit",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "HP_Card_Invitation_Kit",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Pet_Dophilus_powder",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Pet_Dophilus_powder",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Pet_Dophilus_powder",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Pet_Dophilus_powder",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+   "method": "default",
+   "simulated": 39,
+   "planner": 39,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+   "method": "learned",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael",
+   "method": "afat",
+   "simulated": 6,
+   "planner": 6,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Downloadable_Loops",
+   "method": "default",
+   "simulated": 79,
+   "planner": 79,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Downloadable_Loops",
+   "method": "box",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Downloadable_Loops",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Downloadable_Loops",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Fujifilm_instax_SHARE_SP1_10_photos",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Fujifilm_instax_SHARE_SP1_10_photos",
+   "method": "box",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Fujifilm_instax_SHARE_SP1_10_photos",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Fujifilm_instax_SHARE_SP1_10_photos",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "YumYum_D3_Liquid",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "YumYum_D3_Liquid",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "YumYum_D3_Liquid",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "YumYum_D3_Liquid",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+   "method": "default",
+   "simulated": 1122,
+   "planner": 1122,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+   "method": "box",
+   "simulated": 1122,
+   "planner": 1122,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+   "method": "learned",
+   "simulated": 1122,
+   "planner": 1122,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+   "method": "afat",
+   "simulated": 1122,
+   "planner": 1122,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14NATURAL",
+   "method": "default",
+   "simulated": 1314,
+   "planner": 1314,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14NATURAL",
+   "method": "box",
+   "simulated": 1314,
+   "planner": 1314,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14NATURAL",
+   "method": "learned",
+   "simulated": 1314,
+   "planner": 1314,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S14NATURAL",
+   "method": "afat",
+   "simulated": 1314,
+   "planner": 1314,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+   "method": "default",
+   "simulated": 1132,
+   "planner": 1132,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+   "method": "box",
+   "simulated": 1132,
+   "planner": 1132,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+   "method": "learned",
+   "simulated": 1132,
+   "planner": 1132,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+   "method": "afat",
+   "simulated": 1132,
+   "planner": 1132,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+   "method": "box",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+   "method": "default",
+   "simulated": 67,
+   "planner": 67,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Caplets_Size_24",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Caplets_Size_24",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Caplets_Size_24",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Caplets_Size_24",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Tag_Dishtowel_18_x_26",
+   "method": "default",
+   "simulated": 1114,
+   "planner": 1114,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_18_x_26",
+   "method": "box",
+   "simulated": 1114,
+   "planner": 1114,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_18_x_26",
+   "method": "learned",
+   "simulated": 1114,
+   "planner": 1114,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_18_x_26",
+   "method": "afat",
+   "simulated": 1114,
+   "planner": 1114,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plate_S20Avocado",
+   "method": "default",
+   "simulated": 1222,
+   "planner": 1222,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plate_S20Avocado",
+   "method": "box",
+   "simulated": 1222,
+   "planner": 1222,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plate_S20Avocado",
+   "method": "learned",
+   "simulated": 1222,
+   "planner": 1222,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plate_S20Avocado",
+   "method": "afat",
+   "simulated": 1222,
+   "planner": 1222,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Android_Figure_Panda",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Figure_Panda",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Figure_Panda",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Figure_Panda",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Shurtape_Tape_Purple_CP28",
+   "method": "default",
+   "simulated": 1144,
+   "planner": 1144,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_Tape_Purple_CP28",
+   "method": "box",
+   "simulated": 1144,
+   "planner": 1144,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_Tape_Purple_CP28",
+   "method": "learned",
+   "simulated": 1144,
+   "planner": 1144,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_Tape_Purple_CP28",
+   "method": "afat",
+   "simulated": 1144,
+   "planner": 1144,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Schleich_Allosaurus",
+   "method": "default",
+   "simulated": 83,
+   "planner": 83,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Allosaurus",
+   "method": "box",
+   "simulated": 11,
+   "planner": 11,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Allosaurus",
+   "method": "learned",
+   "simulated": 10,
+   "planner": 10,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_Allosaurus",
+   "method": "afat",
+   "simulated": 19,
+   "planner": 19,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+   "method": "default",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wilton_Easy_Layers_Cake_Pan_Set",
+   "method": "default",
+   "simulated": 95,
+   "planner": 95,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wilton_Easy_Layers_Cake_Pan_Set",
+   "method": "box",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wilton_Easy_Layers_Cake_Pan_Set",
+   "method": "learned",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Wilton_Easy_Layers_Cake_Pan_Set",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Nitric_Fuel",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Nitric_Fuel",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Nitric_Fuel",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Twinlab_Nitric_Fuel",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+   "method": "default",
+   "simulated": 1410,
+   "planner": 1410,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+   "method": "box",
+   "simulated": 1410,
+   "planner": 1410,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+   "method": "learned",
+   "simulated": 1410,
+   "planner": 1410,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+   "method": "afat",
+   "simulated": 1410,
+   "planner": 1410,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Acid_Music_Studio",
+   "method": "default",
+   "simulated": 81,
+   "planner": 81,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Acid_Music_Studio",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Acid_Music_Studio",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sony_Acid_Music_Studio",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+   "method": "default",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Saucer_Electric",
+   "method": "default",
+   "simulated": 1280,
+   "planner": 1280,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Saucer_Electric",
+   "method": "box",
+   "simulated": 1280,
+   "planner": 1280,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Saucer_Electric",
+   "method": "learned",
+   "simulated": 1280,
+   "planner": 1280,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Saucer_Electric",
+   "method": "afat",
+   "simulated": 1280,
+   "planner": 1280,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Spectrum_Wall_Mount",
+   "method": "default",
+   "simulated": 15,
+   "planner": 15,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Spectrum_Wall_Mount",
+   "method": "box",
+   "simulated": 105,
+   "planner": 105,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Spectrum_Wall_Mount",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Spectrum_Wall_Mount",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "default",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "afat",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CARSII",
+   "method": "default",
+   "simulated": 15,
+   "planner": 15,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CARSII",
+   "method": "box",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CARSII",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CARSII",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+   "method": "default",
+   "simulated": 1080,
+   "planner": 1080,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+   "method": "box",
+   "simulated": 1080,
+   "planner": 1080,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+   "method": "learned",
+   "simulated": 1080,
+   "planner": 1080,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+   "method": "afat",
+   "simulated": 1080,
+   "planner": 1080,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+   "method": "default",
+   "simulated": 1124,
+   "planner": 1124,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+   "method": "box",
+   "simulated": 1124,
+   "planner": 1124,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+   "method": "learned",
+   "simulated": 1124,
+   "planner": 1124,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+   "method": "afat",
+   "simulated": 1124,
+   "planner": 1124,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Perricone_MD_The_Crease_Cure_Duo",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_The_Crease_Cure_Duo",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_The_Crease_Cure_Duo",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_The_Crease_Cure_Duo",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Photo_Plasma",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Photo_Plasma",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Photo_Plasma",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Photo_Plasma",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+   "method": "default",
+   "simulated": 103,
+   "planner": 103,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "GoPro_HERO3_Composite_Cable",
+   "method": "default",
+   "simulated": 235,
+   "planner": 235,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "GoPro_HERO3_Composite_Cable",
+   "method": "box",
+   "simulated": 23,
+   "planner": 23,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "GoPro_HERO3_Composite_Cable",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "GoPro_HERO3_Composite_Cable",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S24NATURAL",
+   "method": "default",
+   "simulated": 1234,
+   "planner": 1234,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S24NATURAL",
+   "method": "box",
+   "simulated": 1234,
+   "planner": 1234,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S24NATURAL",
+   "method": "learned",
+   "simulated": 1234,
+   "planner": 1234,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S24NATURAL",
+   "method": "afat",
+   "simulated": 1234,
+   "planner": 1234,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lutein",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lutein",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lutein",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lutein",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_Cyan_251",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Vitamin_C_Ester_Serum",
+   "method": "default",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Vitamin_C_Ester_Serum",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Vitamin_C_Ester_Serum",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Vitamin_C_Ester_Serum",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "VEGETABLE_GARDEN",
+   "method": "default",
+   "simulated": 33,
+   "planner": 33,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "VEGETABLE_GARDEN",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "VEGETABLE_GARDEN",
+   "method": "learned",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "VEGETABLE_GARDEN",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_Washable_24_crayons",
+   "method": "default",
+   "simulated": 30,
+   "planner": 30,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_Washable_24_crayons",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_Washable_24_crayons",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_Washable_24_crayons",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+   "method": "default",
+   "simulated": 71,
+   "planner": 71,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Gentle_Cleanser",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Kotex_U_Barely_There_Liners_Thin_60_count",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Kotex_U_Barely_There_Liners_Thin_60_count",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Kotex_U_Barely_There_Liners_Thin_60_count",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Kotex_U_Barely_There_Liners_Thin_60_count",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "My_First_Rolling_Lion",
+   "method": "default",
+   "simulated": 45,
+   "planner": 45,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "My_First_Rolling_Lion",
+   "method": "box",
+   "simulated": 65,
+   "planner": 65,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "My_First_Rolling_Lion",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "My_First_Rolling_Lion",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Krill_Oil",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Krill_Oil",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Krill_Oil",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Krill_Oil",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3M_Antislip_Surfacing_Light_Duty_White",
+   "method": "default",
+   "simulated": 1456,
+   "planner": 1456,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3M_Antislip_Surfacing_Light_Duty_White",
+   "method": "box",
+   "simulated": 1456,
+   "planner": 1456,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3M_Antislip_Surfacing_Light_Duty_White",
+   "method": "learned",
+   "simulated": 1456,
+   "planner": 1456,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3M_Antislip_Surfacing_Light_Duty_White",
+   "method": "afat",
+   "simulated": 1456,
+   "planner": 1456,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "default",
+   "simulated": 101,
+   "planner": 101,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_ENGINE",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_ENGINE",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_ENGINE",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_ENGINE",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nikon_1_AW1_w11275mm_Lens_Silver",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nikon_1_AW1_w11275mm_Lens_Silver",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nikon_1_AW1_w11275mm_Lens_Silver",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nikon_1_AW1_w11275mm_Lens_Silver",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lactoferrin",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lactoferrin",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lactoferrin",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Lactoferrin",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+   "method": "box",
+   "simulated": 51,
+   "planner": 51,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+   "method": "learned",
+   "simulated": 13,
+   "planner": 13,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo",
+   "method": "afat",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+   "method": "learned",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_Blue",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+   "method": "default",
+   "simulated": 65,
+   "planner": 65,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+   "method": "box",
+   "simulated": 119,
+   "planner": 119,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SAMe_200_KX7ZmOw47co",
+   "method": "default",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SAMe_200_KX7ZmOw47co",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SAMe_200_KX7ZmOw47co",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "SAMe_200_KX7ZmOw47co",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+   "method": "default",
+   "simulated": 1120,
+   "planner": 1120,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+   "method": "box",
+   "simulated": 1120,
+   "planner": 1120,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+   "method": "learned",
+   "simulated": 1120,
+   "planner": 1120,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+   "method": "afat",
+   "simulated": 1120,
+   "planner": 1120,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S14Turquoise",
+   "method": "default",
+   "simulated": 1272,
+   "planner": 1272,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S14Turquoise",
+   "method": "box",
+   "simulated": 1272,
+   "planner": 1272,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S14Turquoise",
+   "method": "learned",
+   "simulated": 1272,
+   "planner": 1272,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Container_S14Turquoise",
+   "method": "afat",
+   "simulated": 1272,
+   "planner": 1272,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Perricone_MD_Face_Finishing_Moisturizer",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Face_Finishing_Moisturizer",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Face_Finishing_Moisturizer",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Face_Finishing_Moisturizer",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Threshold_Ramekin_White_Porcelain",
+   "method": "default",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Ramekin_White_Porcelain",
+   "method": "box",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Ramekin_White_Porcelain",
+   "method": "learned",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Ramekin_White_Porcelain",
+   "method": "afat",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Dino_4",
+   "method": "default",
+   "simulated": 23,
+   "planner": 23,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dino_4",
+   "method": "box",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dino_4",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dino_4",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_24_count",
+   "method": "default",
+   "simulated": 31,
+   "planner": 31,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_24_count",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_24_count",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Crayons_24_count",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Linen",
+   "method": "default",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Linen",
+   "method": "box",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Linen",
+   "method": "learned",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Linen",
+   "method": "afat",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+   "method": "default",
+   "simulated": 81,
+   "planner": 81,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Nestle_Nips_Hard_Candy_Peanut_Butter",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Shurtape_30_Day_Removal_UV_Delct_15",
+   "method": "default",
+   "simulated": 1412,
+   "planner": 1412,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_30_Day_Removal_UV_Delct_15",
+   "method": "box",
+   "simulated": 1412,
+   "planner": 1412,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_30_Day_Removal_UV_Delct_15",
+   "method": "learned",
+   "simulated": 1412,
+   "planner": 1412,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_30_Day_Removal_UV_Delct_15",
+   "method": "afat",
+   "simulated": 1412,
+   "planner": 1412,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+   "method": "default",
+   "simulated": 4,
+   "planner": 4,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+   "method": "box",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_HP_61Tricolor_Ink_Cartridge",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "HP_1800_Tablet_8GB_7",
+   "method": "default",
+   "simulated": 1364,
+   "planner": 1364,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "HP_1800_Tablet_8GB_7",
+   "method": "box",
+   "simulated": 1364,
+   "planner": 1364,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "HP_1800_Tablet_8GB_7",
+   "method": "learned",
+   "simulated": 1364,
+   "planner": 1364,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "HP_1800_Tablet_8GB_7",
+   "method": "afat",
+   "simulated": 1364,
+   "planner": 1364,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Plate_S11Turquoise",
+   "method": "default",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Plate_S11Turquoise",
+   "method": "box",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Plate_S11Turquoise",
+   "method": "learned",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Plate_S11Turquoise",
+   "method": "afat",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+   "method": "default",
+   "simulated": 1016,
+   "planner": 1016,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+   "method": "box",
+   "simulated": 1016,
+   "planner": 1016,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+   "method": "learned",
+   "simulated": 1016,
+   "planner": 1016,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+   "method": "afat",
+   "simulated": 1016,
+   "planner": 1016,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+   "method": "default",
+   "simulated": 1078,
+   "planner": 1078,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+   "method": "box",
+   "simulated": 1078,
+   "planner": 1078,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+   "method": "learned",
+   "simulated": 1078,
+   "planner": 1078,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+   "method": "afat",
+   "simulated": 1078,
+   "planner": 1078,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Dell_Ink_Cartridge_Yellow_31",
+   "method": "default",
+   "simulated": 105,
+   "planner": 105,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dell_Ink_Cartridge_Yellow_31",
+   "method": "box",
+   "simulated": 195,
+   "planner": 195,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dell_Ink_Cartridge_Yellow_31",
+   "method": "learned",
+   "simulated": 10,
+   "planner": 10,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dell_Ink_Cartridge_Yellow_31",
+   "method": "afat",
+   "simulated": 63,
+   "planner": 63,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Brother_Ink_Cartridge_Magenta_LC75M",
+   "method": "default",
+   "simulated": 121,
+   "planner": 121,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Brother_Ink_Cartridge_Magenta_LC75M",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Brother_Ink_Cartridge_Magenta_LC75M",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Brother_Ink_Cartridge_Magenta_LC75M",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S20MOCHA",
+   "method": "default",
+   "simulated": 1240,
+   "planner": 1240,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S20MOCHA",
+   "method": "box",
+   "simulated": 1240,
+   "planner": 1240,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S20MOCHA",
+   "method": "learned",
+   "simulated": 1240,
+   "planner": 1240,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S20MOCHA",
+   "method": "afat",
+   "simulated": 1240,
+   "planner": 1240,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+   "method": "default",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+   "method": "box",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "default",
+   "simulated": 19,
+   "planner": 19,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Hey_You_Pikachu_Nintendo_64",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Hey_You_Pikachu_Nintendo_64",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Hey_You_Pikachu_Nintendo_64",
+   "method": "learned",
+   "simulated": 4,
+   "planner": 4,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Hey_You_Pikachu_Nintendo_64",
+   "method": "afat",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+   "method": "default",
+   "simulated": 4,
+   "planner": 4,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dell_Ink_Cartridge",
+   "method": "default",
+   "simulated": 71,
+   "planner": 71,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dell_Ink_Cartridge",
+   "method": "box",
+   "simulated": 157,
+   "planner": 157,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dell_Ink_Cartridge",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Dell_Ink_Cartridge",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "REEF_ZENFUN",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "REEF_ZENFUN",
+   "method": "box",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "REEF_ZENFUN",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "REEF_ZENFUN",
+   "method": "afat",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+   "method": "default",
+   "simulated": 1172,
+   "planner": 1172,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+   "method": "box",
+   "simulated": 1172,
+   "planner": 1172,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+   "method": "learned",
+   "simulated": 1172,
+   "planner": 1172,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+   "method": "afat",
+   "simulated": 1172,
+   "planner": 1172,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8",
+   "method": "learned",
+   "simulated": 25,
+   "planner": 25,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Canon_Pixma_Ink_Cartridge_8",
+   "method": "afat",
+   "simulated": 22,
+   "planner": 22,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CoQ10_BjTLbuRVt1t",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CoQ10_BjTLbuRVt1t",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CoQ10_BjTLbuRVt1t",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "CoQ10_BjTLbuRVt1t",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_BlueWhite",
+   "method": "default",
+   "simulated": 1098,
+   "planner": 1098,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_BlueWhite",
+   "method": "box",
+   "simulated": 1098,
+   "planner": 1098,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_BlueWhite",
+   "method": "learned",
+   "simulated": 1098,
+   "planner": 1098,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_BlueWhite",
+   "method": "afat",
+   "simulated": 1098,
+   "planner": 1098,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Now_Designs_Snack_Bags_Bicycle_2_count",
+   "method": "default",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Now_Designs_Snack_Bags_Bicycle_2_count",
+   "method": "box",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Now_Designs_Snack_Bags_Bicycle_2_count",
+   "method": "learned",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Now_Designs_Snack_Bags_Bicycle_2_count",
+   "method": "afat",
+   "simulated": 1246,
+   "planner": 1246,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Multicolors",
+   "method": "default",
+   "simulated": 1064,
+   "planner": 1064,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Multicolors",
+   "method": "box",
+   "simulated": 1064,
+   "planner": 1064,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Multicolors",
+   "method": "learned",
+   "simulated": 1064,
+   "planner": 1064,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Cole_Hardware_Dishtowel_Multicolors",
+   "method": "afat",
+   "simulated": 1064,
+   "planner": 1064,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3D_Dollhouse_Lamp",
+   "method": "default",
+   "simulated": 35,
+   "planner": 35,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_Lamp",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_Lamp",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_Lamp",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+   "method": "default",
+   "simulated": 75,
+   "planner": 75,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+   "method": "box",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+   "method": "learned",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+   "method": "afat",
+   "simulated": 4,
+   "planner": 4,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Pokmon_Y_Nintendo_3DS_Game",
+   "method": "default",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Pokmon_Y_Nintendo_3DS_Game",
+   "method": "box",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Pokmon_Y_Nintendo_3DS_Game",
+   "method": "learned",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Pokmon_Y_Nintendo_3DS_Game",
+   "method": "afat",
+   "simulated": 1416,
+   "planner": 1416,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "WHALE_WHISTLE_6PCS_SET",
+   "method": "default",
+   "simulated": 1332,
+   "planner": 1332,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "WHALE_WHISTLE_6PCS_SET",
+   "method": "box",
+   "simulated": 1332,
+   "planner": 1332,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "WHALE_WHISTLE_6PCS_SET",
+   "method": "learned",
+   "simulated": 1332,
+   "planner": 1332,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "WHALE_WHISTLE_6PCS_SET",
+   "method": "afat",
+   "simulated": 1332,
+   "planner": 1332,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "PhosphOmega",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "PhosphOmega",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "PhosphOmega",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "PhosphOmega",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Tag_Dishtowel_Green",
+   "method": "default",
+   "simulated": 1012,
+   "planner": 1012,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Green",
+   "method": "box",
+   "simulated": 1012,
+   "planner": 1012,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Green",
+   "method": "learned",
+   "simulated": 1012,
+   "planner": 1012,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Tag_Dishtowel_Green",
+   "method": "afat",
+   "simulated": 1012,
+   "planner": 1012,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+   "method": "default",
+   "simulated": 45,
+   "planner": 45,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+   "method": "box",
+   "simulated": 9,
+   "planner": 9,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Olive_Green",
+   "method": "default",
+   "simulated": 1106,
+   "planner": 1106,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Olive_Green",
+   "method": "box",
+   "simulated": 1106,
+   "planner": 1106,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Olive_Green",
+   "method": "learned",
+   "simulated": 1106,
+   "planner": 1106,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Home_Fashions_Washcloth_Olive_Green",
+   "method": "afat",
+   "simulated": 1106,
+   "planner": 1106,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+   "method": "default",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Wireless_Plus_mobile_device_storage",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Womens_Multi_13",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Womens_Multi_13",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Womens_Multi_13",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Womens_Multi_13",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "JarroDophilusFOS_Value_Size",
+   "method": "default",
+   "simulated": 17,
+   "planner": 17,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "JarroDophilusFOS_Value_Size",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "JarroDophilusFOS_Value_Size",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "JarroDophilusFOS_Value_Size",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Figure_Chrome",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Figure_Chrome",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Figure_Chrome",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Android_Figure_Chrome",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S17MOCHA",
+   "method": "default",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S17MOCHA",
+   "method": "box",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S17MOCHA",
+   "method": "learned",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Ecoforms_Plant_Saucer_S17MOCHA",
+   "method": "afat",
+   "simulated": 1282,
+   "planner": 1282,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Thomas_Friends_Woodan_Railway_Henry",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Woodan_Railway_Henry",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Woodan_Railway_Henry",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Thomas_Friends_Woodan_Railway_Henry",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+   "method": "default",
+   "simulated": 1084,
+   "planner": 1084,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+   "method": "box",
+   "simulated": 1084,
+   "planner": 1084,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+   "method": "learned",
+   "simulated": 1084,
+   "planner": 1084,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Chef_Style_Round_Cake_Pan_9_inch_pan",
+   "method": "afat",
+   "simulated": 1084,
+   "planner": 1084,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Beta_Glucan",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Beta_Glucan",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Beta_Glucan",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Beta_Glucan",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Inositol",
+   "method": "default",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Inositol",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Inositol",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Inositol",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+   "method": "default",
+   "simulated": 1356,
+   "planner": 1356,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+   "method": "box",
+   "simulated": 1356,
+   "planner": 1356,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+   "method": "learned",
+   "simulated": 1356,
+   "planner": 1356,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+   "method": "afat",
+   "simulated": 1356,
+   "planner": 1356,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Magnifying_Glassassrt",
+   "method": "default",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Magnifying_Glassassrt",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Magnifying_Glassassrt",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Magnifying_Glassassrt",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Seagate_1TB_Backup_Plus_portable_drive_for_Mac",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+   "method": "default",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+   "method": "box",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+   "method": "learned",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+   "method": "afat",
+   "simulated": 1152,
+   "planner": 1152,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Perricone_MD_No_Bronzer_Bronzer",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_No_Bronzer_Bronzer",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_No_Bronzer_Bronzer",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_No_Bronzer_Bronzer",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sushi_Mat",
+   "method": "default",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Sushi_Mat",
+   "method": "box",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Sushi_Mat",
+   "method": "learned",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Sushi_Mat",
+   "method": "afat",
+   "simulated": 1100,
+   "planner": 1100,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Beetle_Adventure_Racing_Nintendo_64",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Beetle_Adventure_Racing_Nintendo_64",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Beetle_Adventure_Racing_Nintendo_64",
+   "method": "learned",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Beetle_Adventure_Racing_Nintendo_64",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Super_Mario_3D_World_Wii_U_Game",
+   "method": "default",
+   "simulated": 1370,
+   "planner": 1370,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Super_Mario_3D_World_Wii_U_Game",
+   "method": "box",
+   "simulated": 1370,
+   "planner": 1370,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Super_Mario_3D_World_Wii_U_Game",
+   "method": "learned",
+   "simulated": 1370,
+   "planner": 1370,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Super_Mario_3D_World_Wii_U_Game",
+   "method": "afat",
+   "simulated": 1370,
+   "planner": 1370,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+   "method": "default",
+   "simulated": 31,
+   "planner": 31,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+   "method": "box",
+   "simulated": 6,
+   "planner": 6,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+   "method": "default",
+   "simulated": 1150,
+   "planner": 1150,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+   "method": "box",
+   "simulated": 1150,
+   "planner": 1150,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+   "method": "learned",
+   "simulated": 1150,
+   "planner": 1150,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+   "method": "afat",
+   "simulated": 1150,
+   "planner": 1150,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "3D_Dollhouse_TablePurple",
+   "method": "default",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_TablePurple",
+   "method": "box",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_TablePurple",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "3D_Dollhouse_TablePurple",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Kotobuki_Saucer_Dragon_Fly",
+   "method": "default",
+   "simulated": 1256,
+   "planner": 1256,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Kotobuki_Saucer_Dragon_Fly",
+   "method": "box",
+   "simulated": 1256,
+   "planner": 1256,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Kotobuki_Saucer_Dragon_Fly",
+   "method": "learned",
+   "simulated": 1256,
+   "planner": 1256,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Kotobuki_Saucer_Dragon_Fly",
+   "method": "afat",
+   "simulated": 1256,
+   "planner": 1256,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Sleep_Optimizer",
+   "method": "default",
+   "simulated": 107,
+   "planner": 107,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sleep_Optimizer",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sleep_Optimizer",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Sleep_Optimizer",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Blackcurrant_Lutein",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Blackcurrant_Lutein",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Blackcurrant_Lutein",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Blackcurrant_Lutein",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "MK7",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "MK7",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "MK7",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "MK7",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+   "method": "default",
+   "simulated": 97,
+   "planner": 97,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+   "method": "default",
+   "simulated": 2,
+   "planner": 2,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_African_Black_Rhino",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_African_Black_Rhino",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_African_Black_Rhino",
+   "method": "learned",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Schleich_African_Black_Rhino",
+   "method": "afat",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "ROAD_CONSTRUCTION_SET",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "ROAD_CONSTRUCTION_SET",
+   "method": "box",
+   "simulated": 11,
+   "planner": 11,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "ROAD_CONSTRUCTION_SET",
+   "method": "learned",
+   "simulated": 4,
+   "planner": 4,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "ROAD_CONSTRUCTION_SET",
+   "method": "afat",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_No_Mascara_Mascara",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_No_Mascara_Mascara",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_No_Mascara_Mascara",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_No_Mascara_Mascara",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+   "method": "default",
+   "simulated": 1384,
+   "planner": 1384,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+   "method": "box",
+   "simulated": 1384,
+   "planner": 1384,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+   "method": "learned",
+   "simulated": 1384,
+   "planner": 1384,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+   "method": "afat",
+   "simulated": 1384,
+   "planner": 1384,
+   "found": false,
+   "planner_found": false
+  },
+  {
+   "part": "Crayola_Bonus_64_Crayons",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Bonus_64_Crayons",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Bonus_64_Crayons",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Crayola_Bonus_64_Crayons",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_TRUCK",
+   "method": "default",
+   "simulated": 17,
+   "planner": 17,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_TRUCK",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_TRUCK",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FIRE_TRUCK",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+   "method": "default",
+   "simulated": 101,
+   "planner": 101,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Blue_Plasma_Orbital",
+   "method": "default",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Blue_Plasma_Orbital",
+   "method": "box",
+   "simulated": 3,
+   "planner": 3,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Blue_Plasma_Orbital",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Perricone_MD_Blue_Plasma_Orbital",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+   "method": "default",
+   "simulated": 103,
+   "planner": 103,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+   "method": "box",
+   "simulated": 7,
+   "planner": 7,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FemDophilus",
+   "method": "default",
+   "simulated": 5,
+   "planner": 5,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FemDophilus",
+   "method": "box",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FemDophilus",
+   "method": "learned",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  },
+  {
+   "part": "FemDophilus",
+   "method": "afat",
+   "simulated": 1,
+   "planner": 1,
+   "found": true,
+   "planner_found": true
+  }
+ ]
+}

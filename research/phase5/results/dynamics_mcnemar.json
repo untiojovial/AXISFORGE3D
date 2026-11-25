@@ -1,0 +1,42 @@
+{
+ "learned:first_robust": {
+  "method_only": 7,
+  "default_only": 30,
+  "p": 0.00019107642583549023
+ },
+ "learned:first_held": {
+  "method_only": 13,
+  "default_only": 4,
+  "p": 0.049041748046875
+ },
+ "afat:first_robust": {
+  "method_only": 7,
+  "default_only": 24,
+  "p": 0.003326892852783203
+ },
+ "afat:first_held": {
+  "method_only": 14,
+  "default_only": 7,
+  "p": 0.18924713134765625
+ },
+ "box:first_robust": {
+  "method_only": 10,
+  "default_only": 26,
+  "p": 0.011330984183587134
+ },
+ "box:first_held": {
+  "method_only": 11,
+  "default_only": 4,
+  "p": 0.11846923828124999
+ },
+ "visual:dinov3:first_robust": {
+  "method_only": 8,
+  "default_only": 21,
+  "p": 0.0241195447742939
+ },
+ "visual:dinov3:first_held": {
+  "method_only": 12,
+  "default_only": 9,
+  "p": 0.6636238098144531
+ }
+}
