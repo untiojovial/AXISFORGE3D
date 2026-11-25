@@ -1,0 +1,35 @@
+{
+  "code_commit": "1c076c22b2267a7992738419c25675e555ef5d33",
+  "wheel": "axisforge_bo-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "9e657b51dfee5c3d1edea28d3addfef3f2f6001a7d6fe9918d653e3b031f69b5",
+  "environment": "new CPython 3.12.14 x86-64 Linux venv, torch CPU, full optional extras, pip check clean",
+  "python": {
+    "passed": 196,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 2,
+    "wall_seconds_pytest": 38.99
+  },
+  "rust_workspace_at_integrated_source": {
+    "passed": 353,
+    "failed": 0,
+    "ignored": 0
+  },
+  "coverage_by_package": {
+    "axisforge_bo": {
+      "covered_lines": 1948,
+      "num_statements": 2045,
+      "covered_branches": 688,
+      "num_branches": 776
+    },
+    "research_grasping": {
+      "covered_lines": 615,
+      "num_statements": 944,
+      "covered_branches": 155,
+      "num_branches": 268
+    }
+  },
+  "cpu_quota_cores": 4,
+  "memory_limit_bytes": 34359738368,
+  "wasm_sha256": "c514b643af908c11237ece5a4264147d42b7a191fa6a5ca5eea2868ae45ac110"
+}

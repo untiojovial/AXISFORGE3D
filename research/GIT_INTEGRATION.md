@@ -15,3 +15,5 @@ Git fusionó el README raíz automáticamente. Revisamos su diferencia contra ca
 | Datos de la fase I | Evidencia anterior conservada en los árboles originales. La auditoría de la integración contrasta la estructura y los hashes. Los recuentos conservados no equivalen a otra ejecución de 1.290 trayectorias en esta fase. |
 
 La etiqueta local de referencia es `baseline/axisforgebo-0.1.0-integrated`. La versión de referencia identifica una combinación de software trazable en CPU. La auditoría científica global previa continúa abierta. La publicación externa de la rama depende de autorización expresa y de que GitHub confirme el SHA. [Auditoría previa](../docs/axisforge-bo/FINAL_AUDIT.md) · [Revisión independiente de fase II](audit/PHASE_II_INITIAL_REVIEW.md)
+
+Con autorización expresa del propietario, GitHub aceptó la creación de `integration/axisforge-phase2`. Tras el primer push se comprobó que la rama original seguía en `fa9314f2cbd4517bd0969f3e0fb3848e4fdf5e31`. El trabajo está disponible como rama de investigación con ambos padres en su ascendencia. [Rama publicada](https://github.com/untiojovial/Colegio-Rumareda/tree/integration/axisforge-phase2)
