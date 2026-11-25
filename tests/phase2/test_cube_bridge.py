@@ -83,3 +83,23 @@ def test_paired_prefix_and_resumable_policy():
         weights,
     )
     assert weights == [1.0] and x not in [r["u"] for r in prefix]
+
+
+def test_abort_invalidates_run_and_preserves_failed_evaluation(tmp_path, monkeypatch):
+    from research_grasping.experiments import cube
+
+    config = Path(__file__).resolve().parents[2] / "configs/pilot_study/cube.json"
+    target = tmp_path / "run.json"
+    monkeypatch.setattr(cube, "build_inputs", lambda _: {})
+
+    def unavailable(*_):
+        raise ArithmeticError("simulation diagnostic")
+
+    monkeypatch.setattr(cube, "measurement", unavailable)
+    with pytest.raises(ArithmeticError):
+        cube.run(config, target, None)
+    failed = json.loads(target.read_text())["pending_errors"]
+    assert len(failed) == 1 and failed[0]["index"] == 0
+    with pytest.raises(ValueError, match="invalidates"):
+        cube.run(config, target, None)
+    assert json.loads(target.read_text())["pending_errors"] == failed

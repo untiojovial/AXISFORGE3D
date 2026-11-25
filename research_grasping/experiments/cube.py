@@ -193,6 +193,10 @@ def run(config_path, output, binary):
         data = json.loads(output.read_bytes())
         if data["signature"] != signature:
             raise ValueError("checkpoint inputs differ")
+        if data["pending_errors"]:
+            raise ValueError(
+                "recorded simulator error invalidates this pilot; preserve the aborted run"
+            )
     else:
         data = {
             "signature": signature,
