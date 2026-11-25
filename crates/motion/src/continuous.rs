@@ -48,8 +48,14 @@ pub enum SegmentVerdict {
     /// Nothing comes within the margin anywhere along the segment.
     Clear {
         /// A certified lower bound on the smallest distance between any
-        /// checked pair over the whole segment, metres.
+        /// checked pair over the whole segment, metres. Subdivision stops as
+        /// soon as a piece is proven clear of the margin, so this is often
+        /// just above the margin.
         clearance: f64,
+        /// The smallest distance actually measured at a configuration the
+        /// check looked at, metres. The true smallest distance lies between
+        /// the two.
+        closest: f64,
     },
     /// A pair was measured within the margin.
     Contact {
@@ -424,9 +430,11 @@ impl<'a> MotionChecker<'a> {
         let start = pose_at(0.0);
         let end = pose_at(1.0);
         let mut clearance = f64::INFINITY;
+        let mut closest = f64::INFINITY;
         for pair in &self.pairs {
             let d0 = self.pair_distance(pair, &start);
             let d1 = self.pair_distance(pair, &end);
+            closest = closest.min(d0).min(d1);
             // (t0, t1, d0, d1, depth)
             let mut stack = vec![(0.0_f64, 1.0_f64, d0, d1, 0_usize)];
             while let Some((t0, t1, d0, d1, depth)) = stack.pop() {
@@ -455,11 +463,12 @@ impl<'a> MotionChecker<'a> {
                 }
                 let tm = 0.5 * (t0 + t1);
                 let dm = self.pair_distance(pair, &pose_at(tm));
+                closest = closest.min(dm);
                 stack.push((tm, t1, dm, d1, depth + 1));
                 stack.push((t0, tm, d0, dm, depth + 1));
             }
         }
-        Ok(SegmentVerdict::Clear { clearance })
+        Ok(SegmentVerdict::Clear { clearance, closest })
     }
 
     /// Checks a path of straight segments; the first verdict that is not
@@ -469,13 +478,20 @@ impl<'a> MotionChecker<'a> {
     /// When a configuration does not fit the model.
     pub fn check_path(&self, path: &[Vec<f64>]) -> DomainResult<(Option<usize>, SegmentVerdict)> {
         let mut clearance = f64::INFINITY;
+        let mut closest = f64::INFINITY;
         for (index, pair) in path.windows(2).enumerate() {
             match self.check_segment(&pair[0], &pair[1])? {
-                SegmentVerdict::Clear { clearance: c } => clearance = clearance.min(c),
+                SegmentVerdict::Clear {
+                    clearance: c,
+                    closest: d,
+                } => {
+                    clearance = clearance.min(c);
+                    closest = closest.min(d);
+                }
                 other => return Ok((Some(index), other)),
             }
         }
-        Ok((None, SegmentVerdict::Clear { clearance }))
+        Ok((None, SegmentVerdict::Clear { clearance, closest }))
     }
 }
 
@@ -502,9 +518,10 @@ mod tests {
         other[0] = 1.2;
         other[1] = -0.3;
         let verdict = checker.check_segment(&HIGH, &other).unwrap();
-        let SegmentVerdict::Clear { clearance } = verdict else {
+        let SegmentVerdict::Clear { clearance, closest } = verdict else {
             panic!("{verdict:?}");
         };
+        assert!(clearance <= closest);
         // The certified clearance never exceeds what dense sampling measures.
         let sampled = (0..=200)
             .map(|i| {

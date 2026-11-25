@@ -144,6 +144,7 @@ dependencies = [
  "axisforge-geometry",
  "axisforge-grasping",
  "axisforge-kinematics",
+ "axisforge-service",
  "serde",
  "serde_json",
 ]

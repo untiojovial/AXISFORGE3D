@@ -99,6 +99,8 @@ pub struct PathPlan {
     pub tree_nodes: usize,
     /// Certified lower bound on the clearance along the whole path, metres.
     pub clearance: f64,
+    /// Smallest distance measured along it, metres.
+    pub closest: f64,
 }
 
 /// Why no path was returned.
@@ -307,13 +309,14 @@ pub fn plan_path(
         step: options.step,
     };
 
-    if let SegmentVerdict::Clear { clearance } = checker.check_segment(start, goal)? {
+    if let SegmentVerdict::Clear { clearance, closest } = checker.check_segment(start, goal)? {
         return Ok(Ok(PathPlan {
             waypoints: vec![start.to_vec(), goal.to_vec()],
             raw_waypoints: 2,
             iterations: 0,
             tree_nodes: 2,
             clearance,
+            closest,
         }));
     }
 
@@ -368,7 +371,7 @@ pub fn plan_path(
 
     let path = shortcut(checker, path, options, &mut rng)?;
     let (_, verdict) = checker.check_path(&path)?;
-    let SegmentVerdict::Clear { clearance } = verdict else {
+    let SegmentVerdict::Clear { clearance, closest } = verdict else {
         return Err(DomainError::unsupported(format!(
             "internal error: a path built from segments proven clear failed its final check: \
              {verdict:?}"
@@ -380,6 +383,7 @@ pub fn plan_path(
         iterations,
         tree_nodes,
         clearance,
+        closest,
     }))
 }
 

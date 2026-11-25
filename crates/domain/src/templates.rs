@@ -1033,6 +1033,73 @@ pub fn pick_and_place_cell_with(kind: GripperKind) -> DomainResult<Project> {
     Ok(project)
 }
 
+/// Obstacles that can be added to the demo cell, to give motion planning
+/// something to go round.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Obstacles {
+    /// The table and its parts only.
+    #[default]
+    None,
+    /// A wall across the table between the cube and the dowel's side, just
+    /// clear of the arm at its home posture.
+    Wall,
+    /// Two posts standing on the table on the dowel's side, just clear of the
+    /// arm at its home posture.
+    Posts,
+}
+
+/// The demo cell with the chosen gripper and obstacles.
+///
+/// # Errors
+/// Propagates [`pick_and_place_cell_with`] and [`Project::validate`].
+pub fn demo_cell(gripper: GripperKind, obstacles: Obstacles) -> DomainResult<Project> {
+    use crate::environment::WorldBody;
+
+    let mut project = pick_and_place_cell_with(gripper)?;
+    let namespace = "Pick and place cell";
+    let table_top = 0.42;
+    let obstacle = |name: &str, shape: Shape, at: Vec3| {
+        WorldBody::obstacle(
+            stable_id(namespace, "body", name),
+            name,
+            Transform::from_translation(at),
+            GeometryInstance::visual(stable_id(namespace, "geometry", name), name, shape)
+                .with_color(look::ACCENT.0)
+                .with_finish(look::ACCENT.1, look::ACCENT.2)
+                .with_role(GeometryRole::Both),
+        )
+    };
+    match obstacles {
+        Obstacles::None => {}
+        Obstacles::Wall => {
+            let (height, thickness) = (0.15, 0.012);
+            project.environment.bodies.push(obstacle(
+                "wall",
+                Shape::Box {
+                    size: Vec3::new(0.4, thickness, height),
+                },
+                Vec3::new(0.45, 0.075, table_top + height * 0.5),
+            ));
+        }
+        Obstacles::Posts => {
+            let (radius, height) = (0.02, 0.3);
+            for (name, x, y) in [("post a", 0.33, 0.085), ("post b", 0.56, 0.085)] {
+                project.environment.bodies.push(obstacle(
+                    name,
+                    Shape::Cylinder {
+                        radius,
+                        length: height,
+                    },
+                    Vec3::new(x, y, table_top + height * 0.5),
+                ));
+            }
+        }
+    }
+    project.validate()?;
+    Ok(project)
+}
+
 /// A wrist-down pose over a point on the table, as a convenience for demos.
 ///
 /// The returned pose has `+Z` pointing straight down, which is the approach a

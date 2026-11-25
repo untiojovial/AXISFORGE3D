@@ -20,4 +20,5 @@ axisforge-grasping = { workspace = true }
 serde = { workspace = true }
 
 [dev-dependencies]
+axisforge-service = { workspace = true }
 serde_json = { workspace = true }
