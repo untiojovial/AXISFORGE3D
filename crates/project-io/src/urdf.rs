@@ -473,6 +473,7 @@ pub fn import_urdf(
         frames: Vec::new(),
         default_frame: None,
         end_effector_joints: BTreeSet::new(),
+        hand: None,
         resources: reader.meshes.resources,
         warnings: reader.warnings,
     }

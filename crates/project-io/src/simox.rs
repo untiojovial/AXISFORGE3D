@@ -23,12 +23,17 @@
 //!   axis, and a capsule's height is its straight section. Each primitive has
 //!   its own transform; they are not chained.
 //! - `<Endeffector>` actors are the end effector's joints, and its `tcp` and
-//!   `gcp` nodes become tool frames.
+//!   `gcp` nodes become tool frames. The first end effector with actors
+//!   becomes a hand: its actors are the fingers, each node closing at its
+//!   `direction`, and its preshapes carry over (`<Node name value unit>`,
+//!   radians or millimetres unless a unit says otherwise). Its grasp frame is
+//!   the `gcp` (or the `tcp`), approached along its +Z, which is the
+//!   direction `GraspStudio`'s surface-normal approach moves a hand.
 //!
 //! What is not carried over is reported: hemisphere and four-bar joints and
 //! robots split across files are refused; propagated joint values, velocity
-//! and torque limits, sensors, preshapes, grasp sets and inertia matrices are
-//! listed as warnings.
+//! and torque limits, sensors, grasp sets and inertia matrices are listed as
+//! warnings.
 
 use std::collections::{BTreeMap, BTreeSet};
 
@@ -39,7 +44,7 @@ use axisforge_domain::{
 use roxmltree::{Document, Node};
 
 use crate::import::{
-    ImportError, ImportOptions, Imported, MeshSource, MeshStore, RobotAssembly,
+    HandDraft, ImportError, ImportOptions, Imported, MeshSource, MeshStore, RobotAssembly,
     MAX_DESCRIPTION_BYTES,
 };
 
@@ -629,6 +634,108 @@ fn build_joint(
     )?)
 }
 
+/// Joint values per unit of a preshape value for the node `name`: radians
+/// (degrees when the unit says so) for a revolute joint, and for a prismatic
+/// one millimetres (metres when the unit says so) times the length of its
+/// unnormalized translation direction, as the joint itself is imported.
+fn preshape_scale(nodes: &BTreeMap<String, X<'_>>, name: &str, value_node: X<'_>) -> f64 {
+    let joint = nodes.get(name).and_then(|n| child(*n, "joint"));
+    let prismatic = joint
+        .and_then(|j| attr(j, "type"))
+        .is_some_and(|t| t.eq_ignore_ascii_case("prismatic"));
+    if !prismatic {
+        return angle_scale(value_node);
+    }
+    let travel = joint
+        .and_then(|j| child(j, "translationdirection"))
+        .map_or(1.0, |d| {
+            let read = |k| {
+                attr(d, k)
+                    .and_then(|v| v.trim().parse::<f64>().ok())
+                    .unwrap_or(0.0)
+            };
+            Vec3::new(read("x"), read("y"), read("z")).norm()
+        });
+    let millimetres = if units(value_node).iter().any(|u| is_metre(u)) {
+        1000.0
+    } else {
+        1.0
+    };
+    millimetres * travel * 1.0e-3
+}
+
+/// The hand an end effector describes, or `None` when it has no actors.
+fn hand_draft(
+    eef: X<'_>,
+    eef_name: &str,
+    nodes: &BTreeMap<String, X<'_>>,
+    warnings: &mut Vec<String>,
+) -> Result<Option<HandDraft>, ImportError> {
+    let what = format!("end effector `{eef_name}`");
+    let mut actors = Vec::new();
+    for actor in children(eef, "actor") {
+        let name = attr(actor, "name").unwrap_or("finger").to_owned();
+        let mut joints = Vec::new();
+        for node in children(actor, "node") {
+            let Some(joint) = attr(node, "name") else {
+                continue;
+            };
+            let direction = optional_float(node, "direction", &what)?.unwrap_or(1.0);
+            joints.push((joint.to_owned(), direction));
+        }
+        if !joints.is_empty() {
+            actors.push((name, joints));
+        }
+    }
+    if actors.is_empty() {
+        return Ok(None);
+    }
+    let Some(palm) = attr(eef, "base") else {
+        warnings.push(format!(
+            "{what} has no `base` node, so it was not made a hand"
+        ));
+        return Ok(None);
+    };
+    let grasp_frame = if attr(eef, "gcp").is_some() {
+        format!("{eef_name} gcp")
+    } else if attr(eef, "tcp").is_some() {
+        format!("{eef_name} tcp")
+    } else {
+        warnings.push(format!(
+            "{what} has neither a `gcp` nor a `tcp` node, so it was not made a hand"
+        ));
+        return Ok(None);
+    };
+    let mut preshapes = Vec::new();
+    for preshape in children(eef, "preshape") {
+        let name = attr(preshape, "name").unwrap_or("preshape").to_owned();
+        let mut values = Vec::new();
+        for node in children(preshape, "node") {
+            let Some(joint) = attr(node, "name") else {
+                continue;
+            };
+            let Some(value) = optional_float(node, "value", &what)? else {
+                continue;
+            };
+            values.push((joint.to_owned(), value * preshape_scale(nodes, joint, node)));
+        }
+        preshapes.push((name, values));
+    }
+    if children(eef, "actor").any(|a| attr(a, "considercollisions").is_some()) {
+        warnings.push(format!(
+            "{what}: actors' considerCollisions is not imported; every finger link stops on \
+             contact with the part"
+        ));
+    }
+    Ok(Some(HandDraft {
+        name: eef_name.to_owned(),
+        palm_link: palm.to_owned(),
+        grasp_frame,
+        actors,
+        preshapes,
+    }))
+}
+
 /// Imports a Simox robot description.
 ///
 /// `meshes` supplies the files `<File>` elements refer to, by the path
@@ -803,6 +910,7 @@ pub fn import_simox_robot(
     let mut default_frame = None;
     let mut end_effector_joints = BTreeSet::new();
     let eefs: Vec<X<'_>> = children(root, "endeffector").collect();
+    let mut hand = None;
     for eef in &eefs {
         let eef_name = attr(*eef, "name").unwrap_or("end effector");
         for actor in children(*eef, "actor") {
@@ -831,9 +939,12 @@ pub fn import_simox_robot(
                 }
             }
         }
-        if child(*eef, "preshape").is_some() {
+        if hand.is_none() {
+            hand = hand_draft(*eef, eef_name, &nodes, &mut warnings)?;
+        } else if child(*eef, "actor").is_some() {
             warnings.push(format!(
-                "end effector `{eef_name}`: preshapes are not imported"
+                "end effector `{eef_name}` is not the robot's hand; only the first end effector \
+                 with actors becomes one"
             ));
         }
     }
@@ -864,6 +975,7 @@ pub fn import_simox_robot(
         frames,
         default_frame,
         end_effector_joints,
+        hand,
         resources: store.resources,
         warnings,
     }
@@ -1246,8 +1358,71 @@ mod tests {
         assert_eq!(robot.default_tool_frame().unwrap().name, "Hand tcp");
         assert!(robot.tool_frames.iter().any(|f| f.name == "Hand gcp"));
         let joined = imported.warnings.join("\n");
-        assert!(joined.contains("preshapes"), "{joined}");
         assert!(joined.contains("<robotnodeset>"), "{joined}");
+        // The actor makes the end effector a hand, approached along the gcp's Z.
+        let gripper = robot.gripper.as_ref().expect("the end effector is a hand");
+        assert!(gripper.is_hand());
+        assert_eq!(gripper.actors.len(), 1);
+        assert_eq!(gripper.actors[0].joints.len(), 2);
+        assert_eq!(gripper.preshapes[0].name, "open");
+        assert_eq!(
+            robot.tool_frame(&gripper.grasp_frame_id).unwrap().name,
+            "Hand gcp"
+        );
+        assert_eq!(gripper.finger_link_ids.len(), 2);
+        assert!(joined.contains("is a hand of 1 finger"), "{joined}");
+    }
+
+    #[test]
+    fn preshape_values_follow_the_joint_units() {
+        let text = r#"<Robot Type="Gripper" RootNode="Base">
+            <RobotNode name="Base"><Child name="J1"/></RobotNode>
+            <RobotNode name="J1"><Joint type="revolute"><Limits lo="-3" hi="3"/></Joint><Child name="Palm"/></RobotNode>
+            <RobotNode name="Palm"><Child name="Slide"/><Child name="Turn"/><Child name="GCP"/></RobotNode>
+            <RobotNode name="Slide"><Joint type="prismatic"><TranslationDirection x="0" y="2" z="0"/><Limits lo="0" hi="40"/></Joint></RobotNode>
+            <RobotNode name="Turn"><Joint type="revolute"><Limits lo="0" hi="90" unit="degree"/></Joint></RobotNode>
+            <RobotNode name="GCP"><Transform><Translation x="0" y="0" z="80"/></Transform></RobotNode>
+            <Endeffector name="Pinch" base="Palm" tcp="GCP" gcp="GCP">
+              <Preshape name="wide"><Node name="Slide" value="30"/><Node name="Turn" value="45" unit="degree"/></Preshape>
+              <Preshape name="narrow"><Node name="Slide" value="0.005" unit="m"/></Preshape>
+              <Actor name="slider"><Node name="Slide" direction="-1"/></Actor>
+              <Actor name="turner" considerCollisions="Actors"><Node name="Turn" direction="1"/></Actor>
+            </Endeffector></Robot>"#;
+        let imported = robot(text);
+        let robot = &imported.project.robot;
+        let gripper = robot.gripper.as_ref().unwrap();
+        assert_eq!(gripper.actors.len(), 2);
+        let slide = robot.joint_by_name("Slide").unwrap();
+        let turn = robot.joint_by_name("Turn").unwrap();
+        assert_eq!(gripper.closing_direction(&slide.id), Some(-1.0));
+        let wide = gripper.preshape(Some("wide")).unwrap();
+        // 30 mm along a direction of length 2 is 60 mm of travel.
+        assert!((wide.joint_values[&slide.id] - 0.06).abs() < 1e-12);
+        assert!((wide.joint_values[&turn.id] - std::f64::consts::FRAC_PI_4).abs() < 1e-12);
+        let narrow = gripper.preshape(Some("narrow")).unwrap();
+        assert!((narrow.joint_values[&slide.id] - 0.01).abs() < 1e-12);
+        let joined = imported.warnings.join("\n");
+        assert!(joined.contains("considerCollisions"), "{joined}");
+    }
+
+    #[test]
+    fn an_end_effector_that_cannot_be_a_hand_is_reported_not_fatal() {
+        // The actor names a fixed node: the import keeps the robot and says why
+        // there is no hand.
+        let text = r#"<Robot Type="Gripper" RootNode="Base">
+            <RobotNode name="Base"><Child name="J1"/></RobotNode>
+            <RobotNode name="J1"><Joint type="revolute"><Limits lo="-3" hi="3"/></Joint><Child name="Palm"/></RobotNode>
+            <RobotNode name="Palm"><Child name="Finger"/></RobotNode>
+            <RobotNode name="Finger"><Joint type="revolute"><Limits lo="0" hi="1"/></Joint><Child name="Tip"/></RobotNode>
+            <RobotNode name="Tip"/>
+            <Endeffector name="Hand" base="Palm" tcp="Palm">
+              <Actor name="a"><Node name="Finger"/><Node name="Tip"/></Actor>
+            </Endeffector></Robot>"#;
+        let imported = robot(text);
+        assert!(imported.project.robot.gripper.is_none());
+        let joined = imported.warnings.join("\n");
+        assert!(joined.contains("was not made a hand"), "{joined}");
+        assert!(joined.contains("Tip"), "{joined}");
     }
 
     #[test]

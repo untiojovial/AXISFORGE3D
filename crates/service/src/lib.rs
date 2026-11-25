@@ -78,7 +78,11 @@ impl From<serde_json::Error> for ServiceError {
 #[serde(tag = "op", rename_all = "snake_case", rename_all_fields = "camelCase")]
 pub enum Request {
     /// Replace the project with the pick-and-place demo cell.
-    LoadDemo,
+    LoadDemo {
+        /// The gripper on the arm: parallel jaws unless asked otherwise.
+        #[serde(default)]
+        gripper: templates::GripperKind,
+    },
     /// Replace the project with one parsed from project-file text.
     LoadProject {
         /// The file's contents.
@@ -131,10 +135,13 @@ pub enum Request {
         /// Joints that drive an end effector, beyond any the file declares.
         #[serde(default)]
         end_effector_joints: Vec<String>,
-        /// Mount AXISFORGE's parallel gripper on this tool frame; the robot's
+        /// Mount one of AXISFORGE's grippers on this tool frame; the robot's
         /// default tool frame when the name is empty.
         #[serde(default)]
         attach_gripper: Option<String>,
+        /// Which gripper to mount: parallel jaws unless asked otherwise.
+        #[serde(default)]
+        gripper_kind: templates::GripperKind,
         /// Place the robot in the demo cell, with its table and parts.
         #[serde(default)]
         into_demo_cell: bool,
@@ -271,6 +278,11 @@ pub struct Description {
     pub gripper: Option<String>,
     /// Greatest jaw opening, metres, if a gripper is fitted.
     pub gripper_max_opening: Option<f64>,
+    /// Fingers that close until they touch, for a hand; zero for a
+    /// parallel-jaw gripper or none.
+    pub gripper_fingers: usize,
+    /// The hand's preshapes, the default first; empty for jaws.
+    pub preshapes: Vec<String>,
     /// Ground height, metres.
     pub ground_height: f64,
     /// Names of links that move but have no collision geometry, usually
@@ -417,6 +429,54 @@ fn lowest_point(
     }
 }
 
+/// Mounts one of AXISFORGE's grippers on `mount`, saying so in `warnings`.
+fn mount_gripper(
+    robot: &mut axisforge_domain::RobotSystem,
+    mount: &axisforge_domain::ToolFrame,
+    kind: templates::GripperKind,
+    warnings: &mut Vec<String>,
+) -> Result<(), ServiceError> {
+    match kind {
+        templates::GripperKind::Parallel => {
+            templates::attach_parallel_gripper(
+                robot,
+                &mount.id,
+                &templates::GripperSpec::default(),
+            )?;
+            warnings.push(format!(
+                "AXISFORGE's parallel gripper was mounted on `{}`; its jaws close along that \
+                 frame's Y and it approaches along its Z",
+                mount.name
+            ));
+        }
+        templates::GripperKind::ThreeFinger => {
+            templates::attach_three_finger_gripper(
+                robot,
+                &mount.id,
+                &templates::HandSpec::three_finger_gripper(),
+            )?;
+            warnings.push(format!(
+                "AXISFORGE's three-finger gripper was mounted on `{}`; it approaches along \
+                 that frame's Z",
+                mount.name
+            ));
+        }
+        templates::GripperKind::Hand => {
+            templates::attach_three_finger_hand(
+                robot,
+                &mount.id,
+                &templates::HandSpec::three_finger_hand(),
+            )?;
+            warnings.push(format!(
+                "AXISFORGE's three-finger hand was mounted on `{}`; it approaches along that \
+                 frame's Z",
+                mount.name
+            ));
+        }
+    }
+    Ok(())
+}
+
 /// Mounts AXISFORGE's parallel gripper and places the robot in the demo cell,
 /// as requested, so an imported robot can plan picks.
 ///
@@ -429,11 +489,11 @@ fn lowest_point(
 /// result does not validate.
 pub fn prepare_import(
     mut project: Project,
-    attach_gripper: Option<&str>,
+    attach_gripper: Option<(&str, templates::GripperKind)>,
     into_demo_cell: bool,
     warnings: &mut Vec<String>,
 ) -> Result<Project, ServiceError> {
-    if let Some(frame) = attach_gripper {
+    if let Some((frame, kind)) = attach_gripper {
         if project.robot.gripper.is_some() {
             return Err(DomainError::unsupported("the robot already has a gripper").into());
         }
@@ -459,15 +519,8 @@ pub fn prepare_import(
                     .join(", ")
             ))
         })?;
-        templates::attach_parallel_gripper(
-            &mut project.robot,
-            &mount.id,
-            &templates::GripperSpec::default(),
-        )?;
-        warnings.push(format!(
-            "AXISFORGE's parallel gripper was mounted on `{}`; its jaws close along that frame's Y and it approaches along its Z",
-            mount.name
-        ));
+        mount_gripper(&mut project.robot, &mount, kind, warnings)?;
+        templates::register_gripper_exemptions(&mut project.environment, &project.robot);
     }
     if into_demo_cell {
         let cell = templates::pick_and_place_cell()?;
@@ -547,6 +600,37 @@ fn links_fixed_to_root(robot: &axisforge_domain::RobotSystem) -> Vec<String> {
     found
 }
 
+/// The demo arm's home posture: elbow up, the gripper pointing down above
+/// the table and clear of everything, with a hand in its default preshape.
+/// `None` for a robot that is not a six-axis arm.
+pub fn demo_home(project: &Project, model: &KinematicModel) -> Option<Vec<f64>> {
+    const ARM: [f64; 6] = [0.0, 0.3, 1.0, 0.0, 1.84, 0.0];
+    let arm = model.manipulator_value_indices();
+    if arm.len() != ARM.len() {
+        return None;
+    }
+    let mut values = model.clamped(&vec![0.0; model.dof()]);
+    for (slot, value) in arm.iter().zip(ARM) {
+        values[*slot] = value;
+    }
+    if let Some(preshape) = project
+        .robot
+        .gripper
+        .as_ref()
+        .and_then(|g| g.preshape(None))
+    {
+        for (joint_id, value) in &preshape.joint_values {
+            if let Some(slot) = model
+                .joint_index(joint_id)
+                .and_then(|j| model.joints()[j].value_index)
+            {
+                values[slot] = *value;
+            }
+        }
+    }
+    Some(values)
+}
+
 /// A project, a robot configuration, and the engine wired around them.
 #[derive(Debug, Clone)]
 pub struct Session {
@@ -563,10 +647,17 @@ impl Session {
     /// # Errors
     /// Never in practice; the template is validated by the test suite.
     pub fn demo() -> Result<Self, ServiceError> {
-        let mut session = Self::with_project(templates::pick_and_place_cell()?)?;
-        let home = [0.0, 0.3, 1.0, 0.0, 1.84, 0.0, 0.0, 0.0];
-        if session.values.len() == home.len() {
-            session.values = home.to_vec();
+        Self::demo_with(templates::GripperKind::Parallel)
+    }
+
+    /// The demo cell with the chosen gripper, at the same home posture.
+    ///
+    /// # Errors
+    /// Never in practice; the templates are validated by the test suite.
+    pub fn demo_with(gripper: templates::GripperKind) -> Result<Self, ServiceError> {
+        let mut session = Self::with_project(templates::pick_and_place_cell_with(gripper)?)?;
+        if let Some(home) = demo_home(&session.project, &session.model) {
+            session.values = home;
         }
         Ok(session)
     }
@@ -642,8 +733,8 @@ impl Session {
         cancel: &CancellationToken,
     ) -> Result<Response, ServiceError> {
         match request {
-            Request::LoadDemo => {
-                self.replace(Self::demo()?);
+            Request::LoadDemo { gripper } => {
+                self.replace(Self::demo_with(gripper)?);
                 Ok(Response::Description(self.describe()))
             }
             Request::LoadProject { text } => {
@@ -701,13 +792,14 @@ impl Session {
                 files,
                 end_effector_joints,
                 attach_gripper,
+                gripper_kind,
                 into_demo_cell,
             } => self.import_robot(
                 &format,
                 &text,
                 &files,
                 end_effector_joints,
-                attach_gripper.as_deref(),
+                attach_gripper.as_deref().map(|frame| (frame, gripper_kind)),
                 into_demo_cell,
             ),
             Request::AddObject {
@@ -774,7 +866,7 @@ impl Session {
         text: &str,
         files: &BTreeMap<String, String>,
         end_effector_joints: Vec<String>,
-        attach_gripper: Option<&str>,
+        attach_gripper: Option<(&str, templates::GripperKind)>,
         into_demo_cell: bool,
     ) -> Result<Response, ServiceError> {
         let source = decode_files(files)?;
@@ -957,6 +1049,10 @@ impl Session {
             bodies,
             gripper: gripper.map(|g| g.name.clone()),
             gripper_max_opening: gripper.map(|g| g.max_opening),
+            gripper_fingers: gripper.map_or(0, |g| g.actors.len()),
+            preshapes: gripper
+                .map(|g| g.preshapes.iter().map(|p| p.name.clone()).collect())
+                .unwrap_or_default(),
             ground_height: self.project.environment.ground_height,
             links_without_collision: links_without_collision(&self.project.robot),
             safety_notice: SAFETY_NOTICE.to_owned(),
@@ -1684,5 +1780,55 @@ mod tests {
         );
         assert_eq!(reply["kind"], "ik");
         assert_eq!(reply["data"]["converged"], true, "{reply}");
+    }
+
+    #[test]
+    fn a_demo_with_a_hand_describes_it_and_plans_with_it() {
+        let mut session = Session::demo().unwrap();
+        let reply = call(&mut session, r#"{"op":"load_demo","gripper":"hand"}"#);
+        assert_eq!(reply["ok"], true, "{reply}");
+        assert_eq!(reply["data"]["gripperFingers"], 3);
+        assert_eq!(reply["data"]["preshapes"][0], "open");
+        assert_eq!(reply["data"]["joints"].as_array().unwrap().len(), 12);
+        // Home: the arm as in the jaw demo, the hand in its open preshape,
+        // and nothing touching.
+        let state = call(&mut session, r#"{"op":"snapshot"}"#);
+        assert_eq!(state["ok"], true, "{state}");
+        assert_eq!(
+            state["data"]["collision"]["contacts"],
+            serde_json::json!([]),
+            "{}",
+            state["data"]["collision"]
+        );
+        let dowel = reply["data"]["bodies"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|b| b["name"] == "dowel")
+            .unwrap()["id"]
+            .as_str()
+            .unwrap()
+            .to_owned();
+        let plan = call(
+            &mut session,
+            &format!(
+                r#"{{"op":"plan_pick","bodyId":"{dowel}","options":{{"surfaceSamples":16,"angularSamples":4,"nrGrasps":1,"preshape":"open"}}}}"#
+            ),
+        );
+        assert_eq!(plan["ok"], true, "{plan}");
+        assert_eq!(plan["data"]["candidateGenerator"], "hand_surface_normal");
+        let best = &plan["data"]["plans"][0];
+        assert_eq!(best["candidate"]["hand"]["preshape"], "open", "{plan}");
+        assert!(
+            best["candidate"]["hand"]["fingersInContact"]
+                .as_u64()
+                .unwrap()
+                >= 2
+        );
+
+        // The jaw demo is still the default.
+        let reply = call(&mut session, r#"{"op":"load_demo"}"#);
+        assert_eq!(reply["data"]["gripperFingers"], 0);
+        assert_eq!(reply["data"]["preshapes"], serde_json::json!([]));
     }
 }

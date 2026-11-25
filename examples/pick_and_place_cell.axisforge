@@ -1786,8 +1786,8 @@
             "z": 0.0
           },
           "limits": {
-            "lower": -2.0,
-            "upper": 2.0
+            "lower": -2.2,
+            "upper": 2.2
           },
           "maxVelocity": 3.141592653589793,
           "maxAcceleration": 6.283185307179586,

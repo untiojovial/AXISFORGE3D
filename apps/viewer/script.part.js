@@ -437,9 +437,16 @@ function draw() {
     triad.position.set(t.x, t.y, t.z);
     triad.quaternion.set(q.x, q.y, q.z, q.w);
   }
-  const jaws = info.joints.map((j, i) => (j.role === "end_effector" ? values[i] : null)).filter((v) => v !== null);
-  $("opening").innerHTML = jaws.length ? fmt(jaws.reduce((a, b) => a + b, 0) * 1000) + ' <span class="gauge__unit">mm</span>' : "—";
-  $("opening-note").textContent = carry ? "sujetando la pieza" : "entre mordazas";
+  if (info.gripperFingers > 0) {
+    // A hand has no single opening: say how many fingers hold the part.
+    const touching = plan && plan.candidate.hand && (carry || grasping) ? plan.candidate.hand.fingersInContact : 0;
+    $("opening").innerHTML = touching ? touching + ' <span class="gauge__unit">dedos</span>' : info.gripperFingers + ' <span class="gauge__unit">dedos</span>';
+    $("opening-note").textContent = touching ? (carry ? "sujetando la pieza" : "dedos en contacto") : "mano abierta";
+  } else {
+    const jaws = info.joints.map((j, i) => (j.role === "end_effector" ? values[i] : null)).filter((v) => v !== null);
+    $("opening").innerHTML = jaws.length ? fmt(jaws.reduce((a, b) => a + b, 0) * 1000) + ' <span class="gauge__unit">mm</span>' : "—";
+    $("opening-note").textContent = carry ? "sujetando la pieza" : "entre mordazas";
+  }
 
   const cond = s.conditioning;
   if (cond) {
@@ -477,7 +484,9 @@ function buildAxes() {
   host.textContent = "";
   const extra = info.joints.length - info.axisCount;
   $("dof-note").textContent = info.robotName + " · " + info.axisCount + " ejes" + (extra ? " + " + extra + " de pinza" : "");
-  $("gripper-note").textContent = info.gripper ? "pinza · " + fmt(info.gripperMaxOpening * 1000, 0) + " mm" : "sin pinza";
+  $("gripper-note").textContent = !info.gripper ? "sin pinza" :
+    info.gripperFingers > 0 ? "mano · " + info.gripperFingers + " dedos" : "pinza · " + fmt(info.gripperMaxOpening * 1000, 0) + " mm";
+  fillPreshapes();
   let separated = false;
   info.joints.forEach((j, i) => {
     if (j.role === "end_effector" && !separated) {
@@ -592,6 +601,21 @@ function fillExtensions() {
   $("ext-note").textContent = reply.data.length + " registradas";
 }
 
+/* A hand approaches in a preshape and closes its fingers until they touch;
+   it has its own grasp generator, so the generator choice does not apply. */
+function fillPreshapes() {
+  const select = $("o-preshape"), hand = info.gripperFingers > 0;
+  select.textContent = "";
+  (info.preshapes || []).forEach((name, i) => {
+    const option = document.createElement("option");
+    option.value = name; option.textContent = name + (i === 0 ? " (por defecto)" : "");
+    select.appendChild(option);
+  });
+  $("o-preshape-field").hidden = !hand || !(info.preshapes || []).length;
+  $("o-generator").disabled = hand;
+  if (hand) $("o-generator").value = "auto";
+}
+
 function plannerOptions() {
   const number = (id) => Number($(id).value);
   const optional = (id) => ($(id).value.trim() === "" ? null : Number($(id).value));
@@ -613,6 +637,7 @@ function plannerOptions() {
   };
   const limit = optional("o-max");
   if (limit !== null) options.maxCandidates = Math.round(limit);
+  if (info.gripperFingers > 0 && $("o-preshape").value) options.preshape = $("o-preshape").value;
   return options;
 }
 
@@ -626,7 +651,11 @@ function noteParams() {
 function describePlan(p) {
   const a = p.candidate.approach;
   const way = a.z < -0.7 ? "Desde arriba" : a.z > 0.7 ? "Desde abajo" : "Lateral";
-  return way + (p.candidate.label.includes("shallow") ? ", agarre poco profundo" : "");
+  const label = p.candidate.label;
+  if (p.candidate.hand) {
+    return way + (label.includes(" deep ") ? ", mano hasta el fondo" : "") + (label.includes("tilted") ? ", inclinada" : "") + (label.includes("centred") ? ", centrada" : "");
+  }
+  return way + (label.includes("shallow") ? ", agarre poco profundo" : "");
 }
 
 function runPlan() {
@@ -666,7 +695,7 @@ function runPlan() {
       "<span>ε <b>" + fmt(p.quality.quality, 4) + "</b></span>" +
       '<span class="pill ' + (p.quality.forceClosure ? "pill--ok" : "pill--warn") + '">' + (p.quality.forceClosure ? "cierre de fuerza" : "sin cierre") + "</span>" +
       "<span>contactos <b>" + p.quality.contactCount + "</b></span>" +
-      "<span>ancho <b>" + fmt(p.candidate.width * 1000) + " mm</b></span>" +
+      (p.candidate.hand ? "<span>dedos <b>" + p.candidate.hand.fingersInContact + "</b></span>" : "<span>ancho <b>" + fmt(p.candidate.width * 1000) + " mm</b></span>") +
       "<span>fuerza <b>" + fmt(p.quality.requiredGripForce, 1) + " N</b></span>" +
       "<span>holgura mín <b>" + fmt(p.minClearance * 1000) + " mm</b></span>" +
       "<span>puntuación <b>" + fmt(p.quality.score, 3) + "</b></span></span>" +
@@ -819,6 +848,7 @@ function importRobot(format, text, files, ready) {
     op: "import_robot", format, text, files,
     endEffectorJoints: eef,
     attachGripper: $("imp-gripper").checked ? "" : null,
+    gripperKind: $("imp-kind").value,
     intoDemoCell: $("imp-cell").checked,
   });
   if (!reply.ok) { showImport("alert", "No se pudo importar", reply.error, []); return; }
@@ -899,17 +929,19 @@ function wire() {
   $("btn-plan").addEventListener("click", runPlan);
   $("btn-import").addEventListener("click", importFiles);
   $("btn-sample").addEventListener("click", () => {
-    $("imp-gripper").checked = true; $("imp-cell").checked = true; $("imp-eef").value = "";
+    $("imp-gripper").checked = true; $("imp-kind").value = "parallel"; $("imp-cell").checked = true; $("imp-eef").value = "";
     importRobot("urdf", SAMPLES.ur5.urdf, SAMPLES.ur5.files, UR5_READY);
   });
   $("btn-apply").addEventListener("click", () => { if (applyBody()) { clearPlan(); fillBodyFields(); draw(); } });
-  $("btn-reset").addEventListener("click", () => {
-    const reply = engine({ op: "load_demo" });
+  const loadCell = () => {
+    const reply = engine({ op: "load_demo", gripper: $("cell-gripper").value });
     if (!reply.ok) return;
     $("edit-error").hidden = true;
     $("import-result").hidden = true;
     adoptRobot(reply.data, null);
-  });
+  };
+  $("btn-reset").addEventListener("click", loadCell);
+  $("cell-gripper").addEventListener("change", loadCell);
   $("btn-home").addEventListener("click", () => { stopPlayback(); values = home.slice(); carry = null; grasping = null; setPhaseLabel(plan ? PHASES[0] : "sin plan"); draw(); });
   $("btn-play").addEventListener("click", play);
   $("btn-defaults").addEventListener("click", () => {

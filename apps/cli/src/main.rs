@@ -13,7 +13,7 @@ use axisforge_project_io::import::{ImportOptions, Imported};
 use axisforge_project_io::simox::{import_simox_object, import_simox_robot};
 use axisforge_project_io::urdf::import_urdf;
 use axisforge_service::{prepare_import, Request, Response, Session};
-use clap::{Args, Parser, Subcommand};
+use clap::{Args, Parser, Subcommand, ValueEnum};
 
 #[derive(Parser)]
 #[command(
@@ -29,10 +29,13 @@ struct Cli {
 /// What to add around an imported robot so it can plan picks right away.
 #[derive(Args)]
 struct Placement {
-    /// Mount AXISFORGE's parallel gripper on this tool frame; `default` picks
+    /// Mount one of AXISFORGE's grippers on this tool frame; `default` picks
     /// the robot's default tool frame.
     #[arg(long, value_name = "FRAME")]
     gripper: Option<String>,
+    /// Which gripper `--gripper` mounts.
+    #[arg(long, value_enum, default_value = "parallel")]
+    gripper_kind: DemoGripper,
     /// Put the robot in the demo pick-and-place cell: a table, a cube and a
     /// dowel.
     #[arg(long)]
@@ -44,10 +47,11 @@ impl Placement {
         if self.gripper.is_none() && !self.demo_cell {
             return Ok(());
         }
+        let kind = self.gripper_kind.into();
         let frame = self
             .gripper
             .as_deref()
-            .map(|f| if f == "default" { "" } else { f });
+            .map(|f| (if f == "default" { "" } else { f }, kind));
         imported.project = prepare_import(
             imported.project.clone(),
             frame,
@@ -55,6 +59,27 @@ impl Placement {
             &mut imported.warnings,
         )?;
         Ok(())
+    }
+}
+
+/// The grippers the demo cell can be built with.
+#[derive(Debug, Clone, Copy, ValueEnum)]
+enum DemoGripper {
+    /// Two parallel jaws.
+    Parallel,
+    /// A centric gripper with three radial jaws.
+    ThreeFinger,
+    /// A hand of three two-phalanx fingers.
+    Hand,
+}
+
+impl From<DemoGripper> for templates::GripperKind {
+    fn from(value: DemoGripper) -> Self {
+        match value {
+            DemoGripper::Parallel => Self::Parallel,
+            DemoGripper::ThreeFinger => Self::ThreeFinger,
+            DemoGripper::Hand => Self::Hand,
+        }
     }
 }
 
@@ -68,6 +93,9 @@ enum Command {
         /// Leave the table empty: no cube, no dowel.
         #[arg(long)]
         no_parts: bool,
+        /// The gripper on the arm.
+        #[arg(long, value_enum, default_value = "parallel")]
+        gripper: DemoGripper,
     },
     /// Check that a project file is well-formed and coherent.
     Validate {
@@ -233,25 +261,28 @@ fn session_for(file: &std::path::Path) -> Result<Session> {
     let project =
         axisforge_project_io::load(file).with_context(|| format!("loading {}", file.display()))?;
     let is_demo = project.name == "Pick and place cell";
+    let mut session = Session::with_project(project)?;
     // The demo cell has a known clear home posture; any other project starts at zero.
     if is_demo {
-        let mut session = Session::demo()?;
-        let text = axisforge_project_io::to_json(&project)?;
-        let values = session.values().to_vec();
-        session.handle(Request::LoadProject { text }, &Default::default())?;
-        session.handle(Request::SetJoints { values }, &Default::default())?;
-        return Ok(session);
+        let model = KinematicModel::from_robot(&session.project().robot)?;
+        if let Some(values) = axisforge_service::demo_home(session.project(), &model) {
+            session.handle(Request::SetJoints { values }, &Default::default())?;
+        }
     }
-    Ok(Session::with_project(project)?)
+    Ok(session)
 }
 
 fn run(cli: Cli) -> Result<()> {
     match cli.command {
-        Command::Demo { out, no_parts } => {
+        Command::Demo {
+            out,
+            no_parts,
+            gripper,
+        } => {
             if let Some(parent) = out.parent().filter(|p| !p.as_os_str().is_empty()) {
                 std::fs::create_dir_all(parent)?;
             }
-            let mut cell = templates::pick_and_place_cell()?;
+            let mut cell = templates::pick_and_place_cell_with(gripper.into())?;
             if no_parts {
                 cell.environment.bodies.retain(|b| !b.is_graspable());
                 let kept: std::collections::BTreeSet<String> = cell
@@ -491,11 +522,18 @@ fn run(cli: Cli) -> Result<()> {
                 report.candidates_total
             );
             for plan in &report.plans {
+                let hold = match &plan.candidate.hand {
+                    Some(hand) => format!(
+                        "{} fingers, {} contacts",
+                        hand.fingers_in_contact,
+                        plan.candidate.contacts.len()
+                    ),
+                    None => format!("width {:.1} mm", plan.candidate.width * 1e3),
+                };
                 println!(
-                    "  plan   {:<44} score {:.3}  width {:.1} mm  grip {:.1} N  clearance {:.1} mm",
+                    "  plan   {:<44} score {:.3}  {hold}  grip {:.1} N  clearance {:.1} mm",
                     plan.candidate.label,
                     plan.quality.score,
-                    plan.candidate.width * 1e3,
                     plan.quality.required_grip_force.unwrap_or(f64::NAN),
                     plan.min_clearance * 1e3
                 );

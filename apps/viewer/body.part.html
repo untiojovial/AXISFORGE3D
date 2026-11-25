@@ -3,7 +3,7 @@
   <header class="masthead">
     <div>
       <h1 class="wordmark">AXISFORGE <span>Grasp</span></h1>
-      <p class="strapline">Planificaci&oacute;n de agarres para pinzas paralelas sobre brazos de hasta seis ejes. El motor busca agarres que la pinza pueda sujetar, el brazo alcanzar y ejecutar sin colisiones, mide su calidad en el espacio de llaves y explica por qu&eacute; descarta los dem&aacute;s.</p>
+      <p class="strapline">Planificaci&oacute;n de agarres para pinzas paralelas, pinzas de tres dedos y manos sobre brazos de hasta seis ejes. El motor busca agarres que la pinza pueda sujetar, el brazo alcanzar y ejecutar sin colisiones, mide su calidad en el espacio de llaves y explica por qu&eacute; descarta los dem&aacute;s.</p>
     </div>
     <div class="provenance"><span class="pulse" aria-hidden="true"></span><span>motor <b id="engine-state">cargando&hellip;</b></span></div>
   </header>
@@ -16,7 +16,8 @@
           <div class="field field--wide"><label for="import-files">Archivos</label><input id="import-files" type="file" multiple accept=".urdf,.xml,.stl,.obj,.dae"></div>
           <p class="hint">Selecciona la descripci&oacute;n (.urdf, o .xml de Simox con &lt;Robot&gt; o &lt;ManipulationObject&gt;) junto con sus mallas STL, OBJ o COLLADA (.dae); las mallas se buscan por nombre de archivo. Una sola malla sin descripci&oacute;n se a&ntilde;ade como pieza a coger. Las mallas Open Inventor (.iv) a&uacute;n no se leen.</p>
           <div class="field field--wide"><label for="imp-units">Unidades de una malla suelta</label><select id="imp-units"><option value="auto" selected>autom&aacute;ticas (se avisa)</option><option value="mm">mil&iacute;metros</option><option value="m">metros</option></select></div>
-          <label class="check" for="imp-gripper"><input id="imp-gripper" type="checkbox" checked> Montar la pinza paralela de AXISFORGE</label>
+          <label class="check" for="imp-gripper"><input id="imp-gripper" type="checkbox" checked> Montar una pinza de AXISFORGE</label>
+          <div class="field field--wide"><label for="imp-kind">Pinza a montar</label><select id="imp-kind"><option value="parallel" selected>pinza paralela</option><option value="three_finger">pinza de tres dedos</option><option value="hand">mano de tres dedos</option></select></div>
           <label class="check" for="imp-cell"><input id="imp-cell" type="checkbox" checked> Colocar el robot en la celda de demostraci&oacute;n</label>
           <div class="field field--wide"><label for="imp-eef">Articulaciones de pinza del archivo (opcional)</label><input id="imp-eef" type="text" placeholder="p. ej. finger_joint1, finger_joint2"></div>
           <div class="row">
@@ -31,6 +32,7 @@
         <div class="module__head"><h2 class="module__title">Pieza</h2><span class="module__note" id="gripper-note">&mdash;</span></div>
         <div class="module__body">
           <div class="fields">
+            <div class="field field--wide"><label for="cell-gripper">Pinza de la celda de demostraci&oacute;n</label><select id="cell-gripper"><option value="parallel" selected>pinza paralela</option><option value="three_finger">pinza de tres dedos</option><option value="hand">mano de tres dedos</option></select></div>
             <div class="field field--wide"><label for="body">Pieza a coger</label><select id="body"></select></div>
             <div class="field"><label for="bx">X &middot; mm</label><input id="bx" type="number" step="10"></div>
             <div class="field"><label for="by">Y &middot; mm</label><input id="by" type="number" step="10"></div>
@@ -55,6 +57,7 @@
             <div class="field field--wide"><label class="check" for="o-fc"><input id="o-fc" type="checkbox" checked> forceClosure: exigir cierre de fuerza</label></div>
             <div class="field field--wide"><label for="o-measure">Medida de calidad</label><select id="o-measure"></select></div>
             <div class="field field--wide"><label for="o-generator">Generador de agarres</label><select id="o-generator"></select></div>
+            <div class="field field--wide" id="o-preshape-field" hidden><label for="o-preshape">Preforma de la mano</label><select id="o-preshape"></select></div>
             <div class="field"><label for="o-mu">frictionCoeff</label><input id="o-mu" type="number" min="0" step="0.05" placeholder="de la pieza"></div>
             <div class="field"><label for="o-cone">frictionConeSamples</label><input id="o-cone" type="number" min="3" max="16" step="1" value="8"></div>
             <div class="field"><label for="o-force">unitForce &middot; N</label><input id="o-force" type="number" min="0.1" step="0.5" value="1"></div>

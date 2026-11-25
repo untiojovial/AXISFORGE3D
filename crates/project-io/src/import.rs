@@ -11,8 +11,9 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use axisforge_domain::{
-    templates::stable_id, DomainError, GeometryInstance, GeometryRole, Joint, JointRole, Link,
-    Project, Quat, Resource, RobotSystem, Shape, ToolFrame, Transform, Vec3, MAX_AXES,
+    templates::stable_id, Actor, ActorJoint, DomainError, GeometryInstance, GeometryRole, Gripper,
+    JawCoupling, Joint, JointRole, Link, Preshape, Project, Quat, Resource, RobotSystem, Shape,
+    ToolFrame, Transform, Vec3, MAX_AXES,
 };
 
 use crate::mesh::{self, MeshError};
@@ -471,8 +472,129 @@ pub(crate) struct RobotAssembly {
     pub default_frame: Option<String>,
     /// Joint names the format itself marks as end-effector actuators.
     pub end_effector_joints: BTreeSet<String>,
+    /// A hand the format describes, by joint, link and frame names.
+    pub hand: Option<HandDraft>,
     pub resources: Vec<Resource>,
     pub warnings: Vec<String>,
+}
+
+/// A hand as a foreign format describes it, by name.
+pub(crate) struct HandDraft {
+    /// The end effector's name.
+    pub name: String,
+    /// The link the fingers are mounted on.
+    pub palm_link: String,
+    /// The tool frame at the grasp centre.
+    pub grasp_frame: String,
+    /// Fingers: a name and the joints they drive with their closing rates.
+    pub actors: Vec<(String, Vec<(String, f64)>)>,
+    /// Preshapes: a name and joint values, already in SI units.
+    pub preshapes: Vec<(String, Vec<(String, f64)>)>,
+}
+
+/// Values assumed for what a hand description does not say.
+const HAND_ASSUMED_OPENING: f64 = 0.1;
+const HAND_ASSUMED_FINGER_DEPTH: f64 = 0.05;
+const HAND_ASSUMED_FINGER_WIDTH: f64 = 0.02;
+const HAND_ASSUMED_FORCE: f64 = 20.0;
+
+/// Turns a hand draft into a gripper on `robot`, or says why it cannot.
+fn build_hand(robot: &RobotSystem, draft: &HandDraft) -> Result<Gripper, String> {
+    let palm = robot
+        .link_by_name(&draft.palm_link)
+        .ok_or_else(|| format!("its base `{}` is not a link", draft.palm_link))?;
+    let frame = robot
+        .tool_frames
+        .iter()
+        .find(|f| f.name == draft.grasp_frame)
+        .ok_or_else(|| format!("its grasp frame `{}` is missing", draft.grasp_frame))?;
+    let mut actors = Vec::new();
+    let mut skipped = Vec::new();
+    for (name, joints) in &draft.actors {
+        let mut driven = Vec::new();
+        for (joint_name, direction) in joints {
+            match robot.joint_by_name(joint_name) {
+                Some(joint) if joint.is_end_effector() => driven.push(ActorJoint {
+                    joint_id: joint.id.clone(),
+                    direction: *direction,
+                }),
+                _ => skipped.push(joint_name.clone()),
+            }
+        }
+        if !driven.is_empty() {
+            actors.push(Actor {
+                name: name.clone(),
+                joints: driven,
+            });
+        }
+    }
+    if actors.is_empty() {
+        return Err("none of its actors drives an actuated joint".to_owned());
+    }
+    if !skipped.is_empty() {
+        return Err(format!(
+            "its actors name nodes that are not actuated joints: {}",
+            skipped.join(", ")
+        ));
+    }
+    let jaw_joint_ids: Vec<String> = actors
+        .iter()
+        .flat_map(|a| a.joints.iter().map(|j| j.joint_id.clone()))
+        .collect();
+    // Every link below a finger joint is part of a finger.
+    let mut finger_link_ids: Vec<String> = Vec::new();
+    let mut stack: Vec<String> = jaw_joint_ids
+        .iter()
+        .filter_map(|id| robot.joint(id).map(|j| j.child_link_id.clone()))
+        .collect();
+    while let Some(link) = stack.pop() {
+        if finger_link_ids.contains(&link) {
+            continue;
+        }
+        stack.extend(
+            robot
+                .joints
+                .iter()
+                .filter(|j| j.parent_link_id == link)
+                .map(|j| j.child_link_id.clone()),
+        );
+        finger_link_ids.push(link);
+    }
+    finger_link_ids.sort();
+    let mut preshapes = Vec::new();
+    for (name, values) in &draft.preshapes {
+        let mut joint_values = BTreeMap::new();
+        for (joint_name, value) in values {
+            let joint = robot
+                .joint_by_name(joint_name)
+                .filter(|j| jaw_joint_ids.contains(&j.id))
+                .ok_or_else(|| {
+                    format!("preshape `{name}` sets `{joint_name}`, which no actor drives")
+                })?;
+            joint_values.insert(joint.id.clone(), *value);
+        }
+        preshapes.push(Preshape {
+            name: name.clone(),
+            joint_values,
+        });
+    }
+    Ok(Gripper {
+        id: stable_id(&robot.name, "gripper", &draft.name),
+        name: draft.name.clone(),
+        palm_link_id: palm.id.clone(),
+        jaw_joint_ids,
+        finger_link_ids,
+        grasp_frame_id: frame.id.clone(),
+        coupling: JawCoupling::Independent,
+        approach_axis: Vec3::Z,
+        closing_axis: Vec3::X,
+        max_opening: HAND_ASSUMED_OPENING,
+        finger_depth: HAND_ASSUMED_FINGER_DEPTH,
+        finger_width: HAND_ASSUMED_FINGER_WIDTH,
+        max_grip_force: HAND_ASSUMED_FORCE,
+        actors,
+        preshapes,
+    })
 }
 
 impl RobotAssembly {
@@ -534,10 +656,45 @@ impl RobotAssembly {
             .as_ref()
             .and_then(|name| robot.tool_frames.iter().find(|f| f.name == *name))
             .map(|frame| frame.id.clone());
+        if let Some(draft) = &self.hand {
+            match build_hand(&robot, draft) {
+                Ok(gripper) => {
+                    let mut with_hand = robot.clone();
+                    with_hand.gripper = Some(gripper);
+                    match with_hand.validate() {
+                        Ok(()) => {
+                            self.warnings.push(format!(
+                                "end effector `{}` is a hand of {} finger(s); it approaches \
+                                 along its grasp frame's +Z, as GraspStudio's surface-normal \
+                                 approach moves it, and its opening ({:.0} mm), finger size \
+                                 and force per finger ({HAND_ASSUMED_FORCE:.0} N) are assumed, \
+                                 not read",
+                                draft.name,
+                                with_hand.gripper.as_ref().map_or(0, |g| g.actors.len()),
+                                HAND_ASSUMED_OPENING * 1000.0
+                            ));
+                            robot = with_hand;
+                        }
+                        Err(error) => self.warnings.push(format!(
+                            "end effector `{}` was not made a hand: {error}",
+                            draft.name
+                        )),
+                    }
+                }
+                Err(reason) => self.warnings.push(format!(
+                    "end effector `{}` was not made a hand: {reason}",
+                    draft.name
+                )),
+            }
+        }
         let mut project = Project::new(
             stable_id(&self.name, "project", &self.name),
             &self.name,
             robot,
+        );
+        axisforge_domain::templates::register_gripper_exemptions(
+            &mut project.environment,
+            &project.robot,
         );
         project.resources = self.resources;
         project.validate()?;
