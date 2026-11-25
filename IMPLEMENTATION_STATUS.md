@@ -8,6 +8,8 @@ Stated plainly, so nobody has to discover it.
 | --- | --- |
 | Domain model, validation, deterministic ids, templates | Done |
 | Parallel-jaw gripper as ordinary links and prismatic joints | Done |
+| Hands: actors (fingers) and preshapes, as in Simox end effectors; centric three-finger gripper and three-finger hand templates | Done. Fingers close by conservative advancement (never through a thin part); a blocked phalanx stops its joint and the tip keeps curling. |
+| Hand grasps: surface point, approach along the normal (and centred, deep, 25° tilted), back away, close, wrench space from the contacts | Done. GraspStudio's contact model (one point per touching pair of convex pieces). |
 | GJK distance, AABB broad phase | Done. No penetration depth (no EPA). |
 | FK, Jacobian (checked against finite differences), conditioning | Done |
 | IK: damped least squares, restarts, limits, cancellation | Done. One solver. |
@@ -19,6 +21,10 @@ Stated plainly, so nobody has to discover it.
 | Planner parameters in GraspStudio vocabulary (nrGrasps, minQuality, forceClosure, friction cone) | Done. Own semantics; values not comparable one-to-one with Simox. |
 | Extension registry for quality measures and candidate generators | Done, Rust crates only. |
 | Pick planner: pre-grasp, grasp, close, lift | Done |
+| Exact (continuous) segment collision checking | Done. Schwarzer–Saha–Latombe test with per-link travel bounds; certified lower bound on clearance. |
+| Free motion: bidirectional RRT with shortcut smoothing | Done. Seeded, cancellable; every edge proven clear. |
+| Whole pick, transport and place cycle | Done. Synchronized trapezoidal profiles within every axis' limits, stop at each waypoint; acceptance test in three cells (`crates/motion/tests/acceptance.rs`). |
+| Program export | Done: URScript (`movej` with leading-axis `a`, `v`, no blending; gripper functions to fill in), sampled CSV and JSON. A controller-cycle simulation re-times the program. |
 | Project file format, atomic save | Done |
 | URDF import | Done. STL, OBJ and COLLADA meshes. FK checked against an independent reference and against the UR5's published DH parameters. |
 | Simox robot and object XML import | Done. Open Inventor (`.iv`) meshes are not read. |
@@ -34,10 +40,16 @@ Stated plainly, so nobody has to discover it.
   geometric centre. Nothing here has been validated against hardware.
 - **Time budget.** `timeoutSeconds` works in native builds; the WebAssembly
   build has no clock and refuses it.
-- **Path checking is sampled.** The approach and lift are checked at a fixed
-  number of joint-space samples, not continuously.
-- **Pick only.** There is no place planning, no transport path planning between
-  cells, and no trajectory timing.
+- **Pick planning samples, the cycle does not.** `plan_pick` alone still
+  checks the approach and lift at a fixed number of samples; the cycle
+  (`plan_cycle`) proves every segment clear continuously, those included.
+- **Cycle timing stops at every waypoint.** Moves are not blended, which is
+  safe and exactly reproducible on a controller but slower than a blended
+  path. The part keeps its orientation when it is set down. Joints without
+  declared speed or acceleration limits get assumed ones, reported.
+- **What may touch in a cycle.** The fingers may touch the part while they
+  close and open; the part may touch the surface it leaves or is set down on
+  while it is lifted and lowered. Nothing else may come within the margin.
 - **Approximate decomposition.** Concave closed meshes are cut into at most
   12 convex pieces per shell; the pieces' hulls still exceed the solid
   somewhat (a fifth to a half of the original excess on the YCB tools), so
@@ -46,7 +58,12 @@ Stated plainly, so nobody has to discover it.
 - **Pad contact model.** The pads are flat and rigid apart from a contact
   tolerance (0.3 mm by default) standing in for their compliance; contacts
   are capped at six per pad, which can only understate quality.
-- **One gripper type.** Parallel jaws; no suction, no multi-finger hands.
+- **Gripper types.** Parallel jaws and hands; no suction. A hand's fingers
+  close independently and the part is assumed not to move while they do: a
+  coupled centric gripper would centre the part instead. Hand contacts are
+  points, so a finger lying flat on a face is credited with less torque
+  than it can resist. Simox end effectors with actors import as hands; their
+  opening, finger size and force are assumed and reported.
 - **Unreadable meshes.** Links whose only meshes are Open Inventor (`.iv`)
   are drawn as a skeleton and are not collision-checked. The engine lists
   them (`linksWithoutCollision`), the viewer's contact badge and plan verdict
@@ -73,7 +90,8 @@ could be pushed, and they have not been rebuilt:
 
 The browser viewer is a demonstration front end, not the editor: it moves
 joints, edits a part's position, mass and friction, exposes the planner
-parameters, plans and replays picks.
+parameters, plans and replays picks, and plans, plays and exports whole
+cycles.
 
 The road from here to a sellable product is in
 [docs/PLAN_DE_MEJORA.md](docs/PLAN_DE_MEJORA.md).

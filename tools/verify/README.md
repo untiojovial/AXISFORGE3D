@@ -144,3 +144,46 @@ the pick column with the command line alone and no candidate limit: every
 candidate of the four that fail is examined, and the result is the same
 twelve.
 
+
+## Phase 3: the whole cycle, proven and timed
+
+```sh
+cargo test --release -p axisforge-motion --test acceptance -- --nocapture
+```
+
+For the demo cell, the cell with a wall and the cell with two posts
+(`templates::demo_cell`), and for the hand in the wall cell, the cube is
+carried to (330, 210) mm and back to the start posture. The test then, for
+every move of every segment:
+
+1. proves it clear again with a fresh `MotionChecker`, built from the
+   segment's own allowed contacts as the test rebuilds them, not the
+   planner's checkers;
+2. checks 41 evenly spaced configurations with an ordinary `Scene` at the
+   same margin, which must agree with the proof;
+
+and for the cycle as a whole:
+
+3. samples it every 4 ms and checks every joint's velocity and, by finite
+   differences, acceleration against its scaled limits;
+4. re-times the exported program with a controller-cycle simulation at
+   8 ms, from the program's numbers alone, and compares with the planned
+   cycle time (acceptance: under 2 %).
+
+In the obstacle cells it also checks that the straight line from the lift
+to above the target is blocked, so the detour was necessary.
+
+| Cell | Gripper | Cycle | Program | Difference | Proven clearance | Closest measured |
+| --- | --- | --- | --- | --- | --- | --- |
+| Demo | parallel | 9.632 s | 9.632 s | 0.002 % | ≥ 1.02 mm | 1.9 mm |
+| Wall | parallel | 11.240 s | 11.240 s | 0.002 % | ≥ 1.02 mm | 2.0 mm |
+| Posts | parallel | 11.544 s | 11.544 s | 0.002 % | ≥ 1.01 mm | 2.0 mm |
+| Wall | hand | 15.826 s | 15.826 s | 0.001 % | ≥ 1.01 mm | 1.3 mm |
+
+The closest measured distances of 1.3 to 2.0 mm are the gaps the grasp
+leaves on purpose (palm above the part, jaws beside it); the proven bound is
+just above the 1 mm margin because subdivision stops as soon as a piece is
+proven clear of it. The sampled-motion test in `crates/motion`
+(`a_thin_pin_between_two_samples_is_not_missed`) shows what the continuous
+check adds: a 3 mm pin that all six samples of a sampled check miss is
+found.

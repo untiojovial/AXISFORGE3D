@@ -9,7 +9,7 @@ L (meses) de una persona, y es una estimación, no un compromiso.
 
 ## 1. Dónde estamos
 
-Hecho y probado (291 pruebas automáticas, sin avisos del analizador):
+Hecho y probado (353 pruebas automáticas, sin avisos del analizador):
 
 - Modelo de robot, cinemática directa e inversa, jacobiano y condicionamiento.
 - Colisiones por GJK entre primitivas y envolventes convexas.
@@ -25,15 +25,21 @@ Hecho y probado (291 pruebas automáticas, sin avisos del analizador):
   render de estudio.
 - Importación de robots URDF y XML de Simox, objetos de Simox y mallas STL,
   OBJ y COLLADA, en la CLI y en el visor (fase 1).
+- Agarre de mallas por normal de superficie con cierre hasta contacto,
+  descomposición convexa, y **manos**: pinza de tres dedos y mano de tres
+  dedos articulados con actuadores y preformas (fase 2, en parte).
+- **Movimiento completo** (fase 3): comprobación de colisión continua, RRT
+  bidireccional con atajos, ciclo recoger–transportar–depositar con perfiles
+  dentro de los límites de cada eje, y exportación a URScript, CSV y JSON.
 
 Lo que hoy impide venderlo:
 
 | Carencia | Por qué bloquea la venta |
 | --- | --- |
-| Solo recogida, sin depósito ni trayectorias | Un cliente quiere el ciclo completo |
 | Mallas Open Inventor (.iv) sin leer | Casi todos los modelos de Simox las usan; esos eslabones quedan sin colisión |
 | Visor de demostración, no editor | No se puede crear ni guardar una celda propia |
-| Una sola pinza (paralela de dos dedos) | Ventosas y manos multidedo quedan fuera |
+| Sin ventosa | Muchas celdas de manipulación usan vacío |
+| Movimientos sin enlazar (parada en cada punto) | Ciclos más lentos que los de un programa afinado a mano |
 | Sin instalador, licencias ni soporte | No hay nada que entregar ni cobrar |
 | Sin validación contra hardware | Ningún número está contrastado con una celda real |
 
@@ -106,9 +112,9 @@ Inventor.**
 encuentra agarres con cierre de fuerza en al menos las mismas piezas que
 GraspStudio con parámetros equivalentes, y se documenta cada diferencia.
 
-**Estado: primer paso hecho (agarre de mallas con pinza paralela); la
-comparación con GraspStudio, los efectores de varios dedos, los conjuntos
-de agarres guardados y la ventosa siguen pendientes.**
+**Estado: hechos el agarre de mallas y las manos de varios dedos; la
+comparación con GraspStudio, los conjuntos de agarres guardados y la
+ventosa siguen pendientes.**
 
 - Hecho: generador `surface_normal` con las dos familias (cerrar a lo largo
   de la normal, llegar por ella), cada una a la profundidad que permite la
@@ -133,9 +139,26 @@ de agarres guardados y la ventosa siguen pendientes.**
   superficie): el hueco entre el modelo de colisión y el sólido baja, por
   ejemplo, de 574 a 34 cm³ en el martillo y de 94 a 17 cm³ en el plátano, y
   el brazo pasa de recoger 9 objetos YCB a 12.
+- Manos de varios dedos, hechas: la pinza describe **actuadores** (dedos:
+  articulaciones que cierran juntas, cada una con su sentido y razón, como
+  los `direction` de los actores de Simox) y **preformas** con nombre. Dos
+  plantillas: pinza centrada de tres mordazas radiales y mano de tres dedos
+  de dos falanges. Cada dedo cierra por avance conservador con una cota del
+  recorrido de sus eslabones, así que nunca atraviesa una pieza fina; una
+  falange que toca detiene su articulación y la punta sigue curvándose. Los
+  agarres se proponen como GraspStudio con una mano (punto de la superficie,
+  aproximación por la normal, retirada hasta despejar, cierre) más tres
+  variantes: hasta el fondo, centrada en la pieza e inclinada 25°. Los
+  contactos son los de GraspStudio (un punto por par de piezas convexas que
+  se tocan) y se juzgan en el espacio de llaves. Un efector de Simox con
+  actores se importa como mano, con sus preformas.
+- Comprobado en la celda de demostración: la pinza de tres dedos y la mano
+  recogen el cubo y la clavija con cierre de fuerza; el cierre se detiene en
+  las caras del cubo (20 a 28 mm del eje) y nunca deja un dedo dentro de la
+  pieza.
 - Pendiente: ejecutar GraspStudio con parámetros equivalentes y comparar en
-  veinte piezas (exige compilar Simox con Qt y Coin3D); manos de varios
-  dedos, preformas, conjuntos de agarres guardados y ventosa.
+  veinte piezas (exige compilar Simox con Qt y Coin3D); conjuntos de
+  agarres guardados y ventosa.
 
 ### Fase 3. Movimiento completo (L)
 
@@ -148,6 +171,47 @@ de agarres guardados y la ventosa siguen pendientes.**
 **Aceptación:** en la celda de demostración y en dos celdas con obstáculos, el
 ciclo completo se planifica sin contacto verificado de forma continua, y el
 tiempo de ciclo calculado coincide con el del perfil a menos del 2 %.
+
+**Estado: hecha; la aceptación se cumple** (`crates/motion/tests/acceptance.rs`).
+
+- Comprobación continua: cada tramo recto en el espacio articular se
+  demuestra libre par a par con la prueba de Schwarzer, Saha y Latombe
+  (distancias en los extremos frente a una cota de lo que puede moverse
+  cualquier punto entre ellos; se subdivide solo donde un par se acerca).
+  Da una cota inferior certificada de la holgura. Un pasador de 3 mm que la
+  comprobación por seis muestras no ve se detecta.
+- RRT-Connect sobre los ejes del brazo, con atajos aleatorios; cada arista y
+  cada atajo se demuestran libres. Determinista por semilla, cancelable.
+- Ciclo: abrir, aproximación (RRT), descenso, cierre, elevación,
+  transporte (RRT, con la pieza), bajada, soltar, retirada, regreso (RRT),
+  reposo. En cada tramo solo se permite el contacto que corresponde (dedos y
+  pieza al cerrar y abrir; pieza y la superficie que deja o en la que se
+  posa al elevar y bajar). Si un agarre no da el ciclo entero se prueba el
+  siguiente y se dice por qué falló.
+- Perfiles trapezoidales sincronizados: todos los ejes recorren la misma
+  recta, así que se ejecuta exactamente lo que se comprobó; velocidad y
+  aceleración de cada eje dentro de su límite (escalado), con parada en
+  cada punto.
+- Exportación: URScript (`movej` con `a` y `v` del eje que más recorre, sin
+  enlazar), y la trayectoria muestreada en CSV y JSON. Una simulación del
+  interpolador de un controlador, a partir solo de los números del
+  programa, vuelve a cronometrarlo.
+- Resultado de la aceptación (pinza paralela, cubo llevado a 330, 210 mm):
+
+  | Celda | Ciclo | Programa re-cronometrado (8 ms) | Holgura demostrada | Desvío |
+  | --- | --- | --- | --- | --- |
+  | Demostración | 9,632 s | 9,632 s (0,002 %) | ≥ 1,0 mm | — |
+  | Pared | 11,240 s | 11,240 s (0,002 %) | ≥ 1,0 mm | el transporte rodea la pared |
+  | Dos postes | 11,544 s | 11,544 s (0,002 %) | ≥ 1,0 mm | el transporte rodea los postes |
+  | Pared, con la mano | 15,826 s | 15,826 s (0,001 %) | ≥ 1,0 mm | — |
+
+  Cada movimiento se vuelve a demostrar con un comprobador nuevo y coincide
+  con 41 muestras densas por movimiento; en las celdas con obstáculos la
+  recta directa del transporte choca, así que el desvío es necesario.
+- Límites: sin enlace entre movimientos (más lento que un programa
+  afinado); la pieza se deposita con su misma orientación; ejes sin límites
+  declarados reciben unos supuestos, que se avisan. El tiempo es el del
+  perfil y del programa, no medido en un robot real (fase 5).
 
 ### Fase 4. Editor de escritorio (L)
 
@@ -204,11 +268,12 @@ Simox mientras no se replique su normalización (fase 2).
 | Calidad del agarre y prueba de cierre de fuerza | `quality.quality` (épsilon), `quality.forceClosure` | Hecho |
 | Punto central de agarre (GCP) y TCP | marco de agarre de la pinza | Hecho |
 | Aproximación por normal de superficie | `candidateGenerator: "surface_normal"` (y `auto`, por defecto) | Hecho: se llega por la normal o se cierra a lo largo de ella |
-| Cerrar actuadores hasta contacto | almohadillas que avanzan hasta tocar la geometría real | Hecho para la pinza paralela; manos de varios dedos, fase 2 |
-| Preformas del efector | — | Fase 2 |
+| Cerrar actuadores hasta contacto | almohadillas que avanzan hasta tocar (pinza paralela); dedos que cierran por avance conservador (manos) | Hecho |
+| Actores del efector (`Actor`, `direction`) | `Gripper.actors` (`ActorJoint.direction`) | Hecho; se importan de Simox |
+| Preformas del efector | `Gripper.preshapes`; opción `preshape` del planificador | Hecho; se importan de Simox |
 | Objeto manipulable con conjunto de agarres guardado | — | Fase 2 |
 | Formato XML de robot y objeto | `import_simox_robot`, `import_simox_object`; `axisforge import-simox`, `add-object` | Hecho, solo lectura; las mallas .iv no se leen |
-| Planificación de movimiento (RRT) | — | Fase 3 |
+| Planificación de movimiento (RRT) | `plan_path` (RRT-Connect con atajos), `plan_cycle` | Hecho, con comprobación continua |
 | Mapas de alcanzabilidad y manipulabilidad | condicionamiento en una postura | Fase 4 |
 
 Parámetros propios, sin equivalente directo: `standoff` (retirada del
