@@ -51,3 +51,57 @@ def test_local_roundtrip(family, tmp_path):
     save_file(tensors, weight)
     with pytest.raises(ValueError, match="exactly match"):
         load_local_dino(tmp_path, sha256_file(weight), ch, family)
+
+
+def test_multiview_cpu_measurements_and_warm_cache(tmp_path):
+    from PIL import Image
+
+    from research_grasping.representations.cache import FeatureCache
+    from research_grasping.representations.extract import extract_views
+
+    model = t.Dinov2Model(
+        t.Dinov2Config(
+            image_size=16,
+            patch_size=8,
+            hidden_size=8,
+            num_hidden_layers=1,
+            num_attention_heads=2,
+        )
+    )
+    model.save_pretrained(tmp_path, safe_serialization=True)
+    images = [tmp_path / f"view{i}.png" for i in range(2)]
+    for i, path in enumerate(images):
+        Image.fromarray(np.full((16, 16, 3), 128 * i, np.uint8)).save(path)
+    recipe = {
+        "resized_size": [16, 16],
+        "crop_size": [16, 16],
+        "mean": [0] * 3,
+        "std": [1] * 3,
+    }
+
+    def run(views):
+        return extract_views(
+            views,
+            tmp_path,
+            sha256_file(tmp_path / "model.safetensors"),
+            sha256_file(tmp_path / "config.json"),
+            "dinov2",
+            recipe,
+            "cpu",
+            tmp_path / "features",
+            2,
+        )
+
+    cold = run(images)
+    warm = run(images[::-1])
+    assert cold["aggregate"]["key"] != warm["aggregate"]["key"]
+    assert all(len(v["inference_and_host_copy_seconds"]) == 2 for v in cold["views"])
+    assert all(
+        v["cache_hit"] and not v["inference_and_host_copy_seconds"]
+        for v in warm["views"]
+    )
+    cache = FeatureCache(tmp_path / "features")
+    expected = np.mean([cache.get(v["key"])["cls"] for v in cold["views"]], axis=0)
+    np.testing.assert_array_equal(
+        cache.get(warm["aggregate"]["key"])["mean_cls"], expected
+    )

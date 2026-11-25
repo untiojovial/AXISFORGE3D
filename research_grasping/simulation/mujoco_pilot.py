@@ -5,7 +5,9 @@ from __future__ import annotations
 import math
 
 
-def evaluate(
+def _evaluate(
+    geometry_type: str,
+    geometry_size: str,
     offset_x_m: float = 0.0,
     mass_kg: float = 0.05,
     friction: float = 1.0,
@@ -26,7 +28,7 @@ def evaluate(
         raise ValueError("invalid physical parameters")
     xml = f"""<mujoco><option timestep="{timestep_s}" gravity="0 0 -9.81" solver="{solver}" iterations="100" integrator="Euler"/><default><geom condim="3" margin="0" solref="0.02 1" solimp="0.9 0.95 0.001" friction="{friction} 0 0"/></default><worldbody>
     <geom name="table" type="plane" size="1 1 .1"/>
-    <body name="object" pos="0 0 .020"><freejoint/><geom name="object_geom" type="box" size=".02 .02 .02" mass="{mass_kg}"/></body>
+    <body name="object" pos="0 0 .020"><freejoint/><geom name="object_geom" type="{geometry_type}" size="{geometry_size}" mass="{mass_kg}"/></body>
     <body name="lift" pos="{offset_x_m} 0 .04"><joint name="lift_joint" type="slide" axis="0 0 1"/><inertial pos="0 0 0" mass="0.1" diaginertia="0.001 0.001 0.001"/>
     <body name="left" pos="-.035 0 0"><joint name="left_joint" type="slide" axis="1 0 0"/><geom name="left_geom" type="box" size=".005 .02 .03" mass=".1"/></body>
     <body name="right" pos=".035 0 0"><joint name="right_joint" type="slide" axis="-1 0 0"/><geom name="right_geom" type="box" size=".005 .02 .03" mass=".1"/></body></body></worldbody>
@@ -130,3 +132,16 @@ def evaluate(
         "trace": trace,
         "parameters": parameters,
     }
+
+
+def evaluate(
+    offset_x_m: float = 0.0,
+    mass_kg: float = 0.05,
+    friction: float = 1.0,
+    timestep_s: float = 0.001,
+    solver: str = "Newton",
+) -> dict:
+    """Evaluate the original cube with the original public API."""
+    return _evaluate(
+        "box", ".02 .02 .02", offset_x_m, mass_kg, friction, timestep_s, solver
+    )
