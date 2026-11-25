@@ -140,5 +140,7 @@ its centre uncovered).
 `GraspStudio` itself was not run for comparison: it needs Simox built with
 its Qt and Coin3D dependencies. The phase 2 acceptance criterion, a
 comparison on twenty parts, is therefore not yet met. `ycb_pick.sh` repeats
-the pick column with the command line alone and no candidate limit.
+the pick column with the command line alone and no candidate limit: every
+candidate of the four that fail is examined, and the result is the same
+twelve.
 
