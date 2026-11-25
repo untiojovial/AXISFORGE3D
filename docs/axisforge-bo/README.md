@@ -90,3 +90,5 @@ La suite completa incluye pruebas opcionales de BoTorch, PyTorch, NumPyro y del 
 [Metagradientes y revisión de Chen et al.](META_RESEARCH.md) · [Evaluación final independiente](FINAL_AUDIT.md)
 
 Las convenciones, hipótesis, complejidad y diferencias entre criterios se detallan en la [guía de adquisiciones](ACQUISITIONS.md).
+
+Los [diagnósticos suplementarios](SURROGATE_DIAGNOSTICS.md) cuantifican la mezcla de cuatro cadenas SAAS y el escalado de un GP variacional en CPU.
