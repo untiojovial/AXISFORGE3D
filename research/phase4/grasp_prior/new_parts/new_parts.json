@@ -1,0 +1,1758 @@
+{
+ "format": "axisforge-new-parts",
+ "version": 1,
+ "source": "Google Scanned Objects, MuJoCo adaptation by Kevin Zakka",
+ "source_revision": "6ff8d275cebfd5b47e49685e3cfbe64b20e49a3c",
+ "license": "CC-BY-4.0",
+ "catalogue_sha256": "93d735c728c56bd263815886631ed55d3d767bf23e63ad4bd2ae73b70e99cafb",
+ "catalogue_models": 1030,
+ "excluded": [
+  "2_of_Jenga_Classic_Game",
+  "ACE_Coffee_Mug_Kristen_16_oz_cup",
+  "Air_Hogs_Wind_Flyers_Set_Airplane_Red",
+  "Android_Figure_Orange",
+  "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+  "Aroma_Stainless_Steel_Milk_Frother_2_Cup",
+  "BAGEL_WITH_CHEESE",
+  "BIA_Porcelain_Ramekin_With_Glazed_Rim_35_45_oz_cup",
+  "BIRD_RATTLE",
+  "BUNNY_RATTLE",
+  "Big_Dot_Aqua_Pencil_Case",
+  "BlackBlack_Nintendo_3DSXL",
+  "Black_Elderberry_Syrup_54_oz_Gaia_Herbs",
+  "Cole_Hardware_Deep_Bowl_Good_Earth_1075",
+  "Cole_Hardware_Hammer_Black",
+  "Craftsman_Grip_Screwdriver_Phillips_Cushion",
+  "Ecoforms_Cup_B4_SAN",
+  "Fisher_price_Classic_Toys_Buzzy_Bee",
+  "Great_Dinos_Triceratops_Toy",
+  "HAMMER_BALL",
+  "Marc_Anthony_Strictly_Curls_Curl_Envy_Perfect_Curl_Cream_6_fl_oz_bottle",
+  "Nestle_Nesquik_Chocolate_Powder_Flavored_Milk_Additive_109_Oz_Canister",
+  "OXO_Soft_Works_Can_Opener_SnapLock",
+  "Olive_Kids_Birdie_Lunch_Box",
+  "Orbit_Bubblemint_Mini_Bottle_6_ct",
+  "PINEAPPLE_MARACA_6_PCSSET",
+  "Razer_Abyssus_Ambidextrous_Gaming_Mouse",
+  "STEAK_SET",
+  "TURBOPROP_AIRPLANE_WITH_PILOT",
+  "Threshold_Porcelain_Teapot_White"
+ ],
+ "excluded_manifest_sha256": "6c5291288adcd365b873a4c983b30b9f19fb2ed0110a0575112514b866cdf660",
+ "seed": 20261126,
+ "count": 50,
+ "rule": {
+  "min_side_m": [
+   0.005,
+   0.07
+  ],
+  "max_side_m": 0.25,
+  "max_height_m": 0.2
+ },
+ "placement_m": [
+  0.42,
+  0.0,
+  0.42
+ ],
+ "mass_kg": 0.1,
+ "kept": [
+  "Perricone_MD_Face_Finishing_Moisturizer_4_oz",
+  "Perricone_MD_Cold_Plasma",
+  "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+  "Squirtin_Barnyard_Friends_4pk",
+  "My_First_Wiggle_Crocodile",
+  "Big_O_Sponges_Assorted_Cellulose_12_pack",
+  "QAbsorb_CoQ10",
+  "CoQ10",
+  "Epson_Ink_Cartridge_Black_200",
+  "Super_Mario_Kart_Super_Nintendo_Entertainment_System",
+  "QHPomegranate",
+  "LADYBUG_BEAD",
+  "Ubisoft_RockSmith_Real_Tone_Cable_Xbox_360",
+  "Weston_No_33_Signature_Sausage_Tonic_12_fl_oz",
+  "Nescafe_Memento_Latte_Caramel_8_08_oz_23_g_packets_64_oz_184_g",
+  "Kong_Puppy_Teething_Rubber_Small_Pink",
+  "Perricone_MD_The_Cold_Plasma_Face_Eyes_Duo",
+  "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+  "AllergenFree_JarroDophilus",
+  "SANDWICH_MEAL",
+  "GEOMETRIC_SORTING_BOARD",
+  "Crayola_Crayons_120_crayons",
+  "Perricone_MD_OVM",
+  "ProSport_Harness_to_Booster_Seat",
+  "CAR_CARRIER_TRAIN",
+  "Perricone_MD_Nutritive_Cleanser",
+  "Perricone_MD_No_Foundation_Serum",
+  "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+  "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+  "Razer_Taipan_White_Ambidextrous_Gaming_Mouse",
+  "Seagate_3TB_Central_shared_storage",
+  "HELICOPTER",
+  "Canon_Pixma_Ink_Cartridge_8_Red",
+  "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game",
+  "Hyaluronic_Acid",
+  "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+  "Cole_Hardware_Saucer_Glazed_6",
+  "Phillips_Milk_of_Magnesia_Saline_Laxative_Liquid_Original",
+  "Cole_Hardware_Bowl_Scirocco_YellowBlue",
+  "TWISTED_PUZZLE",
+  "Philips_EcoVantage_43_W_Light_Bulbs_Natural_Light_2_pack",
+  "45oz_RAMEKIN_ASST_DEEP_COLORS",
+  "Perricoen_MD_No_Concealer_Concealer",
+  "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+  "Wilton_Pearlized_Sugar_Sprinkles_525_oz_Gold",
+  "Epson_Ink_Cartridge_126_Yellow",
+  "Cole_Hardware_Antislip_Surfacing_White_2_x_60",
+  "Diamond_Visions_Scissors_Red",
+  "Ecoforms_Plant_Container_S24Turquoise",
+  "CITY_TAXI_POLICE_CAR"
+ ],
+ "examined": [
+  {
+   "name": "KITCHEN_SET_CLASSIC_40HwCHfeG0H",
+   "obj_sha256": "96ea73a22cefa0d63fc25d4c8d559a6b34bf34f28d66c6cd09eddcdb9b50e522",
+   "obj_bytes": 484872,
+   "extent_m": [
+    0.18544,
+    0.1673,
+    0.15129
+   ],
+   "kept": false,
+   "reason": "smallest side 151 mm outside 5-70 mm"
+  },
+  {
+   "name": "Firefly_Clue_Board_Game",
+   "obj_sha256": "97ca19e3e265bf122126bbb88b00a9fdb43fba5f56dccd38c2f093bc3dd0db37",
+   "obj_bytes": 109330,
+   "extent_m": [
+    0.4041,
+    0.06992,
+    0.27377
+   ],
+   "kept": false,
+   "reason": "largest side 404 mm over 250 mm"
+  },
+  {
+   "name": "Perricone_MD_Face_Finishing_Moisturizer_4_oz",
+   "obj_sha256": "218671d407ddcf0e4172d0652ae45f00e7a0eb55f2beb9d385193ab3627e94e1",
+   "obj_bytes": 181693,
+   "extent_m": [
+    0.07813,
+    0.07854,
+    0.05133
+   ],
+   "kept": true,
+   "project": "Perricone_MD_Face_Finishing_Moisturizer_4_oz/cell.axisforge",
+   "project_sha256": "121434b2081532f5d0397b5653f095a0c8f02e3657633470e343507a33ba2dbe"
+  },
+  {
+   "name": "Canon_225226_Ink_Cartridges_BlackColor_Cyan_Magenta_Yellow_6_count",
+   "obj_sha256": "0e46f31b6989f5ea527debd93057cef8dbcd03449da205f7926d3433399bdc1c",
+   "obj_bytes": 398373,
+   "extent_m": [
+    0.16915,
+    0.07093,
+    0.1485
+   ],
+   "kept": false,
+   "reason": "smallest side 71 mm outside 5-70 mm"
+  },
+  {
+   "name": "Perricone_MD_Cold_Plasma",
+   "obj_sha256": "767fbf2fb187b8f28c4b8d37be79747e0834df2d2baa8d498a9857a090eb1554",
+   "obj_bytes": 986517,
+   "extent_m": [
+    0.10615,
+    0.06579,
+    0.10435
+   ],
+   "kept": true,
+   "project": "Perricone_MD_Cold_Plasma/cell.axisforge",
+   "project_sha256": "7da3775419603d1be220d5bbafe454e40666f1b5b58de370cc577b3763e656a7"
+  },
+  {
+   "name": "Reebok_ZIGLITE_RUSH_AC",
+   "obj_sha256": "e37a53ff24b29f380e56081083191162db8f12b1a9a5fbe05a7c8a403342e0c7",
+   "obj_bytes": 1493696,
+   "extent_m": [
+    0.09611,
+    0.2274,
+    0.10059
+   ],
+   "kept": false,
+   "reason": "smallest side 96 mm outside 5-70 mm"
+  },
+  {
+   "name": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital",
+   "obj_sha256": "c706edc8da215accf2aa9e53f77c5503d6361a397e0c2f11f5b038bc2a032c42",
+   "obj_bytes": 366346,
+   "extent_m": [
+    0.14165,
+    0.02846,
+    0.1936
+   ],
+   "kept": true,
+   "project": "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital/cell.axisforge",
+   "project_sha256": "199734b4c27aa7865a690996b01e327440b273d56444b709676e7e26d6de32aa"
+  },
+  {
+   "name": "Super_Mario_3D_World_Deluxe_Set",
+   "obj_sha256": "54075aa428045e1dd7ffacc3cc28e21123f386247e221cb545808fcc83f81716",
+   "obj_bytes": 555905,
+   "extent_m": [
+    0.25582,
+    0.13345,
+    0.05387
+   ],
+   "kept": false,
+   "reason": "largest side 256 mm over 250 mm"
+  },
+  {
+   "name": "Squirtin_Barnyard_Friends_4pk",
+   "obj_sha256": "7b778d42552c57ddc092d82e6685d86509f08ef59bc6f65fbbfda118d666d7be",
+   "obj_bytes": 882876,
+   "extent_m": [
+    0.1863,
+    0.08101,
+    0.06885
+   ],
+   "kept": true,
+   "project": "Squirtin_Barnyard_Friends_4pk/cell.axisforge",
+   "project_sha256": "06fe0a03ed4c387460272c3b8802b750adb4d03320be2a800c33ea6e22616e17"
+  },
+  {
+   "name": "Asus_Z97AR_LGA_1150_Intel_ATX_Motherboard",
+   "obj_sha256": "b08483bb5beba941d866422e3037866435a2d7542f2c4992637f696df2fd6304",
+   "obj_bytes": 373174,
+   "extent_m": [
+    0.33413,
+    0.07273,
+    0.26768
+   ],
+   "kept": false,
+   "reason": "smallest side 73 mm outside 5-70 mm"
+  },
+  {
+   "name": "My_First_Wiggle_Crocodile",
+   "obj_sha256": "335c81a55bb3e50f96131bba66b3808a1e505b23c4bbcca61042bc146fd818d0",
+   "obj_bytes": 729001,
+   "extent_m": [
+    0.19724,
+    0.06658,
+    0.0609
+   ],
+   "kept": true,
+   "project": "My_First_Wiggle_Crocodile/cell.axisforge",
+   "project_sha256": "7938d313d60418ce35e6116671e95bf5daba8afff314494340db07d976ab44b9"
+  },
+  {
+   "name": "Pepsi_Cola_Caffeine_Free_12_12_fl_oz_355_ml_cans_144_fl_oz_426_lt",
+   "obj_sha256": "3ddb51980339e97cd4387dd7a8f999b06f0245b111c3663c3dfa3bb72f8279bd",
+   "obj_bytes": 227905,
+   "extent_m": [
+    0.40401,
+    0.13683,
+    0.12932
+   ],
+   "kept": false,
+   "reason": "smallest side 129 mm outside 5-70 mm"
+  },
+  {
+   "name": "POUNDING_MUSHROOMS",
+   "obj_sha256": "de1c0514459399c0ac696a71baace2b6799d9fda6b498ec17c8c9dbc47bf7f9d",
+   "obj_bytes": 504746,
+   "extent_m": [
+    0.16483,
+    0.21355,
+    0.0991
+   ],
+   "kept": false,
+   "reason": "smallest side 99 mm outside 5-70 mm"
+  },
+  {
+   "name": "InterDesign_Over_Door",
+   "obj_sha256": "40caf1a17afc94365e72e7727565cf6f92a377af49592bbca1900c5648b8d40d",
+   "obj_bytes": 626587,
+   "extent_m": [
+    0.21516,
+    0.29124,
+    0.097
+   ],
+   "kept": false,
+   "reason": "smallest side 97 mm outside 5-70 mm"
+  },
+  {
+   "name": "Focus_8643_Lime_Squeezer_10x35x188_Enamelled_Aluminum_Light",
+   "obj_sha256": "aab4fd8a1b88c2ee4b418e25940820c63e3b810841cb4d514245c03ce17042b1",
+   "obj_bytes": 432626,
+   "extent_m": [
+    0.33558,
+    0.11851,
+    0.0633
+   ],
+   "kept": false,
+   "reason": "largest side 336 mm over 250 mm"
+  },
+  {
+   "name": "Big_O_Sponges_Assorted_Cellulose_12_pack",
+   "obj_sha256": "e712e51f34da72bc2bc9ab8bab390a57d57dfb31f976c9a7a801e4e48e3e5ce6",
+   "obj_bytes": 2061050,
+   "extent_m": [
+    0.07015,
+    0.12575,
+    0.01875
+   ],
+   "kept": true,
+   "project": "Big_O_Sponges_Assorted_Cellulose_12_pack/cell.axisforge",
+   "project_sha256": "25eae53134ab9599fff8cbefef6921d8b6029669bd458ca0b23866656c11c720"
+  },
+  {
+   "name": "Lalaloopsy_Peanut_Big_Top_Tricycle",
+   "obj_sha256": "ff12d28c87eeeb4aa5ca6620dc358862050912a1f314720f970a4d048b65b871",
+   "obj_bytes": 2489970,
+   "extent_m": [
+    0.1184,
+    0.08889,
+    0.10898
+   ],
+   "kept": false,
+   "reason": "smallest side 89 mm outside 5-70 mm"
+  },
+  {
+   "name": "QAbsorb_CoQ10",
+   "obj_sha256": "1b4184786ce45bb79e169021412cfb812447fb7b6db8049c4220240c1cc1758f",
+   "obj_bytes": 529742,
+   "extent_m": [
+    0.05743,
+    0.05687,
+    0.09931
+   ],
+   "kept": true,
+   "project": "QAbsorb_CoQ10/cell.axisforge",
+   "project_sha256": "840aa939db6a32f664ef1d6c47f2cf24649160542149badadba5281bb7f672b0"
+  },
+  {
+   "name": "Ecoforms_Plant_Bowl_Turquoise_7",
+   "obj_sha256": "264ac21297cd7b2a909ca4931b31aefe2793492e79061bec0aaad5dc73f3efa0",
+   "obj_bytes": 391287,
+   "extent_m": [
+    0.18159,
+    0.18197,
+    0.12262
+   ],
+   "kept": false,
+   "reason": "smallest side 123 mm outside 5-70 mm"
+  },
+  {
+   "name": "Reebok_ZIGLITE_RUSH",
+   "obj_sha256": "96b6cf75528f9fa3dc1bc1ae9147fcfe0ccbfe34e9bfbe423afb4117276ba580",
+   "obj_bytes": 2521108,
+   "extent_m": [
+    0.10787,
+    0.27304,
+    0.13023
+   ],
+   "kept": false,
+   "reason": "smallest side 108 mm outside 5-70 mm"
+  },
+  {
+   "name": "CoQ10",
+   "obj_sha256": "836dea1c2870f4bfb3374f502b0b26ccc92893727c09d382c14be8caca513513",
+   "obj_bytes": 651193,
+   "extent_m": [
+    0.0474,
+    0.04751,
+    0.0844
+   ],
+   "kept": true,
+   "project": "CoQ10/cell.axisforge",
+   "project_sha256": "be68cf3e492bf8d3ee8fce239415f4228b25683cde19b7c0d80d5640cf989948"
+  },
+  {
+   "name": "Epson_Ink_Cartridge_Black_200",
+   "obj_sha256": "072d9a2ae1a5db9095e95bb49e92464ae57bafae83055fce1559f8bfbc5da318",
+   "obj_bytes": 374065,
+   "extent_m": [
+    0.11359,
+    0.02488,
+    0.11466
+   ],
+   "kept": true,
+   "project": "Epson_Ink_Cartridge_Black_200/cell.axisforge",
+   "project_sha256": "da8ce7174e153d69a9ceefeb386c04c82099f794e947d92af092416f570aa1a8"
+  },
+  {
+   "name": "HAPPY_ENGINE",
+   "obj_sha256": "d20bb9d614fea5adfa59d426dcd6d33e2611edb7ae2f5e103f174ceea03e8ce2",
+   "obj_bytes": 1055012,
+   "extent_m": [
+    0.20255,
+    0.26965,
+    0.07499
+   ],
+   "kept": false,
+   "reason": "smallest side 75 mm outside 5-70 mm"
+  },
+  {
+   "name": "Santa_Cruz_Mens",
+   "obj_sha256": "f576206483203da71ec844b8d4c598a84700e25e56afdb32414b85bc2c160a41",
+   "obj_bytes": 1422285,
+   "extent_m": [
+    0.11228,
+    0.2986,
+    0.104
+   ],
+   "kept": false,
+   "reason": "smallest side 104 mm outside 5-70 mm"
+  },
+  {
+   "name": "TABLEWARE_SET_5CHkPjjxVpp",
+   "obj_sha256": "5d65eccb0577ce3c139de0440f91f4932f91943632460dc8e8082cb9eafffda9",
+   "obj_bytes": 557596,
+   "extent_m": [
+    0.41221,
+    0.27769,
+    0.06326
+   ],
+   "kept": false,
+   "reason": "largest side 412 mm over 250 mm"
+  },
+  {
+   "name": "Reebok_REALFLEX_SELECT",
+   "obj_sha256": "e81660915a8df564cc3bc783701c7e2f436c74d8077b6b260608768807a6c3d1",
+   "obj_bytes": 1863578,
+   "extent_m": [
+    0.1125,
+    0.30012,
+    0.13005
+   ],
+   "kept": false,
+   "reason": "smallest side 112 mm outside 5-70 mm"
+  },
+  {
+   "name": "Pepsi_Max_Cola_Zero_Calorie_12_12_fl_oz_355_ml_cans_144_fl_oz_426_lt",
+   "obj_sha256": "16f03c1edd02794d388533a7bf4edaa606ec15350d006830dca2b91a409351f7",
+   "obj_bytes": 682539,
+   "extent_m": [
+    0.4048,
+    0.14323,
+    0.12819
+   ],
+   "kept": false,
+   "reason": "smallest side 128 mm outside 5-70 mm"
+  },
+  {
+   "name": "Glycerin_11_Color_BrllntBluSkydvrSlvrBlckWht_Size_80",
+   "obj_sha256": "d32c00f0ac522be68db26576b19c6a8bfeeb58ab8188b0b7a0afa126419a9b0d",
+   "obj_bytes": 3099809,
+   "extent_m": [
+    0.11979,
+    0.30498,
+    0.13596
+   ],
+   "kept": false,
+   "reason": "smallest side 120 mm outside 5-70 mm"
+  },
+  {
+   "name": "Super_Mario_Kart_Super_Nintendo_Entertainment_System",
+   "obj_sha256": "c4cdcff37a2a20454898d96d36fe546162b5566de3c0d164ec2c5c3fca513ce2",
+   "obj_bytes": 671127,
+   "extent_m": [
+    0.13658,
+    0.02622,
+    0.08854
+   ],
+   "kept": true,
+   "project": "Super_Mario_Kart_Super_Nintendo_Entertainment_System/cell.axisforge",
+   "project_sha256": "f6d8e980c271cd172dd37410c7329f2e786958cd8f3bc9ac1681d0b3165df143"
+  },
+  {
+   "name": "Asus_Z87PRO_Motherboard_ATX_LGA1150_Socket",
+   "obj_sha256": "952b8569db17eda69eb3f7e5733d01a89782d49e451a9f39615f588a33ae4c1c",
+   "obj_bytes": 230365,
+   "extent_m": [
+    0.33417,
+    0.08205,
+    0.26935
+   ],
+   "kept": false,
+   "reason": "smallest side 82 mm outside 5-70 mm"
+  },
+  {
+   "name": "Ecoforms_Plant_Container_Urn_55_Mocha",
+   "obj_sha256": "fb9b9535cd5f4c9a66e885e06cf5d8b4f80e51e8d1b50422e1747b350e1a0b0b",
+   "obj_bytes": 391531,
+   "extent_m": [
+    0.14936,
+    0.14907,
+    0.15992
+   ],
+   "kept": false,
+   "reason": "smallest side 149 mm outside 5-70 mm"
+  },
+  {
+   "name": "Ecoforms_Plant_Container_FB6_Tur",
+   "obj_sha256": "20f5c00326d4168b86c982da59cb420b00d9b2c6a389b91e00d4b41cbe1d4f9a",
+   "obj_bytes": 775872,
+   "extent_m": [
+    0.16145,
+    0.16166,
+    0.10847
+   ],
+   "kept": false,
+   "reason": "smallest side 108 mm outside 5-70 mm"
+  },
+  {
+   "name": "FOOD_BEVERAGE_SET",
+   "obj_sha256": "f6dd4329ec2e9e63727daa3af3c9e1d64c86fd0382b7c1f1cf7a92f10814abd8",
+   "obj_bytes": 492057,
+   "extent_m": [
+    0.26711,
+    0.12751,
+    0.12019
+   ],
+   "kept": false,
+   "reason": "smallest side 120 mm outside 5-70 mm"
+  },
+  {
+   "name": "QHPomegranate",
+   "obj_sha256": "834dba320d7e4833785b6c4bd0e09f60ddbfb75a898ce2e5acec0b99dc3a4c8a",
+   "obj_bytes": 630585,
+   "extent_m": [
+    0.05406,
+    0.05378,
+    0.09784
+   ],
+   "kept": true,
+   "project": "QHPomegranate/cell.axisforge",
+   "project_sha256": "966d5d9d702807f7b5c3f6c05fc1af76bdd83d39a36494608d26fb0d56e21a3e"
+  },
+  {
+   "name": "Wild_Copper_Tieks_Metallic_Italian_Leather_Ballet_Flats",
+   "obj_sha256": "adf6c672cdf36d31dffbee0902b9cfb03df1a9c38f78eb16b57e21c0584c5d36",
+   "obj_bytes": 1365000,
+   "extent_m": [
+    0.08586,
+    0.24352,
+    0.0795
+   ],
+   "kept": false,
+   "reason": "smallest side 79 mm outside 5-70 mm"
+  },
+  {
+   "name": "LADYBUG_BEAD",
+   "obj_sha256": "2b6de473bdf66918fc29f6ada3ba7d468ea52d5266dbd1a19830f2d4f13efed2",
+   "obj_bytes": 690871,
+   "extent_m": [
+    0.05716,
+    0.08421,
+    0.03029
+   ],
+   "kept": true,
+   "project": "LADYBUG_BEAD/cell.axisforge",
+   "project_sha256": "fcc839c9331c97a3011b68702046d4f06e89d259f3ee139b1e244ba1b9aaef32"
+  },
+  {
+   "name": "Threshold_Tray_Rectangle_Porcelain",
+   "obj_sha256": "cbab5bc5885cc6521c1848590f3808e76fdff5481bb81aa6097c2520d9285c5e",
+   "obj_bytes": 161742,
+   "extent_m": [
+    0.16885,
+    0.31447,
+    0.03487
+   ],
+   "kept": false,
+   "reason": "largest side 314 mm over 250 mm"
+  },
+  {
+   "name": "Horses_in_Pink_Pencil_Case",
+   "obj_sha256": "3d162eb818af6d0d566b714b6309539b5efa43db1db82787eb36456a31693f91",
+   "obj_bytes": 811131,
+   "extent_m": [
+    0.21417,
+    0.09266,
+    0.08866
+   ],
+   "kept": false,
+   "reason": "smallest side 89 mm outside 5-70 mm"
+  },
+  {
+   "name": "Ubisoft_RockSmith_Real_Tone_Cable_Xbox_360",
+   "obj_sha256": "8486ab83fbdfd10cf81bf0f18beb2e67412dc7ac73c0cad2508cf17c50b5979e",
+   "obj_bytes": 2579724,
+   "extent_m": [
+    0.17165,
+    0.14005,
+    0.0436
+   ],
+   "kept": true,
+   "project": "Ubisoft_RockSmith_Real_Tone_Cable_Xbox_360/cell.axisforge",
+   "project_sha256": "8d66d73ce468631177e6c3539bfbdc2d2e48eaedc603168b10f6b70118fe49e2"
+  },
+  {
+   "name": "Ortho_Forward_Facing_QCaor9ImJ2G",
+   "obj_sha256": "3bc81bb161f5232d8002a8041137cffb4fa8c9aba338a78bf97ca2742fe7271d",
+   "obj_bytes": 7804781,
+   "extent_m": [
+    0.17338,
+    0.17967,
+    0.19551
+   ],
+   "kept": false,
+   "reason": "smallest side 173 mm outside 5-70 mm"
+  },
+  {
+   "name": "Closetmaid_Premium_Fabric_Cube_Red",
+   "obj_sha256": "2ffc033da9fcc1bff090bbb7149b2d57080b5c787caaea8bf7f87867c00a08dd",
+   "obj_bytes": 790190,
+   "extent_m": [
+    0.32167,
+    0.27497,
+    0.28915
+   ],
+   "kept": false,
+   "reason": "smallest side 275 mm outside 5-70 mm"
+  },
+  {
+   "name": "Weston_No_33_Signature_Sausage_Tonic_12_fl_oz",
+   "obj_sha256": "9d1b1c8706c33e11c9d28958c3d31733fe1253cf6eef65a3b6f04fdddc3d8a57",
+   "obj_bytes": 839717,
+   "extent_m": [
+    0.06549,
+    0.06249,
+    0.19867
+   ],
+   "kept": true,
+   "project": "Weston_No_33_Signature_Sausage_Tonic_12_fl_oz/cell.axisforge",
+   "project_sha256": "7be0e4fa28eddd8686af82c7657d8b4ed936215c443c554d9ae92565d4a3950f"
+  },
+  {
+   "name": "Perricone_MD_Omega_3_Supplements",
+   "obj_sha256": "96b269ab5a3b9ccc9536b2b02abc67e8fe5640b07dba4a7e5bc5cc154837ceec",
+   "obj_bytes": 132529,
+   "extent_m": [
+    0.07388,
+    0.07414,
+    0.12639
+   ],
+   "kept": false,
+   "reason": "smallest side 74 mm outside 5-70 mm"
+  },
+  {
+   "name": "MINI_EXCAVATOR",
+   "obj_sha256": "6cc54db6b9f82b7548c583b36432fd1e3cba40d5f4109b6a518a3bd19bfdacba",
+   "obj_bytes": 950019,
+   "extent_m": [
+    0.08573,
+    0.16689,
+    0.17163
+   ],
+   "kept": false,
+   "reason": "smallest side 86 mm outside 5-70 mm"
+  },
+  {
+   "name": "Nescafe_Memento_Latte_Caramel_8_08_oz_23_g_packets_64_oz_184_g",
+   "obj_sha256": "79f48228ea7fdaddefc71ad7758e30f72a5748b81dcb48abf7cb4032768d6234",
+   "obj_bytes": 245154,
+   "extent_m": [
+    0.09187,
+    0.06404,
+    0.16064
+   ],
+   "kept": true,
+   "project": "Nescafe_Memento_Latte_Caramel_8_08_oz_23_g_packets_64_oz_184_g/cell.axisforge",
+   "project_sha256": "de275266191a7a5904633169c650f7c5b76666cf220b13d9450e24b7673e26b7"
+  },
+  {
+   "name": "Kong_Puppy_Teething_Rubber_Small_Pink",
+   "obj_sha256": "e6c4585d3c363be547097605c788504d17e4b53053ba2039676fbb525d61fe0e",
+   "obj_bytes": 543108,
+   "extent_m": [
+    0.04451,
+    0.04446,
+    0.07166
+   ],
+   "kept": true,
+   "project": "Kong_Puppy_Teething_Rubber_Small_Pink/cell.axisforge",
+   "project_sha256": "2e8292ab6124c2ffdc50a88e3932ee782b231c774dbd0d5d4f9f551fc65e4d06"
+  },
+  {
+   "name": "Perricone_MD_The_Cold_Plasma_Face_Eyes_Duo",
+   "obj_sha256": "c198c64a96c88cd9a227dca361f767b443ff85760871803bd7759185e84f2612",
+   "obj_bytes": 558429,
+   "extent_m": [
+    0.13161,
+    0.06851,
+    0.11984
+   ],
+   "kept": true,
+   "project": "Perricone_MD_The_Cold_Plasma_Face_Eyes_Duo/cell.axisforge",
+   "project_sha256": "dd2ae3ca7c85541742bd47d906a114d1dd04e97ae3d877402d4f106c37aebe53"
+  },
+  {
+   "name": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black",
+   "obj_sha256": "759be183be5e7d2a9be49692a382e15e454e486675ad147ec9f069426de5559b",
+   "obj_bytes": 289275,
+   "extent_m": [
+    0.08536,
+    0.04992,
+    0.14714
+   ],
+   "kept": true,
+   "project": "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black/cell.axisforge",
+   "project_sha256": "2e6910ec8bf8eecd0ef09448d29136cbaf18ddabf1297f1308bbd4509a46c7ff"
+  },
+  {
+   "name": "SpiderMan_Titan_Hero_12Inch_Action_Figure_5Hnn4mtkFsP",
+   "obj_sha256": "11d1881117c0a4d3ed6c2184c1ad09969b08ec9b7b50ce97e1bb16a1a672c060",
+   "obj_bytes": 1052918,
+   "extent_m": [
+    0.09403,
+    0.14262,
+    0.28816
+   ],
+   "kept": false,
+   "reason": "smallest side 94 mm outside 5-70 mm"
+  },
+  {
+   "name": "LEGO_5887_Dino_Defense_HQ",
+   "obj_sha256": "1ee688044f6abbb8485342deed72e80e1f07d52809e45561f3092055cd02fc7e",
+   "obj_bytes": 6853664,
+   "extent_m": [
+    0.45172,
+    0.34734,
+    0.26171
+   ],
+   "kept": false,
+   "reason": "smallest side 262 mm outside 5-70 mm"
+  },
+  {
+   "name": "Reebok_SH_PRIME_COURT_MID",
+   "obj_sha256": "0c5d6c7b76a953f1c388821b1064a50bd9e6f4aee934f9464c341d44b72b7e94",
+   "obj_bytes": 2297994,
+   "extent_m": [
+    0.08689,
+    0.21719,
+    0.11365
+   ],
+   "kept": false,
+   "reason": "smallest side 87 mm outside 5-70 mm"
+  },
+  {
+   "name": "Reebok_CL_RAYEN",
+   "obj_sha256": "9a997ff28504057fd95b9b8d133720917e8ce064855b2057ddb2d4651f3ca391",
+   "obj_bytes": 1633766,
+   "extent_m": [
+    0.10293,
+    0.29367,
+    0.11519
+   ],
+   "kept": false,
+   "reason": "smallest side 103 mm outside 5-70 mm"
+  },
+  {
+   "name": "AllergenFree_JarroDophilus",
+   "obj_sha256": "0a98c4414db2a1e81a1407a1724b4049a5ad464caf5ce880430c3b323fef1cfa",
+   "obj_bytes": 501095,
+   "extent_m": [
+    0.05389,
+    0.05359,
+    0.096
+   ],
+   "kept": true,
+   "project": "AllergenFree_JarroDophilus/cell.axisforge",
+   "project_sha256": "b91f3ffd4971be11c233a7baabda3d077d5f32d6b2f83442a60fe9d2c12e6f3e"
+  },
+  {
+   "name": "Reebok_VERSA_TRAIN",
+   "obj_sha256": "24c604fa1c14a8ad6b0357be2aef83556e8bb98053e646b224540322d05254ff",
+   "obj_bytes": 2792748,
+   "extent_m": [
+    0.11027,
+    0.29916,
+    0.11967
+   ],
+   "kept": false,
+   "reason": "smallest side 110 mm outside 5-70 mm"
+  },
+  {
+   "name": "SANDWICH_MEAL",
+   "obj_sha256": "ff67f15b9419828cdcc44002346761a3266db7da0e462a9ac6b534f5908321d7",
+   "obj_bytes": 792728,
+   "extent_m": [
+    0.12826,
+    0.13842,
+    0.04863
+   ],
+   "kept": true,
+   "project": "SANDWICH_MEAL/cell.axisforge",
+   "project_sha256": "e3d95bbf542d6761ecfcb5b4fdde4173f6ba68b4cc1af86752659f56836afdc7"
+  },
+  {
+   "name": "Cole_Hardware_Flower_Pot_1025",
+   "obj_sha256": "a8495ac3a7ff8e330f608807a6a76a2c350332a0ed6326bcbbb3e8ceff14af1d",
+   "obj_bytes": 361659,
+   "extent_m": [
+    0.24986,
+    0.24672,
+    0.2168
+   ],
+   "kept": false,
+   "reason": "smallest side 217 mm outside 5-70 mm"
+  },
+  {
+   "name": "Olive_Kids_Butterfly_Garden_Munch_n_Lunch_Bag",
+   "obj_sha256": "36c4af0e544bf0757271408eb9ac9c0b4de16c9cb02b64d5a0bc855950e4b76c",
+   "obj_bytes": 1203437,
+   "extent_m": [
+    0.22481,
+    0.16853,
+    0.2651
+   ],
+   "kept": false,
+   "reason": "smallest side 169 mm outside 5-70 mm"
+  },
+  {
+   "name": "GEOMETRIC_SORTING_BOARD",
+   "obj_sha256": "c949164f48a0d327e02e499149f57c310e7d7134d785763ad655ef5316f01bb4",
+   "obj_bytes": 795516,
+   "extent_m": [
+    0.17472,
+    0.17367,
+    0.0608
+   ],
+   "kept": true,
+   "project": "GEOMETRIC_SORTING_BOARD/cell.axisforge",
+   "project_sha256": "5034c17b79ce07369dc8c333e14dcb8a7ac41f1a9495b75103793373b518dc51"
+  },
+  {
+   "name": "LEGO_Duplo_Creative_Animals_10573",
+   "obj_sha256": "f111c03c3105fa478aa34d907bb3df8f36f5680cf5e7d29e4ab39d70cad8a4c6",
+   "obj_bytes": 1660319,
+   "extent_m": [
+    0.38922,
+    0.14846,
+    0.15972
+   ],
+   "kept": false,
+   "reason": "smallest side 148 mm outside 5-70 mm"
+  },
+  {
+   "name": "Crayola_Crayons_120_crayons",
+   "obj_sha256": "a5c9f8d5cf2d2b10e8c66569a1ea8723e7f3db14324ac913b2abf2913e86a4bf",
+   "obj_bytes": 196438,
+   "extent_m": [
+    0.23078,
+    0.06723,
+    0.13707
+   ],
+   "kept": true,
+   "project": "Crayola_Crayons_120_crayons/cell.axisforge",
+   "project_sha256": "c3333a917719bcc7307e680eff4d673fc8d4e3e3b94b9a12fbf5217b9c1d2856"
+  },
+  {
+   "name": "Thomas_Friends_Wooden_Railway_Ascending_Track_Riser_Pack",
+   "obj_sha256": "b26799ec7d9afe928ac87fae2bde1941fe632ba5bb5718a9497f73a192900a83",
+   "obj_bytes": 413358,
+   "extent_m": [
+    0.42532,
+    0.05789,
+    0.14296
+   ],
+   "kept": false,
+   "reason": "largest side 425 mm over 250 mm"
+  },
+  {
+   "name": "Reebok_PUMP_OMNI_LITE_HLS",
+   "obj_sha256": "d0a5c88ecb37b22f146d9f02bffe5afb6ba4d8a2407d8b7ebcdb9f9df42b1c65",
+   "obj_bytes": 3573563,
+   "extent_m": [
+    0.1228,
+    0.29213,
+    0.16686
+   ],
+   "kept": false,
+   "reason": "smallest side 123 mm outside 5-70 mm"
+  },
+  {
+   "name": "Perricone_MD_OVM",
+   "obj_sha256": "93e03a748d55de05e14e24458aa2121a6365beca3cf05970fe01f6dbc8d72d11",
+   "obj_bytes": 113714,
+   "extent_m": [
+    0.10471,
+    0.06457,
+    0.10504
+   ],
+   "kept": true,
+   "project": "Perricone_MD_OVM/cell.axisforge",
+   "project_sha256": "0dbb3cd0a8c430db6b508e104e1835d32ab4872d9a529395bd1cdce5c3e1c965"
+  },
+  {
+   "name": "Colton_Wntr_Chukka_y4jO0I8JQFW",
+   "obj_sha256": "7a800fddbc9d88e5cf70d6c003a80c7abd8fce6548356599997c6c5348d5179d",
+   "obj_bytes": 1919085,
+   "extent_m": [
+    0.12214,
+    0.32695,
+    0.15847
+   ],
+   "kept": false,
+   "reason": "smallest side 122 mm outside 5-70 mm"
+  },
+  {
+   "name": "ProSport_Harness_to_Booster_Seat",
+   "obj_sha256": "8d594da1a4dc111baba6b7fda76ce4f02b31b263e4019efb0fdf0378b4b98ae3",
+   "obj_bytes": 2415956,
+   "extent_m": [
+    0.22713,
+    0.22725,
+    0.0546
+   ],
+   "kept": true,
+   "project": "ProSport_Harness_to_Booster_Seat/cell.axisforge",
+   "project_sha256": "87661e87b5f53b732128293837c33858e2534c1a2823db9b05cc90ff2bcbcf9e"
+  },
+  {
+   "name": "Mens_Authentic_Original_Boat_Shoe_in_Navy_Leather_RpT4GvUXRRP",
+   "obj_sha256": "7527695dbf5028eb3695d09737cfdbb25e7f042a4fc8099738d8b507633a2ab3",
+   "obj_bytes": 1213788,
+   "extent_m": [
+    0.24982,
+    0.08985,
+    0.08095
+   ],
+   "kept": false,
+   "reason": "smallest side 81 mm outside 5-70 mm"
+  },
+  {
+   "name": "Mens_Wave_Driver_Kiltie_Moc_in_Tan_Leather",
+   "obj_sha256": "36fa939e75f8ee447165ab820766b52bdf5c75dbf1fe6ffafeb376650bf264fa",
+   "obj_bytes": 1631245,
+   "extent_m": [
+    0.27839,
+    0.11127,
+    0.1082
+   ],
+   "kept": false,
+   "reason": "smallest side 108 mm outside 5-70 mm"
+  },
+  {
+   "name": "CAR_CARRIER_TRAIN",
+   "obj_sha256": "d6b0581fff09efb6e19e72a54384a6cdcedf36095cf51b864e1987d543a8c926",
+   "obj_bytes": 1768369,
+   "extent_m": [
+    0.03803,
+    0.22295,
+    0.05106
+   ],
+   "kept": true,
+   "project": "CAR_CARRIER_TRAIN/cell.axisforge",
+   "project_sha256": "40332237180cbbe5754617ce2d8e361f175a553470b619ffb4735a32b5c51861"
+  },
+  {
+   "name": "Perricone_MD_Nutritive_Cleanser",
+   "obj_sha256": "dc72c5897cfa8c50ddb31283ee3cf4238ce7325521b0b996aaa458d86a88549f",
+   "obj_bytes": 118426,
+   "extent_m": [
+    0.08393,
+    0.06035,
+    0.14874
+   ],
+   "kept": true,
+   "project": "Perricone_MD_Nutritive_Cleanser/cell.axisforge",
+   "project_sha256": "2abe4c73d24c726cc75e6552455b5c732178211bacb4e8ff226513990d88fc22"
+  },
+  {
+   "name": "Perricone_MD_No_Foundation_Serum",
+   "obj_sha256": "6da8be4590b9108884917935decf4396b80718254eaa5414d576f81e934968c8",
+   "obj_bytes": 201153,
+   "extent_m": [
+    0.06431,
+    0.04345,
+    0.12225
+   ],
+   "kept": true,
+   "project": "Perricone_MD_No_Foundation_Serum/cell.axisforge",
+   "project_sha256": "6f19de96918e2810f763ca08984d4a2a15e13ad3435dacaa19c87b3b474f708d"
+  },
+  {
+   "name": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN",
+   "obj_sha256": "44f50a52344bbde696a48d7ad3134c3c7bb5643adafbbc81939e7490790e4a09",
+   "obj_bytes": 353349,
+   "extent_m": [
+    0.0853,
+    0.04968,
+    0.11797
+   ],
+   "kept": true,
+   "project": "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN/cell.axisforge",
+   "project_sha256": "7c2da1d2570bc7af49f2912b94533cd029b2eda361dd3870ebaa8456d588c914"
+  },
+  {
+   "name": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each",
+   "obj_sha256": "581f4742c02944f41c0deb1b194e672f0300966e5d3366a6920679e49597913e",
+   "obj_bytes": 474316,
+   "extent_m": [
+    0.17704,
+    0.06493,
+    0.1477
+   ],
+   "kept": true,
+   "project": "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each/cell.axisforge",
+   "project_sha256": "457584f8605f703095f715ff2c495de4ae9898dbaa4846373c688747b2cd3a90"
+  },
+  {
+   "name": "Razer_Taipan_White_Ambidextrous_Gaming_Mouse",
+   "obj_sha256": "d7a51333b8c4f68ba5199962f053a64a3fb55d1605ba6d8ed1e587ba25e47716",
+   "obj_bytes": 1522660,
+   "extent_m": [
+    0.09984,
+    0.18208,
+    0.03995
+   ],
+   "kept": true,
+   "project": "Razer_Taipan_White_Ambidextrous_Gaming_Mouse/cell.axisforge",
+   "project_sha256": "712cd880d7538aa14b1b0b89fe5c1d2247925436b953a82e4557f7e68fda7b2f"
+  },
+  {
+   "name": "Seagate_3TB_Central_shared_storage",
+   "obj_sha256": "b0f2fb94e4f0fc26b743b3ab0e9eb2ee5589183ae3c72f12ff51441dad47c1b4",
+   "obj_bytes": 1125283,
+   "extent_m": [
+    0.14648,
+    0.21718,
+    0.04597
+   ],
+   "kept": true,
+   "project": "Seagate_3TB_Central_shared_storage/cell.axisforge",
+   "project_sha256": "59045afea86c17c5a6acdea44ee5692b20267fec22e32c531cbb34b4cab18c59"
+  },
+  {
+   "name": "Reebok_SH_NEWPORT_LOW",
+   "obj_sha256": "e337146bf657d9959d5e378445521e1854e6593bd6720ad48b8787cc1db3ea1a",
+   "obj_bytes": 1281180,
+   "extent_m": [
+    0.10435,
+    0.28661,
+    0.12134
+   ],
+   "kept": false,
+   "reason": "smallest side 104 mm outside 5-70 mm"
+  },
+  {
+   "name": "Cole_Hardware_Butter_Dish_Square_Red",
+   "obj_sha256": "c8ef5e6f94655883e405ce6733882a83112969e9d9d331f035257b4b41407e38",
+   "obj_bytes": 2227354,
+   "extent_m": [
+    0.1149,
+    0.11522,
+    0.08516
+   ],
+   "kept": false,
+   "reason": "smallest side 85 mm outside 5-70 mm"
+  },
+  {
+   "name": "Ravenna_4_Color_WhtOlyBluBlkShkOrngSlvRdO_Size_70",
+   "obj_sha256": "545f3775afdf3ff39e14e3f11ccc9fc831af281c3ea0aef0737f86052fd8a16b",
+   "obj_bytes": 5163283,
+   "extent_m": [
+    0.12112,
+    0.32153,
+    0.1261
+   ],
+   "kept": false,
+   "reason": "smallest side 121 mm outside 5-70 mm"
+  },
+  {
+   "name": "HELICOPTER",
+   "obj_sha256": "22f4d77fff57760cb484ac40384cd19bdbbb0e4108c76d58b07124f25eacb5a6",
+   "obj_bytes": 757638,
+   "extent_m": [
+    0.0683,
+    0.17315,
+    0.11451
+   ],
+   "kept": true,
+   "project": "HELICOPTER/cell.axisforge",
+   "project_sha256": "948a4f5a6d36c5762292ec7ff1af84bdf25289017ede7a7e073df989463b51cc"
+  },
+  {
+   "name": "Mens_Bahama_in_Black_b4ADzYywRHl",
+   "obj_sha256": "7a7662064b8c6d5cc2927d82cd231e521625633e75607015709d880f7914c94a",
+   "obj_bytes": 1363421,
+   "extent_m": [
+    0.10343,
+    0.28695,
+    0.10176
+   ],
+   "kept": false,
+   "reason": "smallest side 102 mm outside 5-70 mm"
+  },
+  {
+   "name": "Imaginext_Castle_Ogre",
+   "obj_sha256": "ad994807f5b4804c0c5b7a29475c7d6297a17e473ab9069c2c21d006df500ee2",
+   "obj_bytes": 1910653,
+   "extent_m": [
+    0.39565,
+    0.19412,
+    0.23721
+   ],
+   "kept": false,
+   "reason": "smallest side 194 mm outside 5-70 mm"
+  },
+  {
+   "name": "Leap_Frog_Paint_Dabber_Dot_Art_5_paint_bottles",
+   "obj_sha256": "ca1f132633da88477d7bc435fd25689caeedb1bcea886acfd63a33b2107be0bd",
+   "obj_bytes": 104338,
+   "extent_m": [
+    0.23572,
+    0.05718,
+    0.2328
+   ],
+   "kept": false,
+   "reason": "height 233 mm over 200 mm"
+  },
+  {
+   "name": "Spritz_Easter_Basket_Plastic_Teal",
+   "obj_sha256": "7d33c7496a7b0c96a1384929603cc6f56fda246dca2687c3f08c86f2a86bf9df",
+   "obj_bytes": 867736,
+   "extent_m": [
+    0.19129,
+    0.18263,
+    0.12892
+   ],
+   "kept": false,
+   "reason": "smallest side 129 mm outside 5-70 mm"
+  },
+  {
+   "name": "JUNGLE_HEIGHT",
+   "obj_sha256": "008e36e9269760712d6aac2bf2cb2b7e53546c3500aea920d338456b14eb9b17",
+   "obj_bytes": 1509237,
+   "extent_m": [
+    0.26976,
+    0.37278,
+    0.03306
+   ],
+   "kept": false,
+   "reason": "largest side 373 mm over 250 mm"
+  },
+  {
+   "name": "Canon_Pixma_Ink_Cartridge_8_Red",
+   "obj_sha256": "a35d8f4c3a38eb7e6db0fc447a7c2eb62dbcb4ef24fd510080c08fba9dbc3102",
+   "obj_bytes": 396511,
+   "extent_m": [
+    0.02873,
+    0.09293,
+    0.11458
+   ],
+   "kept": true,
+   "project": "Canon_Pixma_Ink_Cartridge_8_Red/cell.axisforge",
+   "project_sha256": "c884be0e179b83307f0dde62697e4c32e0d51f724cd9b29e488a9daab7ed3de6"
+  },
+  {
+   "name": "PureCadence_2_Color_HiRskRedNghtlfeSlvrBlckWht_Size_70",
+   "obj_sha256": "a5cadb47bf4675e01ac82053e5bea763966b74710134390ccff0e58d5b2c5357",
+   "obj_bytes": 2643975,
+   "extent_m": [
+    0.11787,
+    0.30611,
+    0.12998
+   ],
+   "kept": false,
+   "reason": "smallest side 118 mm outside 5-70 mm"
+  },
+  {
+   "name": "Asus_Z97IPLUS_Motherboard_Mini_ITX_LGA1150_Socket",
+   "obj_sha256": "42480b0f43db9506fd70ea8c1f2ef707feb33ae4e0aef1b28bfc2c114264054c",
+   "obj_bytes": 2269774,
+   "extent_m": [
+    0.23154,
+    0.09971,
+    0.18961
+   ],
+   "kept": false,
+   "reason": "smallest side 100 mm outside 5-70 mm"
+  },
+  {
+   "name": "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game",
+   "obj_sha256": "ff00745696debe99de3a1b0abe138cfb04296d80ca425c1f7f3d7db06f4d9ad0",
+   "obj_bytes": 151410,
+   "extent_m": [
+    0.14542,
+    0.06335,
+    0.19711
+   ],
+   "kept": true,
+   "project": "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game/cell.axisforge",
+   "project_sha256": "350c4de3ab556fd4c4d3c3d1187ca1f52385de84e75fb17e48291b628024d967"
+  },
+  {
+   "name": "Hyaluronic_Acid",
+   "obj_sha256": "9b6bcc41b894b6b18527a517961fda48db811d7eab7955392f4aea964cc19d65",
+   "obj_bytes": 545970,
+   "extent_m": [
+    0.05417,
+    0.05421,
+    0.09798
+   ],
+   "kept": true,
+   "project": "Hyaluronic_Acid/cell.axisforge",
+   "project_sha256": "d8c65614b97f5b60ea14420fc53f7d9a28afc84f364113f7e0d8e94a97be0a60"
+  },
+  {
+   "name": "FISHING_GAME",
+   "obj_sha256": "3f44e730f3284d54e51d4ee39f40178a4cdfc30cadb380073e8c972ae36c3113",
+   "obj_bytes": 1357046,
+   "extent_m": [
+    0.39348,
+    0.28176,
+    0.06117
+   ],
+   "kept": false,
+   "reason": "largest side 393 mm over 250 mm"
+  },
+  {
+   "name": "LEGO_Creationary_Game",
+   "obj_sha256": "db4968076b8e4b1c5ac53a1d8b079d15883ac68a85c62e8b1ba714a784dde464",
+   "obj_bytes": 1339633,
+   "extent_m": [
+    0.28249,
+    0.21102,
+    0.06933
+   ],
+   "kept": false,
+   "reason": "largest side 282 mm over 250 mm"
+  },
+  {
+   "name": "Asus_M5A78LMUSB3_Motherboard_Micro_ATX_Socket_AM3",
+   "obj_sha256": "5ed6c8ffccc1bc334536b36cfe482d9d4cfcbe4e150ed11b5bccfdbce631db59",
+   "obj_bytes": 1047071,
+   "extent_m": [
+    0.27669,
+    0.06574,
+    0.26721
+   ],
+   "kept": false,
+   "reason": "largest side 277 mm over 250 mm"
+  },
+  {
+   "name": "Womens_Bluefish_2Eye_Boat_Shoe_in_Brown_Deerskin_i1TgjjO0AKY",
+   "obj_sha256": "41271d725614fac5f2b341a829d49801ef6e24056543728765dd5a1bfb851644",
+   "obj_bytes": 1369733,
+   "extent_m": [
+    0.0983,
+    0.24911,
+    0.08221
+   ],
+   "kept": false,
+   "reason": "smallest side 82 mm outside 5-70 mm"
+  },
+  {
+   "name": "TOP_TEN_HI",
+   "obj_sha256": "73dce38f29c43e457aac911ff17d7b33f898db2861f5cab6a48f8d5778644641",
+   "obj_bytes": 2577310,
+   "extent_m": [
+    0.10729,
+    0.30119,
+    0.16939
+   ],
+   "kept": false,
+   "reason": "smallest side 107 mm outside 5-70 mm"
+  },
+  {
+   "name": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26",
+   "obj_sha256": "42fb05550a4e6306715423f8d0f344f60a64b3899dc37bdf11eaa6061da4a371",
+   "obj_bytes": 1226777,
+   "extent_m": [
+    0.17171,
+    0.23717,
+    0.02828
+   ],
+   "kept": true,
+   "project": "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26/cell.axisforge",
+   "project_sha256": "52da88932fdc4925ec9486c33eec2be1c0c8f65832e9f88fe2bf87fed49e9b80"
+  },
+  {
+   "name": "Timberland_Mens_Earthkeepers_Stormbuck_Lite_Plain_Toe_Oxford",
+   "obj_sha256": "ed1b35314b014ff17401cdbeb248bc0eb929c9ca7f205aa687c0c8cc23278b4c",
+   "obj_bytes": 1211105,
+   "extent_m": [
+    0.11151,
+    0.31265,
+    0.11143
+   ],
+   "kept": false,
+   "reason": "smallest side 111 mm outside 5-70 mm"
+  },
+  {
+   "name": "Little_Debbie_Chocolate_Cupcakes_8_ct",
+   "obj_sha256": "6ec17b027dbfc3ef77ef91cce1f8eb76d21df7e47860116d44b7a92ad37f7509",
+   "obj_bytes": 184209,
+   "extent_m": [
+    0.29843,
+    0.05536,
+    0.17337
+   ],
+   "kept": false,
+   "reason": "largest side 298 mm over 250 mm"
+  },
+  {
+   "name": "TOOL_BELT",
+   "obj_sha256": "b4b9caa773eb5cd37d8d49b4acad74c89b1516fa31caa7438df15a4e0d9c0dbe",
+   "obj_bytes": 1746936,
+   "extent_m": [
+    0.26131,
+    0.16316,
+    0.16059
+   ],
+   "kept": false,
+   "reason": "smallest side 161 mm outside 5-70 mm"
+  },
+  {
+   "name": "Mist_Wipe_Warmer",
+   "obj_sha256": "9639c4d4652e031dbbc4bfa0cbba75b53ab4b2b1e9c9299f1e849c89b3fb22ee",
+   "obj_bytes": 238111,
+   "extent_m": [
+    0.26419,
+    0.12773,
+    0.23312
+   ],
+   "kept": false,
+   "reason": "smallest side 128 mm outside 5-70 mm"
+  },
+  {
+   "name": "Melissa_Doug_Shape_Sorting_Clock",
+   "obj_sha256": "c9b73b4e3ef2003512973221d79259f958d8ed9625283b84fee6bf1069dbdaba",
+   "obj_bytes": 542641,
+   "extent_m": [
+    0.30645,
+    0.30505,
+    0.06012
+   ],
+   "kept": false,
+   "reason": "largest side 306 mm over 250 mm"
+  },
+  {
+   "name": "Cole_Hardware_Saucer_Glazed_6",
+   "obj_sha256": "65d9c6cfb84a1c0348f2de8856e99aadf6815313cf1d7edf4bb9fd08c435afab",
+   "obj_bytes": 321113,
+   "extent_m": [
+    0.1599,
+    0.15968,
+    0.02995
+   ],
+   "kept": true,
+   "project": "Cole_Hardware_Saucer_Glazed_6/cell.axisforge",
+   "project_sha256": "acf27b37fb522f346a2a12040e063cc4fa89893a4d16965a71d9b0421794fb2b"
+  },
+  {
+   "name": "Phillips_Milk_of_Magnesia_Saline_Laxative_Liquid_Original",
+   "obj_sha256": "1c644d8accb018b6d5e55975d4c3af19545e276a8294b14a043f337bcbb53a3c",
+   "obj_bytes": 606874,
+   "extent_m": [
+    0.07274,
+    0.05685,
+    0.17414
+   ],
+   "kept": true,
+   "project": "Phillips_Milk_of_Magnesia_Saline_Laxative_Liquid_Original/cell.axisforge",
+   "project_sha256": "d73e0f8d5a3f218a336c1786a00ad0cafda9a4e02080104d322b9d019f740d6d"
+  },
+  {
+   "name": "Asus_Sabertooth_Z97_MARK_1_Motherboard_ATX_LGA1150_Socket",
+   "obj_sha256": "d0a3d5fc2ce26a318fe62f1160eb26b1b2987124baaa465580324c855b7fd5b2",
+   "obj_bytes": 207048,
+   "extent_m": [
+    0.35056,
+    0.08942,
+    0.27644
+   ],
+   "kept": false,
+   "reason": "smallest side 89 mm outside 5-70 mm"
+  },
+  {
+   "name": "Olive_Kids_Game_On_Lunch_Box",
+   "obj_sha256": "bfa172d118b3ba35f30d4271a6cf2e655577b9ed5ee540f3d46eecf4d88c531e",
+   "obj_bytes": 935398,
+   "extent_m": [
+    0.27474,
+    0.10381,
+    0.22015
+   ],
+   "kept": false,
+   "reason": "smallest side 104 mm outside 5-70 mm"
+  },
+  {
+   "name": "Cole_Hardware_Bowl_Scirocco_YellowBlue",
+   "obj_sha256": "0e28d9ba22ac8f211a25e94b956fd1a58b5f9f723f2bd2beed93ef69062413ab",
+   "obj_bytes": 643562,
+   "extent_m": [
+    0.11349,
+    0.1149,
+    0.06186
+   ],
+   "kept": true,
+   "project": "Cole_Hardware_Bowl_Scirocco_YellowBlue/cell.axisforge",
+   "project_sha256": "1b3d727270b2ee2bbc87613fd21fe281ef91a7be892f8b58b124d82a162ec50a"
+  },
+  {
+   "name": "My_Little_Pony_Princess_Celestia",
+   "obj_sha256": "970ae1db781edf3721c254fab2eebe89d0cc01ac58f5481d50c3b6781b1d5892",
+   "obj_bytes": 3018386,
+   "extent_m": [
+    0.19318,
+    0.22393,
+    0.23198
+   ],
+   "kept": false,
+   "reason": "smallest side 193 mm outside 5-70 mm"
+  },
+  {
+   "name": "LEGO_City_Advent_Calendar",
+   "obj_sha256": "9ead2b81a5d6af151e7e5867bc4a4feb0c49726f4dc95944612ba73b025ec68f",
+   "obj_bytes": 119230,
+   "extent_m": [
+    0.38347,
+    0.07227,
+    0.26189
+   ],
+   "kept": false,
+   "reason": "smallest side 72 mm outside 5-70 mm"
+  },
+  {
+   "name": "TWISTED_PUZZLE",
+   "obj_sha256": "4a8053f8bd9297db436babd024e43840fa7421c3fda3f31c34845ad4121d0459",
+   "obj_bytes": 276243,
+   "extent_m": [
+    0.17452,
+    0.18865,
+    0.03513
+   ],
+   "kept": true,
+   "project": "TWISTED_PUZZLE/cell.axisforge",
+   "project_sha256": "84864f3d0ab74b263d5bd98d7629374c0ec29df59e9b6626ca0b0eb1bc04a502"
+  },
+  {
+   "name": "Philips_EcoVantage_43_W_Light_Bulbs_Natural_Light_2_pack",
+   "obj_sha256": "0e46aace295ad7d6617e828978937380677fb189265e4ff6ba5bc673c7480458",
+   "obj_bytes": 277457,
+   "extent_m": [
+    0.10691,
+    0.06731,
+    0.10786
+   ],
+   "kept": true,
+   "project": "Philips_EcoVantage_43_W_Light_Bulbs_Natural_Light_2_pack/cell.axisforge",
+   "project_sha256": "d79021d3c5bf4bd720a58ae574ff98593bfc36ea23b356cf20b20edebd82d37c"
+  },
+  {
+   "name": "45oz_RAMEKIN_ASST_DEEP_COLORS",
+   "obj_sha256": "b4853850f816ee5bf16c88e39da7420deaa669e684568979bea6bafe3680bdf0",
+   "obj_bytes": 957910,
+   "extent_m": [
+    0.08971,
+    0.08999,
+    0.04396
+   ],
+   "kept": true,
+   "project": "45oz_RAMEKIN_ASST_DEEP_COLORS/cell.axisforge",
+   "project_sha256": "3f56ad9484d53d588956fae2aeae424b3973ad3dd64851631232ef73fa5c1efd"
+  },
+  {
+   "name": "Court_Attitude",
+   "obj_sha256": "915c20f87dd3bdf7c1d4ecc3dfc744faca07b072a3f626e5e0163e9f1eba633f",
+   "obj_bytes": 2599835,
+   "extent_m": [
+    0.1213,
+    0.29011,
+    0.17516
+   ],
+   "kept": false,
+   "reason": "smallest side 121 mm outside 5-70 mm"
+  },
+  {
+   "name": "Olive_Kids_Birdie_Pack_n_Snack",
+   "obj_sha256": "6af0280a69b69a74d294b12089a97ffaf95984c466d8a37ebed8a2f9dd5a697d",
+   "obj_bytes": 1916282,
+   "extent_m": [
+    0.28197,
+    0.24589,
+    0.32077
+   ],
+   "kept": false,
+   "reason": "smallest side 246 mm outside 5-70 mm"
+  },
+  {
+   "name": "Elephant",
+   "obj_sha256": "30274ea7e830536560badd7869fafb9871991eabce7a5c0b22cac14ffb8cdef1",
+   "obj_bytes": 3621322,
+   "extent_m": [
+    0.19143,
+    0.20989,
+    0.27055
+   ],
+   "kept": false,
+   "reason": "smallest side 191 mm outside 5-70 mm"
+  },
+  {
+   "name": "HeavyDuty_Flashlight",
+   "obj_sha256": "7dfa60a1c42e544523f71b4e754c39c9f4d260fc30118555c56732b152abc900",
+   "obj_bytes": 1173808,
+   "extent_m": [
+    0.0776,
+    0.07789,
+    0.2292
+   ],
+   "kept": false,
+   "reason": "smallest side 78 mm outside 5-70 mm"
+  },
+  {
+   "name": "BREAKFAST_MENU",
+   "obj_sha256": "7821beb7b6d8ede8e5108c4c8bc6bd76aa67aef4cc2b9f994a42d4b81101b693",
+   "obj_bytes": 784480,
+   "extent_m": [
+    0.25313,
+    0.18163,
+    0.07646
+   ],
+   "kept": false,
+   "reason": "smallest side 76 mm outside 5-70 mm"
+  },
+  {
+   "name": "Crayola_Model_Magic_Modeling_Material_White_3_oz",
+   "obj_sha256": "f69aaa77e3423ec5d7f62d4690b2a17e958b00775bec8d62467cd0064ed4b2c0",
+   "obj_bytes": 169554,
+   "extent_m": [
+    0.12761,
+    0.05261,
+    0.2175
+   ],
+   "kept": false,
+   "reason": "height 218 mm over 200 mm"
+  },
+  {
+   "name": "Perricoen_MD_No_Concealer_Concealer",
+   "obj_sha256": "913482d03ea97ab1d4edba46b3903134737f33f8ae8fd4ca1c0504a5fd6e6744",
+   "obj_bytes": 194399,
+   "extent_m": [
+    0.05263,
+    0.04309,
+    0.11084
+   ],
+   "kept": true,
+   "project": "Perricoen_MD_No_Concealer_Concealer/cell.axisforge",
+   "project_sha256": "ccbcbd01aa82c67d904fd53c4f8004f8a54672340f7909480a3e9c9f3a427e1d"
+  },
+  {
+   "name": "CASTLE_BLOCKS",
+   "obj_sha256": "0745a7c90b7f1ac50c57ed2fec08b2c94d694019932d34abde30a814281fac65",
+   "obj_bytes": 1550748,
+   "extent_m": [
+    0.3024,
+    0.20207,
+    0.14187
+   ],
+   "kept": false,
+   "reason": "smallest side 142 mm outside 5-70 mm"
+  },
+  {
+   "name": "Olive_Kids_Game_On_Munch_n_Lunch",
+   "obj_sha256": "297cfd17849a3fa3bfd0c21785761a41d367abe83f84e4e417f6ae6a361c3315",
+   "obj_bytes": 1100036,
+   "extent_m": [
+    0.22761,
+    0.16579,
+    0.26774
+   ],
+   "kept": false,
+   "reason": "smallest side 166 mm outside 5-70 mm"
+  },
+  {
+   "name": "Womens_Bluefish_2Eye_Boat_Shoe_in_White_Tumbled_YG44xIePRHw",
+   "obj_sha256": "4f189087121d6839cfd67fb352cddbede365466225704b10f25c7ece7c3bad0d",
+   "obj_bytes": 2073342,
+   "extent_m": [
+    0.2507,
+    0.08877,
+    0.08689
+   ],
+   "kept": false,
+   "reason": "smallest side 87 mm outside 5-70 mm"
+  },
+  {
+   "name": "Ecoforms_Plant_Container_B4_Har",
+   "obj_sha256": "54353f31c6fbc6af6cdc030bce8a2d5c570fcc6342865f8d73a45c7513c29bfa",
+   "obj_bytes": 551757,
+   "extent_m": [
+    0.10077,
+    0.10093,
+    0.07165
+   ],
+   "kept": false,
+   "reason": "smallest side 72 mm outside 5-70 mm"
+  },
+  {
+   "name": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT",
+   "obj_sha256": "768d45860b3befebd76694c960ba701653023c597bd3c5f22d34dd940f724fd6",
+   "obj_bytes": 388359,
+   "extent_m": [
+    0.08066,
+    0.02885,
+    0.13118
+   ],
+   "kept": true,
+   "project": "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT/cell.axisforge",
+   "project_sha256": "9e6dbf6a3647affa94b062e5bd274799345e422f0bfc3c45d9b9aa01003b9fb5"
+  },
+  {
+   "name": "Wilton_Pearlized_Sugar_Sprinkles_525_oz_Gold",
+   "obj_sha256": "1de31d8b32798299634ab09bb4cab579af0570f4b9471b303edbf7c79c885d1b",
+   "obj_bytes": 830824,
+   "extent_m": [
+    0.04574,
+    0.0456,
+    0.13448
+   ],
+   "kept": true,
+   "project": "Wilton_Pearlized_Sugar_Sprinkles_525_oz_Gold/cell.axisforge",
+   "project_sha256": "c546f710b31e1e4b25a6d274b574588a845df04cac157c4154799ee06af0a6c9"
+  },
+  {
+   "name": "Metallic_Pewter_Tieks_Italian_Leather_Ballet_Flats",
+   "obj_sha256": "520c4a5152ba5fefdc9374b25d7de18dfaee5ef0e3388b09070f15b617282cff",
+   "obj_bytes": 1311982,
+   "extent_m": [
+    0.08312,
+    0.24667,
+    0.07856
+   ],
+   "kept": false,
+   "reason": "smallest side 79 mm outside 5-70 mm"
+  },
+  {
+   "name": "Squirt_Strain_Fruit_Basket",
+   "obj_sha256": "b032ad7b58390b3ff537b364d7d8b9ae7f40aaf961b3a442f0918c7d960afc01",
+   "obj_bytes": 982211,
+   "extent_m": [
+    0.11396,
+    0.08861,
+    0.1129
+   ],
+   "kept": false,
+   "reason": "smallest side 89 mm outside 5-70 mm"
+  },
+  {
+   "name": "Black_and_Decker_PBJ2000_FusionBlade_Blender_Jars",
+   "obj_sha256": "ad76fa3a0a4ec54ec2e88f56ea52fc74992ace0bd3d7d24449b8aa72750c555c",
+   "obj_bytes": 289272,
+   "extent_m": [
+    0.17481,
+    0.09011,
+    0.29971
+   ],
+   "kept": false,
+   "reason": "smallest side 90 mm outside 5-70 mm"
+  },
+  {
+   "name": "Epson_Ink_Cartridge_126_Yellow",
+   "obj_sha256": "72097932d478ded5dd050c0e29ae33e59d5b4b7f8ce88a0fe477c3d99dd41642",
+   "obj_bytes": 252277,
+   "extent_m": [
+    0.11331,
+    0.02695,
+    0.11466
+   ],
+   "kept": true,
+   "project": "Epson_Ink_Cartridge_126_Yellow/cell.axisforge",
+   "project_sha256": "3fe963dd0eb5c94a7bd905772bc6ef270d89beabe18849a06a517521e859aef7"
+  },
+  {
+   "name": "Room_Essentials_Mug_White_Yellow",
+   "obj_sha256": "25b1444606bdb4dbb547e06da4874750232a2e613ad17fd51753a5a297f52e3f",
+   "obj_bytes": 528260,
+   "extent_m": [
+    0.13684,
+    0.10219,
+    0.10479
+   ],
+   "kept": false,
+   "reason": "smallest side 102 mm outside 5-70 mm"
+  },
+  {
+   "name": "Organic_Whey_Protein_Unflavored",
+   "obj_sha256": "2757a6646be593ee9f7751ac2d3b1e62a57dc80519b3cdb8308f6ee03f2c21ed",
+   "obj_bytes": 576290,
+   "extent_m": [
+    0.12187,
+    0.12201,
+    0.16906
+   ],
+   "kept": false,
+   "reason": "smallest side 122 mm outside 5-70 mm"
+  },
+  {
+   "name": "Cole_Hardware_Antislip_Surfacing_White_2_x_60",
+   "obj_sha256": "b7a2c43749d0894ed40e71191e021edba94731f4ea87401be6fc18a7002436c5",
+   "obj_bytes": 352467,
+   "extent_m": [
+    0.15703,
+    0.15783,
+    0.05587
+   ],
+   "kept": true,
+   "project": "Cole_Hardware_Antislip_Surfacing_White_2_x_60/cell.axisforge",
+   "project_sha256": "95910b0e5b51a55228aea160707fd693c0b21fb366704bca696d9c7376007d4f"
+  },
+  {
+   "name": "Diamond_Visions_Scissors_Red",
+   "obj_sha256": "0b94c57683e6e39a0b864556a3db4c9dce90317a9ae6cc2ae2b4fac6a95aa683",
+   "obj_bytes": 436565,
+   "extent_m": [
+    0.07666,
+    0.20957,
+    0.0146
+   ],
+   "kept": true,
+   "project": "Diamond_Visions_Scissors_Red/cell.axisforge",
+   "project_sha256": "0af3089537e57a7747c2a1cdf51218754238ec1cb9d29b692079db3423bb55b5"
+  },
+  {
+   "name": "Ecoforms_Plant_Container_S24Turquoise",
+   "obj_sha256": "dd54c7827687e1932ee26b2c3fca5a82518ed5580870fd82e4df253b9283d4a1",
+   "obj_bytes": 257641,
+   "extent_m": [
+    0.24173,
+    0.24189,
+    0.03317
+   ],
+   "kept": true,
+   "project": "Ecoforms_Plant_Container_S24Turquoise/cell.axisforge",
+   "project_sha256": "e93cd8b33ae09c457dec7811f7ffcdfc687f4d1127875daff54d5dc2b51129b1"
+  },
+  {
+   "name": "Wishbone_Pencil_Case",
+   "obj_sha256": "ffb5241b866e96c1b17ca2b32316093497a1cc6629ec52e7d2e3cb48f49d34d5",
+   "obj_bytes": 751674,
+   "extent_m": [
+    0.22117,
+    0.09282,
+    0.09455
+   ],
+   "kept": false,
+   "reason": "smallest side 93 mm outside 5-70 mm"
+  },
+  {
+   "name": "CITY_TAXI_POLICE_CAR",
+   "obj_sha256": "16656e83a285157cde60052ec6e1c46d0bc28eb20807ba638a039f5b081df69b",
+   "obj_bytes": 722521,
+   "extent_m": [
+    0.05664,
+    0.12634,
+    0.02797
+   ],
+   "kept": true,
+   "project": "CITY_TAXI_POLICE_CAR/cell.axisforge",
+   "project_sha256": "1196ff0002453cf4cb79b931808b2af4f1a42ba7c13715472806b8f192721dfa"
+  }
+ ]
+}

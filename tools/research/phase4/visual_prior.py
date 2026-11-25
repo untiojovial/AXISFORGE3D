@@ -79,10 +79,13 @@ def evaluate(a):
             e['project'] = str(Path(a.projects or Path(a.library).parent)/project)
     with tempfile.TemporaryDirectory() as tmp:
         start = time.perf_counter()
-        rows = vp.evaluate(lib, a.binary, tmp, models=a.model or (), random_seeds=a.random_seeds)
+        queries = None if not a.query else set(a.query)
+        rows = vp.evaluate(lib, a.binary, tmp, models=a.model or (), random_seeds=a.random_seeds,
+                           model_methods=tuple(a.methods), queries=queries, jobs=a.jobs)
     result = dict(protocol=dict(neighbours=vp.NEIGHBOURS, prior_weight=vp.PRIOR_WEIGHT,
                                 signature_scale={k: float(v) for k, v in vp.SCALE.items()},
-                                random_seeds=a.random_seeds, leave_one_out=True,
+                                random_seeds=a.random_seeds, leave_one_out=True, model_methods=a.methods,
+                                queries=sorted(queries) if queries else 'every solved part',
                                 library_sha256=vp.sha256_bytes(Path(a.library).read_bytes())),
                   wall_seconds=round(time.perf_counter()-start, 1), summary=vp.summarise(rows), rows=rows)
     Path(a.out).write_text(json.dumps(result, indent=1) + '\n')
@@ -104,7 +107,7 @@ def main():
 
     v = sub.add_parser('views'); parts(v); v.add_argument('--out', required=True)
     e = sub.add_parser('encode'); e.add_argument('--views', required=True)
-    e.add_argument('--model', required=True, choices=['dinov2', 'dinov3', 'openclip'])
+    e.add_argument('--model', required=True, choices=['dinov2', 'dinov3', 'dinov3-timm', 'openclip'])
     e.add_argument('--label', help='descriptor name, the model kind when omitted (e.g. a control)')
     for k in ('checkpoint', 'revision', 'weights-sha256', 'config-sha256', 'processor-sha256'):
         e.add_argument('--' + k, required=k in ('checkpoint', 'weights-sha256'))
@@ -113,7 +116,7 @@ def main():
     lb.add_argument('--descriptors', action='append'); lb.add_argument('--out', required=True)
     pr = sub.add_parser('prior'); pr.add_argument('--library', required=True); pr.add_argument('--binary', required=True)
     parts(pr, many=False); pr.add_argument('--descriptors', action='append')
-    pr.add_argument('--method', default='visual', choices=['visual', 'box', 'pooled'])
+    pr.add_argument('--method', default='visual', choices=['visual', 'fusion', 'gate', 'box', 'pooled'])
     pr.add_argument('--model', default='dinov2', help='descriptor name')
     pr.add_argument('--neighbours', type=int, default=vp.NEIGHBOURS)
     pr.add_argument('--weight', type=float, default=vp.PRIOR_WEIGHT); pr.add_argument('--out', required=True)
@@ -121,6 +124,10 @@ def main():
     ev.add_argument('--model', action='append', help='descriptor name to evaluate (repeatable)')
     ev.add_argument('--projects', help='folder relative project paths in the library start from '
                     '(the library\'s own folder when omitted)')
+    ev.add_argument('--methods', nargs='+', default=['visual'], choices=['visual', 'fusion', 'gate'],
+                    help='how descriptors choose neighbours (each with every --model)')
+    ev.add_argument('--query', action='append', help='evaluate only this part (repeatable); every solved part when omitted')
+    ev.add_argument('--jobs', type=int, default=1, help='parts evaluated at once')
     ev.add_argument('--random-seeds', type=int, default=10); ev.add_argument('--out', required=True)
     a = p.parse_args()
     if a.command == 'prior' and len(a.part) != 1:

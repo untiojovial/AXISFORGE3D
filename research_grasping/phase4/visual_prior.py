@@ -264,13 +264,20 @@ def library_entry(name, project, body, binary, descriptors=None):
                 project_sha256=sha256_bytes(Path(project).read_bytes()))
 
 
+def _log_extent(e):
+    return np.log(np.maximum(np.subtract(e['high'], e['low']), 1e-6))
+
+
 def neighbours(method, query, library, k=NEIGHBOURS, seed=0, model=None):
     """(entry, weight) pairs from solved parts other than the query.
 
     visual: the k most similar descriptors, weighted by cosine;
     box: the k closest bounding boxes (log extents); random: k at random;
     pooled: every solved part equally; self: the query's own grasps (an
-    upper bound, for evaluation only).
+    upper bound, for evaluation only). Two ways to combine likeness and size:
+    fusion: the k best by the sum of the visual rank and the box rank (ties
+    to the more similar); gate: the 2k closest boxes, then the k most similar
+    of those.
     """
     if method == 'self':
         return [(query, 1.)] if query['feasible'] else []
@@ -282,17 +289,24 @@ def neighbours(method, query, library, k=NEIGHBOURS, seed=0, model=None):
     if method == 'random':
         rng = np.random.default_rng(seed)
         return [(pool[i], 1.) for i in rng.choice(len(pool), size=min(k, len(pool)), replace=False)]
+    d = np.array([np.linalg.norm(_log_extent(e)-_log_extent(query)) for e in pool])
     if method == 'box':
-        size = lambda e: np.log(np.maximum(np.subtract(e['high'], e['low']), 1e-6))
-        d = np.array([np.linalg.norm(size(e)-size(query)) for e in pool])
-        order = np.argsort(d, kind='stable')[:k]
-        return [(pool[i], 1.) for i in order]
+        return [(pool[i], 1.) for i in np.argsort(d, kind='stable')[:k]]
+    if method not in ('visual', 'fusion', 'gate'):
+        raise ValueError(f'unknown neighbour method {method!r}')
+    q = np.asarray(query['descriptors'][model], float)
+    sim = np.array([float(np.dot(q, e['descriptors'][model])) for e in pool])
     if method == 'visual':
-        q = np.asarray(query['descriptors'][model], float)
-        sim = np.array([float(np.dot(q, e['descriptors'][model])) for e in pool])
         order = np.argsort(-sim, kind='stable')[:k]
         return [(pool[i], max(sim[i], 1e-6)) for i in order]
-    raise ValueError(f'unknown neighbour method {method!r}')
+    if method == 'fusion':
+        rank_visual = np.argsort(np.argsort(-sim, kind='stable'), kind='stable')
+        rank_box = np.argsort(np.argsort(d, kind='stable'), kind='stable')
+        order = np.lexsort((-sim, rank_visual+rank_box))[:k]
+    else:
+        near = np.argsort(d, kind='stable')[:2*k]
+        order = near[np.argsort(-sim[near], kind='stable')][:k]
+    return [(pool[i], 1.) for i in order]
 
 
 def prior(cands, low, high, chosen, weight=PRIOR_WEIGHT):
@@ -325,33 +339,47 @@ def plan_with(binary, project, body, prior_doc, nr_grasps, workdir):
                 matched=report.get('priorMatched', 0), unmatched=report.get('priorUnmatched', 0))
 
 
-def evaluate(library, binary, workdir, models=(), nr_grasps=(1, 3), random_seeds=10):
-    """Leave one part out: its prior comes only from the other solved parts."""
+def evaluate_part(query, library, binary, workdir, models=(), model_methods=('visual',), nr_grasps=(1, 3),
+                  random_seeds=10):
+    """Every ordering for one held-out part; its prior comes only from the others."""
+    cands = candidates(binary, query['project'], query['body'])
+    n, f = len(cands), query['feasible']
+    methods = [('default', None, None), ('pooled', None, None), ('box', None, None),
+               *[(m, None, model) for m in model_methods for model in models],
+               *[('random', s, None) for s in range(random_seeds)], ('self', None, None)]
     rows = []
-    for query in library:
-        if query['feasible'] == 0:
-            continue
-        cands = candidates(binary, query['project'], query['body'])
-        n, f = len(cands), query['feasible']
-        methods = [('default', None, None), ('pooled', None, None), ('box', None, None),
-                   *[('visual', None, m) for m in models],
-                   *[('random', s, None) for s in range(random_seeds)], ('self', None, None)]
-        for method, seed, model in methods:
-            doc = None
-            if method != 'default':
-                chosen = neighbours(method, query, library, seed=seed or 0, model=model)
-                doc = prior(cands, query['low'], query['high'], chosen)
-            for target in nr_grasps:
-                if target > f:
-                    continue
-                result = plan_with(binary, query['project'], query['body'], doc, target, workdir)
-                rows.append(dict(part=query['name'], method=method if model is None else f'visual:{model}',
-                                 seed=seed, nr_grasps=target, candidates=n, feasible=f,
-                                 random_expectation=target*(n+1)/(f+1),
-                                 neighbours=[] if doc is None or method in ('pooled', 'self') else
-                                 [e['name'] for e, _ in neighbours(method, query, library, seed=seed or 0, model=model)],
-                                 **result))
+    for method, seed, model in methods:
+        doc, chosen = None, []
+        if method != 'default':
+            chosen = neighbours(method, query, library, seed=seed or 0, model=model)
+            doc = prior(cands, query['low'], query['high'], chosen)
+        for target in nr_grasps:
+            if target > f:
+                continue
+            result = plan_with(binary, query['project'], query['body'], doc, target, workdir)
+            rows.append(dict(part=query['name'], method=method if model is None else f'{method}:{model}',
+                             seed=seed, nr_grasps=target, candidates=n, feasible=f,
+                             random_expectation=target*(n+1)/(f+1),
+                             neighbours=[] if method in ('default', 'pooled', 'self') else [e['name'] for e, _ in chosen],
+                             **result))
     return rows
+
+
+def evaluate(library, binary, workdir, models=(), nr_grasps=(1, 3), random_seeds=10, model_methods=('visual',),
+             queries=None, jobs=1):
+    """Leave one part out over the solved parts (or the named queries), in parallel."""
+    from concurrent.futures import ThreadPoolExecutor
+    chosen = [q for q in library if q['feasible'] > 0 and (queries is None or q['name'] in queries)]
+
+    def one(i_query):
+        i, query = i_query
+        folder = Path(workdir)/f'q{i}'
+        folder.mkdir(parents=True, exist_ok=True)
+        return evaluate_part(query, library, binary, folder, models, model_methods, nr_grasps, random_seeds)
+
+    with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
+        results = list(pool.map(one, enumerate(chosen)))
+    return [row for rows in results for row in rows]
 
 
 def summarise(rows):

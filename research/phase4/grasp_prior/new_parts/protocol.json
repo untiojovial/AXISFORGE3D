@@ -1,0 +1,107 @@
+{
+ "primary": [
+  [
+   "fusion:dinov3",
+   "box"
+  ],
+  [
+   "fusion:dinov3",
+   "visual:dinov3"
+  ]
+ ],
+ "secondary": [
+  [
+   "box",
+   "default"
+  ],
+  [
+   "pooled",
+   "default"
+  ],
+  [
+   "visual:dinov2",
+   "default"
+  ],
+  [
+   "visual:openclip",
+   "default"
+  ],
+  [
+   "visual:dinov3",
+   "default"
+  ],
+  [
+   "fusion:dinov3",
+   "default"
+  ],
+  [
+   "fusion:dinov2",
+   "box"
+  ],
+  [
+   "fusion:openclip",
+   "box"
+  ],
+  [
+   "gate:dinov3",
+   "box"
+  ],
+  [
+   "visual:dinov2",
+   "box"
+  ],
+  [
+   "visual:openclip",
+   "box"
+  ],
+  [
+   "visual:dinov3",
+   "box"
+  ],
+  [
+   "visual:dinov3",
+   "visual:vit-random"
+  ],
+  [
+   "fusion:dinov3",
+   "fusion:vit-random"
+  ],
+  [
+   "visual:dinov3",
+   "visual:dinov2"
+  ],
+  [
+   "visual:dinov3",
+   "visual:openclip"
+  ],
+  [
+   "box",
+   "pooled"
+  ],
+  [
+   "self",
+   "default"
+  ]
+ ],
+ "primary_target": 1,
+ "decision": "helps only if the 95% bootstrap interval lies below 1 and Holm p < 0.05",
+ "queries": "the 50 new parts with at least one feasible grasp",
+ "library": "16 YCB + 50 new parts, leave one out",
+ "models": [
+  "dinov2",
+  "openclip",
+  "dinov3",
+  "vit-random"
+ ],
+ "methods": [
+  "visual",
+  "fusion",
+  "gate"
+ ],
+ "random_seeds": 10,
+ "neighbours": 3,
+ "prior_weight": 2.0,
+ "selection_seed": 20261126,
+ "bootstrap_seed": 20261126,
+ "bootstrap_draws": 10000
+}

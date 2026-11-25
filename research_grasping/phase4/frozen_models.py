@@ -45,6 +45,19 @@ class Frozen:
                 result=self.model.visual.forward_intermediates(x,indices=1,normalize_intermediates=True,intermediates_only=False)
                 cls=torch.nn.functional.normalize(result['image_features'].float(),dim=-1)
                 patches=result['image_intermediates'][0].permute(0,2,3,1)
+        elif self.kind=='dinov3-timm':
+            # timm's DINOv3 copy: Resize(256, bicubic) + CenterCrop(256) + ImageNet normalisation.
+            size=self.processor['size']
+            if images[0].shape[0]!=images[0].shape[1]: raise ValueError('timm DINOv3 geometry currently requires square input')
+            geometry=_shortest_geometry(images[0].shape,size,(size,size))
+            x=torch.stack([self.processor['transform'](Image.fromarray(im)) for im in images]).to(self.device)
+            with torch.inference_mode(): output=self.model.forward_features(x)
+            ph=self.model.patch_embed.patch_size[0]; prefix=self.model.num_prefix_tokens
+            if size%ph: raise ValueError('invalid patch size')
+            gh=gw=size//ph
+            if output.shape[1]!=prefix+gh*gw: raise ValueError('unexpected token layout')
+            cls=torch.nn.functional.normalize(output[:,0].float(),dim=-1)
+            patches=output[:,prefix:].reshape(len(images),gh,gw,-1)
         else:
             proc=self.processor
             size=proc.size
@@ -71,7 +84,7 @@ class Frozen:
             if output.shape[1]!=1+registers+gh*gw: raise ValueError('unexpected token layout')
             cls=torch.nn.functional.normalize(output[:,0].float(),dim=-1)
             patches=output[:,1+registers:].reshape(len(images),gh,gw,-1)
-        pixels=x if self.kind=='openclip' else batch['pixel_values']
+        pixels=x if self.kind in ('openclip','dinov3-timm') else batch['pixel_values']
         if tuple(pixels.shape[-2:])!=tuple(geometry['processed_size']):
             raise ValueError('processor size mismatch')
         if not torch.isfinite(cls).all() or not torch.isfinite(patches).all(): raise ValueError('nonfinite embeddings')
@@ -98,5 +111,29 @@ def load_frozen(model_kind, checkpoint, config_sha256=None, weights_sha256=None,
         use_fast=processor_type.endswith('Fast') or processor_type=='DINOv3ViTImageProcessor'
         processor=AutoImageProcessor.from_pretrained(str(p),local_files_only=True,trust_remote_code=False,use_fast=use_fast)
         provenance={'model_id':model_kind,'config_sha256':config_sha256,'weights_sha256':weights_sha256,'processor_sha256':processor_sha256,'revision':model_revision,'transformers_version':transformers.__version__}
+    elif model_kind=='dinov3-timm':
+        # DINOv3 as redistributed by timm under the DINOv3 License (no access form).
+        import timm
+        import torch
+        from safetensors.torch import load_file
+        p=Path(checkpoint)
+        if not model_revision: raise ValueError('exact model revision required')
+        if not (config_sha256 and weights_sha256): raise ValueError('config and weight hashes are mandatory')
+        if sha256_file(p/'config.json')!=config_sha256: raise ValueError('config hash mismatch')
+        if sha256_file(p/'model.safetensors')!=weights_sha256: raise ValueError('checkpoint hash mismatch')
+        config=json.loads((p/'config.json').read_text()); cfg=config['pretrained_cfg']
+        if (config.get('architecture')!='vit_small_patch16_dinov3' or cfg.get('crop_pct')!=1.0
+                or cfg.get('interpolation')!='bicubic' or cfg.get('input_size')!=[3,256,256]):
+            raise ValueError('unsupported timm DINOv3 configuration')
+        model=timm.create_model(config['architecture'],pretrained=False,num_classes=0)
+        model.load_state_dict(load_file(str(p/'model.safetensors')),strict=True)
+        # The original keeps RoPE periods in bfloat16; truncate to match its outputs (timm model card).
+        model.rope.periods=model.rope.periods.to(torch.bfloat16).to(torch.float32)
+        transform=timm.data.create_transform(input_size=tuple(cfg['input_size']),interpolation='bicubic',
+                                             crop_pct=1.0,mean=tuple(cfg['mean']),std=tuple(cfg['std']))
+        processor={'size':cfg['input_size'][1],'transform':transform}
+        provenance={'model_id':'timm/vit_small_patch16_dinov3.lvd1689m','config_sha256':config_sha256,
+                    'weights_sha256':weights_sha256,'revision':model_revision,'timm_version':timm.__version__,
+                    'license':'DINOv3 License','rope_periods':'bfloat16-truncated','global':'CLS token after final norm'}
     else: raise ValueError('unsupported model')
     return Frozen(model,processor,model_kind,provenance,device)

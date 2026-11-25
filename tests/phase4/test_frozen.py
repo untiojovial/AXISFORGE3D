@@ -93,3 +93,27 @@ def test_dinov3_native_fast_direct_resize(tmp_path):
     assert geom['processed_size']==[32,48] and geom['grid_shape']==[4,6]
     np.testing.assert_allclose(geom['pixel_transform'],[[1.2,0,.1],[0,1.6,.3],[0,0,1]],atol=1e-12)
     assert result['patch_embeddings'].shape==(1,24,32)
+
+
+def test_dinov3_timm_offline_random_weights(tmp_path, monkeypatch):
+    timm = pytest.importorskip('timm')
+    from safetensors.torch import save_file
+    import json
+    import socket
+    model = timm.create_model('vit_small_patch16_dinov3', pretrained=False, num_classes=0)
+    save_file({k: v.contiguous() for k, v in model.state_dict().items()}, str(tmp_path/'model.safetensors'))
+    (tmp_path/'config.json').write_text(json.dumps({'architecture': 'vit_small_patch16_dinov3', 'pretrained_cfg': {
+        'input_size': [3, 256, 256], 'interpolation': 'bicubic', 'crop_pct': 1.0,
+        'mean': [0.485, 0.456, 0.406], 'std': [0.229, 0.224, 0.225]}}))
+    monkeypatch.setattr(socket.socket, 'connect', lambda *a, **k: (_ for _ in ()).throw(RuntimeError('offline')))
+    weights, config = sha256_file(tmp_path/'model.safetensors'), sha256_file(tmp_path/'config.json')
+    frozen = load_frozen('dinov3-timm', tmp_path, config, weights, None, model_revision='0'*40)
+    out = frozen.encode([np.full((96, 96, 3), 90, np.uint8), np.full((96, 96, 3), 160, np.uint8)])
+    assert out['global_embeddings'].shape == (2, 384)
+    assert np.allclose(np.linalg.norm(out['global_embeddings'], axis=1), 1, atol=1e-5)
+    assert out['patch_embeddings'].shape == (2, 256, 384) and out['token_geometry']['grid_shape'] == [16, 16]
+    assert out['provenance']['license'] == 'DINOv3 License'
+    with pytest.raises(ValueError):
+        load_frozen('dinov3-timm', tmp_path, config, '0'*64, None, model_revision='0'*40)
+    with pytest.raises(ValueError):
+        frozen.encode([np.zeros((96, 64, 3), np.uint8)])

@@ -66,6 +66,26 @@ def test_box_neighbours_follow_the_part_size():
     assert vp.neighbours('box', q, library, k=1)[0][0]['name'] == 'same'
 
 
+def test_fusion_and_gate_weigh_likeness_and_size():
+    q = entry('q', [grasp()], [1, 0], low=[0, 0, 0], high=[.1, .1, .1])
+    unit = lambda c: [c, float(np.sqrt(1-c*c))]
+    library = [q,
+               entry('look-alike-giant', [grasp()], unit(1), low=[0, 0, 0], high=[.5, .5, .5]),
+               entry('same-size-different', [grasp()], unit(0), low=[0, 0, 0], high=[.1, .1, .1]),
+               entry('both-close', [grasp()], unit(.8), low=[0, 0, 0], high=[.11, .1, .1]),
+               entry('middling', [grasp()], unit(.5), low=[0, 0, 0], high=[.3, .3, .3])]
+    pick = lambda method, k: [e['name'] for e, _ in vp.neighbours(method, q, library, k=k, model='dinov2')]
+    assert pick('visual', 1) == ['look-alike-giant']
+    assert pick('box', 1) == ['same-size-different']
+    # visual ranks 0..3: giant, both, middling, same; box ranks: same, both, middling, giant
+    assert pick('fusion', 1) == ['both-close']
+    assert pick('fusion', 3) == ['both-close', 'look-alike-giant', 'same-size-different']
+    # gate: the 2k closest boxes, then the most similar of those
+    assert pick('gate', 1) == ['both-close']
+    assert pick('gate', 2) == ['look-alike-giant', 'both-close']
+    assert all(w == 1. for _, w in vp.neighbours('fusion', q, library, model='dinov2'))
+
+
 def test_the_prior_favours_the_candidate_like_the_good_grasp():
     cands = [grasp('top'), grasp('side', approach=(1, 0, 0), closing=(0, 1, 0)), grasp('top', width=.031)]
     doc = vp.prior(cands, *BOX, [(entry('n', [grasp()]), 1.)])
