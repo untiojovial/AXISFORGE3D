@@ -847,9 +847,10 @@ function runCycle() {
   verdict.className = "verdict verdict--ok";
   $("cycle-head").textContent = "Ciclo de " + fmt(cycle.cycleTime, 2) + " s";
   $("cycle-detail").textContent = "«" + view.partName + "» con el agarre " + cycle.grasp.candidate.label +
+    ", el más rápido de " + view.report.cyclesFound + " ciclos completos (" + view.report.graspsFound + " agarres viables)" +
     ". El programa, re-cronometrado como lo ejecutaría un controlador, tarda " + fmt(program, 2) + " s (diferencia " + fmt(diff, 3) + " %). " +
     "Holgura demostrada ≥ " + fmt(cycle.clearance * 1000, 1) + " mm en todo el recorrido; la mínima medida es " + fmt(cycle.closest * 1000, 1) + " mm." +
-    (view.report.assumedLimits.length ? " Límites de velocidad supuestos para: " + view.report.assumedLimits.join(", ") + "." : "");
+    (view.report.assumedLimits.length ? " Límites no declarados, supuestos: " + view.report.assumedLimits.join(", ") + "." : "");
   const list = $("cycle-segments");
   list.textContent = "";
   cycle.segments.forEach((s) => {

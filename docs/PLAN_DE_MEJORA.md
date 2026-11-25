@@ -186,8 +186,11 @@ tiempo de ciclo calculado coincide con el del perfil a menos del 2 %.
   transporte (RRT, con la pieza), bajada, soltar, retirada, regreso (RRT),
   reposo. En cada tramo solo se permite el contacto que corresponde (dedos y
   pieza al cerrar y abrir; pieza y la superficie que deja o en la que se
-  posa al elevar y bajar). Si un agarre no da el ciclo entero se prueba el
-  siguiente y se dice por qué falló.
+  posa al elevar y bajar). Se prueba el ciclo entero con cada agarre viable
+  y se queda el más rápido (agarres de calidad parecida pueden diferir en
+  segundos: con la UR5 importada, el primero exigía media vuelta de muñeca
+  y su ciclo duraba 21,5 s; el elegido, 15,5 s); de los que no dan ciclo se
+  dice en qué tramo y por qué.
 - Perfiles trapezoidales sincronizados: todos los ejes recorren la misma
   recta, así que se ejecuta exactamente lo que se comprobó; velocidad y
   aceleración de cada eje dentro de su límite (escalado), con parada en
@@ -203,7 +206,7 @@ tiempo de ciclo calculado coincide con el del perfil a menos del 2 %.
   | Demostración | 9,632 s | 9,632 s (0,002 %) | ≥ 1,0 mm | — |
   | Pared | 11,240 s | 11,240 s (0,002 %) | ≥ 1,0 mm | el transporte rodea la pared |
   | Dos postes | 11,544 s | 11,544 s (0,002 %) | ≥ 1,0 mm | el transporte rodea los postes |
-  | Pared, con la mano | 15,826 s | 15,826 s (0,001 %) | ≥ 1,0 mm | — |
+  | Pared, con la mano | 12,220 s | 12,220 s (0,002 %) | ≥ 1,0 mm | — |
 
   Cada movimiento se vuelve a demostrar con un comprobador nuevo y coincide
   con 41 muestras densas por movimiento; en las celdas con obstáculos la

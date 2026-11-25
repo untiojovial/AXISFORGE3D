@@ -194,6 +194,11 @@ enum Command {
         /// Fraction of every joint's speed limit to use.
         #[arg(long, default_value_t = 0.5)]
         speed: f64,
+        /// The start posture, radians or metres: one value per manipulator
+        /// axis (the gripper as it is) or per joint. The demo cell's home, or
+        /// all zeros, when omitted.
+        #[arg(long, num_args = 1.., value_name = "VALUES", allow_negative_numbers = true)]
+        start: Option<Vec<f64>>,
         /// Write the program: `urscript`, `csv` or `json`.
         #[arg(long, value_name = "FORMAT")]
         export: Option<String>,
@@ -234,11 +239,32 @@ fn run_cycle(
     body: &str,
     to: &[f64],
     speed: f64,
+    start: Option<&[f64]>,
     export: Option<&str>,
     out: Option<&Path>,
     json: bool,
 ) -> Result<()> {
     let mut session = session_for(file)?;
+    if let Some(start) = start {
+        let mut values = session.values().to_vec();
+        let model = KinematicModel::from_robot(&session.project().robot)?;
+        let arm = model.manipulator_value_indices();
+        if start.len() == values.len() {
+            values.copy_from_slice(start);
+        } else if start.len() == arm.len() {
+            for (slot, value) in arm.iter().zip(start) {
+                values[*slot] = *value;
+            }
+        } else {
+            return Err(anyhow!(
+                "--start takes {} values (the manipulator axes) or {} (every joint); {} given",
+                arm.len(),
+                values.len(),
+                start.len()
+            ));
+        }
+        session.handle(Request::SetJoints { values }, &Default::default())?;
+    }
     let part = session
         .project()
         .environment
@@ -286,10 +312,13 @@ fn run_cycle(
     };
     if !json {
         println!(
-            "{body}: cycle {:.3} s (program re-timed: {:.3} s), grasp {}",
+            "{body}: cycle {:.3} s (program re-timed: {:.3} s), grasp {}, the fastest of {} \
+             complete cycle(s) from {} feasible grasp(s)",
             cycle.cycle_time,
             view.program_seconds.unwrap_or(f64::NAN),
-            cycle.grasp.candidate.label
+            cycle.grasp.candidate.label,
+            view.report.cycles_found,
+            view.report.grasps_found
         );
         for segment in &cycle.segments {
             println!(
@@ -314,13 +343,13 @@ fn run_cycle(
         }
         for attempt in &view.report.attempts {
             println!(
-                "  skipped grasp {}: {}: {}",
+                "  grasp without a cycle {}: {}: {}",
                 attempt.grasp, attempt.segment, attempt.reason
             );
         }
         if !view.report.assumed_limits.is_empty() {
             println!(
-                "  warning: speed and acceleration limits assumed for: {}",
+                "  warning: limits not declared, so assumed: {}",
                 view.report.assumed_limits.join(", ")
             );
         }
@@ -722,6 +751,7 @@ fn run(cli: Cli) -> Result<()> {
             body,
             to,
             speed,
+            start,
             export,
             out,
             json,
@@ -730,6 +760,7 @@ fn run(cli: Cli) -> Result<()> {
             &body,
             &to,
             speed,
+            start.as_deref(),
             export.as_deref(),
             out.as_deref(),
             json,

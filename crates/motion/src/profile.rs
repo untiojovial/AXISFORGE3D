@@ -38,7 +38,8 @@ pub struct AxisLimits {
     pub velocity: Vec<f64>,
     /// Largest acceleration of each joint, SI units per second squared.
     pub acceleration: Vec<f64>,
-    /// Joints whose limits were not declared and were assumed.
+    /// Joints with a limit that was not declared and was assumed, each with
+    /// which: `shoulder (acceleration)`.
     pub assumed: Vec<String>,
 }
 
@@ -66,8 +67,15 @@ impl AxisLimits {
             };
             let declared_v = joint.and_then(|j| j.max_velocity).filter(|v| *v > 0.0);
             let declared_a = joint.and_then(|j| j.max_acceleration).filter(|a| *a > 0.0);
-            if declared_v.is_none() || declared_a.is_none() {
-                assumed.push(node.map_or_else(|| format!("joint {slot}"), |n| n.name.clone()));
+            let missing = match (declared_v.is_none(), declared_a.is_none()) {
+                (true, true) => Some("speed, acceleration"),
+                (true, false) => Some("speed"),
+                (false, true) => Some("acceleration"),
+                (false, false) => None,
+            };
+            if let Some(missing) = missing {
+                let name = node.map_or_else(|| format!("joint {slot}"), |n| n.name.clone());
+                assumed.push(format!("{name} ({missing})"));
             }
             velocity.push(declared_v.unwrap_or(v) * scale);
             acceleration.push(declared_a.unwrap_or(a) * scale * scale);

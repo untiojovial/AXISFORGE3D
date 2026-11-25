@@ -153,7 +153,8 @@ cargo test --release -p axisforge-motion --test acceptance -- --nocapture
 
 For the demo cell, the cell with a wall and the cell with two posts
 (`templates::demo_cell`), and for the hand in the wall cell, the cube is
-carried to (330, 210) mm and back to the start posture. The test then, for
+carried to (330, 210) mm and back to the start posture, with whichever
+feasible grasp gives the fastest whole cycle. The test then, for
 every move of every segment:
 
 1. proves it clear again with a fresh `MotionChecker`, built from the
@@ -178,9 +179,9 @@ to above the target is blocked, so the detour was necessary.
 | Demo | parallel | 9.632 s | 9.632 s | 0.002 % | ≥ 1.02 mm | 1.9 mm |
 | Wall | parallel | 11.240 s | 11.240 s | 0.002 % | ≥ 1.02 mm | 2.0 mm |
 | Posts | parallel | 11.544 s | 11.544 s | 0.002 % | ≥ 1.01 mm | 2.0 mm |
-| Wall | hand | 15.826 s | 15.826 s | 0.001 % | ≥ 1.01 mm | 1.3 mm |
+| Wall | hand | 12.220 s | 12.220 s | 0.002 % | ≥ 1.02 mm | 1.4 mm |
 
-The closest measured distances of 1.3 to 2.0 mm are the gaps the grasp
+The closest measured distances of 1.4 to 2.0 mm are the gaps the grasp
 leaves on purpose (palm above the part, jaws beside it); the proven bound is
 just above the 1 mm margin because subdivision stops as soon as a piece is
 proven clear of it. The sampled-motion test in `crates/motion`

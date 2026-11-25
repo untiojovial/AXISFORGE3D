@@ -28,8 +28,10 @@
 //! synchronized trapezoidal profile of [`crate::profile`], stopping at every
 //! waypoint, plus a dwell after closing and after opening.
 //!
-//! Candidate grasps are tried best first until one gives a whole cycle;
-//! the others are reported with the reason they did not.
+//! Every feasible grasp the pick planner returns is tried, and the one whose
+//! whole cycle is fastest is kept: grasps of similar quality can differ by
+//! seconds, a half turn of the wrist for one. The grasps that give no cycle
+//! are reported with the reason.
 
 use axisforge_collision::{Attachment, SceneOptions};
 use axisforge_domain::{
@@ -254,10 +256,12 @@ pub struct CycleAttempt {
 pub struct CycleReport {
     /// The cycle, when one was found.
     pub cycle: Option<Cycle>,
-    /// Grasps tried before it, or all of them when none worked.
+    /// Grasps that gave no cycle, with the reason.
     pub attempts: Vec<CycleAttempt>,
     /// Feasible grasps the pick planner found.
     pub grasps_found: usize,
+    /// How many of them gave a whole cycle; the fastest is `cycle`.
+    pub cycles_found: usize,
     /// Joints whose speed or acceleration limits were assumed.
     pub assumed_limits: Vec<String>,
 }
@@ -858,6 +862,7 @@ pub fn plan_cycle(
         cycle: None,
         attempts: Vec::new(),
         grasps_found: pick.plans.len(),
+        cycles_found: 0,
         assumed_limits: planner.limits.assumed.clone(),
     };
     for grasp in &pick.plans {
@@ -866,8 +871,15 @@ pub fn plan_cycle(
         }
         match planner.attempt(grasp, start)? {
             Ok(cycle) => {
-                report.cycle = Some(cycle);
-                break;
+                report.cycles_found += 1;
+                // The fastest wins; on a tie, the better grasp, found first.
+                if report
+                    .cycle
+                    .as_ref()
+                    .is_none_or(|best| cycle.cycle_time < best.cycle_time - 1.0e-9)
+                {
+                    report.cycle = Some(cycle);
+                }
             }
             Err((segment, reason)) => report.attempts.push(CycleAttempt {
                 grasp: grasp.candidate.label.clone(),

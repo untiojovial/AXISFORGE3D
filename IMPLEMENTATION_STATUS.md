@@ -23,7 +23,7 @@ Stated plainly, so nobody has to discover it.
 | Pick planner: pre-grasp, grasp, close, lift | Done |
 | Exact (continuous) segment collision checking | Done. Schwarzer–Saha–Latombe test with per-link travel bounds; certified lower bound on clearance. |
 | Free motion: bidirectional RRT with shortcut smoothing | Done. Seeded, cancellable; every edge proven clear. |
-| Whole pick, transport and place cycle | Done. Synchronized trapezoidal profiles within every axis' limits, stop at each waypoint; acceptance test in three cells (`crates/motion/tests/acceptance.rs`). |
+| Whole pick, transport and place cycle | Done. Every feasible grasp is tried and the fastest whole cycle kept. Synchronized trapezoidal profiles within every axis' limits, stop at each waypoint; acceptance test in three cells (`crates/motion/tests/acceptance.rs`). |
 | Program export | Done: URScript (`movej` with leading-axis `a`, `v`, no blending; gripper functions to fill in), sampled CSV and JSON. A controller-cycle simulation re-times the program. |
 | Project file format, atomic save | Done |
 | URDF import | Done. STL, OBJ and COLLADA meshes. FK checked against an independent reference and against the UR5's published DH parameters. |
