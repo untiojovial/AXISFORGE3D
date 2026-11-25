@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "scope": "prospective exploratory development-only; no test objects or confirmatory claims",
+  "training": "16 train objects, 50 stratified diverse128 F1/F2 records each; verify exact SHA256 against history_stratified.lock.json before use",
+  "training_lock_sha256": "55a408681c0f055748fd047238916e493e42d3df6aabd735930969f69e127977",
+  "catalogue_selection_sha256": "96745ac92d1ec3d17e839252b89c6f8f01e76e0c952c310eccfdd453a89d1ce3",
+  "targets": "pregrasp first-rejection proxy: 0 for pregrasp_unreachable/pregrasp_collision, 1 for grasp_unreachable/lift_unreachable/approach_collision/ok; too_wide and no_force_closure are censored for this classifier because pregrasp was not checked. Grasp/lift unreachable only establishes pregrasp IK, not later collision clearance. The ok classifier uses all 800 rows, 1 only for status ok. Reject unknown reasons.",
+  "features": "pre-query world XYZ candidate center, normalized approach and closing direction components, width metres, target physical extents metres. Train-only mean/std standardization; constant columns use unit scale. No validation outcomes or post-query fields.",
+  "model": "Two sklearn LogisticRegression models C=0.01, L2, lbfgs, max_iter=1000, class_weight=None. No validation tuning. Ranking score is geometric mean of predicted probabilities, tie-break numeric native candidate ID.",
+  "pool": "six validation diverse128 catalogues, width + 2*0.005 <= original maxOpening; exclude all previously queried IDs based solely on filenames/IDs and recorded panel IDs, never inspecting their labels. If fewer than 24 remain, select equal floor(n/2) per arm (maximum 12).",
+  "arms": "top score then seed 2026 random from remaining eligible IDs, per object, no overlap; object iteration sorted; stable numpy default_rng single generator",
+  "freeze": "Record candidate IDs, feature-model scores, pool and input hashes before calling native oracle. Refuse selection overwrite or model/input changes after freeze.",
+  "measurement": "original pinned AxisForge native F1/F2 executable with existing cache; report per-object first rejection, ok, opening, pregrasp, other, cost and arm counts. Frequencies conditional on restricted selected pool, no prevalence or superiority claim; results exploratory and not independent confirmatory evidence."
+}
