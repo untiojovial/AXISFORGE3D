@@ -1,0 +1,23 @@
+[package]
+name = "axisforge-motion"
+description = "Collision-free motion for AXISFORGE 3D: exact segment checking, bidirectional RRT, time profiles and the pick-and-place cycle."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lints.rust]
+unsafe_code = "deny"
+
+[dependencies]
+axisforge-domain = { workspace = true }
+axisforge-geometry = { workspace = true }
+axisforge-kinematics = { workspace = true }
+axisforge-collision = { workspace = true }
+axisforge-grasping = { workspace = true }
+serde = { workspace = true }
+
+[dev-dependencies]
+serde_json = { workspace = true }

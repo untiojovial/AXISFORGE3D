@@ -136,6 +136,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "axisforge-motion"
+version = "0.2.0"
+dependencies = [
+ "axisforge-collision",
+ "axisforge-domain",
+ "axisforge-geometry",
+ "axisforge-grasping",
+ "axisforge-kinematics",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "axisforge-project-io"
 version = "0.2.0"
 dependencies = [

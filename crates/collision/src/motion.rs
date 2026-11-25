@@ -125,6 +125,33 @@ impl MotionBounds {
         })
     }
 
+    /// [`MotionBounds::travel`] relative to the link `reference`: only the
+    /// joints that move `link` without moving `reference` count, since the
+    /// others carry both rigidly and change no distance between them.
+    pub fn relative_travel(
+        &self,
+        link: usize,
+        radius: f64,
+        a: &[f64],
+        b: &[f64],
+        reference: usize,
+    ) -> f64 {
+        self.movers.get(link).map_or(0.0, |movers| {
+            movers
+                .iter()
+                .filter(|m| !self.moves(reference, m.value_index))
+                .map(|m| {
+                    let step = (b[m.value_index] - a[m.value_index]).abs();
+                    if m.revolute {
+                        (m.lever + radius) * step
+                    } else {
+                        step
+                    }
+                })
+                .sum()
+        })
+    }
+
     /// Upper bound on how far any point of the link's own collision geometry
     /// travels from `a` to `b`.
     pub fn link_travel(&self, link: usize, a: &[f64], b: &[f64]) -> f64 {
