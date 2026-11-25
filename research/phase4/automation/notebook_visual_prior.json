@@ -1,0 +1,14 @@
+{
+  "notebook_sha256": "dde1dc53a4477d9d0243200febb3b55e1da7f9f5f4773fc4a8874f4b7d300623",
+  "embedded_files": 19,
+  "pip_executed": false,
+  "google_colab_runtime": false,
+  "device": "cpu",
+  "feature_files_compared": 22,
+  "network": true,
+  "compared_views": 352,
+  "notebook_run_id": "e1a284251b82c709904f8a5cdf74ad4a00ba2e82ff5d48551ea93214153b235d",
+  "descriptors_compared": 16,
+  "descriptor_max_abs_difference": 0.0,
+  "executed_cells": 9
+}

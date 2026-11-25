@@ -17,10 +17,13 @@ parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--openclip',type=Path,help='authorized OpenCLIP checkpoint to execute the inference cell offline')
 parser.add_argument('--dinov2',action='store_true',help='download the official DINOv2 and run the notebook end to end (needs network)')
 parser.add_argument('--compare-bundle',type=Path,help='compare each feature file with this independently produced bundle')
+parser.add_argument('--views',type=Path,help='views ZIP for the visual grasp prior cell')
+parser.add_argument('--compare-descriptors',type=Path,help='reference descriptor file for the executed model')
 parser.add_argument('--report',type=Path)
 args=parser.parse_args()
 if args.compare_bundle and not (args.openclip or args.dinov2):parser.error('comparison requires --openclip or --dinov2')
 if args.openclip and args.dinov2:parser.error('choose one model to execute')
+if args.compare_descriptors and not args.views:parser.error('descriptor comparison requires --views')
 root=Path(__file__).resolve().parents[3]
 notebook=root/'notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb'
 nb=json.loads(notebook.read_text())
@@ -65,6 +68,8 @@ sys.modules['google.colab']=colab
         # Run the chosen model only, whatever the notebook's default list says.
         config=next(i for i,c in enumerate(selected) if c.lstrip().startswith('# Configuración'))
         selected.insert(config+1,f"MODELS = ['{model}']")
+    if args.views:
+        (staging/'views.zip').write_bytes(args.views.read_bytes())
     script=staging/'offline_cells.py'
     script.write_text(prefix+'\n'.join(c.replace('/content',temporary) for c in selected))
     subprocess.run([sys.executable,str(script)],cwd=staging,check=True,
@@ -78,6 +83,14 @@ sys.modules['google.colab']=colab
                 if ran.read(name)!=previous.read(name):raise ValueError('feature discrepancy: '+name)
             report.update(feature_files_compared=len(expected),compared_views=16*len(expected),
                           notebook_run_id=json.loads(ran.read('index.json'))['run_id'])
+    if args.compare_descriptors:
+        import numpy as np
+        with np.load(staging/'axisforge-bundles'/f'{model}_descriptors.npz',allow_pickle=False) as ran, \
+             np.load(args.compare_descriptors,allow_pickle=False) as previous:
+            if ran['names'].tolist()!=previous['names'].tolist():raise ValueError('descriptor parts differ')
+            difference=float(np.abs(ran['vectors']-previous['vectors']).max())
+            if difference>1e-5:raise ValueError(f'descriptor discrepancy {difference}')
+            report.update(descriptors_compared=len(ran['names']),descriptor_max_abs_difference=difference)
 report['executed_cells']=len(selected)
 if args.report:args.report.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

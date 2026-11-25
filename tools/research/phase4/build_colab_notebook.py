@@ -18,7 +18,8 @@ files = ['research_grasping/__init__.py', 'research_grasping/phase4/__init__.py'
          'research/phase4/automation/rgb_views.lock.json',
          'research/phase4/embedding_experiment/development-images.zip',
          'research/phase4/embedding_experiment/dinov2/global_embeddings.npz',
-         'tools/research/phase4/download_models.py', 'tools/research/phase4/run_experiments.py']
+         'tools/research/phase4/download_models.py', 'tools/research/phase4/run_experiments.py',
+         'research_grasping/phase4/visual_prior.py']
 payload = {p: base64.b64encode(gzip.compress((root / p).read_bytes(), mtime=0)).decode() for p in files}
 
 
@@ -47,6 +48,11 @@ en CPU también funciona (DINOv2-small tarda menos de un minuto).
 Después añade `'dinov3'` a `MODELS` en la celda de configuración. El notebook no acepta licencias en tu nombre
 ni imprime el token. La redistribución de las características debe respetar las licencias del modelo y de los
 datos (vistas derivadas de Google Scanned Objects, adaptación MuJoCo de Kevin Zakka, CC BY 4.0).
+
+**Prior visual para el planificador de agarres.** Si además subes un `views.zip` de tus piezas (lo genera
+`tools/research/phase4/visual_prior.py views` a partir de tus proyectos `.axisforge`), el notebook devuelve un
+fichero de descriptores por modelo. Con él, `visual_prior.py prior` escribe el fichero que lee
+`axisforge plan --prior`: las piezas ya resueltas que más se parecen a la nueva ordenan sus candidatos.
 '''
 
 INSTALL = '''# install: dependencias, sin reinstalar el PyTorch que ya trae Colab
@@ -67,6 +73,7 @@ WORK_DIR = '/content/axisforge-work'      # pon una carpeta de Drive montado par
 JOB_PATH = '/content/research/phase4/embedding_experiment/development-images.zip'
 OUT_DIR = '/content/axisforge-bundles'
 BATCH_SIZE = 16
+VIEWS_ZIP = '/content/views.zip'          # opcional: vistas de tus piezas para el prior visual de agarre
 '''
 
 JOB = '''from pathlib import Path
@@ -161,12 +168,14 @@ def run_model(kind):
         revision = 'v0.2-weights'
         adapter = load_frozen(kind, checkpoint, device=device)
         pins = {'revision': revision, 'checkpoint_sha256': adapter.provenance['weights_sha256']}
+        ADAPTERS[kind] = adapter
     else:
         checkpoint, revision, hashes = official_checkpoint(kind)
         adapter = load_frozen(kind, checkpoint, config_sha256=hashes['config.json'],
                               weights_sha256=hashes['model.safetensors'],
                               processor_sha256=hashes['preprocessor_config.json'],
                               device=device, model_revision=revision)
+        ADAPTERS[kind] = adapter
         pins = {'revision': revision, 'checkpoint_sha256': hashes['model.safetensors'],
                 'processor_sha256': hashes['preprocessor_config.json'], 'config_sha256': hashes['config.json']}
     state = run_extraction(JOB_PATH, Path(WORK_DIR) / kind, adapter, model_revision=revision,
@@ -178,6 +187,7 @@ def run_model(kind):
     return pins
 
 RESULTS = {}
+ADAPTERS = {}
 for kind in MODELS:
     print('==', kind)
     RESULTS[kind] = run_model(kind)
@@ -210,10 +220,26 @@ if 'dinov2' in RESULTS:
     if worst < 0.999: print('AVISO: diferencia mayor de lo esperado; revisa versión de torch/transformers y procesado.')
 '''
 
+VISUAL = '''# Prior visual de agarre: descriptores de tus piezas con cada modelo ejecutado.
+from research_grasping.phase4 import visual_prior
+DESCRIPTORS = []
+if Path(VIEWS_ZIP).exists():
+    for kind, adapter in ADAPTERS.items():
+        out = Path(OUT_DIR) / f'{kind}_descriptors.npz'
+        names = visual_prior.write_descriptors(adapter, VIEWS_ZIP, out, kind)
+        DESCRIPTORS.append(out)
+        print(f'{kind}: {len(names)} piezas -> {out.name}')
+    print('En el repositorio: visual_prior.py library ... --descriptors <fichero> y visual_prior.py prior --model <modelo>')
+else:
+    print(f'Sin {VIEWS_ZIP}: se omite el prior visual (súbelo con el panel de archivos si lo quieres).')
+'''
+
 DOWNLOAD = '''from google.colab import files
 for pin in RESULTS.values():
     files.download(str(Path(OUT_DIR) / pin['bundle']))
 files.download(str(Path(OUT_DIR) / 'pins.json'))
+for path in DESCRIPTORS:
+    files.download(str(path))
 '''
 
 OUTRO = '''## Llevar los resultados al repositorio
@@ -230,6 +256,17 @@ PYTHONPATH=. python -m research_grasping.phase4.model_comparison \\
   --out foundation_comparison.json
 ```
 
+Para el planificador de agarres, con los descriptores descargados:
+
+```bash
+T="python tools/research/phase4/visual_prior.py"
+$T library --binary target/release/axisforge --part Banana cells/Banana.axisforge ... \\
+  --descriptors dinov3_descriptors.npz --out library.json
+$T prior --library library.json --binary target/release/axisforge --part Pera cells/Pera.axisforge \\
+  --descriptors dinov3_descriptors.npz --model dinov3 --out pera-prior.json
+target/release/axisforge plan cells/Pera.axisforge Pera --prior pera-prior.json
+```
+
 Los hashes prueban integridad, no que un entorno ajeno usara de verdad el modelo declarado: audita la
 procedencia antes de usar los resultados científicamente.
 '''
@@ -241,7 +278,8 @@ nb = {'nbformat': 4, 'nbformat_minor': 5,
                 code("import base64, gzip, json, os, pathlib\nos.chdir('/content')\npayload = " + repr(payload) +
                      "\nfor name, value in payload.items():\n    target=pathlib.Path(name); target.parent.mkdir(parents=True, exist_ok=True)\n"
                      "    target.write_bytes(gzip.decompress(base64.b64decode(value)))\n"),
-                code(CONFIG), code(JOB), code(ACCESS), code(RUN), code(COMPARE), code(DOWNLOAD), md(OUTRO)]}
+                code(CONFIG), code(JOB), code(ACCESS), code(RUN), code(COMPARE), code(VISUAL), code(DOWNLOAD),
+                md(OUTRO)]}
 for i, cell in enumerate(nb['cells']):
     cell['id'] = f'axisforge-{i}'
 (root / 'notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb').write_text(json.dumps(nb, indent=1) + '\n')
