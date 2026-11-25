@@ -17,6 +17,7 @@ axisforge-geometry = { workspace = true }
 axisforge-kinematics = { workspace = true }
 axisforge-collision = { workspace = true }
 axisforge-grasping = { workspace = true }
+axisforge-motion = { workspace = true }
 axisforge-project-io = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }

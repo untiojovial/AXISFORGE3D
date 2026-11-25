@@ -29,6 +29,10 @@ use axisforge_kinematics::{
     conditioning, forward_kinematics, frame_pose, ik, jacobian, CancellationToken,
     ConditioningReport, IkOptions, IkSolution, KinematicModel, TaskSpace,
 };
+use axisforge_motion::{
+    csv, plan_cycle, program, sampled, simulate_program, urscript, Cycle, CycleOptions,
+    CycleReport, SampledTrajectory,
+};
 use axisforge_project_io::import::{ImportError, ImportOptions};
 use axisforge_project_io::object::import_mesh_object;
 use axisforge_project_io::simox::{import_simox_object, import_simox_robot};
@@ -82,6 +86,9 @@ pub enum Request {
         /// The gripper on the arm: parallel jaws unless asked otherwise.
         #[serde(default)]
         gripper: templates::GripperKind,
+        /// Obstacles on the table: none unless asked otherwise.
+        #[serde(default)]
+        obstacles: templates::Obstacles,
     },
     /// Replace the project with one parsed from project-file text.
     LoadProject {
@@ -108,6 +115,10 @@ pub enum Request {
         /// Identifier of a part the jaws are closed on but have not lifted:
         /// it stays where it is, and the fingers touching it is not a contact.
         grasping: Option<String>,
+        /// A part drawn and checked somewhere else than where it stands: where
+        /// a cycle set it down.
+        #[serde(default)]
+        placed: Option<Placed>,
     },
     /// Solve inverse kinematics for the default tool frame.
     SolveIk {
@@ -187,6 +198,25 @@ pub enum Request {
         #[serde(default)]
         ids: Vec<String>,
     },
+    /// Plan the whole pick, transport and place cycle for a part, from the
+    /// current configuration and back to it.
+    PlanCycle {
+        /// Identifier of the part.
+        body_id: String,
+        /// Where its origin is set down, metres; it keeps its orientation.
+        target: Vec3,
+        /// Planner settings; defaults when omitted.
+        #[serde(default)]
+        options: Option<CycleOptions>,
+    },
+    /// Write the last cycle planned as a program.
+    ExportCycle {
+        /// `urscript`, `csv` or `json`.
+        format: String,
+        /// Sampling period for `csv` and `json`, seconds; 8 ms by default.
+        #[serde(default)]
+        period: Option<f64>,
+    },
     /// Move a world body or change its physical properties.
     UpdateBody {
         /// Identifier of the body.
@@ -200,6 +230,43 @@ pub enum Request {
         /// New friction coefficient.
         friction_coefficient: Option<f64>,
     },
+}
+
+/// A part drawn at another pose than where it stands.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Placed {
+    /// Identifier of the part.
+    pub body_id: String,
+    /// Its pose, world coordinates.
+    pub pose: Transform,
+}
+
+/// A planned cycle, ready to draw.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CycleView {
+    /// What the planner found.
+    pub report: CycleReport,
+    /// The cycle sampled every 20 ms, for animating it.
+    pub samples: Option<SampledTrajectory>,
+    /// The cycle's program run by a controller interpolating every 8 ms,
+    /// seconds: a check of the planned cycle time.
+    pub program_seconds: Option<f64>,
+    /// Display name of the part.
+    pub part_name: String,
+}
+
+/// A program written for a controller.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ExportedProgram {
+    /// A file name for it.
+    pub file_name: String,
+    /// Its media type.
+    pub media_type: String,
+    /// The text.
+    pub text: String,
 }
 
 /// The outcome of an import: the new state, and what did not carry over.
@@ -357,6 +424,10 @@ pub enum Response {
     Imported(Box<ImportReport>),
     /// Mesh buffers.
     Resources(Vec<MeshData>),
+    /// A planned cycle.
+    Cycle(Box<CycleView>),
+    /// A program for a controller.
+    Program(ExportedProgram),
 }
 
 fn drawable(
@@ -638,6 +709,8 @@ pub struct Session {
     model: KinematicModel,
     values: Vec<f64>,
     registry: Registry,
+    /// The last cycle planned, and its part's name, for exporting.
+    cycle: Option<(Cycle, String)>,
 }
 
 impl Session {
@@ -655,7 +728,19 @@ impl Session {
     /// # Errors
     /// Never in practice; the templates are validated by the test suite.
     pub fn demo_with(gripper: templates::GripperKind) -> Result<Self, ServiceError> {
-        let mut session = Self::with_project(templates::pick_and_place_cell_with(gripper)?)?;
+        Self::demo_cell(gripper, templates::Obstacles::None)
+    }
+
+    /// The demo cell with the chosen gripper and obstacles, at the same home
+    /// posture, which the obstacles leave clear.
+    ///
+    /// # Errors
+    /// Never in practice; the templates are validated by the test suite.
+    pub fn demo_cell(
+        gripper: templates::GripperKind,
+        obstacles: templates::Obstacles,
+    ) -> Result<Self, ServiceError> {
+        let mut session = Self::with_project(templates::demo_cell(gripper, obstacles)?)?;
         if let Some(home) = demo_home(&session.project, &session.model) {
             session.values = home;
         }
@@ -675,6 +760,7 @@ impl Session {
             model,
             values,
             registry: Registry::standard(),
+            cycle: None,
         })
     }
 
@@ -727,14 +813,15 @@ impl Session {
     ///
     /// # Errors
     /// When the engine refuses the request; the session is then unchanged.
+    #[allow(clippy::too_many_lines)] // One arm per request, each a call; split, it would only be harder to scan.
     pub fn handle(
         &mut self,
         request: Request,
         cancel: &CancellationToken,
     ) -> Result<Response, ServiceError> {
         match request {
-            Request::LoadDemo { gripper } => {
-                self.replace(Self::demo_with(gripper)?);
+            Request::LoadDemo { gripper, obstacles } => {
+                self.replace(Self::demo_cell(gripper, obstacles)?);
                 Ok(Response::Description(self.describe()))
             }
             Request::LoadProject { text } => {
@@ -755,11 +842,23 @@ impl Session {
                 values,
                 carry,
                 grasping,
+                placed,
             } => {
                 let values = values.unwrap_or_else(|| self.values.clone());
-                let snapshot = self.snapshot(&values, carry.as_ref(), grasping.as_deref())?;
+                let snapshot = self.snapshot_placed(
+                    &values,
+                    carry.as_ref(),
+                    grasping.as_deref(),
+                    placed.as_ref(),
+                )?;
                 Ok(Response::Snapshot(Box::new(snapshot)))
             }
+            Request::PlanCycle {
+                body_id,
+                target,
+                options,
+            } => self.plan_cycle(&body_id, target, &options.unwrap_or_default(), cancel),
+            Request::ExportCycle { format, period } => self.export_cycle(&format, period),
             Request::SolveIk { position, rpy } => {
                 let frame = self.default_frame()?;
                 let (rotation, position_only) = match rpy {
@@ -807,7 +906,11 @@ impl Session {
                 files,
                 position,
                 rest_on,
-            } => self.add_object(&text, &files, position, rest_on),
+            } => {
+                let response = self.add_object(&text, &files, position, rest_on)?;
+                self.cycle = None;
+                Ok(response)
+            }
             Request::AddMeshObject {
                 file,
                 data,
@@ -815,7 +918,12 @@ impl Session {
                 units,
                 position,
                 rest_on,
-            } => self.add_mesh_object(&file, &data, name, units.as_deref(), position, rest_on),
+            } => {
+                let response =
+                    self.add_mesh_object(&file, &data, name, units.as_deref(), position, rest_on)?;
+                self.cycle = None;
+                Ok(response)
+            }
             Request::GetResources { ids } => Ok(Response::Resources(self.mesh_data(&ids))),
             Request::UpdateBody {
                 body_id,
@@ -823,8 +931,125 @@ impl Session {
                 yaw,
                 mass,
                 friction_coefficient,
-            } => self.update_body(body_id, position, yaw, mass, friction_coefficient),
+            } => {
+                let response =
+                    self.update_body(body_id, position, yaw, mass, friction_coefficient)?;
+                self.cycle = None;
+                Ok(response)
+            }
         }
+    }
+
+    /// [`Session::snapshot`] with a part moved to where a cycle set it
+    /// down, for this snapshot only: it is put back whatever happens.
+    fn snapshot_placed(
+        &mut self,
+        values: &[f64],
+        carry: Option<&Carry>,
+        grasping: Option<&str>,
+        placed: Option<&Placed>,
+    ) -> Result<Snapshot, ServiceError> {
+        let moved = match placed {
+            Some(placed) => {
+                let body = self
+                    .project
+                    .environment
+                    .bodies
+                    .iter_mut()
+                    .find(|b| b.id == placed.body_id)
+                    .ok_or_else(|| {
+                        DomainError::dangling("world body", placed.body_id.clone(), "placed")
+                    })?;
+                let before = body.pose;
+                body.pose = placed.pose;
+                Some((placed.body_id.clone(), before))
+            }
+            None => None,
+        };
+        let snapshot = self.snapshot(values, carry, grasping);
+        if let Some((id, before)) = moved {
+            if let Some(body) = self
+                .project
+                .environment
+                .bodies
+                .iter_mut()
+                .find(|b| b.id == id)
+            {
+                body.pose = before;
+            }
+        }
+        snapshot
+    }
+
+    fn plan_cycle(
+        &mut self,
+        body_id: &str,
+        target: Vec3,
+        options: &CycleOptions,
+        cancel: &CancellationToken,
+    ) -> Result<Response, ServiceError> {
+        let report = plan_cycle(
+            &self.project,
+            body_id,
+            target,
+            &self.values,
+            options,
+            cancel,
+        )?;
+        let part_name = self
+            .project
+            .environment
+            .body(body_id)
+            .map_or_else(|| body_id.to_owned(), |b| b.name.clone());
+        let (samples, program_seconds) = match &report.cycle {
+            Some(cycle) => (
+                Some(sampled(cycle, 0.02)?),
+                Some(simulate_program(&program(cycle), 0.008)),
+            ),
+            None => (None, None),
+        };
+        self.cycle = report.cycle.clone().map(|c| (c, part_name.clone()));
+        Ok(Response::Cycle(Box::new(CycleView {
+            report,
+            samples,
+            program_seconds,
+            part_name,
+        })))
+    }
+
+    fn export_cycle(&self, format: &str, period: Option<f64>) -> Result<Response, ServiceError> {
+        let (cycle, part) = self.cycle.as_ref().ok_or_else(|| {
+            DomainError::unsupported("no cycle has been planned in this session".to_owned())
+        })?;
+        let stem = format!(
+            "axisforge_cycle_{}",
+            part.replace(|c: char| !c.is_ascii_alphanumeric(), "_")
+        );
+        let period = period.unwrap_or(0.008);
+        let program = match format {
+            "urscript" => ExportedProgram {
+                file_name: format!("{stem}.script"),
+                media_type: "text/plain".to_owned(),
+                text: urscript(cycle, part)?,
+            },
+            "csv" => ExportedProgram {
+                file_name: format!("{stem}.csv"),
+                media_type: "text/csv".to_owned(),
+                text: csv(&sampled(cycle, period)?),
+            },
+            "json" => ExportedProgram {
+                file_name: format!("{stem}.json"),
+                media_type: "application/json".to_owned(),
+                text: serde_json::to_string_pretty(&sampled(cycle, period)?)?,
+            },
+            other => {
+                return Err(DomainError::unsupported(format!(
+                    "unknown program format `{other}`; `urscript`, `csv` and `json` are supported"
+                ))
+                .into())
+            }
+        };
+        Ok(Response::Program(program))
     }
 
     fn update_body(
@@ -1830,5 +2055,109 @@ mod tests {
         let reply = call(&mut session, r#"{"op":"load_demo"}"#);
         assert_eq!(reply["data"]["gripperFingers"], 0);
         assert_eq!(reply["data"]["preshapes"], serde_json::json!([]));
+    }
+
+    #[test]
+    fn a_cycle_is_planned_drawn_and_exported() {
+        let mut session = Session::demo().unwrap();
+        let early = call(&mut session, r#"{"op":"export_cycle","format":"urscript"}"#);
+        assert_eq!(early["ok"], false, "nothing to export yet");
+        let reply = call(&mut session, r#"{"op":"load_demo","obstacles":"wall"}"#);
+        assert!(reply["data"]["bodies"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|b| b["name"] == "wall"));
+        let cube = reply["data"]["bodies"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|b| b["name"] == "cube")
+            .unwrap()["id"]
+            .as_str()
+            .unwrap()
+            .to_owned();
+        let cycle = call(
+            &mut session,
+            &format!(
+                r#"{{"op":"plan_cycle","bodyId":"{cube}","target":{{"x":0.33,"y":0.21,"z":0.44}}}}"#
+            ),
+        );
+        assert_eq!(cycle["ok"], true, "{cycle}");
+        assert_eq!(cycle["kind"], "cycle");
+        let data = &cycle["data"];
+        let time = data["report"]["cycle"]["cycleTime"].as_f64().unwrap();
+        let program = data["programSeconds"].as_f64().unwrap();
+        assert!((time - program).abs() / time < 0.02, "{time} vs {program}");
+        let samples = data["samples"]["points"].as_array().unwrap();
+        assert!(samples.len() > 100);
+        assert_eq!(samples.last().unwrap()["part"], "placed");
+
+        // Drawn with the part where the cycle set it down.
+        let place = &data["report"]["cycle"]["placePose"];
+        let last = &samples.last().unwrap()["positions"];
+        let snapshot = call(
+            &mut session,
+            &format!(
+                r#"{{"op":"snapshot","values":{last},"placed":{{"bodyId":"{cube}","pose":{place}}}}}"#
+            ),
+        );
+        assert_eq!(snapshot["ok"], true, "{snapshot}");
+        assert_eq!(
+            snapshot["data"]["collision"]["contacts"],
+            serde_json::json!([])
+        );
+        let drawn = snapshot["data"]["drawables"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|d| d["ownerId"] == cube.as_str())
+            .unwrap()["pose"]["translation"]
+            .clone();
+        assert!(
+            (drawn["y"].as_f64().unwrap() - 0.21).abs() < 1e-9,
+            "{drawn}"
+        );
+        // ... for that snapshot only.
+        let after = call(&mut session, r#"{"op":"describe"}"#);
+        let cube_now = after["data"]["bodies"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|b| b["name"] == "cube")
+            .unwrap()["position"]["y"]
+            .as_f64()
+            .unwrap();
+        assert!((cube_now + 0.1).abs() < 1e-12);
+
+        for (format, needle) in [
+            ("urscript", "movej("),
+            ("csv", "time_s,"),
+            ("json", "\"jointNames\""),
+        ] {
+            let program = call(
+                &mut session,
+                &format!(r#"{{"op":"export_cycle","format":"{format}"}}"#),
+            );
+            assert_eq!(program["ok"], true, "{program}");
+            assert!(
+                program["data"]["text"].as_str().unwrap().contains(needle),
+                "{format}"
+            );
+        }
+        let bad = call(&mut session, r#"{"op":"export_cycle","format":"krl"}"#);
+        assert_eq!(bad["ok"], false);
+        // A target inside the wall is refused.
+        let blocked = call(
+            &mut session,
+            &format!(
+                r#"{{"op":"plan_cycle","bodyId":"{cube}","target":{{"x":0.45,"y":0.075,"z":0.44}}}}"#
+            ),
+        );
+        assert_eq!(blocked["ok"], false);
+        assert!(
+            blocked["error"].as_str().unwrap().contains("occupied"),
+            "{blocked}"
+        );
     }
 }

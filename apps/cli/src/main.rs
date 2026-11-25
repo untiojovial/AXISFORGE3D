@@ -96,6 +96,9 @@ enum Command {
         /// The gripper on the arm.
         #[arg(long, value_enum, default_value = "parallel")]
         gripper: DemoGripper,
+        /// Obstacles on the table.
+        #[arg(long, value_enum, default_value = "none")]
+        obstacles: DemoObstacles,
     },
     /// Check that a project file is well-formed and coherent.
     Validate {
@@ -177,6 +180,173 @@ enum Command {
         #[arg(long)]
         json: bool,
     },
+    /// Plan the whole cycle: pick a part, carry it to a target and set it
+    /// down, from the start posture and back, every motion proven clear.
+    Cycle {
+        /// The project file.
+        file: PathBuf,
+        /// The part's display name.
+        body: String,
+        /// Where to set the part's origin down, metres: X Y, and Z when it is
+        /// not to stay at its current height.
+        #[arg(long, num_args = 2..=3, value_name = "X Y [Z]", allow_negative_numbers = true, required = true)]
+        to: Vec<f64>,
+        /// Fraction of every joint's speed limit to use.
+        #[arg(long, default_value_t = 0.5)]
+        speed: f64,
+        /// Write the program: `urscript`, `csv` or `json`.
+        #[arg(long, value_name = "FORMAT")]
+        export: Option<String>,
+        /// Where to write it; the format's usual file name when omitted.
+        #[arg(long)]
+        out: Option<PathBuf>,
+        /// Print the full report as JSON instead of a summary.
+        #[arg(long)]
+        json: bool,
+    },
+}
+
+/// The obstacles the demo cell can be built with.
+#[derive(Debug, Clone, Copy, ValueEnum)]
+enum DemoObstacles {
+    /// None.
+    None,
+    /// A wall across the table.
+    Wall,
+    /// Two posts on the table.
+    Posts,
+}
+
+impl From<DemoObstacles> for templates::Obstacles {
+    fn from(value: DemoObstacles) -> Self {
+        match value {
+            DemoObstacles::None => Self::None,
+            DemoObstacles::Wall => Self::Wall,
+            DemoObstacles::Posts => Self::Posts,
+        }
+    }
+}
+
+/// Plans a cycle and prints, or writes, what came of it.
+#[allow(clippy::too_many_arguments)]
+fn run_cycle(
+    file: &Path,
+    body: &str,
+    to: &[f64],
+    speed: f64,
+    export: Option<&str>,
+    out: Option<&Path>,
+    json: bool,
+) -> Result<()> {
+    let mut session = session_for(file)?;
+    let part = session
+        .project()
+        .environment
+        .body_by_name(body)
+        .ok_or_else(|| anyhow!("no body named '{body}' in {}", file.display()))?;
+    let body_id = part.id.clone();
+    let target = axisforge_domain::Vec3::new(
+        to[0],
+        to[1],
+        to.get(2).copied().unwrap_or(part.pose.translation.z),
+    );
+    let options = axisforge_motion::CycleOptions {
+        speed_scale: speed,
+        ..Default::default()
+    };
+    let Response::Cycle(view) = session.handle(
+        Request::PlanCycle {
+            body_id,
+            target,
+            options: Some(options),
+        },
+        &Default::default(),
+    )?
+    else {
+        return Err(anyhow!("unexpected reply"));
+    };
+    if json {
+        println!("{}", serde_json::to_string_pretty(&view.report)?);
+    }
+    let Some(cycle) = &view.report.cycle else {
+        if !json {
+            println!(
+                "{body}: no cycle found; {} grasp(s) were feasible",
+                view.report.grasps_found
+            );
+            for attempt in &view.report.attempts {
+                println!(
+                    "  {:<44} {}: {}",
+                    attempt.grasp, attempt.segment, attempt.reason
+                );
+            }
+            println!("\n{SAFETY_NOTICE}");
+        }
+        return Err(anyhow!("no cycle found for '{body}'"));
+    };
+    if !json {
+        println!(
+            "{body}: cycle {:.3} s (program re-timed: {:.3} s), grasp {}",
+            cycle.cycle_time,
+            view.program_seconds.unwrap_or(f64::NAN),
+            cycle.grasp.candidate.label
+        );
+        for segment in &cycle.segments {
+            println!(
+                "  {:<9} {:<8} {:>2} move(s) {:>7.3} s{}  clearance ≥ {:.1} mm (closest measured {:.1} mm){}",
+                segment.name,
+                segment.planner,
+                segment.moves.len(),
+                segment.duration,
+                if segment.dwell > 0.0 {
+                    format!(" + {:.2} s", segment.dwell)
+                } else {
+                    String::new()
+                },
+                segment.clearance * 1e3,
+                segment.closest * 1e3,
+                if segment.allowed_contacts.is_empty() {
+                    String::new()
+                } else {
+                    format!("; allowed: {}", segment.allowed_contacts.join(", "))
+                }
+            );
+        }
+        for attempt in &view.report.attempts {
+            println!(
+                "  skipped grasp {}: {}: {}",
+                attempt.grasp, attempt.segment, attempt.reason
+            );
+        }
+        if !view.report.assumed_limits.is_empty() {
+            println!(
+                "  warning: speed and acceleration limits assumed for: {}",
+                view.report.assumed_limits.join(", ")
+            );
+        }
+    }
+    if let Some(format) = export {
+        let Response::Program(program) = session.handle(
+            Request::ExportCycle {
+                format: format.to_owned(),
+                period: None,
+            },
+            &Default::default(),
+        )?
+        else {
+            return Err(anyhow!("unexpected reply"));
+        };
+        let path = out.map_or_else(|| PathBuf::from(&program.file_name), Path::to_path_buf);
+        std::fs::write(&path, program.text)
+            .with_context(|| format!("writing {}", path.display()))?;
+        if !json {
+            println!("wrote {}", path.display());
+        }
+    }
+    if !json {
+        println!("\n{SAFETY_NOTICE}");
+    }
+    Ok(())
 }
 
 /// Saves an imported project and prints what was and was not carried over.
@@ -278,11 +448,12 @@ fn run(cli: Cli) -> Result<()> {
             out,
             no_parts,
             gripper,
+            obstacles,
         } => {
             if let Some(parent) = out.parent().filter(|p| !p.as_os_str().is_empty()) {
                 std::fs::create_dir_all(parent)?;
             }
-            let mut cell = templates::pick_and_place_cell_with(gripper.into())?;
+            let mut cell = templates::demo_cell(gripper.into(), obstacles.into())?;
             if no_parts {
                 cell.environment.bodies.retain(|b| !b.is_graspable());
                 let kept: std::collections::BTreeSet<String> = cell
@@ -546,6 +717,23 @@ fn run(cli: Cli) -> Result<()> {
             }
             println!("\n{SAFETY_NOTICE}");
         }
+        Command::Cycle {
+            file,
+            body,
+            to,
+            speed,
+            export,
+            out,
+            json,
+        } => run_cycle(
+            &file,
+            &body,
+            &to,
+            speed,
+            export.as_deref(),
+            out.as_deref(),
+            json,
+        )?,
     }
     Ok(())
 }

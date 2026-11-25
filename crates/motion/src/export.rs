@@ -130,7 +130,8 @@ pub fn simulate_program(steps: &[ProgramStep], dt: f64) -> f64 {
 fn list(values: &[f64]) -> String {
     values
         .iter()
-        .map(|v| format!("{v:.6}"))
+        // Values that round to zero are written as zero, not as -0.000000.
+        .map(|v| format!("{:.6}", if v.abs() < 5.0e-7 { 0.0 } else { *v }))
         .collect::<Vec<_>>()
         .join(", ")
 }
