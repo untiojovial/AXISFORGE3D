@@ -73,7 +73,9 @@ pub use joint::{Joint, JointKind, JointLimits, JointRole};
 pub use link::{Inertial, Link, ToolFrame};
 pub use math::{Quat, Transform, Vec3};
 pub use project::{Project, ProjectMetadata, Resource};
-pub use robot::{Gripper, JawCoupling, RobotSystem, MAX_AXES, MIN_AXES};
+pub use robot::{
+    Actor, ActorJoint, Gripper, JawCoupling, Preshape, RobotSystem, MAX_AXES, MIN_AXES,
+};
 pub use trajectory::{Trajectory, Waypoint};
 pub use units::{AngleUnit, LengthUnit, UnitPreferences};
 

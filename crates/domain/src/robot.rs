@@ -32,7 +32,57 @@ fn default_finger_width() -> f64 {
     0.025
 }
 
-/// A parallel-jaw gripper, described in terms of joints that already exist.
+/// One joint a finger drives, and which way it moves to close.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ActorJoint {
+    /// The joint, an end-effector joint of the robot.
+    pub joint_id: String,
+    /// Closing rate relative to the finger.
+    ///
+    /// `+1` closes by increasing the joint value and `-1` by decreasing it;
+    /// other magnitudes couple the joints of one finger at that ratio, as the
+    /// `direction` of a node in a Simox end-effector actor does.
+    pub direction: f64,
+}
+
+/// A finger: joints that close together until the finger touches the part.
+///
+/// Every link the joints move is part of the finger, and a joint stops as
+/// soon as any link it moves touches the part, while the joints beyond it
+/// keep closing. A finger whose first phalanx is blocked therefore curls its
+/// tip around the part, the way an underactuated finger does.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Actor {
+    /// Display name, unique within the gripper.
+    pub name: String,
+    /// The joints it drives.
+    pub joints: Vec<ActorJoint>,
+}
+
+/// A named posture the hand approaches in, before its fingers close.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Preshape {
+    /// Display name, unique within the gripper.
+    pub name: String,
+    /// Value of each finger joint, by joint identifier, SI units.
+    ///
+    /// A finger joint left out stays at its open limit: the end of its range
+    /// away from the closing direction.
+    pub joint_values: BTreeMap<String, f64>,
+}
+
+/// A gripper, described in terms of joints that already exist.
+///
+/// Two kinds are described. A *parallel-jaw* gripper has prismatic jaws
+/// driven to a commanded opening, and no actors. A *hand* has actors: fingers
+/// of any number, prismatic or jointed, that each close until they touch,
+/// starting from a preshape. For a hand, `jaw_joint_ids` lists every finger
+/// joint, `finger_link_ids` every link those joints move, and `coupling`,
+/// `closing_axis` and the finger dimensions only describe the hand for
+/// display and for orienting grasps.
 ///
 /// This type holds no kinematics of its own. The jaws are ordinary prismatic
 /// joints in the tree, so forward kinematics, rendering and collision checking
@@ -82,10 +132,41 @@ pub struct Gripper {
     #[serde(default = "default_finger_width")]
     pub finger_width: f64,
     /// Greatest clamping force the jaws can apply, newtons.
+    ///
+    /// For a hand, the force each finger can press with.
     pub max_grip_force: f64,
+    /// The fingers of a hand; empty for a parallel-jaw gripper.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub actors: Vec<Actor>,
+    /// Named postures a hand approaches in; the first is the default.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub preshapes: Vec<Preshape>,
 }
 
 impl Gripper {
+    /// `true` for a hand: fingers that close until they touch.
+    pub fn is_hand(&self) -> bool {
+        !self.actors.is_empty()
+    }
+
+    /// The preshape called `name`, or the default one when `name` is `None`.
+    pub fn preshape(&self, name: Option<&str>) -> Option<&Preshape> {
+        match name {
+            Some(name) => self.preshapes.iter().find(|p| p.name == name),
+            None => self.preshapes.first(),
+        }
+    }
+
+    /// The direction a finger joint closes in, or `None` for a joint no
+    /// actor drives.
+    pub fn closing_direction(&self, joint_id: &str) -> Option<f64> {
+        self.actors
+            .iter()
+            .flat_map(|a| &a.joints)
+            .find(|j| j.joint_id == joint_id)
+            .map(|j| j.direction)
+    }
+
     /// The jaw-to-jaw opening for a given per-jaw joint value, metres.
     pub fn opening_for_jaw_value(&self, jaw_value: f64) -> f64 {
         match self.coupling {
@@ -118,8 +199,119 @@ impl Gripper {
             });
         }
         self.validate_mounting(robot)?;
-        self.validate_jaws(robot)?;
+        if self.is_hand() {
+            self.validate_hand(robot)?;
+        } else {
+            if !self.preshapes.is_empty() {
+                return Err(DomainError::NoGripper {
+                    robot: robot.name.clone(),
+                    detail: format!(
+                        "gripper '{}' has preshapes but no actors; preshapes belong to hands",
+                        self.name
+                    ),
+                });
+            }
+            self.validate_jaws(robot)?;
+        }
         self.validate_axes_and_stroke(robot)
+    }
+
+    /// Checks a hand's actors and preshapes.
+    fn validate_hand(&self, robot: &RobotSystem) -> DomainResult<()> {
+        let fail = |detail: String| DomainError::NoGripper {
+            robot: robot.name.clone(),
+            detail: format!("gripper '{}': {detail}", self.name),
+        };
+        let mut names = BTreeSet::new();
+        let mut driven = BTreeSet::new();
+        for actor in &self.actors {
+            if actor.name.trim().is_empty() {
+                return Err(DomainError::EmptyName { kind: "actor name" });
+            }
+            if !names.insert(actor.name.as_str()) {
+                return Err(fail(format!("two actors are called '{}'", actor.name)));
+            }
+            if actor.joints.is_empty() {
+                return Err(fail(format!("actor '{}' drives no joints", actor.name)));
+            }
+            for driven_joint in &actor.joints {
+                let joint = robot.joint(&driven_joint.joint_id).ok_or_else(|| {
+                    DomainError::dangling(
+                        "joint",
+                        driven_joint.joint_id.clone(),
+                        format!("gripper '{}' actor '{}'", self.name, actor.name),
+                    )
+                })?;
+                if !joint.is_end_effector() {
+                    return Err(fail(format!(
+                        "actor '{}' drives '{}', which is not an actuated end-effector joint",
+                        actor.name, joint.name
+                    )));
+                }
+                if !driven_joint.direction.is_finite() || driven_joint.direction == 0.0 {
+                    return Err(fail(format!(
+                        "actor '{}' moves '{}' with direction {}; it must be finite and nonzero",
+                        actor.name, joint.name, driven_joint.direction
+                    )));
+                }
+                if !driven.insert(driven_joint.joint_id.as_str()) {
+                    return Err(fail(format!(
+                        "joint '{}' is driven by more than one actor",
+                        joint.name
+                    )));
+                }
+            }
+        }
+        let listed: BTreeSet<&str> = self.jaw_joint_ids.iter().map(String::as_str).collect();
+        if listed != driven {
+            return Err(fail(
+                "jawJointIds must list exactly the joints the actors drive".to_owned(),
+            ));
+        }
+        if self.finger_link_ids.is_empty() {
+            return Err(fail("a hand needs finger links".to_owned()));
+        }
+        for link_id in &self.finger_link_ids {
+            if robot.link(link_id).is_none() {
+                return Err(DomainError::dangling(
+                    "link",
+                    link_id.clone(),
+                    format!("gripper '{}'.fingerLinkIds", self.name),
+                ));
+            }
+        }
+        let mut preshape_names = BTreeSet::new();
+        for preshape in &self.preshapes {
+            if preshape.name.trim().is_empty() {
+                return Err(DomainError::EmptyName {
+                    kind: "preshape name",
+                });
+            }
+            if !preshape_names.insert(preshape.name.as_str()) {
+                return Err(fail(format!(
+                    "two preshapes are called '{}'",
+                    preshape.name
+                )));
+            }
+            for (joint_id, value) in &preshape.joint_values {
+                if !driven.contains(joint_id.as_str()) {
+                    return Err(fail(format!(
+                        "preshape '{}' sets '{joint_id}', which no actor drives",
+                        preshape.name
+                    )));
+                }
+                let joint = robot
+                    .joint(joint_id)
+                    .ok_or_else(|| DomainError::dangling("joint", joint_id.clone(), "preshape"))?;
+                if !value.is_finite() || !joint.limits.contains(*value, 1.0e-9) {
+                    return Err(fail(format!(
+                        "preshape '{}' puts '{}' at {value}, outside [{}, {}]",
+                        preshape.name, joint.name, joint.limits.lower, joint.limits.upper
+                    )));
+                }
+            }
+        }
+        Ok(())
     }
 
     /// Checks that the palm link and grasp frame exist on `robot`.
@@ -240,6 +432,10 @@ impl Gripper {
             }
         }
 
+        if self.is_hand() {
+            // A hand's opening is set by its preshapes, not by a jaw stroke.
+            return Ok(());
+        }
         // The jaw limits are the real stroke; `max_opening` must not promise
         // more than the joints can deliver, or a planner would accept grasps
         // the hardware cannot make.

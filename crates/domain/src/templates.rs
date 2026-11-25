@@ -8,6 +8,8 @@
 
 use std::f64::consts::{FRAC_PI_2, PI};
 
+use serde::{Deserialize, Serialize};
+
 use crate::environment::{Environment, GROUND_OWNER_ID};
 use crate::error::{DomainError, DomainResult};
 use crate::geometry::{GeometryInstance, GeometryRole, Shape};
@@ -16,6 +18,9 @@ use crate::link::{Inertial, Link, ToolFrame};
 use crate::math::{Quat, Transform, Vec3};
 use crate::project::Project;
 use crate::robot::{Gripper, JawCoupling, RobotSystem};
+
+mod hands;
+pub use hands::{attach_three_finger_gripper, attach_three_finger_hand, HandSpec};
 
 /// Mints a deterministic, UUID-shaped identifier from a namespace and a name.
 ///
@@ -569,6 +574,8 @@ pub fn attach_parallel_gripper(
         finger_depth: spec.finger_depth,
         finger_width: spec.finger_width,
         max_grip_force: spec.max_grip_force,
+        actors: Vec::new(),
+        preshapes: Vec::new(),
     };
 
     robot.links.push(palm);
@@ -825,6 +832,30 @@ pub fn six_axis() -> DomainResult<RobotSystem> {
 /// # Panics
 /// Never: [`build_serial_chain`] always adds the flange frame this reads.
 pub fn six_axis_with_gripper() -> DomainResult<RobotSystem> {
+    six_axis_with(GripperKind::Parallel)
+}
+
+/// The grippers the templates can fit.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum GripperKind {
+    /// Two parallel jaws driven to a commanded opening.
+    #[default]
+    Parallel,
+    /// Three radial jaws, each closing until it touches.
+    ThreeFinger,
+    /// Three fingers of two phalanges each, closing until they touch.
+    Hand,
+}
+
+/// The six-axis arm with the chosen gripper on its flange.
+///
+/// # Errors
+/// Propagates [`six_axis`] and the attaching function.
+///
+/// # Panics
+/// Never: [`build_serial_chain`] always adds the flange frame this reads.
+pub fn six_axis_with(kind: GripperKind) -> DomainResult<RobotSystem> {
     let mut robot = six_axis()?;
     let flange_id = robot
         .tool_frames
@@ -832,7 +863,17 @@ pub fn six_axis_with_gripper() -> DomainResult<RobotSystem> {
         .expect("build_serial_chain always adds a flange")
         .id
         .clone();
-    attach_parallel_gripper(&mut robot, &flange_id, &GripperSpec::default())?;
+    match kind {
+        GripperKind::Parallel => {
+            attach_parallel_gripper(&mut robot, &flange_id, &GripperSpec::default())?;
+        }
+        GripperKind::ThreeFinger => {
+            attach_three_finger_gripper(&mut robot, &flange_id, &HandSpec::three_finger_gripper())?
+        }
+        GripperKind::Hand => {
+            attach_three_finger_hand(&mut robot, &flange_id, &HandSpec::three_finger_hand())?;
+        }
+    }
     Ok(robot)
 }
 
@@ -896,14 +937,31 @@ fn build_table(namespace: &str, table_height: f64) -> crate::environment::WorldB
 /// # Errors
 /// Propagates [`six_axis_with_gripper`] and [`Project::validate`].
 pub fn pick_and_place_cell() -> DomainResult<Project> {
+    pick_and_place_cell_with(GripperKind::Parallel)
+}
+
+/// The demo cell with the chosen gripper.
+///
+/// # Errors
+/// Propagates [`six_axis_with`] and [`Project::validate`].
+pub fn pick_and_place_cell_with(kind: GripperKind) -> DomainResult<Project> {
     use crate::environment::{PhysicalProperties, WorldBody};
 
-    let robot = six_axis_with_gripper()?;
+    let robot = six_axis_with(kind)?;
     let namespace = "Pick and place cell";
     let mut project = Project::new(stable_id(namespace, "project", namespace), namespace, robot);
-    project.metadata.description.push_str(
-        "A six-axis arm with a parallel-jaw gripper, a work table, and two parts to pick.",
-    );
+    project.metadata.description.push_str(match kind {
+        GripperKind::Parallel => {
+            "A six-axis arm with a parallel-jaw gripper, a work table, and two parts to pick."
+        }
+        GripperKind::ThreeFinger => {
+            "A six-axis arm with a centric three-finger gripper, a work table, and two parts \
+             to pick."
+        }
+        GripperKind::Hand => {
+            "A six-axis arm with a three-finger hand, a work table, and two parts to pick."
+        }
+    });
 
     let table_height = 0.42;
     project
