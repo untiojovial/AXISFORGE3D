@@ -48,6 +48,18 @@ def library(a):
     Path(a.out).write_text(json.dumps(dict(format='axisforge-visual-library', version=1, parts=entries)) + '\n')
 
 
+def add_descriptors(a):
+    import gzip
+    parts = vp.add_descriptors(load_library(a.library), vp.read_descriptors(a.descriptors))
+    text = json.dumps(dict(format='axisforge-visual-library', version=1, parts=parts)) + '\n'
+    if a.out.endswith('.gz'):
+        with gzip.open(a.out, 'wt') as f:
+            f.write(text)
+    else:
+        Path(a.out).write_text(text)
+    print(f'{len(parts)} parts -> {a.out}')
+
+
 def load_library(path):
     if str(path).endswith('.gz'):
         import gzip
@@ -111,6 +123,12 @@ def main():
 
 
     v = sub.add_parser('views'); parts(v); v.add_argument('--out', required=True)
+    v.add_argument('--size', type=int, default=vp.SIZE, help='image side, pixels')
+    v.add_argument('--distance', type=float, help='fixed camera distance, metres (keeps scale); '
+                   '1.5 box diagonals when omitted (normalises scale)')
+    ad = sub.add_parser('add-descriptors', help='attach descriptors to a library without solving again')
+    ad.add_argument('--library', required=True); ad.add_argument('--descriptors', action='append', required=True)
+    ad.add_argument('--out', required=True)
     e = sub.add_parser('encode'); e.add_argument('--views', required=True)
     e.add_argument('--model', required=True, choices=['dinov2', 'dinov3', 'dinov3-timm', 'openclip'])
     e.add_argument('--label', help='descriptor name, the model kind when omitted (e.g. a control)')
@@ -137,7 +155,9 @@ def main():
     a = p.parse_args()
     if a.command == 'prior' and len(a.part) != 1:
         p.error('prior takes exactly one --part')
-    dict(views=lambda: vp.write_views(a.part, a.out, log=lambda *x: print(*x, flush=True)), encode=lambda: encode(a), library=lambda: library(a),
+    dict(views=lambda: vp.write_views(a.part, a.out, log=lambda *x: print(*x, flush=True), size=a.size,
+                                      distance=a.distance),
+         **{'add-descriptors': lambda: add_descriptors(a)}, encode=lambda: encode(a), library=lambda: library(a),
          prior=lambda: prior(a), evaluate=lambda: evaluate(a))[a.command]()
 
 

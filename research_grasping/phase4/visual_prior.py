@@ -128,11 +128,23 @@ def part_mesh(project_path, body):
     return v, f
 
 
-def render_views(vertices, faces, count=VIEWS, size=SIZE):
-    """The Phase III recipe: neutral gray, two-sided shading, 25° orbit."""
-    from research_grasping.phase3.render_cpu import cameras, render
+def render_views(vertices, faces, count=VIEWS, size=SIZE, distance=None):
+    """The Phase III recipe: neutral gray, two-sided shading, 25° orbit.
+
+    By default the camera stands at 1.5 box diagonals, so every part fills the
+    image alike and its size cannot be seen. With ``distance`` (metres) the
+    camera stands that far from the box centre for every part, with the same
+    intrinsics, so a part twice as large looks twice as large.
+    """
+    from research_grasping.phase3.render_cpu import cameras, look_at, render
     bounds = np.array([vertices.min(0), vertices.max(0)])
     k, transforms = cameras(bounds, count, size, size)
+    if distance is not None:
+        if not np.isfinite(distance) or distance <= np.linalg.norm(bounds[1]-bounds[0])/2:
+            raise ValueError('camera distance must clear the part')
+        centre = bounds.mean(0)
+        transforms = [look_at(centre+distance*(t[:3, 3]-centre)/np.linalg.norm(t[:3, 3]-centre), centre)
+                      for t in transforms]
     return [render(vertices, faces, k, t, size, size)['rgb'] for t in transforms]
 
 
@@ -146,7 +158,7 @@ def describe(encoder, images):
 RECIPE = 'Phase III CPU renderer: neutral gray, two-sided shading, 16-view orbit at 25 degrees, 96 px'
 
 
-def write_views(parts, out, log=print):
+def write_views(parts, out, log=print, size=SIZE, distance=None):
     """Render (name, project) parts into a views ZIP: views/<name>/NN.png and views.json."""
     import io
     import time
@@ -157,15 +169,19 @@ def write_views(parts, out, log=print):
         for name, project in parts:
             start = time.perf_counter()
             vertices, faces = part_mesh(project, name)
-            images = render_views(vertices, faces)
+            images = render_views(vertices, faces, size=size, distance=distance)
             for i, im in enumerate(images):
                 buf = io.BytesIO(); Image.fromarray(im).save(buf, format='PNG')
                 z.writestr(f'views/{name}/{i:02d}.png', buf.getvalue())
-            index.append(dict(name=name, views=len(images), size=SIZE,
+            index.append(dict(name=name, views=len(images), size=size, camera_distance_m=distance,
                               project_sha256=sha256_bytes(Path(project).read_bytes()),
                               seconds=round(time.perf_counter()-start, 2)))
             log(name, f'{index[-1]["seconds"]} s')
-        z.writestr('views.json', json.dumps(dict(recipe=RECIPE, parts=index), indent=2))
+        recipe = RECIPE if distance is None and size == SIZE else (
+            f'Phase III CPU renderer: neutral gray, two-sided shading, 16-view orbit at 25 degrees, {size} px, '
+            + ('camera at 1.5 box diagonals (scale normalised)' if distance is None
+               else f'camera {distance} m from the box centre for every part (scale preserved)'))
+        z.writestr('views.json', json.dumps(dict(recipe=recipe, parts=index), indent=2))
     return index
 
 
@@ -195,6 +211,14 @@ def write_descriptors(encoder, views_path, out, label):
                         provenance=np.array(json.dumps(encoder.provenance, sort_keys=True)),
                         views_sha256=np.array(sha256_bytes(Path(views_path).read_bytes())))
     return names
+
+
+def add_descriptors(library, descriptors):
+    """Attach more descriptors to library entries without solving the parts again."""
+    for entry in library:
+        for name, vector in descriptors.get(entry['name'], {}).items():
+            entry['descriptors'][name] = np.asarray(vector, float).tolist()
+    return library
 
 
 def read_descriptors(paths):

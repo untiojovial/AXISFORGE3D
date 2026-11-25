@@ -76,6 +76,8 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--catalogue', required=True, help='models/<name> lines at the pinned revision')
     p.add_argument('--exclude', required=True, help='the Phase III manifest.lock.json')
+    p.add_argument('--also-exclude', action='append', default=[],
+                   help='a previous new_parts.json whose kept parts are left out too (repeatable)')
     p.add_argument('--binary', required=True); p.add_argument('--out', required=True)
     p.add_argument('--count', type=int, default=50); p.add_argument('--seed', type=int, default=20261126)
     a = p.parse_args()
@@ -87,6 +89,13 @@ def main():
     excluded = {o['object_id'] for o in manifest['objects']}
     if manifest.get('source_revision', REV) != REV or not excluded <= set(names):
         raise SystemExit('the exclusion manifest does not match the pinned catalogue')
+    previous = []
+    for path in a.also_exclude:
+        earlier = json.loads(Path(path).read_text())
+        if earlier.get('source_revision') != REV or not set(earlier['kept']) <= set(names):
+            raise SystemExit(f'{path} is not a selection from the pinned catalogue')
+        previous.append(dict(sha256=sha256(Path(path).read_bytes()), seed=earlier['seed'], kept=len(earlier['kept'])))
+        excluded |= set(earlier['kept'])
     pool = [n for n in names if n not in excluded]
     order = [pool[i] for i in np.random.default_rng(a.seed).permutation(len(pool))]
     empty = out/'empty.axisforge'
@@ -124,7 +133,7 @@ def main():
     record = dict(format='axisforge-new-parts', version=1, source='Google Scanned Objects, MuJoCo adaptation by '
                   'Kevin Zakka', source_revision=REV, license='CC-BY-4.0', catalogue_sha256=sha256(catalogue_bytes),
                   catalogue_models=len(names), excluded=sorted(excluded), excluded_manifest_sha256=sha256(
-                      Path(a.exclude).read_bytes()), seed=a.seed, count=a.count, rule=RULE,
+                      Path(a.exclude).read_bytes()), also_excluded=previous, seed=a.seed, count=a.count, rule=RULE,
                   placement_m=[float(x) for x in PLACEMENT], mass_kg=float(MASS_KG), kept=kept, examined=examined)
     (out/'new_parts.json').write_text(json.dumps(record, indent=1) + '\n')
     print(f'{len(kept)} parts kept of {len(examined)} examined -> {out/"new_parts.json"}')

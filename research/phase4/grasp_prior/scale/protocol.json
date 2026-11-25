@@ -1,0 +1,110 @@
+{
+ "primary": [
+  [
+   "visual:dinov3-metric",
+   "box"
+  ],
+  [
+   "visual:dinov3-metric",
+   "visual:dinov3"
+  ]
+ ],
+ "secondary": [
+  [
+   "fusion:dinov3-metric",
+   "box"
+  ],
+  [
+   "fusion:dinov3-metric",
+   "fusion:dinov3"
+  ],
+  [
+   "visual:dinov3-metric",
+   "visual:vit-random-metric"
+  ],
+  [
+   "visual:dinov2-metric",
+   "box"
+  ],
+  [
+   "visual:vit-random-metric",
+   "box"
+  ],
+  [
+   "fusion:dinov2-metric",
+   "box"
+  ],
+  [
+   "fusion:vit-random-metric",
+   "box"
+  ],
+  [
+   "visual:dinov3",
+   "box"
+  ],
+  [
+   "fusion:dinov3",
+   "box"
+  ],
+  [
+   "box",
+   "default"
+  ],
+  [
+   "pooled",
+   "default"
+  ],
+  [
+   "visual:dinov3-metric",
+   "default"
+  ],
+  [
+   "fusion:dinov3-metric",
+   "default"
+  ],
+  [
+   "visual:dinov3",
+   "default"
+  ],
+  [
+   "self",
+   "default"
+  ],
+  [
+   "box",
+   "pooled"
+  ]
+ ],
+ "primary_target": 1,
+ "decision": "helps only if the 95% bootstrap interval lies below 1 and Holm p < 0.05",
+ "queries": "the 50 fresh parts (seed 20261127) with at least one feasible grasp",
+ "library": "66 development parts (16 YCB + 50 from seed 20261126) + 50 fresh parts, leave one out",
+ "render": {
+  "scale_preserving": {
+   "size_px": 224,
+   "camera_distance_m": 0.6
+  },
+  "normalised": {
+   "size_px": 96,
+   "camera": "1.5 box diagonals"
+  }
+ },
+ "models": [
+  "dinov3-metric",
+  "dinov2-metric",
+  "vit-random-metric",
+  "dinov3",
+  "dinov2",
+  "vit-random"
+ ],
+ "methods": [
+  "visual",
+  "fusion"
+ ],
+ "random_seeds": 10,
+ "neighbours": 3,
+ "prior_weight": 2.0,
+ "selection_seed": 20261127,
+ "bootstrap_seed": 20261126,
+ "bootstrap_draws": 10000
+}

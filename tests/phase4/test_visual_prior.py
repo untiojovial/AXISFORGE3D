@@ -150,3 +150,21 @@ def test_a_transferred_prior_reaches_the_native_planner(tmp_path):
     without = vp.plan_with(BINARY, cell, 'dowel', None, 1, tmp_path)
     assert with_prior['matched'] == len(doc['candidates']) and with_prior['unmatched'] == 0
     assert with_prior['found'] == without['found'] == 1
+
+
+def test_a_fixed_camera_distance_keeps_the_scale(tmp_path):
+    v, f = vp._box_mesh(dict(x=.05, y=.05, z=.05))
+    area = lambda images: np.mean([im.any(-1).sum() for im in images])
+    normalised = [area(vp.render_views(v*s, f, count=4)) for s in (1, 2)]
+    kept = [area(vp.render_views(v*s, f, count=4, size=128, distance=.6)) for s in (1, 2)]
+    assert abs(normalised[1]/normalised[0]-1) < .05
+    assert 3.5 < kept[1]/kept[0] < 4.5
+    with pytest.raises(ValueError):
+        vp.render_views(v*10, f, distance=.1)
+
+
+def test_descriptors_attach_without_solving_again():
+    library = [entry('a', descriptor=[1, 0]), entry('b', descriptor=[0, 1])]
+    vp.add_descriptors(library, {'a': {'metric': np.array([.6, .8])}})
+    assert library[0]['descriptors'] == {'dinov2': [1, 0], 'metric': [.6, .8]}
+    assert library[1]['descriptors'] == {'dinov2': [0, 1]}
