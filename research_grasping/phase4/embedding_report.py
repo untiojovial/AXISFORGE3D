@@ -53,7 +53,17 @@ def summarize(path):
                 prior_candidates_per_object=10,real_outcome='native-f12',results=stats)
 
 
-def plot(report,path):
+MODEL_LABELS={'open_clip/ViT-B-32-quickgelu/laion400m_e31':('OpenCLIP','openclip'),
+              'dinov2':('DINOv2','dinov2'),'dinov3':('DINOv3','dinov3')}
+
+
+def model_label(analysis_path):
+    """Display name and file stem of the model an analysis measured."""
+    model=load(analysis_path).get('model_id','')
+    return MODEL_LABELS.get(model,(model or 'Modelo','model'))
+
+
+def plot(report,path,label='OpenCLIP'):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -69,7 +79,7 @@ def plot(report,path):
         axes[1].scatter(vals,[i]*len(vals),color='#285582',alpha=.48)
     axes[1].axvline(0,color='0.5',lw=.8);axes[1].set_yticks(y,labels)
     axes[1].set_xlabel('Δ AUC adaptativo respecto a geometría')
-    fig.suptitle('OpenCLIP congelado · 6 objetos de validación · 3 semillas pareadas')
+    fig.suptitle(f'{label} congelado · 6 objetos de validación · 3 semillas pareadas')
     fig.savefig(path,dpi=160);plt.close(fig)
 
 
@@ -77,4 +87,5 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--analysis',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
     a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
-    result=summarize(a.analysis);save(a.out/'summary.json',result);plot(result,a.out/'openclip_panel.png')
+    label,stem=model_label(a.analysis)
+    result=summarize(a.analysis);save(a.out/'summary.json',result);plot(result,a.out/f'{stem}_panel.png',label)
