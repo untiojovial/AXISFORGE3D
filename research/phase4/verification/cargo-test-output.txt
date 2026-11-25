@@ -1,0 +1,512 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running unittests src/main.rs (target/debug/deps/axisforge-9cde200d5bdd24ce)
+
+running 1 test
+test tests::meshes_are_found_by_path_then_by_unambiguous_name ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_collision-f78f53385ad29fc2)
+
+running 12 tests
+test tests::a_closed_gripper_does_not_collide_with_itself ... ok
+test motion::tests::a_link_only_counts_the_joints_above_it ... ok
+test tests::a_margin_turns_a_near_miss_into_a_contact ... ok
+test tests::an_attached_part_moves_with_its_link_and_ignores_the_gripper ... ok
+test tests::an_attachment_to_an_unknown_body_is_an_error ... ok
+test tests::an_owner_touching_through_several_pieces_is_one_contact ... ok
+test tests::folding_the_arm_into_the_table_is_reported ... ok
+test tests::scenery_resting_on_scenery_is_not_a_contact ... ok
+test tests::folding_the_arm_onto_itself_is_reported ... ok
+test tests::parts_fixed_to_the_same_link_are_not_measured_against_each_other ... ok
+test tests::the_demo_cell_is_clear_standing_upright ... ok
+test motion::tests::no_point_moves_further_than_the_bound ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_domain-6f5e5afe912b6b77)
+
+running 75 tests
+test environment::tests::an_exemption_naming_an_unknown_owner_is_rejected ... ok
+test environment::tests::friction_cone_half_angle_matches_atan_mu ... ok
+test environment::tests::ignored_pairs_are_order_independent ... ok
+test environment::tests::only_manipulable_bodies_are_graspable ... ok
+test environment::tests::the_ground_is_always_a_known_owner ... ok
+test geometry::tests::largest_extent_reports_the_full_span ... ok
+test geometry::tests::capsule_half_extent_includes_both_caps ... ok
+test geometry::tests::a_mesh_reference_is_written_in_camel_case_and_the_old_spelling_still_reads ... ok
+test geometry::tests::malformed_color_is_rejected ... ok
+test geometry::tests::a_mesh_has_no_known_extent ... ok
+test geometry::tests::negative_radius_is_rejected ... ok
+test joint::tests::a_joint_may_not_connect_a_link_to_itself ... ok
+test joint::tests::a_non_unit_axis_still_yields_a_rigid_motion ... ok
+test joint::tests::axis_in_parent_follows_the_origin_rotation ... ok
+test joint::tests::fraction_of_a_degenerate_interval_is_the_middle ... ok
+test joint::tests::gripper_jaws_are_actuated_but_not_axes ... ok
+test joint::tests::inverted_limits_are_rejected ... ok
+test joint::tests::margin_is_negative_outside_the_interval ... ok
+test joint::tests::prismatic_motion_slides_along_its_axis ... ok
+test joint::tests::revolute_motion_rotates_about_its_axis ... ok
+test joint::tests::role_defaults_to_manipulator_when_absent_from_json ... ok
+test link::tests::duplicate_geometry_ids_are_rejected ... ok
+test link::tests::negative_mass_is_rejected ... ok
+test link::tests::role_filters_split_visual_from_collision ... ok
+test math::tests::a_basis_round_trips_through_a_quaternion ... ok
+test math::tests::a_left_handed_basis_is_refused ... ok
+test math::tests::a_non_orthogonal_basis_is_refused ... ok
+test math::tests::a_perpendicular_is_always_perpendicular_and_unit ... ok
+test math::tests::composition_applies_the_right_hand_side_first ... ok
+test math::tests::euler_round_trips_through_quaternion ... ok
+test math::tests::local_translation_moves_along_the_frames_own_axes ... ok
+test math::tests::normalizing_zero_vector_is_an_error ... ok
+test math::tests::q_and_negative_q_are_the_same_rotation ... ok
+test math::tests::quarter_turn_about_z_maps_x_to_y ... ok
+test math::tests::transform_inverse_round_trips ... ok
+test project::tests::an_out_of_range_mesh_index_is_rejected ... ok
+test project::tests::a_trajectory_of_the_wrong_width_is_rejected ... ok
+test project::tests::a_template_project_validates ... ok
+test robot::tests::a_cycle_is_rejected_as_unreachable ... ok
+test robot::tests::a_detached_fragment_is_rejected ... ok
+test project::tests::mesh_geometry_without_its_resource_is_rejected ... ok
+test robot::tests::a_minimal_robot_validates ... ok
+test robot::tests::a_missing_gripper_names_the_robot ... ok
+test robot::tests::a_single_tool_frame_is_the_default_without_being_declared ... ok
+test robot::tests::the_root_may_not_be_a_child ... ok
+test robot::tests::tree_order_is_independent_of_declaration_order ... ok
+test robot::tests::with_two_frames_and_no_declaration_there_is_no_default ... ok
+test robot::tests::zero_axes_is_rejected ... ok
+test templates::hands::tests::the_hand_has_two_phalanges_per_finger ... ok
+test templates::tests::a_duplicate_axis_name_names_the_axis_not_an_id ... ok
+test templates::hands::tests::a_hand_whose_preshape_leaves_the_limits_is_rejected ... ok
+test templates::tests::a_top_down_pose_points_its_z_at_the_floor ... ok
+test templates::tests::a_gripper_does_not_change_the_axis_count ... ok
+test templates::hands::tests::the_three_finger_gripper_has_three_radial_actors ... ok
+test templates::tests::jaws_are_prismatic_end_effector_joints ... ok
+test templates::tests::seven_axes_are_rejected ... ok
+test templates::tests::stable_ids_are_reproducible_and_distinct ... ok
+test templates::tests::stable_ids_are_uuid_shaped ... ok
+test templates::hands::tests::a_saved_parallel_gripper_reads_without_actors ... ok
+test templates::tests::every_template_validates ... ok
+test templates::tests::overstating_the_opening_is_rejected ... ok
+test templates::tests::stable_ids_separate_their_parts ... ok
+test templates::tests::the_declared_opening_matches_the_jaw_stroke ... ok
+test templates::tests::the_demo_cell_exempts_the_two_fingers_from_each_other ... ok
+test templates::tests::the_grasp_frame_becomes_the_default_tool_frame ... ok
+test templates::tests::the_jaws_slide_opposite_each_other_along_the_closing_axis ... ok
+test templates::tests::the_demo_cell_has_two_graspable_parts ... ok
+test tests::standard_gravity_turns_mass_into_weight ... ok
+test tests::the_safety_notice_says_what_it_must ... ok
+test trajectory::tests::a_waypoint_of_the_wrong_width_is_rejected ... ok
+test trajectory::tests::speed_scale_defaults_when_absent_from_json ... ok
+test trajectory::tests::zero_speed_scale_is_rejected ... ok
+test units::tests::length_round_trips_through_every_unit ... ok
+test units::tests::one_hundred_eighty_degrees_is_pi_radians ... ok
+test templates::tests::templates_are_byte_identical_across_runs ... ok
+
+test result: ok. 75 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_geometry-141c3e914ec467da)
+
+running 34 tests
+test aabb::tests::a_rotated_unit_cube_spans_the_square_root_of_two ... ok
+test aabb::tests::an_empty_point_set_has_no_bounds ... ok
+test aabb::tests::overlapping_boxes_report_zero_distance ... ok
+test aabb::tests::separated_boxes_report_their_gap ... ok
+test aabb::tests::the_diagonal_gap_is_euclidean_not_axis_wise ... ok
+test gjk::tests::a_degenerate_zero_size_body_is_handled_as_a_point ... ok
+test gjk::tests::a_capsule_clears_a_box_by_its_radius ... ok
+test gjk::tests::a_small_tilted_body_far_from_the_origin_still_converges ... ok
+test gjk::tests::a_diagonal_gap_is_measured_corner_to_corner ... ok
+test gjk::tests::a_tilted_cylinder_against_a_wide_slab_also_converges ... ok
+test gjk::tests::a_wide_flat_tetrahedron_around_the_origin_is_recognised ... ok
+test gjk::tests::coincident_bodies_do_not_divide_by_zero ... ok
+test gjk::tests::distance_is_symmetric_in_its_arguments ... ok
+test gjk::tests::nearly_parallel_faces_converge ... ok
+test gjk::tests::the_within_helper_agrees_with_the_distance ... ok
+test gjk::tests::two_overlapping_boxes_report_zero_without_a_depth ... ok
+test gjk::tests::overlap_through_inflation_is_conclusive_even_on_a_curved_pair ... ok
+test gjk::tests::two_separated_boxes_report_the_face_gap ... ok
+test gjk::tests::two_spheres_report_their_centre_distance_minus_both_radii ... ok
+test hull3::tests::flat_or_too_few_points_have_no_hull ... ok
+test hull3::tests::a_cube_with_points_inside_has_its_volume_and_eight_corners ... ok
+test support::tests::a_box_support_picks_the_matching_corner ... ok
+test support::tests::a_capsule_is_an_inflated_segment ... ok
+test support::tests::a_cylinder_support_lands_on_the_rim ... ok
+test gjk::tests::a_clear_pair_is_never_reported_as_touching ... ok
+test support::tests::a_cylinder_viewed_down_its_axis_returns_the_cap_centre ... ok
+test support::tests::a_mesh_becomes_its_scaled_hull ... ok
+test support::tests::a_negative_radius_is_rejected ... ok
+test support::tests::a_zero_direction_is_total_not_a_panic ... ok
+test support::tests::an_unsupplied_mesh_is_a_dangling_reference_not_an_empty_body ... ok
+test support::tests::inflation_shows_up_in_the_bounds_but_not_in_core_support ... ok
+test support::tests::support_follows_the_pose ... ok
+test hull3::tests::every_point_is_inside_every_face_of_random_hulls ... ok
+test hull3::tests::points_on_a_sphere_approach_its_volume ... ok
+
+test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s
+
+     Running tests/near_contact.rs (target/debug/deps/near_contact-6844f4644cfb83f9)
+
+running 2 tests
+test a_box_a_hair_above_a_large_floor_is_measured_safely ... ok
+test point_hulls_on_a_large_floor_never_panic_or_overestimate ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_grasping-e96ffe2206d0b505)
+
+running 80 tests
+test candidate::tests::a_mesh_is_refused_with_a_reason ... ok
+test candidate::tests::a_box_yields_every_face_pair_and_approach ... ok
+test candidate::tests::a_cylinder_is_held_across_its_diameter_or_by_its_ends ... ok
+test candidate::tests::a_sphere_is_held_across_a_diameter ... ok
+test candidate::tests::a_capsule_has_no_end_grasps ... ok
+test candidate::tests::a_shallow_variant_keeps_the_fingertips_inside_the_far_face ... ok
+test candidate::tests::box_contacts_lie_on_opposite_faces ... ok
+test candidate::tests::contact_patches_stay_within_both_the_pad_and_the_part ... ok
+test candidate::tests::round_contacts_lie_on_the_surface_with_opposing_normals ... ok
+test candidate::tests::contact_patches_have_the_expected_shape ... ok
+test candidate::tests::synthesis_is_deterministic ... ok
+test hand::tests::a_finger_with_nothing_to_touch_closes_to_its_limit ... ok
+test hand::tests::three_jaws_close_on_a_cube_from_above_and_stop_at_its_faces ... ok
+test hand::tests::an_unknown_preshape_and_a_parallel_gripper_are_refused ... ok
+test hull::tests::a_cross_polytope_has_depth_one_over_root_dim ... ok
+test hand::tests::a_hand_finger_curls_and_never_passes_through_the_part ... ok
+test hull::tests::an_origin_outside_the_hull_has_zero_depth ... ok
+test hull::tests::building_is_deterministic ... ok
+test hull::tests::interior_and_duplicate_points_change_nothing ... ok
+test hull::tests::points_in_a_plane_are_reported_flat ... ok
+test hull::tests::a_unit_cube_has_depth_one_in_every_dimension ... ok
+test planner::tests::a_cancelled_search_says_so_and_invents_no_verdicts ... ok
+test planner::tests::a_ball_fails_force_closure_with_hard_contacts_and_passes_with_soft_pads ... ok
+test planner::tests::a_mesh_part_without_its_mesh_is_an_error ... ok
+test planner::tests::a_mesh_part_is_planned_through_its_surface ... ok
+test hull::tests::a_random_cloud_in_six_dimensions_is_closed_and_supporting ... ok
+test planner::tests::a_part_out_of_reach_is_rejected_as_unreachable ... ok
+test planner::tests::a_part_wider_than_the_stroke_is_rejected_as_too_wide ... ok
+test planner::tests::a_part_too_heavy_to_hold_is_rejected_for_grip_force ... ok
+test planner::tests::a_plan_does_what_it_says ... ok
+test hand::tests::synthesis_finds_distinct_grasps_with_at_least_two_fingers ... ok
+test planner::tests::diverse_selection_is_nested_preserves_ids_and_keeps_width_controls ... ok
+test planner::tests::an_assembled_part_is_no_longer_refused ... ok
+test planner::tests::planning_is_deterministic ... ok
+test planner::tests::a_registered_library_is_used_by_the_planner ... ok
+test planner::tests::plans_come_back_best_score_first ... ok
+test planner::tests::plans_carry_wrench_space_quality_by_default ... ok
+test planner::tests::requests_that_cannot_be_planned_are_errors ... ok
+test planner::tests::research_catalog_preserves_order_and_defers_evaluation ... ok
+test planner::tests::the_antipodal_measure_can_be_selected_by_name ... ok
+test planner::tests::the_candidate_limit_and_the_time_budget_stop_the_search ... ok
+test planner::tests::grasps_from_below_the_table_are_rejected_not_planned ... ok
+test planner::tests::the_dowel_in_the_demo_cell_can_be_picked ... ok
+test planner::tests::the_old_option_name_is_still_accepted ... ok
+test planner::tests::a_minimum_quality_out_of_reach_rejects_otherwise_feasible_grasps ... ok
+test planner::tests::unknown_extension_names_and_bad_options_are_errors ... ok
+test planner::tests::the_cube_in_the_demo_cell_can_be_picked ... ok
+test quality::tests::a_frictionless_part_is_never_in_force_closure ... ok
+test quality::tests::a_heavy_part_exceeds_the_grip_force ... ok
+test quality::tests::a_part_held_top_and_bottom_needs_no_friction_for_its_weight ... ok
+test quality::tests::a_cube_held_by_two_pads_is_in_wrench_space_force_closure ... ok
+test quality::tests::a_sphere_needs_a_soft_pad_for_force_closure ... ok
+test quality::tests::required_force_follows_the_coulomb_formula ... ok
+test quality::tests::slanted_normals_outside_the_cone_fail_the_antipodal_test ... ok
+test quality::tests::the_friction_override_replaces_the_parts_own_value ... ok
+test registry::tests::a_library_can_register_its_own_measure ... ok
+test registry::tests::a_name_cannot_be_taken_twice ... ok
+test registry::tests::an_unknown_name_lists_what_exists ... ok
+test registry::tests::the_standard_registry_lists_the_built_ins ... ok
+test surface::tests::a_box_surface_is_closed_with_its_centre_as_centre_of_mass ... ok
+test surface::tests::a_concave_part_is_closed_on_by_its_outermost_points ... ok
+test surface::tests::a_line_that_misses_the_part_closes_on_nothing ... ok
+test surface::tests::a_many_cornered_patch_keeps_a_few_of_its_own_corners ... ok
+test surface::tests::a_pad_edge_on_a_sloped_face_presses_along_the_face_normal ... ok
+test surface::tests::an_open_surface_uses_the_area_centroid ... ok
+test surface::tests::hull_corners_are_kept_and_interior_points_dropped ... ok
+test surface::tests::pads_on_a_box_stop_at_its_faces_and_touch_their_overlap ... ok
+test surface::tests::pads_on_a_cylinder_touch_a_strip_set_by_the_tolerance ... ok
+test surface::tests::samples_cover_the_surface_in_proportion_to_area_and_repeat ... ok
+test surface::tests::tessellated_round_shapes_are_closed_and_centred ... ok
+test quality::tests::an_off_centre_hold_scores_lower ... ok
+test planner::tests::rejections_say_where_the_grasp_was ... ok
+test planner::tests::the_pad_model_reproduces_the_primitive_contacts ... ok
+test wrench::tests::a_finer_friction_pyramid_never_lowers_epsilon_much ... ok
+test wrench::tests::two_hard_point_contacts_cannot_resist_a_twist_about_their_line ... ok
+test wrench::tests::epsilon_scales_with_the_unit_force ... ok
+test wrench::tests::without_friction_there_is_no_force_closure ... ok
+test wrench::tests::two_pads_on_opposite_faces_are_in_force_closure ... ok
+test wrench::tests::more_friction_and_larger_pads_make_a_better_grasp ... ok
+test wrench::tests::epsilon_never_exceeds_the_support_in_any_direction ... ok
+
+test result: ok. 80 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.95s
+
+     Running tests/hands.rs (target/debug/deps/hands-2a995afad669d752)
+
+running 3 tests
+test hands_refuse_two_jaw_extensions_and_jaws_refuse_the_hand_generator ... ok
+test a_named_preshape_is_the_one_approached_in ... ok
+test hands_pick_both_demo_parts ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 12.18s
+
+     Running tests/mesh_parts.rs (target/debug/deps/mesh_parts-1af7d9b15bca31e6)
+
+running 1 test
+test tessellated_parts_are_picked_through_their_surface ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.52s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_kinematics-a25fe14c9bb32f94)
+
+running 45 tests
+test cancel::tests::a_clone_shares_the_same_flag ... ok
+test cancel::tests::cancelling_is_visible_across_threads ... ok
+test fk::tests::folding_the_first_axis_ninety_degrees_lays_the_arm_flat ... ok
+test fk::tests::a_planar_arm_at_zero_stands_straight_up ... ok
+test fk::tests::fixed_joints_contribute_their_origin_but_no_value ... ok
+test fk::tests::the_second_axis_bends_relative_to_the_first ... ok
+test fk::tests::the_base_pose_offsets_the_whole_robot ... ok
+test fk::tests::opening_the_gripper_moves_the_fingers_apart_and_nothing_else ... ok
+test fk::tests::the_unchecked_path_agrees_with_the_checked_one ... ok
+test ik::tests::a_cancelled_solve_returns_promptly_and_says_so ... ok
+test ik::tests::a_planar_arm_solves_position_only ... ok
+test ik::tests::a_malformed_request_is_an_error ... ok
+test ik::tests::a_reachable_pose_is_recovered ... ok
+test ik::tests::solutions_respect_joint_limits ... ok
+test ik::tests::the_jaws_keep_their_seed_values ... ok
+test jacobian::tests::a_stretched_planar_arm_is_singular_in_position ... ok
+test jacobian::tests::a_six_axis_arm_away_from_singularities_is_well_conditioned ... ok
+test ik::tests::the_same_request_gives_the_same_answer ... ok
+test jacobian::tests::a_two_joint_arm_is_not_pose_capable ... ok
+test jacobian::tests::the_jaws_do_not_move_the_grasp_frame ... ok
+test jacobian::tests::the_analytic_jacobian_matches_finite_differences ... ok
+test jacobian::tests::the_wrist_singularity_is_detected ... ok
+test model::tests::a_configuration_of_the_wrong_width_is_rejected ... ok
+test model::tests::a_gripper_adds_dof_but_not_manipulator_columns ... ok
+test model::tests::a_non_finite_value_names_the_joint ... ok
+test model::tests::limits_are_not_enforced_by_the_configuration_check ... ok
+test model::tests::a_six_axis_arm_has_six_degrees_of_freedom ... ok
+test model::tests::every_parent_precedes_its_children ... ok
+test orientation::tests::a_pi_rotation_is_representable ... ok
+test model::tests::the_default_frame_is_the_grasp_frame_when_a_gripper_is_fitted ... ok
+test orientation::tests::a_pose_has_no_error_against_itself ... ok
+test orientation::tests::a_quaternion_and_its_negation_give_the_same_error ... ok
+test orientation::tests::pose_error_separates_position_from_orientation ... ok
+test orientation::tests::the_log_and_exponential_maps_are_inverse ... ok
+test orientation::tests::the_rotation_vector_never_takes_the_long_way_round ... ok
+test model::tests::the_jaw_joints_are_prismatic_in_the_model ... ok
+test orientation::tests::the_rotation_vector_of_the_identity_is_zero ... ok
+test orientation::tests::the_rotation_vector_recovers_the_axis_and_angle ... ok
+test orientation::tests::the_six_vector_puts_linear_rows_first ... ok
+test rng::tests::different_seeds_diverge ... ok
+test rng::tests::the_same_seed_gives_the_same_sequence ... ok
+test rng::tests::ranged_values_respect_their_bounds ... ok
+test rng::tests::unit_values_stay_in_range ... ok
+test ik::tests::an_unreachable_target_is_reported_not_raised ... ok
+test rng::tests::the_mean_of_many_unit_samples_is_near_a_half ... ok
+
+test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_motion-9e1c20754bae06a9)
+
+running 10 tests
+test profile::tests::a_controller_given_the_leading_axis_numbers_takes_the_same_time ... ok
+test profile::tests::a_long_move_cruises_and_a_short_one_does_not ... ok
+test profile::tests::declared_limits_are_used_and_missing_ones_assumed ... ok
+test profile::tests::every_axis_stays_within_its_own_limits_and_ends_on_time ... ok
+test continuous::tests::a_thin_pin_between_two_samples_is_not_missed ... ok
+test rrt::tests::a_clear_straight_line_is_returned_as_it_is ... ok
+test continuous::tests::a_motion_through_the_table_is_caught_even_when_both_ends_are_clear ... ok
+test rrt::tests::blocked_ends_and_moving_jaws_are_reported ... ok
+test continuous::tests::a_swing_above_the_table_is_proven_clear ... ok
+test rrt::tests::a_wall_is_gone_round_and_every_segment_is_clear ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+     Running tests/acceptance.rs (target/debug/deps/acceptance-002388f3e8cf7aba)
+
+running 4 tests
+test the_demo_cell_cycle_is_proven_and_timed ... ok
+test posts_are_gone_round_and_the_cycle_is_proven_and_timed ... ok
+test a_wall_is_gone_round_and_the_cycle_is_proven_and_timed ... ok
+test a_hand_runs_the_cycle_in_the_wall_cell ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.14s
+
+     Running tests/cycle_demo.rs (target/debug/deps/cycle_demo-287bde57a155f349)
+
+running 1 test
+test the_cube_is_carried_across_the_table ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.56s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_project_io-e719d8c58d56248c)
+
+running 57 tests
+test collada::tests::a_file_without_a_scene_yields_its_whole_library_and_notes_the_up_axis ... ok
+test collada::tests::every_polygon_kind_becomes_triangles_and_colours_become_parts ... ok
+test collada::tests::interleaved_inputs_and_mirroring_are_handled ... ok
+test collada::tests::files_that_cannot_be_read_as_meshes_are_refused ... ok
+test collada::tests::transforms_compose_in_document_order_through_instanced_nodes ... ok
+test collada::tests::units_node_transforms_and_material_colours_are_applied ... ok
+test collada::tests::broken_and_hostile_files_are_refused ... ok
+test decompose::tests::a_box_is_left_whole ... ok
+test decompose::tests::an_open_mesh_is_not_decomposed ... ok
+test decompose::tests::seams_between_pieces_weld_into_a_closed_surface ... ok
+test import::tests::supplied_files_are_found_by_reference_or_by_file_name_when_unambiguous ... ok
+test mesh::tests::a_binary_stl_gives_the_same_mesh_as_its_ascii_twin ... ok
+test mesh::tests::a_binary_stl_whose_header_says_solid_is_still_binary ... ok
+test mesh::tests::a_facet_left_open_is_reported_as_truncated ... ok
+test mesh::tests::a_header_claiming_more_triangles_than_the_file_holds_is_rejected_cheaply ... ok
+test mesh::tests::an_ascii_stl_is_read_and_welded ... ok
+test mesh::tests::an_obj_face_pointing_past_the_vertices_is_an_error ... ok
+test mesh::tests::an_obj_with_quads_and_negative_indices_is_triangulated ... ok
+test mesh::tests::closed_shells_split_and_open_ones_do_not ... ok
+test mesh::tests::degenerate_triangles_are_dropped_and_an_empty_result_is_an_error ... ok
+test mesh::tests::non_finite_coordinates_are_rejected ... ok
+test mesh::tests::the_format_is_chosen_by_extension ... ok
+test object::tests::a_millimetre_mesh_becomes_a_part_standing_on_its_base ... ok
+test object::tests::stated_units_are_used_and_bad_ones_refused ... ok
+test simox::tests::a_prismatic_joint_moves_as_in_simoxs_own_test ... ok
+test simox::tests::a_rotation_matrix_with_few_digits_is_accepted ... ok
+test simox::tests::an_end_effector_that_cannot_be_a_hand_is_reported_not_fatal ... ok
+test simox::tests::an_object_with_only_unreadable_meshes_is_refused_with_the_reason ... ok
+test simox::tests::dh_parameters_compose_as_in_simox ... ok
+test decompose::tests::an_l_shape_is_cut_and_its_hulls_hug_it ... ok
+test simox::tests::end_effector_actors_tcp_and_gcp_carry_over ... ok
+test simox::tests::joint_directions_match_simoxs_own_test ... ok
+test simox::tests::offsets_add_to_the_joint_value ... ok
+test simox::tests::simoxs_primitives_example_object_imports ... ok
+test simox::tests::preshape_values_follow_the_joint_units ... ok
+test simox::tests::units_follow_simoxs_rules ... ok
+test simox::tests::unsupported_and_malformed_robots_are_refused_with_a_reason ... ok
+test tests::a_foreign_file_is_named_as_such ... ok
+test tests::a_newer_file_is_refused ... ok
+test tests::a_failed_save_leaves_the_previous_file_intact ... ok
+test tests::a_project_survives_a_round_trip_bit_for_bit ... ok
+test tests::a_version_one_file_without_gripper_fields_still_loads ... ok
+test tests::an_incoherent_project_is_rejected_on_read_and_on_write ... ok
+test tests::awkward_floats_are_not_rounded ... ok
+test urdf::tests::a_collada_mesh_becomes_one_geometry_per_colour ... ok
+test urdf::tests::a_continuous_joint_gets_a_full_turn_each_way_and_a_warning ... ok
+test urdf::tests::a_link_whose_visual_cannot_be_read_is_drawn_with_its_collision_shape ... ok
+test urdf::tests::documents_that_are_not_usable_urdf_are_refused_with_a_reason ... ok
+test urdf::tests::end_effector_joints_are_marked_and_do_not_count_as_axes ... ok
+test urdf::tests::importing_twice_gives_the_same_project ... ok
+test urdf::tests::links_joints_limits_and_geometry_carry_over ... ok
+test urdf::tests::meshes_are_loaded_once_scaled_and_missing_ones_reported ... ok
+test urdf::tests::seven_axes_are_refused_with_the_way_out ... ok
+test urdf::tests::the_tip_gets_a_tool_frame_and_bare_links_a_skeleton ... ok
+test tests::saving_replaces_the_file_and_leaves_no_temporary_behind ... ok
+test decompose::tests::the_pieces_cover_every_point_of_the_solid ... ok
+test collada::tests::a_scene_that_multiplies_nodes_is_cut_off ... ok
+
+test result: ok. 57 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.70s
+
+     Running tests/collada_against_collision_meshes.rs (target/debug/deps/collada_against_collision_meshes-ae8813e8b492e572)
+
+running 1 test
+test ur5_visual_meshes_fit_their_collision_meshes ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/ur5_against_published_dh.rs (target/debug/deps/ur5_against_published_dh-549d3d81ae69e098)
+
+running 2 tests
+test the_imported_ur5_reports_what_it_could_not_carry_over ... ok
+test the_imported_ur5_matches_the_published_dh_parameters ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_service-b21b8700b0a881c9)
+
+running 22 tests
+test tests::a_bad_configuration_is_refused_and_changes_nothing ... ok
+test tests::a_failed_import_leaves_the_session_as_it_was ... ok
+test tests::a_plugged_in_library_survives_loading_another_project ... ok
+test tests::a_simox_object_can_be_added_as_a_part ... ok
+test tests::a_snapshot_draws_every_link_and_body ... ok
+test tests::an_imported_ur5_can_plan_a_pick ... ok
+test tests::an_imported_ur5_gets_a_gripper_and_a_cell ... ok
+test tests::an_invalid_edit_is_refused_and_the_project_is_unchanged ... ok
+test tests::a_mesh_file_is_added_as_a_part_and_planned ... ok
+test tests::describe_reports_axes_joints_and_parts ... ok
+test tests::export_then_load_round_trips ... ok
+test tests::extensions_are_listed_and_selectable_by_name ... ok
+test tests::malformed_text_gets_an_error_reply_not_a_panic ... ok
+test tests::mesh_files_travel_as_base64_and_come_back_as_buffers ... ok
+test tests::moving_a_part_out_of_reach_changes_the_plan_outcome ... ok
+test tests::moving_links_without_collision_geometry_are_named ... ok
+test tests::closing_on_a_part_is_a_contact_unless_it_is_being_grasped ... ok
+test tests::position_only_ik_reaches_a_point ... ok
+test tests::planning_and_carrying_work_end_to_end ... ok
+test tests::the_wasm_build_would_refuse_a_time_budget_but_native_accepts_it ... ok
+test tests::a_cycle_is_planned_drawn_and_exported ... ok
+test tests::a_demo_with_a_hand_describes_it_and_plans_with_it ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.20s
+
+     Running tests/viewer_sample.rs (target/debug/deps/viewer_sample-6786ee2dea9edcdf)
+
+running 2 tests
+test the_ready_posture_touches_nothing ... ok
+test both_parts_can_be_picked_from_the_ready_posture ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s
+
+     Running unittests src/lib.rs (target/debug/deps/axisforge_wasm-6e3ca2e1a1bbe2d4)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests axisforge_collision
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests axisforge_domain
+
+running 1 test
+test crates/domain/src/lib.rs - (line 33) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+
+   Doc-tests axisforge_geometry
+
+running 1 test
+test crates/geometry/src/lib.rs - (line 10) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+   Doc-tests axisforge_grasping
+
+running 1 test
+test crates/grasping/src/lib.rs - (line 22) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.63s
+
+   Doc-tests axisforge_kinematics
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests axisforge_motion
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests axisforge_project_io
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests axisforge_service
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

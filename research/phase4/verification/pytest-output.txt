@@ -1,0 +1,27 @@
+........................................................................ [ 14%]
+........................................................................ [ 28%]
+........................................................................ [ 43%]
+........................................................................ [ 57%]
+........................................................................ [ 71%]
+........................................................................ [ 86%]
+......................................................................   [100%]
+=============================== warnings summary ===============================
+../../opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/anyio/pytest_plugin.py:14
+  /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+tests/test_research_backends.py::test_joint_acquisitions_with_pending[qlog_ehvi]
+  /tmp/axisforge-bo-env/lib/python3.12/site-packages/botorch/acquisition/multi_objective/logei.py:269: UserWarning: Failed to compile fused qLogEHVI C++ extension: [Errno 30] Read-only file system: '/home/agent/.cache/torch_extensions'. Falling back to the pure-Python implementation. To get ~3x speedup, ensure a C++ compiler and the `ninja` package are installed.
+    _try_load_fused_kernel()
+
+tests/test_research_backends.py::test_research_gp_validation
+  /tmp/axisforge-bo-env/lib/python3.12/site-packages/botorch/models/utils/assorted.py:279: InputDataWarning: Data (outcome observations) is not standardized (std = tensor([0.], dtype=torch.float64), mean = tensor([0.], dtype=torch.float64)).Please consider scaling the input to zero mean and unit variance.
+    check_standardization(Y=train_Y, raise_on_fail=raise_on_fail)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+502 passed, 3 warnings in 252.79s (0:04:12)
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0000.
+

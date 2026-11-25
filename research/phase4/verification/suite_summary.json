@@ -1,0 +1,12 @@
+{
+  "python_passed": 502,
+  "python_skipped": 0,
+  "python_failed": 0,
+  "python_warnings": 3,
+  "python_elapsed_s": 252.79,
+  "rust_passed": 355,
+  "rust_failed": 0,
+  "pytest_log_sha256": "439cc40ded5d642f5cbeccc1471c349b6d6e68f9d783a5a05bfa5481f741af70",
+  "cargo_log_sha256": "ab8d77df5afc59bc80da4225bb656107638ffe5de0abdb6a6a15c5d725b566ad",
+  "coverage_sha256": "d449bf001ca84b52b2749863db7c12453e8b3e4e37178504df4f8302818b438a"
+}

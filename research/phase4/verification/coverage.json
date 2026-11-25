@@ -1,0 +1,912 @@
+{
+  "coverage_version": "7.17.5",
+  "measured_by": "pytest with subprocess coverage",
+  "packages": {
+    "axisforge_bo/": {
+      "covered_lines": 1948,
+      "num_statements": 2045,
+      "covered_branches": 688,
+      "num_branches": 776,
+      "line_percent": 95.26,
+      "branch_percent": 88.66
+    },
+    "research_grasping/": {
+      "covered_lines": 4849,
+      "num_statements": 5397,
+      "covered_branches": 1582,
+      "num_branches": 1928,
+      "line_percent": 89.85,
+      "branch_percent": 82.05
+    },
+    "research_grasping/phase3/": {
+      "covered_lines": 1760,
+      "num_statements": 1876,
+      "covered_branches": 588,
+      "num_branches": 674,
+      "line_percent": 93.82,
+      "branch_percent": 87.24
+    },
+    "research_grasping/phase4/": {
+      "covered_lines": 2375,
+      "num_statements": 2465,
+      "covered_branches": 820,
+      "num_branches": 960,
+      "line_percent": 96.35,
+      "branch_percent": 85.42
+    }
+  },
+  "overall": {
+    "covered_lines": 6797,
+    "num_statements": 7442,
+    "covered_branches": 2270,
+    "num_branches": 2704,
+    "line_percent": 91.33,
+    "branch_percent": 83.95
+  },
+  "files": {
+    "axisforge_bo/__init__.py": {
+      "covered_lines": 7,
+      "num_statements": 7,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": 100.0,
+      "branch_percent": null
+    },
+    "axisforge_bo/acquisitions.py": {
+      "covered_lines": 87,
+      "num_statements": 90,
+      "covered_branches": 29,
+      "num_branches": 32,
+      "line_percent": 96.67,
+      "branch_percent": 90.62
+    },
+    "axisforge_bo/archive.py": {
+      "covered_lines": 130,
+      "num_statements": 146,
+      "covered_branches": 44,
+      "num_branches": 54,
+      "line_percent": 89.04,
+      "branch_percent": 81.48
+    },
+    "axisforge_bo/benchmarks.py": {
+      "covered_lines": 52,
+      "num_statements": 53,
+      "covered_branches": 11,
+      "num_branches": 12,
+      "line_percent": 98.11,
+      "branch_percent": 91.67
+    },
+    "axisforge_bo/botorch_backend.py": {
+      "covered_lines": 96,
+      "num_statements": 102,
+      "covered_branches": 53,
+      "num_branches": 58,
+      "line_percent": 94.12,
+      "branch_percent": 91.38
+    },
+    "axisforge_bo/context.py": {
+      "covered_lines": 70,
+      "num_statements": 70,
+      "covered_branches": 28,
+      "num_branches": 28,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "axisforge_bo/decisions.py": {
+      "covered_lines": 112,
+      "num_statements": 113,
+      "covered_branches": 43,
+      "num_branches": 44,
+      "line_percent": 99.12,
+      "branch_percent": 97.73
+    },
+    "axisforge_bo/deep_gp.py": {
+      "covered_lines": 76,
+      "num_statements": 80,
+      "covered_branches": 18,
+      "num_branches": 22,
+      "line_percent": 95.0,
+      "branch_percent": 81.82
+    },
+    "axisforge_bo/deep_kernel.py": {
+      "covered_lines": 76,
+      "num_statements": 82,
+      "covered_branches": 24,
+      "num_branches": 30,
+      "line_percent": 92.68,
+      "branch_percent": 80.0
+    },
+    "axisforge_bo/evaluation.py": {
+      "covered_lines": 43,
+      "num_statements": 45,
+      "covered_branches": 20,
+      "num_branches": 22,
+      "line_percent": 95.56,
+      "branch_percent": 90.91
+    },
+    "axisforge_bo/heteroscedastic.py": {
+      "covered_lines": 57,
+      "num_statements": 60,
+      "covered_branches": 13,
+      "num_branches": 16,
+      "line_percent": 95.0,
+      "branch_percent": 81.25
+    },
+    "axisforge_bo/implicit.py": {
+      "covered_lines": 32,
+      "num_statements": 36,
+      "covered_branches": 14,
+      "num_branches": 18,
+      "line_percent": 88.89,
+      "branch_percent": 77.78
+    },
+    "axisforge_bo/integrations/axisforge3d.py": {
+      "covered_lines": 78,
+      "num_statements": 81,
+      "covered_branches": 25,
+      "num_branches": 26,
+      "line_percent": 96.3,
+      "branch_percent": 96.15
+    },
+    "axisforge_bo/local_optimizer.py": {
+      "covered_lines": 65,
+      "num_statements": 68,
+      "covered_branches": 15,
+      "num_branches": 18,
+      "line_percent": 95.59,
+      "branch_percent": 83.33
+    },
+    "axisforge_bo/meta_learning.py": {
+      "covered_lines": 56,
+      "num_statements": 58,
+      "covered_branches": 10,
+      "num_branches": 12,
+      "line_percent": 96.55,
+      "branch_percent": 83.33
+    },
+    "axisforge_bo/models.py": {
+      "covered_lines": 164,
+      "num_statements": 181,
+      "covered_branches": 59,
+      "num_branches": 76,
+      "line_percent": 90.61,
+      "branch_percent": 77.63
+    },
+    "axisforge_bo/multimodal.py": {
+      "covered_lines": 59,
+      "num_statements": 59,
+      "covered_branches": 22,
+      "num_branches": 22,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "axisforge_bo/nonlinear_meta.py": {
+      "covered_lines": 68,
+      "num_statements": 73,
+      "covered_branches": 13,
+      "num_branches": 18,
+      "line_percent": 93.15,
+      "branch_percent": 72.22
+    },
+    "axisforge_bo/optimizer.py": {
+      "covered_lines": 301,
+      "num_statements": 312,
+      "covered_branches": 120,
+      "num_branches": 132,
+      "line_percent": 96.47,
+      "branch_percent": 90.91
+    },
+    "axisforge_bo/robust.py": {
+      "covered_lines": 36,
+      "num_statements": 36,
+      "covered_branches": 10,
+      "num_branches": 10,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "axisforge_bo/sampling.py": {
+      "covered_lines": 17,
+      "num_statements": 17,
+      "covered_branches": 10,
+      "num_branches": 10,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "axisforge_bo/space.py": {
+      "covered_lines": 100,
+      "num_statements": 102,
+      "covered_branches": 48,
+      "num_branches": 50,
+      "line_percent": 98.04,
+      "branch_percent": 96.0
+    },
+    "axisforge_bo/surrogates.py": {
+      "covered_lines": 95,
+      "num_statements": 102,
+      "covered_branches": 34,
+      "num_branches": 40,
+      "line_percent": 93.14,
+      "branch_percent": 85.0
+    },
+    "axisforge_bo/trust_region.py": {
+      "covered_lines": 71,
+      "num_statements": 72,
+      "covered_branches": 25,
+      "num_branches": 26,
+      "line_percent": 98.61,
+      "branch_percent": 96.15
+    },
+    "research_grasping/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": null,
+      "branch_percent": null
+    },
+    "research_grasping/contextual_transfer/__init__.py": {
+      "covered_lines": 2,
+      "num_statements": 2,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": 100.0,
+      "branch_percent": null
+    },
+    "research_grasping/contextual_transfer/baseline_pilot.py": {
+      "covered_lines": 0,
+      "num_statements": 72,
+      "covered_branches": 0,
+      "num_branches": 22,
+      "line_percent": 0.0,
+      "branch_percent": 0.0
+    },
+    "research_grasping/contextual_transfer/baselines.py": {
+      "covered_lines": 78,
+      "num_statements": 89,
+      "covered_branches": 8,
+      "num_branches": 10,
+      "line_percent": 87.64,
+      "branch_percent": 80.0
+    },
+    "research_grasping/contextual_transfer/model.py": {
+      "covered_lines": 89,
+      "num_statements": 94,
+      "covered_branches": 11,
+      "num_branches": 16,
+      "line_percent": 94.68,
+      "branch_percent": 68.75
+    },
+    "research_grasping/contextual_transfer/pilot.py": {
+      "covered_lines": 0,
+      "num_statements": 67,
+      "covered_branches": 0,
+      "num_branches": 18,
+      "line_percent": 0.0,
+      "branch_percent": 0.0
+    },
+    "research_grasping/datasets/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": null,
+      "branch_percent": null
+    },
+    "research_grasping/datasets/manifest.py": {
+      "covered_lines": 55,
+      "num_statements": 63,
+      "covered_branches": 34,
+      "num_branches": 40,
+      "line_percent": 87.3,
+      "branch_percent": 85.0
+    },
+    "research_grasping/experiments/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": null,
+      "branch_percent": null
+    },
+    "research_grasping/experiments/cube.py": {
+      "covered_lines": 100,
+      "num_statements": 144,
+      "covered_branches": 26,
+      "num_branches": 44,
+      "line_percent": 69.44,
+      "branch_percent": 59.09
+    },
+    "research_grasping/experiments/plot_cube.py": {
+      "covered_lines": 0,
+      "num_statements": 45,
+      "covered_branches": 0,
+      "num_branches": 8,
+      "line_percent": 0.0,
+      "branch_percent": 0.0
+    },
+    "research_grasping/phase3/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": null,
+      "branch_percent": null
+    },
+    "research_grasping/phase3/contact_similarity.py": {
+      "covered_lines": 93,
+      "num_statements": 95,
+      "covered_branches": 26,
+      "num_branches": 30,
+      "line_percent": 97.89,
+      "branch_percent": 86.67
+    },
+    "research_grasping/phase3/dataset_mesh.py": {
+      "covered_lines": 31,
+      "num_statements": 32,
+      "covered_branches": 15,
+      "num_branches": 16,
+      "line_percent": 96.88,
+      "branch_percent": 93.75
+    },
+    "research_grasping/phase3/dataset_reproduce.py": {
+      "covered_lines": 45,
+      "num_statements": 50,
+      "covered_branches": 16,
+      "num_branches": 20,
+      "line_percent": 90.0,
+      "branch_percent": 80.0
+    },
+    "research_grasping/phase3/experiment.py": {
+      "covered_lines": 160,
+      "num_statements": 173,
+      "covered_branches": 65,
+      "num_branches": 78,
+      "line_percent": 92.49,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase3/fetch_openclip.py": {
+      "covered_lines": 29,
+      "num_statements": 34,
+      "covered_branches": 5,
+      "num_branches": 6,
+      "line_percent": 85.29,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase3/fidelity_diagnostics.py": {
+      "covered_lines": 38,
+      "num_statements": 39,
+      "covered_branches": 19,
+      "num_branches": 20,
+      "line_percent": 97.44,
+      "branch_percent": 95.0
+    },
+    "research_grasping/phase3/functional_catalogue.py": {
+      "covered_lines": 34,
+      "num_statements": 58,
+      "covered_branches": 16,
+      "num_branches": 24,
+      "line_percent": 58.62,
+      "branch_percent": 66.67
+    },
+    "research_grasping/phase3/functional_features.py": {
+      "covered_lines": 14,
+      "num_statements": 14,
+      "covered_branches": 2,
+      "num_branches": 2,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase3/gso_contact_probe.py": {
+      "covered_lines": 223,
+      "num_statements": 228,
+      "covered_branches": 62,
+      "num_branches": 70,
+      "line_percent": 97.81,
+      "branch_percent": 88.57
+    },
+    "research_grasping/phase3/native_catalog.py": {
+      "covered_lines": 37,
+      "num_statements": 37,
+      "covered_branches": 12,
+      "num_branches": 12,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase3/native_dev.py": {
+      "covered_lines": 47,
+      "num_statements": 49,
+      "covered_branches": 12,
+      "num_branches": 14,
+      "line_percent": 95.92,
+      "branch_percent": 85.71
+    },
+    "research_grasping/phase3/native_multieffector.py": {
+      "covered_lines": 56,
+      "num_statements": 67,
+      "covered_branches": 15,
+      "num_branches": 16,
+      "line_percent": 83.58,
+      "branch_percent": 93.75
+    },
+    "research_grasping/phase3/physics_frames.py": {
+      "covered_lines": 18,
+      "num_statements": 18,
+      "covered_branches": 4,
+      "num_branches": 4,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase3/pilot_cli.py": {
+      "covered_lines": 114,
+      "num_statements": 127,
+      "covered_branches": 35,
+      "num_branches": 48,
+      "line_percent": 89.76,
+      "branch_percent": 72.92
+    },
+    "research_grasping/phase3/policy_baselines.py": {
+      "covered_lines": 61,
+      "num_statements": 61,
+      "covered_branches": 16,
+      "num_branches": 16,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase3/prepare_pilot.py": {
+      "covered_lines": 116,
+      "num_statements": 124,
+      "covered_branches": 38,
+      "num_branches": 42,
+      "line_percent": 93.55,
+      "branch_percent": 90.48
+    },
+    "research_grasping/phase3/render_cpu.py": {
+      "covered_lines": 56,
+      "num_statements": 56,
+      "covered_branches": 20,
+      "num_branches": 22,
+      "line_percent": 100.0,
+      "branch_percent": 90.91
+    },
+    "research_grasping/phase3/representation_gp.py": {
+      "covered_lines": 76,
+      "num_statements": 76,
+      "covered_branches": 23,
+      "num_branches": 26,
+      "line_percent": 100.0,
+      "branch_percent": 88.46
+    },
+    "research_grasping/phase3/source_appearance.py": {
+      "covered_lines": 81,
+      "num_statements": 83,
+      "covered_branches": 30,
+      "num_branches": 36,
+      "line_percent": 97.59,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase3/summarize_pilot.py": {
+      "covered_lines": 120,
+      "num_statements": 121,
+      "covered_branches": 46,
+      "num_branches": 48,
+      "line_percent": 99.17,
+      "branch_percent": 95.83
+    },
+    "research_grasping/phase3/supplement.py": {
+      "covered_lines": 27,
+      "num_statements": 30,
+      "covered_branches": 8,
+      "num_branches": 10,
+      "line_percent": 90.0,
+      "branch_percent": 80.0
+    },
+    "research_grasping/phase3/transfer_policy.py": {
+      "covered_lines": 144,
+      "num_statements": 148,
+      "covered_branches": 48,
+      "num_branches": 52,
+      "line_percent": 97.3,
+      "branch_percent": 92.31
+    },
+    "research_grasping/phase3/vision_analysis.py": {
+      "covered_lines": 0,
+      "num_statements": 16,
+      "covered_branches": 0,
+      "num_branches": 2,
+      "line_percent": 0.0,
+      "branch_percent": 0.0
+    },
+    "research_grasping/phase3/vision_integrity.py": {
+      "covered_lines": 35,
+      "num_statements": 35,
+      "covered_branches": 10,
+      "num_branches": 12,
+      "line_percent": 100.0,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase3/vision_openclip.py": {
+      "covered_lines": 63,
+      "num_statements": 63,
+      "covered_branches": 35,
+      "num_branches": 36,
+      "line_percent": 100.0,
+      "branch_percent": 97.22
+    },
+    "research_grasping/phase3/vision_pipeline.py": {
+      "covered_lines": 42,
+      "num_statements": 42,
+      "covered_branches": 10,
+      "num_branches": 12,
+      "line_percent": 100.0,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase4/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": null,
+      "branch_percent": null
+    },
+    "research_grasping/phase4/bundle_analysis.py": {
+      "covered_lines": 163,
+      "num_statements": 165,
+      "covered_branches": 59,
+      "num_branches": 64,
+      "line_percent": 98.79,
+      "branch_percent": 92.19
+    },
+    "research_grasping/phase4/bundle_io.py": {
+      "covered_lines": 141,
+      "num_statements": 144,
+      "covered_branches": 80,
+      "num_branches": 104,
+      "line_percent": 97.92,
+      "branch_percent": 76.92
+    },
+    "research_grasping/phase4/calibration.py": {
+      "covered_lines": 80,
+      "num_statements": 83,
+      "covered_branches": 18,
+      "num_branches": 24,
+      "line_percent": 96.39,
+      "branch_percent": 75.0
+    },
+    "research_grasping/phase4/calibration_recalibrate.py": {
+      "covered_lines": 53,
+      "num_statements": 53,
+      "covered_branches": 15,
+      "num_branches": 16,
+      "line_percent": 100.0,
+      "branch_percent": 93.75
+    },
+    "research_grasping/phase4/candidate_results.py": {
+      "covered_lines": 41,
+      "num_statements": 47,
+      "covered_branches": 12,
+      "num_branches": 14,
+      "line_percent": 87.23,
+      "branch_percent": 85.71
+    },
+    "research_grasping/phase4/catalogue_study.py": {
+      "covered_lines": 141,
+      "num_statements": 152,
+      "covered_branches": 53,
+      "num_branches": 62,
+      "line_percent": 92.76,
+      "branch_percent": 85.48
+    },
+    "research_grasping/phase4/embedding_report.py": {
+      "covered_lines": 67,
+      "num_statements": 67,
+      "covered_branches": 30,
+      "num_branches": 30,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase4/feasibility_policy.py": {
+      "covered_lines": 84,
+      "num_statements": 89,
+      "covered_branches": 18,
+      "num_branches": 24,
+      "line_percent": 94.38,
+      "branch_percent": 75.0
+    },
+    "research_grasping/phase4/feasibility_policy_v2b.py": {
+      "covered_lines": 19,
+      "num_statements": 20,
+      "covered_branches": 1,
+      "num_branches": 2,
+      "line_percent": 95.0,
+      "branch_percent": 50.0
+    },
+    "research_grasping/phase4/fidelity_analysis.py": {
+      "covered_lines": 86,
+      "num_statements": 86,
+      "covered_branches": 26,
+      "num_branches": 28,
+      "line_percent": 100.0,
+      "branch_percent": 92.86
+    },
+    "research_grasping/phase4/frozen_models.py": {
+      "covered_lines": 85,
+      "num_statements": 88,
+      "covered_branches": 35,
+      "num_branches": 42,
+      "line_percent": 96.59,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase4/full_robot_compensated.py": {
+      "covered_lines": 35,
+      "num_statements": 36,
+      "covered_branches": 5,
+      "num_branches": 6,
+      "line_percent": 97.22,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase4/full_robot_kinematics.py": {
+      "covered_lines": 38,
+      "num_statements": 38,
+      "covered_branches": 12,
+      "num_branches": 12,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase4/full_robot_ur5.py": {
+      "covered_lines": 55,
+      "num_statements": 57,
+      "covered_branches": 14,
+      "num_branches": 16,
+      "line_percent": 96.49,
+      "branch_percent": 87.5
+    },
+    "research_grasping/phase4/history_lock.py": {
+      "covered_lines": 21,
+      "num_statements": 24,
+      "covered_branches": 8,
+      "num_branches": 10,
+      "line_percent": 87.5,
+      "branch_percent": 80.0
+    },
+    "research_grasping/phase4/jobs.py": {
+      "covered_lines": 60,
+      "num_statements": 64,
+      "covered_branches": 12,
+      "num_branches": 16,
+      "line_percent": 93.75,
+      "branch_percent": 75.0
+    },
+    "research_grasping/phase4/model_comparison.py": {
+      "covered_lines": 26,
+      "num_statements": 26,
+      "covered_branches": 12,
+      "num_branches": 12,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase4/orchestrator.py": {
+      "covered_lines": 112,
+      "num_statements": 116,
+      "covered_branches": 25,
+      "num_branches": 34,
+      "line_percent": 96.55,
+      "branch_percent": 73.53
+    },
+    "research_grasping/phase4/physics_interventions.py": {
+      "covered_lines": 74,
+      "num_statements": 76,
+      "covered_branches": 20,
+      "num_branches": 22,
+      "line_percent": 97.37,
+      "branch_percent": 90.91
+    },
+    "research_grasping/phase4/physics_simulation.py": {
+      "covered_lines": 75,
+      "num_statements": 75,
+      "covered_branches": 22,
+      "num_branches": 22,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase4/placement_study.py": {
+      "covered_lines": 78,
+      "num_statements": 82,
+      "covered_branches": 24,
+      "num_branches": 28,
+      "line_percent": 95.12,
+      "branch_percent": 85.71
+    },
+    "research_grasping/phase4/portable_panel.py": {
+      "covered_lines": 53,
+      "num_statements": 58,
+      "covered_branches": 15,
+      "num_branches": 18,
+      "line_percent": 91.38,
+      "branch_percent": 83.33
+    },
+    "research_grasping/phase4/reach_study.py": {
+      "covered_lines": 166,
+      "num_statements": 177,
+      "covered_branches": 80,
+      "num_branches": 100,
+      "line_percent": 93.79,
+      "branch_percent": 80.0
+    },
+    "research_grasping/phase4/resolution_study.py": {
+      "covered_lines": 32,
+      "num_statements": 32,
+      "covered_branches": 6,
+      "num_branches": 8,
+      "line_percent": 100.0,
+      "branch_percent": 75.0
+    },
+    "research_grasping/phase4/spatial.py": {
+      "covered_lines": 31,
+      "num_statements": 31,
+      "covered_branches": 20,
+      "num_branches": 22,
+      "line_percent": 100.0,
+      "branch_percent": 90.91
+    },
+    "research_grasping/phase4/transfer_diagnostics.py": {
+      "covered_lines": 48,
+      "num_statements": 49,
+      "covered_branches": 16,
+      "num_branches": 18,
+      "line_percent": 97.96,
+      "branch_percent": 88.89
+    },
+    "research_grasping/phase4/transfer_nested.py": {
+      "covered_lines": 45,
+      "num_statements": 45,
+      "covered_branches": 16,
+      "num_branches": 16,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/phase4/transfer_nested_cli.py": {
+      "covered_lines": 30,
+      "num_statements": 30,
+      "covered_branches": 12,
+      "num_branches": 16,
+      "line_percent": 100.0,
+      "branch_percent": 75.0
+    },
+    "research_grasping/phase4/transfer_pilot.py": {
+      "covered_lines": 92,
+      "num_statements": 94,
+      "covered_branches": 28,
+      "num_branches": 34,
+      "line_percent": 97.87,
+      "branch_percent": 82.35
+    },
+    "research_grasping/phase4/transfer_statistics.py": {
+      "covered_lines": 68,
+      "num_statements": 68,
+      "covered_branches": 31,
+      "num_branches": 34,
+      "line_percent": 100.0,
+      "branch_percent": 91.18
+    },
+    "research_grasping/phase4/transfer_v2b_pilot.py": {
+      "covered_lines": 86,
+      "num_statements": 101,
+      "covered_branches": 29,
+      "num_branches": 38,
+      "line_percent": 85.15,
+      "branch_percent": 76.32
+    },
+    "research_grasping/phase4/workflow.py": {
+      "covered_lines": 190,
+      "num_statements": 192,
+      "covered_branches": 66,
+      "num_branches": 68,
+      "line_percent": 98.96,
+      "branch_percent": 97.06
+    },
+    "research_grasping/representations/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": null,
+      "branch_percent": null
+    },
+    "research_grasping/representations/cache.py": {
+      "covered_lines": 39,
+      "num_statements": 42,
+      "covered_branches": 9,
+      "num_branches": 12,
+      "line_percent": 92.86,
+      "branch_percent": 75.0
+    },
+    "research_grasping/representations/dino.py": {
+      "covered_lines": 50,
+      "num_statements": 57,
+      "covered_branches": 19,
+      "num_branches": 24,
+      "line_percent": 87.72,
+      "branch_percent": 79.17
+    },
+    "research_grasping/representations/extract.py": {
+      "covered_lines": 67,
+      "num_statements": 89,
+      "covered_branches": 14,
+      "num_branches": 22,
+      "line_percent": 75.28,
+      "branch_percent": 63.64
+    },
+    "research_grasping/representations/geometry.py": {
+      "covered_lines": 45,
+      "num_statements": 50,
+      "covered_branches": 9,
+      "num_branches": 14,
+      "line_percent": 90.0,
+      "branch_percent": 64.29
+    },
+    "research_grasping/representations/preprocess.py": {
+      "covered_lines": 21,
+      "num_statements": 23,
+      "covered_branches": 2,
+      "num_branches": 4,
+      "line_percent": 91.3,
+      "branch_percent": 50.0
+    },
+    "research_grasping/simulation/__init__.py": {
+      "covered_lines": 0,
+      "num_statements": 0,
+      "covered_branches": 0,
+      "num_branches": 0,
+      "line_percent": null,
+      "branch_percent": null
+    },
+    "research_grasping/simulation/mujoco_pilot.py": {
+      "covered_lines": 55,
+      "num_statements": 55,
+      "covered_branches": 20,
+      "num_branches": 20,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/simulation/primitive_pilot.py": {
+      "covered_lines": 7,
+      "num_statements": 7,
+      "covered_branches": 2,
+      "num_branches": 2,
+      "line_percent": 100.0,
+      "branch_percent": 100.0
+    },
+    "research_grasping/simulation/regenerate_sensitivity.py": {
+      "covered_lines": 0,
+      "num_statements": 12,
+      "covered_branches": 0,
+      "num_branches": 2,
+      "line_percent": 0.0,
+      "branch_percent": 0.0
+    },
+    "research_grasping/simulation/run_primitive_pilot.py": {
+      "covered_lines": 13,
+      "num_statements": 33,
+      "covered_branches": 1,
+      "num_branches": 10,
+      "line_percent": 39.39,
+      "branch_percent": 10.0
+    },
+    "research_grasping/statistics/simulate_bounded.py": {
+      "covered_lines": 35,
+      "num_statements": 44,
+      "covered_branches": 7,
+      "num_branches": 10,
+      "line_percent": 79.55,
+      "branch_percent": 70.0
+    },
+    "research_grasping/statistics/simulate_design.py": {
+      "covered_lines": 58,
+      "num_statements": 68,
+      "covered_branches": 12,
+      "num_branches": 16,
+      "line_percent": 85.29,
+      "branch_percent": 75.0
+    }
+  }
+}
