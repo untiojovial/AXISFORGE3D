@@ -1,0 +1,86 @@
+[
+  {
+    "repository": "facebookresearch/dinov3",
+    "revision": "6876159a11b4df116f30f667f8c9888617df0751",
+    "url": "https://github.com/facebookresearch/dinov3/blob/6876159a11b4df116f30f667f8c9888617df0751/README.md",
+    "sha256": "da4e6e2fa1f2580be9a782338dc108ae68f98b6c9d10636583f97d8a340e664d"
+  },
+  {
+    "repository": "facebookresearch/dinov2",
+    "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "url": "https://github.com/facebookresearch/dinov2/blob/7764ea0f912e53c92e82eb78a2a1631e92725fc8/README.md",
+    "sha256": "d1bc2e9686522bbd66ed6123dc81eb36b3a98e8ea9a2ca97778f54a1c641c9e1"
+  },
+  {
+    "repository": "facebookresearch/dino",
+    "revision": "7c446df5b9f45747937fb0d72314eb9f7b66930a",
+    "url": "https://github.com/facebookresearch/dino/blob/7c446df5b9f45747937fb0d72314eb9f7b66930a/README.md",
+    "sha256": "9d78f02b2f2770f6f6169e33b2387c5997614a1b4f8009c6fa99cc3118e31442"
+  },
+  {
+    "repository": "baaivision/Uni3D",
+    "revision": "64e03c3c42c196e8cb5ed03857810af9fc9ac39c",
+    "url": "https://github.com/baaivision/Uni3D/blob/64e03c3c42c196e8cb5ed03857810af9fc9ac39c/README.md",
+    "sha256": "e53b0545ffe0f9fbed78ee10325fd5c496197943b2d7040b21055d60ebb8e506"
+  },
+  {
+    "repository": "facebookresearch/sonata",
+    "revision": "18c09ff8d713494f78a8213792262b910977a65d",
+    "url": "https://github.com/facebookresearch/sonata/blob/18c09ff8d713494f78a8213792262b910977a65d/README.md",
+    "sha256": "345a3dd5f4d2712cb427e768e5159a4b05ac30588b3aaebc5efeffdcdd15667c"
+  },
+  {
+    "repository": "NVlabs/GraspGen",
+    "revision": "2dd8852e1be60f5f9d277fafcc621835cdf59110",
+    "url": "https://github.com/NVlabs/GraspGen/blob/2dd8852e1be60f5f9d277fafcc621835cdf59110/README.md",
+    "sha256": "9b80a1366540c9e1bb064533ff6b98f2000270bccfc0b7a1166468db41a8dc15"
+  },
+  {
+    "repository": "NVlabs/GraspGenX",
+    "revision": "16349a5c5d5cea1da6c3b0541d60c8312f0b0db6",
+    "url": "https://github.com/NVlabs/GraspGenX/blob/16349a5c5d5cea1da6c3b0541d60c8312f0b0db6/README.md",
+    "sha256": "302394ffd83fdcf265c94aa89c69a413477b50615f19a05b7757b8093f09052d"
+  },
+  {
+    "repository": "PKU-EPIC/GraspVLA",
+    "revision": "6acd035edf7fee9ef7d90246bd9911ccf2232b8e",
+    "url": "https://github.com/PKU-EPIC/GraspVLA/blob/6acd035edf7fee9ef7d90246bd9911ccf2232b8e/README.md",
+    "sha256": "42ebc84dd0a376576e41906d25f303aa083f879ea69e7f31df176ace1e27be95"
+  },
+  {
+    "repository": "VT-Collab/GraspTwin",
+    "revision": "9490e75518e519a89fecfcf76f755b2602ed0892",
+    "url": "https://github.com/VT-Collab/GraspTwin/blob/9490e75518e519a89fecfcf76f755b2602ed0892/README.md",
+    "sha256": "77a8b814575df1860165f22d5ffadace47d7acd4bb4ccd1f0e2059af6a4d744c"
+  },
+  {
+    "repository": "NVlabs/contact_graspnet",
+    "revision": "721706067cc7f7889c32afe7b4f7955eb90bd866",
+    "url": "https://github.com/NVlabs/contact_graspnet/blob/721706067cc7f7889c32afe7b4f7955eb90bd866/README.md",
+    "sha256": "fcb96c48bdcc228991f870cdc45227f5418d3f5ad0f68aee12ba634101721239"
+  },
+  {
+    "repository": "google-research/hyperbo",
+    "revision": "15d6a3d9674a9a59479a7555cdfab16e834f18c2",
+    "url": "https://github.com/google-research/hyperbo/blob/15d6a3d9674a9a59479a7555cdfab16e834f18c2/README.md",
+    "sha256": "4544e3620edf075d4465ce11197095bdd41d04e75854bc36ca5b40e8d97ae833"
+  },
+  {
+    "repository": "boschresearch/transfergpbo",
+    "revision": "4bdf90498c0048d7c80327609961d795d82b6f43",
+    "url": "https://github.com/boschresearch/transfergpbo/blob/4bdf90498c0048d7c80327609961d795d82b6f43/README.md",
+    "sha256": "e183fc0e3671f27ac6ad039903f71fa9b601ce7ad57fd63bf1b0881c01495cfc"
+  },
+  {
+    "repository": "automl/PFNs4BO",
+    "revision": "4c0d901e4e0f1d5afd4b12e33974525cf3493dd3",
+    "url": "https://github.com/automl/PFNs4BO/blob/4c0d901e4e0f1d5afd4b12e33974525cf3493dd3/README.md",
+    "sha256": "ab69c4e3e1987f00655160c91f145ccfb80e69a1674cf89dd9e7e94d78d46a34"
+  },
+  {
+    "repository": "Wenlin-Chen/ADKF-IFT",
+    "revision": "b82497e1382e4edd821d1c6132d080035b456884",
+    "url": "https://github.com/Wenlin-Chen/ADKF-IFT/blob/b82497e1382e4edd821d1c6132d080035b456884/README.md",
+    "sha256": "f5a5c4c238973bc487acf400268ecd6f80054f82cd1b7889eb4e08b60679db5a"
+  }
+]

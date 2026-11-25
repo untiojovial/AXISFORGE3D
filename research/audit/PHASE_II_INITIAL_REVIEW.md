@@ -1,0 +1,56 @@
+# Auditoría independiente inicial: M0 y diseños de fase II
+
+Fecha: 2026-11-25. Dictamen: **M0 NO APROBADO**; diseños de trabajo aceptables condicionalmente, sin aprobación de implementación ni de los hitos posteriores. La revisión se limita a las evidencias citadas y no supone calificación numérica.
+
+## Evidencia directa
+
+En `/workspace/Colegio-Rumareda`, `git rev-list --left-right --count work...origin/claude/new-session-nsx8rp` devolvió `3 7`; el ancestro común fue `a422ea335d84c3256317f62827e9d71d49efa932`. Los extremos eran `eec3c21714da8e770fa4988ebc3b34d86c042607` y `fa9314f2cbd4517bd0969f3e0fb3848e4fdf5e31`: se requiere integración de ambas historias. Una lectura inicial del log intercalado sugirió erróneamente ancestría; queda expresamente corregida por estas comprobaciones.
+
+Se leyeron directamente los registros crudos: 960 filas escalares, 240 grupos problema/semilla, cuatro métodos por grupo, 16 valores por fila y cuatro puntos iniciales compartidos en los 240 grupos; 330 filas avanzadas confirmatorias. Ello verifica estructura y recuentos, no ejecución independiente, integridad científica total ni generalización. `sha256sum -c docs/axisforge-bo/results/sources.sha256` pasó para todas las entradas listadas; verifica igualdad con ese manifiesto, no procedencia independiente. Las cifras anteriores de 163 pruebas y cobertura 95,26 % sentencias / 88,53 % ramas proceden de `docs/axisforge-bo/FINAL_AUDIT.md`: no se han repetido en esta revisión inicial ni extrapolado a cada algoritmo. El informe previo declara auditoría global bloqueada, ausencia de puntuación verificable y GPU pendiente. No se concede 95/100 ni se cierra M0 basándose en él.
+
+## Diseños revisados
+
+- **Integración M0:** respaldar ambos extremos, integrar sin reescritura, comparar conservación de funcionalidad y probar wheel aislado, Rust y WASM. La aprobación exige revisión del resultado integrado, comandos, versiones y hashes, cobertura y límites. No publicar externamente sin autorización.
+- **M1/M2:** distinguir hechos, inferencias y desconocidos por página/fuente; una reconstrucción parametrizada no demuestra reproducción exacta. Las ausencias de código, datos y particiones originales deben seguir explícitas.
+- **Transferencia:** `research/methodology/TRANSFER.md` usa una mezcla de expertos, varianza total y EI de mezcla matemáticamente coherentes bajo los supuestos declarados. Condiciones: índices temporales y actualización prequential inequívocos, transformaciones y ruido compatibles sin datos futuros, fuentes congeladas y pruebas independientes de PSD, casos extremos, EI y ausencia de fuga. El piso target-only no garantiza ausencia de transferencia negativa. No acredita novedad ni M5.
+- **Representaciones:** `research/methodology/REPRESENTATIONS.md` declara profundidad axial y transformación cámara-mundo coherentes. Condiciones: detallar registro RGB/profundidad, distorsión, centros de píxeles y bordes, tokens espaciales y pruebas del caché, oclusión y no-futuro. No acredita checkpoints, licencias ni calidad de embeddings.
+- **Robótica:** diseño comunicado: backend físico opcional, cierre/elevación sin sujeción artificial y pruebas físicas; condicionado a umbrales y parámetros predefinidos, pruebas analíticas de marcos, contactos, convergencia temporal, reproducibilidad y desacuerdos entre motores. Manipulabilidad no demuestra agarre; simulación no demuestra sim-to-real ni equivalencia a iCub.
+- **Estadística:** diseño comunicado de AUC pareada por objeto y semillas anidadas es preliminar. Fijar orientación, normalización sin datos futuros, tratamiento de inicialización, población, pesos, fallos, dependencia por memoria y familias de comparaciones. La selección final y el análisis de potencia no deben utilizar el conjunto final de test.
+
+## Puertas pendientes
+
+Auditar de nuevo después de la integración y regresiones; inspeccionar resultados reales de M1 y los diseños revisados antes de cualquier implementación dependiente. Las aceptaciones anteriores sólo autorizan avanzar hacia especificaciones verificables, no aprueban hitos. Cobertura o puntuaciones agregadas no sustituyen pruebas matemáticas ni eliminan fallos graves. No se ha repetido la ejecución de 960/330 trayectorias ni la suite anterior en este informe.
+
+## Revisión del merge y regresión M0
+
+Dictamen técnico limitado: **consolidación técnica de la integración validada con reservas**; **M0 global NO APROBADO** porque la auditoría científica previa sigue bloqueada y no se ha demostrado 95/100. Commit `2ab53e0e34ea8adc8f378ed9e8816bfb99a5c769` tiene como padres los dos extremos examinados; existen `backup/phase2-library-eec3c21` y `backup/phase2-simulator-fa9314f`. Se comprobó que `axisforge_bo`, sus tests, documentos, experimentos y herramientas BO coinciden con el extremo de biblioteca y que `apps` y `crates` coinciden con el extremo de simulador. Esto no garantiza equivalencia de todas las integraciones o archivos compartidos, pero las regresiones son evidencia complementaria.
+
+Se ejecutó independientemente `python -I -m pytest -q --import-mode=importlib` en `/tmp/axisforge-bo-clean`: 163 aprobados, 2 avisos; comparados los 26 archivos del paquete instalado con el wheel SHA-256 `243831bb1b192818dba8ed779799e9a2124e0d819a5065f31ed26c69d393384d`, sin diferencias. El entorno aislado era preexistente, no una instalación limpia nueva hecha por esta auditora. Se revisaron los registros de coordinación: 353 pruebas Rust aprobadas, cero fallos o ignoradas, y compilación WASM completada; esos comandos no se repitieron independientemente. JSON de cobertura: 1948/2045 sentencias (95,26 %) y 687/776 ramas (88,53 %), para el paquete medido; no son cobertura por módulo. Los registros son evidencia de esta ejecución y no demuestran GPU ni física de agarre. El directorio `research/` estaba sin seguimiento Git al comprobar el estado.
+
+Diseño de simulación estadística `research/methodology/SIMULATION_DESIGN.md`: autorizado para piloto sintético, sin atribuir potencia a tareas reales ni congelar protocolo. Diseño del piloto físico comunicado: autorizado condicionalmente para ensayo diagnóstico tras definir geometría/control/contactos y análisis cuantitativo de convergencia; el control sin fricción depende de geometría no envolvente y ausencia de apoyo.
+
+## Primera revisión de implementación de representaciones
+
+NO APROBADA para inferencia real. La carga `AutoModel.from_pretrained` debe detectar y rechazar tensores ausentes, inesperados o incompatibles, pues podría dejar parámetros inicializados sin checkpoint completo; verificar además configuración, versión y preprocesado en la procedencia, no únicamente hash de pesos. El caché depende de que el llamador incluya metadatos completos y no puede por sí mismo garantizarlo. La conversión píxel-parche debe rechazar padding, tamaños incompatibles y puntos fuera de los límites originales o modelarlos explícitamente. Faltan pruebas de extracción de tokens, incluidos registros y tamaños no válidos. Hallazgos comunicados al especialista para corrección y reauditoría. La disponibilidad y validación de checkpoints reales continúa pendiente.
+
+## Revisión posterior de pilotos e interfaces
+
+- Representaciones: el especialista corrigió comprobación estricta de pesos y hashes de configuración, límites de imagen y pruebas de tokens simulados. Aceptación limitada de interfaz simulada; inferencia de checkpoint real, compatibilidad y M3 siguen pendientes. La procedencia completa de caché y preprocesado sigue dependiendo del llamador.
+- Transferencia: revisión de mezcla, EI y actualización prequential bajo hipótesis del modelo; cuatro pruebas matemáticas pasaron. Reejecución independiente produjo 96/96 registros idénticos a los conservados excluyendo tiempos. El best-so-far usa valor latente conocido del sintético y es una métrica oracle; no hay evidencia de M5, generalización ni garantía contra transferencia negativa.
+- Física: tres pruebas reejecutadas en `/tmp/phase2-physics-env`, aprobadas. Código y métricas apoyan un piloto de un cubo y un simulador; ganancias estaban en código antes de resultados pero no especificadas numéricamente en protocolo escrito, por lo que no es plenamente preregistrado. Deriva mide únicamente sostén. Sensibilidad a dos solvers y tres pasos no valida física general ni M4.
+- Estadística: inspección de simulador y pruebas; escenario asimétrico N=50, S=10, σ objeto 0,2 y nulo muestra cobertura 0,9195 (IC Monte Carlo 0,9140–0,9247) en 10 000 repeticiones. La t no debe adoptarse universalmente a partir del modelo normal; no es potencia de población real. H=1 representa análisis condicional, no variación entre historias. Cuadrícula completa aún no reproducida por esta auditora.
+- Integración propuesta B11: piloto diagnóstico admisible con controles de marcos, referencias de altura y tiempos, fallos y coste adicional histórico explícitos. Dos fuentes del mismo cubo bajo parámetros distintos no demuestran transferencia entre objetos ni utilidad visual.
+
+## Revisiones adicionales
+
+Se verificaron las fórmulas de Hoeffding para diferencias en [-1,1] e independencia condicional; la simulación Beta acotada se reejecutó independientemente y reprodujo las 20 filas. Es evidencia de ese modelo hipotético, no de potencia ni independencia en objetos reales. El diseño de pilotos RGPE/ICM se admite para implementación condicionada a verificar LOO y fidelidad al tutorial, costes, prefijos y reproducibilidad; ICM fijo no satisface automáticamente el baseline multitarea completo.
+
+La corrección de DINOv3 (`dinov3_vit`) y preprocesado fue examinada; ocho pruebas de arquitectura y carga local aleatoria pasaron. Esto no valida checkpoint preentrenado, licencia, representación ni preprocesado oficial. Las cuatro pruebas de física actualizadas, que incluyen reproducción de seis trazas dentro de tolerancia, pasaron en el entorno actual; no se amplía el dictamen de M4.
+
+## Baselines, manifiesto y puente físico
+
+El piloto RGPE/ICM se ejecutó independientemente: 112 registros idénticos excluyendo tiempos y ocho pruebas aprobadas. Dictamen limitado a variante de tutorial y GP ICM fijo descritos, sin aprobación de M5. El manifiesto JSON y sus tres pruebas se revisaron; controles de familia, hash canónico y prefijos son útiles, pero ni pruebas de licencia ni detección absoluta de duplicados se derivan de declaraciones, y la política frozen requiere que el llamador seleccione las particiones permitidas.
+
+Se repitió de cero el piloto AxisForge–MuJoCo: 120 mediciones objetivo y 18 históricas coinciden con `/tmp/phase2-cube-final.json`, excluidos tiempos; las 12 filas de `research/results/cube/paired.csv` coinciden al recalcular media best-so-far, éxito y máximo. La firma del archivo `cube.py` actual (`ec8243…`) difiere de la registrada en ejecución anterior (`10704b…`), aunque salidas coincidan; no se acredita identidad del código. Un objeto y tres semillas solo sirven para depuración, no inferencia poblacional ni validación de utilidad de DINO o agarre general.
+
+M1: las cuatro piezas de literatura, matriz, gap y novedad revisadas explicitan límites y no reclaman novedad general; son base de viabilidad parcial. Los textos primarios no recuperados y la identificación pendiente de «Pitfalls and Remedies» impiden considerar la revisión exhaustiva o cerrar Research Gate 1.

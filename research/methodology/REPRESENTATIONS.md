@@ -1,0 +1,45 @@
+# Diseño de representaciones: propuesta para revisión independiente
+
+Estado: **PENDIENTE DE REVISIÓN**. Desarrollo M3 condicionado a consolidación M0 y revisión de diseño; este texto no acredita implementación ni resultados.
+
+## Contratos
+
+Una observación identifica objeto, instante, RGB, máscara opcional, profundidad y calibración, con unidades y transformaciones declaradas. El contexto estático contiene sólo vistas y geometría disponibles al inicio; la historia dinámica contiene resultados observados estrictamente hasta t, nunca métricas futuras. Las características locales dependen de candidato y observación, no se sustituyen por el token global. Las variables de contexto se fijan al optimizar una acción.
+
+Un extractor congelado recibe modelo, checkpoint local explícito y SHA-256 comprobado, versión de implementación y transformación de entrada. Devuelve CLS y tokens por patch con dimensiones y geometría de preprocesado; el código no acepta licencias ni descarga silenciosamente. CLS, media de patches y media en máscara son alternativas, no equivalentes; el pooling en máscara vacía debe fallar explícitamente. Varias vistas se agregan sólo si todas estaban disponibles conforme al protocolo. Determinar por experimento si los tokens son útiles para agarres, no asumirlo.
+
+## Geometría
+
+Convención propuesta: intrínsecos K en píxeles, eje óptico z positivo y profundidad z métrica; extrínsecos T_world_camera mapean cámara a mundo mediante puntos columna homogéneos. Para píxel (u,v), p_camera = z K⁻¹[u,v,1]ᵀ y p_world = T_world_camera [p_camera,1]ᵀ. Profundidad euclídea de rango no es profundidad z y requiere conversión explícita. Rechazar profundidades no finitas, no positivas y fuera del rango; comprobar intrínsecos, rigidez y unidades. La proyección inversa debe verificar z>0 y visibilidad/oclusión con tolerancia documentada; una coordenada 2D no prueba contacto físico.
+
+La asociación píxel-patch debe seguir exactamente resize, crop y padding aplicados al modelo; registrar transformación y resolución reales, invalidar píxeles recortados y sólo entonces calcular índices sobre la cuadrícula. Ajustar correspondencias con pruebas round-trip, planos sintéticos, bordes y oclusión. Las características geométricas pueden empezar con dimensiones de caja, centroide y covarianza de nube; son dependientes de vista y unidades, no volumen o curvatura verdaderos de la superficie completa. Malla y volumen exigen comprobaciones de cierre, orientación y escala.
+
+## Fusión y reproducibilidad
+
+Probar concatenación y kernels aditivos antes de fusión aprendida. Ajustar normalización y PCA exclusivamente sobre objetos de entrenamiento; congelar para validación/test. Separar identidad de objeto, familias duplicadas y vistas; en evaluación prequential la memoria sólo puede incluir tareas previas autorizadas. No actualizar PCA con test. Registrar hash de datos, máscara, checkpoint, preprocesado, código, parámetros y dispositivo en cada entrada de caché. La caché debe rechazar metadatos incongruentes y escrituras parciales; no almacenar checkpoints en Git. Evaluar tiempos, RAM y variación por vista junto a utilidad de transferencia; ningún test sintético de interfaz demuestra calidad del modelo.
+
+## Riesgos abiertos
+
+DINOv3 requiere que el usuario revise condiciones y obtenga acceso; DINOv2 puede ser viable si su distribución oficial y entorno lo permiten. Sonata tiene dependencia práctica de CUDA y pesos de uso no comercial. No se ha validado ningún checkpoint, GPU ni pipeline real. Mantener toda inferencia y experimento como pendiente hasta producir evidencia verificable y completar revisión independiente.
+
+## Observaciones de auditoría independiente (2026-11-25)
+
+Dictamen: diseño condicionalmente aceptable para M3 después de M0, sin validar modelos, licencias de pesos ni calidad. La implementación debe exigir RGB y profundidad registrados en el mismo marco o efectuar reproyección calibrada explícita, incluyendo oclusiones; documentar distorsión y rectificación, convención de centro de píxel, e intrínsecos transformados después de resize/crop/padding. Los tokens CLS y register no son patches espaciales; excluir también padding del pooling y documentar versión, máscara y cuadrícula exactas del encoder. Añadir pruebas de bordes entre patches, desplazamientos de medio píxel, invalidación de caché al cambiar cualquier entrada o parámetro, y estabilidad de características del prefijo al agregar datos futuros. Las condiciones de implementación están pendientes de revisión tras M0.
+
+## Implementación inicial y límites
+
+Implementados `research_grasping/representations/{geometry,cache,dino}.py`, comprobados con cuatro pruebas de contrato. Geometría exige imágenes RGB y profundidad ya rectificadas y registradas; no implementa distorsión, registro, ni comprobación de oclusión. El mapeo afín presupone que la región de imagen transformada coincide con la imagen de entrada al encoder; no admite padding. El usuario debe construir y registrar la matriz de preprocesado, configuración y metadatos completos que forman la clave de caché. Las claves tienen SHA-256 y las escrituras son atómicas; los valores no están autenticados frente a manipulación posterior. Descriptores sólo resumen puntos observados.
+
+El cargador DINO acepta exclusivamente `config.json` y `model.safetensors` locales, verifica hash de pesos y configuración y requiere `transformers`, `torch` y `safetensors` compatibles instalados aparte. No descarga ni ejecuta código remoto; requiere procesamiento de imagen suministrado por el llamante y configuración local correspondiente. Ningún checkpoint real se ejecutó: endpoint oficial DINOv2 y Hugging Face bloqueados por proxy 403, DINOv3 requiere revisión y aceptación de sus condiciones por la persona autorizada. Las pruebas de proyección son sintéticas y no validan un sensor físico ni calidad de representaciones.
+
+Geometría real: `PYTHONPATH=. python tools/research/check_ur5_mesh.py` procesa en CPU la malla de colisión versionada `apps/viewer/samples/ur5/meshes/base.stl`, SHA-256 `c7af57d109de6a73f57943613bb000346518df06bb5ae119a2e80cf00bcbebde`. Se leyeron 578 triángulos, 1734 ocurrencias de vértice; extents [0.14721271, 0.18355154, 0.02400270], centroide de ocurrencias [-0.00031692, -0.00908917, 0.00637705]. Coordenadas de malla usadas como metros según convención URDF, sin metadatos de unidades propios del STL. El centroide pondera vértices por incidencia y no es centro de masa ni centroide superficial. Es pieza mecánica UR5, no objeto TFM ni medición de sensor y no demuestra calidad de agarre.
+
+Segunda auditoría independiente: geometría e interfaz simulada aceptadas condicionalmente para diagnósticos; M3 e inferencia real siguen pendientes de checkpoint, compatibilidad y trazabilidad del preprocesado y la caché. `pixel_to_patch` sólo admite entrada sin padding; recibir una matriz afín arbitraria no demuestra que corresponda al preprocesado realmente aplicado. La caché no puede detectar parámetros que el llamador omita de su clave. La prueba de tokens usa un modelo simulado exclusivamente para verificar la interfaz, no como evidencia científica de DINO.
+
+Prueba de integración offline: Transformers 4.57.3 identifica DINOv3 ViT como `dinov3_vit`; se corrigió el cargador. Con `torch`, `transformers==4.57.3` y `safetensors==0.8.0`, los modelos de biblioteca `Dinov2Model` y `DINOv3ViTModel` diminutos e inicializados aleatoriamente se guardaron y recargaron localmente en CPU, extrayendo CLS y patches y comprobando el rechazo de tensores faltantes y hashes incorrectos. `tests/phase2/test_representations*.py`: 8 pruebas superadas. Estos modelos no están preentrenados y la prueba no demuestra calidad, compatibilidad con un checkpoint oficial específico ni cumplimiento de licencia.
+
+`preprocess_rgb` define `rgb-bilinear-center-v1`: RGB uint8, resize bilinear sin antialias, recorte central, normalización explícita y matriz afín de centros de píxel. Devuelve los parámetros y versión de Torch para incluirlos en la clave de caché. Este preprocesado es una opción reproducible, no una afirmación de equivalencia a la receta oficial de cada checkpoint; el protocolo debe seleccionar y validar su receta. El extra opcional `vision` fija la versión de Transformers comprobada.
+
+Auditoría independiente posterior: 8 pruebas reproducidas, mapeo `dinov3_vit` y geometría de resize/crop confirmados para esta implementación. Media, desviación, tamaño y antialias son decisiones explícitas del protocolo; incluir tanto la especificación devuelta como la identidad de la imagen en la clave de caché. El auditor mantiene M3 y checkpoint preentrenado como pendientes.
+
+La herramienta multivista `python -m research_grasping.representations.extract --help` conserva procedencia de imágenes, hashes, secuencia, escala RGB y parámetros de normalización. Promedia los CLS de las vistas de un solo objeto y conserva los parches por separado. Las mediciones en caliente incluyen extracción y copia a memoria del host. Se probó en CPU con dos vistas sintéticas y pesos diminutos aleatorios; CUDA y embeddings preentrenados continúan pendientes.

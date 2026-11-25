@@ -83,3 +83,5 @@ sellable product.
 ## AxisForgeBO
 
 The independent Python research package supports Bayesian optimization of external objectives. Installation, examples, scientific evidence and limitations are in the [AxisForgeBO guide](docs/axisforge-bo/README.md).
+
+The [phase II research dossier](research/README.md) contains the thesis reconstruction, transfer experiments, and an AxisForge3D–MuJoCo pilot.

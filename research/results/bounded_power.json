@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "design": "Beta(1,5) - 1/6 + mu, independent objects",
+  "repetitions": 10000,
+  "seed": 20261126,
+  "alpha": 0.05,
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "rows": [
+    {
+      "n": 50,
+      "mu": 0.0,
+      "hoeffding_one_sided_radius": 0.34616367652045704,
+      "hoeffding_two_sided_radius": 0.38412911652796833,
+      "nominal_evaluations": 50000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.0324,
+      "t_rejection_wilson": [
+        0.029105268930244343,
+        0.0360538463460124
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9432,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9384909573823811,
+        0.9475686664618511
+      ]
+    },
+    {
+      "n": 50,
+      "mu": 0.05,
+      "hoeffding_one_sided_radius": 0.34616367652045704,
+      "hoeffding_two_sided_radius": 0.38412911652796833,
+      "nominal_evaluations": 50000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.8316,
+      "t_rejection_wilson": [
+        0.8241383700800584,
+        0.8388069622005088
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9432,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9384909573823811,
+        0.9475686664618511
+      ]
+    },
+    {
+      "n": 50,
+      "mu": 0.1,
+      "hoeffding_one_sided_radius": 0.34616367652045704,
+      "hoeffding_two_sided_radius": 0.38412911652796833,
+      "nominal_evaluations": 50000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9367,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.931757731671807,
+        0.9413068841512441
+      ]
+    },
+    {
+      "n": 50,
+      "mu": 0.15,
+      "hoeffding_one_sided_radius": 0.34616367652045704,
+      "hoeffding_two_sided_radius": 0.38412911652796833,
+      "nominal_evaluations": 50000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9422,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9374540553922868,
+        0.946606336448687
+      ]
+    },
+    {
+      "n": 100,
+      "mu": 0.0,
+      "hoeffding_one_sided_radius": 0.24477468306808164,
+      "hoeffding_two_sided_radius": 0.2716203031481239,
+      "nominal_evaluations": 100000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.0355,
+      "t_rejection_wilson": [
+        0.03204796463660609,
+        0.03930876984975245
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.949,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.94451309007203,
+        0.9531420793911023
+      ]
+    },
+    {
+      "n": 100,
+      "mu": 0.05,
+      "hoeffding_one_sided_radius": 0.24477468306808164,
+      "hoeffding_two_sided_radius": 0.2716203031481239,
+      "nominal_evaluations": 100000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.9826,
+      "t_rejection_wilson": [
+        0.9798457030323637,
+        0.9849836617402592
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9444,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9397357608840406,
+        0.9487229413641021
+      ]
+    },
+    {
+      "n": 100,
+      "mu": 0.1,
+      "hoeffding_one_sided_radius": 0.24477468306808164,
+      "hoeffding_two_sided_radius": 0.2716203031481239,
+      "nominal_evaluations": 100000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9454,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9407735431615523,
+        0.9496843910898489
+      ]
+    },
+    {
+      "n": 100,
+      "mu": 0.15,
+      "hoeffding_one_sided_radius": 0.24477468306808164,
+      "hoeffding_two_sided_radius": 0.2716203031481239,
+      "nominal_evaluations": 100000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9488,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9443051867264983,
+        0.9529501363359824
+      ]
+    },
+    {
+      "n": 200,
+      "mu": 0.0,
+      "hoeffding_one_sided_radius": 0.17308183826022852,
+      "hoeffding_two_sided_radius": 0.19206455826398416,
+      "nominal_evaluations": 200000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.0428,
+      "t_rejection_wilson": [
+        0.03900535884286428,
+        0.046945769267282375
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9455,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9408773441290929,
+        0.9497805133226344
+      ]
+    },
+    {
+      "n": 200,
+      "mu": 0.05,
+      "hoeffding_one_sided_radius": 0.17308183826022852,
+      "hoeffding_two_sided_radius": 0.19206455826398416,
+      "nominal_evaluations": 200000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.9999,
+      "t_rejection_wilson": [
+        0.9994337311025987,
+        0.9999823473263989
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9466,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9420194328785174,
+        0.9508375797767943
+      ]
+    },
+    {
+      "n": 200,
+      "mu": 0.1,
+      "hoeffding_one_sided_radius": 0.17308183826022852,
+      "hoeffding_two_sided_radius": 0.19206455826398416,
+      "nominal_evaluations": 200000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9474,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9428503687867891,
+        0.9516060294711295
+      ]
+    },
+    {
+      "n": 200,
+      "mu": 0.15,
+      "hoeffding_one_sided_radius": 0.17308183826022852,
+      "hoeffding_two_sided_radius": 0.19206455826398416,
+      "nominal_evaluations": 200000,
+      "hoeffding_rejection": 0.0132,
+      "hoeffding_rejection_wilson": [
+        0.011142645756042856,
+        0.015631215057647876
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9462,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9416040684747914,
+        0.9504532513792169
+      ]
+    },
+    {
+      "n": 1000,
+      "mu": 0.0,
+      "hoeffding_one_sided_radius": 0.07740455120409899,
+      "hoeffding_two_sided_radius": 0.08589388166934751,
+      "nominal_evaluations": 1000000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.0478,
+      "t_rejection_wilson": [
+        0.043789399861243195,
+        0.05215788826519671
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9481,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9435776680899381,
+        0.9522781925702615
+      ]
+    },
+    {
+      "n": 1000,
+      "mu": 0.05,
+      "hoeffding_one_sided_radius": 0.07740455120409899,
+      "hoeffding_two_sided_radius": 0.08589388166934751,
+      "nominal_evaluations": 1000000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9496,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.945136910636685,
+        0.9537177980284025
+      ]
+    },
+    {
+      "n": 1000,
+      "mu": 0.1,
+      "hoeffding_one_sided_radius": 0.07740455120409899,
+      "hoeffding_two_sided_radius": 0.08589388166934751,
+      "nominal_evaluations": 1000000,
+      "hoeffding_rejection": 1.0,
+      "hoeffding_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9475,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9429542554162056,
+        0.9517020660420388
+      ]
+    },
+    {
+      "n": 1000,
+      "mu": 0.15,
+      "hoeffding_one_sided_radius": 0.07740455120409899,
+      "hoeffding_two_sided_radius": 0.08589388166934751,
+      "nominal_evaluations": 1000000,
+      "hoeffding_rejection": 1.0,
+      "hoeffding_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9476,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9430581464493888,
+        0.9517980982091814
+      ]
+    },
+    {
+      "n": 5000,
+      "mu": 0.0,
+      "hoeffding_one_sided_radius": 0.034616367652045704,
+      "hoeffding_two_sided_radius": 0.03841291165279683,
+      "nominal_evaluations": 5000000,
+      "hoeffding_rejection": 0.0,
+      "hoeffding_rejection_wilson": [
+        0.0,
+        0.00038399837067659573
+      ],
+      "t_rejection": 0.0452,
+      "t_rejection_wilson": [
+        0.041300001086809354,
+        0.049449283831158056
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9526,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.948258591964774,
+        0.9565938127100894
+      ]
+    },
+    {
+      "n": 5000,
+      "mu": 0.05,
+      "hoeffding_one_sided_radius": 0.034616367652045704,
+      "hoeffding_two_sided_radius": 0.03841291165279683,
+      "nominal_evaluations": 5000000,
+      "hoeffding_rejection": 1.0,
+      "hoeffding_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9436,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9389058279837769,
+        0.9479534886617588
+      ]
+    },
+    {
+      "n": 5000,
+      "mu": 0.1,
+      "hoeffding_one_sided_radius": 0.034616367652045704,
+      "hoeffding_two_sided_radius": 0.03841291165279683,
+      "nominal_evaluations": 5000000,
+      "hoeffding_rejection": 1.0,
+      "hoeffding_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9513,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.9469053240451971,
+        0.9553480790254302
+      ]
+    },
+    {
+      "n": 5000,
+      "mu": 0.15,
+      "hoeffding_one_sided_radius": 0.034616367652045704,
+      "hoeffding_two_sided_radius": 0.03841291165279683,
+      "nominal_evaluations": 5000000,
+      "hoeffding_rejection": 1.0,
+      "hoeffding_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_rejection": 1.0,
+      "t_rejection_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "hoeffding_coverage": 1.0,
+      "t_coverage": 0.9504,
+      "hoeffding_coverage_wilson": [
+        0.9996160016293234,
+        1.0
+      ],
+      "t_coverage_wilson": [
+        0.94596893317954,
+        0.9544851610881544
+      ]
+    }
+  ]
+}
