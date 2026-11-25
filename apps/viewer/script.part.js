@@ -42,6 +42,12 @@ let playing = 0;          // animation token; 0 when idle
 let placed = null;        // part drawn where a cycle set it down
 let cycleView = null;     // last planned cycle
 let cyclePlaying = 0;     // cycle animation token; 0 when idle
+let downloads = null;     // the published page's save capability, when it has one
+// A page published on claude.ai saves files through the viewer, never through
+// a link; anywhere else (a local file) the usual download link works.
+if (window.claude && typeof window.claude.use === "function") {
+  window.claude.use("downloads").then((d) => { downloads = d; }).catch(() => { downloads = null; });
+}
 const layers = { candidates: true, cones: true, frames: false, collision: false };
 
 async function boot() {
@@ -899,6 +905,15 @@ function exportCycle(format) {
   const reply = engine({ op: "export_cycle", format });
   if (!reply.ok) { $("cycle-detail").textContent = reply.error; return; }
   const file = reply.data;
+  if (downloads) {
+    // Only common extensions can be saved from a published page: the
+    // URScript program goes out as text, to be renamed .script.
+    const name = /\.(csv|json|txt)$/.test(file.fileName) ? file.fileName : file.fileName + ".txt";
+    downloads.save({ filename: name, data: file.text }).then(
+      () => { $("cycle-note").textContent = "guardado: " + name; },
+      (error) => { if (error && error.code !== "declined") $("cycle-note").textContent = "no se pudo guardar (" + (error.code || "error") + ")"; });
+    return;
+  }
   const url = URL.createObjectURL(new Blob([file.text], { type: file.mediaType }));
   const a = document.createElement("a");
   a.href = url; a.download = file.fileName;
