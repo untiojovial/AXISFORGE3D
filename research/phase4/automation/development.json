@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "mode": "development",
+  "model": "openclip",
+  "model_revision": "v0.2-weights",
+  "split": "development",
+  "device": "cpu",
+  "batch_size": 8,
+  "views": 16,
+  "precision": "float32",
+  "frozen": true,
+  "resume": true,
+  "confirmatory": false
+}

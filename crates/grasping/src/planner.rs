@@ -1116,6 +1116,43 @@ mod tests {
     }
 
     #[test]
+    fn diverse_selection_is_nested_preserves_ids_and_keeps_width_controls() {
+        use crate::diversity::diverse_research_candidates;
+        let (project, seed) = cell();
+        let body = project.environment.body_by_name("cube").unwrap();
+        let mut input = research_candidates(
+            &project,
+            &body.id,
+            &seed,
+            &PlannerOptions::default(),
+            &CancellationToken::new(),
+            None,
+        )
+        .unwrap();
+        for (i, row) in input.iter_mut().enumerate() {
+            row.candidate.width = if i % 3 == 0 { 0.09 } else { 0.06 };
+        }
+        let long = diverse_research_candidates(&input, 12, 0.08, 0.005);
+        let short = diverse_research_candidates(&input, 5, 0.08, 0.005);
+        assert_eq!(short, long[..5]);
+        assert!(short[..4].iter().all(|r| r.candidate.width < 0.08));
+        assert!(short[4].candidate.width > 0.08);
+        assert!(long
+            .iter()
+            .all(|r| input[r.id] == *r && r.quality.is_none()));
+        assert_eq!(
+            long.iter()
+                .map(|r| r.id)
+                .collect::<std::collections::BTreeSet<_>>()
+                .len(),
+            12
+        );
+        let all = diverse_research_candidates(&input, usize::MAX, 0.001, 0.005);
+        assert_eq!(all.len(), input.len());
+        assert!(diverse_research_candidates(&input, 0, 0.08, 0.005).is_empty());
+    }
+
+    #[test]
     fn research_catalog_preserves_order_and_defers_evaluation() {
         let (project, seed) = cell();
         let body = project.environment.body_by_name("cube").unwrap();

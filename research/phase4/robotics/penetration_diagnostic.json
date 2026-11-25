@@ -1,0 +1,201 @@
+{
+  "pilot_protocol_sha256": "a5217b45679a8251dc22da0a42f588163f0e6f55e53e6b87dcf499ceb14efbb6",
+  "cases": [
+    {
+      "object_id": "ACE_Coffee_Mug_Kristen_16_oz_cup",
+      "candidate_id": "0",
+      "reproduced_max_penetration_m": 0.008481151615732879,
+      "stage_contact_maxima": {
+        "settle:support": {
+          "penetration_m": 0.0005195938148714286,
+          "time_s": 0.027000000000000017,
+          "normal_force_n": 0.3866037222410055
+        },
+        "approach:support": {
+          "penetration_m": 0.0030490464478271197,
+          "time_s": 0.5500000000000004,
+          "normal_force_n": 0.0
+        },
+        "approach:jaw0_geom": {
+          "penetration_m": 0.0034734558684365487,
+          "time_s": 0.5160000000000003,
+          "normal_force_n": 100.66184080523507
+        },
+        "approach:jaw1_geom": {
+          "penetration_m": 0.007716714616484416,
+          "time_s": 0.5420000000000004,
+          "normal_force_n": 3.685801894565037
+        },
+        "approach:palm_geom": {
+          "penetration_m": 0.002121769192016637,
+          "time_s": 0.5480000000000004,
+          "normal_force_n": 30.65480166364509
+        },
+        "close:support": {
+          "penetration_m": 0.0031126972271181587,
+          "time_s": 0.5510000000000004,
+          "normal_force_n": 0.0
+        },
+        "close:palm_geom": {
+          "penetration_m": 0.008481151615732879,
+          "time_s": 0.5730000000000004,
+          "normal_force_n": 0.0
+        },
+        "close:jaw1_geom": {
+          "penetration_m": 0.0035916494983969857,
+          "time_s": 0.5510000000000004,
+          "normal_force_n": 4.994646669383109
+        },
+        "close:jaw0_geom": {
+          "penetration_m": 0.0024581351575070427,
+          "time_s": 0.6350000000000005,
+          "normal_force_n": 2.634273957941749
+        },
+        "lift:support": {
+          "penetration_m": 0.0013311323931754285,
+          "time_s": 0.9420000000000007,
+          "normal_force_n": 2.1089769957434243
+        },
+        "lift:jaw0_geom": {
+          "penetration_m": 0.0011568289260197396,
+          "time_s": 1.0119999999999993,
+          "normal_force_n": 3.8879166318433276
+        },
+        "lift:jaw1_geom": {
+          "penetration_m": 0.0020776839421309686,
+          "time_s": 1.041999999999996,
+          "normal_force_n": 8.009768537141621
+        },
+        "hold:jaw0_geom": {
+          "penetration_m": 0.0009228079195177742,
+          "time_s": 1.4589999999999501,
+          "normal_force_n": 3.537129788710123
+        },
+        "hold:jaw1_geom": {
+          "penetration_m": 0.0017437158545151237,
+          "time_s": 1.45999999999995,
+          "normal_force_n": 8.365769451375456
+        }
+      }
+    },
+    {
+      "object_id": "Android_Figure_Orange",
+      "candidate_id": "0",
+      "reproduced_max_penetration_m": 0.012906305230707406,
+      "stage_contact_maxima": {
+        "settle:support": {
+          "penetration_m": 0.0006093469010060634,
+          "time_s": 0.02900000000000002,
+          "normal_force_n": 0.7285267056325511
+        },
+        "approach:support": {
+          "penetration_m": 4.05255232301914e-05,
+          "time_s": 0.20100000000000015,
+          "normal_force_n": 0.5534572451743884
+        },
+        "close:support": {
+          "penetration_m": 0.000367442011309161,
+          "time_s": 0.6680000000000005,
+          "normal_force_n": 2.3814057397327466
+        },
+        "close:palm_geom": {
+          "penetration_m": 0.0017758439829451253,
+          "time_s": 0.5840000000000004,
+          "normal_force_n": 1.7129940621188118
+        },
+        "close:jaw1_geom": {
+          "penetration_m": 0.0017345409364039569,
+          "time_s": 0.9000000000000007,
+          "normal_force_n": 45.26126522883123
+        },
+        "close:jaw0_geom": {
+          "penetration_m": 0.0019419844845737296,
+          "time_s": 0.8560000000000006,
+          "normal_force_n": 44.79067587832533
+        },
+        "lift:support": {
+          "penetration_m": 0.001277150123697439,
+          "time_s": 1.18699999999998,
+          "normal_force_n": 0.7994598408038981
+        },
+        "lift:palm_geom": {
+          "penetration_m": 7.932740456378073e-06,
+          "time_s": 0.9020000000000007,
+          "normal_force_n": 2.3504656123702614
+        },
+        "lift:jaw0_geom": {
+          "penetration_m": 0.0020200978652016467,
+          "time_s": 0.9840000000000008,
+          "normal_force_n": 43.001675801743495
+        },
+        "lift:jaw1_geom": {
+          "penetration_m": 0.012906305230707406,
+          "time_s": 0.9830000000000008,
+          "normal_force_n": 14.429822752501954
+        },
+        "hold:support": {
+          "penetration_m": 0.0024441676468429227,
+          "time_s": 1.3119999999999663,
+          "normal_force_n": 0.0
+        }
+      }
+    },
+    {
+      "object_id": "Android_Figure_Orange",
+      "candidate_id": "220",
+      "reproduced_max_penetration_m": 0.012590250413144356,
+      "stage_contact_maxima": {
+        "settle:support": {
+          "penetration_m": 0.0006093469010060634,
+          "time_s": 0.02900000000000002,
+          "normal_force_n": 0.7285267056325511
+        },
+        "approach:support": {
+          "penetration_m": 4.05255232301914e-05,
+          "time_s": 0.20100000000000015,
+          "normal_force_n": 0.5534572451743884
+        },
+        "close:support": {
+          "penetration_m": 0.0002512120428177899,
+          "time_s": 0.6610000000000005,
+          "normal_force_n": 2.2345859437497335
+        },
+        "close:palm_geom": {
+          "penetration_m": 0.0015493216541792691,
+          "time_s": 0.5660000000000004,
+          "normal_force_n": 0.0
+        },
+        "close:jaw1_geom": {
+          "penetration_m": 0.012590250413144356,
+          "time_s": 0.8180000000000006,
+          "normal_force_n": 21.304007381467525
+        },
+        "close:jaw0_geom": {
+          "penetration_m": 0.00424419725499991,
+          "time_s": 0.8230000000000006,
+          "normal_force_n": 4.809013302854132
+        },
+        "lift:jaw0_geom": {
+          "penetration_m": 0.0014585911289801926,
+          "time_s": 0.9010000000000007,
+          "normal_force_n": 27.691171015365345
+        },
+        "lift:jaw1_geom": {
+          "penetration_m": 0.0025333945832629514,
+          "time_s": 0.9010000000000007,
+          "normal_force_n": 44.91181571838938
+        },
+        "hold:jaw0_geom": {
+          "penetration_m": 0.001502456014603257,
+          "time_s": 1.6199999999999324,
+          "normal_force_n": 37.42320038373198
+        },
+        "hold:jaw1_geom": {
+          "penetration_m": 0.0017726990962034996,
+          "time_s": 1.3939999999999573,
+          "normal_force_n": 44.99755250770127
+        }
+      }
+    }
+  ]
+}

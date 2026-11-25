@@ -1,0 +1,42 @@
+{
+  "reference_commit": "bc94fda049f47a7c6a2d26a0db08f5b77e599e36",
+  "input_sha256": "5629d515ad2808676d23cc5a3dfa9468c1040d97d78cae181f96f1bd9f171b8f",
+  "splits": {
+    "train": 16,
+    "validation": 6,
+    "test": 8
+  },
+  "history_attempts": 160,
+  "history_success": 3,
+  "validation_nominal": 1620,
+  "validation_nominal_success": 87,
+  "validation_unique": 256,
+  "validation_unique_success": 8,
+  "rejection_counts": {
+    "too_wide": 245,
+    "approach_collision": 24,
+    "pregrasp_unreachable": 94,
+    "pregrasp_collision": 28,
+    "grasp_unreachable": 4,
+    "no_force_closure": 7,
+    "ok": 11,
+    "lift_unreachable": 3
+  },
+  "unique_total": 416,
+  "zero_success_validation": [
+    "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+    "OXO_Soft_Works_Can_Opener_SnapLock",
+    "Threshold_Porcelain_Teapot_White"
+  ],
+  "dynamic_selected": 6,
+  "dynamic_sustained": 3,
+  "dynamic_sustained_objects": [
+    "Great_Dinos_Triceratops_Toy"
+  ],
+  "functional_auc": {
+    "adaptive": 0.06232427825820053,
+    "equal": 0.07589322810023853,
+    "no_evidence": 0.06232427825820053,
+    "target_local": 0.08507257862999448
+  }
+}

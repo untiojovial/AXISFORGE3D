@@ -1,0 +1,582 @@
+{
+  "protocol_sha256": "a5217b45679a8251dc22da0a42f588163f0e6f55e53e6b87dcf499ceb14efbb6",
+  "code_sha256": "0341711adf24a95a64d92004f141f9aab6ff2019aadb816b7db8c6485f8ba0b8",
+  "cases": [
+    {
+      "object_id": "ACE_Coffee_Mug_Kristen_16_oz_cup",
+      "candidate_id": "0",
+      "variants": {
+        "nominal": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": true,
+            "settle_stable": true,
+            "eligible_sustained": true,
+            "settle": {
+              "translation_m": 0.0009691867941922007,
+              "rotation_rad": 0.010933124499150645,
+              "speed_m_s": 6.70702404552886e-05,
+              "angular_speed_rad_s": 0.0002185344595546102
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": 0.04778096547426296,
+            "max_hold_relative_displacement_m": 0.017419845608308986,
+            "loaded_bilateral_fraction": 1.0,
+            "table_hold_fraction": 0.0,
+            "max_penetration_all_m": 0.008481151615732879,
+            "max_object_penetration_all_m": 0.008481151615732879,
+            "max_actuator_force_n": 102.10143606628102,
+            "max_actuator_force_by_stage_n": [
+              102.10143606628102,
+              58.56403049899618,
+              24.8741777233235
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            0.0002488556294983783,
+            0.0002229675486323892,
+            0.00013739285914526281
+          ],
+          "original_com_m": [
+            -0.012325609004875235,
+            -0.0003726570112768425,
+            0.0626013555875027
+          ],
+          "com_m": [
+            -0.012325609004875235,
+            -0.0003726570112768425,
+            0.0626013555875027
+          ],
+          "force_world_n": [
+            0,
+            0,
+            0
+          ],
+          "force_interval_s": null
+        },
+        "shifted_com": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": false,
+            "settle_stable": true,
+            "eligible_sustained": false,
+            "settle": {
+              "translation_m": 0.0010836860202200417,
+              "rotation_rad": 0.012492685913090131,
+              "speed_m_s": 7.398237651637392e-05,
+              "angular_speed_rad_s": 0.0010359535017953022
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": -8.561559484387277e-05,
+            "max_hold_relative_displacement_m": 0.06497790344734629,
+            "loaded_bilateral_fraction": 0.0,
+            "table_hold_fraction": 1.0,
+            "max_penetration_all_m": 0.014285482849262558,
+            "max_object_penetration_all_m": 0.014285482849262558,
+            "max_actuator_force_n": 102.11628482668331,
+            "max_actuator_force_by_stage_n": [
+              102.11628482668331,
+              67.31814413494756,
+              26.588607874133608
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            0.0002488556294983783,
+            0.0002229675486323892,
+            0.00013739285914526281
+          ],
+          "original_com_m": [
+            -0.012325609004875235,
+            -0.0003726570112768425,
+            0.0626013555875027
+          ],
+          "com_m": [
+            -0.002325609004875235,
+            -0.0003726570112768425,
+            0.0626013555875027
+          ],
+          "force_world_n": [
+            0,
+            0,
+            0
+          ],
+          "force_interval_s": null
+        },
+        "force": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": true,
+            "settle_stable": true,
+            "eligible_sustained": true,
+            "settle": {
+              "translation_m": 0.0009691867941922007,
+              "rotation_rad": 0.010933124499150645,
+              "speed_m_s": 6.70702404552886e-05,
+              "angular_speed_rad_s": 0.0002185344595546102
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": 0.04778096547426296,
+            "max_hold_relative_displacement_m": 0.017400010616158253,
+            "loaded_bilateral_fraction": 1.0,
+            "table_hold_fraction": 0.0,
+            "max_penetration_all_m": 0.008481151615732879,
+            "max_object_penetration_all_m": 0.008481151615732879,
+            "max_actuator_force_n": 102.10143606628102,
+            "max_actuator_force_by_stage_n": [
+              102.10143606628102,
+              58.56403049899618,
+              24.8741777233235
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            0.0002488556294983783,
+            0.0002229675486323892,
+            0.00013739285914526281
+          ],
+          "original_com_m": [
+            -0.012325609004875235,
+            -0.0003726570112768425,
+            0.0626013555875027
+          ],
+          "com_m": [
+            -0.012325609004875235,
+            -0.0003726570112768425,
+            0.0626013555875027
+          ],
+          "force_world_n": [
+            0.2,
+            0,
+            0
+          ],
+          "force_interval_s": [
+            1.45,
+            1.55
+          ]
+        }
+      }
+    },
+    {
+      "object_id": "Android_Figure_Orange",
+      "candidate_id": "0",
+      "variants": {
+        "nominal": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": false,
+            "settle_stable": true,
+            "eligible_sustained": false,
+            "settle": {
+              "translation_m": 0.0011774631995575486,
+              "rotation_rad": 0.02645078649926263,
+              "speed_m_s": 7.093381319890358e-05,
+              "angular_speed_rad_s": 0.0008320194855909504
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": -0.015956442787449426,
+            "max_hold_relative_displacement_m": 0.34971042159017507,
+            "loaded_bilateral_fraction": 0.0,
+            "table_hold_fraction": 0.9125,
+            "max_penetration_all_m": 0.012906305230707406,
+            "max_object_penetration_all_m": 0.012906305230707406,
+            "max_actuator_force_n": 45.0,
+            "max_actuator_force_by_stage_n": [
+              25.348506242008604,
+              45.0,
+              45.0
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            4.82551318336594e-05,
+            4.3218758929983763e-05,
+            2.6635302623712685e-05
+          ],
+          "original_com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "force_world_n": [
+            0,
+            0,
+            0
+          ],
+          "force_interval_s": null
+        },
+        "shifted_com": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": false,
+            "settle_stable": false,
+            "eligible_sustained": false,
+            "settle": {
+              "translation_m": 0.010820299919389067,
+              "rotation_rad": 0.285387208611902,
+              "speed_m_s": 0.03929275356375454,
+              "angular_speed_rad_s": 3.647392088204558
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": -0.022453342827972237,
+            "max_hold_relative_displacement_m": 0.06562909186203268,
+            "loaded_bilateral_fraction": 0.0,
+            "table_hold_fraction": 1.0,
+            "max_penetration_all_m": 0.002694553737404898,
+            "max_object_penetration_all_m": 0.002694553737404898,
+            "max_actuator_force_n": 28.601592824396327,
+            "max_actuator_force_by_stage_n": [
+              25.348506242008604,
+              24.18624225587052,
+              28.601592824396327
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            4.82551318336594e-05,
+            4.3218758929983763e-05,
+            2.6635302623712685e-05
+          ],
+          "original_com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "com_m": [
+            0.010119076368101413,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "force_world_n": [
+            0,
+            0,
+            0
+          ],
+          "force_interval_s": null
+        },
+        "force": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": false,
+            "settle_stable": true,
+            "eligible_sustained": false,
+            "settle": {
+              "translation_m": 0.0011774631995575486,
+              "rotation_rad": 0.02645078649926263,
+              "speed_m_s": 7.093381319890358e-05,
+              "angular_speed_rad_s": 0.0008320194855909504
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": -0.016092507368678493,
+            "max_hold_relative_displacement_m": 0.3481550481584289,
+            "loaded_bilateral_fraction": 0.0,
+            "table_hold_fraction": 0.9125,
+            "max_penetration_all_m": 0.012906305230707406,
+            "max_object_penetration_all_m": 0.012906305230707406,
+            "max_actuator_force_n": 45.0,
+            "max_actuator_force_by_stage_n": [
+              25.348506242008604,
+              45.0,
+              45.0
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            4.82551318336594e-05,
+            4.3218758929983763e-05,
+            2.6635302623712685e-05
+          ],
+          "original_com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "force_world_n": [
+            0.2,
+            0,
+            0
+          ],
+          "force_interval_s": [
+            1.45,
+            1.55
+          ]
+        }
+      }
+    },
+    {
+      "object_id": "Android_Figure_Orange",
+      "candidate_id": "220",
+      "variants": {
+        "nominal": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": true,
+            "settle_stable": true,
+            "eligible_sustained": true,
+            "settle": {
+              "translation_m": 0.0011774631995575486,
+              "rotation_rad": 0.02645078649926263,
+              "speed_m_s": 7.093381319890358e-05,
+              "angular_speed_rad_s": 0.0008320194855909504
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": 0.056956254029035536,
+            "max_hold_relative_displacement_m": 0.008980899744029732,
+            "loaded_bilateral_fraction": 1.0,
+            "table_hold_fraction": 0.0,
+            "max_penetration_all_m": 0.012590250413144356,
+            "max_object_penetration_all_m": 0.012590250413144356,
+            "max_actuator_force_n": 45.0,
+            "max_actuator_force_by_stage_n": [
+              22.157879582422087,
+              45.0,
+              45.0
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            4.82551318336594e-05,
+            4.3218758929983763e-05,
+            2.6635302623712685e-05
+          ],
+          "original_com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "force_world_n": [
+            0,
+            0,
+            0
+          ],
+          "force_interval_s": null
+        },
+        "shifted_com": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": false,
+            "settle_stable": false,
+            "eligible_sustained": false,
+            "settle": {
+              "translation_m": 0.010820299919389067,
+              "rotation_rad": 0.2853872086119021,
+              "speed_m_s": 0.03929275356375458,
+              "angular_speed_rad_s": 3.6473920882045605
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": -0.022453342827972234,
+            "max_hold_relative_displacement_m": 0.0622360784474556,
+            "loaded_bilateral_fraction": 0.0,
+            "table_hold_fraction": 1.0,
+            "max_penetration_all_m": 0.0026945537374058713,
+            "max_object_penetration_all_m": 0.0026945537374058713,
+            "max_actuator_force_n": 26.10581515977774,
+            "max_actuator_force_by_stage_n": [
+              22.157879582422087,
+              26.10581515977774,
+              19.70599068300021
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            4.82551318336594e-05,
+            4.3218758929983763e-05,
+            2.6635302623712685e-05
+          ],
+          "original_com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "com_m": [
+            0.010119076368101413,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "force_world_n": [
+            0,
+            0,
+            0
+          ],
+          "force_interval_s": null
+        },
+        "force": {
+          "metrics": {
+            "numerical_valid": true,
+            "warning_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "sustained": true,
+            "settle_stable": true,
+            "eligible_sustained": true,
+            "settle": {
+              "translation_m": 0.0011774631995575486,
+              "rotation_rad": 0.02645078649926263,
+              "speed_m_s": 7.093381319890358e-05,
+              "angular_speed_rad_s": 0.0008320194855909504
+            },
+            "initial_hand_penetration_m": 0.0,
+            "min_hold_lift_m": 0.056976211785092185,
+            "max_hold_relative_displacement_m": 0.008833376792150046,
+            "loaded_bilateral_fraction": 1.0,
+            "table_hold_fraction": 0.0,
+            "max_penetration_all_m": 0.012590250413144356,
+            "max_object_penetration_all_m": 0.012590250413144356,
+            "max_actuator_force_n": 45.0,
+            "max_actuator_force_by_stage_n": [
+              22.157879582422087,
+              45.0,
+              45.0
+            ],
+            "timestep_s": 0.001,
+            "solver": 2
+          },
+          "mass_kg": 0.1,
+          "inertia_kg_m2": [
+            4.82551318336594e-05,
+            4.3218758929983763e-05,
+            2.6635302623712685e-05
+          ],
+          "original_com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "com_m": [
+            0.00011907636810141375,
+            -0.00021968632171657452,
+            0.03904456911390782
+          ],
+          "force_world_n": [
+            0.2,
+            0,
+            0
+          ],
+          "force_interval_s": [
+            1.45,
+            1.55
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "status": "post hoc descriptive; no multiplicity-adjusted inference",
+  "script_sha256": "86e917f4806d5752a42b152b681f147185064b370516fc33bc95e8793f252d68",
+  "input_sha256": {
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-adaptive.json": "a15d43af57eaac9d6cf7aaa4be80e022813af662eb3347456eac299ddcc3ef38",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-contextual.json": "2747836bb926dad60186ab571759fb7305a70a6acb49ae72128dfe38b87ad3ac",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-equal.json": "b41f4910b2eb9a9f388600e2e742a3d50d017161652a74e589163d6f2c44fdd5",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-fa_adaptive.json": "80df1d9ac2e83024e4145674d7d4639396f603e346fe94e3172d90f2c95b2985",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-fa_no_evidence.json": "1388c493f566309d12f6866578df684e6e8157b4fedd0f287962686a95cc8f76",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-fa_target.json": "e1ba0516f22f21948b5f26a6188a166343f26bf0f7413de50c9b22e2649fd8ec",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-rgpe.json": "1ee305f66b300372a4798ab1f6f113b9e246ba5798030be1e01196eafc61091d",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-target_local.json": "6d3b62c57c74414dd920bf0db2e22644d0b06401e6306cb7e14f1e01d2be659b",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-adaptive.json": "e7718a705f1a2e108b67f215187000cb1ebcf4749513e1e92ed967224a6bc6a7",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-contextual.json": "f5a8d27ad657e3f75ba7eb7f65dde851449de0250a6a411e4695b5e6ab5cabd0",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-equal.json": "f11a3b96da258d54d963f25becc9ee1a069966822722103619742e9960f4fe58",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-fa_adaptive.json": "0a724e0c603b0cdda7c06de3e69a0f9fa9bdc911bbd85c859df76d7f069a2ce5",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-fa_no_evidence.json": "1a5cebfc15d6b39da6ffa27d50a31d1edf8e84c0533481b2b7d36b00dd4985ba",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-fa_target.json": "c7a52a9417065c77c89f9977f07ae7c82cba48f52251b612aede42946f838d49",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-rgpe.json": "c42d388e5009dacd118a8cba390af2283c05b43187d5ecc2430cd5aaa7e72b70",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-target_local.json": "e913475e952c4f0e0aa49634c6892991c01c053cb83b20d57999d721f61364cc",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-adaptive.json": "41291c7ecd4886e1097eb11c22a6d9987f1704d213c60ba7745673f38fc8adca",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-contextual.json": "692d54b51e4b0da072665fbcf541214aad894d7ec0d5621163993df86fd02b07",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-equal.json": "571e959db90bbbb6f6ce8cffc17efd33b978d346bc999219ffa9cd14bf209c16",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-fa_adaptive.json": "a2027742639db4a76c1c1e217d4ab8881ee5027bb5d3faa38a683581a47b6cb6",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-fa_no_evidence.json": "6e170b421b19512d38b52905453b8c3fa140d3d1ba755e8094686069e98c088b",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-fa_target.json": "78df95f38cf9f01e122b088026f3ea7b36174c535d82b26cebd817806e4a9035",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-rgpe.json": "4c6a4036ea948ace31d027d3e7b68eabdc30e08e2bfc6a26346601dc8485990e",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/11-target_local.json": "56b0a5ee50d548f2157a2c9d01c439124ab12a12a62e23d2f52886dc4bfc90a4",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-adaptive.json": "23bb18b711f618e24d2757310b6ad120a4688999c7a4d868f1ec01b65bf22ab4",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-contextual.json": "d9ef0616634b00d16e42e6e60c81a7a683a90eeedca01d55e05f192e736dcf26",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-equal.json": "e8b8400a42263adbe86add75fc4d7dfd950a34fa57dcd0b93fb9434796efea96",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-fa_adaptive.json": "abcfccd737e1069b071318fa93a202a027ab9717145336ec9c5aaca6d5aa1f80",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-fa_no_evidence.json": "f5cce5cdcd108aa1b5dfd28fa6e7acd9f9f9bc78502d8cd9923a2594217c26ee",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-fa_target.json": "9c4fc1e04445dcafef610ba91b2d510739aff01e65154f7f4f4b7b6d3bf39e46",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-rgpe.json": "a1127417c37a768c7ba5569e15856bd78d21ebb075b8f88ad1b2677a05a1c975",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Great_Dinos_Triceratops_Toy/29-target_local.json": "fb42f113e3e169e903ef8f3bc2463aec9d83541ac6c0c9b3ba42864a5b82782a",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-adaptive.json": "672dec3b8f7eb356095183bb29b81c3dc05f1b9d112930f88dd63a37786b9636",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-contextual.json": "f96c8a6d2a458055cd644be72271ba6ea875457d786831afdae8ab7179f7231e",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-equal.json": "92fe806b9e3f3cd9f8a67315aec09c644d82226cb33824c362b768ff5191a423",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-fa_adaptive.json": "9d25e5f9db893909b22a04e3e446118a5a74c7c7d0547103ddeb8122a4085348",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-fa_no_evidence.json": "1a9d3ce205960f88129340e821e79f97f6040e7633b3a78bb78b6f223cf779fa",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-fa_target.json": "cdc8b591f79dd602d3823f8928e3e33e68e75ac2eb132729e1940d61048538e9",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-rgpe.json": "b809d351a52198c1205606008b2bb7f6a951b22e30d810e36b23400bced4c406",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-target_local.json": "522b732b6813a32b84dd2198ed103749b3a15e176909c7cf8e17c8d901f0464b",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-adaptive.json": "84233ad85fa02c386d5126709c95a763a6bed0d28b4aafde90d15a082c3a03cf",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-contextual.json": "541abcc1c7518bab629763d2137721fa1e9d143f6733e043842025db76231f58",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-equal.json": "d246398be8e76a29da17c11de3608d59a1248a1de559b33e73d9779d7797ec6e",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-fa_adaptive.json": "ce4bba16cc6f9190c57012b8cbfce9e52b6db5232f757e34c94e880927054f5d",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-fa_no_evidence.json": "a5e300703e211046ea4e8c8bfd7df21d7acce51a563e8840868571fd9d56f2af",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-fa_target.json": "06ba60069cf029ce745d89b76f43a3315fbc10ff970cf7ae7baca353a1db9e77",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-rgpe.json": "233d2419080fb3419cf2d1dbe992d3161bc5db38be1e3a72a209d7b73b87ae19",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-target_local.json": "e1b6f136ec8c6164f883eeeb5d96db0813bf4eefaba88e5c05c7f2a266e79d77",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-adaptive.json": "cc984df32a95f668de6299c3bd1fb762d94fe8890c8763590506724ee6952a3d",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-contextual.json": "650400d7a330805860bf88ae0f83ed418811d7048c0e610ae16dfe4ec6e21f00",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-equal.json": "6c1c0792eaa59bdedff6b59cbd27261e9a7a39400d40ea97af28ba7c789d339b",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-fa_adaptive.json": "d205b9bfda5cfa4a189c2a69c4d75825eda9965e1f491202dda390a99fff7592",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-fa_no_evidence.json": "7c8537196f6f182e1ac354ef0d66ebb36874d532fb850484adc20c2a74d36350",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-fa_target.json": "782926fcd0ff78afda6a92523bd91e33bf1e50db0ba1115a96d9124d67f2b0a4",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-rgpe.json": "799e4623b2ef83f9c8f441c8d3b29fa2eaddae83a0a283d2ca8954bcd24accf8",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-target_local.json": "b1db1532468f9423f1fca0fac2b717ab56da8e93bee81cf0edb2267fb91de1c0",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-adaptive.json": "9740990c272a7c5b2ad936c7ebecc965cfbacbf48a787792f7964fa382ed4587",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-contextual.json": "7a3d4711b4dc16268dcd2517c4ab4a522d25a1c5971401824d7c887c308dec7e",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-equal.json": "28a1c052b57eb050aa7459042cf98a59581f35c9553bb1ea1a79b4e654e4f1df",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-fa_adaptive.json": "c742f7d3ed9194f472be54fed898495ebab3d04a3c8a80598e21b341d0dfbe1d",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-fa_no_evidence.json": "e69821ac2d31d32b98afba3e39150257fb4248e1633838c0dfd53d545c166cd4",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-fa_target.json": "7efeea40e7fcc3617903f078564f0a9bc842171b5f7d222ab54e890ef7fd7b7b",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-rgpe.json": "552976ebde2d898dd6ef2d2a5ecdefd48f3e59dce847beead8cf8a194fad9d14",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-target_local.json": "05a9bbf454f4d022a9fafe4b7bb4bf06210978c253a6bca8557b748e4c19fce7",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-adaptive.json": "70319086ccbb7d9edf1903299889199da7cf706491e0d62b27804d7458a846ba",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-contextual.json": "7a91aedfbe1671df10ff3c1eafe4c57f8905944d6ec12e78d1b27b169ef64db6",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-equal.json": "d57309d693dae896d79531dfd30bd8516ba94834c24a4f139019b85c70530b89",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-fa_adaptive.json": "18cb898d3518bb1d9e1fad84a1606f3799d37c4c81f3fb7b740816672e021dc3",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-fa_no_evidence.json": "1970909408f526de153be2c6025e0c43689cd695c7e63c5c2e1c372c8e533132",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-fa_target.json": "74efcbf4312c98626d8ee23d899ddbeefc360b5592ca9c7d4c31de5b27ba7837",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-rgpe.json": "55808a94577eb7f1e8d9630bb8c74d1d1a2cf805f5f85e7121b8d2940f438467",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/11-target_local.json": "ed8774f88682a2bd2289e531aeb874de4d6fba2e64f5ee61a03b906fef14bd08",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-adaptive.json": "90b2b43822b84f4e3b54830fd13ab645727e6c89b4aa2b263d0b8fca6edda56e",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-contextual.json": "5f93a0680981c084e67b38555bf3cb0122b8ad1e87894b968b692c1c12413337",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-equal.json": "f45000f7d1f1e88708d2dc76826b24b856a28d753c57f51350544c7b3ae31930",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-fa_adaptive.json": "3df4107f43320fb508f7f0a538f73f8b9784ff1707485f7897af60af0fb1d2a2",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-fa_no_evidence.json": "55ac754626d082349268e136ea86f05d991a4eac741479ceea2a619ced54c179",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-fa_target.json": "e8886b6c14b96c90a60479ceba326e28a0d9c62fc0e9e90b4bfc8deb845533d5",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-rgpe.json": "4fabd7df1da24e27d49f594a199a5ea437e790c0334146ddbdc59530f1ce3238",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/PINEAPPLE_MARACA_6_PCSSET/29-target_local.json": "43fe097c6015afecec0e0d14ee0bf1ca4a04660925001c2b79f425fc40b57b57",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-adaptive.json": "287d11d42278757b11ec626567233d6d5da425fdc4720e6d8013a26041d2cf05",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-contextual.json": "5441f99064c53d0071d2f47ed16e91eb8783e22e616458a8d2ee038a238e9b81",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-equal.json": "fa94216e7d6ba2f5ba1340548ba707f8955dd653b44bca8374685527281e1776",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-fa_adaptive.json": "c9a8f6e436e2ea57f01e9ddb071df1ed7652d22a16e0f2d9d209b9418c524b1b",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-fa_no_evidence.json": "d84b173901b05575e69a90963fef018787a895194f9c1eaad839ab8a890456e4",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-fa_target.json": "6df93ff0590e634764aa6823c94cd0e2d00249df501e83ceb623e33aef1b756d",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-rgpe.json": "0fb82201bdd03bb2abeacc1a2583ecc6596ad6aa4f77ef3ff95d377ababafeef",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/11-target_local.json": "aa77e3bf034deafb601c5913c75e105fec7ff58d720d71084609722def10b83e",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-adaptive.json": "f2eee5963d8cea072aa1d2722ad9714898d1026caafbcfa865508f8d2da550c2",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-contextual.json": "13b52cac5d0c398797a0b19d7046b8e0f8f56d1c8ea7a944b386908e08705bf2",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-equal.json": "bba0ba529dd07ff308b7f671bf2f7e98f4e27f84039abf96b4b74352dbff7456",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-fa_adaptive.json": "ba88a0218483d17877cea2563f91e1ee470e62f3505d086126a01da81d48f596",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-fa_no_evidence.json": "61d1f8ceba24b469412e5c774af517c06148ec384a836c2d5d38894fa84da0e0",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-fa_target.json": "f9351c4877646c9b06f40c783f90aef77624f7e870f6706c1d01a395dc1b7486",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-rgpe.json": "6d045db79a44d2f972aa19fa3e92af5acf437939188de7255bb5c011fe84248d",
+    "/workspace/axisforge-phase4-data/run-transfer-50/runs/Threshold_Porcelain_Teapot_White/29-target_local.json": "f2b49b8a330f1c95549d6179689b5ad50f400b2eec47d89de1761818f3089c22",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-v2b_adaptive.json": "73255da71da0ed07e03f4bea6b85a895fca58b91627da2b522d21a69c6da2a2e",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/11-v2b_target.json": "622b677e511d4308376dfb7f3613ff946e543292dbe08038dca0492b90010545",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-v2b_adaptive.json": "0bc91cab80065669bf1cb3c37b77ed04dd45e4a1737886e63e4fec15603f4dbe",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Animal_Crossing_New_Leaf_Nintendo_3DS_Game/29-v2b_target.json": "4484cb4992ecfa43ba13ed03640b477c8eff3989c450952505a2f9c103989faf",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Great_Dinos_Triceratops_Toy/11-v2b_adaptive.json": "b8a55b73b3ecdc636e54919fd50844d07b5ece424b449b2d78c6826e646abc8f",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Great_Dinos_Triceratops_Toy/11-v2b_target.json": "9163ce6e4d19e14da1ccc25f573089b9c9558688e5251fdd70f355c36922ced4",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Great_Dinos_Triceratops_Toy/29-v2b_adaptive.json": "df203156d974b033277617d1a524776b7411f3ef8503e856dc98fe0c5ea5781c",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Great_Dinos_Triceratops_Toy/29-v2b_target.json": "4c97305f2503a2c3b0f66695f57ca16ef0b0ea35493ebcecefcc17164fae34ff",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-v2b_adaptive.json": "eb4836f25614c8ac0c03558c504acf005af83af37580f8d68554f9cc1ed57ec7",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/OXO_Soft_Works_Can_Opener_SnapLock/11-v2b_target.json": "f00ef427f40e6ddc676f9ac22eec8b19c282c7126b39bf746db857efeffc31e1",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-v2b_adaptive.json": "dceb8972882ddc5479ccb2cff07be9e0a6f8c8327d182513c92fb796d6d3eb98",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/OXO_Soft_Works_Can_Opener_SnapLock/29-v2b_target.json": "c75e67120a634bbe3caff21946644f1f6bad407a9530aa0eacff8663100a259e",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-v2b_adaptive.json": "8a4794fdacfa5a155b86b6045c1d4f7d25c275703b90a6f6c40ce047970f30a4",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/11-v2b_target.json": "4757ec3b0f9c97e0d60c0db25b0bd0a1833cd09f45b8481cc284eb8316e0513c",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-v2b_adaptive.json": "7713220ad932f29113f6460dcbed75a338d1297e5db5149cf4994fcf0898e465",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Orbit_Bubblemint_Mini_Bottle_6_ct/29-v2b_target.json": "f2fb26d967f699c4e4bb2902be436caae8c91aafdd8afa3c900c804a0a1d4033",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/PINEAPPLE_MARACA_6_PCSSET/11-v2b_adaptive.json": "12c031d329b2f532e503262b88f7d3691156b2d0c1537e0656df32cfc99b4273",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/PINEAPPLE_MARACA_6_PCSSET/11-v2b_target.json": "682295729e96abd47096d194493d4def8dd154e5d0deff0bf2041305237060a3",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/PINEAPPLE_MARACA_6_PCSSET/29-v2b_adaptive.json": "85df0d6fa81d10f88814f8eae3e25ba476221d635b647f63bc06b4854e5ac487",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/PINEAPPLE_MARACA_6_PCSSET/29-v2b_target.json": "ec8952a4f03be288430db474c4a29bf93ed0dce3fa0feb99d3d13b3299b9778f",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Threshold_Porcelain_Teapot_White/11-v2b_adaptive.json": "f039bbdb972eaeea1b87046c699cbaa2078e7da352f871646b53c680a17d5976",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Threshold_Porcelain_Teapot_White/11-v2b_target.json": "2b65d3431dae24d9bd8103fed1633b047a6f891b8d7d61b2b0dffd11fba861c9",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Threshold_Porcelain_Teapot_White/29-v2b_adaptive.json": "ed2fad32af58b829276303adedf85e66aeb501eb199ee1ba3f50f1d29c4bfc59",
+    "/workspace/axisforge-phase4-data/run-transfer-v2b/runs/Threshold_Porcelain_Teapot_White/29-v2b_target.json": "9b0c7ed891499c5ce48ace4c6619351e2a27487e2175968d2c2f96b99a236be0"
+  },
+  "comparisons": {
+    "v2b_adaptive_minus_v2b_target": {
+      "n_objects": 6,
+      "mean_delta": 0.03880351464674479,
+      "bootstrap_ci95_percentile": [
+        0.0,
+        0.09374531181060304
+      ],
+      "draws": 10000,
+      "seed": 2026,
+      "by_object": {
+        "Animal_Crossing_New_Leaf_Nintendo_3DS_Game": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Great_Dinos_Triceratops_Toy": {
+          "seeds": 2,
+          "mean_delta": 0.09682969510268084,
+          "seed_deltas": [
+            0.1936593902053617,
+            0.0
+          ]
+        },
+        "OXO_Soft_Works_Can_Opener_SnapLock": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Orbit_Bubblemint_Mini_Bottle_6_ct": {
+          "seeds": 2,
+          "mean_delta": 0.13599139277778788,
+          "seed_deltas": [
+            0.13599139277778788,
+            0.13599139277778788
+          ]
+        },
+        "PINEAPPLE_MARACA_6_PCSSET": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Threshold_Porcelain_Teapot_White": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "v2b_adaptive_minus_fa_target": {
+      "n_objects": 6,
+      "mean_delta": 0.03880351464674479,
+      "bootstrap_ci95_percentile": [
+        0.0,
+        0.09374531181060304
+      ],
+      "draws": 10000,
+      "seed": 2026,
+      "by_object": {
+        "Animal_Crossing_New_Leaf_Nintendo_3DS_Game": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Great_Dinos_Triceratops_Toy": {
+          "seeds": 2,
+          "mean_delta": 0.09682969510268084,
+          "seed_deltas": [
+            0.1936593902053617,
+            0.0
+          ]
+        },
+        "OXO_Soft_Works_Can_Opener_SnapLock": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Orbit_Bubblemint_Mini_Bottle_6_ct": {
+          "seeds": 2,
+          "mean_delta": 0.13599139277778788,
+          "seed_deltas": [
+            0.13599139277778788,
+            0.13599139277778788
+          ]
+        },
+        "PINEAPPLE_MARACA_6_PCSSET": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Threshold_Porcelain_Teapot_White": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "v2b_adaptive_minus_adaptive": {
+      "n_objects": 6,
+      "mean_delta": -0.017074477989793172,
+      "bootstrap_ci95_percentile": [
+        -0.04437720472578597,
+        0.0
+      ],
+      "draws": 10000,
+      "seed": 2026,
+      "by_object": {
+        "Animal_Crossing_New_Leaf_Nintendo_3DS_Game": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Great_Dinos_Triceratops_Toy": {
+          "seeds": 2,
+          "mean_delta": -0.07249388691229229,
+          "seed_deltas": [
+            -0.11815512366412453,
+            -0.026832650160460048
+          ]
+        },
+        "OXO_Soft_Works_Can_Opener_SnapLock": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Orbit_Bubblemint_Mini_Bottle_6_ct": {
+          "seeds": 2,
+          "mean_delta": -0.029952981026466735,
+          "seed_deltas": [
+            -0.029952981026466735,
+            -0.029952981026466735
+          ]
+        },
+        "PINEAPPLE_MARACA_6_PCSSET": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Threshold_Porcelain_Teapot_White": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "fa_adaptive_minus_fa_target": {
+      "n_objects": 6,
+      "mean_delta": 0.0267344535336564,
+      "bootstrap_ci95_percentile": [
+        0.0,
+        0.1069378141346256
+      ],
+      "draws": 10000,
+      "seed": 2026,
+      "by_object": {
+        "Animal_Crossing_New_Leaf_Nintendo_3DS_Game": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Great_Dinos_Triceratops_Toy": {
+          "seeds": 2,
+          "mean_delta": 0.16040672120193838,
+          "seed_deltas": [
+            0.32081344240387677,
+            0.0
+          ]
+        },
+        "OXO_Soft_Works_Can_Opener_SnapLock": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Orbit_Bubblemint_Mini_Bottle_6_ct": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "PINEAPPLE_MARACA_6_PCSSET": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        },
+        "Threshold_Porcelain_Teapot_White": {
+          "seeds": 2,
+          "mean_delta": 0.0,
+          "seed_deltas": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  }
+}

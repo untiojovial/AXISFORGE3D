@@ -1,0 +1,1314 @@
+{
+  "completed_runs": 24,
+  "incomplete_runs_excluded": 0,
+  "objects": 6,
+  "historical": {
+    "objects": 0,
+    "attempts": 0,
+    "nominal_s": 0,
+    "fresh_s": 0,
+    "cache_hits": 0,
+    "cache_unknown": 0
+  },
+  "groups": [
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "v2b_adaptive",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.006016502388848268,
+        "low": -0.044895974630642516,
+        "high": 0.05692897940833905
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 4.576104780996502,
+        "low": 2.194516584745463,
+        "high": 6.957692977247541
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.08043463600006362,
+        "low": -0.9415843168964322,
+        "high": 1.1024535888965594
+      },
+      "cache_hits": 19,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "v2b_target",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.003986338633213406,
+        "low": 0.0038252635115033334,
+        "high": 0.004147413754923479
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 5.034185902497484,
+        "low": 3.7853269455015157,
+        "high": 6.283044859493452
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 20,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "v2b_adaptive",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.27177377901404803,
+        "low": -0.7207636380302738,
+        "high": 1.2643111960583697
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.4063057357879331,
+        "low": 0.1834248659629237,
+        "high": 0.6291866056129425
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.37586568557877187,
+          "low": 0.21196904526674087,
+          "high": 0.5397623258908029
+        },
+        {
+          "n": 2,
+          "mean": 0.37586568557877187,
+          "low": 0.21196904526674087,
+          "high": 0.5397623258908029
+        },
+        {
+          "n": 2,
+          "mean": 0.37586568557877187,
+          "low": 0.21196904526674087,
+          "high": 0.5397623258908029
+        },
+        {
+          "n": 2,
+          "mean": 0.4063057357879331,
+          "low": 0.1834248659629237,
+          "high": 0.6291866056129425
+        },
+        {
+          "n": 2,
+          "mean": 0.4063057357879331,
+          "low": 0.1834248659629237,
+          "high": 0.6291866056129425
+        }
+      ],
+      "status_counts": {
+        "ok": 5,
+        "physical_failure": 15,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 75.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.029772040989922026,
+        "low": -0.018140604670174656,
+        "high": 0.07768468665001871
+      },
+      "epsilon_feasible_only": {
+        "n": 2,
+        "mean": 0.027566077165067433,
+        "low": -0.10988621807665214,
+        "high": 0.165018372406787
+      },
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 15.85633424900152,
+        "low": 11.119250835624829,
+        "high": 20.59341766237821
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 20,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "v2b_target",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.17494408391136718,
+        "low": -2.0479312636489895,
+        "high": 2.397819431471724
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.19438231545707463,
+        "low": -2.27547918183221,
+        "high": 2.6642438127463595
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        },
+        {
+          "n": 2,
+          "mean": 0.19438231545707463,
+          "low": -2.27547918183221,
+          "high": 2.6642438127463595
+        }
+      ],
+      "status_counts": {
+        "ok": 3,
+        "physical_failure": 17,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 85.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.01961520412452528,
+        "low": -0.15735229021922928,
+        "high": 0.19658269846827983
+      },
+      "epsilon_feasible_only": {
+        "n": 1,
+        "mean": 0.016748346922582712,
+        "low": null,
+        "high": null
+      },
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 14.123238425003365,
+        "low": -12.63491535550327,
+        "high": 40.88139220551
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 1.7554323589993146,
+        "low": -20.549450594952095,
+        "high": 24.060315312950724
+      },
+      "cache_hits": 16,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "v2b_adaptive",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.0019221641350020738,
+        "low": 4.1992563655118484e-05,
+        "high": 0.003802335706349029
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 16.968193744998644,
+        "low": 10.96134206318763,
+        "high": 22.975045426809658
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 3.4263391269996646,
+        "low": -40.109427316224135,
+        "high": 46.962105570223464
+      },
+      "cache_hits": 16,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "v2b_target",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.000990156430663205,
+        "low": -0.00897195270501168,
+        "high": 0.01095226556633809
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 16.269426757000474,
+        "low": 16.084002506513723,
+        "high": 16.454851007487225
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 20,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "v2b_adaptive",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.13599139277778788,
+        "low": 0.13599139277778788,
+        "high": 0.13599139277778788
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.22769005321875085,
+        "low": 0.22769005321875085,
+        "high": 0.22769005321875085
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.22457685745143774,
+          "low": 0.22457685745143774,
+          "high": 0.22457685745143774
+        },
+        {
+          "n": 2,
+          "mean": 0.22457685745143774,
+          "low": 0.22457685745143774,
+          "high": 0.22457685745143774
+        },
+        {
+          "n": 2,
+          "mean": 0.22769005321875085,
+          "low": 0.22769005321875085,
+          "high": 0.22769005321875085
+        },
+        {
+          "n": 2,
+          "mean": 0.22769005321875085,
+          "low": 0.22769005321875085,
+          "high": 0.22769005321875085
+        },
+        {
+          "n": 2,
+          "mean": 0.22769005321875085,
+          "low": 0.22769005321875085,
+          "high": 0.22769005321875085
+        },
+        {
+          "n": 2,
+          "mean": 0.22769005321875085,
+          "low": 0.22769005321875085,
+          "high": 0.22769005321875085
+        }
+      ],
+      "status_counts": {
+        "ok": 4,
+        "physical_failure": 16,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 80.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.012000709391600205,
+        "low": -0.034656935836776995,
+        "high": 0.0586583546199774
+      },
+      "epsilon_feasible_only": {
+        "n": 2,
+        "mean": 0.009390408570160396,
+        "low": 0.009390408570160396,
+        "high": 0.009390408570160396
+      },
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 4.87274073700064,
+        "low": 2.7455431226600804,
+        "high": 6.9999383513412
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.3346708930002933,
+        "low": -3.9177259926998476,
+        "high": 4.587067778700434
+      },
+      "cache_hits": 19,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "v2b_target",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.008162465894609169,
+        "low": -0.03962052195650352,
+        "high": 0.05594545374572185
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 6.174106658503661,
+        "low": 2.0531398385228776,
+        "high": 10.295073478484444
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.34287924749969534,
+        "low": -4.013814671016948,
+        "high": 4.6995731660163385
+      },
+      "cache_hits": 19,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "v2b_adaptive",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.010932272360039609,
+        "low": 0.009739154919636724,
+        "high": 0.012125389800442494
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 12.959716576003302,
+        "low": 1.7071813422569857,
+        "high": 24.212251809749617
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 20,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "v2b_target",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.005066969120249687,
+        "low": -0.0010912470855469168,
+        "high": 0.011225185326046291
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 11.375812000501355,
+        "low": 4.094147299417233,
+        "high": 18.657476701585477
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 1.0983668829994713,
+        "low": -12.857707607825846,
+        "high": 15.054441373824789
+      },
+      "cache_hits": 19,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "v2b_adaptive",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.00012181933857712095,
+        "low": -0.0014260421182091618,
+        "high": 0.0016696807953634038
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 3.9581283560000884,
+        "low": 2.9028222596967663,
+        "high": 5.013434452303411
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.21948472350049997,
+        "low": -2.5693331097595458,
+        "high": 3.0083025567605457
+      },
+      "cache_hits": 19,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "v2b_target",
+      "n_seeds": 2,
+      "auc": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 2,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 2,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 20,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 2,
+        "mean": 0.00012181933857712095,
+        "low": -0.0014260421182091618,
+        "high": 0.0016696807953634038
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 2,
+        "mean": 4.6526145219968384,
+        "low": -0.8933774597848387,
+        "high": 10.198606503778516
+      },
+      "fresh_online_s": {
+        "n": 2,
+        "mean": 0.43013626349966216,
+        "low": -5.035263164980231,
+        "high": 5.895535691979555
+      },
+      "cache_hits": 18,
+      "cache_unknown": 0
+    }
+  ]
+}

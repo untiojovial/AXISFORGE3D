@@ -48,6 +48,7 @@
 )]
 
 pub mod candidate;
+pub mod diversity;
 pub mod hand;
 pub mod hull;
 pub mod planner;

@@ -1,0 +1,7 @@
+# UR5: comparación con compensación de modelo, preregistro
+
+Después de observar el resultado negativo del PD de `UR5_PROTOCOL.md`, se fija un experimento exploratorio nuevo y separado: mismos URDF, q0, trayectoria, dt, límites, ganancias, gravedad y criterios; tau=clip(qfrc_bias+100*(qref-q)-20*qvel, ±esfuerzo URDF). `qfrc_bias` de MuJoCo usa estado y modelo simulados exactos; en general incluye gravedad y términos dependientes de velocidad. El baseline PD y sin control permanece intacto. Registrar fuerzas, error, velocidad, energía, fracción de saturación y tiempo a pasos .0005/.001/.002; sin ajuste de ganancias. No equivale a conocer correctamente un robot físico ni valida contacto o agarre. Revisado antes de ejecutar por auditor independiente.
+
+## Resultado exploratorio y corrección
+
+Con agregación corregida a todos los pasos, PD sin compensación a dt .001 tuvo error máximo/final 0.56267/0.50885 rad y no cumplió el criterio; PD con bias del modelo exacto tuvo 0.02242/0.00015 rad y lo cumplió. Con paso .002 el método con bias tuvo error máximo 0.07791 rad y saturación 11.97%, señal de sensibilidad numérica. En ambos métodos se acumulan ahora error y saturación en todos los pasos; las trazas de 10 ms son solo para inspección. Los artefactos `*_10ms.json` conservan la agregación inicial para transparencia. El auditor revisó la corrección; no aprobó M7. La comparación no prueba robustez ante errores de modelo ni hardware real.

@@ -1,0 +1,9 @@
+# Auditoría inicial de fase IV
+
+El punto de partida es el commit `bc94fda049f47a7c6a2d26a0db08f5b77e599e36`. Se revisaron RESULTS, STATUS, PROTOCOL, REPRODUCIBILITY, F1_DIAGNOSTIC, las notas de visión y BO y los tres dictámenes internos de la fase III. El recuento ejecutable comprobó, por objeto e ID, que las repeticiones de una consulta nativa conservaban su estado, causa y utilidad. [Datos recalculados](verification/reference.json) · [Reproductor](../../tools/research/phase4/audit_reference.py)
+
+Los 16 objetos históricos aportaron 160 evaluaciones y tres planes. En seis piezas de validación, 1.620 consultas nominales correspondieron a 256 pares distintos, ocho viables. De los 416 pares entre entrenamiento y validación, 245 excedieron la apertura necesaria y 94 fueron inalcanzables en la pose previa. Tres de las seis piezas de validación no produjeron ningún plan. Las ocho identidades finales siguen reservadas.
+
+La calidad acumulada media del panel funcional fue 0,08507 para GP target-only, 0,07589 para transferencia equiponderada y 0,06232 para ambas variantes adaptativas con y sin actualización por evidencia. Las 352 vistas de desarrollo y los pesos OpenCLIP permanecen disponibles. Las coberturas nominales del 90 % fueron del 45–55 % para DKL y del 80 % para los GP estacionarios en la anterior evaluación por objeto. El sondeo dinámico incluía seis poses condicionadas y tres sujeciones sostenidas, todas del mismo tricerátops. [Informe de origen](../phase3/RESULTS.md)
+
+La verificación publicada de fase III reunió 261 pruebas Python y 354 Rust. La cobertura Python registrada para investigación de fase III fue 62,74 % de líneas y 50,59 % de ramas. Se tratará la cobertura del nuevo código por separado y se mantendrá visible la deuda anterior. [Verificación de origen](../phase3/REPRODUCIBILITY.md)

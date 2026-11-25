@@ -1,0 +1,174 @@
+{
+  "scope": "prospective exploratory development, first rejection only; rank and random remainder are not exchangeable; not prevalence, not causal, not confirmatory",
+  "protocol_sha256": "c445bc275676b5df7257ffd3294a2f6979b1a8b3eef0eecb52cbeb4eae4081df",
+  "selection_sha256": "6833566d2e0ef828a1ad731a2e7aea2922ca23060cd98dfc445df55735b7cdc2",
+  "prequery_sha256": "62486c70159c2e3b2d60fe4ff84e33caeb871ef0d23b73da9f3f5e23a153de3c",
+  "binary_sha256": "138173de8c197df70662ed15ae087e6f8e4c7f66f2b0cbe2d34d0de5241c8c5a",
+  "model_sha256": "c1c09c56522337ec2383ee754a2ae33a6a2cc6f0882d24bc32dc335c19776e54",
+  "training": {
+    "total": 800,
+    "first_rejection_proxy_n": 594,
+    "first_rejection_proxy_positive": 129,
+    "ok_positive": 17
+  },
+  "arms": {
+    "random": {
+      "n": 72,
+      "causes": {
+        "pregrasp_unreachable": 61,
+        "pregrasp_collision": 9,
+        "approach_collision": 2
+      }
+    },
+    "top": {
+      "n": 72,
+      "causes": {
+        "pregrasp_unreachable": 30,
+        "pregrasp_collision": 13,
+        "approach_collision": 27,
+        "lift_unreachable": 1,
+        "no_force_closure": 1
+      }
+    }
+  },
+  "objects": {
+    "Animal_Crossing_New_Leaf_Nintendo_3DS_Game": {
+      "random": {
+        "causes": {
+          "pregrasp_unreachable": 9,
+          "pregrasp_collision": 2,
+          "approach_collision": 1
+        },
+        "n": 12,
+        "nominal_seconds": 1.9682240079928306,
+        "cached": 0
+      },
+      "top": {
+        "causes": {
+          "pregrasp_unreachable": 6,
+          "pregrasp_collision": 6
+        },
+        "n": 12,
+        "nominal_seconds": 2.344881765999162,
+        "cached": 0
+      }
+    },
+    "Great_Dinos_Triceratops_Toy": {
+      "random": {
+        "causes": {
+          "pregrasp_unreachable": 10,
+          "pregrasp_collision": 2
+        },
+        "n": 12,
+        "nominal_seconds": 6.208130325998354,
+        "cached": 0
+      },
+      "top": {
+        "causes": {
+          "pregrasp_unreachable": 7,
+          "approach_collision": 3,
+          "pregrasp_collision": 2
+        },
+        "n": 12,
+        "nominal_seconds": 6.049977808004769,
+        "cached": 0
+      }
+    },
+    "OXO_Soft_Works_Can_Opener_SnapLock": {
+      "random": {
+        "causes": {
+          "pregrasp_unreachable": 11,
+          "approach_collision": 1
+        },
+        "n": 12,
+        "nominal_seconds": 8.00155247800285,
+        "cached": 0
+      },
+      "top": {
+        "causes": {
+          "approach_collision": 6,
+          "pregrasp_unreachable": 2,
+          "pregrasp_collision": 3,
+          "lift_unreachable": 1
+        },
+        "n": 12,
+        "nominal_seconds": 8.239452986999822,
+        "cached": 0
+      }
+    },
+    "Orbit_Bubblemint_Mini_Bottle_6_ct": {
+      "random": {
+        "causes": {
+          "pregrasp_unreachable": 11,
+          "pregrasp_collision": 1
+        },
+        "n": 12,
+        "nominal_seconds": 3.011742588994821,
+        "cached": 0
+      },
+      "top": {
+        "causes": {
+          "pregrasp_unreachable": 11,
+          "approach_collision": 1
+        },
+        "n": 12,
+        "nominal_seconds": 2.9855159409999033,
+        "cached": 0
+      }
+    },
+    "PINEAPPLE_MARACA_6_PCSSET": {
+      "random": {
+        "causes": {
+          "pregrasp_collision": 4,
+          "pregrasp_unreachable": 8
+        },
+        "n": 12,
+        "nominal_seconds": 5.7884010010020575,
+        "cached": 0
+      },
+      "top": {
+        "causes": {
+          "approach_collision": 6,
+          "pregrasp_unreachable": 4,
+          "pregrasp_collision": 2
+        },
+        "n": 12,
+        "nominal_seconds": 6.138406457997917,
+        "cached": 0
+      }
+    },
+    "Threshold_Porcelain_Teapot_White": {
+      "random": {
+        "causes": {
+          "pregrasp_unreachable": 12
+        },
+        "n": 12,
+        "nominal_seconds": 2.5240046520011674,
+        "cached": 0
+      },
+      "top": {
+        "causes": {
+          "approach_collision": 11,
+          "no_force_closure": 1
+        },
+        "n": 12,
+        "nominal_seconds": 2.3898770440064254,
+        "cached": 0
+      }
+    }
+  },
+  "measurement_file_sha256": {
+    "Animal_Crossing_New_Leaf_Nintendo_3DS_Game-random.json": "7e25867a5517ae933ca63b72f88e0daf8da0da8503ddf2ab715394e1d9dc28d5",
+    "Animal_Crossing_New_Leaf_Nintendo_3DS_Game-top.json": "b9406fd6b3747271f5dc5b7d0a5e225587016df7256729764fbb4711f5e3e274",
+    "Great_Dinos_Triceratops_Toy-random.json": "f776cda4cf6b761b5a132f769c49fd0228368bd738e558a88d4c11e42e9f625d",
+    "Great_Dinos_Triceratops_Toy-top.json": "6a8fb006b029aa88c85a2420303594d2121aae84ef971eb011f478880d39da32",
+    "OXO_Soft_Works_Can_Opener_SnapLock-random.json": "827d09440474aeed86a556bf3f140f289e2ffe6c1bc76ad6fc7f68d0cd8dedf8",
+    "OXO_Soft_Works_Can_Opener_SnapLock-top.json": "d564bb21715b67f3169274ca2bbfff4a919504fde184f4342ed55c7fe5a40db3",
+    "Orbit_Bubblemint_Mini_Bottle_6_ct-random.json": "d62d89a4c72b18450dfd7425497d3dc0b92a16e455724e8ac24f832890692101",
+    "Orbit_Bubblemint_Mini_Bottle_6_ct-top.json": "9c5a6b8f72fbaee9c7547822ac95fd7d1dca6eaba1aa64da1d641bd9f60ce1ae",
+    "PINEAPPLE_MARACA_6_PCSSET-random.json": "a4b3200aeb8ae871acfccdfc02f164a4d137b8192c5df389d89e6a6352ec4989",
+    "PINEAPPLE_MARACA_6_PCSSET-top.json": "dbd2b7c6460ea8a92bb22d8433842a5923b66e46faee998872ff61ed8a6f09c9",
+    "Threshold_Porcelain_Teapot_White-random.json": "0a4f6015a7f81d02ce9a474a42ffaff2d4f410683f2a4bb9927c3a93ad721a54",
+    "Threshold_Porcelain_Teapot_White-top.json": "0e198cd3b869bd5754d605917485b159ae8d1305756334867f32df00b73176d4"
+  }
+}

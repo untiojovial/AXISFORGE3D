@@ -1,0 +1,125 @@
+{
+  "scope": "development-only; two local CPU runs, same hardware/environment, 16 views/object",
+  "objects": [
+    {
+      "object_id": "2_of_Jenga_Classic_Game",
+      "first_npz_sha256": "60317b2e5f3a49416539cae08c4130350c39a003023550f4eec1a7102ca16cb8",
+      "repeat_npz_sha256": "60317b2e5f3a49416539cae08c4130350c39a003023550f4eec1a7102ca16cb8"
+    },
+    {
+      "object_id": "ACE_Coffee_Mug_Kristen_16_oz_cup",
+      "first_npz_sha256": "d7584295ff5a6c7b1fb6c9ef7d3641b1f3e3f225ab190ec52111aa22b9c4068d",
+      "repeat_npz_sha256": "d7584295ff5a6c7b1fb6c9ef7d3641b1f3e3f225ab190ec52111aa22b9c4068d"
+    },
+    {
+      "object_id": "Air_Hogs_Wind_Flyers_Set_Airplane_Red",
+      "first_npz_sha256": "912eb658f2258579087cfa280dbeeda4fa92bcf4df53d5410507a59b0d7a81a9",
+      "repeat_npz_sha256": "912eb658f2258579087cfa280dbeeda4fa92bcf4df53d5410507a59b0d7a81a9"
+    },
+    {
+      "object_id": "Android_Figure_Orange",
+      "first_npz_sha256": "8a959b542f36f2620bcf5a5688eda6336ee3862bd3d2464d1c0547061fac4699",
+      "repeat_npz_sha256": "8a959b542f36f2620bcf5a5688eda6336ee3862bd3d2464d1c0547061fac4699"
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "first_npz_sha256": "f2c5e398d20279a6dc1b788c55dd1ef35c168d41fd63f8c94edc10a7528f8260",
+      "repeat_npz_sha256": "f2c5e398d20279a6dc1b788c55dd1ef35c168d41fd63f8c94edc10a7528f8260"
+    },
+    {
+      "object_id": "Aroma_Stainless_Steel_Milk_Frother_2_Cup",
+      "first_npz_sha256": "e28c7566998a54ed38b9227619fc5eb6e0ef4c1c5bdb88b2d534b25a87ab05d5",
+      "repeat_npz_sha256": "e28c7566998a54ed38b9227619fc5eb6e0ef4c1c5bdb88b2d534b25a87ab05d5"
+    },
+    {
+      "object_id": "BIA_Porcelain_Ramekin_With_Glazed_Rim_35_45_oz_cup",
+      "first_npz_sha256": "f16ff3ebe8cf573c047ef652952d5af0db123bc8a8b30d59164788543647e9dd",
+      "repeat_npz_sha256": "f16ff3ebe8cf573c047ef652952d5af0db123bc8a8b30d59164788543647e9dd"
+    },
+    {
+      "object_id": "BIRD_RATTLE",
+      "first_npz_sha256": "9adeab01539ac206ac10aebda8dd79994c1cf71c451fe241111a3ced2ddb5bfb",
+      "repeat_npz_sha256": "9adeab01539ac206ac10aebda8dd79994c1cf71c451fe241111a3ced2ddb5bfb"
+    },
+    {
+      "object_id": "BUNNY_RATTLE",
+      "first_npz_sha256": "a952a88ce93455811e0b0228471ffe59d8fc5a6740270b6fd7706629da887509",
+      "repeat_npz_sha256": "a952a88ce93455811e0b0228471ffe59d8fc5a6740270b6fd7706629da887509"
+    },
+    {
+      "object_id": "Big_Dot_Aqua_Pencil_Case",
+      "first_npz_sha256": "b35e95723f271cdc326a2a0eca9679c1870ad64eeb11399c4b207b0790f79044",
+      "repeat_npz_sha256": "b35e95723f271cdc326a2a0eca9679c1870ad64eeb11399c4b207b0790f79044"
+    },
+    {
+      "object_id": "BlackBlack_Nintendo_3DSXL",
+      "first_npz_sha256": "18595a35600c5a26fd5247040252fcf3aa9eae065d2610e765c6623cd0961393",
+      "repeat_npz_sha256": "18595a35600c5a26fd5247040252fcf3aa9eae065d2610e765c6623cd0961393"
+    },
+    {
+      "object_id": "Cole_Hardware_Hammer_Black",
+      "first_npz_sha256": "994196f27d3f751f48261f75927c8d76c47e8e1fca9c4c87ab750455e79198d1",
+      "repeat_npz_sha256": "994196f27d3f751f48261f75927c8d76c47e8e1fca9c4c87ab750455e79198d1"
+    },
+    {
+      "object_id": "Craftsman_Grip_Screwdriver_Phillips_Cushion",
+      "first_npz_sha256": "97287d72cb2f34e88f5dec7a6eb0e77a4e999d6ce558e353ec8310d4545fde3d",
+      "repeat_npz_sha256": "97287d72cb2f34e88f5dec7a6eb0e77a4e999d6ce558e353ec8310d4545fde3d"
+    },
+    {
+      "object_id": "Ecoforms_Cup_B4_SAN",
+      "first_npz_sha256": "87758955aaa6a58ae278d2e2b626cf3283c6e5f7f0e877e7bcaef6f837531b8d",
+      "repeat_npz_sha256": "87758955aaa6a58ae278d2e2b626cf3283c6e5f7f0e877e7bcaef6f837531b8d"
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "first_npz_sha256": "1f83d47b1a21e39159937a032c01f7aead582d8549756bdbf004de23e538eefb",
+      "repeat_npz_sha256": "1f83d47b1a21e39159937a032c01f7aead582d8549756bdbf004de23e538eefb"
+    },
+    {
+      "object_id": "Marc_Anthony_Strictly_Curls_Curl_Envy_Perfect_Curl_Cream_6_fl_oz_bottle",
+      "first_npz_sha256": "21174672ddaef7e4cef6447eb1c3cbf25552c14f3185c8c8e6fdea83e0ba40b9",
+      "repeat_npz_sha256": "21174672ddaef7e4cef6447eb1c3cbf25552c14f3185c8c8e6fdea83e0ba40b9"
+    },
+    {
+      "object_id": "Nestle_Nesquik_Chocolate_Powder_Flavored_Milk_Additive_109_Oz_Canister",
+      "first_npz_sha256": "1dd1922837d667b95783f8b28a518add1893f17f52b9fc68439e0aec504e4ad4",
+      "repeat_npz_sha256": "1dd1922837d667b95783f8b28a518add1893f17f52b9fc68439e0aec504e4ad4"
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "first_npz_sha256": "c22fd50e44e42c06bcb8d252d3589b3ca64b08b1a8b0fbbbf70664a49c479411",
+      "repeat_npz_sha256": "c22fd50e44e42c06bcb8d252d3589b3ca64b08b1a8b0fbbbf70664a49c479411"
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "first_npz_sha256": "a9cbcf959a814fd6fb66480c9691d717083e8399e7ad56109b1266c7f5f3b881",
+      "repeat_npz_sha256": "a9cbcf959a814fd6fb66480c9691d717083e8399e7ad56109b1266c7f5f3b881"
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "first_npz_sha256": "f2757881738a30e01f89a3565de956893c1b254b1b58d6398e240284fcbddf82",
+      "repeat_npz_sha256": "f2757881738a30e01f89a3565de956893c1b254b1b58d6398e240284fcbddf82"
+    },
+    {
+      "object_id": "Razer_Abyssus_Ambidextrous_Gaming_Mouse",
+      "first_npz_sha256": "1a86cd1e91b6cf81b16db3476c706294ec06776c09c17bded6ee45c4c56417cd",
+      "repeat_npz_sha256": "1a86cd1e91b6cf81b16db3476c706294ec06776c09c17bded6ee45c4c56417cd"
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "first_npz_sha256": "accc401716837ae81b305ba95cda16c4b6ed55de84ef937cc9b6b83e0af88430",
+      "repeat_npz_sha256": "accc401716837ae81b305ba95cda16c4b6ed55de84ef937cc9b6b83e0af88430"
+    }
+  ],
+  "objects_count": 22,
+  "all_npz_identical": true,
+  "job_id": "4e4a8739a8789b36c23f6db702284a832728553c5161dad43f30936fd507e203",
+  "checkpoint_sha256": "d867053b2301634007ed9af230bfb1a217ec634f6c0329f04092133ae5c4b89e",
+  "job_zip_sha256": "367a11c3bde0b63226cf841a7e70500a33fd57f757eee4d415ec3cbad55ee9a7",
+  "first_bundle_sha256": "82e1d6d91a219d358d8ca42d8df66457ddeec5145cf7102fadb477e1d1256825",
+  "repeat_bundle_sha256": "6fe723e9b9b28b9a29500a4ecf2bd76102fd7cdddd7d6a302e0001bf05317610",
+  "limitations": "Hashes document these local files and do not independently attest remote execution; no Colab or GPU run was performed.",
+  "notebook_sha256_at_first_smoke_check": "a12b5fd2b2c7f1dd1ec9d621392cf9765b5fe36ab7e93a61981eed54eb3a5d76",
+  "current_notebook_full_cpu_evidence": "notebook_cpu.json"
+}

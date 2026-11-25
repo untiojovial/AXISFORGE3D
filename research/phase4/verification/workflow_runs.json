@@ -1,0 +1,63 @@
+{
+  "nodes": {
+    "reference": {
+      "status": "COMPLETED",
+      "signature": "d0c6cf411bd6baf448dd907171cd25c1367c2dae202001fee5d78015e6815d33",
+      "elapsed_s": 0.13115575700066984,
+      "outputs": {
+        "/workspace/axisforge-phase4-data/final-graph/reference.json": "d0d85ecc035e9a236ad51fa108f3fe8aa5ef122435c1feefb53dcca3a3d89e35"
+      }
+    },
+    "openclip": {
+      "status": "COMPLETED",
+      "signature": "3a9d53c2b4c717d5cf40e04482ef55244fe221b72b0ced549cab35f68e4840da",
+      "elapsed_s": 55.98018754199802,
+      "outputs": {
+        "/workspace/axisforge-phase4-data/final-graph/model.zip": "62b0249966c27b6e4b44c2b25c94146e98f07a86f04e5370a2fb7531e9af17fc"
+      }
+    },
+    "foundation_analysis": {
+      "status": "COMPLETED",
+      "signature": "a352457b0c10949692c2023797b36e8cf647d51dac4ce76b03122d9de320f281",
+      "elapsed_s": 8.92656134599747,
+      "outputs": {
+        "/workspace/axisforge-phase4-data/final-graph/model-analysis.json": "d601212b9f99abb494f49292d9ad3b497cfc4459e29e2c8cfc348059081c9724"
+      }
+    },
+    "visual_figure": {
+      "status": "COMPLETED",
+      "signature": "4cb65d464c0ae1189168cabe6375bac1bda355a6bac7c4d9cfddf3267e70e2ba",
+      "elapsed_s": 2.6370547090009495,
+      "outputs": {
+        "/workspace/axisforge-phase4-data/final-graph/visual-report/summary.json": "bb42ba450696dcd735199a05ac6ec50ad618e704c5afde082382327426efa24a",
+        "/workspace/axisforge-phase4-data/final-graph/visual-report/openclip_panel.png": "538b08e6440e8a5d5e4f20f454ad9581510956968026611ff2d3d8c7ff0ecee6"
+      }
+    },
+    "model_table": {
+      "status": "COMPLETED",
+      "signature": "9c56e897fff4f8d8cf8202c3c4692bd4b967a5dee1d429ecd287411e94e45d6b",
+      "elapsed_s": 0.7467612479995296,
+      "outputs": {
+        "/workspace/axisforge-phase4-data/final-graph/foundation-comparison.json": "302c18ee06c05acbaabd1ecd6633e6e72924b9afc535d3e882daaed0810eec43"
+      }
+    },
+    "calibration": {
+      "status": "COMPLETED",
+      "signature": "0f732d09ae08df4116e973566abfe997d6727a30f0e8a1f74b471d29474efbdd",
+      "elapsed_s": 33.090670049001346,
+      "outputs": {
+        "/workspace/axisforge-phase4-data/final-graph/calibration.json": "d9145d9238f3af6e20069f81f7ee69b040d351a1517df47c1a4b6ef60499e01f"
+      }
+    },
+    "recalibration": {
+      "status": "COMPLETED",
+      "signature": "bcdd5ee97918ce643bb126d3f2463e21179006de0f7fa5afac101323bff9b5a0",
+      "elapsed_s": 8.213543945999845,
+      "outputs": {
+        "/workspace/axisforge-phase4-data/final-graph/recalibration.json": "e6ebe21be0033c09f62f5876eefe6c98be635fe2b92c7bcb238ba82aed30deb3"
+      }
+    }
+  },
+  "local_cpu": true,
+  "scope": "Selected active profiles. Additional native selection and means verified in dedicated experiments."
+}

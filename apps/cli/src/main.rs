@@ -189,6 +189,9 @@ enum Command {
         /// Evaluate one generator-order index with native IK, collision and static wrench.
         #[arg(long)]
         evaluate: Option<usize>,
+        /// Keep a diverse, opening-stratified prefix prior to any expensive evaluation.
+        #[arg(long, conflicts_with = "evaluate")]
+        diverse_limit: Option<usize>,
     },
     /// Plan the whole cycle: pick a part, carry it to a target and set it
     /// down, from the start posture and back, every motion proven clear.
@@ -760,6 +763,7 @@ fn run(cli: Cli) -> Result<()> {
             file,
             body,
             evaluate,
+            diverse_limit,
         } => {
             let session = session_for(&file)?;
             let body_id = &session
@@ -779,6 +783,15 @@ fn run(cli: Cli) -> Result<()> {
             if evaluate.is_some() && records.is_empty() {
                 return Err(anyhow!("candidate index out of range"));
             }
+            let records = match diverse_limit {
+                Some(limit) => axisforge_grasping::diversity::diverse_research_candidates(
+                    &records,
+                    limit,
+                    session.project().robot.require_gripper()?.max_opening,
+                    axisforge_grasping::PlannerOptions::default().jaw_clearance,
+                ),
+                None => records,
+            };
             println!("{}", serde_json::to_string(&records)?);
         }
         Command::Cycle {

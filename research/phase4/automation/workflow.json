@@ -1,0 +1,727 @@
+{
+  "modes": {
+    "development": [
+      "reference",
+      "selection_statistics",
+      "gate",
+      "recalibration",
+      "foundation_analysis",
+      "ur5"
+    ],
+    "foundation_model_comparison": [
+      "visual_figure"
+    ],
+    "feasibility_analysis": [
+      "selection_statistics",
+      "placement"
+    ],
+    "transfer_diagnostics": [
+      "gate",
+      "transfer10",
+      "transfer25",
+      "transfer50",
+      "paired_figure",
+      "additional_baselines"
+    ],
+    "dkl_calibration": [
+      "recalibration"
+    ],
+    "physical_validation": [
+      "physical",
+      "ur5"
+    ],
+    "multi_fidelity_pilot": [
+      "fidelity"
+    ],
+    "ablations": [
+      "transfer10",
+      "transfer25",
+      "transfer50",
+      "foundation_analysis",
+      "paired_figure"
+    ],
+    "confirmatory": []
+  },
+  "jobs": {
+    "reference": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "{root}/tools/research/phase4/audit_reference.py",
+        "--out",
+        "{work}/reference.json"
+      ],
+      "inputs": [
+        "{root}/tools/research/phase4/audit_reference.py",
+        "{root}/research/phase3/bo/results/development/observations.json.gz",
+        "{root}/research/phase3/bo/results/functional/observations.json.gz",
+        "{root}/research/phase3/pilot/manifest.prepilot.json",
+        "{root}/research/phase3/robot/contact_probe_development.json"
+      ],
+      "outputs": [
+        "{work}/reference.json"
+      ]
+    },
+    "catalogues": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.catalogue_study",
+        "prepare",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--out",
+        "{work}",
+        "--selector",
+        "{selector}"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/catalogue_study.py",
+        "{binary}",
+        "{selector}",
+        "{root}/research/phase3/pilot/manifest.prepilot.json",
+        "{root}/research/phase4/candidates/protocol.json",
+        "{data}/pilot-expanded/catalogs/*.json"
+      ],
+      "outputs": [
+        "{work}/selection.json",
+        "{work}/catalogues/*/*.json"
+      ]
+    },
+    "measure": {
+      "requires": [
+        "catalogues"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.catalogue_study",
+        "measure",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--out",
+        "{work}",
+        "--workers",
+        "{threads}"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/catalogue_study.py",
+        "{binary}",
+        "{work}/selection.json",
+        "{work}/catalogues/*/*.json"
+      ],
+      "outputs": [
+        "{work}/history/*/*.json",
+        "{work}/validation_panel/*/*.json"
+      ]
+    },
+    "selection_statistics": {
+      "requires": [
+        "measure"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.candidate_results",
+        "--work",
+        "{work}",
+        "--out",
+        "{work}/selection-report"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/candidate_results.py",
+        "{root}/research_grasping/phase4/catalogue_study.py",
+        "{work}/selection.json",
+        "{work}/history/*/*.json",
+        "{work}/validation_panel/*/*.json"
+      ],
+      "outputs": [
+        "{work}/selection-report/results.json",
+        "{work}/selection-report/native_observations.json.gz"
+      ]
+    },
+    "placement": {
+      "requires": [
+        "catalogues"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.placement_study",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--work",
+        "{work}",
+        "--out",
+        "{work}/placement-report.json"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/placement_study.py",
+        "{root}/research/phase4/candidates/placement_protocol.json",
+        "{work}/catalogues/diverse128/*.json",
+        "{binary}"
+      ],
+      "outputs": [
+        "{work}/placement-report.json"
+      ]
+    },
+    "gate": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_diagnostics",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--protocol",
+        "{root}/research/phase3/pilot",
+        "--catalogues",
+        "{data}/functional-catalogs",
+        "--run",
+        "{data}/run-functional",
+        "--out",
+        "{work}/gate.json"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_diagnostics.py",
+        "{binary}",
+        "{data}/functional-catalogs/*.json",
+        "{data}/run-functional/runs/*/*-adaptive.json",
+        "{data}/run-functional/history/*.json"
+      ],
+      "outputs": [
+        "{work}/gate.json"
+      ]
+    },
+    "transfer10": {
+      "requires": [
+        "measure"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_pilot",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--protocol",
+        "{root}/research/phase3/pilot",
+        "--catalogues",
+        "{work}/catalogues/diverse128",
+        "--archive",
+        "{work}/history/stratified",
+        "--cache",
+        "{data}/run-development/cache",
+        "--out",
+        "{work}/workflow-transfer10",
+        "--archive-prefix",
+        "10"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_pilot.py",
+        "{work}/catalogues/diverse128/*.json",
+        "{work}/history/stratified/*.json",
+        "{root}/research_grasping/phase4/feasibility_policy.py",
+        "{binary}"
+      ],
+      "outputs": [
+        "{work}/workflow-transfer10/runs/*/*.json"
+      ]
+    },
+    "transfer25": {
+      "requires": [
+        "measure"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_pilot",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--protocol",
+        "{root}/research/phase3/pilot",
+        "--catalogues",
+        "{work}/catalogues/diverse128",
+        "--archive",
+        "{work}/history/stratified",
+        "--cache",
+        "{data}/run-development/cache",
+        "--out",
+        "{work}/workflow-transfer25",
+        "--archive-prefix",
+        "25"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_pilot.py",
+        "{work}/catalogues/diverse128/*.json",
+        "{work}/history/stratified/*.json",
+        "{root}/research_grasping/phase4/feasibility_policy.py",
+        "{binary}"
+      ],
+      "outputs": [
+        "{work}/workflow-transfer25/runs/*/*.json"
+      ]
+    },
+    "transfer50": {
+      "requires": [
+        "measure"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_pilot",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--protocol",
+        "{root}/research/phase3/pilot",
+        "--catalogues",
+        "{work}/catalogues/diverse128",
+        "--archive",
+        "{work}/history/stratified",
+        "--cache",
+        "{data}/run-development/cache",
+        "--out",
+        "{work}/workflow-transfer50",
+        "--archive-prefix",
+        "50"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_pilot.py",
+        "{work}/catalogues/diverse128/*.json",
+        "{work}/history/stratified/*.json",
+        "{root}/research_grasping/phase4/feasibility_policy.py",
+        "{binary}"
+      ],
+      "outputs": [
+        "{work}/workflow-transfer50/runs/*/*.json"
+      ]
+    },
+    "calibration": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.calibration",
+        "--manifest",
+        "{root}/research/phase3/pilot/manifest.prepilot.json",
+        "--catalogs",
+        "{data}/pilot-expanded/catalogs",
+        "--history",
+        "{data}/run-development",
+        "--out",
+        "{work}/calibration.json"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/calibration.py",
+        "{root}/research/phase3/pilot/manifest.prepilot.json",
+        "{data}/pilot-expanded/catalogs/*.json",
+        "{data}/run-development/history/*.json"
+      ],
+      "outputs": [
+        "{work}/calibration.json"
+      ]
+    },
+    "recalibration": {
+      "requires": [
+        "calibration"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.calibration_recalibrate",
+        "--manifest",
+        "{root}/research/phase3/pilot/manifest.prepilot.json",
+        "--catalogs",
+        "{data}/pilot-expanded/catalogs",
+        "--history",
+        "{data}/run-development",
+        "--outer",
+        "{work}/calibration.json",
+        "--out",
+        "{work}/recalibration.json"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/calibration_recalibrate.py",
+        "{root}/research/phase3/pilot/manifest.prepilot.json",
+        "{data}/pilot-expanded/catalogs/*.json",
+        "{data}/run-development/history/*.json",
+        "{work}/calibration.json"
+      ],
+      "outputs": [
+        "{work}/recalibration.json"
+      ]
+    },
+    "physical": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "{root}/tools/research/phase4/physical_pilot.py",
+        "--data-root",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--output",
+        "{work}/physical.json"
+      ],
+      "inputs": [
+        "{root}/tools/research/phase4/physical_pilot.py",
+        "{root}/research/phase4/robotics/physical_protocol.json",
+        "{root}/research_grasping/phase4/physics_simulation.py",
+        "{binary}"
+      ],
+      "outputs": [
+        "{work}/physical.json"
+      ]
+    },
+    "ur5": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "{root}/tools/research/phase4/physical_ur5_bias.py",
+        "--output",
+        "{work}/ur5.json"
+      ],
+      "inputs": [
+        "{root}/tools/research/phase4/physical_ur5_bias.py",
+        "{root}/research_grasping/phase4/full_robot_compensated.py",
+        "{root}/apps/viewer/samples/ur5/robot.urdf"
+      ],
+      "outputs": [
+        "{work}/ur5.json"
+      ]
+    },
+    "openclip": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "{root}/tools/research/phase4/run_experiments.py",
+        "--job",
+        "{root}/research/phase4/embedding_experiment/development-images.zip",
+        "--work",
+        "{work}/model-work",
+        "--bundle",
+        "{work}/model.zip",
+        "--model",
+        "openclip",
+        "--revision",
+        "v0.2-weights",
+        "--checkpoint",
+        "{checkpoint}"
+      ],
+      "inputs": [
+        "{root}/tools/research/phase4/run_experiments.py",
+        "{root}/research/phase4/embedding_experiment/development-images.zip",
+        "{checkpoint}",
+        "{root}/research_grasping/phase4/orchestrator.py",
+        "{root}/research_grasping/phase4/frozen_models.py"
+      ],
+      "outputs": [
+        "{work}/model.zip"
+      ]
+    },
+    "foundation_analysis": {
+      "requires": [
+        "openclip"
+      ],
+      "args": [
+        "{py}",
+        "{root}/tools/research/phase4/import_embedding_bundle.py",
+        "--job",
+        "{root}/research/phase4/embedding_experiment/development-images.zip",
+        "--bundle",
+        "{work}/model.zip",
+        "--destination",
+        "{work}/model-import",
+        "--analysis-out",
+        "{work}/model-analysis.json"
+      ],
+      "inputs": [
+        "{root}/tools/research/phase4/import_embedding_bundle.py",
+        "{root}/research/phase4/embedding_experiment/development-images.zip",
+        "{work}/model.zip",
+        "{root}/research_grasping/phase4/bundle_io.py",
+        "{root}/research_grasping/phase4/bundle_analysis.py",
+        "{root}/research/phase4/embedding_experiment/lock.json",
+        "{root}/research/phase4/embedding_experiment/*.json.gz"
+      ],
+      "outputs": [
+        "{work}/model-analysis.json"
+      ]
+    },
+    "fidelity": {
+      "requires": [
+        "physical"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.fidelity_analysis",
+        "--result",
+        "{work}/physical.json",
+        "--protocol",
+        "{root}/research/phase4/robotics/physical_protocol.json",
+        "--catalogs",
+        "{data}/pilot-expanded/catalogs",
+        "--out",
+        "{work}/fidelity.json"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/fidelity_analysis.py",
+        "{work}/physical.json",
+        "{root}/research/phase4/robotics/physical_protocol.json",
+        "{data}/pilot-expanded/catalogs/*.json"
+      ],
+      "outputs": [
+        "{work}/fidelity.json"
+      ]
+    },
+    "visual_figure": {
+      "requires": [
+        "foundation_analysis"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.embedding_report",
+        "--analysis",
+        "{work}/model-analysis.json",
+        "--out",
+        "{work}/visual-report"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/embedding_report.py",
+        "{work}/model-analysis.json"
+      ],
+      "outputs": [
+        "{work}/visual-report/summary.json",
+        "{work}/visual-report/openclip_panel.png"
+      ]
+    },
+    "history_lock": {
+      "requires": [
+        "measure"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.history_lock",
+        "--work",
+        "{work}"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/history_lock.py",
+        "{work}/selection.json",
+        "{work}/history/stratified/*.json"
+      ],
+      "outputs": [
+        "{work}/history_stratified.lock.json"
+      ]
+    },
+    "nested": {
+      "requires": [
+        "history_lock"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_nested_cli",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--protocol",
+        "{root}/research/phase3/pilot",
+        "--catalogues",
+        "{work}/catalogues/diverse128",
+        "--archive",
+        "{work}/history/stratified",
+        "--history-lock",
+        "{work}/history_stratified.lock.json",
+        "--out",
+        "{work}/nested.json"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_nested_cli.py",
+        "{work}/history/stratified/*.json",
+        "{work}/history_stratified.lock.json",
+        "{root}/research_grasping/phase4/transfer_nested.py",
+        "{root}/research_grasping/phase4/feasibility_policy_v2b.py"
+      ],
+      "outputs": [
+        "{work}/nested.lock.json",
+        "{work}/nested.json"
+      ]
+    },
+    "v2b": {
+      "requires": [
+        "nested"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_v2b_pilot",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--protocol",
+        "{root}/research/phase3/pilot",
+        "--catalogues",
+        "{work}/catalogues/diverse128",
+        "--archive",
+        "{work}/history/stratified",
+        "--history-lock",
+        "{work}/history_stratified.lock.json",
+        "--out",
+        "{work}/workflow-v2b",
+        "--nested",
+        "{work}/nested.json",
+        "--archive-prefix",
+        "50",
+        "--cache",
+        "{data}/run-development/cache",
+        "--nested-sha256",
+        "{nested_sha}"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_v2b_pilot.py",
+        "{work}/nested.json",
+        "{work}/history_stratified.lock.json",
+        "{work}/catalogues/diverse128/*.json",
+        "{root}/research_grasping/phase4/feasibility_policy_v2b.py"
+      ],
+      "outputs": [
+        "{work}/workflow-v2b/runs/*/*.json"
+      ],
+      "upstream_hashes": {
+        "nested_sha": {
+          "stage": "nested",
+          "path": "{work}/nested.json"
+        }
+      }
+    },
+    "paired_figure": {
+      "requires": [
+        "transfer50",
+        "v2b"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_statistics",
+        "--v1",
+        "{work}/workflow-transfer50",
+        "--v2b",
+        "{work}/workflow-v2b",
+        "--out",
+        "{work}/transfer-comparisons"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_statistics.py",
+        "{work}/workflow-transfer50/runs/*/*.json",
+        "{work}/workflow-v2b/runs/*/*.json"
+      ],
+      "outputs": [
+        "{work}/transfer-comparisons/paired_by_object.png",
+        "{work}/transfer-comparisons/paired_bootstrap.json"
+      ]
+    },
+    "additional_baselines": {
+      "requires": [
+        "measure"
+      ],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase4.transfer_pilot",
+        "--data",
+        "{data}",
+        "--binary",
+        "{binary}",
+        "--protocol",
+        "{root}/research/phase3/pilot",
+        "--catalogues",
+        "{work}/catalogues/diverse128",
+        "--archive",
+        "{work}/history/stratified",
+        "--cache",
+        "{data}/run-development/cache",
+        "--out",
+        "{work}/workflow-baselines",
+        "--archive-prefix",
+        "50",
+        "--methods",
+        "random",
+        "sobol_projected",
+        "multitask_fixed",
+        "no_evidence",
+        "--fa-modes"
+      ],
+      "inputs": [
+        "{root}/research_grasping/phase4/transfer_pilot.py",
+        "{work}/catalogues/diverse128/*.json",
+        "{work}/history/stratified/*.json",
+        "{root}/research_grasping/phase4/feasibility_policy.py",
+        "{binary}"
+      ],
+      "outputs": [
+        "{work}/workflow-baselines/runs/*/*.json"
+      ]
+    },
+    "development_assets": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "-m",
+        "research_grasping.phase3.dataset_reproduce",
+        "--root",
+        "{data}",
+        "--splits",
+        "train",
+        "validation"
+      ],
+      "inputs": [
+        "{root}/research/phase3/dataset/manifest.lock.json",
+        "{root}/research_grasping/phase3/dataset_reproduce.py"
+      ],
+      "outputs": [
+        "{data}/manifest.json"
+      ]
+    },
+    "prepare_image_job": {
+      "requires": [],
+      "args": [
+        "{py}",
+        "{root}/tools/research/phase4/prepare_embedding_job.py",
+        "--root",
+        "{data}",
+        "--observations",
+        "{data}/vision-development-v3",
+        "--output",
+        "{work}/measured-images.zip"
+      ],
+      "inputs": [
+        "{data}/vision-development-v3/*.npz",
+        "{root}/research/phase4/automation/rgb_views.lock.json",
+        "{root}/research_grasping/phase4/jobs.py"
+      ],
+      "outputs": [
+        "{work}/measured-images.zip"
+      ]
+    }
+  }
+}

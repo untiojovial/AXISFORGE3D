@@ -1,0 +1,193 @@
+{
+  "status": "exploratory; one view per object; no physical outcomes",
+  "manifest_sha256": "6c5291288adcd365b873a4c983b30b9f19fb2ed0110a0575112514b866cdf660",
+  "checkpoint_sha256": "d867053b2301634007ed9af230bfb1a217ec634f6c0329f04092133ae5c4b89e",
+  "processor": "Compose(\n    Resize(size=224, interpolation=bicubic, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    MaybeConvertMode()\n    MaybeToTensor()\n    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))\n)",
+  "software": {
+    "torch": "2.9.1+cpu",
+    "torchvision": "0.24.1+cpu",
+    "open_clip": "4.2.2",
+    "trimesh": "4.8.3"
+  },
+  "study_code_sha256": "9f316962fa131878d50792976ee8657927b3916063a8dea111e764cc7f3012fd",
+  "frozen_code_sha256": "172297d17bb8028aa395c79f1ba9cdc176f3d4629eddc57713e145b3b59bbc4d",
+  "renderer_code_sha256": "2988223f63c5bea2d528f5eb866ae88633c9425fec608cb7ddf3be3d8c09512f",
+  "results": [
+    {
+      "object_id": "ACE_Coffee_Mug_Kristen_16_oz_cup",
+      "split": "train",
+      "observation_semantic_sha256": "710cad4a4498492c0d4d9e243bd112f1752910336f457c0b84ffd84dbd49d6a5",
+      "mesh_sha256": "3d583c6a87d63d1a54c0cff2a0ff0c316111b786c3a3804acf8b91862664072f",
+      "cosine": 0.8781998753547668,
+      "render_inference_seconds": 6.910109012998873
+    },
+    {
+      "object_id": "Cole_Hardware_Hammer_Black",
+      "split": "train",
+      "observation_semantic_sha256": "e6809dd727e858e64fae48cc8d4ba760f4b79bc41694839e2d304dbf60370626",
+      "mesh_sha256": "d7f52de961500ced0323882332ebdf8de3627b5016162d311c2fda8bd9eb09d9",
+      "cosine": 0.8629194498062134,
+      "render_inference_seconds": 6.363471632001165
+    },
+    {
+      "object_id": "Craftsman_Grip_Screwdriver_Phillips_Cushion",
+      "split": "train",
+      "observation_semantic_sha256": "9e5fb54293df0a608075fc73857f4e16e42a83dc34f2992c59b2b4497e26f186",
+      "mesh_sha256": "de0d25d44bb7e86878d928c50cee8cb4068eabf207fc7879c5f908bd8b75cb3b",
+      "cosine": 0.8819371461868286,
+      "render_inference_seconds": 5.586191954000242
+    },
+    {
+      "object_id": "Razer_Abyssus_Ambidextrous_Gaming_Mouse",
+      "split": "train",
+      "observation_semantic_sha256": "e450f94b7ec0628ca9f69f6c6a107e3b9ac75e5bef8f2467cba7b098deab75d7",
+      "mesh_sha256": "a89e00ab8bf57618205ddf0b2e7c87e91f001627d9f06747d848737686b8c516",
+      "cosine": 0.8059989213943481,
+      "render_inference_seconds": 7.692525731999922
+    },
+    {
+      "object_id": "Air_Hogs_Wind_Flyers_Set_Airplane_Red",
+      "split": "train",
+      "observation_semantic_sha256": "ab43d40c7801d513fcbc9a6c7932e468a59b115004af14b3247ee1c2077c171a",
+      "mesh_sha256": "538d8e92300caa87986d560a949e074d4ad6a1bca9471ab77fd55ecb80819b67",
+      "cosine": 0.8386424779891968,
+      "render_inference_seconds": 5.838338098999884
+    },
+    {
+      "object_id": "Android_Figure_Orange",
+      "split": "train",
+      "observation_semantic_sha256": "864a8a20ca65ed5d759a6a2736f1af86a642ac82ed25eddb66b128030356e1b0",
+      "mesh_sha256": "298f3d470a9b91d64d3baed39fde0da44552b606b9accd6a70575521ca2a5bb9",
+      "cosine": 0.8292371034622192,
+      "render_inference_seconds": 6.420986044000529
+    },
+    {
+      "object_id": "BIRD_RATTLE",
+      "split": "train",
+      "observation_semantic_sha256": "de09b49b6c4c62c9ae61e74516038aa7192dbdfc4f842fef2dc8a47a8fb0a078",
+      "mesh_sha256": "5af4c6a97a15af1aacc656d1e5232764292cf24877a54fa6fab6f1b3dae41ce8",
+      "cosine": 0.7895954847335815,
+      "render_inference_seconds": 8.382131562999348
+    },
+    {
+      "object_id": "BUNNY_RATTLE",
+      "split": "train",
+      "observation_semantic_sha256": "1705e035995161956a834653b92318c9e3bf6323b13dac76627f79cce47f0cd5",
+      "mesh_sha256": "6e427760193dd47e7a817a0eeebd119f47c401859fc666fac33ef21283e5cd6d",
+      "cosine": 0.7125293016433716,
+      "render_inference_seconds": 6.907918150998739
+    },
+    {
+      "object_id": "Aroma_Stainless_Steel_Milk_Frother_2_Cup",
+      "split": "train",
+      "observation_semantic_sha256": "65067f7c296572027c1d8cc3209d506f5eb20301b0c57de2b54f6a1b3ea75e7c",
+      "mesh_sha256": "3b9bd58d0a8aa8c5de75c7d980ffac2bdb0d1b2ee43d13c437914cfbe41d7721",
+      "cosine": 0.7034348249435425,
+      "render_inference_seconds": 6.320645488000082
+    },
+    {
+      "object_id": "Marc_Anthony_Strictly_Curls_Curl_Envy_Perfect_Curl_Cream_6_fl_oz_bottle",
+      "split": "train",
+      "observation_semantic_sha256": "f37b781747c350fe31c40e3aff499474b027d4d721d2ceb9fd41dd2c63bf99e8",
+      "mesh_sha256": "6ace0ec99b4a433aa56e1d13da38909bd78435345c28e14ec0ac6e26570f561d",
+      "cosine": 0.9246838092803955,
+      "render_inference_seconds": 5.8877526610012865
+    },
+    {
+      "object_id": "Nestle_Nesquik_Chocolate_Powder_Flavored_Milk_Additive_109_Oz_Canister",
+      "split": "train",
+      "observation_semantic_sha256": "f85106039650c3063900bc2ac525a8234de4ac5719313baad4d97dfd1fe9bea7",
+      "mesh_sha256": "3b68db8c3e54f9b412d9ad11b9e7a0792a365aa868a13144c493b3647e354fbb",
+      "cosine": 0.8689020872116089,
+      "render_inference_seconds": 5.64045242300017
+    },
+    {
+      "object_id": "Ecoforms_Cup_B4_SAN",
+      "split": "train",
+      "observation_semantic_sha256": "411f645eb2f17d3a8dd1126663c1803e86651cb7858d130995a289f90aa12e81",
+      "mesh_sha256": "4a85a9983bd1ef1839cdb537ffe393a21114f22fd0ac831ba222e72ae7e7e5e8",
+      "cosine": 0.8208578824996948,
+      "render_inference_seconds": 9.684356142999604
+    },
+    {
+      "object_id": "BIA_Porcelain_Ramekin_With_Glazed_Rim_35_45_oz_cup",
+      "split": "train",
+      "observation_semantic_sha256": "7ea29d79196b53aa564e240407249cccbecaa5e2edd6fff8df48c4f1efdfe7de",
+      "mesh_sha256": "682ca799ee991946d66df25af544e8a33fc4ce8f48a2b8635b4fe2dca82843c5",
+      "cosine": 0.864700973033905,
+      "render_inference_seconds": 9.414855881999756
+    },
+    {
+      "object_id": "Big_Dot_Aqua_Pencil_Case",
+      "split": "train",
+      "observation_semantic_sha256": "ad03cc1ff5c5289c75acca51eb511213d6b92b0eb80aa2102cee6adeac21563c",
+      "mesh_sha256": "1dd3b0961078659a0bfa8e282db5c0a607b865f852bfbb140f22342cd5703bbe",
+      "cosine": 0.7651265859603882,
+      "render_inference_seconds": 11.711598981000861
+    },
+    {
+      "object_id": "BlackBlack_Nintendo_3DSXL",
+      "split": "train",
+      "observation_semantic_sha256": "60c45aec994b1cf0e4eba0647501d670af9bef8fc611885681de74c8c31e5bda",
+      "mesh_sha256": "f4f2585188d661d9dde9f1da9d9fa2e86edcf8bd38d2b2767fa686c3bb3d269d",
+      "cosine": 0.7769550085067749,
+      "render_inference_seconds": 11.11192047899931
+    },
+    {
+      "object_id": "2_of_Jenga_Classic_Game",
+      "split": "train",
+      "observation_semantic_sha256": "2c6dc685e2f2b6dae72ead5b7001b102472bc65c1e90d612fbaa68ddda85f08e",
+      "mesh_sha256": "daf137bbde52a971e990bd45550157722b708c31cee1bd7a933212c97db53361",
+      "cosine": 0.8160620331764221,
+      "render_inference_seconds": 8.771888923998631
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "split": "validation",
+      "observation_semantic_sha256": "45f47ce951341b51ceea62fc599cd316dbef1e648e7eecf1249d7661506d122b",
+      "mesh_sha256": "371ddd325335933ea586a13bcd8c10bf5a3f7e351506b0d8bf5b106b9b0d3140",
+      "cosine": 0.8451870679855347,
+      "render_inference_seconds": 11.472290298001099
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "split": "validation",
+      "observation_semantic_sha256": "a33fd12b4e57d3530040953388c6662b27d3443babb3238c5c95831260215c40",
+      "mesh_sha256": "64c57f5c17af4427587b195e585a3db2ab48414c0de1bc3f112806b62562e150",
+      "cosine": 0.8495205640792847,
+      "render_inference_seconds": 10.203099389000272
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "split": "validation",
+      "observation_semantic_sha256": "3cb1c0a20d16a89f29909a9e67240b672c54f39adf20d72d1456b6dcd32d67c6",
+      "mesh_sha256": "b2f2a5d48dcb41600f4cfe1a077a00f2e4a62786eef7f8f485e4838f79f42422",
+      "cosine": 0.6959328651428223,
+      "render_inference_seconds": 7.935862956999699
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "split": "validation",
+      "observation_semantic_sha256": "59a7b06184a072c9d81e739045500ad513bb3561ac57ea491dbc608a2d812693",
+      "mesh_sha256": "0d1ea7e70569594014b9e264f385d1479ab61c78c63b38c4a4807c9cca48eeb5",
+      "cosine": 0.8712324500083923,
+      "render_inference_seconds": 5.921499390999088
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "split": "validation",
+      "observation_semantic_sha256": "d8fc96236efc416338719a473d762a3a1a5abd40828fb7000f0b06f717ff8fb2",
+      "mesh_sha256": "ad5526980dc3d431a1d3dd270de28b26d42f8fc2a4be5becf47c8059ca6d83a5",
+      "cosine": 0.8359273672103882,
+      "render_inference_seconds": 2.649982037999507
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "split": "validation",
+      "observation_semantic_sha256": "7220a848fba4cff3930d06f5dbe15354118fe3bed6bee7b78082da326085649d",
+      "mesh_sha256": "749b94ea1d36c1d0546726e88ebb630da4c3d635c928669cb0ff44e7db194d92",
+      "cosine": 0.8708770871162415,
+      "render_inference_seconds": 6.724857761000749
+    }
+  ]
+}
