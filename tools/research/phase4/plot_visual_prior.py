@@ -14,11 +14,16 @@ LABELS = {'default': 'Orden por defecto', 'random_expectation': 'Azar (esperado)
           'visual:openclip': '3 vecinos OpenCLIP', 'visual:dinov2': '3 vecinos DINOv2',
           'visual:dinov3': '3 vecinos DINOv3', 'gate:dinov3': 'DINOv3 entre 6 de tamaño parecido',
           'fusion:dinov3': 'DINOv3 + tamaño (fusión de puestos)',
+          'visual:vit-random-metric': '3 vecinos ViT aleatorio, con escala',
+          'visual:dinov2-metric': '3 vecinos DINOv2, con escala', 'visual:dinov3-metric': '3 vecinos DINOv3, con escala',
+          'fusion:dinov3-metric': 'DINOv3 con escala + tamaño',
           'self': 'Sus propios agarres (techo)'}
 SHORT = {'box': 'tamaño', 'pooled': 'todas', 'default': 'defecto', 'visual:dinov3': 'DINOv3',
          'visual:dinov2': 'DINOv2', 'visual:openclip': 'OpenCLIP', 'visual:vit-random': 'ViT aleatorio',
          'fusion:dinov3': 'DINOv3 + tamaño', 'fusion:vit-random': 'ViT aleatorio + tamaño',
-         'gate:dinov3': 'DINOv3 entre 6 por tamaño'}
+         'gate:dinov3': 'DINOv3 entre 6 por tamaño', 'visual:dinov3-metric': 'DINOv3 esc.',
+         'fusion:dinov3-metric': 'DINOv3 esc. + tamaño', 'visual:vit-random-metric': 'ViT aleat. esc.',
+         'visual:dinov2-metric': 'DINOv2 esc.'}
 INK, MUTED, GRID = '#191919', '#666666', '#e6e6e6'
 BLUE, ORANGE, GRAY = '#257de0', '#f47230', '#9c9c9c'
 
@@ -110,12 +115,13 @@ def forest(ax, analysis, wanted):
     ax.set_yticks(y, [f"{SHORT.get(c['a'], c['a'])} ÷ {SHORT.get(c['b'], c['b'])}" for c in rows], color=INK)
     ax.set_xscale('log')
     lo = min(c['ci95'][0] for c in rows); hi = max(c['ci95'][1] for c in rows)
-    ax.set_xlim(lo/1.3, hi*6)
+    ax.set_xlim(lo/1.3, hi*5)
     ticks = [t for t in (.1, .2, .5, 1, 2, 5, 10) if lo/1.3 <= t <= hi*6]
     ax.set_xticks(ticks, [f'{t:g}' for t in ticks]); ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
     ax.grid(axis='x', color=GRID, lw=.6); ax.set_axisbelow(True)
-    ax.set_xlabel('Cociente por pieza: media geométrica e IC bootstrap 95 %\n'
-                  '(texto: cociente [IC]  piezas mejor/igual/peor)', color=MUTED, fontsize=8.5)
+    note = '; esc. = con escala' if any('-metric' in c['a'] for c in rows) else ''
+    ax.set_xlabel('Cociente por pieza: media geométrica, IC bootstrap 95 %\n'
+                  f'(texto: cociente [IC]  mejor/igual/peor{note})', color=MUTED, fontsize=8)
     ax.set_title('Contrastes del protocolo (naranja: principales)', fontsize=10, color=INK, loc='left')
 
 

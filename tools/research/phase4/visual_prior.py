@@ -48,16 +48,27 @@ def library(a):
     Path(a.out).write_text(json.dumps(dict(format='axisforge-visual-library', version=1, parts=entries)) + '\n')
 
 
+def merge(a):
+    parts = [e for path in a.library for e in load_library(path)]
+    names = [e['name'] for e in parts]
+    if len(set(names)) != len(names):
+        raise SystemExit('the libraries share parts')
+    save_library(parts, a.out)
+
+
 def add_descriptors(a):
+    save_library(vp.add_descriptors(load_library(a.library), vp.read_descriptors(a.descriptors)), a.out)
+
+
+def save_library(parts, out):
     import gzip
-    parts = vp.add_descriptors(load_library(a.library), vp.read_descriptors(a.descriptors))
     text = json.dumps(dict(format='axisforge-visual-library', version=1, parts=parts)) + '\n'
-    if a.out.endswith('.gz'):
-        with gzip.open(a.out, 'wt') as f:
+    if out.endswith('.gz'):
+        with gzip.open(out, 'wt') as f:
             f.write(text)
     else:
-        Path(a.out).write_text(text)
-    print(f'{len(parts)} parts -> {a.out}')
+        Path(out).write_text(text)
+    print(f'{len(parts)} parts -> {out}')
 
 
 def load_library(path):
@@ -126,6 +137,8 @@ def main():
     v.add_argument('--size', type=int, default=vp.SIZE, help='image side, pixels')
     v.add_argument('--distance', type=float, help='fixed camera distance, metres (keeps scale); '
                    '1.5 box diagonals when omitted (normalises scale)')
+    mg = sub.add_parser('merge', help='join libraries of different parts into one')
+    mg.add_argument('--library', action='append', required=True); mg.add_argument('--out', required=True)
     ad = sub.add_parser('add-descriptors', help='attach descriptors to a library without solving again')
     ad.add_argument('--library', required=True); ad.add_argument('--descriptors', action='append', required=True)
     ad.add_argument('--out', required=True)
@@ -157,7 +170,7 @@ def main():
         p.error('prior takes exactly one --part')
     dict(views=lambda: vp.write_views(a.part, a.out, log=lambda *x: print(*x, flush=True), size=a.size,
                                       distance=a.distance),
-         **{'add-descriptors': lambda: add_descriptors(a)}, encode=lambda: encode(a), library=lambda: library(a),
+         **{'add-descriptors': lambda: add_descriptors(a)}, merge=lambda: merge(a), encode=lambda: encode(a), library=lambda: library(a),
          prior=lambda: prior(a), evaluate=lambda: evaluate(a))[a.command]()
 
 

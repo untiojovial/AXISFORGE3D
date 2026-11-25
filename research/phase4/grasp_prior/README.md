@@ -8,8 +8,13 @@ del planificador nativo de agarres. La evaluación deja fuera una pieza cada vez
 > de forma medible** al tamaño solo (0,98 [0,72–1,36]) ni a DINOv3 solo (0,91 [0,71–1,15]). Lo robusto es
 > que transferir agarres de piezas parecidas reduce a menos de la mitad los candidatos examinados frente al
 > orden por defecto (tamaño 0,40, DINOv3 + tamaño 0,39, DINOv3 0,43). Las vistas de la Fase III no ven la
-> escala, y en esta celda lo que manda es el tamaño. Lo que sigue es la evaluación de desarrollo, con 16
-> piezas YCB.
+> escala, y en esta celda lo que manda es el tamaño.
+>
+> **Segunda prueba, con renders que conservan la escala ([informe](scale/README.md)).** Otras 50 piezas nuevas
+> (39 con agarre viable) y un protocolo nuevo fijado antes. Que la cámara esté a la misma distancia para todas
+> las piezas no ayuda: DINOv3 con escala da 1,24 [0,85–1,85] frente al tamaño y 1,14 [0,89–1,48] frente al
+> DINOv3 normalizado. El tamaño de caja vuelve a ser lo mejor medido (0,37 [0,19–0,67] frente al orden por
+> defecto). Lo que sigue es la evaluación de desarrollo, con 16 piezas YCB.
 
 ## Qué hace
 
