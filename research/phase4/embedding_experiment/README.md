@@ -17,3 +17,11 @@ Las señales locales cambian la AUC media exploratoria en +.01047 respecto a geo
 [Trayectorias y predicciones](openclip_analysis.json) · [Resumen verificable](summary.json) · [Figura](openclip_panel.png) · [Dos ejecuciones y sus hashes](../automation/openclip_reproduction.json)
 
 La reconstrucción de las entradas de geometría, visibilidad y etiquetas se puede ejecutar mediante `python -m research_grasping.phase4.portable_panel --data DATA --binary ORACULO_FASE_III --out DIRECTORIO`. El importador contrasta el ZIP original, el sello independiente de las imágenes y las identidades del modelo. Los resultados de un tercero requieren replicación independiente de la inferencia. El notebook incluye el trabajo de imágenes de desarrollo, atribuido a Google Scanned Objects (Downs et al., 2022) y a la adaptación MuJoCo de Kevin Zakka, CC BY 4.0. [Procedencia del conjunto](../../phase3/dataset/README.md)
+
+## Descargar los embeddings medidos
+
+El [bundle OpenCLIP de desarrollo](openclip_development.zip) contiene el índice de procedencia y los 22 archivos de características numéricas de las vistas. SHA-256 del ZIP: `6fe723e9b9b28b9a29500a4ecf2bd76102fd7cdddd7d6a302e0001bf05317610`. Se generó a partir de las vistas de Google Scanned Objects (Downs et al., 2022), adaptación MuJoCo de Kevin Zakka, y se distribuye con esa atribución bajo CC BY 4.0 para los datos derivados. Se utilizó OpenCLIP de ML Foundations con el checkpoint oficial ViT-B/32 QuickGELU LAION-400M E31. Los pesos, activos originales y credenciales no forman parte del archivo. [Licencia del origen](https://github.com/kevinzakka/mujoco_scanned_objects/tree/6ff8d275cebfd5b47e49685e3cfbe64b20e49a3c) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [OpenCLIP](https://github.com/mlfoundations/open_clip)
+
+```bash
+PYTHONPATH=. python tools/research/phase4/import_embedding_bundle.py --job research/phase4/embedding_experiment/development-images.zip --bundle research/phase4/embedding_experiment/openclip_development.zip --destination /tmp/phase4-openclip-import --analysis-out /tmp/phase4-openclip-analysis.json
+```
