@@ -23,7 +23,7 @@ Stated plainly, so nobody has to discover it.
 | URDF import | Done. STL, OBJ and COLLADA meshes. FK checked against an independent reference and against the UR5's published DH parameters. |
 | Simox robot and object XML import | Done. Open Inventor (`.iv`) meshes are not read. |
 | Mesh reading: binary and ASCII STL, OBJ, COLLADA | Done. COLLADA keeps material colours and scene transforms; checked against separately modelled meshes (`tools/verify`). |
-| Collision pieces | Done for closed shells: a mesh collides as one hull per closed shell, or one hull when any shell is open. |
+| Collision pieces | Done: a closed mesh collides as its shells, each cut into convex pieces where concave (conservative: the pieces' hulls contain the solid); an open mesh collides as one hull. |
 | Service, CLI, WebAssembly build, browser viewer | Done |
 
 ## Known limits
@@ -38,9 +38,11 @@ Stated plainly, so nobody has to discover it.
   number of joint-space samples, not continuously.
 - **Pick only.** There is no place planning, no transport path planning between
   cells, and no trajectory timing.
-- **Concave parts collide as hulls.** A mesh part collides as the convex hull
-  of each closed shell, so a gripper reaching into a concavity (a mug's
-  handle, between a clamp's jaws) is rejected even where it would fit.
+- **Approximate decomposition.** Concave closed meshes are cut into at most
+  12 convex pieces per shell; the pieces' hulls still exceed the solid
+  somewhat (a fifth to a half of the original excess on the YCB tools), so
+  a very tight reach into a hollow can still be refused. Open meshes are
+  not decomposed.
 - **Pad contact model.** The pads are flat and rigid apart from a contact
   tolerance (0.3 mm by default) standing in for their compliance; contacts
   are capped at six per pad, which can only understate quality.
@@ -49,10 +51,8 @@ Stated plainly, so nobody has to discover it.
   are drawn as a skeleton and are not collision-checked. The engine lists
   them (`linksWithoutCollision`), the viewer's contact badge and plan verdict
   say so, and the CLI warns on `plan`.
-- **Concave meshes** collide as the convex hull of each closed shell: extra
-  contacts are possible, missed ones are not. A single concave shell is not
-  decomposed further. COLLADA `up_axis` is not applied (ROS tools do not
-  either); a file declaring another axis gets a warning.
+- **COLLADA `up_axis`** is not applied (ROS tools do not either); a file
+  declaring another axis gets a warning.
 - **Import scope.** Robots with more than six manipulator axes are refused;
   floating and planar joints are refused; `mimic` joints become independent,
   with a warning.
@@ -65,7 +65,6 @@ could be pushed, and they have not been rebuilt:
 
 - Tauri desktop shell and the React/Zustand editor (undo/redo, inspector).
 - URDF export.
-- Convex decomposition of a single concave shell.
 - Open Inventor (`.iv`) mesh reading.
 - Additional IK solvers (pseudoinverse, CCD).
 - Robot Doctor diagnostics.

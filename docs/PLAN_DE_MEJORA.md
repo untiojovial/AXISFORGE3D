@@ -125,13 +125,17 @@ de agarres guardados y la ventosa siguen pendientes.**
 - Banco YCB (los 16 objetos de GRASPA, detalle en `tools/verify/README.md`):
   la síntesis encuentra agarres con cierre de fuerza que caben en la pinza
   en 15 de 16 (la que falta es una lata de 102 mm que la pinza de 80 mm no
-  puede coger); el brazo de demostración recoge 9. Fallan por su alcance,
-  por piezas más anchas que la carrera y por piezas planas o cóncavas, que
-  chocan como su envolvente convexa.
+  puede coger); el brazo de demostración recoge 12. Las cuatro que no
+  recoge fallan por su alcance (caja de 21 cm de alto, martillo tumbado) o
+  por ser latas más anchas que la carrera.
+- Descomposición convexa de las mallas de colisión cóncavas, conservadora
+  (los cascos de las piezas contienen todo el sólido, no solo su
+  superficie): el hueco entre el modelo de colisión y el sólido baja, por
+  ejemplo, de 574 a 34 cm³ en el martillo y de 94 a 17 cm³ en el plátano, y
+  el brazo pasa de recoger 9 objetos YCB a 12.
 - Pendiente: ejecutar GraspStudio con parámetros equivalentes y comparar en
-  veinte piezas (exige compilar Simox con Qt y Coin3D); descomposición
-  convexa de cáscaras cóncavas, que es lo que más agarres reales recuperaría;
-  manos de varios dedos, preformas, conjuntos de agarres guardados y ventosa.
+  veinte piezas (exige compilar Simox con Qt y Coin3D); manos de varios
+  dedos, preformas, conjuntos de agarres guardados y ventosa.
 
 ### Fase 3. Movimiento completo (L)
 
@@ -265,7 +269,7 @@ biblioteca). Leer sus formatos de archivo no tiene esa carga.
 | --- | --- | --- |
 | El modelo de contacto no predice la realidad | Agarres "buenos" que fallan | Validación con hardware desde la fase 3; publicar el margen |
 | Envolvente convexa 6D lenta con muchos contactos | Planificación lenta con mallas | Ya se mide una vez por conjunto de contactos; reducir contactos por agrupación; medir antes de optimizar |
-| Piezas cóncavas | Colisión y contactos incorrectos | Ya se separan las cáscaras cerradas; falta descomponer una cáscara cóncava. Hasta entonces la envolvente da choques de más, nunca de menos |
+| Piezas cóncavas | Colisión y contactos incorrectos | Descomposición convexa conservadora de las mallas cerradas; una malla abierta (no estanca) sigue chocando como una sola envolvente |
 | Mallas que no se leen (.iv) | Eslabones sin colisión | Aviso en la etiqueta de contacto y en el plan; leer Open Inventor |
 | Responsabilidad legal por uso en maquinaria | Reclamaciones | Aviso de seguridad en toda salida; revisión legal en la fase 5; no certificar lo que no se ha certificado |
 | Dependencia de una sola persona | Parón | Documentación, pruebas y CI como parte de cada fase |

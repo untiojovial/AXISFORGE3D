@@ -88,34 +88,57 @@ Two questions, kept apart because they test different things:
 
 | Object | Triangles | Fit the stroke | In force closure (judged) | Best epsilon | Picked by the demo arm |
 | --- | --- | --- | --- | --- | --- |
-| Banana | 15 728 | 398 | 69 / 133 | 0.061 | no: concave, approaches hit its hull; out of reach |
+| Banana | 15 728 | 398 | 69 / 133 | 0.061 | yes, 3 plans, 1.0 s (no before decomposition) |
 | Chips can | 42 548 | 36 | 1 / 36 | 0.001 | no: 75 mm, wider than the stroke |
 | Cracker box | 15 728 | 156 | 130 / 156 | 0.070 | no: 21 cm tall, grasps out of reach |
 | Foam brick | 15 728 | 385 | 82 / 129 | 0.189 | yes, 3 plans, 0.8 s |
 | Gelatin box | 15 728 | 317 | 74 / 159 | 0.151 | yes, 3 plans, 1.0 s |
-| Hammer | 65 536 | 279 | 68 / 140 | 0.028 | no: thin and long, out of reach or colliding |
+| Hammer | 65 536 | 279 | 68 / 140 | 0.028 | no: lying flat, its grasps out of the arm's reach |
 | Master chef can | 15 728 | 31 | 0 / 31 | 0 | no: 102 mm, wider than the stroke |
-| Medium clamp | 65 536 | 498 | 60 / 125 | 0.079 | no: concave, approaches hit its hull |
+| Medium clamp | 65 536 | 498 | 60 / 125 | 0.079 | yes, 3 plans, 6.1 s (epsilon 0.006; no before decomposition) |
 | Mustard bottle | 15 728 | 223 | 98 / 223 | 0.050 | yes, 3 plans, 0.5 s (epsilon 0.002: marginal) |
 | Pear | 65 532 | 404 | 113 / 135 | 0.059 | yes, 3 plans, 2.5 s |
 | Potted meat can | 15 728 | 220 | 136 / 220 | 0.116 | yes, 3 plans, 0.5 s |
 | Power drill | 15 728 | 275 | 61 / 138 | 0.031 | yes, 3 plans, 0.4 s (epsilon 0.002: marginal) |
-| Scissors | 15 728 | 333 | 31 / 167 | 0.028 | no: flat, approaches hit its hull; out of reach |
+| Scissors | 15 728 | 333 | 31 / 167 | 0.028 | yes, 2 plans, 3.0 s (epsilon 0.002: marginal; no before decomposition) |
 | Strawberry | 65 536 | 680 | 136 / 136 | 0.107 | yes, 2 plans, 7.9 s |
 | Tennis ball | 65 536 | 576 | 144 / 144 | 0.079 | yes, 3 plans, 2.9 s |
 | Tomato soup can | 15 728 | 333 | 128 / 167 | 0.139 | yes, 3 plans, 0.7 s |
 
 Synthesis finds force-closure grasps for 15 of the 16; the one without is
-the 102 mm can, which this gripper cannot hold at all. The demo arm picks 9.
-Its failures are its own reach (the cracker box), parts wider than the
-stroke, and thin or concave parts, which collide as their convex hull: a
-finger that would fit beside a banana's curve or between a clamp's jaws
-meets the hull instead. Times are native, single-threaded.
+the 102 mm can, which this gripper cannot hold at all. The demo arm picks
+12. Before concave collision meshes were decomposed it picked 9: the
+banana, clamp and scissors collided as single convex hulls, and a finger
+that fits beside a banana's curve or between a clamp's jaws met the hull
+instead. The four it still cannot pick fail on its own reach (the cracker
+box, 21 cm tall, and the hammer lying flat) and on cans wider than the
+stroke. The synthesis column is the same with and without decomposition,
+within the sampling. Times are native, single-threaded.
+
+## Convex decomposition, recorded on 2026-11-25
+
+Space between a part's collision model and its solid, which is where a
+finger can be wrongly refused; the solid is the closed mesh's volume:
+
+| YCB mesh | Solid | One hull | Decomposed hulls | Pieces | Time |
+| --- | --- | --- | --- | --- | --- |
+| Hammer | 258.9 cm3 | +574.4 | +33.8 | 5 | 346 ms |
+| Power drill | 580.0 cm3 | +707.2 | +73.7 | 5 | 148 ms |
+| Banana | 171.4 cm3 | +93.7 | +16.7 | 3 | 128 ms |
+| Medium clamp | 22.4 cm3 | +53.2 | +21.5 | 4 | 297 ms |
+| Scissors | 46.6 cm3 | +82.1 | +34.8 | 4 | 138 ms |
+| Mustard bottle | 611.7 cm3 | +86.9 | not cut | 1 | 26 ms |
+| Tennis ball | 156.0 cm3 | +0.7 | not cut | 1 | 86 ms |
+| Cracker box | 2172.7 cm3 | +132.6 | not cut | 1 | 25 ms |
+
+The decomposed hulls still contain the whole solid: a unit test fills a
+U-shaped block with 4000 random points and finds every one inside some
+piece's hull, which only holds because cell corners inside the solid are
+added to the pieces (cutting a block into octants would otherwise leave
+its centre uncovered).
 
 `GraspStudio` itself was not run for comparison: it needs Simox built with
 its Qt and Coin3D dependencies. The phase 2 acceptance criterion, a
 comparison on twenty parts, is therefore not yet met. `ycb_pick.sh` repeats
-the pick column with the command line alone and no candidate limit: every
-candidate of the seven that fail is examined, and the result is the same
-nine.
+the pick column with the command line alone and no candidate limit.
 
