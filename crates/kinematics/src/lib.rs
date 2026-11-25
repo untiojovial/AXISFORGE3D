@@ -26,7 +26,7 @@ pub mod orientation;
 pub mod rng;
 
 pub use cancel::{CancellationToken, Completion};
-pub use fk::{forward_kinematics, frame_pose, tool_pose, Pose};
+pub use fk::{forward_kinematics, forward_kinematics_unchecked, frame_pose, tool_pose, Pose};
 pub use ik::{IkOptions, IkSolution};
 pub use jacobian::{conditioning, jacobian, ConditioningReport, Jacobian, TaskSpace};
 pub use model::{FrameNode, JointNode, KinematicModel, LinkNode};

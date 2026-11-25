@@ -119,6 +119,7 @@ version = "0.2.0"
 dependencies = [
  "axisforge-collision",
  "axisforge-domain",
+ "axisforge-geometry",
  "axisforge-kinematics",
  "serde",
  "serde_json",

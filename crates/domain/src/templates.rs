@@ -812,7 +812,7 @@ pub fn six_axis() -> DomainResult<RobotSystem> {
                 .with_link(0.12, 0.04)
                 .with_mass(1.4),
             // Wrist pitch.
-            AxisSpec::revolute_z("axis 5", Vec3::new(0.0, 0.0, 0.12), 2.0)?
+            AxisSpec::revolute_z("axis 5", Vec3::new(0.0, 0.0, 0.12), 2.2)?
                 .with_axis(Vec3::Y)
                 .with_link(0.1, 0.035)
                 .with_mass(1.0),
@@ -868,7 +868,7 @@ pub fn six_axis_with(kind: GripperKind) -> DomainResult<RobotSystem> {
             attach_parallel_gripper(&mut robot, &flange_id, &GripperSpec::default())?;
         }
         GripperKind::ThreeFinger => {
-            attach_three_finger_gripper(&mut robot, &flange_id, &HandSpec::three_finger_gripper())?
+            attach_three_finger_gripper(&mut robot, &flange_id, &HandSpec::three_finger_gripper())?;
         }
         GripperKind::Hand => {
             attach_three_finger_hand(&mut robot, &flange_id, &HandSpec::three_finger_hand())?;

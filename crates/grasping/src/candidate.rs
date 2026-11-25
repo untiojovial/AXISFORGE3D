@@ -88,6 +88,9 @@ pub struct GraspCandidate {
     /// along a line, one on a sphere.
     #[serde(default)]
     pub contacts: Vec<ContactPoint>,
+    /// For a hand: the finger postures. `None` for a parallel-jaw grasp.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub hand: Option<crate::hand::HandGrasp>,
 }
 
 impl GraspCandidate {
@@ -212,6 +215,7 @@ impl Builder<'_> {
                         .sub(&closing_local.scaled(local_center.dot(&closing_local)))
                         .norm(),
                     contacts,
+                    hand: None,
                 });
             }
         }

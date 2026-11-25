@@ -66,9 +66,9 @@ impl HandSpec {
     pub fn three_finger_hand() -> Self {
         Self {
             name: "hand".to_owned(),
-            palm_radius: 0.045,
-            palm_length: 0.06,
-            finger_length: 0.09,
+            palm_radius: 0.042,
+            palm_length: 0.045,
+            finger_length: 0.08,
             finger_width: 0.018,
             finger_thickness: 0.016,
             max_opening: 0.11,

@@ -48,6 +48,7 @@
 )]
 
 pub mod candidate;
+pub mod hand;
 pub mod hull;
 pub mod planner;
 pub mod quality;
@@ -56,6 +57,7 @@ pub mod surface;
 pub mod wrench;
 
 pub use candidate::{synthesize, GraspCandidate, SynthesisOptions};
+pub use hand::{synthesize_hand, Hand, HandGrasp, HandSynthesis, HAND_GENERATOR};
 pub use planner::{
     plan_pick, plan_pick_with, GraspPlan, PlanReport, PlannerOptions, Rejection, RejectionReason,
     AUTO_GENERATOR,

@@ -171,6 +171,23 @@ struct Closest {
 /// their cores, which is exact: the Minkowski sum of a convex body and a ball
 /// of radius `r` is that body's surface pushed out by `r` in every direction.
 pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
+    distance_to_tolerance(a, b, 0.0)
+}
+
+/// [`distance`], stopping as soon as the distance is known to within
+/// `tolerance` metres.
+///
+/// The reported distance is then the upper end of the bracket: the true
+/// distance is at least `distance - tolerance`. On curved cores, where the
+/// iteration converges slowly, a tolerance of a micrometre costs a fraction
+/// of the iterations of the full-precision query; a caller that only needs a
+/// certified lower bound subtracts the tolerance itself.
+pub fn distance_to_tolerance(a: &ConvexBody, b: &ConvexBody, tolerance: f64) -> Distance {
+    let tolerance = if tolerance.is_finite() {
+        tolerance.max(0.0)
+    } else {
+        0.0
+    };
     // Seed the search with the vector between the bodies' origins. Any
     // direction works, but this one usually lands within a couple of
     // iterations of the answer.
@@ -226,7 +243,7 @@ pub fn distance(a: &ConvexBody, b: &ConvexBody) -> Distance {
             // the gap. The tolerance scales with the largest support point
             // seen, because the bound is computed from it and its rounding
             // error grows with its magnitude, not with the distance.
-            if upper - lower_bound <= RELATIVE_TOLERANCE * upper.max(reach) {
+            if upper - lower_bound <= (RELATIVE_TOLERANCE * upper.max(reach)).max(tolerance) {
                 status = GjkStatus::Separated;
                 break;
             }

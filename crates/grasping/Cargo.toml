@@ -15,6 +15,7 @@ unsafe_code = "deny"
 axisforge-domain = { workspace = true }
 axisforge-kinematics = { workspace = true }
 axisforge-collision = { workspace = true }
+axisforge-geometry = { workspace = true }
 serde = { workspace = true }
 
 [dev-dependencies]

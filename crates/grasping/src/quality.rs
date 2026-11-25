@@ -252,13 +252,23 @@ fn basics(input: &QualityInput<'_>) -> Basics {
     let (candidate, gripper) = (input.candidate, input.gripper);
     let friction = input.friction_coefficient();
     let width_margin = gripper.max_opening - candidate.width;
-    // Weight along the closing line is carried by a jaw directly; only the
-    // part across it loads the friction at the two pads.
-    let along = input.up.dot(&candidate.closing);
-    let tangential =
-        input.body.physical.mass * STANDARD_GRAVITY * (1.0 - along * along).max(0.0).sqrt();
-    let required_grip_force =
-        (friction > 0.0).then(|| GRIP_SAFETY_FACTOR * tangential / (2.0 * friction));
+    let weight = input.body.physical.mass * STANDARD_GRAVITY;
+    let required_grip_force = if let Some(hand) = &candidate.hand {
+        // A hand: every touching finger presses with the force asked of it,
+        // and friction at those fingers alone carries the whole weight, which
+        // ignores any finger the part rests on.
+        (friction > 0.0 && hand.fingers_in_contact > 0).then(|| {
+            #[allow(clippy::cast_precision_loss)]
+            let fingers = hand.fingers_in_contact as f64;
+            GRIP_SAFETY_FACTOR * weight / (fingers * friction)
+        })
+    } else {
+        // Weight along the closing line is carried by a jaw directly; only
+        // the part across it loads the friction at the two pads.
+        let along = input.up.dot(&candidate.closing);
+        let tangential = weight * (1.0 - along * along).max(0.0).sqrt();
+        (friction > 0.0).then(|| GRIP_SAFETY_FACTOR * tangential / (2.0 * friction))
+    };
     let grip_force_sufficient =
         required_grip_force.is_some_and(|force| force <= gripper.max_grip_force);
     let unit = |value: f64| value.clamp(0.0, 1.0);

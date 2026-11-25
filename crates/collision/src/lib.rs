@@ -30,6 +30,9 @@
 
 use std::collections::{BTreeMap, BTreeSet};
 
+pub mod motion;
+pub use motion::MotionBounds;
+
 use axisforge_domain::{
     DomainError, DomainResult, GeometryInstance, Project, Shape, Transform, Vec3, GROUND_OWNER_ID,
 };

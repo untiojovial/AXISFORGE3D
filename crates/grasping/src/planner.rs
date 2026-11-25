@@ -35,6 +35,7 @@ use axisforge_kinematics::{forward_kinematics, ik, CancellationToken, IkOptions,
 use serde::{Deserialize, Serialize};
 
 use crate::candidate::{GraspCandidate, SynthesisOptions};
+use crate::hand::{synthesize_hand, HandSynthesis, HAND_GENERATOR};
 use crate::quality::{
     evaluate, grip_load, preliminary_score, primitive_frame, GraspQuality, QualityInput,
     QualityMeasure,
@@ -73,7 +74,9 @@ pub struct PlannerOptions {
     pub quality_measure: String,
     /// Name of the candidate generator, from the extension registry, or
     /// `auto`: `primitive_antipodal` for a part that is a single primitive,
-    /// `surface_normal` for anything else. The report names the one used.
+    /// `surface_normal` for anything else, and for a hand
+    /// [`crate::hand::HAND_GENERATOR`], the only one a hand can use. The
+    /// report names the one used.
     pub candidate_generator: String,
     /// Contact model: unit force, friction coefficient, friction-cone samples.
     pub quality: WrenchOptions,
@@ -97,6 +100,9 @@ pub struct PlannerOptions {
     pub contact_tolerance: f64,
     /// Inverse-kinematics settings for the pre-grasp solve.
     pub ik: IkOptions,
+    /// For a hand, the preshape to approach in; the gripper's first when
+    /// unset. Ignored by a parallel-jaw gripper.
+    pub preshape: Option<String>,
 }
 
 impl Default for PlannerOptions {
@@ -122,6 +128,7 @@ impl Default for PlannerOptions {
                 restarts: 6,
                 ..IkOptions::default()
             },
+            preshape: None,
         }
     }
 }
@@ -318,6 +325,35 @@ impl Context<'_> {
         out
     }
 
+    /// `values` with the fingers as a hand candidate holds them: approaching
+    /// when `closed` is false, on the part when it is true.
+    fn with_fingers(
+        &self,
+        values: &[f64],
+        hand: &crate::hand::HandGrasp,
+        closed: bool,
+    ) -> Vec<f64> {
+        let mut out = values.to_vec();
+        let posture = if closed { &hand.closed } else { &hand.open };
+        for (jaw, value) in self.jaws.iter().zip(posture) {
+            out[*jaw] = *value;
+        }
+        out
+    }
+
+    /// The opening to approach with and `seed` with the fingers posed for it.
+    fn approaching(&self, candidate: &GraspCandidate, seed: &[f64]) -> (f64, Vec<f64>) {
+        if let Some(hand) = &candidate.hand {
+            (
+                self.gripper.max_opening,
+                self.with_fingers(seed, hand, false),
+            )
+        } else {
+            let opening = candidate.width + 2.0 * self.options.jaw_clearance;
+            (opening, self.with_jaws(seed, opening))
+        }
+    }
+
     /// World pose of the grasp frame that realizes a candidate.
     fn grasp_pose(&self, candidate: &GraspCandidate) -> DomainResult<Transform> {
         let local = axisforge_domain::Quat::from_basis(
@@ -417,7 +453,11 @@ impl Context<'_> {
     /// stroke and grip force.
     fn gate(&self, candidate: &GraspCandidate) -> Result<(), Fail> {
         let options = self.options;
-        if candidate.width + 2.0 * options.jaw_clearance > self.gripper.max_opening {
+        // A hand's fingers were closed on the part when the candidate was
+        // made; there is no stroke to compare with.
+        if candidate.hand.is_none()
+            && candidate.width + 2.0 * options.jaw_clearance > self.gripper.max_opening
+        {
             return Err((
                 RejectionReason::TooWide,
                 format!(
@@ -491,8 +531,7 @@ impl Context<'_> {
         }
 
         let grasp_pose = self.grasp_pose(candidate)?;
-        let approach_opening = candidate.width + 2.0 * options.jaw_clearance;
-        let open_seed = self.with_jaws(seed, approach_opening);
+        let (approach_opening, open_seed) = self.approaching(candidate, seed);
         let back = Vec3::ZERO.sub(&candidate.approach.scaled(options.standoff));
         let pregrasp_pose = Transform::new(grasp_pose.translation.add(&back), grasp_pose.rotation);
         let lift_pose = Transform::new(
@@ -518,7 +557,11 @@ impl Context<'_> {
                 "no IK solution continuing from the pre-grasp".to_owned(),
             )));
         };
-        let grasp_closed = self.with_jaws(&grasp_open, candidate.width);
+        let grasp_closed = match &candidate.hand {
+            Some(hand) => self.with_fingers(&grasp_open, hand, true),
+            None => self.with_jaws(&grasp_open, candidate.width),
+        };
+
         let Some(lift) = self.reach(&lift_pose, &grasp_closed, true)? else {
             return Ok(Err((
                 RejectionReason::LiftUnreachable,
@@ -676,6 +719,68 @@ fn search(
     Ok(())
 }
 
+/// What a hand synthesis takes from the planner's options.
+fn hand_synthesis(options: &PlannerOptions, seed: u64) -> HandSynthesis {
+    HandSynthesis {
+        surface_samples: options.surface_samples,
+        // Each turn is tried straight and tilted.
+        turns: options.angular_samples.div_ceil(2),
+        contact_tolerance: options.contact_tolerance,
+        seed,
+        preshape: options.preshape.clone(),
+    }
+}
+
+/// The generator for this gripper and part: `None` for a hand, which uses
+/// [`synthesize_hand`].
+fn choose_generator<'r>(
+    registry: &'r Registry,
+    gripper: &Gripper,
+    measure: &dyn QualityMeasure,
+    options: &PlannerOptions,
+    primitive: bool,
+) -> DomainResult<Option<&'r dyn crate::registry::CandidateGenerator>> {
+    let hand = gripper.is_hand();
+    if hand
+        && options.candidate_generator != AUTO_GENERATOR
+        && options.candidate_generator != HAND_GENERATOR
+    {
+        return Err(DomainError::unsupported(format!(
+            "'{}' proposes grasps for two parallel jaws; gripper '{}' is a hand, which uses \
+             '{HAND_GENERATOR}' (or 'auto')",
+            options.candidate_generator, gripper.name
+        )));
+    }
+    if !hand && options.candidate_generator == HAND_GENERATOR {
+        return Err(DomainError::unsupported(format!(
+            "'{HAND_GENERATOR}' closes the fingers of a hand; gripper '{}' has parallel jaws",
+            gripper.name
+        )));
+    }
+    if hand && measure.id() == "antipodal" {
+        return Err(DomainError::unsupported(
+            "the antipodal measure judges two opposed jaws; a hand's contacts are judged with \
+             'wrench_space'"
+                .to_owned(),
+        ));
+    }
+    Ok(if hand {
+        None
+    } else {
+        Some(
+            registry.generator(if options.candidate_generator == AUTO_GENERATOR {
+                if primitive {
+                    "primitive_antipodal"
+                } else {
+                    "surface_normal"
+                }
+            } else {
+                &options.candidate_generator
+            })?,
+        )
+    })
+}
+
 /// Plans picks of the world body `body_id` with the built-in extensions.
 ///
 /// See [`plan_pick_with`].
@@ -731,15 +836,7 @@ pub fn plan_pick_with(
     let primitive = body
         .single_geometry()
         .is_some_and(|g| !matches!(g.shape, Shape::Mesh { .. }));
-    let generator = registry.generator(if options.candidate_generator == AUTO_GENERATOR {
-        if primitive {
-            "primitive_antipodal"
-        } else {
-            "surface_normal"
-        }
-    } else {
-        &options.candidate_generator
-    })?;
+    let generator = choose_generator(registry, gripper, measure, options, primitive)?;
     if !body.is_graspable() {
         return Err(DomainError::unsupported(format!(
             "body '{}' is not marked manipulable, so it is not a pick target",
@@ -797,8 +894,17 @@ pub fn plan_pick_with(
     // needing more force than it has) go after every other: they are
     // rejected cheaply, but each still counts against `maxCandidates`, and a
     // sampled surface yields many of them.
-    let mut ranked: Vec<(f64, GraspCandidate)> = generator
-        .generate(body, &project.resources, &synthesis)?
+    let candidates = match generator {
+        Some(generator) => generator.generate(body, &project.resources, &synthesis)?,
+        None => synthesize_hand(
+            project,
+            &model,
+            body,
+            center_of_mass,
+            &hand_synthesis(options, synthesis.seed),
+        )?,
+    };
+    let mut ranked: Vec<(f64, GraspCandidate)> = candidates
         .into_iter()
         .map(|c| {
             let score = preliminary_score(&context.quality_input(&c));
@@ -819,7 +925,7 @@ pub fn plan_pick_with(
         cancelled: false,
         timed_out: false,
         quality_measure: measure.id().to_owned(),
-        candidate_generator: generator.id().to_owned(),
+        candidate_generator: generator.map_or(HAND_GENERATOR, |g| g.id()).to_owned(),
     };
     search(&context, &ranked, seed, &mut report)?;
     // Candidates were examined in order of a cheap estimate; the plans are

@@ -820,6 +820,7 @@ impl PartSurface {
                     normal_b,
                     center_offset,
                     contacts: contacts.clone(),
+                    hand: None,
                 });
             }
         }
