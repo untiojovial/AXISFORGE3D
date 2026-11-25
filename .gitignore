@@ -5,3 +5,10 @@ dist/
 /build
 *.log
 .DS_Store
+
+# Python research package
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.coverage
+.venv/
