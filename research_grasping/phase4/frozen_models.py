@@ -1,5 +1,5 @@
 """Explicit local-only frozen visual encoders; no implicit downloads."""
-import hashlib
+import json
 from pathlib import Path
 import numpy as np
 from research_grasping.phase3.vision_openclip import CHECKPOINT_SHA256
@@ -47,10 +47,20 @@ class Frozen:
                 patches=result['image_intermediates'][0].permute(0,2,3,1)
         else:
             proc=self.processor
-            if not (proc.do_resize and proc.do_center_crop and isinstance(proc.size,dict) and set(proc.size)=={'shortest_edge'} and isinstance(proc.crop_size,dict)):
+            size=proc.size
+            original=images[0].shape[:2]
+            if not proc.do_resize or not isinstance(size,dict):
+                raise ValueError('unsupported processor geometry')
+            if set(size)=={'height','width'} and not getattr(proc,'do_center_crop',False):
+                crop=(size['height'],size['width'])
+                geometry=dict(origin_size=list(original), resized_size=list(crop), processed_size=list(crop),
+                              pixel_transform=image_affine(original,crop).tolist(),
+                              content_bounds=[-.5,-.5,crop[0]-.5,crop[1]-.5])
+            elif set(size)=={'shortest_edge'} and getattr(proc,'do_center_crop',False) and isinstance(proc.crop_size,dict):
+                crop=(proc.crop_size['height'],proc.crop_size['width'])
+                geometry=_shortest_geometry(images[0].shape,size['shortest_edge'],crop)
+            else:
                 raise ValueError('unsupported processor geometry; no unverified mapping')
-            crop=(proc.crop_size['height'],proc.crop_size['width'])
-            geometry=_shortest_geometry(images[0].shape,proc.size['shortest_edge'],crop)
             batch=proc(images=[Image.fromarray(im) for im in images],return_tensors='pt')
             batch={k:v.to(self.device) for k,v in batch.items()}
             with torch.inference_mode(): output=self.model(**batch).last_hidden_state
@@ -61,7 +71,9 @@ class Frozen:
             if output.shape[1]!=1+registers+gh*gw: raise ValueError('unexpected token layout')
             cls=torch.nn.functional.normalize(output[:,0].float(),dim=-1)
             patches=output[:,1+registers:].reshape(len(images),gh,gw,-1)
-        if tuple(x.shape[-2:]) != (224,224) if self.kind=='openclip' else tuple(batch['pixel_values'].shape[-2:]) != tuple(geometry['processed_size']): raise ValueError('processor size mismatch')
+        pixels=x if self.kind=='openclip' else batch['pixel_values']
+        if tuple(pixels.shape[-2:])!=tuple(geometry['processed_size']):
+            raise ValueError('processor size mismatch')
         if not torch.isfinite(cls).all() or not torch.isfinite(patches).all(): raise ValueError('nonfinite embeddings')
         gh,gw=patches.shape[1:3]; geometry['grid_shape']=[gh,gw]
         return {'global_embeddings':cls.cpu().numpy(),'patch_embeddings':patches.reshape(len(images),gh*gw,-1).cpu().numpy(),'token_geometry':geometry,'provenance':self.provenance}
@@ -82,7 +94,9 @@ def load_frozen(model_kind, checkpoint, config_sha256=None, weights_sha256=None,
         if not all((config_sha256,weights_sha256,processor_sha256)): raise ValueError('all hashes are mandatory')
         if sha256_file(p/'preprocessor_config.json')!=processor_sha256: raise ValueError('processor hash mismatch')
         model=load_local_dino(p,weights_sha256,config_sha256,model_kind,device=device)
-        processor=AutoImageProcessor.from_pretrained(str(p),local_files_only=True,trust_remote_code=False,use_fast=False)
+        processor_type=json.loads((p/'preprocessor_config.json').read_text()).get('image_processor_type','')
+        use_fast=processor_type.endswith('Fast') or processor_type=='DINOv3ViTImageProcessor'
+        processor=AutoImageProcessor.from_pretrained(str(p),local_files_only=True,trust_remote_code=False,use_fast=use_fast)
         provenance={'model_id':model_kind,'config_sha256':config_sha256,'weights_sha256':weights_sha256,'processor_sha256':processor_sha256,'revision':model_revision,'transformers_version':transformers.__version__}
     else: raise ValueError('unsupported model')
     return Frozen(model,processor,model_kind,provenance,device)

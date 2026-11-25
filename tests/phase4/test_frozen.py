@@ -75,3 +75,21 @@ def test_refuses_unfrozen_model_and_unsupported_geometry():
     with pytest.raises(ValueError,match='no longer frozen'): f.encode([image])
     f.model.requires_grad_(False); processor.do_resize=False
     with pytest.raises(ValueError,match='unsupported processor'): f.encode([image])
+
+
+def test_dinov3_native_fast_direct_resize(tmp_path):
+    model=tr.DINOv3ViTModel(tr.DINOv3ViTConfig(image_size=32,patch_size=8,hidden_size=32,
+              num_hidden_layers=1,num_attention_heads=4,intermediate_size=64,num_register_tokens=2))
+    model.save_pretrained(tmp_path,safe_serialization=True)
+    processor=tr.DINOv3ViTImageProcessorFast(size={'height':32,'width':48},do_center_crop=False)
+    processor.save_pretrained(tmp_path)
+    adapter=load_frozen('dinov3',tmp_path,config_sha256=sha256_file(tmp_path/'config.json'),
+              weights_sha256=sha256_file(tmp_path/'model.safetensors'),
+              processor_sha256=sha256_file(tmp_path/'preprocessor_config.json'),model_revision='local-architecture-test')
+    image=np.arange(20*40*3,dtype=np.uint8).reshape(20,40,3)
+    result=adapter.encode([image])
+    geom=result['token_geometry']
+    assert type(adapter.processor).__name__=='DINOv3ViTImageProcessorFast'
+    assert geom['processed_size']==[32,48] and geom['grid_shape']==[4,6]
+    np.testing.assert_allclose(geom['pixel_transform'],[[1.2,0,.1],[0,1.6,.3],[0,0,1]],atol=1e-12)
+    assert result['patch_embeddings'].shape==(1,24,32)

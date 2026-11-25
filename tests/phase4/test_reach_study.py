@@ -207,3 +207,54 @@ def test_resume_rejects_reordered_rows_even_with_recomputed_checksums(tmp_path):
     path.write_text(json.dumps(data))
     with pytest.raises(ValueError,match='candidate IDs mismatch'):
         reach._verified_arm(path,'object','top',entry,'selection')
+
+
+@pytest.mark.parametrize('field,kind,error',[
+    ('object_id','other','provenance'),('arm','random','provenance'),
+    ('catalogue_digest','other','catalogue'),('signature','other','catalogue'),
+    ('selected_ids',['7','9'],'row checksum or selection'),('row_sha256',['0'*64],'row checksum or selection'),
+])
+def test_arm_provenance_rejects_resealed_inconsistency(tmp_path,field,kind,error):
+    import research_grasping.phase4.reach_study as reach
+    entry={'top':['7','8'],'catalogue_digest':'catalog','signature':'signature'}
+    path=tmp_path/'arm.json';reach._save_arm(path,'object','top',entry,'selection',[{'candidate_id':'7','cost':1}])
+    data=json.loads(path.read_text());data[field]=kind
+    data['arm_sha256']=reach.fingerprint({k:v for k,v in data.items() if k!='arm_sha256'})
+    path.write_text(json.dumps(data))
+    with pytest.raises(ValueError,match=error):reach._verified_arm(path,'object','top',entry,'selection')
+
+
+def test_legacy_report_and_record_corruption_rejected(tmp_path,monkeypatch):
+    import research_grasping.phase4.reach_study as reach
+    report=tmp_path/'legacy.json';arm=tmp_path/'legacy-arm.json'
+    record={'object_id':'object','arm':'top','selection_sha256':'s','rows':[{'candidate_id':'7'}]}
+    arm.write_text(json.dumps(record));report.write_text(json.dumps({'selection_sha256':'s','measurement_file_sha256':{arm.name:reach.digest(arm)}}))
+    monkeypatch.setattr(reach,'LEGACY_REPORT',report);monkeypatch.setattr(reach,'LEGACY_REPORT_HASH',reach.digest(report))
+    entry={'top':['7']}
+    assert reach._verified_arm(arm,'object','top',entry,'s')==record
+    arm.write_text(json.dumps(record)+' ')
+    with pytest.raises(ValueError,match='legacy arm checksum'):reach._verified_arm(arm,'object','top',entry,'s')
+    report.write_text(report.read_text()+' ')
+    with pytest.raises(ValueError,match='legacy report seal'):reach._verified_arm(arm,'object','top',entry,'s')
+
+
+def test_reject_nonfinite_prequery_features():
+    import research_grasping.phase4.reach_study as reach
+    cat={'ids':['0'],'features':[[0,0,0,1,0,0,0,1,0,float('nan')]],'candidates':{'0':{'position':[0,0,0]}},'metadata':{'source_bounds_m':[[0,0,0],[1,1,1]]}}
+    with pytest.raises(ValueError,match='invalid prequery features'):reach.features(cat,'0')
+
+
+def test_infrastructure_failure_not_persisted_and_stamp_corruption_blocked(isolated_reach,monkeypatch,tmp_path):
+    reach,work,_=isolated_reach
+    reach.SELECTION.write_bytes((ROOT/'research/phase4/candidates/reach_selection.json').read_bytes())
+    monkeypatch.setattr(reach,'STAMP',tmp_path/'prequery.json')
+    calls=[]
+    def fail(*args,**kwargs):
+        calls.append(1);return {'status':'infrastructure_failure','details':{},'cost':42.0}
+    monkeypatch.setattr(reach,'cached_observation',fail)
+    with pytest.raises(RuntimeError,match='infrastructure failure'):reach.measure()
+    assert len(calls)==1 and not list((work/'reach_results').glob('*.json'))
+    contents=json.loads(reach.STAMP.read_text());contents['selection_sha256']='0'*64
+    reach.STAMP.write_text(json.dumps(contents))
+    with pytest.raises(ValueError,match='stamp mismatch'):reach.measure()
+    assert len(calls)==1

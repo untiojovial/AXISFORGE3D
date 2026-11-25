@@ -1,6 +1,6 @@
 # Reproducción de la fase IV
 
-**Entrada rápida.** El notebook incluye 352 vistas selladas y el código que las procesa. El ZIP de embeddings se puede importar y analizar sin acceder a mallas ni volver a pagar consultas nativas. Para reproducir las figuras de visión usando el resultado que acompaña a la rama basta con Python, NumPy, scikit-learn y Matplotlib. [Notebook](../../notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb) · [Hashes y límites de la prueba local](automation/notebook_cpu.json)
+**Entrada rápida.** El notebook incluye 352 vistas selladas y el código que las procesa. El ZIP de embeddings se puede importar y analizar sin acceder a mallas ni volver a pagar consultas nativas. Para reproducir las figuras de visión se puede usar el resultado que acompaña a la rama. [Notebook](../../notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb) · [Hashes y límites de la prueba local](automation/notebook_cpu.json)
 
 ```bash
 python -m research_grasping.phase4.embedding_report --analysis research/phase4/embedding_experiment/openclip_analysis.json --out /tmp/axisforge-visual-report
@@ -43,6 +43,7 @@ El piloto físico completo fija MuJoCo y admite tres shards con comprobación po
 La suite usa activos locales reales cuando encuentra las variables siguientes. El entorno de esta corrida ejecutó los casos externos. Si faltan activos, pytest explicita las omisiones. Para computar la cobertura de los entrypoints lanzados como subprocesos se usa coverage.py 7.17.5 con su parche de subprocess. El directorio de cobertura debe estar vacío al comenzar cada medición.
 
 ```bash
+export AXISFORGE_BIN="$W/bin/axisforge-phase3"
 export AXISFORGE_OPENCLIP_CHECKPOINT="$D/weights/vit_b_32-quickgelu-laion400m_e31-d867053b.pt"
 export AXISFORGE_PHASE3_DATA="$D" AXISFORGE_PHASE3_GSO=/ruta/mujoco_scanned_objects AXISFORGE_PHASE4_DATA="$W"
 export COVERAGE_RCFILE="$PWD/research/phase4/verification/coverage.ini"

@@ -24,6 +24,9 @@ def run(manifest,catalogs,history,outer_path):
     if old['manifest_sha256']!=digest(manifest):raise ValueError('manifest mismatch')
     local,context,y,objects,ids,sources=load_training(manifest,catalogs,history)
     if old['sources']!=sources:raise ValueError('history/catalogue mismatch')
+    fold_ids=[fold['object_id'] for fold in old['folds']]
+    if len(fold_ids)!=len(set(fold_ids)) or set(fold_ids)!=set(objects):
+        raise ValueError('outer folds must contain every training object exactly once')
     output={'schema':1,'outer_sha256':digest(outer_path),'script_sha256':digest(__file__),'folds':[]}
     for fold in old['folds']:
         start=time.monotonic(); target=fold['object_id']; targets=objects==target

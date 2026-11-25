@@ -160,3 +160,62 @@ def test_retry_rejects_symlink_and_unexpected_file(job, tmp_path):
     feature=dest/index['objects'][0]['file']; copy=tmp_path/'copy.npz'
     copy.write_bytes(feature.read_bytes()); feature.unlink(); feature.symlink_to(copy)
     with pytest.raises(ValueError,match='symlink'): install_bundle(bundle,job,dest)
+
+
+def test_oom_reduces_batches_using_simulated_adapter(job,tmp_path):
+    class SimulatedOOM(Fake):
+        def __init__(self): super().__init__(); self.sizes=[]
+        def encode(self,images):
+            self.sizes.append(len(images))
+            if len(images)>2: raise RuntimeError('CUDA out of memory (simulated)')
+            return super().encode(images)
+    model=SimulatedOOM()
+    state=run_extraction(job,tmp_path/'work',model,model_revision='test',device='cpu',batch_size=8)
+    assert model.sizes[:3]==[8,4,2]
+    assert state['status']=='COMPLETED' and len(state['completed'])==1
+
+
+@pytest.mark.parametrize('change,error',[
+    ('job_hash','job hash'),('duplicate_object','invalid object'),('test_split','invalid object'),
+    ('image_hash','view mismatch'),('image_dimensions','invalid image'),('unexpected','unexpected job'),
+])
+def test_job_guards_with_resealed_mutations(job,tmp_path,change,error):
+    with zipfile.ZipFile(job) as src: data={n:src.read(n) for n in src.namelist()}
+    spec=json.loads(data['job.json']); row=spec['objects'][0]; first=row['views'][0]
+    if change=='duplicate_object':spec['objects'].append(row.copy())
+    elif change=='test_split': row['split']='test'
+    elif change=='image_hash': first['sha256']='0'*64
+    elif change=='image_dimensions':
+        buffer=io.BytesIO(); Image.fromarray(np.zeros((8,8,3),dtype='uint8')).save(buffer,format='PNG')
+        data[first['path']]=buffer.getvalue();first['sha256']=sha_bytes(buffer.getvalue())
+    elif change=='unexpected':data['extra.txt']=b'x'
+    if change!='job_hash': spec.pop('job_id'); spec['job_id']=sha_bytes(canonical(spec))
+    else:spec['job_id']='0'*64
+    data['job.json']=canonical(spec); path=tmp_path/'badjob.zip'
+    with zipfile.ZipFile(path,'w') as z:
+        for name,content in data.items():z.writestr(name,content)
+    with pytest.raises(ValueError,match=error): load_job(path)
+
+
+@pytest.mark.parametrize('change,error',[
+    ('job','bundle/job'),('missing_provenance','missing model provenance'),('config','inconsistent provenance'),
+    ('run_id','run configuration'),('bad_digest','invalid provenance hash'),('object_split','invalid bundle object'),
+    ('missing_object','incomplete or unexpected'),
+])
+def test_bundle_rejects_altered_index(job,tmp_path,change,error):
+    work=tmp_path/'work';bundle=tmp_path/'good.zip';bad=tmp_path/'bad.zip'
+    run_extraction(job,work,Fake(),model_revision='test');export_bundle(job,work,bundle)
+    with zipfile.ZipFile(bundle) as z:data={n:z.read(n) for n in z.namelist()}
+    idx=json.loads(data['index.json'])
+    if change=='job':idx['job_id']='0'*64
+    elif change=='missing_provenance':idx['model_revision']=''
+    elif change=='config':idx['config']['model_id']='different'
+    elif change=='run_id':idx['run_id']='0'*64
+    elif change=='bad_digest':
+        idx['checkpoint_sha256']='not-a-hash';idx['config']['checkpoint_sha256']='not-a-hash';idx['run_id']=sha_bytes(canonical(idx['config']))
+    elif change=='object_split':idx['objects'][0]['split']='test'
+    elif change=='missing_object':idx['objects']=[]
+    data['index.json']=canonical(idx)
+    with zipfile.ZipFile(bad,'w') as z:
+        for name,content in data.items():z.writestr(name,content)
+    with pytest.raises(ValueError,match=error):verify_bundle(bad,job)

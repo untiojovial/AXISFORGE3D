@@ -15,18 +15,28 @@ def summarize(path):
     stats={}
     sets={}
     reference={}
+    required_methods={'random','adaptive','contextual','target_local'}
+    expected_kinds={'geometry','global','local','global_local','random_control'}
+    if set(report['results'])!=expected_kinds: raise ValueError('incomplete representations')
     for kind,block in report['results'].items():
         panel=defaultdict(dict)
         for t in block['trajectories']:
             key=(t['object_id'],t['seed'])
             if key in panel[t['method']]:
                 raise ValueError('duplicate trajectory')
+            if len(t['selected'])!=6 or len(set(t['selected']))!=6 or not np.isfinite(t['auc']):
+                raise ValueError('invalid measured trajectory')
             panel[t['method']][key]=t
-        if set(panel)!=set(('random','adaptive','contextual','target_local')):
+        if set(panel)!=required_methods:
             raise ValueError('incomplete baseline roster')
         keys=set(panel['random'])
-        if len(keys)!=18 or any(set(rs)!=keys for rs in panel.values()):
+        valid=set(block['predictive'])
+        if (len(valid)!=6 or keys!={(n,seed) for n in valid for seed in (11,29,47)}
+                or any(set(rs)!=keys for rs in panel.values())):
             raise ValueError('unpaired trajectories')
+        if any(scores[key]['selected'][:2]!=panel['random'][key]['selected'][:2]
+               for scores in panel.values() for key in keys):
+            raise ValueError('initial queries differ')
         if reference and reference!=panel['random']:raise ValueError('random control changed')
         reference=panel['random']
         sets[kind]=panel

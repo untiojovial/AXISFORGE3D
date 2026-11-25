@@ -24,7 +24,7 @@ def safe_members(z):
     names = set()
     for info in infos:
         name = info.filename; p = PurePosixPath(name)
-        if (not name or '\\' in name or p.is_absolute() or '..' in p.parts or '.' in p.parts
+        if (not name or '\\' in name or p.is_absolute() or p.as_posix() != name or '..' in p.parts or '.' in p.parts
                 or name in names or info.is_dir() or stat.S_ISLNK(info.external_attr >> 16)
                 or info.file_size > MAX_MEMBER or (info.file_size and not info.compress_size)
                 or (info.compress_size and info.file_size / info.compress_size > 500)):
