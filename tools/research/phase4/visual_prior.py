@@ -49,7 +49,12 @@ def library(a):
 
 
 def load_library(path):
-    doc = json.loads(Path(path).read_text())
+    if str(path).endswith('.gz'):
+        import gzip
+        with gzip.open(path, 'rt') as f:
+            doc = json.load(f)
+    else:
+        doc = json.loads(Path(path).read_text())
     if doc.get('format') != 'axisforge-visual-library':
         raise ValueError('not a visual grasp library')
     return doc['parts']

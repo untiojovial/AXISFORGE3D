@@ -132,8 +132,9 @@ def load_frozen(model_kind, checkpoint, config_sha256=None, weights_sha256=None,
         transform=timm.data.create_transform(input_size=tuple(cfg['input_size']),interpolation='bicubic',
                                              crop_pct=1.0,mean=tuple(cfg['mean']),std=tuple(cfg['std']))
         processor={'size':cfg['input_size'][1],'transform':transform}
+        # config.json's pretrained_cfg fixes the preprocessing, so its hash identifies the processor.
         provenance={'model_id':'timm/vit_small_patch16_dinov3.lvd1689m','config_sha256':config_sha256,
-                    'weights_sha256':weights_sha256,'revision':model_revision,'timm_version':timm.__version__,
+                    'weights_sha256':weights_sha256,'processor_sha256':config_sha256,'revision':model_revision,'timm_version':timm.__version__,
                     'license':'DINOv3 License','rope_periods':'bfloat16-truncated','global':'CLS token after final norm'}
     else: raise ValueError('unsupported model')
     return Frozen(model,processor,model_kind,provenance,device)

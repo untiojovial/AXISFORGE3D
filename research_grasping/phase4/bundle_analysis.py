@@ -163,7 +163,7 @@ def verified_index(root, bundle_path, job_path, expected_checkpoint_sha256, expe
         expected = ('v0.2-weights',
             'd867053b2301634007ed9af230bfb1a217ec634f6c0329f04092133ae5c4b89e',
             'c4c7c2276f27ec1b7f9e45f1f76dde5176ca32a245eafeadd607a3c7f4c1660e')
-    elif index['model_id'] in ('dinov2','dinov3'):
+    elif index['model_id'] in ('dinov2','dinov3','timm/vit_small_patch16_dinov3.lvd1689m'):
         import re
         expected = (expected_revision, expected_checkpoint_sha256, expected_processor_sha256)
         if not re.fullmatch(r'[a-f0-9]{40}', expected_revision or '') or not all(expected):

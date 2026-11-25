@@ -54,7 +54,8 @@ def summarize(path):
 
 
 MODEL_LABELS={'open_clip/ViT-B-32-quickgelu/laion400m_e31':('OpenCLIP','openclip'),
-              'dinov2':('DINOv2','dinov2'),'dinov3':('DINOv3','dinov3')}
+              'dinov2':('DINOv2','dinov2'),'dinov3':('DINOv3','dinov3'),
+            'timm/vit_small_patch16_dinov3.lvd1689m':('DINOv3','dinov3')}
 
 
 def model_label(analysis_path):

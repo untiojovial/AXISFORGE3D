@@ -21,7 +21,7 @@ Stated plainly, so nobody has to discover it.
 | Planner parameters in GraspStudio vocabulary (nrGrasps, minQuality, forceClosure, friction cone) | Done. Own semantics; values not comparable one-to-one with Simox. |
 | Extension registry for quality measures and candidate generators | Done, Rust crates only. |
 | Pick planner: pre-grasp, grasp, close, lift | Done |
-| Candidate prior from an outside model (`plan --prior`, `cycle --prior`) | Done. Scores only reorder the search; every check still runs, so verdicts never change. A visual grasp-transfer prior from frozen DINOv2/DINOv3/OpenCLIP features is a research tool, evaluated on 16 YCB parts (`research/phase4/grasp_prior`). |
+| Candidate prior from an outside model (`plan --prior`, `cycle --prior`) | Done. Scores only reorder the search; every check still runs, so verdicts never change. A grasp-transfer prior (neighbours by box size, by frozen DINOv2/DINOv3/OpenCLIP features, or both) is a research tool. On 50 new parts, under a protocol fixed beforehand, it cut the candidates examined to the first feasible grasp to about 0.4 of the default order; appearance added nothing measurable over box size (`research/phase4/grasp_prior/new_parts`). |
 | Exact (continuous) segment collision checking | Done. Schwarzer–Saha–Latombe test with per-link travel bounds; certified lower bound on clearance. |
 | Free motion: bidirectional RRT with shortcut smoothing | Done. Seeded, cancellable; every edge proven clear. |
 | Whole pick, transport and place cycle | Done. Every feasible grasp is tried and the fastest whole cycle kept. Synchronized trapezoidal profiles within every axis' limits, stop at each waypoint; acceptance test in three cells (`crates/motion/tests/acceptance.rs`). |

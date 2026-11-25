@@ -12,7 +12,13 @@ LABELS = {'default': 'Orden por defecto', 'random_expectation': 'Azar (esperado)
           'random': '3 vecinos al azar', 'box': '3 vecinos por tamaño de caja',
           'pooled': 'Todas las piezas resueltas', 'visual:vit-random': '3 vecinos ViT aleatorio',
           'visual:openclip': '3 vecinos OpenCLIP', 'visual:dinov2': '3 vecinos DINOv2',
+          'visual:dinov3': '3 vecinos DINOv3', 'gate:dinov3': 'DINOv3 entre 6 de tamaño parecido',
+          'fusion:dinov3': 'DINOv3 + tamaño (fusión de puestos)',
           'self': 'Sus propios agarres (techo)'}
+SHORT = {'box': 'tamaño', 'pooled': 'todas', 'default': 'defecto', 'visual:dinov3': 'DINOv3',
+         'visual:dinov2': 'DINOv2', 'visual:openclip': 'OpenCLIP', 'visual:vit-random': 'ViT aleatorio',
+         'fusion:dinov3': 'DINOv3 + tamaño', 'fusion:vit-random': 'ViT aleatorio + tamaño',
+         'gate:dinov3': 'DINOv3 entre 6 por tamaño'}
 INK, MUTED, GRID = '#191919', '#666666', '#e6e6e6'
 BLUE, ORANGE, GRAY = '#257de0', '#f47230', '#9c9c9c'
 
@@ -20,6 +26,10 @@ BLUE, ORANGE, GRAY = '#257de0', '#f47230', '#9c9c9c'
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--evaluation', required=True); p.add_argument('--out', required=True)
+    p.add_argument('--analysis', help='paired statistics: the right panel shows their contrasts instead')
+    p.add_argument('--contrast', nargs=2, action='append', metavar=('A', 'B'), help='contrast to show (repeatable)')
+    p.add_argument('--highlight', default='visual:dinov2')
+    p.add_argument('--title', default='Prior visual de agarre en el planificador nativo · 16 piezas YCB, brazo y pinza de la demo')
     a = p.parse_args()
     summary = json.loads(Path(a.evaluation).read_text())['summary']['1']
     order = [m for m in LABELS if m in summary]
@@ -32,7 +42,7 @@ def main():
         ax.tick_params(colors=MUTED, labelsize=8.5)
 
     y = np.arange(len(order))[::-1]
-    colors = [ORANGE if m == 'visual:dinov2' else GRAY if m in ('default', 'random_expectation', 'self') else BLUE
+    colors = [ORANGE if m == a.highlight else GRAY if m in ('default', 'random_expectation', 'self') else BLUE
               for m in order]
     for yi, r, c in zip(y, ratio, colors):
         left.plot([1, r], [yi, yi], color=c, lw=2, solid_capstyle='round', zorder=2)
@@ -47,7 +57,12 @@ def main():
     left.set_xlabel('Candidatos examinados hasta el primer agarre viable, ÷ orden por defecto\n'
                     '(media geométrica; a la izquierda de 1, menos trabajo)', color=MUTED, fontsize=8.5)
     left.grid(axis='x', color=GRID, lw=.6); left.set_axisbelow(True)
-    left.set_title('Media de las 12 piezas con agarre viable', fontsize=10, color=INK, loc='left')
+    left.set_title(f"Media de las {summary['default']['parts']} piezas con agarre viable", fontsize=10,
+                   color=INK, loc='left')
+    if a.analysis:
+        forest(right, json.loads(Path(a.analysis).read_text()), a.contrast or [])
+        finish(fig, a)
+        return
 
     parts = sorted(summary['default']['per_part'], key=lambda q: summary['default']['per_part'][q])
     yy = np.arange(len(parts))[::-1]
@@ -68,10 +83,40 @@ def main():
     right.legend(frameon=False, fontsize=8, loc='upper center', bbox_to_anchor=(.45, -.13), ncol=3,
                  labelcolor=INK, handletextpad=.3, columnspacing=1.2)
     right.set_title('Por pieza, dejando esa pieza fuera de la biblioteca', fontsize=10, color=INK, loc='left')
-    fig.suptitle('Prior visual de agarre en el planificador nativo · 16 piezas YCB, brazo y pinza de la demo',
-                 fontsize=11, color=INK, x=.01, ha='left')
+    finish(fig, a)
+
+
+def finish(fig, a):
+    fig.suptitle(a.title, fontsize=11, color=INK, x=.01, ha='left')
     fig.tight_layout()
     fig.savefig(a.out, dpi=160, facecolor='white')
+
+
+def forest(ax, analysis, wanted):
+    """Paired contrasts to the first feasible grasp: ratio and 95 % bootstrap interval."""
+    rows = [c for c in analysis['primary'] + analysis['secondary'] if c['target'] == 1
+            and (not wanted or [c['a'], c['b']] in wanted)]
+    rows.sort(key=lambda c: wanted.index([c['a'], c['b']]) if wanted else 0)
+    y = np.arange(len(rows))[::-1]
+    primary = [(c['a'], c['b']) for c in analysis['primary']]
+    for yi, c in zip(y, rows):
+        color = ORANGE if (c['a'], c['b']) in primary else BLUE
+        ax.plot(c['ci95'], [yi, yi], color=color, lw=2, solid_capstyle='round', zorder=2)
+        ax.scatter([c['ratio']], [yi], s=46, color=color, edgecolor='white', linewidth=1.2, zorder=3)
+        ax.text(c['ci95'][1]*1.08, yi, f"{c['ratio']:.2f}  [{c['ci95'][0]:.2f}–{c['ci95'][1]:.2f}]"
+                f"  {c['better']}/{c['equal']}/{c['worse']}", va='center', fontsize=7.5, color=INK, zorder=4,
+                bbox=dict(boxstyle='square,pad=0.15', facecolor='white', edgecolor='none'))
+    ax.axvline(1, color=MUTED, lw=.8, zorder=1)
+    ax.set_yticks(y, [f"{SHORT.get(c['a'], c['a'])} ÷ {SHORT.get(c['b'], c['b'])}" for c in rows], color=INK)
+    ax.set_xscale('log')
+    lo = min(c['ci95'][0] for c in rows); hi = max(c['ci95'][1] for c in rows)
+    ax.set_xlim(lo/1.3, hi*6)
+    ticks = [t for t in (.1, .2, .5, 1, 2, 5, 10) if lo/1.3 <= t <= hi*6]
+    ax.set_xticks(ticks, [f'{t:g}' for t in ticks]); ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+    ax.grid(axis='x', color=GRID, lw=.6); ax.set_axisbelow(True)
+    ax.set_xlabel('Cociente por pieza: media geométrica e IC bootstrap 95 %\n'
+                  '(texto: cociente [IC]  piezas mejor/igual/peor)', color=MUTED, fontsize=8.5)
+    ax.set_title('Contrastes del protocolo (naranja: principales)', fontsize=10, color=INK, loc='left')
 
 
 if __name__ == '__main__':

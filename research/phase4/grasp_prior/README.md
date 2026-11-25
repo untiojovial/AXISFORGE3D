@@ -1,8 +1,15 @@
 # Prior visual de agarre: DINOv2, DINOv3 y OpenCLIP en el planificador
 
-Estado: **INTEGRADO Y EVALUADO** (exploratorio). Las características de un modelo de visión congelado
-ordenan la búsqueda del planificador nativo de agarres. La evaluación deja fuera una pieza cada vez,
-sobre 16 piezas YCB, con el brazo y la pinza de la celda de demostración.
+Estado: **INTEGRADO Y EVALUADO**. Las características de un modelo de visión congelado ordenan la búsqueda
+del planificador nativo de agarres. La evaluación deja fuera una pieza cada vez.
+
+> **Prueba con piezas nuevas ([informe](new_parts/README.md)).** Con un protocolo fijado antes, en 50
+> piezas nuevas de Google Scanned Objects (37 con agarre viable), combinar DINOv3 con el tamaño **no mejora
+> de forma medible** al tamaño solo (0,98 [0,72–1,36]) ni a DINOv3 solo (0,91 [0,71–1,15]). Lo robusto es
+> que transferir agarres de piezas parecidas reduce a menos de la mitad los candidatos examinados frente al
+> orden por defecto (tamaño 0,40, DINOv3 + tamaño 0,39, DINOv3 0,43). Las vistas de la Fase III no ven la
+> escala, y en esta celda lo que manda es el tamaño. Lo que sigue es la evaluación de desarrollo, con 16
+> piezas YCB.
 
 ## Qué hace
 
@@ -52,11 +59,13 @@ resueltas. Ninguno de los dos necesita modelo de visión. La [biblioteca](librar
 YCB sirve de punto de partida para piezas propias en la misma celda: trae los agarres viables y los
 descriptores DINOv2, OpenCLIP y del control aleatorio.
 
-### DINOv3 desde Colab
+### DINOv3
 
-DINOv3 (`facebook/dinov3-vits16-pretrain-lvd1689m`) está restringido: hace falta que Meta apruebe tu
-cuenta de Hugging Face. El [notebook](../../../notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb)
-explica los pasos: solicitar acceso, crear un token de lectura y guardarlo como secreto `HF_TOKEN` con
+Aquí se usa la copia que redistribuye timm bajo la licencia DINOv3 (`--model dinov3-timm`, revisión y hashes en
+[el panel DINOv3](../embedding_experiment/dinov3/README.md)), sin formulario de acceso. Usarla supone aceptar
+esa licencia. El checkpoint de Meta en Hugging Face (`facebook/dinov3-vits16-pretrain-lvd1689m`) sigue
+restringido: hace falta que Meta apruebe tu cuenta. Para usar ese en Colab, el
+[notebook](../../../notebooks/AxisForge_Phase4_Frozen_Foundation_Models.ipynb) explica los pasos: solicitar acceso, crear un token de lectura y guardarlo como secreto `HF_TOKEN` con
 acceso del notebook. Después se añade `'dinov3'` a `MODELS`, se sube `views.zip` y el notebook devuelve
 `dinov3_descriptors.npz`. Con ese fichero, los pasos 3 y 4 usan `--descriptors dinov3_descriptors.npz
 --model dinov3`. La celda se verificó en local, de principio a fin, con el DINOv2 oficial: los 16

@@ -3,8 +3,9 @@
 **Actualización (2026-11-25, ejecución posterior).** Desde otra máquina, la API oficial de Hugging Face sí
 respondió. El DINOv2 oficial (`facebook/dinov2-small`, revisión `ed25f3a3…`) se descargó con hashes fijados y
 se ejecutó en el panel. Dos extracciones dieron los mismos 22 ficheros byte a byte, y el notebook los reprodujo
-exactamente ([resultados DINOv2](../embedding_experiment/dinov2/README.md)). DINOv3 sigue pendiente de una cuenta
-con acceso aprobado por Meta: el notebook de Colab explica cómo ejecutarlo con el secreto `HF_TOKEN`. Las
+exactamente ([resultados DINOv2](../embedding_experiment/dinov2/README.md)). DINOv3 se ejecutó después con la copia que
+timm redistribuye bajo la licencia DINOv3 ([resultados DINOv3](../embedding_experiment/dinov3/README.md)); el
+checkpoint de Meta en Hugging Face sigue pidiendo aprobación manual. Las
 características ya se usan en el planificador de agarres como prior visual ([prior de agarre](../grasp_prior/README.md)).
 El texto siguiente describe el estado anterior y se conserva como registro.
 

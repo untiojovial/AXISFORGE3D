@@ -1,0 +1,245 @@
+{
+ "checkpoint_sha256": "2a1ec16ae28ffa07bc0ead0241ee7df9fc26451fe6f9f839b7b3afa0a906b040",
+ "config": {
+  "adapter_sha256": "a426d1133f1ba3b33d42e580d8d8bcf08fae36db186e79f9286dc1b055bf4a8e",
+  "batch_size": 16,
+  "checkpoint_sha256": "2a1ec16ae28ffa07bc0ead0241ee7df9fc26451fe6f9f839b7b3afa0a906b040",
+  "device": "cpu",
+  "job_id": "4e4a8739a8789b36c23f6db702284a832728553c5161dad43f30936fd507e203",
+  "model_id": "timm/vit_small_patch16_dinov3.lvd1689m",
+  "model_provenance": {
+   "config_sha256": "8eb1eeb3a94a3faddfcdd9ae693607a9cd9c8b91c34381578f7f0a48ce454eef",
+   "global": "CLS token after final norm",
+   "license": "DINOv3 License",
+   "model_id": "timm/vit_small_patch16_dinov3.lvd1689m",
+   "processor_sha256": "8eb1eeb3a94a3faddfcdd9ae693607a9cd9c8b91c34381578f7f0a48ce454eef",
+   "revision": "3bf4720a82ec2066db88137180ff1f83a675cef0",
+   "rope_periods": "bfloat16-truncated",
+   "timm_version": "1.0.31",
+   "weights_sha256": "2a1ec16ae28ffa07bc0ead0241ee7df9fc26451fe6f9f839b7b3afa0a906b040"
+  },
+  "model_revision": "3bf4720a82ec2066db88137180ff1f83a675cef0",
+  "numpy_version": "2.3.5",
+  "orchestrator_sha256": "0281f3dd6aa574c30cb75fd3c9ca71c59624edbd90bf7eda83743767f9c40c42",
+  "precision": "float32",
+  "processor_sha256": "8eb1eeb3a94a3faddfcdd9ae693607a9cd9c8b91c34381578f7f0a48ce454eef",
+  "schema_version": 1,
+  "torch_version": "2.9.1+cpu"
+ },
+ "dataset_manifest_sha256": "6c5291288adcd365b873a4c983b30b9f19fb2ed0110a0575112514b866cdf660",
+ "hardware": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+ "job_id": "4e4a8739a8789b36c23f6db702284a832728553c5161dad43f30936fd507e203",
+ "model_id": "timm/vit_small_patch16_dinov3.lvd1689m",
+ "model_provenance": {
+  "config_sha256": "8eb1eeb3a94a3faddfcdd9ae693607a9cd9c8b91c34381578f7f0a48ce454eef",
+  "global": "CLS token after final norm",
+  "license": "DINOv3 License",
+  "model_id": "timm/vit_small_patch16_dinov3.lvd1689m",
+  "processor_sha256": "8eb1eeb3a94a3faddfcdd9ae693607a9cd9c8b91c34381578f7f0a48ce454eef",
+  "revision": "3bf4720a82ec2066db88137180ff1f83a675cef0",
+  "rope_periods": "bfloat16-truncated",
+  "timm_version": "1.0.31",
+  "weights_sha256": "2a1ec16ae28ffa07bc0ead0241ee7df9fc26451fe6f9f839b7b3afa0a906b040"
+ },
+ "model_revision": "3bf4720a82ec2066db88137180ff1f83a675cef0",
+ "objects": [
+  {
+   "elapsed_seconds": 5.47375193400012,
+   "file": "features/2_of_Jenga_Classic_Game.npz",
+   "object_id": "2_of_Jenga_Classic_Game",
+   "sha256": "b9160a50f017882eeee8e68736927105d8bd24fc7b6acb53e126f282084add72",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.461365907000072,
+   "file": "features/ACE_Coffee_Mug_Kristen_16_oz_cup.npz",
+   "object_id": "ACE_Coffee_Mug_Kristen_16_oz_cup",
+   "sha256": "849c4db07715f04e4b874923b8e6f980350d055ca73e3b1a247b13efbbe4f557",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.35061840000003,
+   "file": "features/Air_Hogs_Wind_Flyers_Set_Airplane_Red.npz",
+   "object_id": "Air_Hogs_Wind_Flyers_Set_Airplane_Red",
+   "sha256": "534577cf51c7eb7b68bc4bb398cb1758f31028e9bb23cdc8e053761de6fd7105",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.4461166229998526,
+   "file": "features/Android_Figure_Orange.npz",
+   "object_id": "Android_Figure_Orange",
+   "sha256": "741a9cd40801f81695249d81350cca7ec7e71acdf2b268bcc7da3b2d15abda34",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 4.49217325199993,
+   "file": "features/Animal_Crossing_New_Leaf_Nintendo_3DS_Game.npz",
+   "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+   "sha256": "20d2c117714bc915e65861de400d4a62cc4dce6aba0381447419a5f30f48297d",
+   "split": "validation"
+  },
+  {
+   "elapsed_seconds": 5.263242769000044,
+   "file": "features/Aroma_Stainless_Steel_Milk_Frother_2_Cup.npz",
+   "object_id": "Aroma_Stainless_Steel_Milk_Frother_2_Cup",
+   "sha256": "7898490992fe9bf769733ad7d6dcfd609b44d18464921cdd43c18d050c89a62d",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.42513106399997,
+   "file": "features/BIA_Porcelain_Ramekin_With_Glazed_Rim_35_45_oz_cup.npz",
+   "object_id": "BIA_Porcelain_Ramekin_With_Glazed_Rim_35_45_oz_cup",
+   "sha256": "737609f1de1e8f14f0020a2083c4aa7d5b734833d1e163426e2cf289fdc65310",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.001746467999965,
+   "file": "features/BIRD_RATTLE.npz",
+   "object_id": "BIRD_RATTLE",
+   "sha256": "42f9d9643008d54c17b48b27149e49d77d37e989d297cf9f1f239dbdc73849c5",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 4.1397779799999626,
+   "file": "features/BUNNY_RATTLE.npz",
+   "object_id": "BUNNY_RATTLE",
+   "sha256": "ba003b66252fbd27daaf9515404931b7eac12b72c521aa46e584b6dd26be118d",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.6989661309999065,
+   "file": "features/Big_Dot_Aqua_Pencil_Case.npz",
+   "object_id": "Big_Dot_Aqua_Pencil_Case",
+   "sha256": "4ee3c233b6299500e4e53095f25c9c2100aafe627d8f57392b3ad5cb2c8895ee",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.346398650000083,
+   "file": "features/BlackBlack_Nintendo_3DSXL.npz",
+   "object_id": "BlackBlack_Nintendo_3DSXL",
+   "sha256": "7664be3ab64161ecd56c84fbbfd0128150e775f789465c26641592c9a70da520",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 4.0552322050000384,
+   "file": "features/Cole_Hardware_Hammer_Black.npz",
+   "object_id": "Cole_Hardware_Hammer_Black",
+   "sha256": "8f8251353506f7e0959e52ff6fd7523fad43f173a1b7ab657e7f6d4176339f65",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.073478807999891,
+   "file": "features/Craftsman_Grip_Screwdriver_Phillips_Cushion.npz",
+   "object_id": "Craftsman_Grip_Screwdriver_Phillips_Cushion",
+   "sha256": "90f7183718210882e5ad06d3f71c098967c02d14858170efd2a24d6709ec483f",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 3.7181418850000227,
+   "file": "features/Ecoforms_Cup_B4_SAN.npz",
+   "object_id": "Ecoforms_Cup_B4_SAN",
+   "sha256": "578fd95d28f6691534f3ebe2614e6b30a2171d19855448de029774ccf2100d23",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 3.4133300689998123,
+   "file": "features/Great_Dinos_Triceratops_Toy.npz",
+   "object_id": "Great_Dinos_Triceratops_Toy",
+   "sha256": "04cc884e581f2d5cf7c1017f8ee33d8e11810c71d2442daa2880aeab8ef772c7",
+   "split": "validation"
+  },
+  {
+   "elapsed_seconds": 5.2894934509999985,
+   "file": "features/Marc_Anthony_Strictly_Curls_Curl_Envy_Perfect_Curl_Cream_6_fl_oz_bottle.npz",
+   "object_id": "Marc_Anthony_Strictly_Curls_Curl_Envy_Perfect_Curl_Cream_6_fl_oz_bottle",
+   "sha256": "f0d7b4b5171e95884d70e2c62a0585e4536ebbccc36aa20e6ecc8cae4c5afa18",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 4.760968743999911,
+   "file": "features/Nestle_Nesquik_Chocolate_Powder_Flavored_Milk_Additive_109_Oz_Canister.npz",
+   "object_id": "Nestle_Nesquik_Chocolate_Powder_Flavored_Milk_Additive_109_Oz_Canister",
+   "sha256": "8e3b8c378e0d4fedeb0a09132a68113c5d84c0fc10c574af1c2f6af3150b6832",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.8005494160001945,
+   "file": "features/OXO_Soft_Works_Can_Opener_SnapLock.npz",
+   "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+   "sha256": "98a892db5d266d2c70cf620dace685f21d48f6490c84a8326ecab6b8129d4c01",
+   "split": "validation"
+  },
+  {
+   "elapsed_seconds": 5.482359774000088,
+   "file": "features/Orbit_Bubblemint_Mini_Bottle_6_ct.npz",
+   "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+   "sha256": "1822d9a1fe4f84a34f65bf2c3d800bfa54ff1dce3defd08c608bee650fb880bd",
+   "split": "validation"
+  },
+  {
+   "elapsed_seconds": 4.112106689000029,
+   "file": "features/PINEAPPLE_MARACA_6_PCSSET.npz",
+   "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+   "sha256": "b73ef32d085b78ee8c104b6cb6288be51a3c671339904f0ff99b9177f06d3cf9",
+   "split": "validation"
+  },
+  {
+   "elapsed_seconds": 3.9146734410001045,
+   "file": "features/Razer_Abyssus_Ambidextrous_Gaming_Mouse.npz",
+   "object_id": "Razer_Abyssus_Ambidextrous_Gaming_Mouse",
+   "sha256": "bb0573f284be09bfff0a94722b71d827d6fb174cbc189de849091224238df69f",
+   "split": "train"
+  },
+  {
+   "elapsed_seconds": 5.719104421999873,
+   "file": "features/Threshold_Porcelain_Teapot_White.npz",
+   "object_id": "Threshold_Porcelain_Teapot_White",
+   "sha256": "cdfef64d5d1999c560cb3e1c5ac386d3327408d29e3b0a38a8715eb7c6450828",
+   "split": "validation"
+  }
+ ],
+ "processor_sha256": "8eb1eeb3a94a3faddfcdd9ae693607a9cd9c8b91c34381578f7f0a48ce454eef",
+ "run_id": "e5ba0f81b96bc7151050fdb5d0616ec4a597cc39fc3f4434d112f9b6ef69fa22",
+ "schema_version": 1,
+ "token_geometry": {
+  "content_bounds": [
+   -0.5,
+   -0.5,
+   255.5,
+   255.5
+  ],
+  "grid_shape": [
+   16,
+   16
+  ],
+  "origin_size": [
+   96,
+   96
+  ],
+  "pixel_transform": [
+   [
+    2.6666666666666665,
+    0.0,
+    0.8333333333333333
+   ],
+   [
+    0.0,
+    2.6666666666666665,
+    0.8333333333333333
+   ],
+   [
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "processed_size": [
+   256,
+   256
+  ],
+  "resized_size": [
+   256,
+   256
+  ]
+ }
+}
