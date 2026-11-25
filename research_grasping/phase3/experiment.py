@@ -10,6 +10,7 @@ import fcntl
 import hashlib
 import json
 import os
+from dataclasses import replace
 from pathlib import Path
 import tempfile
 
@@ -113,6 +114,16 @@ class DevelopmentData:
         if (not ids or set(ids) != set(catalog['candidates']) or len(ids) != len(set(ids))
                 or features.ndim != 2 or len(features) != len(ids) or not np.isfinite(features).all()):
             raise ValueError('invalid pre-query candidate catalogue')
+        if 'functional_features' in metadata or features.shape[1] == 33:
+            lock_path = Path(__file__).resolve().parents[2]/'research/phase3/vision/functional_catalogues.lock.json'
+            if digest(lock_path) != '83d62c8c909e7fa3ef9d2702a9da9e55b707540aff88d25331dc353b002d9af9':
+                raise ValueError('unknown functional catalogue lock')
+            locked = load(lock_path)['files']
+            pca = load(Path(path).parent/'pca.json')
+            if (features.shape[1] != 33 or fingerprint(catalog) != locked.get(catalog['object_id'])
+                    or fingerprint(pca) != locked['pca'] or metadata['functional_features']['pca_sha256'] != locked['pca']
+                    or any(self.splits.get(name) != 'train' for name in pca['objects'])):
+                raise ValueError('unverified functional features or PCA training population')
         self._catalogue_hashes[catalog['object_id']] = fingerprint(catalog)
         return catalog
 
@@ -154,20 +165,40 @@ def fit_history(data, training, fidelity):
 
 
 def run_policy(data, catalog, archive, *, method, seed, budget, initial_count, fidelity,
-               target_time, observe, checkpoint):
+               target_time, observe, checkpoint, context_mode='combined'):
     data.require_catalogue(catalog, 'validation')
     history, scaler = fit_history(data, archive, fidelity)
     if catalog['split'] != 'validation' or not 1 <= initial_count <= budget:
         raise ValueError('invalid pilot target or initialization')
+    if context_mode not in ('combined','visual','geometry'):
+        raise ValueError('unknown context mode')
+    context = np.asarray(catalog['context'])
+    if context_mode != 'combined' or method == 'visual_fixed':
+        if not catalog['metadata'].get('vision_archive_sha256') or len(context) != 515:
+            raise ValueError('verified geometry and OpenCLIP context needed')
+        if any(not c['metadata'].get('vision_archive_sha256') or len(c['context']) != 515 for c,_ in archive):
+            raise ValueError('inconsistent historical context modality')
+        if method == 'visual_fixed' and context_mode != 'visual':
+            raise ValueError('visual-only baseline requires a visual-only context')
+    if context_mode != 'combined':
+        block=slice(3,None) if context_mode=='visual' else slice(None,3)
+        context=context[block]
+        history=[replace(task,context=task.context[block]) for task in history]
+    metadata=catalog['metadata'].get('vision_provenance',{})
+    provenance=dict(model=metadata.get('model'),checkpoint_sha256=metadata.get('checkpoint_sha256'),
+                    preprocessing=metadata.get('transform'))
     ids = catalog['ids']
     initial = np.random.default_rng(seed).choice(ids, initial_count, replace=False).tolist()
-    policy = CataloguePolicy(ids, scaler.transform(catalog['features']), catalog['context'],
+    policy = CataloguePolicy(ids, scaler.transform(catalog['features']), context,
                     history, target_time=target_time, manifest_splits=data.splits,
                     manifest_digest=fingerprint(data.splits), target_id=catalog['object_id'],
-                    scaler=scaler, method=method, budget=budget, seed=seed, initial_ids=initial)
+                    scaler=scaler, method=method, budget=budget, seed=seed, initial_ids=initial,
+                    visual_provenance=provenance)
     definition = dict(catalogue_digest=fingerprint(catalog), manifest_sha256=data.manifest_digest,
                    archive_digest=scaler.training_digest, initial=initial, budget=budget, seed=seed,
                    method=method, fidelity=fidelity, object_id=catalog['object_id'], target_time=target_time)
+    if context_mode != 'combined':
+        definition['context_mode'] = context_mode
     checkpoint = Path(checkpoint)
     checkpoint.parent.mkdir(parents=True, exist_ok=True)
     with checkpoint.with_suffix('.lock').open('a') as lock_file:

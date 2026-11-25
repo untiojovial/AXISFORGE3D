@@ -75,8 +75,11 @@ def main(argv=None):
     parser.add_argument('--protocol', type=Path, required=True,
                         help='directory containing preregistered lock.json and manifest.prepilot.json')
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--cache-dir', type=Path, help='shared read-through native measurement cache, keyed by physical inputs')
     parser.add_argument('--budget', type=int, default=10)
+    parser.add_argument('--history-budget', type=int, help='fixed observations per historical object (default: online budget)')
     parser.add_argument('--seeds', nargs='+', type=int, default=[11, 29, 47])
+    parser.add_argument('--context', choices=['combined','geometry','visual'], default='combined')
     parser.add_argument('--methods', nargs='+', default=['random','sobol_projected','target_local','rgpe','equal','adaptive'])
     args = parser.parse_args(argv)
     data = DevelopmentData(args.protocol/'manifest.prepilot.json',load(args.protocol/'lock.json'),args.data)
@@ -89,7 +92,11 @@ def main(argv=None):
     targets = [c for c in catalogues if c['split'] == 'validation']
     if not train or not targets:
         parser.error('train and validation catalogues required')
+    history_budget = args.budget if args.history_budget is None else args.history_budget
+    if not 1 <= history_budget <= min(len(c['ids']) for c in train):
+        parser.error('history budget outside train catalogues')
     fidelity = 'native-f12'
+    cache_dir = args.cache_dir or args.out/'cache'
     args.out.mkdir(parents=True, exist_ok=True)
     # A CLI invocation has exclusive access to its experiment directory.
     from fcntl import flock, LOCK_EX
@@ -97,6 +104,10 @@ def main(argv=None):
         flock(lock, LOCK_EX)
         prelock = dict(catalogues=[fingerprint(c) for c in catalogues], manifest=data.manifest_digest,
                        budget=args.budget, seeds=args.seeds, methods=args.methods, fidelity=fidelity)
+        if args.context != 'combined':
+            prelock['context_mode'] = args.context
+        if args.history_budget is not None:
+            prelock['history_budget'] = history_budget
         selection_file = args.out/'selection-lock.json'
         if selection_file.exists() and load(selection_file) != prelock:
             raise ValueError('pre-query design changed')
@@ -105,7 +116,7 @@ def main(argv=None):
         for catalog in train:
             path = args.out/'history'/f"{catalog['object_id']}.json"
             signature = fingerprint(catalog)
-            selected = np.random.default_rng(2025).choice(catalog['ids'], args.budget, replace=False).tolist()
+            selected = np.random.default_rng(2025).choice(catalog['ids'], history_budget, replace=False).tolist()
             if path.exists():
                 log = load(path)
                 if (log['catalogue_digest'] != signature or log['fidelity'] != fidelity
@@ -114,7 +125,7 @@ def main(argv=None):
             else:
                 log = dict(object_id=catalog['object_id'], fidelity=fidelity, catalogue_digest=signature,
                            selected=selected, rows=[])
-            observe = observer(worker, args.out/'cache',args.binary,catalog,fidelity)
+            observe = observer(worker, cache_dir,args.binary,catalog,fidelity)
             for candidate in selected[len(log['rows']):]:
                 log['rows'].append(dict(candidate_id=candidate, **observe(candidate)))
                 save(path, log)
@@ -135,13 +146,13 @@ def main(argv=None):
             save(runfile, frozen)
         runs = []
         for catalog in targets:
-            observe = observer(worker, args.out/'cache',args.binary,catalog,fidelity)
+            observe = observer(worker, cache_dir,args.binary,catalog,fidelity)
             for seed in args.seeds:
                 for method in args.methods:
                     path = args.out/'runs'/catalog['object_id']/f'{seed}-{method}.json'
                     runs.append(run_policy(data, catalog, archive, method=method, seed=seed,
                              budget=args.budget, initial_count=2, fidelity=fidelity,
-                             target_time=frozen['target_time'], observe=observe, checkpoint=path))
+                             target_time=frozen['target_time'], observe=observe, checkpoint=path, context_mode=args.context))
         save(args.out/'viewer.json', viewer_report(targets, runs))
     return 0
 

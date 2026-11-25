@@ -8,6 +8,8 @@ three-finger gripper or a multi-finger hand.
 > certification. Validate all motion on the real cell before operating
 > machinery.
 
+Phase III connects the native grasp planner to multiview perception and Bayesian optimization on 30 public objects. The development report includes paired benchmarks, a MuJoCo contact probe, and the limits found in internal review. [Phase III results and reproducibility](research/phase3/README.md)
+
 ## What it does
 
 - **Model** a robot as a tree of links and joints, with tool frames, a

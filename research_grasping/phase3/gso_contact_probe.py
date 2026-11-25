@@ -166,6 +166,15 @@ def simulate(model,data,opening,*,close_jaws=True):
     initial_rotation=data.xmat[object_id].reshape(3,3).copy()
     maximum_penetration=0.
     hold_normal_force=np.zeros(2)
+    minimum_hold_height=np.inf
+    maximum_hold_drift=0.
+    initial_overlap=0.
+    palm_and_jaws=jaw_ids|{model.geom('palm_geom').id}
+    for contact in data.contact[:data.ncon]:
+        a,b=contact.geom
+        if ((a in palm_and_jaws and b in obj_geoms|{support})
+                or (b in palm_and_jaws and a in obj_geoms|{support})):
+            initial_overlap=max(initial_overlap,-float(contact.dist))
     jaw_by_id={model.geom(f'jaw{i}_geom').id:i for i in range(2)}
     dt=float(model.opt.timestep)
     for i in range(1700):
@@ -183,6 +192,9 @@ def simulate(model,data,opening,*,close_jaws=True):
         if i==899:
             initial_relative=data.xipos[object_id].copy()-data.xpos[palm]
         if i>=1300:
+            minimum_hold_height=min(minimum_hold_height,float(data.xipos[object_id,2]-baseline))
+            drift=np.linalg.norm((data.xipos[object_id]-data.xpos[palm])-initial_relative)
+            maximum_hold_drift=max(maximum_hold_drift,float(drift))
             contacts=set()
             forces=np.zeros(2)
             for index,contact in enumerate(data.contact[:data.ncon]):
@@ -205,6 +217,10 @@ def simulate(model,data,opening,*,close_jaws=True):
         raise ValueError('nonfinite simulation')
     return dict(lift_m=lift,relative_displacement_m=slip,bilateral_hold_fraction=bilateral/400,
                 settle_displacement_m=settle_translation,settle_rotation_rad=settle_rotation,
+                initial_hand_penetration_m=initial_overlap,min_hold_lift_m=minimum_hold_height,
+                max_hold_relative_displacement_m=maximum_hold_drift,
+                sustained=bool(minimum_hold_height>=.04 and maximum_hold_drift<=.02
+                               and force_bilateral>=360 and table_steps==0 and initial_overlap<=.001),
                 mean_hold_normal_force_n=(hold_normal_force/400).tolist(),
                 max_hold_penetration_m=maximum_penetration,loaded_bilateral_fraction=force_bilateral/400,
                 table_hold_fraction=table_steps/400,held=bool(lift>=.04 and slip<=.02 and bilateral>=360 and table_steps==0))
@@ -222,6 +238,9 @@ def main():
     guard=DevelopmentData(a.protocol/'manifest.prepilot.json',load(a.protocol/'lock.json'),a.data)
     import mujoco
     report=dict(mujoco=mujoco.__version__,source_revision=REV,manifest_sha256=guard.manifest_digest,
+                code_sha256=digest(__file__),binary_sha256=digest(a.binary),
+                selection='first four distinct ascending native ids that passed F1 per validation object',
+                primary_measure='sustained over 400 hold steps; positive normal force >0.01 N; terminal held also retained',
                 mass_kg=.1,friction=.5,scope='development validation; conditional on F1 feasibility',objects=[])
     for folder in sorted((a.run/'runs').iterdir()):
         catalog=guard.catalogue(a.catalogues/(folder.name+'.json'),a.binary)

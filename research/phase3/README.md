@@ -16,6 +16,6 @@ Se renderizaron 352 vistas RGB-D sobre 22 objetos y se extrajeron embeddings con
 
 ## Resultado ampliado
 
-Con 16 objetos históricos y seis de validación, 1.620 consultas dieron 87 planes viables y 1.533 rechazos F1. Las políticas consultaron 256 pares distintos. La política adaptativa y sus controles equiponderado y sin actualización por evidencia empataron en calidad media acumulada. En el sondeo dinámico condicionado, 3 de 6 poses cumplieron el criterio de sujeción, todas en el mismo objeto. El test final y la validación en robot siguen pendientes.
+Con 16 objetos históricos y seis de validación, 1.620 consultas dieron 87 planes viables y 1.533 rechazos F1. Las políticas consultaron 256 pares distintos. La política adaptativa y sus controles equiponderado y sin actualización por evidencia empataron en calidad media acumulada. En el sondeo dinámico condicionado, 3 de 6 poses cumplieron el criterio de sujeción, todas en el mismo objeto. En el panel con rasgos de contacto locales, el GP entrenado solo con la pieza objetivo superó descriptivamente a la transferencia adaptativa (0,0851 frente a 0,0623). El test final y la validación en robot siguen pendientes.
 
 [Resultados y costes](RESULTS.md) · [Reproducción completa](REPRODUCIBILITY.md) · [Estado de los 30 entregables](STATUS.md)

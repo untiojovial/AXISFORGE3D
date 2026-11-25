@@ -1,0 +1,9 @@
+# Smoke multiefector exploratorio: especificación previa
+
+Antes de ejecutar se fijan los objetos train `Cole_Hardware_Hammer_Black`, `Craftsman_Grip_Screwdriver_Phillips_Cushion` y `Razer_Abyssus_Ambidextrous_Gaming_Mouse`, efectores de plantilla `three-finger` y `hand`. El mismo importador usa metros, colocación (0.42, -0.1, 0.42) m y masa simulada 0.1 kg; metadatos de origen/escala del manifiesto se conservan. Para cada catálogo de n candidatos seleccionar los IDs 0, piso(n/2), n-1, sin ordenar por calidad o factibilidad; si n es 0 no evaluar y registrar catálogo vacío. Tiempo máximo 120 s por proceso, sin repetir ni cambiar reglas en función del resultado. Registrar archivo, hash, parámetros, candidato completo, F2, evaluación y cualquier excepción por etapa. Los tres IDs y objetos son una exploración, no muestra independiente de éxito ni validación de mano iCub. No se ejecuta F3.
+
+## Resultado exploratorio
+
+Se obtuvieron seis catálogos y se evaluaron los 18 candidatos previstos. Catálogos de pinza de tres dedos: martillo 462, destornillador 700, ratón 392; mano articulada: 391, 630 y 343 respectivamente. Todos los candidatos evaluados fueron rechazados: por IK de preagarre, colisión en preagarre o agarre, o falta de cierre de fuerza. Cada candidato conserva dos o tres contactos geométricos, pero ello no acredita contacto físico dinámico ni viabilidad. No hubo catálogos vacíos ni errores de infraestructura. No hubo F3 ni se puede estimar una tasa poblacional a partir de tres IDs por objeto. Los datos completos incluyen poses y costes en `native_multieffector_results.json`.
+
+Reproducción: `python -m research_grasping.phase3.native_multieffector --data-root /workspace/axisforge-phase3-data --binary target/release/axisforge --output /tmp/multieffector.json`. Las mediciones temporales fluctúan; comparar identidades y resultados excluyendo tiempos. Los hashes corresponden al ejecutable y manifiesto de esta corrida.

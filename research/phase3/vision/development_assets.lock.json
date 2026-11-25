@@ -1,0 +1,119 @@
+{
+  "manifest_sha256": "6c5291288adcd365b873a4c983b30b9f19fb2ed0110a0575112514b866cdf660",
+  "objects": {
+    "2_of_Jenga_Classic_Game": {
+      "source_texture_sha256": "d03658be069bcf073d2513b133db52397c2f1f6fff52c6934e963b93a21b8da2",
+      "split": "train",
+      "vision_semantic_sha256": "2c6dc685e2f2b6dae72ead5b7001b102472bc65c1e90d612fbaa68ddda85f08e"
+    },
+    "ACE_Coffee_Mug_Kristen_16_oz_cup": {
+      "source_texture_sha256": "965ffb2bdd07c36449e4df413da892c4851e4af837628a7a256d8b72f0bc4a4a",
+      "split": "train",
+      "vision_semantic_sha256": "710cad4a4498492c0d4d9e243bd112f1752910336f457c0b84ffd84dbd49d6a5"
+    },
+    "Air_Hogs_Wind_Flyers_Set_Airplane_Red": {
+      "source_texture_sha256": "4ddbae8913d3f4d95a3d7bdfe7e6d13a0e4f232bbf80b47973aa6c464e89dc03",
+      "split": "train",
+      "vision_semantic_sha256": "ab43d40c7801d513fcbc9a6c7932e468a59b115004af14b3247ee1c2077c171a"
+    },
+    "Android_Figure_Orange": {
+      "source_texture_sha256": "698ffb3db63897bed863317b985e450195d9c8466e8961e314829bcc97365624",
+      "split": "train",
+      "vision_semantic_sha256": "864a8a20ca65ed5d759a6a2736f1af86a642ac82ed25eddb66b128030356e1b0"
+    },
+    "Animal_Crossing_New_Leaf_Nintendo_3DS_Game": {
+      "source_texture_sha256": "3e8313d407aff879b6a90fbb72f028b4d4d71536074ba79e953636a3a9af3021",
+      "split": "validation",
+      "vision_semantic_sha256": "7220a848fba4cff3930d06f5dbe15354118fe3bed6bee7b78082da326085649d"
+    },
+    "Aroma_Stainless_Steel_Milk_Frother_2_Cup": {
+      "source_texture_sha256": "f2a708cc713379618a2ba6913547b9048118605cce303b2a7acb053aa177d9ce",
+      "split": "train",
+      "vision_semantic_sha256": "65067f7c296572027c1d8cc3209d506f5eb20301b0c57de2b54f6a1b3ea75e7c"
+    },
+    "BIA_Porcelain_Ramekin_With_Glazed_Rim_35_45_oz_cup": {
+      "source_texture_sha256": "7323b1d08b6242dd9127f853e23bb5b2651c8665dcb3c78ed00a632aef567750",
+      "split": "train",
+      "vision_semantic_sha256": "7ea29d79196b53aa564e240407249cccbecaa5e2edd6fff8df48c4f1efdfe7de"
+    },
+    "BIRD_RATTLE": {
+      "source_texture_sha256": "25c4097095eff6ce27d0aadaaa286afc72f712ffca1c043a5a4f44349177390e",
+      "split": "train",
+      "vision_semantic_sha256": "de09b49b6c4c62c9ae61e74516038aa7192dbdfc4f842fef2dc8a47a8fb0a078"
+    },
+    "BUNNY_RATTLE": {
+      "source_texture_sha256": "c5761b80005b4bb5f83045279f87a6484aa9b6bd96d4646050b91527d932182d",
+      "split": "train",
+      "vision_semantic_sha256": "1705e035995161956a834653b92318c9e3bf6323b13dac76627f79cce47f0cd5"
+    },
+    "Big_Dot_Aqua_Pencil_Case": {
+      "source_texture_sha256": "907d991b0f6278514d516a1fe1e850aefd7ffbfdc03f2b34d75a38e091910d96",
+      "split": "train",
+      "vision_semantic_sha256": "ad03cc1ff5c5289c75acca51eb511213d6b92b0eb80aa2102cee6adeac21563c"
+    },
+    "BlackBlack_Nintendo_3DSXL": {
+      "source_texture_sha256": "d84750dd073f15aef35a92f73911a2a3dbde5236ed46b1f3a51a9a09cd257634",
+      "split": "train",
+      "vision_semantic_sha256": "60c45aec994b1cf0e4eba0647501d670af9bef8fc611885681de74c8c31e5bda"
+    },
+    "Cole_Hardware_Hammer_Black": {
+      "source_texture_sha256": "51762866afa8bdafd44eb1a4be184039e70c991a928f4a7a8f5ba376965ef9bf",
+      "split": "train",
+      "vision_semantic_sha256": "e6809dd727e858e64fae48cc8d4ba760f4b79bc41694839e2d304dbf60370626"
+    },
+    "Craftsman_Grip_Screwdriver_Phillips_Cushion": {
+      "source_texture_sha256": "8a174f2961bf2ebaa57509e02efac37d377bb5a1d7806541f93befb1a79ec224",
+      "split": "train",
+      "vision_semantic_sha256": "9e5fb54293df0a608075fc73857f4e16e42a83dc34f2992c59b2b4497e26f186"
+    },
+    "Ecoforms_Cup_B4_SAN": {
+      "source_texture_sha256": "c7234975ec247dc8a02839b717247e6ea3dd532e10d6b16b182988ac4bb7b07e",
+      "split": "train",
+      "vision_semantic_sha256": "411f645eb2f17d3a8dd1126663c1803e86651cb7858d130995a289f90aa12e81"
+    },
+    "Great_Dinos_Triceratops_Toy": {
+      "source_texture_sha256": "231379bda434587e35db456c38a8941dc96ecdc71aa0946aa389b179a98f7727",
+      "split": "validation",
+      "vision_semantic_sha256": "a33fd12b4e57d3530040953388c6662b27d3443babb3238c5c95831260215c40"
+    },
+    "Marc_Anthony_Strictly_Curls_Curl_Envy_Perfect_Curl_Cream_6_fl_oz_bottle": {
+      "source_texture_sha256": "ed08085ee1776feee9ad5204625f9fda703a2203d90a84099ce86e7dae872e32",
+      "split": "train",
+      "vision_semantic_sha256": "f37b781747c350fe31c40e3aff499474b027d4d721d2ceb9fd41dd2c63bf99e8"
+    },
+    "Nestle_Nesquik_Chocolate_Powder_Flavored_Milk_Additive_109_Oz_Canister": {
+      "source_texture_sha256": "67ce6f76882aaec3a3d9c5cdfed8258e433e6a829d1135d98bc51e4e0e79b8da",
+      "split": "train",
+      "vision_semantic_sha256": "f85106039650c3063900bc2ac525a8234de4ac5719313baad4d97dfd1fe9bea7"
+    },
+    "OXO_Soft_Works_Can_Opener_SnapLock": {
+      "source_texture_sha256": "84ea9e31ce0a62b90a715df8fa6cecf96fc47033348f3f6abe3a7be43faf5131",
+      "split": "validation",
+      "vision_semantic_sha256": "3cb1c0a20d16a89f29909a9e67240b672c54f39adf20d72d1456b6dcd32d67c6"
+    },
+    "Orbit_Bubblemint_Mini_Bottle_6_ct": {
+      "source_texture_sha256": "05c9dc6158119529a985d6117f0b34286948f3c1436996e6e998439bebf259b3",
+      "split": "validation",
+      "vision_semantic_sha256": "d8fc96236efc416338719a473d762a3a1a5abd40828fb7000f0b06f717ff8fb2"
+    },
+    "PINEAPPLE_MARACA_6_PCSSET": {
+      "source_texture_sha256": "3fc21508bf13b569e01f0312848c9b56df2447c17d50d3a9ca1d2b1e876f94ee",
+      "split": "validation",
+      "vision_semantic_sha256": "45f47ce951341b51ceea62fc599cd316dbef1e648e7eecf1249d7661506d122b"
+    },
+    "Razer_Abyssus_Ambidextrous_Gaming_Mouse": {
+      "source_texture_sha256": "3f008e7d40b39ec3bed177431e8c6148148199f37bc193d428d3a0d57238b540",
+      "split": "train",
+      "vision_semantic_sha256": "e450f94b7ec0628ca9f69f6c6a107e3b9ac75e5bef8f2467cba7b098deab75d7"
+    },
+    "Threshold_Porcelain_Teapot_White": {
+      "source_texture_sha256": "b7920e76a4d07fd90119ee82d5ab29a0a8a8522d4ecffcd5eeb2965f09ab9f96",
+      "split": "validation",
+      "vision_semantic_sha256": "59a7b06184a072c9d81e739045500ad513bb3561ac57ea491dbc608a2d812693"
+    }
+  },
+  "schema": "phase3-development-assets-v1",
+  "source_revision": "6ff8d275cebfd5b47e49685e3cfbe64b20e49a3c",
+  "status": "post-hoc integrity record; not preregistration or legal verification",
+  "vision_directory": "vision-development-v3"
+}

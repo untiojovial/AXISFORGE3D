@@ -20,3 +20,14 @@ Comando de reproducción (requiere datos externos y dependencias indicadas):
 ```
 
 El script comprueba hash del manifiesto y de cada malla, separa train/validation antes de abrir mesh, registra hash de código y modelo y rechaza cachés de otra configuración. Geometría interpretada en metros según MJCF de origen, escala no calibrada independientemente. Mallas escaneadas están bajo condiciones de sus proveedores (ver manifiesto de datos); se renderizó únicamente STL sin textura aunque el original disponga de textura. No hay correlación con similitud funcional, entrenamiento de PCA, análisis sobre test ni comparación científica entre modelos.
+
+Comparación exploratoria con descriptor geométrico simple: para los 22 objetos, correlación de Spearman entre similitud coseno de 16 vistas y distancia negativa entre dimensiones de caja en metros es 0.1142 (231 pares dependientes). No se calcula inferencia estadística a partir de esos pares, ni se interpreta esto como similitud funcional. Se guarda `geometry_comparison.npz` y `similarity_16.png` en el directorio externo; puede regenerarse con `python -m research_grasping.phase3.vision_analysis --root /workspace/axisforge-phase3-data --out /workspace/axisforge-phase3-data/vision-development-v3`.
+
+Los hashes de contenido semántico de los 22 archivos de visión (sin tiempo de ejecución) y de las texturas fuente están fijados posteriormente en `development_assets.lock.json`; por ser post hoc, el lock sirve para detectar cambios posteriores, no es preregistro ni demuestra por sí mismo procedencia o derechos. El prototipo de catálogos funcionales utiliza estadísticas geométricas de contactos propuestos y PCA de tokens visibles ajustado solo con train, sin etiquetas, ponderado por objeto. Los catálogos y PCA externos tienen lock post hoc `functional_catalogues.lock.json`; aún es necesario que el consumidor lo verifique y que la transformación sea auditada. No afirma similitud funcional demostrada ni corresponde a B14 completo.
+
+
+### Evidencia posterior
+
+Los resultados anteriores describen la primera extracción neutral. Después se reconstruyeron muestras RGB del atlas y nubes coloreadas. Se verificó la integridad de los 22 cachés visuales y de las texturas con un lock posterior a su generación. Para todas las afirmaciones de rendimiento físico, consultar el informe conjunto. [Apariencia](appearance_summary.json) · [Asociación de contactos y resultados](contact_similarity_v2.json) · [Resultados completos](../RESULTS.md)
+
+DINOv2 no se ejecutó con pesos preentrenados en esta fase. Los endpoints oficiales consultados devolvieron HTTP 403 en el entorno. La comprobación posterior con permiso ampliado fue rechazada por el sistema de aprobación automática al no poder completar su propia revisión. La ejecución con pesos de DINOv3 también queda pendiente de acceso autorizado. No se infieren resultados de otros modelos 3D o de grasping.

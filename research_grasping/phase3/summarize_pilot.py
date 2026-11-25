@@ -84,8 +84,8 @@ def summarize_logs(runs, history):
                       'curve': curve, 'status_counts': status,
                       'f1_rejection_pct': 100*status['physical_failure']/f1_total if f1_total else None,
                       'infrastructure_error_pct': 100*status['infrastructure_failure']/n if n else None,
-                      'epsilon_unconditional': _mean_ci([v for r in rows for v in r['epsilon_all']]),
-                      'epsilon_feasible_only': _mean_ci([v for r in rows for v in r['epsilon_feasible']]),
+                      'epsilon_unconditional': _mean_ci([np.mean(r['epsilon_all']) for r in rows if r['epsilon_all']]),
+                      'epsilon_feasible_only': _mean_ci([np.mean(r['epsilon_feasible']) for r in rows if r['epsilon_feasible']]),
                       'nominal_online_s': _mean_ci([r['nominal_online_s'] for r in rows]),
                       'fresh_online_s': _mean_ci([r['fresh_online_s'] for r in rows]),
                       'cache_hits': sum(r['cache_hits'] for r in rows),
@@ -126,7 +126,10 @@ def plot(summary, output):
     axes[0,0].legend(fontsize=7, ncol=3)
     fig.tight_layout()
     for ext in ('svg','png'):
-        fig.savefig(output / ('best_so_far.'+ext), dpi=180)
+        path = output / ('best_so_far.'+ext)
+        fig.savefig(path, dpi=180)
+        if ext == 'svg':
+            path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines())+'\n')
     plt.close(fig)
 
 
@@ -144,7 +147,7 @@ def main():
     (args.out/'summary.json').write_text(json.dumps(summary, indent=2, allow_nan=False)+'\n')
     with (args.out/'summary.csv').open('w', newline='') as file:
         fields = ['object_id','method','n_seeds','auc_mean','last_mean','f1_rejection_pct','infrastructure_error_pct','epsilon_unconditional_mean','epsilon_feasible_mean','nominal_online_s_mean','fresh_online_s_mean','cache_hits']
-        writer = csv.DictWriter(file, fieldnames=fields); writer.writeheader()
+        writer = csv.DictWriter(file, fieldnames=fields, lineterminator='\n'); writer.writeheader()
         for g in summary['groups']:
             mean = lambda key: g[key]['mean'] if g[key] else None
             writer.writerow(dict(object_id=g['object_id'],method=g['method'],n_seeds=g['n_seeds'],

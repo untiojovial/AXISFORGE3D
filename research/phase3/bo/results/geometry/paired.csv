@@ -1,0 +1,7 @@
+object,method,seeds,budget,mean_auc,mean_final,f1_planned,f1_rejected,infrastructure_errors
+Animal_Crossing_New_Leaf_Nintendo_3DS_Game,adaptive,3,10,0.0,0.0,0,30,0
+Great_Dinos_Triceratops_Toy,adaptive,3,10,0.3449796096415784,0.3989457917454538,11,19,0
+OXO_Soft_Works_Can_Opener_SnapLock,adaptive,3,10,0.0,0.0,0,30,0
+Orbit_Bubblemint_Mini_Bottle_6_ct,adaptive,3,10,0.0,0.0,0,30,0
+PINEAPPLE_MARACA_6_PCSSET,adaptive,3,10,0.0,0.0,0,30,0
+Threshold_Porcelain_Teapot_White,adaptive,3,10,0.0,0.0,0,30,0

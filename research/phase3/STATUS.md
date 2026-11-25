@@ -4,11 +4,11 @@ Los estados distinguen la evidencia alcanzada en el alcance señalado. La partic
 
 | Nº | Entregable | Estado | Evidencia y límite |
 |---:|---|---|---|
-| 1 | Auditoría del software de agarre | PARTIALLY_VALIDATED | Revisión de generación, wrench, IK, rechazo y pose por ID. Falta validación completa de todos los efectores. |
+| 1 | Auditoría del software de agarre | PARTIALLY_VALIDATED | Revisión de generación, wrench, IK, rechazo y pose por ID. Prueba nativa adicional de tres dedos y mano con 18 candidatos. La dinámica solo se ensayó con dos dedos. |
 | 2 | Arquitectura integrada | VALIDATED | Ruta reproducida desde archivo de malla y rasgos visuales a catálogo nativo, selección BO, evaluación, registro y visor. |
 | 3 | 20–30 objetos públicos | VALIDATED | 30 mallas GSO distintas por hash e identidad, con 16/6/8 por partición. |
 | 4 | Licencias y origen | PARTIALLY_VALIDATED | Revisión y autor fijados; la adaptación identifica OBJ/PNG como CC BY 4.0. Faltan comprobaciones independientes de escala y posibles duplicados semánticos. |
-| 5 | Importación y conversión | PARTIALLY_VALIDATED | 30 OBJ convertidos a STL con hashes comprobados. Se documentan límites de unidades y topología. |
+| 5 | Importación y conversión | PARTIALLY_VALIDATED | 30 OBJ convertidos a STL con hashes comprobados; el importador acepta OBJ, STL, PLY y GLB con unidades explícitas. Se documentan límites de unidades y topología. |
 | 6 | Geometría visual y de colisión | PARTIALLY_VALIDATED | STL visuales y proxies oficiales en sondeo físico. Solo comprobación local de discrepancia en las poses seleccionadas. |
 | 7 | Render multivista | VALIDATED | 16 cámaras calibradas por objeto de desarrollo; pruebas de reproyección, orden de profundidad y transformación. |
 | 8 | RGB-D | VALIDATED | 352 vistas de desarrollo con profundidad, normales, máscara y calibración. Variantes gris y textura. |
@@ -23,7 +23,7 @@ Los estados distinguen la evidencia alcanzada en el alcance señalado. La partic
 | 17 | Optimización de poses | PARTIALLY_VALIDATED | Selección secuencial entre poses 3D de un catálogo finito; falta refinamiento continuo de SE(3). |
 | 18 | ACT-BO | PARTIALLY_VALIDATED | Selección causal, pesos por evidencia y controles. La evidencia actual no establece beneficio del gate. |
 | 19 | DKL multimodal | PARTIALLY_VALIDATED | Entrenado en 160 mediciones y comparado en seis objetos. Calibración insuficiente para promoverlo a adquisición. |
-| 20 | Baselines competitivos | PARTIALLY_VALIDATED | Nueve políticas en el panel principal. ICM de correlación fija y variante RGPE documentados. Faltan comparadores DINO y baselines completos. |
+| 20 | Baselines competitivos | PARTIALLY_VALIDATED | Nueve políticas en los paneles principales de 10 y 20 consultas, con controles visual, geométrico y funcional suplementarios. ICM de correlación fija y variante RGPE documentados. Faltan comparadores DINO y baselines completos. |
 | 21 | Optimización multifidelidad | PENDING | Existen diagnósticos de pares F2/F3 y costes. Seis pares condicionados son insuficientes para justificar B15. |
 | 22 | Benchmark de transferencia | PARTIALLY_VALIDATED | Historial y semillas compartidos, 16 fuentes y seis piezas de desarrollo. |
 | 23 | Ablaciones | PARTIALLY_VALIDATED | Puerta de evidencia, pesos iguales y comparación de rasgos geométricos, globales y locales. |

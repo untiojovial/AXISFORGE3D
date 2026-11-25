@@ -40,3 +40,26 @@ AXISFORGE_PHASE3_DATA="$D" AXISFORGE_PHASE3_GSO="$D/gso-source" python -m pytest
 El visor se compila con `bash apps/viewer/build.sh /tmp/axisforge.html` y el target Rust `wasm32-unknown-unknown`. En **Experimentos de agarre**, cargar el JSON de ejemplo de esta rama o el informe completo generado en `run-development/viewer.json`. El CSV exporta las observaciones, predicciones anteriores a la consulta, costes e identidad del método.
 
 Las trazas comprimidas guardan los registros de cada método y el historial compartido. Los tiempos de ejecución de una consulta nueva y los costes imputados a la repetición de esa consulta quedan identificados. Medir rendimiento del optimizador requiere además contabilizar preparación, representación y ajuste de modelos. Los pesos, mallas, paquetes y cachés completos se mantienen en almacenamiento externo. Sus datos de origen, versión y licencias están enlazados en el manifiesto y en las notas de visión.
+
+### Paneles adicionales
+
+Los resultados también se publican en los directorios `development-20`, `visual`, `geometry` y `functional`. Para reusar exclusivamente el coste físico determinista entre métodos, el runner admite `--cache-dir "$D/run-development/cache"`. Cada política sigue pagando nominalmente la evaluación elegida. Con el mismo listado de 22 catálogos del script principal, se reproduce el presupuesto 20 pasando `--budget 20 --history-budget 10`. Los paneles visual y geométrico usan respectivamente `--context visual --methods visual_fixed adaptive` y `--context geometry --methods adaptive`.
+
+Para reconstruir las 33 características por candidato:
+
+```bash
+python -m research_grasping.phase3.functional_catalogue --data "$D" --catalogues "$D/pilot-expanded/catalogs" --protocol "$P" --binary target/release/axisforge --vision "$D/vision-development-v3" --out "$D/functional-catalogs"
+```
+
+El panel funcional emplea únicamente los 22 JSON de objeto de esa carpeta, con diez consultas y `--methods target_local equal no_evidence adaptive`. `pca.json` es el artefacto de transformación. El runner verifica el lote exacto usado en esta investigación. Una regeneración con UUID de proyectos o entorno de álgebra lineal distintos requiere una nueva revisión y un lock propio para esa ejecución. La verificación exacta y las diferencias por BLAS se registran en el informe de resultados.
+
+## Verificación de entrega
+
+Pasaron 261 pruebas Python con los datos de desarrollo y el checkout GSO, incluidas las pruebas de reanudación, integridad, aislamiento del test y marcos físicos. Pasaron 354 pruebas Rust en el workspace. También se construyó el wheel y se compiló el visor WASM; Chromium leyó una trayectoria real y exportó correctamente las diez observaciones a CSV.
+
+| Área | Líneas ejecutadas por pruebas | Ramas ejecutadas por pruebas |
+|---|---:|---:|
+| Núcleo AxisForgeBO | 95.26 % | 88.66 % |
+| Módulos nuevos de fase III | 62.74 % | 50.59 % |
+
+El núcleo supera el objetivo de 90 % de líneas y 85 % de ramas. La cobertura de los módulos nuevos sigue por debajo de ese objetivo. La métrica corresponde a pytest con coverage y no suma la ejecución de los pilotos como si fueran pruebas adicionales.

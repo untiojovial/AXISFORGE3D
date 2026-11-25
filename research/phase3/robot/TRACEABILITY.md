@@ -18,3 +18,10 @@ Estado: PARTIALLY_VALIDATED; inspección de código y piloto nativo, no validaci
 ## Ensayo nativo sobre 5 mallas
 
 `native_dev_results.json` registra IDs, pose, contactos, evaluación, hashes, tiempo y F2 de 15 candidatos de 5 objetos GSO train, seleccionados por índices 0, ⌊n/2⌋, n−1 antes de evaluar F1/F2. Se utilizó masa simulada 0.1 kg; coordenadas métricas del proveedor sin calibración independiente. Los 15 resultaron rechazados: no se han eliminado ni se ha inferido un fallo dinámico. `native_dev.py` reproduce el ensayo usando el manifiesto externo; solo acepta split train y coteja hash de cada malla. El manifiesto aún no suministra mallas de colisión física validadas, y la mayoría son mallas abiertas: F3 para estas mallas queda bloqueado hasta que se valide su geometría de colisión y se establezca la correspondencia de marcos. No se permite sustituir una concavidad por hull y llamarla equivalente. Sin evidencias F3 y validación independiente, M4/M5 no están aprobados.
+
+
+## Actualización del sondeo GSO
+
+El registro inicial anterior queda como evidencia de su momento. El sondeo posterior usó las piezas convexas oficiales referenciadas en los MJCF, con la misma pinza paralela del proyecto. El informe vigente es [contact_probe_development.json](contact_probe_development.json) y la medida principal es `sustained`. El fichero [contact_probe_smoke.json](contact_probe_smoke.json) conserva un ensayo preliminar que solo midió altura y desplazamiento terminales. No se combinan sus cinco resultados con los seis del sondeo ampliado.
+
+Se verificaron las transformaciones de una pieza asimétrica, la posición de los pads, sus superficies con la pinza abierta, fuerzas normales, contacto con la mesa y penetración inicial. Se registró la traslación durante el asentamiento (0,89–1,06 mm en las tres piezas ensayadas). No se prefijó una regla de exclusión por asentamiento. Las seis poses conservaron su etiqueta aun cuando la pieza cambió de orientación durante esa etapa. Sigue pendiente determinar tolerancias justificadas por metrología independiente para nuevas piezas. [Objeciones y controles](PHYSICS_REVIEW.md)

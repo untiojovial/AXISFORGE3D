@@ -1,0 +1,9128 @@
+{
+  "completed_runs": 162,
+  "incomplete_runs_excluded": 0,
+  "objects": 6,
+  "historical": {
+    "objects": 16,
+    "attempts": 160,
+    "nominal_s": 65.04979315800665,
+    "fresh_s": 0,
+    "cache_hits": 160,
+    "cache_unknown": 0
+  },
+  "groups": [
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "adaptive",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.025873720987967905,
+        "low": 0.018983333004579578,
+        "high": 0.03276410897135623
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.265581232666591,
+        "low": 3.1621473389960153,
+        "high": 3.3690151263371666
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "contextual",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.025873720987967905,
+        "low": 0.01898333300457957,
+        "high": 0.03276410897135624
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.25099802333231,
+        "low": 3.163389584263256,
+        "high": 3.338606462401364
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "equal",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.026494587979992098,
+        "low": 0.01885649336470101,
+        "high": 0.03413268259528318
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.1566080499997042,
+        "low": 2.967784815415336,
+        "high": 3.3454312845840724
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "multitask_fixed",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.025873720987967905,
+        "low": 0.018983333004579578,
+        "high": 0.03276410897135623
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.271808694666106,
+        "low": 3.181617425207578,
+        "high": 3.361999964124634
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "no_evidence",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.025873720987967905,
+        "low": 0.018983333004579578,
+        "high": 0.03276410897135623
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.265581232666591,
+        "low": 3.1621473389960153,
+        "high": 3.3690151263371666
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "random",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.025722007957256456,
+        "low": 0.013340295196740772,
+        "high": 0.03810372071777214
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.2869618903320466,
+        "low": 2.976648421195491,
+        "high": 3.597275359468602
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.32571457399899373,
+        "low": -0.7563748916803072,
+        "high": 1.4078040396782947
+      },
+      "cache_hits": 54,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "rgpe",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.026837690259680958,
+        "low": 0.02293948834886315,
+        "high": 0.030735892170498765
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.160904260668152,
+        "low": 2.943812094714223,
+        "high": 3.3779964266220808
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.048418573000162723,
+        "low": -0.15990973228956104,
+        "high": 0.2567468782898865
+      },
+      "cache_hits": 59,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "sobol_projected",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.03142996296481942,
+        "low": 0.018841542899384094,
+        "high": 0.04401838303025474
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.3163971663307166,
+        "low": 2.940399523675617,
+        "high": 3.6923948089858163
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.17174348566610811,
+        "low": -0.2965013627449019,
+        "high": 0.6399883340771181
+      },
+      "cache_hits": 57,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Animal_Crossing_New_Leaf_Nintendo_3DS_Game",
+      "method": "target_local",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.026462099249557197,
+        "low": 0.02072528039584511,
+        "high": 0.03219891810326928
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.377465925332217,
+        "low": 3.078803582809781,
+        "high": 3.676128267854653
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "adaptive",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.371962700693516,
+        "low": 0.28543759822258247,
+        "high": 0.45848780316444954
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3989457917454538,
+        "low": 0.3814712055180968,
+        "high": 0.4164203779728108
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        }
+      ],
+      "status_counts": {
+        "ok": 11,
+        "physical_failure": 49,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 81.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.019284509149728478,
+        "low": 0.014185633176571854,
+        "high": 0.024383385122885102
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.02574027045193932,
+        "low": 0.018801665545791137,
+        "high": 0.0326788753580875
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.348635113333634,
+        "low": 10.234339888722676,
+        "high": 10.462930337944591
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "contextual",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.371962700693516,
+        "low": 0.28543759822258247,
+        "high": 0.45848780316444954
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3989457917454538,
+        "low": 0.3814712055180968,
+        "high": 0.4164203779728108
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        }
+      ],
+      "status_counts": {
+        "ok": 11,
+        "physical_failure": 49,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 81.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.019243331344571242,
+        "low": 0.014021701727534438,
+        "high": 0.024464960961608044
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.02574027045193932,
+        "low": 0.018801665545791137,
+        "high": 0.0326788753580875
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.375303610666379,
+        "low": 10.224583412959248,
+        "high": 10.526023808373509
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "equal",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.371962700693516,
+        "low": 0.28543759822258247,
+        "high": 0.45848780316444954
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3989457917454538,
+        "low": 0.3814712055180968,
+        "high": 0.4164203779728108
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        }
+      ],
+      "status_counts": {
+        "ok": 11,
+        "physical_failure": 49,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 81.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.01959839066063937,
+        "low": 0.011304194057290115,
+        "high": 0.027892587263988626
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.02574027045193932,
+        "low": 0.018801665545791144,
+        "high": 0.03267887535808749
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.378497233333595,
+        "low": 10.28346636787894,
+        "high": 10.47352809878825
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "multitask_fixed",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.371962700693516,
+        "low": 0.28543759822258247,
+        "high": 0.45848780316444954
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3989457917454538,
+        "low": 0.3814712055180968,
+        "high": 0.4164203779728108
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        }
+      ],
+      "status_counts": {
+        "ok": 11,
+        "physical_failure": 49,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 81.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.01952462065171452,
+        "low": 0.01341516890448555,
+        "high": 0.025634072398943487
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.02574027045193932,
+        "low": 0.018801665545791137,
+        "high": 0.0326788753580875
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.385477616666927,
+        "low": 10.324409928061321,
+        "high": 10.446545305272533
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "no_evidence",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.371962700693516,
+        "low": 0.28543759822258247,
+        "high": 0.45848780316444954
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3989457917454538,
+        "low": 0.3814712055180968,
+        "high": 0.4164203779728108
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        }
+      ],
+      "status_counts": {
+        "ok": 11,
+        "physical_failure": 49,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 81.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.019284509149728478,
+        "low": 0.014185633176571854,
+        "high": 0.024383385122885102
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.02574027045193932,
+        "low": 0.018801665545791137,
+        "high": 0.0326788753580875
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.348635113333634,
+        "low": 10.234339888722676,
+        "high": 10.462930337944591
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "random",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.3352380781590834,
+        "low": 0.0961947020601843,
+        "high": 0.5742814542579825
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3926708549740629,
+        "low": 0.3538624216047901,
+        "high": 0.4314792883433357
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.39161837885478573,
+          "low": 0.3486037373419745,
+          "high": 0.434633020367597
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        }
+      ],
+      "status_counts": {
+        "ok": 8,
+        "physical_failure": 52,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 86.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.03373231905408338,
+        "low": 0.02350803019792172,
+        "high": 0.04395660791024504
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.029200425113102765,
+        "low": 0.001439550542816151,
+        "high": 0.05696129968338938
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.141082428666778,
+        "low": 9.421376619396579,
+        "high": 10.860788237936976
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.3677101163333039,
+        "low": -1.2144188194646783,
+        "high": 1.949839052131286
+      },
+      "cache_hits": 58,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "rgpe",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.3572740600431863,
+        "low": 0.21114120174685896,
+        "high": 0.5034069183395136
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3989457917454538,
+        "low": 0.3814712055180968,
+        "high": 0.4164203779728108
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.38830655849738177,
+          "low": 0.3317307601737374,
+          "high": 0.4448823568210261
+        },
+        {
+          "n": 3,
+          "mean": 0.39161837885478573,
+          "low": 0.3486037373419745,
+          "high": 0.434633020367597
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3926708549740629,
+          "low": 0.3538624216047901,
+          "high": 0.4314792883433357
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        }
+      ],
+      "status_counts": {
+        "ok": 14,
+        "physical_failure": 46,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 76.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.027179070666477987,
+        "low": 0.019251216011491695,
+        "high": 0.03510692532146428
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.030157560557074723,
+        "low": 0.02214418590470981,
+        "high": 0.038170935209439635
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.41600903799978,
+        "low": 10.261429221584653,
+        "high": 10.570588854414908
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "sobol_projected",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.327088083593508,
+        "low": 0.05335107618561913,
+        "high": 0.6008250910013968
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3898579091146903,
+        "low": 0.3396820271955204,
+        "high": 0.44003379103386026
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.38830655849738177,
+          "low": 0.3317307601737374,
+          "high": 0.4448823568210261
+        },
+        {
+          "n": 3,
+          "mean": 0.38830655849738177,
+          "low": 0.3317307601737374,
+          "high": 0.4448823568210261
+        },
+        {
+          "n": 3,
+          "mean": 0.38830655849738177,
+          "low": 0.3317307601737374,
+          "high": 0.4448823568210261
+        },
+        {
+          "n": 3,
+          "mean": 0.38830655849738177,
+          "low": 0.3317307601737374,
+          "high": 0.4448823568210261
+        },
+        {
+          "n": 3,
+          "mean": 0.38830655849738177,
+          "low": 0.3317307601737374,
+          "high": 0.4448823568210261
+        },
+        {
+          "n": 3,
+          "mean": 0.3898579091146903,
+          "low": 0.3396820271955204,
+          "high": 0.44003379103386026
+        },
+        {
+          "n": 3,
+          "mean": 0.3898579091146903,
+          "low": 0.3396820271955204,
+          "high": 0.44003379103386026
+        },
+        {
+          "n": 3,
+          "mean": 0.3898579091146903,
+          "low": 0.3396820271955204,
+          "high": 0.44003379103386026
+        },
+        {
+          "n": 3,
+          "mean": 0.3898579091146903,
+          "low": 0.3396820271955204,
+          "high": 0.44003379103386026
+        },
+        {
+          "n": 3,
+          "mean": 0.3898579091146903,
+          "low": 0.3396820271955204,
+          "high": 0.44003379103386026
+        },
+        {
+          "n": 3,
+          "mean": 0.3898579091146903,
+          "low": 0.3396820271955204,
+          "high": 0.44003379103386026
+        }
+      ],
+      "status_counts": {
+        "ok": 7,
+        "physical_failure": 53,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 88.33333333333333,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.028802772729287215,
+        "low": 0.015121647123697556,
+        "high": 0.042483898334876875
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.0226281732180971,
+        "low": 0.005073095347255845,
+        "high": 0.04018325108893836
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.16168253166567,
+        "low": 9.572547625490891,
+        "high": 10.75081743784045
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Great_Dinos_Triceratops_Toy",
+      "method": "target_local",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.2790902567406735,
+        "low": -0.20007104430436728,
+        "high": 0.7582515577857143
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.3989457917454538,
+        "low": 0.3814712055180968,
+        "high": 0.4164203779728108
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.12254026403177339,
+          "low": -0.4047079375087563,
+          "high": 0.6497884655723031
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.26731764508291694,
+          "low": -0.30796893640606154,
+          "high": 0.8426042265718954
+        },
+        {
+          "n": 3,
+          "mean": 0.39161837885478573,
+          "low": 0.3486037373419745,
+          "high": 0.434633020367597
+        },
+        {
+          "n": 3,
+          "mean": 0.39161837885478573,
+          "low": 0.3486037373419745,
+          "high": 0.434633020367597
+        },
+        {
+          "n": 3,
+          "mean": 0.3989457917454538,
+          "low": 0.3814712055180968,
+          "high": 0.4164203779728108
+        }
+      ],
+      "status_counts": {
+        "ok": 11,
+        "physical_failure": 49,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 81.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.025652769814013057,
+        "low": 0.005919774777405493,
+        "high": 0.045385764850620625
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.0251271491746822,
+        "low": 0.01906091784025531,
+        "high": 0.03119338050910909
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.264464446000298,
+        "low": 9.778891262218687,
+        "high": 10.75003762978191
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.170978023000013,
+        "low": -0.5646810343881593,
+        "high": 0.9066370803881852
+      },
+      "cache_hits": 59,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "adaptive",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.003105940950885249,
+        "low": 0.00011330024500996565,
+        "high": 0.006098581656760533
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.093857328333494,
+        "low": 12.744290984083056,
+        "high": 13.443423672583931
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "contextual",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.003416885298458412,
+        "low": 0.0014711690699854344,
+        "high": 0.00536260152693139
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.367753515667573,
+        "low": 12.817759646241665,
+        "high": 13.917747385093481
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "equal",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.003894378104890704,
+        "low": 0.0009017373990154206,
+        "high": 0.006887018810765987
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.03324958766522,
+        "low": 12.883619778702014,
+        "high": 13.182879396628424
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "multitask_fixed",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0034324978338547735,
+        "low": 0.0017435522738398887,
+        "high": 0.005121443393869658
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.178566701000213,
+        "low": 13.032991118345532,
+        "high": 13.324142283654894
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "no_evidence",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.003105940950885249,
+        "low": 0.00011330024500996565,
+        "high": 0.006098581656760533
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.093857328333494,
+        "low": 12.744290984083056,
+        "high": 13.443423672583931
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "random",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.00810627594482114,
+        "low": 0.007367535921335097,
+        "high": 0.00884501596830718
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.297249800001131,
+        "low": 12.73448413912804,
+        "high": 13.860015460874221
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.8607975629996266,
+        "low": -1.6698437220812403,
+        "high": 3.391438848080494
+      },
+      "cache_hits": 56,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "rgpe",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0036389607981397658,
+        "low": 0.0015900234479948715,
+        "high": 0.00568789814828466
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.83397691966699,
+        "low": 13.355748207310798,
+        "high": 14.312205632023181
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "sobol_projected",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.008281208771314193,
+        "low": 0.0063460572557193055,
+        "high": 0.01021636028690908
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 12.979115477999585,
+        "low": 12.442382632516988,
+        "high": 13.515848323482182
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.22050568000001172,
+        "low": -0.7282536859773002,
+        "high": 1.1692650459773237
+      },
+      "cache_hits": 59,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "OXO_Soft_Works_Can_Opener_SnapLock",
+      "method": "target_local",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.003454049112772606,
+        "low": 0.0020753353819355164,
+        "high": 0.004832762843609696
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 13.183863808999982,
+        "low": 13.045380314686447,
+        "high": 13.322347303313517
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "adaptive",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.04036858752380019,
+        "low": 0.022999386193259298,
+        "high": 0.05773778885434108
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.24221152514280112,
+        "low": 0.24221152514280112,
+        "high": 0.24221152514280112
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        }
+      ],
+      "status_counts": {
+        "ok": 3,
+        "physical_failure": 57,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 95.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.012820074310353204,
+        "low": 0.008305000231773793,
+        "high": 0.017335148388932617
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.05539148368648895,
+        "low": 0.05539148368648895,
+        "high": 0.05539148368648895
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.620563371998287,
+        "low": 5.350260914076547,
+        "high": 5.890865829920027
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "contextual",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.21799037262852097,
+        "low": 0.2179903726285209,
+        "high": 0.21799037262852106
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.24221152514280112,
+        "low": 0.24221152514280112,
+        "high": 0.24221152514280112
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        }
+      ],
+      "status_counts": {
+        "ok": 3,
+        "physical_failure": 57,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 95.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.013490891127877028,
+        "low": 0.010196469631288632,
+        "high": 0.016785312624465424
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.05539148368648895,
+        "low": 0.05539148368648895,
+        "high": 0.05539148368648895
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.536023013998299,
+        "low": 5.302614833973988,
+        "high": 5.7694311940226095
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "equal",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.01301192233585615,
+        "low": 0.011686394625152783,
+        "high": 0.014337450046559518
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.278501618998537,
+        "low": 5.184952763839281,
+        "high": 5.372050474157794
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "multitask_fixed",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.028258011266660134,
+        "low": 0.01088880993611923,
+        "high": 0.04562721259720104
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.24221152514280112,
+        "low": 0.24221152514280112,
+        "high": 0.24221152514280112
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        }
+      ],
+      "status_counts": {
+        "ok": 3,
+        "physical_failure": 57,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 95.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.013676460128033611,
+        "low": 0.009639480730188403,
+        "high": 0.017713439525878817
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.05539148368648895,
+        "low": 0.05539148368648895,
+        "high": 0.05539148368648895
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.580279672998586,
+        "low": 5.237572757183303,
+        "high": 5.922986588813869
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "no_evidence",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.04036858752380019,
+        "low": 0.022999386193259298,
+        "high": 0.05773778885434108
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.24221152514280112,
+        "low": 0.24221152514280112,
+        "high": 0.24221152514280112
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        },
+        {
+          "n": 3,
+          "mean": 0.24221152514280112,
+          "low": 0.24221152514280112,
+          "high": 0.24221152514280112
+        }
+      ],
+      "status_counts": {
+        "ok": 3,
+        "physical_failure": 57,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 95.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.012820074310353204,
+        "low": 0.008305000231773793,
+        "high": 0.017335148388932617
+      },
+      "epsilon_feasible_only": {
+        "n": 3,
+        "mean": 0.05539148368648895,
+        "low": 0.05539148368648895,
+        "high": 0.05539148368648895
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.620563371998287,
+        "low": 5.350260914076547,
+        "high": 5.890865829920027
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "random",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.028258011266660134,
+        "low": -0.09332639804712613,
+        "high": 0.1498424205804464
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.08073717504760038,
+        "low": -0.26664685156321755,
+        "high": 0.42812120165841827
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        }
+      ],
+      "status_counts": {
+        "ok": 1,
+        "physical_failure": 59,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 98.33333333333333,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.022750842360512013,
+        "low": 0.012064548663038735,
+        "high": 0.03343713605798529
+      },
+      "epsilon_feasible_only": {
+        "n": 1,
+        "mean": 0.05539148368648895,
+        "low": null,
+        "high": null
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.207811965331227,
+        "low": 5.0442352947630695,
+        "high": 5.371388635899384
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.2772696523328098,
+        "low": -0.34503917788828803,
+        "high": 0.8995784825539077
+      },
+      "cache_hits": 57,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "rgpe",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.06458974003808031,
+        "low": -0.07436387060624684,
+        "high": 0.20354335068240748
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.16147435009520075,
+        "low": -0.18590967651561716,
+        "high": 0.5088583767060186
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        }
+      ],
+      "status_counts": {
+        "ok": 2,
+        "physical_failure": 58,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 96.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.013531793007418089,
+        "low": 0.003922496273912671,
+        "high": 0.023141089740923507
+      },
+      "epsilon_feasible_only": {
+        "n": 2,
+        "mean": 0.05539148368648895,
+        "low": 0.05539148368648895,
+        "high": 0.05539148368648895
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.418080158332789,
+        "low": 4.9558570016129995,
+        "high": 5.880303315052579
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "sobol_projected",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0686265987904603,
+        "low": -0.2266498238287349,
+        "high": 0.36390302140965547
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.08073717504760038,
+        "low": -0.26664685156321755,
+        "high": 0.42812120165841827
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        }
+      ],
+      "status_counts": {
+        "ok": 1,
+        "physical_failure": 59,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 98.33333333333333,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.020138615957235387,
+        "low": 0.006390540196259266,
+        "high": 0.03388669171821151
+      },
+      "epsilon_feasible_only": {
+        "n": 1,
+        "mean": 0.05539148368648895,
+        "low": null,
+        "high": null
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.008363836333956,
+        "low": 4.297645162489714,
+        "high": 5.719082510178198
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Orbit_Bubblemint_Mini_Bottle_6_ct",
+      "method": "target_local",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.09688461005712046,
+        "low": -0.17884291309741995,
+        "high": 0.37261213321166087
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.16147435009520075,
+        "low": -0.18590967651561716,
+        "high": 0.5088583767060186
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.08073717504760038,
+          "low": -0.26664685156321755,
+          "high": 0.42812120165841827
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        },
+        {
+          "n": 3,
+          "mean": 0.16147435009520075,
+          "low": -0.18590967651561716,
+          "high": 0.5088583767060186
+        }
+      ],
+      "status_counts": {
+        "ok": 2,
+        "physical_failure": 58,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 96.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.01830335786145464,
+        "low": 0.015632312269972897,
+        "high": 0.020974403452936382
+      },
+      "epsilon_feasible_only": {
+        "n": 2,
+        "mean": 0.05539148368648895,
+        "low": 0.05539148368648895,
+        "high": 0.05539148368648895
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 5.35003200133239,
+        "low": 4.605785259639963,
+        "high": 6.094278743024817
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.10376100766613187,
+        "low": -0.34268657521010526,
+        "high": 0.550208590542369
+      },
+      "cache_hits": 59,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "adaptive",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.011516120292079565,
+        "low": 0.009328104977606432,
+        "high": 0.013704135606552698
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.81370545933108,
+        "low": 10.624142706291545,
+        "high": 11.003268212370616
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "contextual",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.011102451884644746,
+        "low": 0.007835243910329878,
+        "high": 0.014369659858959613
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.690499520997037,
+        "low": 10.368517285403067,
+        "high": 11.012481756591006
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "equal",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.011371009112148875,
+        "low": 0.010402354806865261,
+        "high": 0.012339663417432489
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.901389230330096,
+        "low": 10.626475877923376,
+        "high": 11.176302582736817
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "multitask_fixed",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.010910768329386302,
+        "low": 0.008804697177272669,
+        "high": 0.013016839481499936
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 11.014383244331839,
+        "low": 10.835207487998007,
+        "high": 11.19355900066567
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "no_evidence",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.011516120292079565,
+        "low": 0.009328104977606432,
+        "high": 0.013704135606552698
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.81370545933108,
+        "low": 10.624142706291545,
+        "high": 11.003268212370616
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "random",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.1361908859397045,
+        "low": -0.1641841974730273,
+        "high": 0.4365659693524363
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.23685371467774693,
+        "low": -0.272695926327007,
+        "high": 0.7464033556825009
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.11842685733887347,
+          "low": -0.3911227836658805,
+          "high": 0.6279764983436275
+        },
+        {
+          "n": 3,
+          "mean": 0.11842685733887347,
+          "low": -0.3911227836658805,
+          "high": 0.6279764983436275
+        },
+        {
+          "n": 3,
+          "mean": 0.11842685733887347,
+          "low": -0.3911227836658805,
+          "high": 0.6279764983436275
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        },
+        {
+          "n": 3,
+          "mean": 0.23685371467774693,
+          "low": -0.272695926327007,
+          "high": 0.7464033556825009
+        }
+      ],
+      "status_counts": {
+        "ok": 2,
+        "physical_failure": 58,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 96.66666666666667,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.01461137421379794,
+        "low": 0.0076871747245788255,
+        "high": 0.021535573703017053
+      },
+      "epsilon_feasible_only": {
+        "n": 2,
+        "mean": 0.02145184884263252,
+        "low": 0.02145184884263252,
+        "high": 0.02145184884263252
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.82632207066672,
+        "low": 10.455920950783415,
+        "high": 11.196723190550024
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.344934763999845,
+        "low": -1.1391997399095746,
+        "high": 1.8290692679092646
+      },
+      "cache_hits": 58,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "rgpe",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.010185134172876255,
+        "low": 0.00752067282872558,
+        "high": 0.01284959551702693
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.677574758996343,
+        "low": 10.489662030539757,
+        "high": 10.86548748745293
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "sobol_projected",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.01776402860083102,
+        "low": -0.05866841754988207,
+        "high": 0.09419647475154412
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.11842685733887347,
+        "low": -0.3911227836658805,
+        "high": 0.6279764983436275
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.11842685733887347,
+          "low": -0.3911227836658805,
+          "high": 0.6279764983436275
+        },
+        {
+          "n": 3,
+          "mean": 0.11842685733887347,
+          "low": -0.3911227836658805,
+          "high": 0.6279764983436275
+        },
+        {
+          "n": 3,
+          "mean": 0.11842685733887347,
+          "low": -0.3911227836658805,
+          "high": 0.6279764983436275
+        }
+      ],
+      "status_counts": {
+        "ok": 1,
+        "physical_failure": 59,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 98.33333333333333,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.013067344220616006,
+        "low": 0.009538400487711853,
+        "high": 0.01659628795352016
+      },
+      "epsilon_feasible_only": {
+        "n": 1,
+        "mean": 0.02145184884263252,
+        "low": null,
+        "high": null
+      },
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 11.096602367662854,
+        "low": 9.742333333442625,
+        "high": 12.450871401883083
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.5186335433324226,
+        "low": -0.8032879862049968,
+        "high": 1.8405550728698419
+      },
+      "cache_hits": 57,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "PINEAPPLE_MARACA_6_PCSSET",
+      "method": "target_local",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.012365823341583426,
+        "low": 0.009910008906858269,
+        "high": 0.014821637776308584
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 10.830372782666018,
+        "low": 10.10357695807632,
+        "high": 11.557168607255715
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "adaptive",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.387556895670059,
+        "low": 3.2938583011092266,
+        "high": 3.4812554902308914
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "contextual",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.4025785670025166,
+        "low": 3.301377231783996,
+        "high": 3.503779902221037
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.05157834366643025,
+        "low": -0.17034535750589178,
+        "high": 0.2735020448387523
+      },
+      "cache_hits": 59,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "equal",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.3524319763370536,
+        "low": 3.3520615064626913,
+        "high": 3.352802446211416
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "multitask_fixed",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.400852259669288,
+        "low": 3.292223223491064,
+        "high": 3.5094812958475115
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "no_evidence",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.387556895670059,
+        "low": 3.2938583011092266,
+        "high": 3.4812554902308914
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "random",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.42877306699908,
+        "low": 3.066704266476125,
+        "high": 3.7908418675220354
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.10467949300012454,
+        "low": -0.34572001330565105,
+        "high": 0.5550789993059001
+      },
+      "cache_hits": 58,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "rgpe",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.4786963683375993,
+        "low": 3.426362055644885,
+        "high": 3.531030681030314
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "cache_hits": 60,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "sobol_projected",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.5039243253352956,
+        "low": 3.1762408449239685,
+        "high": 3.8316078057466227
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.048547488000015925,
+        "low": -0.16033549376573186,
+        "high": 0.2574304697657637
+      },
+      "cache_hits": 59,
+      "cache_unknown": 0
+    },
+    {
+      "object_id": "Threshold_Porcelain_Teapot_White",
+      "method": "target_local",
+      "n_seeds": 3,
+      "auc": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "last": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "curve": [
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        {
+          "n": 3,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        }
+      ],
+      "status_counts": {
+        "ok": 0,
+        "physical_failure": 60,
+        "infrastructure_failure": 0
+      },
+      "f1_rejection_pct": 100.0,
+      "infrastructure_error_pct": 0.0,
+      "epsilon_unconditional": {
+        "n": 3,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "epsilon_feasible_only": null,
+      "nominal_online_s": {
+        "n": 3,
+        "mean": 3.3935395256685297,
+        "low": 3.1838788862997354,
+        "high": 3.603200165037324
+      },
+      "fresh_online_s": {
+        "n": 3,
+        "mean": 0.04661403933338685,
+        "low": -0.1539499842490589,
+        "high": 0.24717806291583258
+      },
+      "cache_hits": 59,
+      "cache_unknown": 0
+    }
+  ]
+}
