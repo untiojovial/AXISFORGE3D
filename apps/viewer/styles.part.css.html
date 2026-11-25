@@ -137,4 +137,11 @@
   .field input[type="file"] { padding: 4px; font-family: var(--ui); }
   @media (max-width: 1100px) { .viewport__hint { display: none; } }
   @media (max-width: 560px) { .legend { display: none; } .viewbar { max-width: calc(100% - 20px); top: 36px; } }
+  #research-panel { margin-block: 1rem; }
+  #research-controls[hidden] { display: none; }
+  #research-controls .field { margin-block: .5rem; }
+  .research-charts { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,260px),1fr)); gap: 1rem; }
+  .research-charts figure { margin: .6rem 0; }
+  .research-charts canvas { display: block; width: 100%; border: 1px solid var(--rule); background: var(--panel); }
+  .research-charts figcaption, #research-values { font: var(--step-1) var(--mono); margin-top: .4rem; }
 </style>

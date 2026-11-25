@@ -159,6 +159,23 @@
     </div>
   </div>
 
+  <details class="module" id="research-panel">
+    <summary class="module__head"><h2 class="module__title">Experimentos de agarre</h2><span class="module__note">Historial BO</span></summary>
+    <div class="module__body">
+      <div class="field"><label for="research-file">Archivo de resultados (viewer.json)</label><input type="file" id="research-file" accept=".json,application/json"></div>
+      <p id="research-status" role="status"></p>
+      <div id="research-controls" hidden>
+        <div class="field"><label for="research-run">Objeto, m&eacute;todo y semilla</label><select id="research-run"></select></div>
+        <div class="field"><label for="research-step">Evaluaci&oacute;n</label><input id="research-step" type="range" min="1" value="1" step="1"></div>
+        <div class="field"><label for="research-plane">Proyecci&oacute;n de la malla y el candidato</label><select id="research-plane"><option>XY</option><option>XZ</option><option>YZ</option></select></div>
+        <div class="research-charts"><figure><canvas id="research-geometry" width="520" height="260" aria-label="Puntos de superficie, centro del candidato y contactos propuestos"></canvas><figcaption>Puntos de superficie, centro del candidato (cruz) y contactos propuestos (c&iacute;rculos).</figcaption></figure>
+        <figure><canvas id="research-trace" width="520" height="260" aria-label="Trayectoria de la utilidad observada y mejor valor acumulado"></canvas><figcaption>Utilidad por intento y mejor valor acumulado.</figcaption></figure></div>
+        <p id="research-values" aria-live="polite"></p>
+        <button type="button" class="btn" id="research-csv">Exportar trayectoria CSV</button>
+      </div>
+    </div>
+  </details>
+
   <footer class="footing">
     <span><strong>Simulaci&oacute;n: no es una certificaci&oacute;n de seguridad funcional.</strong> Los resultados son aproximaciones de ingenier&iacute;a. El contacto se modela con parches de puntos y fricci&oacute;n de Coulomb, y las colisiones del recorrido se comprueban por muestras, no de forma continua. Valida todo movimiento en la celda real antes de operar maquinaria.</span>
     <span>El robot de la celda de demostraci&oacute;n no corresponde a ninguna m&aacute;quina comercial.</span>

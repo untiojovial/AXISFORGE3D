@@ -1,0 +1,18 @@
+# Phase III object subset — PARTIALLY_VALIDATED
+
+Thirty Google Scanned Objects are stored outside Git in `/workspace/axisforge-phase3-data`. `manifest.lock.json` is the byte-identical manifest, SHA-256 `6c5291288adcd365b873a4c983b30b9f19fb2ed0110a0575112514b866cdf660`. The pinned source is [Scanned Objects MuJoCo Models](https://github.com/kevinzakka/mujoco_scanned_objects/tree/6ff8d275cebfd5b47e49685e3cfbe64b20e49a3c), an independently maintained MuJoCo adaptation of [Google Scanned Objects](https://arxiv.org/abs/2204.11918). The source README explicitly licenses OBJ and PNG under CC BY 4.0 and XML under MIT; preserve attribution to Google Scanned Objects (Downs et al., 2022) and Kevin Zakka's MuJoCo adaptation. The selected OBJ, PNG and XML files are preserved, and each OBJ and resulting STL is SHA-256 pinned. PNG and XML are not yet independently hashed in this version. Source URLs are revision-pinned.
+
+Recreate on a machine with network access to raw.githubusercontent.com and Python/numpy:
+
+```bash
+python -m pip install 'trimesh==5.2.2' numpy
+python -m research_grasping.phase3.dataset_reproduce --root /workspace/axisforge-phase3-data
+```
+
+Use `--splits train validation` for development; test is reserved and its results must not be used for development. Downloads are selected files, not the full collection. Existing locked meshes are checked and different files are rejected. The command does not delete files. It regenerates STL using trimesh 5.2.2 and checks the locked bytes. Visual STL has no texture; retain OBJ and PNG for appearance experiments. Geometry is not repaired, simplified, or rescaled. MJCF defines the mesh without an explicit scale; coordinates are interpreted as metres according to the MuJoCo adaptation, not independently verified measurements. STL extents and watertightness are recorded, not certified physical dimensions. Mass, friction, inertia and center of mass are unknown, not measured values. Soft or packaged items are rigid geometry approximations. Manufacturer names are identifiers, not endorsement.
+
+Selection was made by names and geometric categories before grasp evaluation. Split counts are 16/6/8, distinct object identifiers; broad shape families occur in multiple splits, and similarity/duplicates have not been independently audited. This is **not** an unseen-family split. Related object identities or acquisition artifacts could still leak and must be audited before confirmatory use. Test has not been used for optimization by this dataset preparation; merely preparing its meshes is not outcome evaluation. Seal protocol and locked selection before any confirmatory work. Do not claim a test result or family generalization from this catalog.
+
+No collision mesh, surface samples, justified repair, verified physical properties, or validation of concave-contact preservation are supplied. `collision_mesh` is null. STL conversion has not been qualified against every simulator or native grasp planner. The assets are preliminary input for development, not an approved M1 milestone.
+
+EGAD's official project page points to QUT for evaluation meshes and documents explicitly gripper-specific rescaling; its source code is BSD-3-Clause, which alone does not establish that its separate mesh archive shares that license. QUT access returned proxy HTTP 403 here. The official YCB source and Google Research pages also could not be verified from this environment; avoid assuming dataset license terms from a code repository. GSO was selected via the above source, whose README expressly covers the 3D assets. Confirm primary-source terms before redistribution.

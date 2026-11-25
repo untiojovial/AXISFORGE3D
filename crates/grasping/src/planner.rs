@@ -936,6 +936,160 @@ pub fn plan_pick_with(
     Ok(report)
 }
 
+/// A generator-order candidate and, only when requested, its native evaluation.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ResearchCandidate {
+    /// Stable index in deterministic generator order for the same project and options.
+    pub id: usize,
+    /// Candidate geometry in world coordinates.
+    pub candidate: GraspCandidate,
+    /// Full world grasp-frame pose.
+    pub grasp_pose: Transform,
+    /// Native plan if all checks pass; omitted when not evaluated or rejected.
+    pub plan: Option<GraspPlan>,
+    /// First native rejection, if evaluated and rejected.
+    pub rejection: Option<Rejection>,
+    /// Static quality evaluated independently, if requested.
+    pub quality: Option<GraspQuality>,
+    /// Seconds computing standalone static quality.
+    pub quality_elapsed_s: Option<f64>,
+    /// Seconds in the native attempt, including any repeated quality work.
+    pub attempt_elapsed_s: Option<f64>,
+}
+
+/// Generate without score sorting; optionally evaluate one generator-order index.
+/// No quality or IK is run when `evaluate_index` is `None`.
+pub fn research_candidates(
+    project: &Project,
+    body_id: &str,
+    seed: &[f64],
+    options: &PlannerOptions,
+    cancel: &CancellationToken,
+    evaluate_index: Option<usize>,
+) -> DomainResult<Vec<ResearchCandidate>> {
+    let registry = &Registry::standard();
+    options.validate()?;
+    let measure = registry.measure(&options.quality_measure)?;
+    let gripper = project.robot.require_gripper()?;
+    let body = project
+        .environment
+        .body(body_id)
+        .ok_or_else(|| DomainError::dangling("world body", body_id, "plan_pick"))?;
+    // A single primitive has exact grasps and an exact centre; anything else
+    // is handled through its surface.
+    let primitive = body
+        .single_geometry()
+        .is_some_and(|g| !matches!(g.shape, Shape::Mesh { .. }));
+    let generator = choose_generator(registry, gripper, measure, options, primitive)?;
+    if !body.is_graspable() {
+        return Err(DomainError::unsupported(format!(
+            "body '{}' is not marked manipulable, so it is not a pick target",
+            body.name
+        )));
+    }
+    let model = KinematicModel::from_robot(&project.robot)?;
+    model.check_configuration(seed)?;
+    let frame = model.frame_index(&gripper.grasp_frame_id).ok_or_else(|| {
+        DomainError::dangling("tool frame", gripper.grasp_frame_id.clone(), "plan_pick")
+    })?;
+    let palm = model
+        .link_index(&gripper.palm_link_id)
+        .ok_or_else(|| DomainError::dangling("link", gripper.palm_link_id.clone(), "plan_pick"))?;
+    let jaws = gripper
+        .jaw_joint_ids
+        .iter()
+        .filter_map(|id| {
+            model
+                .joint_index(id)
+                .and_then(|j| model.joints()[j].value_index)
+        })
+        .collect();
+
+    let synthesis = SynthesisOptions {
+        angular_samples: options.angular_samples,
+        finger_depth: gripper.finger_depth,
+        finger_width: gripper.finger_width,
+        surface_samples: options.surface_samples,
+        contact_tolerance: options.contact_tolerance,
+        ..SynthesisOptions::default()
+    };
+    let (center_of_mass, torque_scale) = if primitive {
+        primitive_frame(body)
+    } else {
+        let surface = PartSurface::of(body, &project.resources)?;
+        (surface.center_of_mass, surface.radius)
+    };
+    let context = Context {
+        project,
+        model: &model,
+        gripper,
+        body,
+        frame,
+        palm,
+        jaws,
+        options,
+        cancel,
+        measure,
+        center_of_mass,
+        torque_scale,
+        measured: RefCell::new(BTreeMap::new()),
+    };
+    // Candidates the gripper cannot make at all (wider than its stroke, or
+    // needing more force than it has) go after every other: they are
+    // rejected cheaply, but each still counts against `maxCandidates`, and a
+    // sampled surface yields many of them.
+    let candidates = match generator {
+        Some(generator) => generator.generate(body, &project.resources, &synthesis)?,
+        None => synthesize_hand(
+            project,
+            &model,
+            body,
+            center_of_mass,
+            &hand_synthesis(options, synthesis.seed),
+        )?,
+    };
+    let mut output = Vec::new();
+    for (id, candidate) in candidates.into_iter().enumerate() {
+        if evaluate_index.is_some_and(|index| index != id) {
+            continue;
+        }
+        let grasp_pose = context.grasp_pose(&candidate)?;
+        let mut record = ResearchCandidate {
+            id,
+            candidate,
+            grasp_pose,
+            plan: None,
+            rejection: None,
+            quality: None,
+            quality_elapsed_s: None,
+            attempt_elapsed_s: None,
+        };
+        if evaluate_index.is_some() {
+            let start = std::time::Instant::now();
+            record.quality = Some(evaluate(measure, &context.quality_input(&record.candidate)));
+            record.quality_elapsed_s = Some(start.elapsed().as_secs_f64());
+            let start = std::time::Instant::now();
+            let attempt = context.attempt(&record.candidate, seed)?;
+            record.attempt_elapsed_s = Some(start.elapsed().as_secs_f64());
+            match attempt {
+                Ok(plan) => record.plan = Some(plan),
+                Err((reason, detail)) => {
+                    record.rejection = Some(Rejection {
+                        label: record.candidate.label.clone(),
+                        reason,
+                        detail,
+                        center: record.candidate.center,
+                        approach: record.candidate.approach,
+                    })
+                }
+            }
+        }
+        output.push(record);
+    }
+    Ok(output)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -959,6 +1113,28 @@ mod tests {
             &CancellationToken::new(),
         )
         .unwrap()
+    }
+
+    #[test]
+    fn research_catalog_preserves_order_and_defers_evaluation() {
+        let (project, seed) = cell();
+        let body = project.environment.body_by_name("cube").unwrap();
+        let options = PlannerOptions::default();
+        let cancel = CancellationToken::new();
+        let catalog =
+            research_candidates(&project, &body.id, &seed, &options, &cancel, None).unwrap();
+        assert!(!catalog.is_empty());
+        for (index, item) in catalog.iter().enumerate() {
+            assert_eq!(item.id, index);
+            assert!(item.plan.is_none() && item.rejection.is_none() && item.quality.is_none());
+        }
+        let selected =
+            research_candidates(&project, &body.id, &seed, &options, &cancel, Some(0)).unwrap();
+        assert_eq!(selected.len(), 1);
+        assert_eq!(selected[0].candidate, catalog[0].candidate);
+        assert_eq!(selected[0].grasp_pose, catalog[0].grasp_pose);
+        assert!(selected[0].quality.is_some());
+        assert_ne!(selected[0].plan.is_some(), selected[0].rejection.is_some());
     }
 
     #[test]

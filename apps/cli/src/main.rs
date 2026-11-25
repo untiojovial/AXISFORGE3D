@@ -180,6 +180,16 @@ enum Command {
         #[arg(long)]
         json: bool,
     },
+    /// Export generator-order grasp candidates, optionally evaluating one index.
+    ResearchCandidates {
+        /// The project file.
+        file: PathBuf,
+        /// The body's display name.
+        body: String,
+        /// Evaluate one generator-order index with native IK, collision and static wrench.
+        #[arg(long)]
+        evaluate: Option<usize>,
+    },
     /// Plan the whole cycle: pick a part, carry it to a target and set it
     /// down, from the start posture and back, every motion proven clear.
     Cycle {
@@ -745,6 +755,31 @@ fn run(cli: Cli) -> Result<()> {
                 );
             }
             println!("\n{SAFETY_NOTICE}");
+        }
+        Command::ResearchCandidates {
+            file,
+            body,
+            evaluate,
+        } => {
+            let session = session_for(&file)?;
+            let body_id = &session
+                .project()
+                .environment
+                .body_by_name(&body)
+                .ok_or_else(|| anyhow!("no body named '{body}' in {}", file.display()))?
+                .id;
+            let records = axisforge_grasping::research_candidates(
+                session.project(),
+                body_id,
+                session.values(),
+                &axisforge_grasping::PlannerOptions::default(),
+                &axisforge_kinematics::CancellationToken::new(),
+                evaluate,
+            )?;
+            if evaluate.is_some() && records.is_empty() {
+                return Err(anyhow!("candidate index out of range"));
+            }
+            println!("{}", serde_json::to_string(&records)?);
         }
         Command::Cycle {
             file,

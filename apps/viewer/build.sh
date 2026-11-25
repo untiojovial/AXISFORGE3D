@@ -22,6 +22,7 @@ assert body.count("__THIRD_PARTY_LICENSE__") == 1 and script.count("__SAMPLES__"
 body = body.replace("__THIRD_PARTY_LICENSE__", html.escape((sample / "LICENSE").read_text(encoding="utf-8")).strip())
 # json.dumps escapes every non-ASCII character, and "</" is broken up so the
 # embedded text can never close the surrounding <script> element.
+script = read("research.part.js") + "\n" + script
 script = script.replace("__SAMPLES__", json.dumps(samples).replace("</", "<\\/"))
 # The markup uses entities; the script is escaped here, so the page does not
 # depend on the charset it happens to be served with.

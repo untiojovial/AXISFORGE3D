@@ -1,0 +1,16 @@
+{
+  "manifest_sha256": "6c5291288adcd365b873a4c983b30b9f19fb2ed0110a0575112514b866cdf660",
+  "checkpoint_sha256": "d867053b2301634007ed9af230bfb1a217ec634f6c0329f04092133ae5c4b89e",
+  "model": "OpenCLIP ViT-B-32-quickgelu/laion400m_e31",
+  "torch": "2.9.1+cpu",
+  "torchvision": "0.24.1+cpu",
+  "open_clip": "4.2.2",
+  "transform": "Compose(\n    Resize(size=224, interpolation=bicubic, max_size=None, antialias=True)\n    CenterCrop(size=(224, 224))\n    MaybeConvertMode()\n    MaybeToTensor()\n    Normalize(mean=(0.48145466, 0.4578275, 0.40821073), std=(0.26862954, 0.26130258, 0.27577711))\n)",
+  "views": 16,
+  "resolution": 96,
+  "render": "neutral gray, two-sided face shading, no texture or shadow",
+  "split_policy": "train and validation only",
+  "renderer_sha256": "2988223f63c5bea2d528f5eb866ae88633c9425fec608cb7ddf3be3d8c09512f",
+  "vision_sha256": "b1b366dd8c0a60a127a632896512110568ebffb91cc7c83d87e4552d9c8ada3d",
+  "pipeline_sha256": "48262b2811fef7bebfbfd158f7314ecc6242763d0ed390957ff868f16d2e99b5"
+}
