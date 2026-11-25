@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "source_commit": "bc94fda049f47a7c6a2d26a0db08f5b77e599e36",
+  "phase": "development",
+  "effector": "original parallel jaws",
+  "world_and_object_scale": "original Phase III project, metres",
+  "selection": "geometry-only farthest-point sequence over native candidates, with an opening-incompatible control requested every fifth slot; tie by original order; no filtering on IK, wrench or outcomes",
+  "comparison": "original equally spaced native indices and seeded permutation within uniform128 versus the geometry-only prefix within diverse128",
+  "nested_catalogue_sizes": [48,128,256,512],
+  "train_measurements_per_object": 50,
+  "validation_measurements_per_object": 25,
+  "historical_prefixes": [10,25,50],
+  "uniform_seed": 2025,
+  "report": "per-object first rejection and viability; unique native IDs; nominal and fresh cost. Frequencies are conditional on the selection design. Compare selection packages separately from BO policy effects."
+}
