@@ -1,0 +1,6853 @@
+{
+ "protocol": {
+  "neighbours": 3,
+  "prior_weight": 2.0,
+  "signature_scale": {
+   "approach": 0.1339745962155613,
+   "closing": 0.24999999999999994,
+   "width": 0.01,
+   "position": 0.25,
+   "height": 0.02
+  },
+  "random_seeds": 10,
+  "leave_one_out": true,
+  "library_sha256": "d82f9698491682936da3e4e747b3cff495aee6d5a71b626ece14e71f8ff8d83f"
+ },
+ "wall_seconds": 896.2,
+ "summary": {
+  "1": {
+   "box": {
+    "parts": 12,
+    "median_examined": 9.0,
+    "mean_examined": 36.5,
+    "geometric_mean_ratio_to_default": 0.330289738754877,
+    "fewer_than_default": 7,
+    "per_part": {
+     "Banana": 143.0,
+     "FoamBrick": 13.0,
+     "GelatinBox": 105.0,
+     "MediumClamp": 17.0,
+     "MustardBottle": 15.0,
+     "Pear": 1.0,
+     "PottedMeatCan": 5.0,
+     "PowerDrill": 1.0,
+     "Scissors": 133.0,
+     "Strawberry": 3.0,
+     "TennisBall": 1.0,
+     "TomatoSoupCan": 1.0
+    }
+   },
+   "default": {
+    "parts": 12,
+    "median_examined": 48.0,
+    "mean_examined": 50.333333333333336,
+    "geometric_mean_ratio_to_default": 1.0,
+    "fewer_than_default": 0,
+    "per_part": {
+     "Banana": 123.0,
+     "FoamBrick": 1.0,
+     "GelatinBox": 75.0,
+     "MediumClamp": 41.0,
+     "MustardBottle": 83.0,
+     "Pear": 5.0,
+     "PottedMeatCan": 81.0,
+     "PowerDrill": 55.0,
+     "Scissors": 33.0,
+     "Strawberry": 37.0,
+     "TennisBall": 1.0,
+     "TomatoSoupCan": 69.0
+    }
+   },
+   "pooled": {
+    "parts": 12,
+    "median_examined": 16.0,
+    "mean_examined": 29.5,
+    "geometric_mean_ratio_to_default": 0.36336126005757197,
+    "fewer_than_default": 9,
+    "per_part": {
+     "Banana": 79.0,
+     "FoamBrick": 13.0,
+     "GelatinBox": 33.0,
+     "MediumClamp": 19.0,
+     "MustardBottle": 21.0,
+     "Pear": 1.0,
+     "PottedMeatCan": 21.0,
+     "PowerDrill": 1.0,
+     "Scissors": 157.0,
+     "Strawberry": 7.0,
+     "TennisBall": 1.0,
+     "TomatoSoupCan": 1.0
+    }
+   },
+   "random": {
+    "parts": 12,
+    "median_examined": 25.0,
+    "mean_examined": 47.350000000000016,
+    "geometric_mean_ratio_to_default": 0.7842220957536619,
+    "fewer_than_default": 6,
+    "per_part": {
+     "Banana": 107.6,
+     "FoamBrick": 15.2,
+     "GelatinBox": 42.6,
+     "MediumClamp": 47.2,
+     "MustardBottle": 26.2,
+     "Pear": 6.6,
+     "PottedMeatCan": 23.8,
+     "PowerDrill": 6.2,
+     "Scissors": 109.8,
+     "Strawberry": 180.2,
+     "TennisBall": 1.6,
+     "TomatoSoupCan": 1.2
+    }
+   },
+   "self": {
+    "parts": 12,
+    "median_examined": 1.0,
+    "mean_examined": 1.0,
+    "geometric_mean_ratio_to_default": 0.04003892734265087,
+    "fewer_than_default": 10,
+    "per_part": {
+     "Banana": 1.0,
+     "FoamBrick": 1.0,
+     "GelatinBox": 1.0,
+     "MediumClamp": 1.0,
+     "MustardBottle": 1.0,
+     "Pear": 1.0,
+     "PottedMeatCan": 1.0,
+     "PowerDrill": 1.0,
+     "Scissors": 1.0,
+     "Strawberry": 1.0,
+     "TennisBall": 1.0,
+     "TomatoSoupCan": 1.0
+    }
+   },
+   "visual:dinov2": {
+    "parts": 12,
+    "median_examined": 17.0,
+    "mean_examined": 53.666666666666664,
+    "geometric_mean_ratio_to_default": 0.6096697172763086,
+    "fewer_than_default": 5,
+    "per_part": {
+     "Banana": 155.0,
+     "FoamBrick": 23.0,
+     "GelatinBox": 101.0,
+     "MediumClamp": 69.0,
+     "MustardBottle": 11.0,
+     "Pear": 1.0,
+     "PottedMeatCan": 3.0,
+     "PowerDrill": 11.0,
+     "Scissors": 107.0,
+     "Strawberry": 161.0,
+     "TennisBall": 1.0,
+     "TomatoSoupCan": 1.0
+    }
+   },
+   "visual:openclip": {
+    "parts": 12,
+    "median_examined": 18.0,
+    "mean_examined": 58.0,
+    "geometric_mean_ratio_to_default": 0.5216074199401327,
+    "fewer_than_default": 5,
+    "per_part": {
+     "Banana": 157.0,
+     "FoamBrick": 23.0,
+     "GelatinBox": 105.0,
+     "MediumClamp": 69.0,
+     "MustardBottle": 13.0,
+     "Pear": 1.0,
+     "PottedMeatCan": 3.0,
+     "PowerDrill": 1.0,
+     "Scissors": 111.0,
+     "Strawberry": 211.0,
+     "TennisBall": 1.0,
+     "TomatoSoupCan": 1.0
+    }
+   },
+   "visual:vit-random": {
+    "parts": 12,
+    "median_examined": 65.0,
+    "mean_examined": 75.5,
+    "geometric_mean_ratio_to_default": 0.8718233281848405,
+    "fewer_than_default": 3,
+    "per_part": {
+     "Banana": 127.0,
+     "FoamBrick": 1.0,
+     "GelatinBox": 97.0,
+     "MediumClamp": 69.0,
+     "MustardBottle": 113.0,
+     "Pear": 19.0,
+     "PottedMeatCan": 61.0,
+     "PowerDrill": 1.0,
+     "Scissors": 113.0,
+     "Strawberry": 301.0,
+     "TennisBall": 3.0,
+     "TomatoSoupCan": 1.0
+    }
+   },
+   "random_expectation": {
+    "parts": 12,
+    "median_examined": 34.184529356943145,
+    "mean_examined": 114.45948513881127,
+    "geometric_mean_ratio_to_default": 2.0814262332725777,
+    "fewer_than_default": 6,
+    "per_part": {
+     "Banana": 97.0,
+     "FoamBrick": 23.53061224489796,
+     "GelatinBox": 20.183098591549296,
+     "MediumClamp": 263.4,
+     "MustardBottle": 37.206896551724135,
+     "Pear": 26.813953488372093,
+     "PottedMeatCan": 31.16216216216216,
+     "PowerDrill": 40.56521739130435,
+     "Scissors": 352.3333333333333,
+     "Strawberry": 453.6666666666667,
+     "TennisBall": 8.177304964539006,
+     "TomatoSoupCan": 19.47457627118644
+    }
+   }
+  },
+  "3": {
+   "box": {
+    "parts": 10,
+    "median_examined": 18.0,
+    "mean_examined": 44.8,
+    "geometric_mean_ratio_to_default": 0.5373222497533884,
+    "fewer_than_default": 6,
+    "per_part": {
+     "Banana": 149.0,
+     "FoamBrick": 33.0,
+     "GelatinBox": 109.0,
+     "MediumClamp": 91.0,
+     "MustardBottle": 23.0,
+     "Pear": 9.0,
+     "PottedMeatCan": 9.0,
+     "PowerDrill": 13.0,
+     "TennisBall": 7.0,
+     "TomatoSoupCan": 5.0
+    }
+   },
+   "default": {
+    "parts": 10,
+    "median_examined": 82.0,
+    "mean_examined": 79.4,
+    "geometric_mean_ratio_to_default": 1.0,
+    "fewer_than_default": 0,
+    "per_part": {
+     "Banana": 129.0,
+     "FoamBrick": 3.0,
+     "GelatinBox": 81.0,
+     "MediumClamp": 221.0,
+     "MustardBottle": 91.0,
+     "Pear": 11.0,
+     "PottedMeatCan": 83.0,
+     "PowerDrill": 93.0,
+     "TennisBall": 5.0,
+     "TomatoSoupCan": 77.0
+    }
+   },
+   "pooled": {
+    "parts": 10,
+    "median_examined": 27.0,
+    "mean_examined": 43.4,
+    "geometric_mean_ratio_to_default": 0.5337783804397681,
+    "fewer_than_default": 7,
+    "per_part": {
+     "Banana": 169.0,
+     "FoamBrick": 23.0,
+     "GelatinBox": 35.0,
+     "MediumClamp": 109.0,
+     "MustardBottle": 37.0,
+     "Pear": 5.0,
+     "PottedMeatCan": 31.0,
+     "PowerDrill": 13.0,
+     "TennisBall": 5.0,
+     "TomatoSoupCan": 7.0
+    }
+   },
+   "random": {
+    "parts": 10,
+    "median_examined": 35.7,
+    "mean_examined": 57.6,
+    "geometric_mean_ratio_to_default": 0.756271535055934,
+    "fewer_than_default": 6,
+    "per_part": {
+     "Banana": 142.6,
+     "FoamBrick": 22.2,
+     "GelatinBox": 48.6,
+     "MediumClamp": 191.8,
+     "MustardBottle": 39.8,
+     "Pear": 13.8,
+     "PottedMeatCan": 31.6,
+     "PowerDrill": 74.0,
+     "TennisBall": 5.2,
+     "TomatoSoupCan": 6.4
+    }
+   },
+   "self": {
+    "parts": 10,
+    "median_examined": 3.0,
+    "mean_examined": 3.0,
+    "geometric_mean_ratio_to_default": 0.07009981053624859,
+    "fewer_than_default": 9,
+    "per_part": {
+     "Banana": 3.0,
+     "FoamBrick": 3.0,
+     "GelatinBox": 3.0,
+     "MediumClamp": 3.0,
+     "MustardBottle": 3.0,
+     "Pear": 3.0,
+     "PottedMeatCan": 3.0,
+     "PowerDrill": 3.0,
+     "TennisBall": 3.0,
+     "TomatoSoupCan": 3.0
+    }
+   },
+   "visual:dinov2": {
+    "parts": 10,
+    "median_examined": 17.0,
+    "mean_examined": 58.8,
+    "geometric_mean_ratio_to_default": 0.4554768907605541,
+    "fewer_than_default": 6,
+    "per_part": {
+     "Banana": 161.0,
+     "FoamBrick": 31.0,
+     "GelatinBox": 109.0,
+     "MediumClamp": 237.0,
+     "MustardBottle": 21.0,
+     "Pear": 5.0,
+     "PottedMeatCan": 5.0,
+     "PowerDrill": 13.0,
+     "TennisBall": 3.0,
+     "TomatoSoupCan": 3.0
+    }
+   },
+   "visual:openclip": {
+    "parts": 10,
+    "median_examined": 27.0,
+    "mean_examined": 69.0,
+    "geometric_mean_ratio_to_default": 0.5705986116140224,
+    "fewer_than_default": 5,
+    "per_part": {
+     "Banana": 161.0,
+     "FoamBrick": 31.0,
+     "GelatinBox": 109.0,
+     "MediumClamp": 237.0,
+     "MustardBottle": 23.0,
+     "Pear": 5.0,
+     "PottedMeatCan": 5.0,
+     "PowerDrill": 113.0,
+     "TennisBall": 3.0,
+     "TomatoSoupCan": 3.0
+    }
+   },
+   "visual:vit-random": {
+    "parts": 10,
+    "median_examined": 49.0,
+    "mean_examined": 73.4,
+    "geometric_mean_ratio_to_default": 0.7870186142686272,
+    "fewer_than_default": 3,
+    "per_part": {
+     "Banana": 135.0,
+     "FoamBrick": 5.0,
+     "GelatinBox": 107.0,
+     "MediumClamp": 237.0,
+     "MustardBottle": 121.0,
+     "Pear": 21.0,
+     "PottedMeatCan": 77.0,
+     "PowerDrill": 17.0,
+     "TennisBall": 11.0,
+     "TomatoSoupCan": 3.0
+    }
+   },
+   "random_expectation": {
+    "parts": 10,
+    "median_examined": 86.96417347580137,
+    "mean_examined": 170.25414649972066,
+    "geometric_mean_ratio_to_default": 2.42327159512715,
+    "fewer_than_default": 2,
+    "per_part": {
+     "Banana": 291.0,
+     "FoamBrick": 70.59183673469387,
+     "GelatinBox": 60.54929577464789,
+     "MediumClamp": 790.2,
+     "MustardBottle": 111.62068965517241,
+     "Pear": 80.44186046511628,
+     "PottedMeatCan": 93.48648648648648,
+     "PowerDrill": 121.69565217391305,
+     "TennisBall": 24.53191489361702,
+     "TomatoSoupCan": 58.42372881355932
+    }
+   }
+  }
+ },
+ "rows": [
+  {
+   "part": "Banana",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [],
+   "examined": 123,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [],
+   "examined": 129,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [],
+   "examined": 79,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [],
+   "examined": 169,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "Scissors",
+    "MediumClamp",
+    "FoamBrick"
+   ],
+   "examined": 143,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "Scissors",
+    "MediumClamp",
+    "FoamBrick"
+   ],
+   "examined": 149,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "MediumClamp",
+    "Pear",
+    "Scissors"
+   ],
+   "examined": 155,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "MediumClamp",
+    "Pear",
+    "Scissors"
+   ],
+   "examined": 161,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "Pear",
+    "Scissors",
+    "MediumClamp"
+   ],
+   "examined": 157,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "Pear",
+    "Scissors",
+    "MediumClamp"
+   ],
+   "examined": 161,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "MediumClamp",
+    "Scissors",
+    "PowerDrill"
+   ],
+   "examined": 127,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "MediumClamp",
+    "Scissors",
+    "PowerDrill"
+   ],
+   "examined": 135,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 55,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 91,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 145,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 165,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "MediumClamp",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 7,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "MediumClamp",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 63,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "FoamBrick",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 11,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "FoamBrick",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 121,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 181,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 187,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "FoamBrick"
+   ],
+   "examined": 133,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "FoamBrick"
+   ],
+   "examined": 165,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 103,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 125,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 151,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 187,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 121,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 129,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 169,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 193,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 97.0,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "Banana",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1066,
+   "feasible": 10,
+   "random_expectation": 291.0,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1066,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [],
+   "examined": 13,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [],
+   "examined": 23,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "Pear",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 13,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "Pear",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 33,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "GelatinBox",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 23,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "GelatinBox",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 31,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "GelatinBox",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 23,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "GelatinBox",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 31,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "PottedMeatCan",
+    "TennisBall",
+    "Strawberry"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "PottedMeatCan",
+    "TennisBall",
+    "Strawberry"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 93,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 95,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "MediumClamp",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 11,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "MediumClamp",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 15,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "Banana",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "Banana",
+    "GelatinBox",
+    "Scissors"
+   ],
+   "examined": 7,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 23,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 33,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 7,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 37,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 11,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 15,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 23.53061224489796,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "FoamBrick",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 48,
+   "random_expectation": 70.59183673469387,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [],
+   "examined": 75,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [],
+   "examined": 81,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [],
+   "examined": 33,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [],
+   "examined": 35,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "TomatoSoupCan",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 105,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "TomatoSoupCan",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 109,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "FoamBrick",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 101,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "FoamBrick",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 109,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "FoamBrick",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 105,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "FoamBrick",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 109,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "PottedMeatCan",
+    "FoamBrick",
+    "TennisBall"
+   ],
+   "examined": 97,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "PottedMeatCan",
+    "FoamBrick",
+    "TennisBall"
+   ],
+   "examined": 107,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 105,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 115,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "MediumClamp",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 83,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "MediumClamp",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 97,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 7,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 15,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 21,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 29,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 101,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 107,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 101,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 103,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 20.183098591549296,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "GelatinBox",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1432,
+   "feasible": 70,
+   "random_expectation": 60.54929577464789,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1432,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [],
+   "examined": 41,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [],
+   "examined": 221,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [],
+   "examined": 19,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [],
+   "examined": 109,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "FoamBrick",
+    "Banana",
+    "TennisBall"
+   ],
+   "examined": 17,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "FoamBrick",
+    "Banana",
+    "TennisBall"
+   ],
+   "examined": 91,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "PowerDrill",
+    "Scissors",
+    "Banana"
+   ],
+   "examined": 69,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "PowerDrill",
+    "Scissors",
+    "Banana"
+   ],
+   "examined": 237,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "Scissors",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 69,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "Scissors",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 237,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "Banana",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 69,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "Banana",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 237,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 15,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 41,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 25,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 157,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 17,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 295,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 23,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 261,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 17,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 51,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 89,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 255,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 19,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 79,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 77,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 265,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 121,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "MustardBottle",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 333,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 69,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MustardBottle"
+   ],
+   "examined": 181,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 263.4,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MediumClamp",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1316,
+   "feasible": 4,
+   "random_expectation": 790.2,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1316,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [],
+   "examined": 83,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [],
+   "examined": 91,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [],
+   "examined": 21,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [],
+   "examined": 37,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "TomatoSoupCan",
+    "GelatinBox",
+    "PowerDrill"
+   ],
+   "examined": 15,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "TomatoSoupCan",
+    "GelatinBox",
+    "PowerDrill"
+   ],
+   "examined": 23,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "Pear",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 11,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "Pear",
+    "PowerDrill",
+    "MediumClamp"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 13,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 23,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "Strawberry",
+    "TennisBall",
+    "Pear"
+   ],
+   "examined": 113,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "Strawberry",
+    "TennisBall",
+    "Pear"
+   ],
+   "examined": 121,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 15,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 25,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 55,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Strawberry"
+   ],
+   "examined": 61,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 19,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 67,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 121,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 13,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 23,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 9,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 39,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "Pear",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 53,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 9,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "MediumClamp",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 9,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "MediumClamp",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 27,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 31,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 37.206896551724135,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "MustardBottle",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1078,
+   "feasible": 28,
+   "random_expectation": 111.62068965517241,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1078,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [],
+   "examined": 5,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [],
+   "examined": 11,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "FoamBrick",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "FoamBrick",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 9,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "Strawberry",
+    "TennisBall",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "Strawberry",
+    "TennisBall",
+    "Banana"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "Strawberry",
+    "TennisBall",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "Strawberry",
+    "TennisBall",
+    "Banana"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "MustardBottle",
+    "Strawberry",
+    "PowerDrill"
+   ],
+   "examined": 19,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "MustardBottle",
+    "Strawberry",
+    "PowerDrill"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "PowerDrill",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "PottedMeatCan",
+    "MustardBottle",
+    "Strawberry"
+   ],
+   "examined": 11,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "PottedMeatCan",
+    "MustardBottle",
+    "Strawberry"
+   ],
+   "examined": 13,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 31,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 31,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 19,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "PottedMeatCan"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 19,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "MediumClamp",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "MediumClamp",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 26.813953488372093,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "Pear",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 42,
+   "random_expectation": 80.44186046511628,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [],
+   "examined": 81,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [],
+   "examined": 83,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [],
+   "examined": 21,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [],
+   "examined": 31,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "GelatinBox",
+    "Pear",
+    "TomatoSoupCan"
+   ],
+   "examined": 5,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "GelatinBox",
+    "Pear",
+    "TomatoSoupCan"
+   ],
+   "examined": 9,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "TomatoSoupCan",
+    "FoamBrick",
+    "GelatinBox"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "TomatoSoupCan",
+    "FoamBrick",
+    "GelatinBox"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "TomatoSoupCan",
+    "FoamBrick",
+    "GelatinBox"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "TomatoSoupCan",
+    "FoamBrick",
+    "GelatinBox"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "FoamBrick",
+    "GelatinBox",
+    "TennisBall"
+   ],
+   "examined": 61,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "FoamBrick",
+    "GelatinBox",
+    "TennisBall"
+   ],
+   "examined": 77,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "PowerDrill",
+    "Pear",
+    "Scissors"
+   ],
+   "examined": 33,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "PowerDrill",
+    "Pear",
+    "Scissors"
+   ],
+   "examined": 43,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Strawberry"
+   ],
+   "examined": 33,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Strawberry"
+   ],
+   "examined": 65,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 103,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 105,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 53,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 57,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 5,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "PowerDrill",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 7,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Banana"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 5,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 9,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "Strawberry",
+    "PowerDrill",
+    "Scissors"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "MediumClamp",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "MediumClamp",
+    "PowerDrill",
+    "GelatinBox"
+   ],
+   "examined": 15,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 31.16216216216216,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PottedMeatCan",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 36,
+   "random_expectation": 93.48648648648648,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [],
+   "examined": 55,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [],
+   "examined": 93,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [],
+   "examined": 13,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "MustardBottle",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "MustardBottle",
+    "PottedMeatCan",
+    "TomatoSoupCan"
+   ],
+   "examined": 13,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "MediumClamp",
+    "MustardBottle",
+    "GelatinBox"
+   ],
+   "examined": 11,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "MediumClamp",
+    "MustardBottle",
+    "GelatinBox"
+   ],
+   "examined": 13,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "MediumClamp",
+    "Scissors",
+    "Pear"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "MediumClamp",
+    "Scissors",
+    "Pear"
+   ],
+   "examined": 113,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "MediumClamp",
+    "Pear",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "MediumClamp",
+    "Pear",
+    "Banana"
+   ],
+   "examined": 17,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Scissors"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "Scissors"
+   ],
+   "examined": 115,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Strawberry"
+   ],
+   "examined": 11,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Strawberry"
+   ],
+   "examined": 13,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 91,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 37,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "Scissors"
+   ],
+   "examined": 73,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "PottedMeatCan",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "PottedMeatCan",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 113,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "Strawberry",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "Strawberry",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 109,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 13,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "Strawberry",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "Strawberry",
+    "PottedMeatCan",
+    "Scissors"
+   ],
+   "examined": 109,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 9,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 95,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 40.56521739130435,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "PowerDrill",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 932,
+   "feasible": 22,
+   "random_expectation": 121.69565217391305,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 932,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [],
+   "examined": 33,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [],
+   "examined": 157,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "Banana",
+    "MediumClamp",
+    "FoamBrick"
+   ],
+   "examined": 133,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "MediumClamp",
+    "Banana",
+    "Strawberry"
+   ],
+   "examined": 107,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "MediumClamp",
+    "Banana",
+    "PowerDrill"
+   ],
+   "examined": 111,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "Banana",
+    "MediumClamp",
+    "PowerDrill"
+   ],
+   "examined": 113,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "PowerDrill"
+   ],
+   "examined": 83,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Strawberry"
+   ],
+   "examined": 105,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 123,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 125,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "PottedMeatCan",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 99,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "Strawberry",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 143,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 79,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "Strawberry",
+    "PottedMeatCan",
+    "PowerDrill"
+   ],
+   "examined": 133,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 113,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [
+    "Strawberry",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 95,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Scissors",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1056,
+   "feasible": 2,
+   "random_expectation": 352.3333333333333,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1056,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [],
+   "examined": 37,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [],
+   "examined": 7,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "TennisBall",
+    "FoamBrick",
+    "GelatinBox"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "TennisBall",
+    "Pear",
+    "MediumClamp"
+   ],
+   "examined": 161,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "TennisBall",
+    "Pear",
+    "Banana"
+   ],
+   "examined": 211,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "TennisBall",
+    "MustardBottle",
+    "PottedMeatCan"
+   ],
+   "examined": 301,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "PowerDrill"
+   ],
+   "examined": 297,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Scissors"
+   ],
+   "examined": 205,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "PottedMeatCan",
+    "TomatoSoupCan",
+    "TennisBall"
+   ],
+   "examined": 307,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 197,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 253,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "PowerDrill"
+   ],
+   "examined": 249,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 213,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [
+    "Scissors",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 79,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "Strawberry",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1360,
+   "feasible": 2,
+   "random_expectation": 453.6666666666667,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1360,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [],
+   "examined": 5,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "TomatoSoupCan"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "TomatoSoupCan"
+   ],
+   "examined": 7,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Strawberry",
+    "Pear",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Strawberry",
+    "Pear",
+    "Banana"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Strawberry",
+    "Pear",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Strawberry",
+    "Pear",
+    "Banana"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Strawberry",
+    "MustardBottle",
+    "PottedMeatCan"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Strawberry",
+    "MustardBottle",
+    "PottedMeatCan"
+   ],
+   "examined": 11,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Scissors"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "PottedMeatCan",
+    "TomatoSoupCan",
+    "Strawberry"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "PottedMeatCan",
+    "TomatoSoupCan",
+    "Strawberry"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 11,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "MustardBottle",
+    "TomatoSoupCan",
+    "Pear"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "PowerDrill"
+   ],
+   "examined": 9,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [
+    "Scissors",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [
+    "Scissors",
+    "TomatoSoupCan",
+    "MediumClamp"
+   ],
+   "examined": 7,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 8.177304964539006,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TennisBall",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1152,
+   "feasible": 140,
+   "random_expectation": 24.53191489361702,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1152,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [],
+   "examined": 69,
+   "found": 1,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "default",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [],
+   "examined": 77,
+   "found": 3,
+   "matched": 0,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "pooled",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [],
+   "examined": 7,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "GelatinBox",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "box",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "GelatinBox",
+    "TennisBall",
+    "PottedMeatCan"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "PottedMeatCan",
+    "GelatinBox",
+    "FoamBrick"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "visual:dinov2",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "PottedMeatCan",
+    "GelatinBox",
+    "FoamBrick"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "PottedMeatCan",
+    "GelatinBox",
+    "MustardBottle"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "visual:openclip",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "PottedMeatCan",
+    "GelatinBox",
+    "MustardBottle"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "GelatinBox",
+    "PottedMeatCan",
+    "FoamBrick"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "visual:vit-random",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "GelatinBox",
+    "PottedMeatCan",
+    "FoamBrick"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 0,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "PottedMeatCan",
+    "Pear",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Scissors"
+   ],
+   "examined": 3,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 1,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "Pear",
+    "MustardBottle",
+    "Scissors"
+   ],
+   "examined": 9,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 2,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "GelatinBox",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 3,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "Banana",
+    "FoamBrick",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "PottedMeatCan",
+    "TennisBall",
+    "Strawberry"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 4,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "PottedMeatCan",
+    "TennisBall",
+    "Strawberry"
+   ],
+   "examined": 5,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 5,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "Banana"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "MustardBottle",
+    "TennisBall",
+    "Pear"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 6,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "MustardBottle",
+    "TennisBall",
+    "Pear"
+   ],
+   "examined": 11,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "PowerDrill"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 7,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "Scissors",
+    "PottedMeatCan",
+    "PowerDrill"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 8,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "MediumClamp",
+    "PottedMeatCan",
+    "GelatinBox"
+   ],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [
+    "Scissors",
+    "TennisBall",
+    "MediumClamp"
+   ],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "random",
+   "seed": 9,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [
+    "Scissors",
+    "TennisBall",
+    "MediumClamp"
+   ],
+   "examined": 21,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 1,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 19.47457627118644,
+   "neighbours": [],
+   "examined": 1,
+   "found": 1,
+   "matched": 1148,
+   "unmatched": 0
+  },
+  {
+   "part": "TomatoSoupCan",
+   "method": "self",
+   "seed": null,
+   "nr_grasps": 3,
+   "candidates": 1148,
+   "feasible": 58,
+   "random_expectation": 58.42372881355932,
+   "neighbours": [],
+   "examined": 3,
+   "found": 3,
+   "matched": 1148,
+   "unmatched": 0
+  }
+ ]
+}

@@ -50,6 +50,11 @@ OpenCLIP local y el Brier de factibilidad empeora ligeramente respecto a
 geometría, como ya ocurría con OpenCLIP. Son seis objetos de validación, tres
 semillas y muchos empates; no hay base para declarar un modelo superior.
 
+## En el planificador de agarres
+
+Los mismos pesos describen piezas nuevas para el prior visual de `axisforge plan --prior`
+([prior de agarre](../../grasp_prior/README.md)).
+
 ## Reproducir
 
 ```bash

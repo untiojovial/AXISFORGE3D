@@ -73,6 +73,10 @@ def prior(a):
 
 def evaluate(a):
     lib = load_library(a.library)
+    for e in lib:
+        project = Path(e['project'])
+        if not project.is_absolute():
+            e['project'] = str(Path(a.projects or Path(a.library).parent)/project)
     with tempfile.TemporaryDirectory() as tmp:
         start = time.perf_counter()
         rows = vp.evaluate(lib, a.binary, tmp, models=a.model or (), random_seeds=a.random_seeds)
@@ -115,6 +119,8 @@ def main():
     pr.add_argument('--weight', type=float, default=vp.PRIOR_WEIGHT); pr.add_argument('--out', required=True)
     ev = sub.add_parser('evaluate'); ev.add_argument('--library', required=True); ev.add_argument('--binary', required=True)
     ev.add_argument('--model', action='append', help='descriptor name to evaluate (repeatable)')
+    ev.add_argument('--projects', help='folder relative project paths in the library start from '
+                    '(the library\'s own folder when omitted)')
     ev.add_argument('--random-seeds', type=int, default=10); ev.add_argument('--out', required=True)
     a = p.parse_args()
     if a.command == 'prior' and len(a.part) != 1:
