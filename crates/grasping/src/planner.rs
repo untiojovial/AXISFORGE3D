@@ -332,6 +332,40 @@ pub struct PlanReport {
     /// options or another part.
     #[serde(default)]
     pub prior_unmatched: usize,
+    /// Where the time went (wall clock; zero on targets without a clock).
+    #[serde(default)]
+    pub timings: PlanTimings,
+}
+
+/// Wall-clock seconds spent in each stage of one planning call.
+#[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PlanTimings {
+    /// Kinematic model, part surface and search context.
+    pub setup_seconds: f64,
+    /// Candidate synthesis.
+    pub generation_seconds: f64,
+    /// Preliminary scores, gate, prior and sort.
+    pub ranking_seconds: f64,
+    /// Examining candidates in order.
+    pub search_seconds: f64,
+    /// Part of the search spent on candidates that became plans.
+    pub accepted_seconds: f64,
+    /// Part of the search spent on rejected candidates, by reason.
+    pub rejected_seconds: BTreeMap<String, f64>,
+}
+
+/// A clock reading, or `None` where the target has no clock (wasm32).
+fn tick() -> Option<std::time::Instant> {
+    if cfg!(target_arch = "wasm32") {
+        None
+    } else {
+        Some(std::time::Instant::now())
+    }
+}
+
+fn since(start: Option<std::time::Instant>) -> f64 {
+    start.map_or(0.0, |s| s.elapsed().as_secs_f64())
 }
 
 struct Context<'a> {
@@ -748,9 +782,20 @@ fn search(
             break;
         }
         report.candidates_examined += 1;
-        match context.attempt(candidate, seed)? {
-            Ok(plan) => report.plans.push(plan),
+        let started = tick();
+        let outcome = context.attempt(candidate, seed)?;
+        let spent = since(started);
+        match outcome {
+            Ok(plan) => {
+                report.timings.accepted_seconds += spent;
+                report.plans.push(plan);
+            }
             Err((reason, detail)) => {
+                *report
+                    .timings
+                    .rejected_seconds
+                    .entry(format!("{reason:?}"))
+                    .or_insert(0.0) += spent;
                 // A cancelled IK solve looks like "unreachable"; do not record
                 // a verdict the search did not actually reach.
                 if context.cancel.is_cancelled() {
@@ -902,6 +947,7 @@ pub fn plan_pick(
 /// extension name, invalid options, or a malformed seed. Finding no feasible
 /// grasp is *not* an error; the report then has no plans and a rejection for
 /// every candidate examined.
+#[allow(clippy::too_many_lines)] // one straight path from request to report, now timed stage by stage
 pub fn plan_pick_with(
     registry: &Registry,
     project: &Project,
@@ -910,6 +956,7 @@ pub fn plan_pick_with(
     options: &PlannerOptions,
     cancel: &CancellationToken,
 ) -> DomainResult<PlanReport> {
+    let setup_started = tick();
     options.validate()?;
     let measure = registry.measure(&options.quality_measure)?;
     let gripper = project.robot.require_gripper()?;
@@ -980,6 +1027,8 @@ pub fn plan_pick_with(
     // needing more force than it has) go after every other: they are
     // rejected cheaply, but each still counts against `maxCandidates`, and a
     // sampled surface yields many of them.
+    let setup_seconds = since(setup_started);
+    let generation_started = tick();
     let candidates = match generator {
         Some(generator) => generator.generate(body, &project.resources, &synthesis)?,
         None => synthesize_hand(
@@ -990,7 +1039,10 @@ pub fn plan_pick_with(
             &hand_synthesis(options, synthesis.seed),
         )?,
     };
+    let generation_seconds = since(generation_started);
+    let ranking_started = tick();
     let (ranked, prior_matched, prior_unmatched) = rank(&context, candidates);
+    let ranking_seconds = since(ranking_started);
 
     let mut report = PlanReport {
         body_id: body.id.clone(),
@@ -1004,8 +1056,16 @@ pub fn plan_pick_with(
         candidate_generator: generator.map_or(HAND_GENERATOR, |g| g.id()).to_owned(),
         prior_matched,
         prior_unmatched,
+        timings: PlanTimings {
+            setup_seconds,
+            generation_seconds,
+            ranking_seconds,
+            ..PlanTimings::default()
+        },
     };
+    let search_started = tick();
     search(&context, &ranked, seed, &mut report)?;
+    report.timings.search_seconds = since(search_started);
     // Candidates were examined in order of a cheap estimate; the plans are
     // returned in order of their measured score.
     report
@@ -1274,6 +1334,19 @@ mod tests {
             report.rejections
         );
         assert!(!report.cancelled);
+    }
+
+    #[test]
+    fn the_report_says_where_the_time_went() {
+        let (project, seed) = cell();
+        let report = plan(&project, "cube", &seed);
+        let t = &report.timings;
+        let parts = t.accepted_seconds + t.rejected_seconds.values().sum::<f64>();
+        assert!(t.generation_seconds > 0.0 && t.search_seconds > 0.0);
+        assert!(t.search_seconds + 1e-9 >= parts);
+        assert!(t.accepted_seconds > 0.0, "the cube is planned, so some time went to a plan");
+        let back: PlanReport = serde_json::from_str(&serde_json::to_string(&report).unwrap()).unwrap();
+        assert_eq!(back.timings, report.timings);
     }
 
     #[test]
