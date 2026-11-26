@@ -1,0 +1,339 @@
+{
+ "note": "    python tools/research/phase7_extension/gpd_variability.py --first gpd_dev/ --second gpd_dev_timing/ --catalogues cat80/         --out research/phase7_extension/results/gpd_variability.json  GPD's HandSet::shadowVoxelsToPoints draws its jitter from std::mt19937 seeded by std::random_device (src/gpd/candidate/hand_set.cpp at commit 6327f20, lines 191-192), and HandSet::fastrand uses a static seed that advances between calls. Scores therefore differ between runs even with the same point clouds and candidates. This script compares two complete runs on the same development parts (the second run also records stage timings). The library is used unmodified.",
+ "objects": 20,
+ "score_correlation": {
+  "min": 0.674917212420584,
+  "median": 0.74296587770798
+ },
+ "same_first_grasp": 0,
+ "N_F_gmean_run1": 19.23175731751312,
+ "N_F_gmean_run2": 23.43572144845579,
+ "stage_seconds_median": {
+  "cloud_preprocess": 0.005983875,
+  "images": 9.06956,
+  "classify": 9.950085000000001
+ },
+ "render_seconds_median": 0.4785,
+ "per_object": {
+  "3D_Dollhouse_Happy_Brother": {
+   "score_correlation": 0.674917212420584,
+   "max_abs_difference": 3308.0559999999996,
+   "nf": [
+    26,
+    33
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00277037,
+    "images": 4.17702,
+    "classify": 11.6936
+   },
+   "render_seconds": 0.514,
+   "gpd_seconds": 15.996
+  },
+  "3D_Dollhouse_Lamp": {
+   "score_correlation": 0.7029079614896446,
+   "max_abs_difference": 3615.843,
+   "nf": [
+    27,
+    19
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00496955,
+    "images": 3.90629,
+    "classify": 7.51645
+   },
+   "render_seconds": 0.521,
+   "gpd_seconds": 11.55
+  },
+  "3D_Dollhouse_TablePurple": {
+   "score_correlation": 0.7687415457921813,
+   "max_abs_difference": 3836.784,
+   "nf": [
+    1,
+    13
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00598207,
+    "images": 7.19053,
+    "classify": 9.23673
+   },
+   "render_seconds": 0.425,
+   "gpd_seconds": 16.546
+  },
+  "Android_Figure_Chrome": {
+   "score_correlation": 0.735693005599788,
+   "max_abs_difference": 4026.3,
+   "nf": [
+    20,
+    39
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00331253,
+    "images": 4.54631,
+    "classify": 8.79799
+   },
+   "render_seconds": 0.469,
+   "gpd_seconds": 13.457
+  },
+  "Android_Figure_Panda": {
+   "score_correlation": 0.7738866629547487,
+   "max_abs_difference": 8820.627,
+   "nf": [
+    16,
+    32
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00355784,
+    "images": 4.49439,
+    "classify": 10.464
+   },
+   "render_seconds": 0.45,
+   "gpd_seconds": 15.063
+  },
+  "Android_Lego": {
+   "score_correlation": 0.725559597722986,
+   "max_abs_difference": 4848.13,
+   "nf": [
+    9,
+    12
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00413387,
+    "images": 7.93532,
+    "classify": 11.325
+   },
+   "render_seconds": 0.526,
+   "gpd_seconds": 19.374
+  },
+  "Beetle_Adventure_Racing_Nintendo_64": {
+   "score_correlation": 0.7523230703933125,
+   "max_abs_difference": 6702.2699999999995,
+   "nf": [
+    1,
+    2
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00598568,
+    "images": 10.2038,
+    "classify": 10.7851
+   },
+   "render_seconds": 0.469,
+   "gpd_seconds": 21.127
+  },
+  "Beta_Glucan": {
+   "score_correlation": 0.71082676435207,
+   "max_abs_difference": 5304.5960000000005,
+   "nf": [
+    89,
+    8
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00541833,
+    "images": 7.06598,
+    "classify": 9.6688
+   },
+   "render_seconds": 0.509,
+   "gpd_seconds": 16.866
+  },
+  "Bifidus_Balance_FOS": {
+   "score_correlation": 0.8300307742066624,
+   "max_abs_difference": 5798.711,
+   "nf": [
+    4,
+    28
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.0051508,
+    "images": 7.09549,
+    "classify": 8.20252
+   },
+   "render_seconds": 0.601,
+   "gpd_seconds": 15.415
+  },
+  "Blackcurrant_Lutein": {
+   "score_correlation": 0.7598309050588019,
+   "max_abs_difference": 5296.094,
+   "nf": [
+    23,
+    58
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00513463,
+    "images": 7.69869,
+    "classify": 9.63618
+   },
+   "render_seconds": 0.488,
+   "gpd_seconds": 17.449
+  },
+  "Borage_GLA240Gamma_Tocopherol": {
+   "score_correlation": 0.7327456985340652,
+   "max_abs_difference": 9903.171,
+   "nf": [
+    24,
+    25
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00697136,
+    "images": 14.6188,
+    "classify": 9.40532
+   },
+   "render_seconds": 0.585,
+   "gpd_seconds": 24.151
+  },
+  "Breyer_Horse_Of_The_Year_2015": {
+   "score_correlation": 0.741588199297855,
+   "max_abs_difference": 5245.162,
+   "nf": [
+    12,
+    14
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.0102969,
+    "images": 11.9609,
+    "classify": 7.62723
+   },
+   "render_seconds": 0.941,
+   "gpd_seconds": 19.708
+  },
+  "Brother_Ink_Cartridge_Magenta_LC75M": {
+   "score_correlation": 0.7223270490733966,
+   "max_abs_difference": 5884.43,
+   "nf": [
+    23,
+    10
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00854934,
+    "images": 14.1693,
+    "classify": 11.5093
+   },
+   "render_seconds": 0.407,
+   "gpd_seconds": 25.799
+  },
+  "CARSII": {
+   "score_correlation": 0.7006206322181316,
+   "max_abs_difference": 5453.35,
+   "nf": [
+    16,
+    28
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00468643,
+    "images": 4.90794,
+    "classify": 9.07358
+   },
+   "render_seconds": 0.491,
+   "gpd_seconds": 14.093
+  },
+  "Canon_Ink_Cartridge_Green_6": {
+   "score_correlation": 0.7693701757248317,
+   "max_abs_difference": 4789.63,
+   "nf": [
+    11,
+    23
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.0115057,
+    "images": 15.3269,
+    "classify": 9.67257
+   },
+   "render_seconds": 0.533,
+   "gpd_seconds": 25.147
+  },
+  "Canon_Pixma_Chromalife_100_Magenta_8": {
+   "score_correlation": 0.7664041246431531,
+   "max_abs_difference": 4007.984,
+   "nf": [
+    90,
+    57
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.0106762,
+    "images": 17.2713,
+    "classify": 10.565
+   },
+   "render_seconds": 0.365,
+   "gpd_seconds": 27.95
+  },
+  "Canon_Pixma_Ink_Cartridge_251_M": {
+   "score_correlation": 0.756012194252577,
+   "max_abs_difference": 4008.63,
+   "nf": [
+    49,
+    20
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00968214,
+    "images": 16.4372,
+    "classify": 10.8851
+   },
+   "render_seconds": 0.456,
+   "gpd_seconds": 27.441
+  },
+  "Canon_Pixma_Ink_Cartridge_8": {
+   "score_correlation": 0.7269583976220183,
+   "max_abs_difference": 6160.2119999999995,
+   "nf": [
+    118,
+    115
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.0101586,
+    "images": 13.0102,
+    "classify": 10.3384
+   },
+   "render_seconds": 0.39,
+   "gpd_seconds": 23.465
+  },
+  "Canon_Pixma_Ink_Cartridge_8_Green": {
+   "score_correlation": 0.7501888664167392,
+   "max_abs_difference": 4692.057,
+   "nf": [
+    90,
+    65
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.0104066,
+    "images": 12.92,
+    "classify": 11.3158
+   },
+   "render_seconds": 0.369,
+   "gpd_seconds": 24.351
+  },
+  "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+   "score_correlation": 0.7443435561181049,
+   "max_abs_difference": 4235.54,
+   "nf": [
+    53,
+    41
+   ],
+   "same_first_grasp": false,
+   "stage_seconds": {
+    "cloud_preprocess": 0.00987597,
+    "images": 14.3783,
+    "classify": 10.2276
+   },
+   "render_seconds": 0.383,
+   "gpd_seconds": 24.718
+  }
+ }
+}

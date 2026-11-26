@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below. A DOI will be added only after the author approves a release."
+title: "AxisForge3D: learned grasp-candidate ordering for a complete parallel-jaw grasp planner (research code and results)"
+type: software
+authors:
+  - family-names: "Pérez González"
+    given-names: "Eduardo"
+    # ORCID and affiliation: to be provided by the author (not invented here)
+license: Apache-2.0
+repository-code: "https://github.com/untiojovial/Colegio-Rumareda"
+version: "0.2.0"
+date-released: "2026-11-26"
+keywords:
+  - grasp planning
+  - learned candidate ordering
+  - parallel-jaw gripper
+  - simulation
+  - reproducibility
+notes: >-
+  Apache-2.0 covers the author's own code, documentation and results. Third-party datasets, models and assets
+  keep their own licences (THIRD_PARTY_NOTICES.md, LICENSES/). The manuscript in publication/ is not licensed
+  under Apache-2.0. AI assistance is documented in AI_USAGE.md.
+references:
+  - type: thesis
+    title: "Robot grasping with Bayesian optimization informed with foundational models"
+    authors:
+      - family-names: "Pérez González"
+        given-names: "Eduardo"
+    institution:
+      name: "Universidad de Zaragoza"
+    year: 2025
+    notes: "Master's thesis (TFM) that preceded this work; title and year as provided by the author, not verified here."
