@@ -1,0 +1,66 @@
+{
+ "note": "    python tools/research/phase7/few_shot_analysis.py --fusion research/phase6/results/fusion_benchmark.json         --robust research/phase6/results/robustness_prediction.json         --cost research/phase6/results/cost_profile_online.json --out few_shot_analysis.json  A support set for a new object can only come from evaluating some of its candidates during planning, which is exactly what the planner does anyway. If the learned prior already finds the first viable (or viable and robust) grasp after N candidates, a perfect adaptive model could save at most N - 1 evaluations per part: that is the ceiling for any adaptation, before paying for its own support evaluations and inference. The ceiling is computed per part from the development results.",
+ "seconds_per_examined_candidate": 0.004013,
+ "fixed_seconds_per_call": 0.566,
+ "M1": {
+  "N_F": {
+   "parts": 151,
+   "share_first_candidate": 0.8742,
+   "share_at_most_2": 0.9007,
+   "share_at_most_5": 0.9404,
+   "mean_extra_candidates": 1.298,
+   "median_extra_candidates": 0.0,
+   "p90_extra_candidates": 1.0,
+   "ceiling_saving_seconds_mean": 0.0052
+  },
+  "N_FR": {
+   "parts": 149,
+   "share_first_candidate": 0.8121,
+   "share_at_most_2": 0.8658,
+   "share_at_most_5": 0.9329,
+   "mean_extra_candidates": 1.013,
+   "median_extra_candidates": 0.0,
+   "p90_extra_candidates": 3.0,
+   "ceiling_saving_seconds_mean": 0.0041
+  }
+ },
+ "M9": {
+  "N_F": {
+   "parts": 151,
+   "share_first_candidate": 0.8609,
+   "share_at_most_2": 0.8808,
+   "share_at_most_5": 0.947,
+   "mean_extra_candidates": 1.517,
+   "median_extra_candidates": 0.0,
+   "p90_extra_candidates": 2.0,
+   "ceiling_saving_seconds_mean": 0.0061
+  },
+  "N_FR": {
+   "parts": 149,
+   "share_first_candidate": 0.8456,
+   "share_at_most_2": 0.8725,
+   "share_at_most_5": 0.9463,
+   "mean_extra_candidates": 0.913,
+   "median_extra_candidates": 0.0,
+   "p90_extra_candidates": 2.200000000000017,
+   "ceiling_saving_seconds_mean": 0.0037
+  }
+ },
+ "M0": {
+  "N_F": {
+   "parts": 151,
+   "share_first_candidate": 0.3974,
+   "share_at_most_2": 0.4238,
+   "share_at_most_5": 0.5762,
+   "mean_extra_candidates": 25.649,
+   "median_extra_candidates": 2.0,
+   "p90_extra_candidates": 92.0,
+   "ceiling_saving_seconds_mean": 0.1029
+  }
+ },
+ "decision": {
+  "rule": "run few-shot/DKL/ADKF-IFT only if the planner usually needs several evaluations after the learned prior",
+  "observed": "M1 finds the first viable grasp at the first candidate in 87% of parts and within 2 in 90%; a perfect adaptive model could save at most 1.30 evaluations per part on average (~5.2 ms), against a fixed cost of 0.57 s per planning call",
+  "run_adaptation": false
+ }
+}

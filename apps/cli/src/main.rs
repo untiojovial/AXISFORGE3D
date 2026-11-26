@@ -200,6 +200,10 @@ enum Command {
         /// Keep a diverse, opening-stratified prefix prior to any expensive evaluation.
         #[arg(long, conflicts_with = "evaluate")]
         diverse_limit: Option<usize>,
+        /// Add every candidate's static wrench-space quality (force closure and
+        /// epsilon of the pad contacts; no IK or collisions).
+        #[arg(long, conflicts_with = "evaluate")]
+        static_quality: bool,
     },
     /// Plan the whole cycle: pick a part, carry it to a target and set it
     /// down, from the start posture and back, every motion proven clear.
@@ -827,6 +831,7 @@ fn run(cli: Cli) -> Result<()> {
             body,
             evaluate,
             diverse_limit,
+            static_quality,
         } => {
             let session = session_for(&file)?;
             let body_id = &session
@@ -842,6 +847,7 @@ fn run(cli: Cli) -> Result<()> {
                 &axisforge_grasping::PlannerOptions::default(),
                 &axisforge_kinematics::CancellationToken::new(),
                 evaluate,
+                static_quality,
             )?;
             if evaluate.is_some() && records.is_empty() {
                 return Err(anyhow!("candidate index out of range"));

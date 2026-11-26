@@ -1104,7 +1104,10 @@ pub struct ResearchCandidate {
 }
 
 /// Generate without score sorting; optionally evaluate one generator-order index.
-/// No quality or IK is run when `evaluate_index` is `None`.
+/// No quality or IK is run when `evaluate_index` is `None`, except that
+/// `static_quality` fills every record's static wrench-space quality (force
+/// closure and epsilon of the pad contacts, no IK or collisions): the classical
+/// analytic ranking a baseline can use before planning.
 #[allow(clippy::too_many_lines)] // Mirrors plan_pick_with's set-up step by step, so the two can be compared.
 pub fn research_candidates(
     project: &Project,
@@ -1113,6 +1116,7 @@ pub fn research_candidates(
     options: &PlannerOptions,
     cancel: &CancellationToken,
     evaluate_index: Option<usize>,
+    static_quality: bool,
 ) -> DomainResult<Vec<ResearchCandidate>> {
     let registry = &Registry::standard();
     options.validate()?;
@@ -1215,6 +1219,11 @@ pub fn research_candidates(
             preliminary_score,
             makeable,
         };
+        if static_quality && evaluate_index.is_none() {
+            let start = tick();
+            record.quality = Some(evaluate(measure, &context.quality_input(&record.candidate)));
+            record.quality_elapsed_s = Some(since(start));
+        }
         if evaluate_index.is_some() {
             let start = std::time::Instant::now();
             record.quality = Some(evaluate(measure, &context.quality_input(&record.candidate)));
@@ -1277,6 +1286,7 @@ mod tests {
             &PlannerOptions::default(),
             &CancellationToken::new(),
             None,
+            false,
         )
         .unwrap();
         for (i, row) in input.iter_mut().enumerate() {
@@ -1309,14 +1319,24 @@ mod tests {
         let options = PlannerOptions::default();
         let cancel = CancellationToken::new();
         let catalog =
-            research_candidates(&project, &body.id, &seed, &options, &cancel, None).unwrap();
+            research_candidates(&project, &body.id, &seed, &options, &cancel, None, false).unwrap();
         assert!(!catalog.is_empty());
         for (index, item) in catalog.iter().enumerate() {
             assert_eq!(item.id, index);
             assert!(item.plan.is_none() && item.rejection.is_none() && item.quality.is_none());
         }
+        let with_quality =
+            research_candidates(&project, &body.id, &seed, &options, &cancel, None, true).unwrap();
+        assert_eq!(with_quality.len(), catalog.len());
+        assert!(with_quality
+            .iter()
+            .all(|r| r.quality.is_some() && r.plan.is_none() && r.rejection.is_none()));
+        assert!(with_quality
+            .iter()
+            .any(|r| r.quality.as_ref().is_some_and(|q| q.force_closure)));
         let selected =
-            research_candidates(&project, &body.id, &seed, &options, &cancel, Some(0)).unwrap();
+            research_candidates(&project, &body.id, &seed, &options, &cancel, Some(0), false)
+                .unwrap();
         assert_eq!(selected.len(), 1);
         assert_eq!(selected[0].candidate, catalog[0].candidate);
         assert_eq!(selected[0].grasp_pose, catalog[0].grasp_pose);
