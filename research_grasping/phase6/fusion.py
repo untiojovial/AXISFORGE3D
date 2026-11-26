@@ -79,6 +79,25 @@ def order(cat, s):
     return catalogue.order(cat, planner_prior(cat, s), WEIGHT)
 
 
+PLANNER_MAX_WEIGHT = 5.0  # the native planner accepts priorWeight in [0, 5]
+
+
+def encoded_prior(cat, examined_order):
+    """A prior that makes the native planner (weight 5) examine candidates in ``examined_order``.
+
+    The planner ranks by preliminary + 5*prior (+10 if makeable). Giving the k-th
+    candidate of the order the target T_k = 1 + 4*(n-1-k)/(n-1), strictly
+    decreasing in [1, 5], and prior = (T_k - preliminary)/5 in [0, 1] reproduces
+    the order exactly, because the order already puts every makeable candidate first.
+    """
+    n = len(examined_order)
+    pre = np.asarray(cat['preliminary'], float)
+    target = 1 + 4*np.arange(n-1, -1, -1)/max(n-1, 1)
+    prior = np.empty(n)
+    prior[np.asarray(examined_order)] = (target - pre[np.asarray(examined_order)])/PLANNER_MAX_WEIGHT
+    return prior
+
+
 GRID = {
     'M3': [dict(alpha=a/10, q=k) for k in ('pre', 'cen') for a in range(11)],
     'M4': [dict(alpha=a/10, q=k) for k in ('pre', 'cen') for a in range(11)],

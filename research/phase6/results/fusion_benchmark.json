@@ -1,0 +1,10401 @@
+{
+ "note": "Development (pilot) results: the 151 Phase V test parts are development data in Phase VI. M3-M8 are outer-fold estimates of nested cross-validation; nothing here is confirmatory.",
+ "parts": 151,
+ "parts_with_a_robust_viable_grasp": 149,
+ "reference": {
+  "random_within_gate_N_F_gmean": 7.145,
+  "random_within_gate_over_M0": {
+   "ratio": 1.1781,
+   "ci95": [
+    0.9082,
+    1.5246
+   ],
+   "parts": 151,
+   "better": 61,
+   "worse": 90,
+   "wilcoxon_p": 0.28544216271127576
+  }
+ },
+ "summary": {
+  "M0": {
+   "N_F_gmean": 6.065,
+   "robust_rate": 0.8411,
+   "N_FR_gmean": 6.334,
+   "load_tolerant_rate": 0.649,
+   "nominal_held_rate": 0.894,
+   "turn_deg_median": 0.2
+  },
+  "M1": {
+   "N_F_gmean": 1.254,
+   "robust_rate": 0.9073,
+   "N_FR_gmean": 1.333,
+   "load_tolerant_rate": 0.4834,
+   "nominal_held_rate": 0.9404,
+   "turn_deg_median": 0.7
+  },
+  "M2": {
+   "N_F_gmean": 1.327,
+   "robust_rate": 0.9073,
+   "N_FR_gmean": 1.403,
+   "load_tolerant_rate": 0.4967,
+   "nominal_held_rate": 0.9338,
+   "turn_deg_median": 0.6
+  },
+  "M3": {
+   "N_F_gmean": 1.284,
+   "robust_rate": 0.9205,
+   "N_FR_gmean": 1.358,
+   "load_tolerant_rate": 0.4768,
+   "nominal_held_rate": 0.947,
+   "turn_deg_median": 0.7
+  },
+  "M4": {
+   "N_F_gmean": 1.225,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.279,
+   "load_tolerant_rate": 0.6026,
+   "nominal_held_rate": 0.9536,
+   "turn_deg_median": 0.4
+  },
+  "M5": {
+   "N_F_gmean": 1.369,
+   "robust_rate": 0.8212,
+   "N_FR_gmean": 1.611,
+   "load_tolerant_rate": 0.543,
+   "nominal_held_rate": 0.8874,
+   "turn_deg_median": 0.4
+  },
+  "M6": {
+   "N_F_gmean": 1.253,
+   "robust_rate": 0.9073,
+   "N_FR_gmean": 1.337,
+   "load_tolerant_rate": 0.4305,
+   "nominal_held_rate": 0.9404,
+   "turn_deg_median": 0.8
+  },
+  "M7": {
+   "N_F_gmean": 1.299,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.309,
+   "load_tolerant_rate": 0.543,
+   "nominal_held_rate": 0.9404,
+   "turn_deg_median": 0.4
+  },
+  "M8": {
+   "N_F_gmean": 1.218,
+   "robust_rate": 0.9205,
+   "N_FR_gmean": 1.302,
+   "load_tolerant_rate": 0.4503,
+   "nominal_held_rate": 0.947,
+   "turn_deg_median": 0.7
+  }
+ },
+ "chosen": {
+  "M3": [
+   {
+    "fold": 0,
+    "config": {
+     "alpha": 0.9,
+     "q": "cen"
+    },
+    "criterion": 0.2717
+   },
+   {
+    "fold": 1,
+    "config": {
+     "alpha": 0.9,
+     "q": "cen"
+    },
+    "criterion": 0.2888
+   },
+   {
+    "fold": 2,
+    "config": {
+     "alpha": 0.7,
+     "q": "pre"
+    },
+    "criterion": 0.2724
+   },
+   {
+    "fold": 3,
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "criterion": 0.2733
+   },
+   {
+    "fold": 4,
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "criterion": 0.2285
+   }
+  ],
+  "M4": [
+   {
+    "fold": 0,
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "criterion": 0.2469
+   },
+   {
+    "fold": 1,
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "criterion": 0.2514
+   },
+   {
+    "fold": 2,
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "criterion": 0.2531
+   },
+   {
+    "fold": 3,
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "criterion": 0.2454
+   },
+   {
+    "fold": 4,
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "criterion": 0.2323
+   }
+  ],
+  "M5": [
+   {
+    "fold": 0,
+    "config": {
+     "theta": 0.9,
+     "q": "pre"
+    },
+    "criterion": 0.3989
+   },
+   {
+    "fold": 1,
+    "config": {
+     "theta": 0.7,
+     "q": "pre"
+    },
+    "criterion": 0.4333
+   },
+   {
+    "fold": 2,
+    "config": {
+     "theta": 0.7,
+     "q": "pre"
+    },
+    "criterion": 0.3796
+   },
+   {
+    "fold": 3,
+    "config": {
+     "theta": 0.9,
+     "q": "cen"
+    },
+    "criterion": 0.3887
+   },
+   {
+    "fold": 4,
+    "config": {
+     "theta": 0.9,
+     "q": "cen"
+    },
+    "criterion": 0.3613
+   }
+  ],
+  "M6": [
+   {
+    "fold": 0,
+    "config": {
+     "tau": 0.5,
+     "q": "pre"
+    },
+    "criterion": 0.2939
+   },
+   {
+    "fold": 1,
+    "config": {
+     "tau": 0.5,
+     "q": "pre"
+    },
+    "criterion": 0.3001
+   },
+   {
+    "fold": 2,
+    "config": {
+     "tau": 0.5,
+     "q": "pre"
+    },
+    "criterion": 0.285
+   },
+   {
+    "fold": 3,
+    "config": {
+     "tau": 0.5,
+     "q": "pre"
+    },
+    "criterion": 0.2978
+   },
+   {
+    "fold": 4,
+    "config": {
+     "tau": 0.3,
+     "q": "pre"
+    },
+    "criterion": 0.2563
+   }
+  ],
+  "M7": [
+   {
+    "fold": 0,
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "criterion": 0.2912
+   },
+   {
+    "fold": 1,
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "criterion": 0.3137
+   },
+   {
+    "fold": 2,
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "criterion": 0.2675
+   },
+   {
+    "fold": 3,
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "criterion": 0.2324
+   },
+   {
+    "fold": 4,
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "criterion": 0.2415
+   }
+  ],
+  "M8": [
+   {
+    "fold": 0,
+    "config": {
+     "q": "pre"
+    },
+    "criterion": 0.2698
+   },
+   {
+    "fold": 1,
+    "config": {
+     "q": "pre"
+    },
+    "criterion": 0.285
+   },
+   {
+    "fold": 2,
+    "config": {
+     "q": "pre"
+    },
+    "criterion": 0.2651
+   },
+   {
+    "fold": 3,
+    "config": {
+     "q": "pre"
+    },
+    "criterion": 0.2599
+   },
+   {
+    "fold": 4,
+    "config": {
+     "q": "pre"
+    },
+    "criterion": 0.238
+   }
+  ]
+ },
+ "contrasts": {
+  "N_F": [
+   {
+    "a": "M2",
+    "b": "M0",
+    "ratio": 0.2188,
+    "ci95": [
+     0.1611,
+     0.2976
+    ],
+    "parts": 151,
+    "better": 89,
+    "worse": 11,
+    "wilcoxon_p": 2.5491770576751036e-14,
+    "holm_p": 2.5491770576751033e-13
+   },
+   {
+    "a": "M2",
+    "b": "M1",
+    "ratio": 1.0584,
+    "ci95": [
+     0.9857,
+     1.142
+    ],
+    "parts": 151,
+    "better": 10,
+    "worse": 18,
+    "wilcoxon_p": 0.12622518948325528,
+    "holm_p": 0.6311259474162765
+   },
+   {
+    "a": "M3",
+    "b": "M0",
+    "ratio": 0.2117,
+    "ci95": [
+     0.155,
+     0.2892
+    ],
+    "parts": 151,
+    "better": 87,
+    "worse": 11,
+    "wilcoxon_p": 3.860836003987413e-14,
+    "holm_p": 3.4747524035886714e-13
+   },
+   {
+    "a": "M3",
+    "b": "M1",
+    "ratio": 1.0244,
+    "ci95": [
+     0.9997,
+     1.0534
+    ],
+    "parts": 151,
+    "better": 4,
+    "worse": 8,
+    "wilcoxon_p": 0.0810546875,
+    "holm_p": 0.486328125
+   },
+   {
+    "a": "M4",
+    "b": "M0",
+    "ratio": 0.2019,
+    "ci95": [
+     0.1505,
+     0.2716
+    ],
+    "parts": 151,
+    "better": 90,
+    "worse": 8,
+    "wilcoxon_p": 1.0444640737118328e-15,
+    "holm_p": 1.3578032958253826e-14
+   },
+   {
+    "a": "M4",
+    "b": "M1",
+    "ratio": 0.9771,
+    "ci95": [
+     0.912,
+     1.0408
+    ],
+    "parts": 151,
+    "better": 10,
+    "worse": 9,
+    "wilcoxon_p": 0.5058303553509449,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M5",
+    "b": "M0",
+    "ratio": 0.2256,
+    "ci95": [
+     0.1662,
+     0.3073
+    ],
+    "parts": 151,
+    "better": 87,
+    "worse": 13,
+    "wilcoxon_p": 7.806971281687393e-14,
+    "holm_p": 6.245577025349914e-13
+   },
+   {
+    "a": "M5",
+    "b": "M1",
+    "ratio": 1.0918,
+    "ci95": [
+     1.0251,
+     1.1664
+    ],
+    "parts": 151,
+    "better": 11,
+    "worse": 21,
+    "wilcoxon_p": 0.006823842612832656,
+    "holm_p": 0.047766898289828594
+   },
+   {
+    "a": "M6",
+    "b": "M0",
+    "ratio": 0.2066,
+    "ci95": [
+     0.1515,
+     0.2811
+    ],
+    "parts": 151,
+    "better": 89,
+    "worse": 9,
+    "wilcoxon_p": 2.158038280221162e-14,
+    "holm_p": 2.373842108243278e-13
+   },
+   {
+    "a": "M6",
+    "b": "M1",
+    "ratio": 0.9997,
+    "ci95": [
+     0.976,
+     1.0258
+    ],
+    "parts": 151,
+    "better": 7,
+    "worse": 4,
+    "wilcoxon_p": 0.83203125,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M7",
+    "b": "M0",
+    "ratio": 0.2142,
+    "ci95": [
+     0.1582,
+     0.2893
+    ],
+    "parts": 151,
+    "better": 89,
+    "worse": 10,
+    "wilcoxon_p": 1.2643257524140615e-14,
+    "holm_p": 1.5171909028968738e-13
+   },
+   {
+    "a": "M7",
+    "b": "M1",
+    "ratio": 1.0362,
+    "ci95": [
+     0.9656,
+     1.119
+    ],
+    "parts": 151,
+    "better": 15,
+    "worse": 11,
+    "wilcoxon_p": 0.5759282548795674,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M8",
+    "b": "M0",
+    "ratio": 0.2008,
+    "ci95": [
+     0.1492,
+     0.27
+    ],
+    "parts": 151,
+    "better": 90,
+    "worse": 8,
+    "wilcoxon_p": 7.099736981812444e-16,
+    "holm_p": 9.939631774537422e-15
+   },
+   {
+    "a": "M8",
+    "b": "M1",
+    "ratio": 0.9717,
+    "ci95": [
+     0.9246,
+     1.0185
+    ],
+    "parts": 151,
+    "better": 13,
+    "worse": 7,
+    "wilcoxon_p": 0.26034218237016926,
+    "holm_p": 1.0
+   }
+  ],
+  "N_FR": [
+   {
+    "a": "M2",
+    "b": "M0",
+    "ratio": 0.2214,
+    "ci95": [
+     0.1641,
+     0.2985
+    ],
+    "parts": 149,
+    "better": 88,
+    "worse": 10,
+    "wilcoxon_p": 3.1946975734528427e-14,
+    "holm_p": 3.194697573452843e-13
+   },
+   {
+    "a": "M2",
+    "b": "M1",
+    "ratio": 1.0523,
+    "ci95": [
+     0.9645,
+     1.151
+    ],
+    "parts": 149,
+    "better": 17,
+    "worse": 24,
+    "wilcoxon_p": 0.2522060005772516,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M3",
+    "b": "M0",
+    "ratio": 0.2145,
+    "ci95": [
+     0.1573,
+     0.292
+    ],
+    "parts": 149,
+    "better": 86,
+    "worse": 12,
+    "wilcoxon_p": 4.0304717184819185e-14,
+    "holm_p": 3.6274245466337265e-13
+   },
+   {
+    "a": "M3",
+    "b": "M1",
+    "ratio": 1.0191,
+    "ci95": [
+     0.9885,
+     1.054
+    ],
+    "parts": 149,
+    "better": 6,
+    "worse": 8,
+    "wilcoxon_p": 0.2845727561671063,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M4",
+    "b": "M0",
+    "ratio": 0.2019,
+    "ci95": [
+     0.1501,
+     0.271
+    ],
+    "parts": 149,
+    "better": 87,
+    "worse": 9,
+    "wilcoxon_p": 1.854389790676468e-15,
+    "holm_p": 2.4107067278794086e-14
+   },
+   {
+    "a": "M4",
+    "b": "M1",
+    "ratio": 0.9593,
+    "ci95": [
+     0.8931,
+     1.0202
+    ],
+    "parts": 149,
+    "better": 12,
+    "worse": 8,
+    "wilcoxon_p": 0.2542291771880838,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M5",
+    "b": "M0",
+    "ratio": 0.2543,
+    "ci95": [
+     0.1908,
+     0.3402
+    ],
+    "parts": 149,
+    "better": 84,
+    "worse": 14,
+    "wilcoxon_p": 1.8740143561244663e-13,
+    "holm_p": 1.499211484899573e-12
+   },
+   {
+    "a": "M5",
+    "b": "M1",
+    "ratio": 1.2086,
+    "ci95": [
+     1.109,
+     1.3213
+    ],
+    "parts": 149,
+    "better": 12,
+    "worse": 34,
+    "wilcoxon_p": 3.7998543009738036e-05,
+    "holm_p": 0.00026598980106816623
+   },
+   {
+    "a": "M6",
+    "b": "M0",
+    "ratio": 0.211,
+    "ci95": [
+     0.1545,
+     0.2877
+    ],
+    "parts": 149,
+    "better": 87,
+    "worse": 12,
+    "wilcoxon_p": 2.89108237945384e-14,
+    "holm_p": 3.1801906173992235e-13
+   },
+   {
+    "a": "M6",
+    "b": "M1",
+    "ratio": 1.0028,
+    "ci95": [
+     0.9727,
+     1.0359
+    ],
+    "parts": 149,
+    "better": 7,
+    "worse": 7,
+    "wilcoxon_p": 0.9245883905731738,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M7",
+    "b": "M0",
+    "ratio": 0.2067,
+    "ci95": [
+     0.1533,
+     0.2783
+    ],
+    "parts": 149,
+    "better": 88,
+    "worse": 8,
+    "wilcoxon_p": 5.473674498109728e-15,
+    "holm_p": 6.568409397731674e-14
+   },
+   {
+    "a": "M7",
+    "b": "M1",
+    "ratio": 0.9822,
+    "ci95": [
+     0.9206,
+     1.0499
+    ],
+    "parts": 149,
+    "better": 19,
+    "worse": 10,
+    "wilcoxon_p": 0.44212334826247457,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M8",
+    "b": "M0",
+    "ratio": 0.2055,
+    "ci95": [
+     0.1533,
+     0.2752
+    ],
+    "parts": 149,
+    "better": 88,
+    "worse": 10,
+    "wilcoxon_p": 7.464614075474934e-16,
+    "holm_p": 1.0450459705664908e-14
+   },
+   {
+    "a": "M8",
+    "b": "M1",
+    "ratio": 0.9766,
+    "ci95": [
+     0.9202,
+     1.0343
+    ],
+    "parts": 149,
+    "better": 18,
+    "worse": 10,
+    "wilcoxon_p": 0.583170433952231,
+    "holm_p": 1.0
+   }
+  ],
+  "robust": [
+   {
+    "a": "M2",
+    "b": "M0",
+    "rate_a": 0.9073,
+    "rate_b": 0.8411,
+    "difference": {
+     "difference": 0.0662,
+     "ci95": [
+      0.0,
+      0.1325
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 18,
+    "mcnemar_only_b": 8,
+    "wilcoxon_p": 0.075519,
+    "holm_p": 0.679671
+   },
+   {
+    "a": "M2",
+    "b": "M1",
+    "rate_a": 0.9073,
+    "rate_b": 0.9073,
+    "difference": {
+     "difference": 0.0,
+     "ci95": [
+      -0.053,
+      0.053
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 8,
+    "mcnemar_only_b": 8,
+    "wilcoxon_p": 1.0,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M3",
+    "b": "M0",
+    "rate_a": 0.9205,
+    "rate_b": 0.8411,
+    "difference": {
+     "difference": 0.0795,
+     "ci95": [
+      0.0199,
+      0.1457
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 19,
+    "mcnemar_only_b": 7,
+    "wilcoxon_p": 0.028959,
+    "holm_p": 0.28959
+   },
+   {
+    "a": "M3",
+    "b": "M1",
+    "rate_a": 0.9205,
+    "rate_b": 0.9073,
+    "difference": {
+     "difference": 0.0132,
+     "ci95": [
+      0.0,
+      0.0331
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 2,
+    "mcnemar_only_b": 0,
+    "wilcoxon_p": 0.5,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M4",
+    "b": "M0",
+    "rate_a": 0.9272,
+    "rate_b": 0.8411,
+    "difference": {
+     "difference": 0.0861,
+     "ci95": [
+      0.0199,
+      0.1523
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 20,
+    "mcnemar_only_b": 7,
+    "wilcoxon_p": 0.019157,
+    "holm_p": 0.229884
+   },
+   {
+    "a": "M4",
+    "b": "M1",
+    "rate_a": 0.9272,
+    "rate_b": 0.9073,
+    "difference": {
+     "difference": 0.0199,
+     "ci95": [
+      -0.0066,
+      0.053
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 4,
+    "mcnemar_only_b": 1,
+    "wilcoxon_p": 0.375,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M5",
+    "b": "M0",
+    "rate_a": 0.8212,
+    "rate_b": 0.8411,
+    "difference": {
+     "difference": -0.0199,
+     "ci95": [
+      -0.0795,
+      0.0397
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 9,
+    "mcnemar_only_b": 12,
+    "wilcoxon_p": 0.663624,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M5",
+    "b": "M1",
+    "rate_a": 0.8212,
+    "rate_b": 0.9073,
+    "difference": {
+     "difference": -0.0861,
+     "ci95": [
+      -0.1457,
+      -0.0331
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 3,
+    "mcnemar_only_b": 16,
+    "wilcoxon_p": 0.004425,
+    "holm_p": 0.061950000000000005
+   },
+   {
+    "a": "M6",
+    "b": "M0",
+    "rate_a": 0.9073,
+    "rate_b": 0.8411,
+    "difference": {
+     "difference": 0.0662,
+     "ci95": [
+      0.0,
+      0.1325
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 19,
+    "mcnemar_only_b": 9,
+    "wilcoxon_p": 0.087159,
+    "holm_p": 0.697272
+   },
+   {
+    "a": "M6",
+    "b": "M1",
+    "rate_a": 0.9073,
+    "rate_b": 0.9073,
+    "difference": {
+     "difference": 0.0,
+     "ci95": [
+      -0.0265,
+      0.0265
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 2,
+    "mcnemar_only_b": 2,
+    "wilcoxon_p": 1.0,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M7",
+    "b": "M0",
+    "rate_a": 0.9272,
+    "rate_b": 0.8411,
+    "difference": {
+     "difference": 0.0861,
+     "ci95": [
+      0.0331,
+      0.1457
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 17,
+    "mcnemar_only_b": 4,
+    "wilcoxon_p": 0.007197,
+    "holm_p": 0.093561
+   },
+   {
+    "a": "M7",
+    "b": "M1",
+    "rate_a": 0.9272,
+    "rate_b": 0.9073,
+    "difference": {
+     "difference": 0.0199,
+     "ci95": [
+      -0.0132,
+      0.053
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 5,
+    "mcnemar_only_b": 2,
+    "wilcoxon_p": 0.453125,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M8",
+    "b": "M0",
+    "rate_a": 0.9205,
+    "rate_b": 0.8411,
+    "difference": {
+     "difference": 0.0795,
+     "ci95": [
+      0.0199,
+      0.1457
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 18,
+    "mcnemar_only_b": 6,
+    "wilcoxon_p": 0.022656,
+    "holm_p": 0.249216
+   },
+   {
+    "a": "M8",
+    "b": "M1",
+    "rate_a": 0.9205,
+    "rate_b": 0.9073,
+    "difference": {
+     "difference": 0.0132,
+     "ci95": [
+      -0.0132,
+      0.0397
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 3,
+    "mcnemar_only_b": 1,
+    "wilcoxon_p": 0.625,
+    "holm_p": 1.0
+   }
+  ],
+  "load_tolerant": [
+   {
+    "a": "M2",
+    "b": "M0",
+    "rate_a": 0.4967,
+    "rate_b": 0.649,
+    "difference": {
+     "difference": -0.1523,
+     "ci95": [
+      -0.2185,
+      -0.0861
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 4,
+    "mcnemar_only_b": 27,
+    "wilcoxon_p": 3.4e-05,
+    "holm_p": 0.000374
+   },
+   {
+    "a": "M2",
+    "b": "M1",
+    "rate_a": 0.4967,
+    "rate_b": 0.4834,
+    "difference": {
+     "difference": 0.0132,
+     "ci95": [
+      -0.0464,
+      0.0728
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 12,
+    "mcnemar_only_b": 10,
+    "wilcoxon_p": 0.831812,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M3",
+    "b": "M0",
+    "rate_a": 0.4768,
+    "rate_b": 0.649,
+    "difference": {
+     "difference": -0.1722,
+     "ci95": [
+      -0.245,
+      -0.0993
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 6,
+    "mcnemar_only_b": 32,
+    "wilcoxon_p": 2.4e-05,
+    "holm_p": 0.000288
+   },
+   {
+    "a": "M3",
+    "b": "M1",
+    "rate_a": 0.4768,
+    "rate_b": 0.4834,
+    "difference": {
+     "difference": -0.0066,
+     "ci95": [
+      -0.0464,
+      0.0331
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 5,
+    "mcnemar_only_b": 6,
+    "wilcoxon_p": 1.0,
+    "holm_p": 1.0
+   },
+   {
+    "a": "M4",
+    "b": "M0",
+    "rate_a": 0.6026,
+    "rate_b": 0.649,
+    "difference": {
+     "difference": -0.0464,
+     "ci95": [
+      -0.106,
+      0.0132
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 7,
+    "mcnemar_only_b": 14,
+    "wilcoxon_p": 0.189247,
+    "holm_p": 0.756988
+   },
+   {
+    "a": "M4",
+    "b": "M1",
+    "rate_a": 0.6026,
+    "rate_b": 0.4834,
+    "difference": {
+     "difference": 0.1192,
+     "ci95": [
+      0.0662,
+      0.1788
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 20,
+    "mcnemar_only_b": 2,
+    "wilcoxon_p": 0.000121,
+    "holm_p": 0.00121
+   },
+   {
+    "a": "M5",
+    "b": "M0",
+    "rate_a": 0.543,
+    "rate_b": 0.649,
+    "difference": {
+     "difference": -0.106,
+     "ci95": [
+      -0.1656,
+      -0.053
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 2,
+    "mcnemar_only_b": 18,
+    "wilcoxon_p": 0.000402,
+    "holm_p": 0.003618
+   },
+   {
+    "a": "M5",
+    "b": "M1",
+    "rate_a": 0.543,
+    "rate_b": 0.4834,
+    "difference": {
+     "difference": 0.0596,
+     "ci95": [
+      0.0066,
+      0.1126
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 13,
+    "mcnemar_only_b": 4,
+    "wilcoxon_p": 0.049042,
+    "holm_p": 0.294252
+   },
+   {
+    "a": "M6",
+    "b": "M0",
+    "rate_a": 0.4305,
+    "rate_b": 0.649,
+    "difference": {
+     "difference": -0.2185,
+     "ci95": [
+      -0.298,
+      -0.1391
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 5,
+    "mcnemar_only_b": 38,
+    "wilcoxon_p": 0.0,
+    "holm_p": 0.0
+   },
+   {
+    "a": "M6",
+    "b": "M1",
+    "rate_a": 0.4305,
+    "rate_b": 0.4834,
+    "difference": {
+     "difference": -0.053,
+     "ci95": [
+      -0.0993,
+      -0.0066
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 3,
+    "mcnemar_only_b": 11,
+    "wilcoxon_p": 0.057373,
+    "holm_p": 0.294252
+   },
+   {
+    "a": "M7",
+    "b": "M0",
+    "rate_a": 0.543,
+    "rate_b": 0.649,
+    "difference": {
+     "difference": -0.106,
+     "ci95": [
+      -0.1722,
+      -0.0397
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 5,
+    "mcnemar_only_b": 21,
+    "wilcoxon_p": 0.002494,
+    "holm_p": 0.019952
+   },
+   {
+    "a": "M7",
+    "b": "M1",
+    "rate_a": 0.543,
+    "rate_b": 0.4834,
+    "difference": {
+     "difference": 0.0596,
+     "ci95": [
+      0.0132,
+      0.1126
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 12,
+    "mcnemar_only_b": 3,
+    "wilcoxon_p": 0.035156,
+    "holm_p": 0.246092
+   },
+   {
+    "a": "M8",
+    "b": "M0",
+    "rate_a": 0.4503,
+    "rate_b": 0.649,
+    "difference": {
+     "difference": -0.1987,
+     "ci95": [
+      -0.2715,
+      -0.1257
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 5,
+    "mcnemar_only_b": 35,
+    "wilcoxon_p": 1e-06,
+    "holm_p": 1.3e-05
+   },
+   {
+    "a": "M8",
+    "b": "M1",
+    "rate_a": 0.4503,
+    "rate_b": 0.4834,
+    "difference": {
+     "difference": -0.0331,
+     "ci95": [
+      -0.0861,
+      0.0132
+     ],
+     "n": 151
+    },
+    "mcnemar_only_a": 5,
+    "mcnemar_only_b": 10,
+    "wilcoxon_p": 0.301758,
+    "holm_p": 0.9052740000000001
+   }
+  ],
+  "M1_vs_M0": {
+   "N_F": {
+    "ratio": 0.2067,
+    "ci95": [
+     0.1518,
+     0.2815
+    ],
+    "parts": 151,
+    "better": 88,
+    "worse": 9,
+    "wilcoxon_p": 1.5124580692945894e-14
+   },
+   "N_FR": {
+    "ratio": 0.2104,
+    "ci95": [
+     0.1548,
+     0.286
+    ],
+    "parts": 149,
+    "better": 85,
+    "worse": 11,
+    "wilcoxon_p": 1.759031810512859e-14
+   },
+   "robust": {
+    "difference": {
+     "difference": 0.0662,
+     "ci95": [
+      0.0,
+      0.1325
+     ],
+     "n": 151
+    },
+    "only_a": 18,
+    "only_b": 8,
+    "p": 0.075519
+   },
+   "load_tolerant": {
+    "difference": {
+     "difference": -0.1656,
+     "ci95": [
+      -0.2384,
+      -0.0927
+     ],
+     "n": 151
+    },
+    "only_a": 5,
+    "only_b": 30,
+    "p": 2.2e-05
+   }
+  }
+ },
+ "decision_rule": {
+  "rule": {
+   "robustness_noninferior_to_M0": "lower 95% CI of R_family - R_M0 > -0.05",
+   "faster_than_M0": "upper 95% CI of N_F ratio vs M0 < 1",
+   "keeps_M1_speed": "upper 95% CI of N_F ratio vs M1 <= 1.25"
+  },
+  "families": {
+   "M3": {
+    "robustness_noninferior_to_M0": true,
+    "faster_than_M0": true,
+    "keeps_M1_speed": true,
+    "meets_rule": true,
+    "robust_minus_M0_ci95": [
+     0.0199,
+     0.1457
+    ],
+    "N_F_vs_M0_ci95": [
+     0.155,
+     0.2892
+    ],
+    "N_F_vs_M1_ci95": [
+     0.9997,
+     1.0534
+    ]
+   },
+   "M4": {
+    "robustness_noninferior_to_M0": true,
+    "faster_than_M0": true,
+    "keeps_M1_speed": true,
+    "meets_rule": true,
+    "robust_minus_M0_ci95": [
+     0.0199,
+     0.1523
+    ],
+    "N_F_vs_M0_ci95": [
+     0.1505,
+     0.2716
+    ],
+    "N_F_vs_M1_ci95": [
+     0.912,
+     1.0408
+    ]
+   },
+   "M5": {
+    "robustness_noninferior_to_M0": false,
+    "faster_than_M0": true,
+    "keeps_M1_speed": true,
+    "meets_rule": false,
+    "robust_minus_M0_ci95": [
+     -0.0795,
+     0.0397
+    ],
+    "N_F_vs_M0_ci95": [
+     0.1662,
+     0.3073
+    ],
+    "N_F_vs_M1_ci95": [
+     1.0251,
+     1.1664
+    ]
+   },
+   "M6": {
+    "robustness_noninferior_to_M0": true,
+    "faster_than_M0": true,
+    "keeps_M1_speed": true,
+    "meets_rule": true,
+    "robust_minus_M0_ci95": [
+     0.0,
+     0.1325
+    ],
+    "N_F_vs_M0_ci95": [
+     0.1515,
+     0.2811
+    ],
+    "N_F_vs_M1_ci95": [
+     0.976,
+     1.0258
+    ]
+   },
+   "M7": {
+    "robustness_noninferior_to_M0": true,
+    "faster_than_M0": true,
+    "keeps_M1_speed": true,
+    "meets_rule": true,
+    "robust_minus_M0_ci95": [
+     0.0331,
+     0.1457
+    ],
+    "N_F_vs_M0_ci95": [
+     0.1582,
+     0.2893
+    ],
+    "N_F_vs_M1_ci95": [
+     0.9656,
+     1.119
+    ]
+   },
+   "M8": {
+    "robustness_noninferior_to_M0": true,
+    "faster_than_M0": true,
+    "keeps_M1_speed": true,
+    "meets_rule": true,
+    "robust_minus_M0_ci95": [
+     0.0199,
+     0.1457
+    ],
+    "N_F_vs_M0_ci95": [
+     0.1492,
+     0.27
+    ],
+    "N_F_vs_M1_ci95": [
+     0.9246,
+     1.0185
+    ]
+   }
+  }
+ },
+ "grid": {
+  "M3": [
+   {
+    "config": {
+     "alpha": 0.0,
+     "q": "pre"
+    },
+    "N_F_gmean": 6.065,
+    "robust_rate": 0.8411,
+    "N_FR_gmean": 6.334,
+    "load_tolerant_rate": 0.649
+   },
+   {
+    "config": {
+     "alpha": 0.1,
+     "q": "pre"
+    },
+    "N_F_gmean": 2.381,
+    "robust_rate": 0.894,
+    "N_FR_gmean": 2.523,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.2,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.493,
+    "robust_rate": 0.9404,
+    "N_FR_gmean": 1.532,
+    "load_tolerant_rate": 0.6225
+   },
+   {
+    "config": {
+     "alpha": 0.3,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.303,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 1.385,
+    "load_tolerant_rate": 0.6093
+   },
+   {
+    "config": {
+     "alpha": 0.4,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.292,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 1.357,
+    "load_tolerant_rate": 0.5828
+   },
+   {
+    "config": {
+     "alpha": 0.5,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.257,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.327,
+    "load_tolerant_rate": 0.5563
+   },
+   {
+    "config": {
+     "alpha": 0.6,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.265,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.336,
+    "load_tolerant_rate": 0.543
+   },
+   {
+    "config": {
+     "alpha": 0.7,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.263,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.335,
+    "load_tolerant_rate": 0.5232
+   },
+   {
+    "config": {
+     "alpha": 0.8,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.265,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.339,
+    "load_tolerant_rate": 0.4967
+   },
+   {
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.25,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.32,
+    "load_tolerant_rate": 0.4437
+   },
+   {
+    "config": {
+     "alpha": 1.0,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.253,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.337,
+    "load_tolerant_rate": 0.4305
+   },
+   {
+    "config": {
+     "alpha": 0.0,
+     "q": "cen"
+    },
+    "N_F_gmean": 28.58,
+    "robust_rate": 0.8278,
+    "N_FR_gmean": 30.074,
+    "load_tolerant_rate": 0.6424
+   },
+   {
+    "config": {
+     "alpha": 0.1,
+     "q": "cen"
+    },
+    "N_F_gmean": 10.268,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 10.562,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.2,
+     "q": "cen"
+    },
+    "N_F_gmean": 7.245,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 7.452,
+    "load_tolerant_rate": 0.6159
+   },
+   {
+    "config": {
+     "alpha": 0.3,
+     "q": "cen"
+    },
+    "N_F_gmean": 4.145,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 4.275,
+    "load_tolerant_rate": 0.6093
+   },
+   {
+    "config": {
+     "alpha": 0.4,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.781,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.874,
+    "load_tolerant_rate": 0.5894
+   },
+   {
+    "config": {
+     "alpha": 0.5,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.345,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.458,
+    "load_tolerant_rate": 0.5828
+   },
+   {
+    "config": {
+     "alpha": 0.6,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.274,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.383,
+    "load_tolerant_rate": 0.5762
+   },
+   {
+    "config": {
+     "alpha": 0.7,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.255,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.356,
+    "load_tolerant_rate": 0.5364
+   },
+   {
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.245,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.315,
+    "load_tolerant_rate": 0.4768
+   },
+   {
+    "config": {
+     "alpha": 0.9,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.245,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.309,
+    "load_tolerant_rate": 0.457
+   },
+   {
+    "config": {
+     "alpha": 1.0,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.253,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.337,
+    "load_tolerant_rate": 0.4305
+   }
+  ],
+  "M4": [
+   {
+    "config": {
+     "alpha": 0.0,
+     "q": "pre"
+    },
+    "N_F_gmean": 6.065,
+    "robust_rate": 0.8411,
+    "N_FR_gmean": 6.334,
+    "load_tolerant_rate": 0.649
+   },
+   {
+    "config": {
+     "alpha": 0.1,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.396,
+    "robust_rate": 0.9007,
+    "N_FR_gmean": 1.446,
+    "load_tolerant_rate": 0.6093
+   },
+   {
+    "config": {
+     "alpha": 0.2,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.286,
+    "robust_rate": 0.9404,
+    "N_FR_gmean": 1.316,
+    "load_tolerant_rate": 0.596
+   },
+   {
+    "config": {
+     "alpha": 0.3,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.277,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 1.328,
+    "load_tolerant_rate": 0.5828
+   },
+   {
+    "config": {
+     "alpha": 0.4,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.279,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 1.329,
+    "load_tolerant_rate": 0.5828
+   },
+   {
+    "config": {
+     "alpha": 0.5,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.255,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.318,
+    "load_tolerant_rate": 0.5563
+   },
+   {
+    "config": {
+     "alpha": 0.6,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.268,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.345,
+    "load_tolerant_rate": 0.5364
+   },
+   {
+    "config": {
+     "alpha": 0.7,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.267,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.344,
+    "load_tolerant_rate": 0.5364
+   },
+   {
+    "config": {
+     "alpha": 0.8,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.252,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.328,
+    "load_tolerant_rate": 0.5099
+   },
+   {
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.25,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.323,
+    "load_tolerant_rate": 0.4437
+   },
+   {
+    "config": {
+     "alpha": 1.0,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.253,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.337,
+    "load_tolerant_rate": 0.4305
+   },
+   {
+    "config": {
+     "alpha": 0.0,
+     "q": "cen"
+    },
+    "N_F_gmean": 28.555,
+    "robust_rate": 0.8278,
+    "N_FR_gmean": 30.049,
+    "load_tolerant_rate": 0.6424
+   },
+   {
+    "config": {
+     "alpha": 0.1,
+     "q": "cen"
+    },
+    "N_F_gmean": 6.017,
+    "robust_rate": 0.9338,
+    "N_FR_gmean": 6.203,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.2,
+     "q": "cen"
+    },
+    "N_F_gmean": 4.124,
+    "robust_rate": 0.9404,
+    "N_FR_gmean": 4.213,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.3,
+     "q": "cen"
+    },
+    "N_F_gmean": 3.614,
+    "robust_rate": 0.9338,
+    "N_FR_gmean": 3.721,
+    "load_tolerant_rate": 0.6291
+   },
+   {
+    "config": {
+     "alpha": 0.4,
+     "q": "cen"
+    },
+    "N_F_gmean": 2.614,
+    "robust_rate": 0.9338,
+    "N_FR_gmean": 2.723,
+    "load_tolerant_rate": 0.6225
+   },
+   {
+    "config": {
+     "alpha": 0.5,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.62,
+    "robust_rate": 0.9338,
+    "N_FR_gmean": 1.684,
+    "load_tolerant_rate": 0.6159
+   },
+   {
+    "config": {
+     "alpha": 0.6,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.364,
+    "robust_rate": 0.9404,
+    "N_FR_gmean": 1.404,
+    "load_tolerant_rate": 0.6225
+   },
+   {
+    "config": {
+     "alpha": 0.7,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.277,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.323,
+    "load_tolerant_rate": 0.6159
+   },
+   {
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.225,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 1.279,
+    "load_tolerant_rate": 0.6026
+   },
+   {
+    "config": {
+     "alpha": 0.9,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.257,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 1.303,
+    "load_tolerant_rate": 0.5894
+   },
+   {
+    "config": {
+     "alpha": 1.0,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.253,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.337,
+    "load_tolerant_rate": 0.4305
+   }
+  ],
+  "M5": [
+   {
+    "config": {
+     "theta": 0.3,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.565,
+    "robust_rate": 0.8411,
+    "N_FR_gmean": 1.725,
+    "load_tolerant_rate": 0.596
+   },
+   {
+    "config": {
+     "theta": 0.5,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.42,
+    "robust_rate": 0.8543,
+    "N_FR_gmean": 1.576,
+    "load_tolerant_rate": 0.596
+   },
+   {
+    "config": {
+     "theta": 0.7,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.353,
+    "robust_rate": 0.8543,
+    "N_FR_gmean": 1.519,
+    "load_tolerant_rate": 0.5828
+   },
+   {
+    "config": {
+     "theta": 0.9,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.289,
+    "robust_rate": 0.8344,
+    "N_FR_gmean": 1.496,
+    "load_tolerant_rate": 0.5166
+   },
+   {
+    "config": {
+     "theta": 0.3,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.739,
+    "robust_rate": 0.8477,
+    "N_FR_gmean": 1.894,
+    "load_tolerant_rate": 0.6093
+   },
+   {
+    "config": {
+     "theta": 0.5,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.527,
+    "robust_rate": 0.8609,
+    "N_FR_gmean": 1.684,
+    "load_tolerant_rate": 0.5894
+   },
+   {
+    "config": {
+     "theta": 0.7,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.365,
+    "robust_rate": 0.8609,
+    "N_FR_gmean": 1.529,
+    "load_tolerant_rate": 0.5762
+   },
+   {
+    "config": {
+     "theta": 0.9,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.289,
+    "robust_rate": 0.8344,
+    "N_FR_gmean": 1.497,
+    "load_tolerant_rate": 0.5232
+   }
+  ],
+  "M6": [
+   {
+    "config": {
+     "tau": 0.3,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.253,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.337,
+    "load_tolerant_rate": 0.4305
+   },
+   {
+    "config": {
+     "tau": 0.5,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.249,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.332,
+    "load_tolerant_rate": 0.4305
+   },
+   {
+    "config": {
+     "tau": 0.7,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.36,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.405,
+    "load_tolerant_rate": 0.4371
+   },
+   {
+    "config": {
+     "tau": 0.9,
+     "q": "pre"
+    },
+    "N_F_gmean": 3.122,
+    "robust_rate": 0.9404,
+    "N_FR_gmean": 3.206,
+    "load_tolerant_rate": 0.649
+   },
+   {
+    "config": {
+     "tau": 0.3,
+     "q": "cen"
+    },
+    "N_F_gmean": 4.301,
+    "robust_rate": 0.9338,
+    "N_FR_gmean": 4.448,
+    "load_tolerant_rate": 0.5232
+   },
+   {
+    "config": {
+     "tau": 0.5,
+     "q": "cen"
+    },
+    "N_F_gmean": 3.121,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 3.343,
+    "load_tolerant_rate": 0.5364
+   },
+   {
+    "config": {
+     "tau": 0.7,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.778,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.869,
+    "load_tolerant_rate": 0.4702
+   },
+   {
+    "config": {
+     "tau": 0.9,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.674,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 1.764,
+    "load_tolerant_rate": 0.4437
+   }
+  ],
+  "M7": [
+   {
+    "config": {
+     "alpha": 0.1,
+     "q": "pre"
+    },
+    "N_F_gmean": 4.279,
+    "robust_rate": 0.8477,
+    "N_FR_gmean": 4.424,
+    "load_tolerant_rate": 0.6424
+   },
+   {
+    "config": {
+     "alpha": 0.2,
+     "q": "pre"
+    },
+    "N_F_gmean": 3.688,
+    "robust_rate": 0.8742,
+    "N_FR_gmean": 3.774,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.3,
+     "q": "pre"
+    },
+    "N_F_gmean": 3.322,
+    "robust_rate": 0.8808,
+    "N_FR_gmean": 3.406,
+    "load_tolerant_rate": 0.6291
+   },
+   {
+    "config": {
+     "alpha": 0.4,
+     "q": "pre"
+    },
+    "N_F_gmean": 2.966,
+    "robust_rate": 0.8808,
+    "N_FR_gmean": 2.993,
+    "load_tolerant_rate": 0.6291
+   },
+   {
+    "config": {
+     "alpha": 0.5,
+     "q": "pre"
+    },
+    "N_F_gmean": 2.525,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 2.551,
+    "load_tolerant_rate": 0.6225
+   },
+   {
+    "config": {
+     "alpha": 0.6,
+     "q": "pre"
+    },
+    "N_F_gmean": 2.096,
+    "robust_rate": 0.9139,
+    "N_FR_gmean": 2.142,
+    "load_tolerant_rate": 0.6225
+   },
+   {
+    "config": {
+     "alpha": 0.7,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.671,
+    "robust_rate": 0.9338,
+    "N_FR_gmean": 1.706,
+    "load_tolerant_rate": 0.6026
+   },
+   {
+    "config": {
+     "alpha": 0.8,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.408,
+    "robust_rate": 0.9404,
+    "N_FR_gmean": 1.43,
+    "load_tolerant_rate": 0.5828
+   },
+   {
+    "config": {
+     "alpha": 0.9,
+     "q": "pre"
+    },
+    "N_F_gmean": 1.299,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 1.309,
+    "load_tolerant_rate": 0.543
+   },
+   {
+    "config": {
+     "alpha": 0.1,
+     "q": "cen"
+    },
+    "N_F_gmean": 13.523,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 14.039,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.2,
+     "q": "cen"
+    },
+    "N_F_gmean": 10.61,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 11.06,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.3,
+     "q": "cen"
+    },
+    "N_F_gmean": 9.07,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 9.52,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.4,
+     "q": "cen"
+    },
+    "N_F_gmean": 7.572,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 7.904,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.5,
+     "q": "cen"
+    },
+    "N_F_gmean": 6.139,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 6.412,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.6,
+     "q": "cen"
+    },
+    "N_F_gmean": 5.146,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 5.349,
+    "load_tolerant_rate": 0.6291
+   },
+   {
+    "config": {
+     "alpha": 0.7,
+     "q": "cen"
+    },
+    "N_F_gmean": 4.05,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 4.206,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.8,
+     "q": "cen"
+    },
+    "N_F_gmean": 2.418,
+    "robust_rate": 0.9272,
+    "N_FR_gmean": 2.479,
+    "load_tolerant_rate": 0.6358
+   },
+   {
+    "config": {
+     "alpha": 0.9,
+     "q": "cen"
+    },
+    "N_F_gmean": 1.381,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.452,
+    "load_tolerant_rate": 0.596
+   }
+  ],
+  "M8": [
+   {
+    "config": {
+     "q": "pre"
+    },
+    "N_F_gmean": 1.218,
+    "robust_rate": 0.9205,
+    "N_FR_gmean": 1.302,
+    "load_tolerant_rate": 0.4503
+   },
+   {
+    "config": {
+     "q": "cen"
+    },
+    "N_F_gmean": 1.239,
+    "robust_rate": 0.9073,
+    "N_FR_gmean": 1.348,
+    "load_tolerant_rate": 0.4702
+   }
+  ]
+ },
+ "per_part": {
+  "M0": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 49,
+    "robust": 1,
+    "nfr": 49,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 35,
+    "robust": 0,
+    "nfr": 93,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 33,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 121,
+    "robust": 0,
+    "nfr": 137,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 15,
+    "robust": 1,
+    "nfr": 15,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 83,
+    "robust": 1,
+    "nfr": 83,
+    "load": 1
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 93,
+    "robust": 1,
+    "nfr": 93,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 83,
+    "robust": 0,
+    "nfr": 85,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 61,
+    "robust": 0,
+    "nfr": 71,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 31,
+    "robust": 1,
+    "nfr": 31,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 30,
+    "robust": 1,
+    "nfr": 30,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 75,
+    "robust": 0,
+    "nfr": 87,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 71,
+    "robust": 1,
+    "nfr": 71,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 105,
+    "robust": 0,
+    "nfr": 107,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 23,
+    "robust": 0,
+    "nfr": 29,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 141,
+    "robust": 1,
+    "nfr": 141,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 103,
+    "robust": 1,
+    "nfr": 103,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 31,
+    "robust": 1,
+    "nfr": 31,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "FIRE_ENGINE": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 13,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 17,
+    "robust": 1,
+    "nfr": 17,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 101,
+    "robust": 0,
+    "nfr": 103,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 235,
+    "robust": 1,
+    "nfr": 235,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 45,
+    "robust": 1,
+    "nfr": 45,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 79,
+    "robust": 0,
+    "nfr": 92,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 103,
+    "robust": 1,
+    "nfr": 103,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 17,
+    "robust": 1,
+    "nfr": 17,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 65,
+    "robust": 1,
+    "nfr": 65,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 85,
+    "robust": 0,
+    "nfr": 101,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 43,
+    "robust": 1,
+    "nfr": 43,
+    "load": 1
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 97,
+    "robust": 0,
+    "nfr": 101,
+    "load": 0
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 103,
+    "robust": 0,
+    "nfr": 106,
+    "load": 0
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 85,
+    "robust": 0,
+    "nfr": 86,
+    "load": 0
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 45,
+    "robust": 1,
+    "nfr": 45,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 57,
+    "robust": 1,
+    "nfr": 57,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 67,
+    "robust": 0,
+    "nfr": 75,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 81,
+    "robust": 1,
+    "nfr": 81,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 39,
+    "robust": 1,
+    "nfr": 39,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 1
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 99,
+    "robust": 1,
+    "nfr": 99,
+    "load": 0
+   },
+   "Object": {
+    "nf": 13,
+    "robust": 1,
+    "nfr": 13,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 19,
+    "robust": 1,
+    "nfr": 19,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 117,
+    "robust": 1,
+    "nfr": 117,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 1
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 1
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 101,
+    "robust": 0,
+    "nfr": 107,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 71,
+    "robust": 0,
+    "nfr": 75,
+    "load": 0
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 91,
+    "robust": 1,
+    "nfr": 91,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Schleich_Allosaurus": {
+    "nf": 83,
+    "robust": 1,
+    "nfr": 83,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 1
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 79,
+    "robust": 0,
+    "nfr": 90,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 107,
+    "robust": 1,
+    "nfr": 107,
+    "load": 1
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 81,
+    "robust": 0,
+    "nfr": 85,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 79,
+    "robust": 1,
+    "nfr": 79,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 15,
+    "robust": 1,
+    "nfr": 15,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 97,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 33,
+    "robust": 0,
+    "nfr": 93,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 67,
+    "robust": 1,
+    "nfr": 67,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 95,
+    "robust": 0,
+    "nfr": 97,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 19,
+    "robust": 1,
+    "nfr": 19,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  },
+  "M1": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 25,
+    "robust": 0,
+    "nfr": 40,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 8,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 10,
+    "robust": 1,
+    "nfr": 10,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 9,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 13,
+    "robust": 1,
+    "nfr": 13,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 4,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Schleich_Allosaurus": {
+    "nf": 10,
+    "robust": 1,
+    "nfr": 10,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 93,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  },
+  "M2": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 15,
+    "robust": 1,
+    "nfr": 15,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 11,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 22,
+    "robust": 1,
+    "nfr": 22,
+    "load": 1
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 7,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 63,
+    "robust": 1,
+    "nfr": 63,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 9,
+    "robust": 0,
+    "nfr": 10,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 6,
+    "robust": 1,
+    "nfr": 6,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 2,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Schleich_Allosaurus": {
+    "nf": 19,
+    "robust": 1,
+    "nfr": 19,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 6,
+    "robust": 1,
+    "nfr": 6,
+    "load": 0
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 103,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  },
+  "M3": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 13,
+    "robust": 1,
+    "nfr": 13,
+    "load": 0
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 23,
+    "robust": 0,
+    "nfr": 38,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 8,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 9,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 10,
+    "robust": 1,
+    "nfr": 10,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 7,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 4,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Schleich_Allosaurus": {
+    "nf": 14,
+    "robust": 1,
+    "nfr": 14,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 126,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  },
+  "M4": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 1
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 8,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 6,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 28,
+    "robust": 1,
+    "nfr": 28,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 1
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 8,
+    "robust": 1,
+    "nfr": 8,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 4,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 1
+   },
+   "Schleich_Allosaurus": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 4,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 63,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  },
+  "M5": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 13,
+    "robust": 1,
+    "nfr": 13,
+    "load": 0
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 23,
+    "robust": 0,
+    "nfr": 40,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 8,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 7,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 7,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 6,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 7,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 2,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 2,
+    "robust": 0,
+    "nfr": 4,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 12,
+    "robust": 0,
+    "nfr": 15,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 6,
+    "robust": 1,
+    "nfr": 6,
+    "load": 0
+   },
+   "Schleich_Allosaurus": {
+    "nf": 10,
+    "robust": 1,
+    "nfr": 10,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 56,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   }
+  },
+  "M6": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 13,
+    "robust": 1,
+    "nfr": 13,
+    "load": 0
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 23,
+    "robust": 0,
+    "nfr": 40,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 8,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 11,
+    "robust": 1,
+    "nfr": 11,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 7,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 5,
+    "load": 0
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 12,
+    "robust": 0,
+    "nfr": 15,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 4,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 6,
+    "robust": 1,
+    "nfr": 6,
+    "load": 0
+   },
+   "Schleich_Allosaurus": {
+    "nf": 10,
+    "robust": 1,
+    "nfr": 10,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 3,
+    "robust": 0,
+    "nfr": 6,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 56,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  },
+  "M7": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 5,
+    "robust": 1,
+    "nfr": 5,
+    "load": 0
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 8,
+    "robust": 1,
+    "nfr": 8,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 33,
+    "robust": 0,
+    "nfr": 39,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 2,
+    "robust": 0,
+    "nfr": 9,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 2,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 6,
+    "robust": 1,
+    "nfr": 6,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 6,
+    "robust": 0,
+    "nfr": 21,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 12,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Schleich_Allosaurus": {
+    "nf": 9,
+    "robust": 1,
+    "nfr": 9,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 54,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 9,
+    "robust": 0,
+    "nfr": 11,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  },
+  "M8": {
+   "3D_Dollhouse_Happy_Brother": {
+    "nf": 10,
+    "robust": 1,
+    "nfr": 10,
+    "load": 1
+   },
+   "3D_Dollhouse_Lamp": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "3D_Dollhouse_TablePurple": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Chrome": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Figure_Panda": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Android_Lego": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Beetle_Adventure_Racing_Nintendo_64": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 1
+   },
+   "Beta_Glucan": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Bifidus_Balance_FOS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Blackcurrant_Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Borage_GLA240Gamma_Tocopherol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Breyer_Horse_Of_The_Year_2015": {
+    "nf": 5,
+    "robust": 0,
+    "nfr": 9,
+    "load": 0
+   },
+   "Brother_Ink_Cartridge_Magenta_LC75M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "CARSII": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Ink_Cartridge_Green_6": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Chromalife_100_Magenta_8": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_251_M": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8": {
+    "nf": 7,
+    "robust": 1,
+    "nfr": 7,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_8_Green": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 22,
+    "load": 0
+   },
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "CoQ10_BjTLbuRVt1t": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Cole_Hardware_Mini_Honey_Dipper": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crayola_Bonus_64_Crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_24_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Crayola_Crayons_Washable_24_crayons": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 8,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Dell_Ink_Cartridge_Yellow_31": {
+    "nf": 19,
+    "robust": 1,
+    "nfr": 19,
+    "load": 0
+   },
+   "Dino_4": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 20,
+    "load": 0
+   },
+   "Epson_273XL_Ink_Cartridge_Magenta": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_ENGINE": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FIRE_TRUCK": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "FemDophilus": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Fujifilm_instax_SHARE_SP1_10_photos": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "GoPro_HERO3_Composite_Cable": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "HP_Card_Invitation_Kit": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Hey_You_Pikachu_Nintendo_64": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Inositol": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "JarroDophilusFOS_Value_Size": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Kotex_U_Barely_There_Liners_Thin_60_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Krill_Oil": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lactoferrin": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Lutein": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "MK7": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Magnifying_Glassassrt": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "My_First_Rolling_Lion": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+    "nf": 10,
+    "robust": 1,
+    "nfr": 10,
+    "load": 0
+   },
+   "Nikon_1_AW1_w11275mm_Lens_Silver": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Nintendo_Mario_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "OXO_Cookie_Spatula": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 2,
+    "load": 0
+   },
+   "Object": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "PEEKABOO_ROLLER": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Blue_Plasma_Orbital": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Face_Finishing_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_High_Potency_Evening_Repair": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Facial_Conformer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Bronzer_Bronzer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_No_Mascara_Mascara": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_Photo_Plasma": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Perricone_MD_The_Crease_Cure_Duo": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_The_Power_Treatments": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Perricone_MD_Vitamin_C_Ester_Serum": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": 3,
+    "load": 0
+   },
+   "Pet_Dophilus_powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Caplets_Size_24": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Colon_Health_Probiotic_Capsule": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "PhosphOmega": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Prostate_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "QAbsorb_CoQ10_53iUqjWjW3O": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "REEF_ZENFUN": {
+    "nf": 1,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "RESCUE_CREW": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "ROAD_CONSTRUCTION_SET": {
+    "nf": 3,
+    "robust": 1,
+    "nfr": 3,
+    "load": 0
+   },
+   "SAMe_200_KX7ZmOw47co": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "SCHOOL_BUS": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "SPEED_BOAT": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_African_Black_Rhino": {
+    "nf": 4,
+    "robust": 1,
+    "nfr": 4,
+    "load": 1
+   },
+   "Schleich_Allosaurus": {
+    "nf": 17,
+    "robust": 1,
+    "nfr": 17,
+    "load": 0
+   },
+   "Schleich_Hereford_Bull": {
+    "nf": 2,
+    "robust": 0,
+    "nfr": 4,
+    "load": 0
+   },
+   "Schleich_Lion_Action_Figure": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Schleich_S_Bayala_Unicorn_70432": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 1
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sleep_Optimizer": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Acid_Music_Studio": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Sony_Downloadable_Loops": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Spectrum_Wall_Mount": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Star_Wars_Rogue_Squadron_Nintendo_64": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Woodan_Railway_Henry": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "Threshold_Bamboo_Ceramic_Soap_Dish": {
+    "nf": 69,
+    "robust": 0,
+    "nfr": null,
+    "load": 0
+   },
+   "Twinlab_Nitric_Fuel": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Twinlab_Premium_Creatine_Fuel_Powder": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "VEGETABLE_GARDEN": {
+    "nf": 8,
+    "robust": 1,
+    "nfr": 8,
+    "load": 0
+   },
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wilton_Easy_Layers_Cake_Pan_Set": {
+    "nf": 2,
+    "robust": 1,
+    "nfr": 2,
+    "load": 0
+   },
+   "Womens_Multi_13": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   },
+   "Wooden_ABC_123_Blocks_50_pack": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 0
+   },
+   "YumYum_D3_Liquid": {
+    "nf": 1,
+    "robust": 1,
+    "nfr": 1,
+    "load": 1
+   }
+  }
+ }
+}

@@ -86,3 +86,16 @@ def test_planner_com_is_recovered():
     co = np.linalg.norm(v - (v*K).sum(1, keepdims=True)*K, axis=1)
     got, residual = physics.planner_com({'center': P, 'closing': K, 'center_offset': co})
     assert np.allclose(got, com, atol=1e-7) and residual < 1e-8
+
+
+def test_encoded_prior_reproduces_the_order_with_the_planner_weight_limit():
+    rng = np.random.default_rng(3)
+    n = 300
+    c = {'label': np.array([f'c{i}' for i in range(n)]), 'preliminary': rng.random(n),
+         'makeable': rng.random(n) < .5, 'center_offset': rng.random(n)*.08, 'feasible': np.ones(n, bool)}
+    from research_grasping.phase5 import catalogue
+    s = fusion.score('M4', rng.random(n), fusion.quality(c, 'cen'), alpha=.8)
+    want = fusion.order(c, s)
+    prior = fusion.encoded_prior(c, want)
+    assert prior.min() >= 0 and prior.max() <= 1
+    assert list(catalogue.order(c, prior, fusion.PLANNER_MAX_WEIGHT)) == list(want)

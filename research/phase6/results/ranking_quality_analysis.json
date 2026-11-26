@@ -1,0 +1,82 @@
+{
+ "note": "Default (M0) against the learned prior (M1) on the 151 development parts, 80 mm, experiment B.",
+ "kendall_tau_orders_over_viable": {
+  "median": 0.1938,
+  "q25": -0.034,
+  "q75": 0.4282
+ },
+ "first_viable_preliminary_terms_mean": {
+  "default": {
+   "preliminary": 0.6854,
+   "centre": 0.3119,
+   "width": 0.4952,
+   "above": 0.8964,
+   "force": 0.9784,
+   "centre_offset_mm": 42.5408
+  },
+  "learned": {
+   "preliminary": 0.6461,
+   "centre": 0.2137,
+   "width": 0.4609,
+   "above": 0.8775,
+   "force": 0.9782,
+   "centre_offset_mm": 49.9315
+  }
+ },
+ "learned_minus_default": {
+  "preliminary": {
+   "difference": -0.0393,
+   "ci95": [
+    -0.0485,
+    -0.031
+   ],
+   "n": 151
+  },
+  "centre": {
+   "difference": -0.0982,
+   "ci95": [
+    -0.1317,
+    -0.0664
+   ],
+   "n": 151
+  },
+  "width": {
+   "difference": -0.0343,
+   "ci95": [
+    -0.0555,
+    -0.0153
+   ],
+   "n": 151
+  },
+  "above": {
+   "difference": -0.0189,
+   "ci95": [
+    -0.0375,
+    0.001
+   ],
+   "n": 151
+  },
+  "force": {
+   "difference": -0.0002,
+   "ci95": [
+    -0.0004,
+    -0.0
+   ],
+   "n": 151
+  },
+  "centre_offset_mm": {
+   "difference": 7.3907,
+   "ci95": [
+    4.6765,
+    10.3304
+   ],
+   "n": 151
+  }
+ },
+ "same_first_grasp_parts": 11,
+ "default_first_grasp_rank_among_viable_in_learned_order": {
+  "median": 15.0,
+  "mean": 25.5166
+ },
+ "preliminary_score_formula": "(0.15 width + 0.2 force + 0.25 centre + 0.3 from-above)/0.9; the prior is added with weight 2"
+}

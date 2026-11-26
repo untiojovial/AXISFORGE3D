@@ -31,6 +31,22 @@ def n_noninferior_prop(d, var, margin=.05, power=.8):
     return None if gap <= 0 else int(np.ceil(((za+zb)*np.sqrt(var)/gap)**2))
 
 
+def n_superior_prop(p10, p01, power=.8):
+    """Parts for a paired-proportion (McNemar) superiority test (Connor 1987 approximation)."""
+    pd, d = p10 + p01, p10 - p01
+    if d <= 0 or pd <= 0:
+        return None
+    za, zb = norm.ppf(1-ALPHA), norm.ppf(power)
+    return int(np.ceil((za*np.sqrt(pd) + zb*np.sqrt(max(pd - d*d, 1e-12)))**2/d**2))
+
+
+def _load(pp, fam, ref, parts):
+    d = np.array([pp[fam][q]['load'] - pp[ref][q]['load'] for q in parts], float)
+    p10, p01 = float((d > 0).mean()), float((d < 0).mean())
+    return dict(difference=round(float(d.mean()), 4), discordant_better=round(p10, 4), discordant_worse=round(p01, 4),
+                viable_parts_superiority_80=n_superior_prop(p10, p01), viable_parts_superiority_90=n_superior_prop(p10, p01, .9))
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--fusion', required=True); p.add_argument('--out', required=True)
@@ -61,7 +77,8 @@ def main():
                             discordant_worse=round(p01, 4),
                             viable_parts_noninferior_5pp_80=n_noninferior_prop(float(rob.mean()), var),
                             viable_parts_noninferior_5pp_90=n_noninferior_prop(float(rob.mean()), var, power=.9),
-                            viable_parts_noninferior_10pp_80=n_noninferior_prop(float(rob.mean()), var, .10)))
+                            viable_parts_noninferior_10pp_80=n_noninferior_prop(float(rob.mean()), var, .10)),
+                load_tolerant=_load(pp, fam, ref, parts))
         for k, v in row.items():
             for block in v.values():
                 for key in list(block):

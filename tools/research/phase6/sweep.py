@@ -92,6 +92,7 @@ def main():
     for k in ('catalogues', 'collision', 'projects', 'store', 'labels', 'out'):
         p.add_argument(f'--{k}')
     p.add_argument('--jobs', type=int, default=4)
+    p.add_argument('--supplement', action='append', default=[], help='extra cache dirs merged into the full pass')
     a = p.parse_args()
     dev = json.loads(Path(a.dev).read_text())['parts']
     if a.mode == 'merge':
@@ -103,6 +104,13 @@ def main():
             table[part] = r['grasps']
             for label, res in f['grasps'].items():
                 table[part][label] = {**table[part].get(label, {}), **res}
+            for extra in a.supplement:
+                path = Path(extra)/'full'/f'{part}.json'
+                if path.exists():
+                    s = json.loads(path.read_text())
+                    secs[part] += s['seconds']
+                    for label, res in s['grasps'].items():
+                        table[part][label] = {**table[part].get(label, {}), **res}
         doc = dict(model='phase6 v2: research_grasping/phase6/physics.py (planner centre of mass)',
                    conditions={n: kw for n, kw in CONDITIONS}, standard=list(STANDARD),
                    early_exit_order=list(EARLY_EXIT_ORDER),
@@ -120,7 +128,7 @@ def main():
             tasks.append((part, [str(lab) for lab, ok in zip(cat['label'], cat['feasible']) if ok]))
     else:
         want = json.loads(Path(a.labels).read_text())
-        tasks = [(part, sorted(want[part])) for part in dev]
+        tasks = [(part, sorted(want[part])) for part in dev if want.get(part)]
     tasks.sort(key=lambda t: -len(t[1]))
     with ProcessPoolExecutor(max_workers=a.jobs, initializer=init, initargs=(a,)) as pool:
         for part, n in pool.map(job, tasks):

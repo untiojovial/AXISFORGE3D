@@ -9,7 +9,8 @@ For each part and ordering, `axisforge plan --json --nr-grasps 1` runs once
 after a warm-up of the binary ("first") and three more times ("repeat"); the
 wall time includes process start, loading the cell and generating every
 candidate, as an online call would. The examined count must equal the
-simulator's. Orderings: default (M0), learned (M1) and the fusion family that
+simulator's. The fusion order is passed as an order-encoding prior with weight 5
+(the planner's limit; see fusion.encoded_prior). Orderings: default (M0), learned (M1) and the fusion family that
 the development decision favours, with the configuration most often chosen
 across its outer folds.
 """
@@ -50,9 +51,9 @@ def main():
     pri = np.load(a.priors)
     fb = json.loads(Path(a.fusion).read_text())
     fam = a.family
-    if fam is None:
-        ok = [f for f, d in fb['decision_rule']['families'].items() if d['meets_rule']]
-        fam = ok[0] if ok else min(fb['summary'], key=lambda m: fb['summary'][m]['N_FR_gmean'] if m.startswith('M') and m not in ('M0', 'M1', 'M2') else 1e9)
+    if fam is None:  # the family that meets the rule with the lowest outer-fold N_FR (the tuning criterion)
+        ok = [f for f, d in fb['decision_rule']['families'].items() if d['meets_rule']] or list(fb['decision_rule']['families'])
+        fam = min(ok, key=lambda f: fb['summary'][f]['N_FR_gmean'])
     cfg = Counter(json.dumps(c['config'], sort_keys=True) for c in fb['chosen'][fam]).most_common(1)[0][0]
     cfg = json.loads(cfg)
     tmp = Path(tempfile.mkdtemp())
@@ -70,7 +71,8 @@ def main():
         s = fusion.config_score(fam, cfg, cat, pt)
         orders = {'M0': (None, None, catalogue.order(cat)),
                   'M1': (pt, 2.0, catalogue.order(cat, pt, 2.)),
-                  fam: (fusion.planner_prior(cat, s), fusion.WEIGHT, fusion.order(cat, s))}
+                  fam: (None, fusion.PLANNER_MAX_WEIGHT, fusion.order(cat, s))}
+        orders[fam] = (fusion.encoded_prior(cat, orders[fam][2]), *orders[fam][1:])
         for m, (prior, weight, order) in orders.items():
             hits = np.flatnonzero(cat['feasible'][order])
             simulated = int(hits[0])+1

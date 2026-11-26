@@ -1,0 +1,584 @@
+{
+ "note": "Stage B is explanatory (exploratory). Unit of analysis: the part; intervals are bootstraps over parts.",
+ "B1_failure_modes_phase5_v1": {
+  "nominal (0.1 kg)": {
+   "default": {
+    "held": 134,
+    "dropped": 14,
+    "pivoted or slid": 3
+   },
+   "learned": {
+    "held": 143,
+    "dropped": 8,
+    "pivoted or slid": 0
+   },
+   "afat": {
+    "held": 141,
+    "dropped": 9,
+    "pivoted or slid": 1
+   },
+   "box": {
+    "held": 141,
+    "dropped": 9,
+    "pivoted or slid": 1
+   },
+   "visual:dinov3": {
+    "held": 137,
+    "dropped": 13,
+    "pivoted or slid": 1
+   }
+  },
+  "2 kg (labelled \"mass x2\" in Phase V)": {
+   "default": {
+    "held": 98,
+    "dropped": 39,
+    "pivoted or slid": 14
+   },
+   "learned": {
+    "held": 74,
+    "dropped": 51,
+    "pivoted or slid": 26
+   },
+   "afat": {
+    "held": 80,
+    "dropped": 55,
+    "pivoted or slid": 16
+   },
+   "box": {
+    "held": 81,
+    "dropped": 38,
+    "pivoted or slid": 32
+   },
+   "visual:dinov3": {
+    "held": 84,
+    "dropped": 41,
+    "pivoted or slid": 26
+   }
+  },
+  "0.5 kg (labelled \"mass x0.5\" in Phase V)": {
+   "default": {
+    "held": 134,
+    "dropped": 12,
+    "pivoted or slid": 5
+   },
+   "learned": {
+    "held": 132,
+    "dropped": 9,
+    "pivoted or slid": 10
+   },
+   "afat": {
+    "held": 132,
+    "dropped": 10,
+    "pivoted or slid": 9
+   },
+   "box": {
+    "held": 136,
+    "dropped": 7,
+    "pivoted or slid": 8
+   },
+   "visual:dinov3": {
+    "held": 135,
+    "dropped": 11,
+    "pivoted or slid": 5
+   }
+  },
+  "friction 0.3": {
+   "default": {
+    "held": 132,
+    "dropped": 18,
+    "pivoted or slid": 1
+   },
+   "learned": {
+    "held": 140,
+    "dropped": 10,
+    "pivoted or slid": 1
+   },
+   "afat": {
+    "held": 139,
+    "dropped": 10,
+    "pivoted or slid": 2
+   },
+   "box": {
+    "held": 141,
+    "dropped": 9,
+    "pivoted or slid": 1
+   },
+   "visual:dinov3": {
+    "held": 135,
+    "dropped": 15,
+    "pivoted or slid": 1
+   }
+  },
+  "pose noise 1": {
+   "default": {
+    "held": 145,
+    "dropped": 5,
+    "pivoted or slid": 1
+   },
+   "learned": {
+    "held": 145,
+    "dropped": 6,
+    "pivoted or slid": 0
+   },
+   "afat": {
+    "held": 146,
+    "dropped": 4,
+    "pivoted or slid": 1
+   },
+   "box": {
+    "held": 147,
+    "dropped": 4,
+    "pivoted or slid": 0
+   },
+   "visual:dinov3": {
+    "held": 142,
+    "dropped": 8,
+    "pivoted or slid": 1
+   }
+  },
+  "pose noise 2": {
+   "default": {
+    "held": 131,
+    "dropped": 19,
+    "pivoted or slid": 1
+   },
+   "learned": {
+    "held": 137,
+    "dropped": 13,
+    "pivoted or slid": 1
+   },
+   "afat": {
+    "held": 139,
+    "dropped": 11,
+    "pivoted or slid": 1
+   },
+   "box": {
+    "held": 140,
+    "dropped": 9,
+    "pivoted or slid": 2
+   },
+   "visual:dinov3": {
+    "held": 136,
+    "dropped": 13,
+    "pivoted or slid": 2
+   }
+  }
+ },
+ "B2_feature_vs_holding_v1": {
+  "grasps": 588,
+  "parts": 151,
+  "by_condition": {
+   "2 kg (labelled \"mass x2\" in Phase V)": {
+    "rate": 0.5629,
+    "univariate_auc_top": {
+     "centre_offset": 0.8645,
+     "preliminary": 0.7559,
+     "antipodal_a": 0.7253,
+     "antipodal_b": 0.7115,
+     "log_extent_x": 0.707,
+     "width": 0.6878
+    },
+    "logistic_grouped_cv_auc": {
+     "centre_offset_only": 0.8605,
+     "all_19": 0.947,
+     "all_but_centre_offset": 0.9384
+    },
+    "centre_offset_mm_held": 32.5156,
+    "centre_offset_mm_failed": 67.2249
+   },
+   "0.5 kg (labelled \"mass x0.5\" in Phase V)": {
+    "rate": 0.9014,
+    "univariate_auc_top": {
+     "centre_offset": 0.7646,
+     "antipodal_a": 0.7489,
+     "log_extent_x": 0.713,
+     "antipodal_b": 0.7119,
+     "preliminary": 0.6782,
+     "log_extent_y": 0.6777
+    },
+    "logistic_grouped_cv_auc": {
+     "centre_offset_only": 0.7539,
+     "all_19": 0.8612,
+     "all_but_centre_offset": 0.8259
+    },
+    "centre_offset_mm_held": 40.4063,
+    "centre_offset_mm_failed": 71.4233
+   },
+   "nominal (0.1 kg)": {
+    "rate": 0.9269,
+    "univariate_auc_top": {
+     "antipodal_b": 0.8472,
+     "antipodal_a": 0.8232,
+     "centre_offset": 0.7121,
+     "preliminary": 0.6791,
+     "approach_z": 0.677,
+     "log_extent_y": 0.6482
+    },
+    "logistic_grouped_cv_auc": {
+     "centre_offset_only": 0.6974,
+     "all_19": 0.8486,
+     "all_but_centre_offset": 0.8573
+    },
+    "centre_offset_mm_held": 41.5902,
+    "centre_offset_mm_failed": 68.6054
+   },
+   "robust (all six)": {
+    "rate": 0.5612,
+    "univariate_auc_top": {
+     "centre_offset": 0.8624,
+     "preliminary": 0.7545,
+     "antipodal_a": 0.7266,
+     "antipodal_b": 0.7139,
+     "log_extent_x": 0.7044,
+     "approach_z": 0.6895
+    },
+    "logistic_grouped_cv_auc": {
+     "centre_offset_only": 0.8588,
+     "all_19": 0.9455,
+     "all_but_centre_offset": 0.9381
+    },
+    "centre_offset_mm_held": 32.5229,
+    "centre_offset_mm_failed": 67.0856
+   }
+  }
+ },
+ "B3_method_effect_v1": {
+  "robust_rate": {
+   "default": 0.6424,
+   "learned": 0.4901,
+   "afat": 0.5298,
+   "box": 0.5364,
+   "visual:dinov3": 0.5563
+  },
+  "held_2kg_rate": {
+   "default": 0.649,
+   "learned": 0.4901,
+   "afat": 0.5298,
+   "box": 0.5364,
+   "visual:dinov3": 0.5563
+  },
+  "centre_offset_mm_median": {
+   "default": 38.104,
+   "learned": 47.912,
+   "afat": 43.8058,
+   "box": 43.9703,
+   "visual:dinov3": 42.0134
+  },
+  "learned_minus_default_robust": {
+   "difference": -0.1523,
+   "ci95": [
+    -0.2318,
+    -0.0795
+   ],
+   "n": 151
+  },
+  "learned_minus_default_robust_predicted_from_lever_arm": {
+   "difference": -0.0933,
+   "ci95": [
+    -0.1249,
+    -0.0645
+   ],
+   "n": 151
+  },
+  "learned_minus_default_centre_offset_mm": {
+   "difference": 7.3907,
+   "ci95": [
+    4.6765,
+    10.3304
+   ],
+   "n": 151
+  },
+  "mcnemar_robust_learned_vs_default": {
+   "only_a": 7,
+   "only_b": 30,
+   "p": 0.000191
+  },
+  "strata_by_centre_offset": {
+   "tercile 1 (0-30 mm)": {
+    "default": {
+     "grasps": 61,
+     "robust": 0.8525,
+     "held_2kg": 0.8689
+    },
+    "learned": {
+     "grasps": 40,
+     "robust": 0.9,
+     "held_2kg": 0.9
+    }
+   },
+   "tercile 2 (30-59 mm)": {
+    "default": {
+     "grasps": 50,
+     "robust": 0.82,
+     "held_2kg": 0.82
+    },
+    "learned": {
+     "grasps": 50,
+     "robust": 0.64,
+     "held_2kg": 0.64
+    }
+   },
+   "tercile 3 (59-200 mm)": {
+    "default": {
+     "grasps": 40,
+     "robust": 0.1,
+     "held_2kg": 0.1
+    },
+    "learned": {
+     "grasps": 61,
+     "robust": 0.0984,
+     "held_2kg": 0.0984
+    }
+   }
+  }
+ },
+ "B4_why_learned_picks_longer_lever_arms": {
+  "preliminary_terms_learned_minus_default": {
+   "preliminary": {
+    "difference": -0.0393,
+    "ci95": [
+     -0.0485,
+     -0.031
+    ],
+    "n": 151
+   },
+   "centre": {
+    "difference": -0.0982,
+    "ci95": [
+     -0.1317,
+     -0.0664
+    ],
+    "n": 151
+   },
+   "width": {
+    "difference": -0.0343,
+    "ci95": [
+     -0.0555,
+     -0.0153
+    ],
+    "n": 151
+   },
+   "above": {
+    "difference": -0.0189,
+    "ci95": [
+     -0.0375,
+     0.001
+    ],
+    "n": 151
+   },
+   "force": {
+    "difference": -0.0002,
+    "ci95": [
+     -0.0004,
+     -0.0
+    ],
+    "n": 151
+   },
+   "centre_offset_mm": {
+    "difference": 7.3907,
+    "ci95": [
+     4.6765,
+     10.3304
+    ],
+    "n": 151
+   }
+  },
+  "same_first_grasp_parts": 11,
+  "spearman_p_vs_centre_offset_within_viable": {
+   "median": 0.041,
+   "q25": -0.2775,
+   "q75": 0.3336,
+   "parts": 149
+  },
+  "default_first_grasp_rank_among_viable_in_learned_order": {
+   "median": 15.0,
+   "mean": 25.5166
+  },
+  "library_viable_rate_by_centre_offset_mm": {
+   "0-10": {
+    "candidates": 9048,
+    "viable_rate": 0.0309
+   },
+   "10-20": {
+    "candidates": 19040,
+    "viable_rate": 0.0296
+   },
+   "20-30": {
+    "candidates": 21536,
+    "viable_rate": 0.0528
+   },
+   "30-45": {
+    "candidates": 31292,
+    "viable_rate": 0.0785
+   },
+   "45-60": {
+    "candidates": 22754,
+    "viable_rate": 0.0468
+   },
+   "60-80": {
+    "candidates": 17968,
+    "viable_rate": 0.037
+   },
+   "80-120": {
+    "candidates": 12966,
+    "viable_rate": 0.0239
+   },
+   "120-1000": {
+    "candidates": 1178,
+    "viable_rate": 0.0085
+   }
+  },
+  "library_viable_rate_by_relative_height": {
+   "0.00-0.25": {
+    "candidates": 25536,
+    "viable_rate": 0.0005
+   },
+   "0.25-0.50": {
+    "candidates": 42442,
+    "viable_rate": 0.0063
+   },
+   "0.50-0.75": {
+    "candidates": 36408,
+    "viable_rate": 0.063
+   },
+   "0.75-1.01": {
+    "candidates": 21336,
+    "viable_rate": 0.1716
+   }
+  }
+ },
+ "B5_v2_intended_masses": {
+  "conditions": [
+   "nominal",
+   "mass x2",
+   "mass x0.5",
+   "friction 0.3",
+   "pose noise 1",
+   "pose noise 2",
+   "load 0.5 kg",
+   "load 1 kg",
+   "load 2 kg"
+  ],
+  "rates": {
+   "default": {
+    "nominal": 0.894,
+    "mass x2": 0.9073,
+    "mass x0.5": 0.8742,
+    "friction 0.3": 0.8874,
+    "pose noise 1": 0.9603,
+    "pose noise 2": 0.8609,
+    "load 0.5 kg": 0.8808,
+    "load 1 kg": 0.7616,
+    "load 2 kg": 0.649,
+    "robust (six standard)": 0.8411,
+    "load tolerant (0.5, 1, 2 kg)": 0.649
+   },
+   "learned": {
+    "nominal": 0.9404,
+    "mass x2": 0.9404,
+    "mass x0.5": 0.9272,
+    "friction 0.3": 0.9272,
+    "pose noise 1": 0.9536,
+    "pose noise 2": 0.9205,
+    "load 0.5 kg": 0.8742,
+    "load 1 kg": 0.7285,
+    "load 2 kg": 0.4834,
+    "robust (six standard)": 0.9073,
+    "load tolerant (0.5, 1, 2 kg)": 0.4834
+   },
+   "afat": {
+    "nominal": 0.9338,
+    "mass x2": 0.9338,
+    "mass x0.5": 0.9139,
+    "friction 0.3": 0.9338,
+    "pose noise 1": 0.9536,
+    "pose noise 2": 0.9272,
+    "load 0.5 kg": 0.8675,
+    "load 1 kg": 0.7285,
+    "load 2 kg": 0.5099,
+    "robust (six standard)": 0.9073,
+    "load tolerant (0.5, 1, 2 kg)": 0.4967
+   },
+   "box": {
+    "nominal": 0.9404,
+    "mass x2": 0.9404,
+    "mass x0.5": 0.9338,
+    "friction 0.3": 0.9205,
+    "pose noise 1": 0.9603,
+    "pose noise 2": 0.9338,
+    "load 0.5 kg": 0.9073,
+    "load 1 kg": 0.7417,
+    "load 2 kg": 0.543,
+    "robust (six standard)": 0.9139,
+    "load tolerant (0.5, 1, 2 kg)": 0.5364
+   },
+   "visual:dinov3": {
+    "nominal": 0.9139,
+    "mass x2": 0.9139,
+    "mass x0.5": 0.9073,
+    "friction 0.3": 0.894,
+    "pose noise 1": 0.9272,
+    "pose noise 2": 0.9007,
+    "load 0.5 kg": 0.894,
+    "load 1 kg": 0.7417,
+    "load 2 kg": 0.543,
+    "robust (six standard)": 0.8874,
+    "load tolerant (0.5, 1, 2 kg)": 0.5364
+   }
+  },
+  "mcnemar_learned_vs_default": {
+   "robust": {
+    "only_a": 18,
+    "only_b": 8,
+    "p": 0.075519,
+    "difference": {
+     "difference": 0.0662,
+     "ci95": [
+      0.0,
+      0.1325
+     ],
+     "n": 151
+    }
+   },
+   "load": {
+    "only_a": 5,
+    "only_b": 30,
+    "p": 2.2e-05,
+    "difference": {
+     "difference": -0.1656,
+     "ci95": [
+      -0.2384,
+      -0.0927
+     ],
+     "n": 151
+    }
+   },
+   "held2kg": {
+    "only_a": 5,
+    "only_b": 30,
+    "p": 2.2e-05,
+    "difference": {
+     "difference": -0.1656,
+     "ci95": [
+      -0.2384,
+      -0.0927
+     ],
+     "n": 151
+    }
+   },
+   "mass x2": {
+    "only_a": 10,
+    "only_b": 5,
+    "p": 0.301758,
+    "difference": {
+     "difference": 0.0331,
+     "ci95": [
+      -0.0199,
+      0.0861
+     ],
+     "n": 151
+    }
+   }
+  }
+ }
+}

@@ -32,15 +32,22 @@
    - Las cargas de estrés solo se simulan en los primeros agarres de cada orden.
    - El protocolo decía «las 9 condiciones para cada viable». No cambia ninguna medida definida: R y N_FR
      solo usan las 6 condiciones estándar, y la tolerancia a la carga solo se mide en el primer viable.
-9. **Errores heredados de la Fase V** ([fe de erratas](ERRATUM_PHASE5_DYNAMICS.md)):
+9. **Desviación de implementación del prior.**
+   - El protocolo decía «prior con peso 10⁶», pero el planificador nativo solo admite pesos entre 0 y 5.
+   - El orden evaluado se pasa con un prior que lo codifica, con peso 5 (`fusion.encoded_prior`).
+   - El orden es idéntico: un test lo comprueba, y el banco de coste lo confirma con el planificador real.
+     En las 60 piezas con M4, el número de candidatos examinados coincidió siempre con el del simulador.
+10. **P(H|F) aprende la robustez estándar, no la tolerancia a la carga.** Con 2 kg, el orden con P(H|F)
+    es peor que M4. Combinar los dos sería ajustar a posteriori y queda como hipótesis.
+11. **Errores heredados de la Fase V** ([fe de erratas](ERRATUM_PHASE5_DYNAMICS.md)):
    - las masas de la dinámica;
    - el centro de masas del simulador;
    - el orden aleatorio fuera del filtro.
 
    Los ficheros de la Fase V no se corrigen; la Fase VI los reanaliza.
-10. **Búsqueda bibliográfica dirigida, no sistemática.** Unas 20 consultas. Ninguna afirmación de novedad
+12. **Búsqueda bibliográfica dirigida, no sistemática.** Unas 20 consultas. Ninguna afirmación de novedad
     va más allá de «no encontrado en esta búsqueda».
-11. **No ejecutado:**
+13. **No ejecutado:**
     - ADKF-IFT, DKL, MLP y los rasgos locales de DINO;
     - el simulador articulado de la mano;
     - los baselines externos (GPD, Dex-Net, Contact-GraspNet);
