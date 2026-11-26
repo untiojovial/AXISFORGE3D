@@ -1,0 +1,2697 @@
+{
+ "title": "Phase VII model freeze: FORTIS-R Joint and comparators, before the EGAD confirmation",
+ "status": "frozen before any confirmatory object was planned",
+ "final_method": {
+  "name": "FORTIS-R Joint",
+  "order": "p~ * P(H|F) * max(Q_cen, 1e-3)^0.3, planner stroke gate first",
+  "main_baseline": "M0 (original planner)",
+  "best_learned_baseline": "M1",
+  "physical_criterion": "v3: rise >= 80 mm, slip < 20 mm, rotation from the grip <= 15 deg, contact kept; torsion 0.005 m; nine conditions",
+  "operational_metric": "N_F",
+  "configuration": "demo cell, 80 mm parallel gripper, part at (0.42, 0, 0.42), assumed mass 0.1 kg"
+ },
+ "models": {
+  "p_feasible": {
+   "file": "p_feasible.pkl",
+   "kind": "gradient boosting (Phase V settings, seed 0)",
+   "features": [
+    "approach_x",
+    "approach_y",
+    "approach_z",
+    "closing_x",
+    "closing_y",
+    "closing_z",
+    "width",
+    "rel_x",
+    "rel_y",
+    "rel_z",
+    "height",
+    "log_extent_x",
+    "log_extent_y",
+    "log_extent_z",
+    "antipodal_a",
+    "antipodal_b",
+    "centre_offset",
+    "preliminary",
+    "makeable"
+   ],
+   "train_s": 8.72
+  },
+  "p_robust_given_feasible": {
+   "file": "p_robust_given_feasible.pkl",
+   "kind": "gradient boosting (seed 0)",
+   "train_s": 0.76
+  },
+  "h5_mlps": {
+   "mlp_L2_s0.pt": {
+    "variant": "L2",
+    "seed": 0,
+    "config": {
+     "geometry": true
+    },
+    "epochs": 40,
+    "params": 8049,
+    "train_s": 57.34
+   },
+   "mlp_L2_s1.pt": {
+    "variant": "L2",
+    "seed": 1,
+    "config": {
+     "geometry": true
+    },
+    "epochs": 26,
+    "params": 8049,
+    "train_s": 26.88
+   },
+   "mlp_L2_s2.pt": {
+    "variant": "L2",
+    "seed": 2,
+    "config": {
+     "geometry": true
+    },
+    "epochs": 35,
+    "params": 8049,
+    "train_s": 40.92
+   },
+   "mlp_L10_s0.pt": {
+    "variant": "L10",
+    "seed": 0,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3",
+     "linear": true
+    },
+    "epochs": 23,
+    "params": 15233,
+    "train_s": 30.36
+   },
+   "mlp_L10_s1.pt": {
+    "variant": "L10",
+    "seed": 1,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3",
+     "linear": true
+    },
+    "epochs": 22,
+    "params": 15233,
+    "train_s": 29.9
+   },
+   "mlp_L10_s2.pt": {
+    "variant": "L10",
+    "seed": 2,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3",
+     "linear": true
+    },
+    "epochs": 22,
+    "params": 15233,
+    "train_s": 30.97
+   },
+   "mlp_L10p_s0.pt": {
+    "variant": "L10p",
+    "seed": 0,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3-permuted",
+     "linear": true
+    },
+    "epochs": 28,
+    "params": 15233,
+    "train_s": 41.61
+   },
+   "mlp_L10p_s1.pt": {
+    "variant": "L10p",
+    "seed": 1,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3-permuted",
+     "linear": true
+    },
+    "epochs": 27,
+    "params": 15233,
+    "train_s": 38.85
+   },
+   "mlp_L10p_s2.pt": {
+    "variant": "L10p",
+    "seed": 2,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3-permuted",
+     "linear": true
+    },
+    "epochs": 36,
+    "params": 15233,
+    "train_s": 62.46
+   },
+   "mlp_L10r_s0.pt": {
+    "variant": "L10r",
+    "seed": 0,
+    "config": {
+     "geometry": true,
+     "visual": "vit-random-s0",
+     "linear": true
+    },
+    "epochs": 26,
+    "params": 15233,
+    "train_s": 38.78
+   },
+   "mlp_L10r_s1.pt": {
+    "variant": "L10r",
+    "seed": 1,
+    "config": {
+     "geometry": true,
+     "visual": "vit-random-s0",
+     "linear": true
+    },
+    "epochs": 39,
+    "params": 15233,
+    "train_s": 64.87
+   },
+   "mlp_L10r_s2.pt": {
+    "variant": "L10r",
+    "seed": 2,
+    "config": {
+     "geometry": true,
+     "visual": "vit-random-s0",
+     "linear": true
+    },
+    "epochs": 35,
+    "params": 15233,
+    "train_s": 65.21
+   },
+   "mlp_L8_s0.pt": {
+    "variant": "L8",
+    "seed": 0,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3"
+    },
+    "epochs": 19,
+    "params": 34753,
+    "train_s": 38.63
+   },
+   "mlp_L8_s1.pt": {
+    "variant": "L8",
+    "seed": 1,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3"
+    },
+    "epochs": 27,
+    "params": 34753,
+    "train_s": 55.49
+   },
+   "mlp_L8_s2.pt": {
+    "variant": "L8",
+    "seed": 2,
+    "config": {
+     "geometry": true,
+     "visual": "dinov3"
+    },
+    "epochs": 28,
+    "params": 34753,
+    "train_s": 67.11
+   }
+  }
+ },
+ "hyperparameters": {
+  "alpha_M4": 0.8,
+  "beta_joint": 0.3,
+  "beta_joint_rule": "protocol I.4 criterion on all 151 development parts (out-of-fold P(H|F)); also the value chosen in 4 of 5 outer folds"
+ },
+ "methods": {
+  "M0": "original planner order (preliminary score, makeable first)",
+  "M1": "preliminary + 2 p~, p~ = P(F)/max",
+  "M4": "p~^0.8 * Q_cen^0.2 (fusion order)",
+  "M9": "p~ * P(H|F) (fusion order)",
+  "Joint": "p~ * P(H|F) * max(Q_cen, 1e-3)^0.3 (fusion order) -- FORTIS-R Joint, final method",
+  "hybrid": "round robin of Joint and M0 (secondary)"
+ },
+ "normalisation": "p~ = P(F)/max over the object; Q_cen = minmax(clip(1 - centre_offset/finger_depth, 0, 1)); MLP inputs standardised with training-set statistics stored in each .pt file",
+ "thresholds": {
+  "rotation_deg": 15,
+  "rise_m": 0.08,
+  "slip_m": 0.02,
+  "ratio_margin_P3": 1.25,
+  "margin_P2": 0.05,
+  "margin_S5": 0.1,
+  "alpha_one_sided": 0.025
+ },
+ "training_data": {
+  "p_feasible": {
+   "parts": 316,
+   "candidates": 376690,
+   "label": "exhaustive planner feasibility at 80 mm"
+  },
+  "p_robust_given_feasible": {
+   "parts": 151,
+   "candidates": 12585,
+   "label": "Phase VI v2 robust in the six standard conditions",
+   "sweep_sha256": "87f92af3b543b22228de8dda0e7d3611d11cb24407310e891fc3e6905358f769"
+  },
+  "store_sha256": "1206af37ccbff26cfcc3b90f42314604d46135ce15e28eb4f8e557170f7a0d34",
+  "catalogue_sha256": {
+   "3D_Dollhouse_Happy_Brother": "a4867c63e6e049f4c92983aec9150b864073763879b5232383abac94b2c8e4b7",
+   "3D_Dollhouse_Lamp": "6b2477fa1011acfb1ffbd1d5cd488ef17d1b510e29c34d87a18bf91bc4150ede",
+   "3D_Dollhouse_TablePurple": "12ed68d1779936427c1f903bf629bfd65614a7ceba0e89924fe5d22112227b8a",
+   "3M_Antislip_Surfacing_Light_Duty_White": "a4821818fd48f9b5a00644c547bd25cc5ed86dc16d3b68bf9f062e9aca018d0e",
+   "3M_Vinyl_Tape_Green_1_x_36_yd": "4eac36cf91e0a5fc54397a926178e6d61fabfaf4b45476c697b6b268ecc2dd9a",
+   "45oz_RAMEKIN_ASST_DEEP_COLORS": "ab53b169ebf2a52e0a14e8b84c9335a17284709c3c6d61b5bf3c220e46d81b89",
+   "5_HTP": "aa15e3e9533c22ce8c8a91784bcecb786d0f910856277e733bbd38c584924ae0",
+   "AllergenFree_JarroDophilus": "19372fed127c8a086228d6151906f11597f173fd879eaaeb6a0e06b4d6e45c14",
+   "Android_Figure_Chrome": "a1780094a0bb20f49712f84b0ee13ce2499148c7039c98bee713e2b8c88ce333",
+   "Android_Figure_Panda": "930aed3a8ba6db99fc61d173cf7c3c45ccb3e58f320058998d801eaa1ccb06db",
+   "Android_Lego": "46393cdf0014907c21fe60bdc7bf56e7227eabbe0ac61a03770b5df1fa2412aa",
+   "Banana": "5c3bbaa7050c52df4522c8ee477390a63ee787c00e5cf21236c83ab4794c8813",
+   "Beetle_Adventure_Racing_Nintendo_64": "6090837c0ee6b26ba60f00ff0a238bf2d05609a6f7109214636b621338c72f78",
+   "Beta_Glucan": "af6c4ecfad25ed02043c3e8ec7cc396d36349887af8279626e26a32ad9fcb030",
+   "Beyonc_Life_is_But_a_Dream_DVD": "548da5f8d4dacf04d2acfe4fd5fcd44b22d696dd91ceaadc7694205995531e91",
+   "Bifidus_Balance_FOS": "7614355ebfe3ba2df649bb142a803f0a756d62c424d0266ccb32031ec431580d",
+   "Big_O_Sponges_Assorted_Cellulose_12_pack": "3c3ced167861cd247e32c58db41fb4b4b652e3554d0e6bc1906cac9f7be51595",
+   "Blackcurrant_Lutein": "769c403d93cf0faff9dfa36f48980c86d0fa7d3fd615c02dc041fec2fac183cd",
+   "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD": "edd9d4b3e0d9617b65480bd0498408201462ddf797cdff206758e4ea84a027e6",
+   "Borage_GLA240Gamma_Tocopherol": "ba6c688528e2281ccb349d75c404acf67f24ae4805ad62afc316f15aabbce875",
+   "Breyer_Horse_Of_The_Year_2015": "08e7f0564e13f69de378bf58236c796cbdff6e70f705c87189e20318c4d0022a",
+   "Brother_Ink_Cartridge_Magenta_LC75M": "d42c37b31cb9f561538ca3c12dcdd8808bfd3bbf5266bb0398f68b20abeb5f39",
+   "Brother_LC_1053PKS_Ink_Cartridge_CyanMagentaYellow_1pack": "73cf40a31f17e2facb2c8bf23b7f9439c409c00e6284f9f0f52e9cdc5a372003",
+   "CARSII": "db10ef6dfa448b5f8b3f6a6f25a26691f63ce77c4e209c68e577b3264ca342f6",
+   "CAR_CARRIER_TRAIN": "2a2fd83d77f7d3454e97363fc5eb0fced74cede0303090f87ce3d6b2b1e0bcfb",
+   "CITY_TAXI_POLICE_CAR": "4372c6db95d1a5f6765517929d0cc8f8e50b225733631651bfcacbaaf72f5e4f",
+   "Canon_Ink_Cartridge_Green_6": "0a2ccd90e36c4798cf28d230fce86116eb70877b7148c981600251439f8102a5",
+   "Canon_Pixma_Chromalife_100_Magenta_8": "cae1aa7ac01892d20c9abc8ff29e5bebc658f679c5cb91fe6c01c89ec0cc7891",
+   "Canon_Pixma_Ink_Cartridge_251_M": "25e7d2afef653f5c64addfc5ceea47f20c24b9a2589549dd0914fef02b519233",
+   "Canon_Pixma_Ink_Cartridge_8": "a70e5362af084c1d969d36f9762619003d9e38e163ea67bf8566090cc90be1fe",
+   "Canon_Pixma_Ink_Cartridge_8_Green": "12837841f57a83f417fb03636a8ed6bb086d826558fd310627da1f7e06403602",
+   "Canon_Pixma_Ink_Cartridge_8_Red": "70de96b49a720627d5723f9df81879fa49db61b75d8b783a8ded29e9bc41f503",
+   "Canon_Pixma_Ink_Cartridge_Cyan_251": "51d575672ff59459655b851ced59d7b7b8158616a73e8a6c6831d02ffc24367f",
+   "Chef_Style_Round_Cake_Pan_9_inch_pan": "05c7e4e8d3c1b9489acc04016fccf9469ee742f6908415ff7ced14ddbb85abff",
+   "ChipsCan": "a6bdab54bd1f68147a1d2d852ff178180aa530e4d98f92a319618fe7b4d1ea50",
+   "CoQ10": "ac97b864bd44d5e63a16ad0ae4e4db41c0888b3ae4918c98ab510a96665a99c4",
+   "CoQ10_BjTLbuRVt1t": "682fa100cb14810218035bdda78c41c2fac23a2dae2fa503f45c5ad0648ca99b",
+   "CoQ10_wSSVoxVppVD": "26487e800572547bc1bf5f0f954fba31cd5c220072e552bfc0252eb3103f2214",
+   "Cole_Hardware_Antislip_Surfacing_White_2_x_60": "355089331c4afe1b9944a71afbd89c0d854a33db6ed19d9e007b3a0cad61420a",
+   "Cole_Hardware_Bowl_Scirocco_YellowBlue": "d1811146ef4a7ea3b52405cfa2c91dec57ddbeef4361d7815fc4da754ae3830a",
+   "Cole_Hardware_Dishtowel_Blue": "585ea5dbf9606548ea57c493dd1e441b89a491f371573255450a64352efab30c",
+   "Cole_Hardware_Dishtowel_BlueWhite": "2effdfad4e744f58f54b826f824d889938d82a5ad3ff7e343490e160018106f4",
+   "Cole_Hardware_Dishtowel_Multicolors": "d4a1472b40158a37a6a8a3b6decc7d65c886c8b86ef4a9aa6ccfd31200156970",
+   "Cole_Hardware_Dishtowel_Red": "719d5c289d01431cef572cbd153240a8ec82c3a15e4691f54d9f122dcd862495",
+   "Cole_Hardware_Dishtowel_Stripe": "f09c46e039dbf9e239955048f6915795c08ce0af84635c1fd684092a835632aa",
+   "Cole_Hardware_Mini_Honey_Dipper": "1d23e67e069dd1c073efaa883d6739ab936f12103331a53850d2bb5708d68eca",
+   "Cole_Hardware_Plant_Saucer_Glazed_9": "143ce795cd09845131ae1f1120e879850e674c05d7ff10bdbc01813ad61314f8",
+   "Cole_Hardware_Saucer_Electric": "9e718a5e10bef5d8532c5e89727197ecb4a1d53426e5123d1aa878346c505b83",
+   "Cole_Hardware_Saucer_Glazed_6": "c9ae82db59c7e2a57227b4c22956b6d53643fabfe9fa602643ff65344cde96d9",
+   "CrackerBox": "51d1bcd5f69390854c763ea34b19197accaef241eba66f0cd98860b67c5d0758",
+   "Crayola_Bonus_64_Crayons": "5e2bbc8b70932c8da0b25bb87a7440e56d23da176175e7dfd8b17b2a4710165c",
+   "Crayola_Crayons_120_crayons": "d4116824f1aec5c3ed62015dd328eaa55241e0a9cfd980493263b390668ae5da",
+   "Crayola_Crayons_24_count": "af7714f235e2d262d4f1efc9945f56bda870d3adfb1fb676e210bc26609d597e",
+   "Crayola_Crayons_Washable_24_crayons": "f57b3d95d292ececbdcb75a6fbb138a3a277ea73397b8ac994c01557e3327e1c",
+   "Crayola_Washable_Fingerpaint_Red_Blue_Yellow_3_count_8_fl_oz_bottes_each": "20620fa5ba2a7cf68732c120f9ece6414907685044c802e8a374eac3d659b442",
+   "Crosley_Alarm_Clock_Vintage_Metal": "f25c1d355c9277a14541c2c785f1e1985dd94b1a859810c4c1526a892d0af2b8",
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": "fbf19339e16a7efd16f2d245fc2216f483c1428b1feb8d1ad514864c2c32b8e0",
+   "DIM_CDG": "7edfdc963d7393b53e5cdd02e5d9e2bb73d0f5262e1ffbc528a120527475530a",
+   "Dell_Ink_Cartridge": "f08494b328f9e7af11425d53fd8c693715b1a1f063354141255fee5ef7600f5d",
+   "Dell_Ink_Cartridge_Yellow_31": "c5412451720cfb87250527c56c026e1281eab141d557e392afa35d98c26f8d6b",
+   "Diamond_Visions_Scissors_Red": "f5e6a83063f2e6e636b1760a1c3034aba19fb84df642f1c7d279e31f151bf209",
+   "Dino_4": "f078ec7c04084456d67dd6565c87c3166223a407632ac80ed523623b380b1a62",
+   "Ecoforms_Plant_Container_S14Turquoise": "d399f5a599f55a1c37836a1b42eff1aa1aa6fd1c2b40e88dfb8cc853673b6790",
+   "Ecoforms_Plant_Container_S24NATURAL": "a0396c3703893781a3519a7deaa7ed679ae3a17da8464db4e1f8394d00b0cb26",
+   "Ecoforms_Plant_Container_S24Turquoise": "79ca9b16f3eb0d24fd76b3f06a81bc098ab6e16573fc57b0af5d6cdc99821880",
+   "Ecoforms_Plant_Plate_S11Turquoise": "77b53d3b0be17d87a4cd86dd9199adf62a07089923b2753fb5b191aeb6db4e53",
+   "Ecoforms_Plant_Saucer_S14MOCHA": "6a94fa872688f1fc19f2557a6e068752ae96b2f2adb33228a105dc3e89ea03d2",
+   "Ecoforms_Plant_Saucer_S14NATURAL": "487bb56b0b7ff38a84a1304dd3904d25c28c9e36cb61adebd39780a5a4cf55d7",
+   "Ecoforms_Plant_Saucer_S17MOCHA": "5e994a47de364ab5d7751d32ab350e1173e119c6b0b0557af17138b540c2e689",
+   "Ecoforms_Plant_Saucer_S20MOCHA": "2537df395586ade3a6be11a4e7140fc12d0fe5bebccc46c6deef67a51e9de341",
+   "Ecoforms_Plant_Saucer_SQ1HARVEST": "c096b2f84bb11adde86ff0b2f8d2d3db89a1eb5bc4e1f8fc558c481b8c9c3290",
+   "Ecoforms_Plant_Saucer_SQ8COR": "7e18a48a728f9a29ffd95c5fdfa9e796d10cbdb12f17721ac1fe1f7ffc9a2851",
+   "Ecoforms_Plate_S20Avocado": "0f363e390856263475135e9e5cfabf03ab9996feabd64ce5d9fc07d5f3230a77",
+   "Ecoforms_Quadra_Saucer_SQ1_Avocado": "a3fb0c6ec383fb8a241b08e83b9397103d0e3172775a88fb567e132f659a6ba1",
+   "Epson_273XL_Ink_Cartridge_Magenta": "c7b0a530f7d801ed619619bf695c23e9798c4d7735cfdedd9ac7eaa94037527f",
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": "5bbfa828ece8b7d822c6781194c42cc85b095a8fcb08ff275d207c8113807618",
+   "Epson_Ink_Cartridge_126_Yellow": "09f4941ff208701087212e59bf494071937cb5ecc14e64219ce0d5a82630e052",
+   "Epson_Ink_Cartridge_Black_200": "6774d5c6e6aeece54dad18f27a79a06545aa2202894f51f71aac83675209fad5",
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": "2276eb7cda9d7c43a7dc6a8541dd7993914e95c9c4824a6c3d7a64d42fc56419",
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack": "344c7e3fbac03d3c71971785d2e4ffa7897b7d92cca2381bb9fadc227f806a64",
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": "9bb2b808ed28a519deb527e4879821baa22d4a0b56f0e6c3d26383516d666909",
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": "3f8915684273e5f1ddbc4e50044cc02cfad7eaaf7d895d6c33e5de1e350ef7f2",
+   "FIRE_ENGINE": "f2da3a6188ca2fa1a5830705cb13266b14689337365434826dfbedff3d5a8e22",
+   "FIRE_TRUCK": "dc6de2b63914371526b3e336e2427cf3a10b2a909da8b529a5c3ff793bc82e4e",
+   "FemDophilus": "2e949c29d0323e626a8a52252c19db3d4878dea4a224d45f6582348b46fe7827",
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": "1596f27ec3dc598a1f1a40f72c9b0deb5c4081a4fa059d4b134ad10f0bb5c265",
+   "FoamBrick": "9323fca9727a91ca8dc6a9220ce636b5551185295640ebc62400080562c4c02c",
+   "Fujifilm_instax_SHARE_SP1_10_photos": "75ed1ee7ddfa6ab220aa4821ffe6db56a072409b69a5cb7d091ef9dfbf556625",
+   "GEOMETRIC_SORTING_BOARD": "7e5eafe8de8340228df15ac7ab0c0f35126a6d9db44f739696f4a81bff117988",
+   "GRANDFATHER_DOLL": "be2d14e398fa8870d36421a3f92498f2adf3d1dfc43203f0f3069cbb3e7af1b7",
+   "GRANDMOTHER": "8cc243279526be837bd05f42d40c860421dd98ff6b46a9770a59d91c8c4b6ea7",
+   "GelatinBox": "612a4e3ed01b4a6f4fb49281e0246b29875a66a98a5059e2d2d2c6a3c7f683db",
+   "GoPro_HERO3_Composite_Cable": "c82548189167fd9d0e37d0d38553c4ebd7a90c8ad6cc43dd3df70e24e310cbf7",
+   "Google_Cardboard_Original_package": "289d0b841d1fb0f791aa96e5c7f053e31a0ae7eaaed35d1b30423f07f54e694f",
+   "Granimals_20_Wooden_ABC_Blocks_Wagon": "664350c2eaf4d58ea5ac17012270ba9b037788a545b106a8161a061e9e90bec0",
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": "88f74fe67304dce58cd312981fa03d78af83e1960a547a336ca664932e77a628",
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": "5f94c4deac1a7d005aa5f823182a487044c7edf27f70ffbe3107bc572bcbfdff",
+   "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total": "2489e444c6d3ca377e6100bcd133b2e63a5848d258c5d8419c1b0061b3d401ef",
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": "47c095272b3846a1620c22d13c1730284a414494acec018030a0e46f1e8e0bd7",
+   "HELICOPTER": "9532c04e86307a5dccf1c15ffa963f57052e802f1e70ba5ef1020c53cbda6dbf",
+   "HP_1800_Tablet_8GB_7": "c23598ecff49acaa18fc198bf0703e375aed2eb4da472d58841537b9bb85c9ef",
+   "HP_Card_Invitation_Kit": "d8c25eb48d46f33982f982f828009b831c78f80bed75aca19740110382816c33",
+   "Hammer": "91e1df9591f202a380dbd436af07c4a9b7c959ab85a798e5a418cb869f5c332f",
+   "Hey_You_Pikachu_Nintendo_64": "6f7f5b1985d8f4890b3a1a5db0bbd8f68d304bf88e1feb51eb7a7432628d483c",
+   "Home_Fashions_Washcloth_Linen": "bd40010b4d4c98ac31cd6510a4751e60fe8a9e16a8b015315dec4b7b666edc24",
+   "Home_Fashions_Washcloth_Olive_Green": "5c6e637d0216266e4d5d612cd72e1e36407f1e9ac7c7a73f76241aafb697781f",
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": "851f4375672952ad73c1c2469974aac873c5825bbc074970dc2482d050dd534c",
+   "Hyaluronic_Acid": "ff742a86681e4d1bb536fc7d077438f0a4d55ee8ec240964722c874358324d8d",
+   "Inositol": "05f9edb73fddc2dc16342291db390fa9867089c60bd35e4a6b5470b59bedb69d",
+   "JarroDophilusFOS_Value_Size": "68551d1b7fd17cb7fdc28c6e8df6aa14ec2049ab6385d48976398b9b97d41e48",
+   "JarroSil_Activated_Silicon": "4b8b8c145736d46f2c3844f4f9cc171ef6c38b3635c4ecddde613d47c6c064af",
+   "JarroSil_Activated_Silicon_5exdZHIeLAp": "7affd84c16ed772304f140dfaf794b36a909d7f41d7452efc61a4af6028e8cb9",
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": "e85a0d5d9adc8baaa6ab2a210544f4cd9e469e8f914b20293eab87a253ac57b0",
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": "ccdae48f1053f50bd0dbf0faa7e7332c7dc9c1cb68e0c38a3315db810078ccb7",
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": "3a9ab8e6b2354be7a99890f371da2f0a11b9328d6d1390b65e611bb3f843702a",
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": "9cc92d47cc3d1efdfcc685deb72c661782074709b35576e39f6ec2730c6140ec",
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_MediumDark_Brown_M40": "49475d65484403802e943c93c8876bfd7ca3a321b63ba4410103675051e6b6ab",
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": "9d1905e384384dd588372c14243ddd981fd4d30f9f581f5d9bfa30df27ce492e",
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": "4660fdf86d0e435d16abca2069f1f28b3d781a44a2b4c31c501666a77f47d6fc",
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": "53ed1c556dddae22c77d02ad639e48831e0b01178a55c85217ac666ad282d737",
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD": "c8b48b56f94e0800479f9e6c91d7b9c43a3f8b3b61767732780cf2add55efede",
+   "Kid_Icarus_Uprising_Nintendo_3DS_Game": "bb601f12b0847dce1d7c842fefc12e1be5ad73fed8142ef383d601f5134484c1",
+   "Kingston_DT4000MR_G2_Management_Ready_USB_64GB": "ab630175a130f2c943e6746fc811eab2b65213b2b7eb638bfc7c31372868281e",
+   "Kong_Puppy_Teething_Rubber_Small_Pink": "d9e81bf66d59866bc06c29a0a80f99f838531d3871f619e65a17d9ad6fb1c241",
+   "Kotex_U_Barely_There_Liners_Thin_60_count": "8e6dc4489e4cd4e1d70326ff61769e42120c3c6cc0eba69293fd37bdb2877937",
+   "Kotobuki_Saucer_Dragon_Fly": "30966d7f77213be2653dce4d3e850ea61f22e13ef56fef39551d75881571e3f8",
+   "Krill_Oil": "7a8f4a928ae0e28f55daa67d79bcc47663fe9b5d74b6432cf45e5fa9303f6cdb",
+   "LADYBUG_BEAD": "b8252d0147f828674b83926b08473f584d27ffee7cd4bce8d37b6df95866d647",
+   "LTyrosine": "bd02da9751f86291528945c88e214ab3e793ae946d3372e7ac6ae593fc3ab5f6",
+   "Lactoferrin": "82ea36682c42245c656cc8f4f07982da55c664aecee9109a814bf9d1d0ecf238",
+   "Little_House_on_the_Prairie_Season_Two_5_Discs_Includes_Digital": "b0368dac2944d58c95fc533c78672a0e1c18655430877119cc791dfc19d3715f",
+   "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game": "91fc6060338e5dc36fe1947da17314ffbbf3110eb69f2bd77ce81c055d8b1131",
+   "Lutein": "6b7e658c2d870186089324812a8490151083397e6e6afad28f93e821b6493f3d",
+   "MK7": "19a5283ebcefb951722ad8b2d163c822418026f940500a8089dd5151dd32affb",
+   "MOVING_MOUSE_PW_6PCSSET": "13ba2971481a963234bf9253a88cbe0b6d4847702524c19e69ed3cc028876e2d",
+   "Magnifying_Glassassrt": "aaf6acb018afe8daf02db8b02caf0a66fd42b4f7d9c4b856ac5031fc2475db13",
+   "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": "2b46000c944a70ace78265966198a4cd4a0f3d9e182ee21937042b1ef1aac5ae",
+   "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": "2d5c50131cdcc2cfc904a37faf7f9c9c301e1d3f4f5f15ac1d95c9c0d2021c5d",
+   "Mario_Luigi_Dream_Team_Nintendo_3DS_Game": "167bbf2218a425c1fdbcc9b1b13473dcb96256379dfd05a5fce1221af8ae6187",
+   "Mario_Party_9_Wii_Game": "b1db21b728cf80787178c920c83f0ab399a4baa8f578790f03806c0911c5a4bd",
+   "MasterChefCan": "3b1855a0694b925ed080f902d5cdb56d83e42f80522501e3027e642000dc327e",
+   "MediumClamp": "c1c12c9ed42ad2d7928ce1c23d4e1d388d0480f6f5f588055b56a7de9d859bbb",
+   "MustardBottle": "256607fae963c8d1fcc8ea1374f22bcdc106f212d783c2913d68ae95b3c8f99f",
+   "My_First_Rolling_Lion": "eb19628609919f3e028041a2436dff2c46818c4c2cec1df1732770484eb3291f",
+   "My_First_Wiggle_Crocodile": "0b41bd1df05c5663ec142efb576cb2941853821fdae2761fd4f99dbe2b59f1a4",
+   "NESCAFE_NESCAFE_TC_STKS_DECAF_6_CT": "dc2ba12048456a7968275a295a0bb9284aaa2bebc9cebd3bf3e145817a47b1ac",
+   "NattoMax": "9894cc7aa4180c6fc1101b5f04150802bb42d0cd90654ef9ded7f4ccf73770dc",
+   "Nescafe_Memento_Latte_Caramel_8_08_oz_23_g_packets_64_oz_184_g": "1a5fc547fc4f9d170b8dca5669af9870d135608df908a6c68c68e385f7f3b344",
+   "Nescafe_Momento_Mocha_Specialty_Coffee_Mix_8_ct": "bd88a672948c597ed6d555144a7c454e07440853b7938362ff14648ffaa1bd09",
+   "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": "2c2d436a9a8fb8462aa675048f57b4a601f7dfe4f42648d4d04513425df1c715",
+   "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": "62bfb4eca83449dc2242db860315156a87ed27f9f14fb7049e329d325e24f4b8",
+   "Nestle_Nips_Hard_Candy_Peanut_Butter": "b1774f4befe505816aa35a4fcc82695b86b65b8984c8bb64adb153c3efb94906",
+   "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": "1c9149975f82cc8dec0b0983bb64d0fb949e628c0244d7ae165fe093e4acb45b",
+   "Nestle_Skinny_Cow_Dreamy_Clusters_Candy_Dark_Chocolate_6_pack_1_oz_pouches": "94fb43df043b18456fff4947bb87ecf5c4f6380ada61156590489e29861fb60e",
+   "New_Super_Mario_BrosWii_Wii_Game": "bb9998c75f43ebc1f5d6ea1d1be1669e76b3c3a79e5bf4974d0585e345f759f3",
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": "5de33169e884291db1bb10f804964689c7f13029664a7f49519c23fc91dacb43",
+   "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": "950947df4e3394e5fe9479d05c0f0e8892776513736cc5340010d5314cf73776",
+   "Nikon_1_AW1_w11275mm_Lens_Silver": "c0fdc4752d9110091af91945567efbcc144a805e8e499359fa6f2592372f41a4",
+   "Nintendo_2DS_Crimson_Red": "bb623a3fee87bc0d19618953c4524e6a316f06ef3ab4e833dcee399668c36de4",
+   "Nintendo_Mario_Action_Figure": "9042155aa77ec1ef76d066632d35f1d458890066ffd6f7538349215a9c619205",
+   "Nintendo_Wii_Party_U_with_Controller_Wii_U_Game": "116d1bc150ad812a734729c2c92cac511169823103df18c78a07052af7b8968d",
+   "Nips_Hard_Candy_Rich_Creamy_Butter_Rum_4_oz_1133_g": "d883cafbe1184dbe6791f79aedbc2af5639b2ed11da3fd079c9cc6f110c4d66f",
+   "Now_Designs_Snack_Bags_Bicycle_2_count": "9a97e9c0ba5f63dd8acb8309c107171bed213188ac76069bbeeea9c2762ec208",
+   "OXO_Cookie_Spatula": "b32b7ecb6e803ee748a47a8bc98d4baf8fc3f9317c2eaf96855aa1c98a5380c8",
+   "Object": "3ac2be6451c204fe885f9e77a8995d5c4ec3d9dcc479dccf6b9103117544477a",
+   "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": "5f88d7434c6fe8256f3cdc38cc2e44469941b2351919bd0f7b0b0292095891b2",
+   "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": "704bd29ed5dd9c4fbfaec5e0aa3cdfe69e330dd79c518b66706344db11e4b118",
+   "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": "79c298e95ec3cf5dffab4e85ebfdd1ef8cf4f21bf7e16cb401310a7ab619886e",
+   "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": "5b17adf8c0c7157b06b7ab3a5a7859bf7a920cbcded4fb005be5865ac3e221ec",
+   "Office_Depot_Canon_CL_41_Remanufactured_Ink_Cartridge_TriColor": "735bd3d4dc154cfb261193ec1a7ce2e54418dfe29fc21b318be1c937a85c7887",
+   "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": "b4fdc9ec003204a3a5427cd93e6a1b044d0c1f01bdfc54f100755c7ffc6fe3b8",
+   "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": "0990a447236947e0142cfbcc1b0337b9f1f791ef0c8cb53478ebb10ce72fea21",
+   "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": "6515a982e07565b9cab9f961442b932a06a67fdee28275aabd9afa2a0910a295",
+   "Office_Depot_Canon_PGI5BK_Remanufactured_Ink_Cartridge_Black": "f299ec0e672c93c1157611647520217bcc84bcab2ce64817e391ee6d3e615d6d",
+   "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": "6650ec0b8d0b8328a3eb52967d509dbd4e376318aa2176be155b16d99806161b",
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": "955a497dba42c91992788034b4571685d3f8e4e70541f376ee12845fd587da54",
+   "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": "dae0b488c762fcb31046724f37d4d80b22af26ffe702459c5656555390a3cada",
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": "aea19d11a5de056ef24f557ad7bab8382f674608dc1f72ab0bf1323c086dd111",
+   "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_TriColor": "125aa4eb71e87835f0a8299dc8700d90f857f8225130ac42acd9a9f5eaaddf13",
+   "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": "e635e072075f52e6624c18733010d184a3a49839a267aca9501fe84db567f0bd",
+   "Office_Depot_Dell_Series_9_Color_Ink_Ink_Cartridge_MK991_MK993": "21b4522204556468e643171af1391d98e7bb1d047c0bb507aa34e3687882b727",
+   "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": "a11248836232f2e142858fd5b83eacf06c3bb507d93feb16a3aecab018193402",
+   "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": "b7252fad28fec9b1cba82e224671095c8adedd2e60f61d2e317b9680edfefea1",
+   "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": "d59f1695777d2195bf1cd76f9c97b01b4711f0dca5295796e0ab7a0d06e3095b",
+   "Office_Depot_HP_61Tricolor_Ink_Cartridge": "558051fddec696e2ffd143fc8d956a1442f3444539d571880e2b45ad389e85cc",
+   "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": "b8b80f14d80265bbf8afbb916c83008923f3a258643c52a421493bbe2d406527",
+   "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": "13d87c8c57db6ad916bf473ab21f641d4393415af96232e2a1aa3962afc51d15",
+   "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": "28ba43a30eee3541fe16c57140ca1911f97a1e62059deb75d5fa0722d706e315",
+   "Office_Depot_HP_950XL_Ink_Cartridge_Black_CN045AN": "62bf315cb700a0903ea1ca597feaf1ef7727a056cfe0d20e10f4ba1a88f13192",
+   "Office_Depot_HP_96_Remanufactured_Ink_Cartridge_Black": "53d39dac021c499cf095f4f58e71a7a2db68f4d871a51187b5a7c977fc954aaf",
+   "Office_Depot_HP_98_Remanufactured_Ink_Cartridge_Black": "b0a9dbcc49942ae6c7a90198f1edd25762abd1130a81fdf654696f96730dcffd",
+   "PEEKABOO_ROLLER": "1f548007f7e9f9b24d1f48c3ce3a4dc2b71bd4ebe06d521abfbc0a0f26471bf5",
+   "Paper_Mario_Sticker_Star_Nintendo_3DS_Game": "b3f1a65e35bf9bb93fce94aebe33af7a935d877a07363f33c29e28ef2271f6fc",
+   "Pear": "ea90c18da6b96f8c07a9aff4256bf49626fa6c97d043537ad20e435b6c6a9f6e",
+   "Perricoen_MD_No_Concealer_Concealer": "37e6e308513401ba64358a61fd7b6f68ac0f6cba7a0d537d82aec937970364ef",
+   "Perricone_MD_AcylGlutathione_Deep_Crease_Serum": "0841653b25bb68576b8ce0320b595dbb11dee9bfcf00406c7f0374977855a90e",
+   "Perricone_MD_Blue_Plasma_Orbital": "30f6041e4da888736b715719b4a312595397b5bb9a9f784ce69940f4d8d44f1f",
+   "Perricone_MD_Cold_Plasma": "aac07d11fb485b0dfd5b2c33c22bff459d852be04c6fa86d020613e39cb6da26",
+   "Perricone_MD_Face_Finishing_Moisturizer": "798fd2b3997e302548eb7297fef0cbd3565c505aaa4215ceac8580929a02af59",
+   "Perricone_MD_Face_Finishing_Moisturizer_4_oz": "73e88a2f4897e9d6c329b5ed1f0a27884fd4ef77ff264b3e3c269b0892813125",
+   "Perricone_MD_Firming_Neck_Therapy_Treatment": "5a1ced45e87cff6378ce926fed60a3d4b0e040e7a49cc5073615b88db1acc74d",
+   "Perricone_MD_High_Potency_Evening_Repair": "ac5bc0978ff3b93d43e265dd6fa36960cad8fb546fe44cbbcf982a05428b1915",
+   "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": "96d730b7cca701d91583773d9fdbd4a313599c3d86429bf311c078074a1bbaf1",
+   "Perricone_MD_Hypoallergenic_Gentle_Cleanser": "90a85bfb60c944db3e093f969bceccc6721e270e838539d23882669aec0f8d0c",
+   "Perricone_MD_Neuropeptide_Facial_Conformer": "1a9886427266297f4eeb044a3671efc1a6e0a99f4e53ac6d8248562f3e1e709d",
+   "Perricone_MD_Neuropeptide_Firming_Moisturizer": "2d6b8a5bfff05fdfbf325ff1965eb4c6ba8eb6ba7850f76eef3da9530fb443ff",
+   "Perricone_MD_No_Bronzer_Bronzer": "d5f5d7bcb59bc306d48632cd5b9df3cfd37c8edb183777a9127f2c4926eeefb3",
+   "Perricone_MD_No_Foundation_Foundation_No_1": "a3d011b27efa3065f850e34b9bd851389807f787cea2e34cbb4e2ae0c0e620c1",
+   "Perricone_MD_No_Foundation_Serum": "6a8eb001e0d20d3535d0f78fc53729636a5cc09ca1f57482f4e1361cb55ef5ca",
+   "Perricone_MD_No_Lipstick_Lipstick": "0a3b2abda3b46ac2d3c530606998383471828345950b4f33d1c7774f5bbad5fa",
+   "Perricone_MD_No_Mascara_Mascara": "d5de64e67e2e065b28ed2da737142f2cffb732ee522b968e2fda0ff7cc42d8ef",
+   "Perricone_MD_Nutritive_Cleanser": "66b7290fedd4b365765f2d4082b8d3ae5473244759aa813e995ea912f747caae",
+   "Perricone_MD_OVM": "1fef8c39e9194f5727b483399c20b1b7bdaac386af562c4d95e5e5fb9422a6ea",
+   "Perricone_MD_Photo_Plasma": "5e70a29e22614ad63abb2d4487e856078463355b86614feadea9b99a8c3f0b3d",
+   "Perricone_MD_The_Cold_Plasma_Face_Eyes_Duo": "9c0cc4df90811b07ab1a86cdb6fde1031624d3a765d4dea48072788cdf7c44a9",
+   "Perricone_MD_The_Crease_Cure_Duo": "cc1fffb6391b1adab40784b99d36fbafca106128f8858e62669cf42aa52478f9",
+   "Perricone_MD_The_Power_Treatments": "90e7a70baa2405f10ed8ce73c267e7e82f19761bd6d7b0f2c140516bbd7d7efa",
+   "Perricone_MD_Vitamin_C_Ester_15": "f32953393d79b9cc06434004ad8f2f172088ca6fb5b50cc9f01e30c433290731",
+   "Perricone_MD_Vitamin_C_Ester_Serum": "a5afbd32652833c74408356ece61b73a9487a57688632ea3c165ee57f831b172",
+   "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": "d88ef74a1cc7bccbe11471888d26a42e7a8c706b78822ee5d64bf2c25bb70f27",
+   "Pet_Dophilus_powder": "a0cf3b43de0b15c0087ec221c121054694057ae2a10bfa30e45ba9ea15b4d704",
+   "Philips_EcoVantage_43_W_Light_Bulbs_Natural_Light_2_pack": "1fe1af8f5c00a791dbaf2af5fbcaee10545c045565b2b2cad06f79871a1fa98e",
+   "Phillips_Caplets_Size_24": "46e90ed5a86ebb31883f0b542b3c498bac3fc6072b9cf3eb571d04c868c99bf0",
+   "Phillips_Colon_Health_Probiotic_Capsule": "99fb00335cda207b4189237d5df28b5f196c6a8129cf720ace0d629e42d65ba1",
+   "Phillips_Milk_of_Magnesia_Saline_Laxative_Liquid_Original": "e1579394601ad77898f4d13800957af81176d9defb156f1657b908de8c35a8ac",
+   "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": "aaef0d47813167f798869ddd0c47d186457890be58f8d5f52bacd2f6990797b8",
+   "PhosphOmega": "3e5aedb43ce224df773c3fac9380b0ee3712fc23c3d31e6d5a773c5c32fc636c",
+   "Playmates_nickelodeon_teenage_mutant_ninja_turtles_shredder": "58edff81716111a75caeffefd0bb7eef28604013a88d927ecccb84d6682c14e8",
+   "Pokmon_Conquest_Nintendo_DS_Game": "942e7fedc7071bfe486c80955002f259e6dc4c57aaf3631a67fe8a470c302af4",
+   "Pokmon_X_Nintendo_3DS_Game": "df8c94e6c612d9739eee4dcc964e5d097b055ba671c7ec27c08e861e295b9b69",
+   "Pokmon_Y_Nintendo_3DS_Game": "02f8ba9146469aebff5ec8020cee0e8b480dc761c8e6819dee67c604ffcca470",
+   "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": "1e7f89e9fa67d654aba3c9c1f0fa02695d3feb519ce2d5849307bbd7a9e666c3",
+   "Pony_C_Clamp_1440": "7198eab99661a89e2d573756df29592b2fac961f5991233b05a9ac0d2dd1d256",
+   "PottedMeatCan": "c0c24299d9e5bfe4a9c8d8382e1427795ea825f07cc6ce8a31c9855cf13255bc",
+   "PowerDrill": "18c34b369dc0bc6bf45ab0d4d849b355e1ac5bb043d218a8bc92ff9bac1313cf",
+   "ProSport_Harness_to_Booster_Seat": "dbe3ecd3e36597dea1e44ccc48eeb4ca4fd99d3e6c4087c743a3713b4a09dac7",
+   "Prostate_Optimizer": "2decab653a2b0b131e08c0bd922660f81cba563f190c840380432bb30b8b2c84",
+   "QAbsorb_CoQ10": "d642226565f7268f28818154de913e13578341e8a0e175033e6d95a6b5f46220",
+   "QAbsorb_CoQ10_53iUqjWjW3O": "da53b1b79f2f13b20103240f1a50be7f40d67ec763b98445fcb321ac1f817273",
+   "QHPomegranate": "3924c0124c27201b7e7742a4ddbe98e10eb4ee2c8bf486fe0adaeddc64fbce57",
+   "REEF_ZENFUN": "25760264db4e76c7e027323a9cf7f4db39f3ec0efd88c49c29f22238930dd254",
+   "RESCUE_CREW": "a9a1d17569a2bd3316dda43970bddeb8f5fae78bea70fe4bc632a097148b9b73",
+   "ROAD_CONSTRUCTION_SET": "45ff292aad27d7a05b8671b80ec15487b2f5140d5bddbcd07f7dba311f0ae60c",
+   "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse": "3e34059b6820bf99c82f17fe4bb42f8acea296c36531abb2bb335166d6700792",
+   "Razer_Taipan_White_Ambidextrous_Gaming_Mouse": "876427e91d42305c55736759c55f817e9c93eb8947e6a88830a72af02cd9bca6",
+   "Room_Essentials_Salad_Plate_Turquoise": "1c4655ea2f242a448fe8ced22a51d07e31d644965253a1da4dc98e9d48640e04",
+   "SAMe_200": "c008981bea719e91b95f85f2277ee325e1fd201675bf5447256abf9ee150b8a7",
+   "SAMe_200_KX7ZmOw47co": "402c3c1295f3681bb0f8f25e41334b724882314f47a6155d3961cfd4239742c0",
+   "SANDWICH_MEAL": "e0f902e0d397b86b0cba3c76d65abbb114fb000ad37bc8380627d7fe514c0017",
+   "SCHOOL_BUS": "791227f990c22d5be228268ab0259b7a16deb0bd2eb52ad8445953d0399d79f1",
+   "SHAPE_MATCHING_NxacpAY9jDt": "d02fb28457840700b2b88e5e44fe3419537aefef5d17cc868e71a869bdf76a67",
+   "SNAIL_MEASURING_TAPE": "685db1078fad6f75f258960bb6c0a785604c97bfc91c068f9b40b77dac7fa07f",
+   "SPEED_BOAT": "a6bd4b322e3cc23ee920bf44d16cf1212f318a75c36fcf596726423bbaf60521",
+   "Schleich_African_Black_Rhino": "a8786021af554eaccf4069d64c7a998359e3e7df48a7605126845e75b7465fa4",
+   "Schleich_Allosaurus": "6b2d100d39976f564e0b903ca782eed1d74895fed0d4f516ed899a6cfc050fb8",
+   "Schleich_Hereford_Bull": "ac7c09bd3d7d266eabf9c296b71af9877e06ef6c6896eab3a6807498f67205d6",
+   "Schleich_Lion_Action_Figure": "4efad1f69434b22404d6ae53f7fe3c409811d756dcc7a204380f922e25ee3490",
+   "Schleich_S_Bayala_Unicorn_70432": "e0ff679bd9776de5a87029189c2925f2c843605f1ceb1c14c8911a0790a5df68",
+   "Scissors": "a3014bd1e5295fbe03e411718fe705e2f254a941bb8c706c72cc609096d9e57a",
+   "Sea_to_Summit_Xl_Bowl": "3eadd4b58d7bad1dabb067a0b1e02d99ac23a055c794524f13157cb105ef6c0b",
+   "Seagate_1TB_Backup_Plus_portable_drive_Blue": "af05c5d0e0ef8264228758263ec14e933e50052298170fda77b2ddbec2868849",
+   "Seagate_1TB_Backup_Plus_portable_drive_Silver": "704610f8873d4e9f96250b49963f4be80a0f1bd8203e10f3f74a0f1eed6efd6c",
+   "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": "cb1d3c110d825789e6ad57d636ed1d7f36f2801c7f241b60933966d50e374cae",
+   "Seagate_1TB_Wireless_Plus_mobile_device_storage": "b3bbcf7d743c7d2b8cb5d7c25928de3979a3e3e41dd51b517f4af6bc629a8d88",
+   "Seagate_3TB_Central_shared_storage": "9da864e4364922d4dd273e2ca3caf22f121e240f0eb525cc84fdfa35a6975493",
+   "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": "7fe57890546a6fd22eccf82c45359187128ef3900963165da15e0f349a2e755f",
+   "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White": "bf88a4df6fce73867d7d7fed162e232d6425aa5134463a4066ddf7091390c6b5",
+   "Shurtape_30_Day_Removal_UV_Delct_15": "7c3877aaf12593bb8755ef515df9faf052d6dbcc609bb8ceeeeaf652eeb41491",
+   "Shurtape_Gaffers_Tape_Silver_2_x_60_yd": "eca32ae151f311e8b9b9f7deb45a3e11b3b23836aa6947308596ce14fe905174",
+   "Shurtape_Tape_Purple_CP28": "c618acadb4fa521be18c4014169e4303761553bfeb748ee133c21b709caeefb5",
+   "Simon_Swipe_Game": "856e961b5cd4b3b3d92aa5dbb62f969d53991512e402dcfc35b8a66996284c16",
+   "Sleep_Optimizer": "34c7744bc9ac904d1d836ceaba656583177002f5e533b2b058b4af2761562cc4",
+   "Sony_Acid_Music_Studio": "b2dde22c11603d83950028fad77b20b510fae57ebf9379fc8c091f638d69a6bc",
+   "Sony_Downloadable_Loops": "0b70ea131f1da158db7b0a675f8cb2ba231dc3fa1b289bd10450aed739eb07f6",
+   "Spectrum_Wall_Mount": "aa8eabff3d53ee9cc10a71623172381f94890235245eaca48686d4a1f83bf8db",
+   "Squirtin_Barnyard_Friends_4pk": "ca31e8e41292f0d4cf2143a54ffd653e5bc7cd69a07b394d1cc184a92f564876",
+   "Star_Wars_Rogue_Squadron_Nintendo_64": "2486831bd34d52ef07a7e6d88f58fe568d75d3a157e5716e3443b7e1956be638",
+   "Strawberry": "365db6b6b422e37bfbea5823f708da6cb817bf3a35a7afe233465883b56f9ddd",
+   "Super_Mario_3D_World_Wii_U_Game": "3e39d127462d6d02f8a8e91452b8b28603c454763630b9cc8063805be6c756e8",
+   "Super_Mario_Kart_Super_Nintendo_Entertainment_System": "96586f0c19fd8c44690445e55f92546ac98965350431ea49034bd4988b0c54af",
+   "Sushi_Mat": "0dcbbb2c9cb92d9c1d7c25e6cd30c8e27e0bd5c9bb90552806eaf3115a22aa0c",
+   "TWISTED_PUZZLE": "7b33a480bcb6eca8dd7e5e7fb1839fbfb76a09f9006b5b1a0276ba8ac660494e",
+   "Tag_Dishtowel_18_x_26": "cd72a37e75ddb3bb543dc383419e150ea9a99595283abda9bc141eed6863ec5a",
+   "Tag_Dishtowel_Basket_Weave_Red_18_x_26": "77cd3c32b97a224925b88ebfd8c1e100e0f44b99da8e89e84f3651db59c7bacf",
+   "Tag_Dishtowel_Dobby_Stripe_Blue_18_x_26": "24f39eab60ec69f5736ba5a92e54f6a54e5bcede7fff157f19e5664d79e3f883",
+   "Tag_Dishtowel_Green": "7e4a683a3a5eb2bec56d85e141777c480a4e58b9b071b39be786c4f7b1ab0f79",
+   "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26": "3433b502325ea265021d8cf8f88d09eb286559a965bb96476d561564502dcf25",
+   "TennisBall": "33393535fd27af08bf0c8f84ea9fad9d3625e00cd8f64473cc0bb92440c957be",
+   "Theanine": "65d6c359261561630f06e0f1724b9fdaaed41762652eaafe8f6ada5de49a1005",
+   "Thomas_Friends_Woodan_Railway_Henry": "39d9b2b52e116d6dcc6ed7a3f9cdc3fd962d68bf7b1a399a5e8a453ec8533ae9",
+   "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": "a3f27ada49946fc70c19a2c935c6eaf397c02cd2edec7b3f3aa03e8ba2a1d4ea",
+   "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": "783a0580f9f6d6f95bdf5f5aca8c9f191c483c5eca906bfeb05720cfe27b31d1",
+   "Threshold_Bamboo_Ceramic_Soap_Dish": "4c677ca39ad2c76c3d7e82bf8db6ce7e2601e4b1edda9ed942fb4e95cd6a938e",
+   "Threshold_Hand_Towel_Blue_Medallion_16_x_27": "4f80518a3b4e8ada912d113fcd302a70253a56e49b6ec9ef5e623bff91fc0d85",
+   "Threshold_Porcelain_Serving_Bowl_Coupe_White": "1d1d25203b56ef350e8d979be7f962efc150dbd559407cc0209f224e65addede",
+   "Threshold_Ramekin_White_Porcelain": "9df4c8fd1ba398563d48241eb693f9dfdc91dce188ed0741e289755b3b07e192",
+   "Threshold_Salad_Plate_Square_Rim_Porcelain": "9e6e4e0d0cb1eb505b229e70391603216bc20c54c9f2181c874bdcc4bdb5c7ca",
+   "TomatoSoupCan": "7a55e93dd3caa81a732f32f3f72f5ea8d75d134a88fba1df590006baaf7659b4",
+   "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total": "727aaf8b7acd59c21eb1a05a920f7b10d642b5e2f5435a24739fb13155c4193c",
+   "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total": "267ba7400031f6593f0d1672915db2017390462ed555d776733b95af449e184c",
+   "Toysmith_Windem_Up_Flippin_Animals_Dog": "2b80cf92ff2565c83ae5c004772a032a96256f0a4ccd72e2eef9b0f522cc6f89",
+   "Travel_Smart_Neck_Rest_Inflatable": "c3bd7f76d02036ac1568a60cdb7ed22b7f5f349cbb398a76bc8aab7483c3d80c",
+   "Twinlab_Nitric_Fuel": "60fa10f7c957380564ac1283b3b94521d03b684ea54cd001617ca0af8520b1db",
+   "Twinlab_Premium_Creatine_Fuel_Powder": "d8559f623c85768df58ea346af1e50a27b7c3c7ade39581de69c724dc178871f",
+   "Ubisoft_RockSmith_Real_Tone_Cable_Xbox_360": "8d2f980bff0d6d4155159a02e2f035172984457485d2fb9e3662f8ee8b72cab5",
+   "Ultra_JarroDophilus": "1f3106b80bff6f4eb8e2017599544b38e1f1cfe7c348d4f828e050f017670956",
+   "Utana_5_Porcelain_Ramekin_Large": "0b048405e69a9e335480c53e5edd16079aa230f9cb953b02193d03c926ffd92e",
+   "VEGETABLE_GARDEN": "42212fd4b4c80d8b78facc06b007d7f1afb2de7c9bd10a262ac2ceb09da919d5",
+   "WHALE_WHISTLE_6PCS_SET": "b30eb338ed617c22dff95515d64bea59accdc184e1f65170fbedd44d26935962",
+   "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": "3b0722505c3daf6f1f9fb8347474b8d9701f8062ffd82e0991083cffe80bb499",
+   "Weston_No_33_Signature_Sausage_Tonic_12_fl_oz": "35aec7e57b0dd8b9361530e5d63041471ef37737e52006b6ec239eb0d8bf7244",
+   "Wilton_Easy_Layers_Cake_Pan_Set": "5870e708556b2570a36f18d7c639fd9b2d6157fdbb79aba1e2c51a8f77755269",
+   "Wilton_Pearlized_Sugar_Sprinkles_525_oz_Gold": "839135c448a4ba04c0072bc373eee602c5f380e78da199ffdfd07f60236a23d4",
+   "Womens_Multi_13": "d9b2c1bb0d66db8441a41fcd4172b5b1badcf1ab1dc4265f31e7dce3b9683876",
+   "Wooden_ABC_123_Blocks_50_pack": "fdb868c9015464879f828fb78b39199274a9161a6af734918e29e7bcbc83652b",
+   "YumYum_D3_Liquid": "f74cafc7804decf715be8202896216df47e9a3c3f0766b4656aff24f3c943b07"
+  }
+ },
+ "environment": {
+  "python": "3.12.3",
+  "numpy": "2.3.5",
+  "sklearn": "1.8.0",
+  "torch": "2.9.1+cpu"
+ },
+ "model_files_sha256": {
+  "p_feasible.pkl": "d1fe268da50679977e09808749dc662f075583ba42976c4c747cb9c03d906be6",
+  "p_robust_given_feasible.pkl": "c09fde52bf6153c3e550072709f71e5efb52a2c974ea693366ca328d3f34dfa8",
+  "mlp_L2_s0.pt": "b061a5eb5c27176a22624c70805c35361feef9119d190e839e9ad5dcc064edbd",
+  "mlp_L2_s1.pt": "2adb39b734fa0fa7b11af9077cfd014860c3afa7d8793bd0e93e74f19fda20ee",
+  "mlp_L2_s2.pt": "ac581301cdbc115a2e506b910997089db8faf0122e4a127ea22fa63eda10a02b",
+  "mlp_L10_s0.pt": "1a1e1e69a9379422455759b4d10a2a10ab431e8a5e7ec286f4e1a0d2e22e273a",
+  "mlp_L10_s1.pt": "4c0d15f8c2ac9d6ff6d5ecfdf0386c22385aa20012186bb2ca130a24bcc68f98",
+  "mlp_L10_s2.pt": "877a91ec7e798fcea75937665d76aa1537cf120a176df0122df3b677c3fadcab",
+  "mlp_L10p_s0.pt": "a84b13b2bdb678fcb4310f3756faa35eec229d410f50fed5f0d237282d62622c",
+  "mlp_L10p_s1.pt": "aa38824dffe50264478e2733a7e5e4a1730889c0454142d6d0ea8bfee0d5e274",
+  "mlp_L10p_s2.pt": "80fc064ebb38793990225ccd0d1a1ccbe435e5513b55e975ad2b71dbdfc3399a",
+  "mlp_L10r_s0.pt": "25a3bccc5ff8b65972f573717d8981a8f7be9fba1dc3cf9b79de6e63858dabd2",
+  "mlp_L10r_s1.pt": "389ec325f8de180b92cbc4df9e75a7e3239c5536e749e25167b1d048f9da0122",
+  "mlp_L10r_s2.pt": "626c06ee579574e0f4f79ea2fe93616bb304a3f0424e82437c77a454a8ce7db0",
+  "mlp_L8_s0.pt": "6b7e06aa6b9312ff27594742516b854a0a4a0503832b3817f36121a9c7cb9bf5",
+  "mlp_L8_s1.pt": "9c7c751cc25e0a4d9ced33ffb3c1d77341bb3c778b7e3398defae8d28775edf3",
+  "mlp_L8_s2.pt": "d8e20589a346b82ccb51a6d0d3bb893ac00d157ce43d01c9141013e5dadfbd3a"
+ },
+ "model_files_in_repository": [
+  "mlp_L2_s0.pt",
+  "mlp_L2_s1.pt",
+  "mlp_L2_s2.pt",
+  "p_feasible.pkl",
+  "p_robust_given_feasible.pkl"
+ ],
+ "model_files_not_in_repository": {
+  "mlp_L10_s0.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10_s1.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10_s2.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10p_s0.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10p_s1.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10p_s2.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10r_s0.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10r_s1.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L10r_s2.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L8_s0.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L8_s1.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash",
+  "mlp_L8_s2.pt": "DINOv3- or untrained-ViT-input MLP; regenerate with egad_confirm.py freeze and check the hash"
+ },
+ "code_sha256": {
+  "tools/research/phase7/egad_prepare.py": "5394877dcebc5936aa4517868a3ce4df4b1a4feead6cafe0e022b2da702b6b01",
+  "tools/research/phase7/egad_confirm.py": "c272ccb584e93dd9367fcdd391bfea5b8aa7a41219a164bdb73dcee46256f12d",
+  "tools/research/phase7/freeze_record.py": "59eada713c59f72a36acb7e646419386ca9b7ea435441aa588de9ebadf425c05",
+  "research_grasping/phase5/baselines.py": "8ac8c1438f94bfaa224fe83af7d539936b8efa464ad780ae2838f121a573bb2c",
+  "research_grasping/phase5/catalogue.py": "af758f87d7eeee7fecbbf9ff7611adfe10e806ecea3bd374934ac6d23ec7153f",
+  "research_grasping/phase5/dynamics.py": "15548d67dbcc184c2e798e89c7efbb826ba8945085b486fc62f1f5f894d98379",
+  "research_grasping/phase5/stats.py": "59983a34e4f9349c7cf92aea27bbb08725792a89a941d27b169214064486ce43",
+  "research_grasping/phase6/fusion.py": "5c54fe64eecd5852e41ba4446e273c3fd749e8937c562f8f7d7f21e410f25ff0",
+  "research_grasping/phase6/physics.py": "24a1b682ec9a075b4ea17f07d22b0b9b4dae162438200ede599d164d31648dc1",
+  "research_grasping/phase6/mechanism.py": "76c312c301ab5b0fc5c0e4a4bf943e919f4b47bc9ae1914fe2f3ca3a6655f2a9",
+  "research_grasping/phase7/physics.py": "0784f9a4d43f3aae0e69f08447c2f82ef4a0d2e9b57a601bb4545f193d5f303b",
+  "research_grasping/phase7/representation.py": "25a4b3dd6babeb682d3ccfdafcee8f19dd2c5be9f84499b9c91fb049a6d5a2ff",
+  "research_grasping/phase7/articulated.py": "3ef1ff5df947a6b7bc47852f817dfbdaa660c9b40d2c5a4bed99ff91b757d2c9",
+  "research_grasping/phase4/visual_prior.py": "4146b85728040e9bc5ac6ae34d154fdc12ad60346c95d0b8ef8a06e19a483505",
+  "research_grasping/phase4/frozen_models.py": "a426d1133f1ba3b33d42e580d8d8bcf08fae36db186e79f9286dc1b055bf4a8e",
+  "crates/grasping/src/planner.rs": "ade2b7a6710bddabc7cd997c71a2a676d6c7ef6fda9004d13fb66026ff334b15",
+  "apps/cli/src/main.rs": "e71282c601cd1495efb1c2c5484707778d0d07c90ddb6dfe9094024632794f71",
+  "Cargo.lock": "5e51c55753002d84cb7f13aa2044f372d20dff1d3478dc3f333bd00762962671"
+ },
+ "code_commit_at_training": "34b52619cd43485acc03a9bec7feaa6bdb97f632",
+ "protocol": {
+  "file": "research/phase7/PHASE7_PROTOCOL.md",
+  "sha256": "22d3f64deee5adeebf8ce965d9fa53f97b91906f14daec94e280c162231f0056",
+  "part": "II"
+ },
+ "test_manifest": {
+  "selection_file": "research/phase7/egad_selection.json",
+  "selection_sha256": "9943dc20cb6a3d3135f096d8f628aa6d984fbea3ef8b7a39b6a48ef010c904e3",
+  "archives": {
+   "egadevalset.zip": "f3fff4c7f46331b87dbd916a437c95d330a53dc5dbf11c391c50f09b07773137",
+   "egadtrainset.zip": "ba6c647062bcdfa146a9f026c31c0bea4b91661d36f53f07bef323054073b127"
+  },
+  "primary": [
+   {
+    "position": 0,
+    "cell": "L01",
+    "file": "L01_2.obj",
+    "sha256": "d2152cba33213f503c1dd634e7dc84a2e55569b39d6bb2a3c090f4deaed0c23f"
+   },
+   {
+    "position": 1,
+    "cell": "N23",
+    "file": "N23_3.obj",
+    "sha256": "1f909edd790fef7f6fb9a7100935c542a5619502ee6801f52c029fe1f73b41de"
+   },
+   {
+    "position": 2,
+    "cell": "K14",
+    "file": "K14_1.obj",
+    "sha256": "d939e385ea0db70a258f41fed5e40fe260ac882c175c6c17ee2baaf952d2324c"
+   },
+   {
+    "position": 3,
+    "cell": "G20",
+    "file": "G20_3.obj",
+    "sha256": "08f66aea7efe4276c0acd1faea7955309051605bb61e88082664941b80551253"
+   },
+   {
+    "position": 4,
+    "cell": "F24",
+    "file": "F24_3.obj",
+    "sha256": "a86b1330e8f42298eb37cb93fc9d26490147381174e6cd2226c29c824678c45d"
+   },
+   {
+    "position": 5,
+    "cell": "L00",
+    "file": "L00_0.obj",
+    "sha256": "5c1561774dc30aab0cec4c3bb2c5bc323bd9e88f39019aaebf460e2d81a3b8b6"
+   },
+   {
+    "position": 6,
+    "cell": "A03",
+    "file": "A03_0.obj",
+    "sha256": "c02ced64e6fe14dee47de395ff59f8a5fd6c3abd7cf284ea099ee8a47092422b"
+   },
+   {
+    "position": 7,
+    "cell": "E09",
+    "file": "E09_3.obj",
+    "sha256": "cbeb2e2f8b7289c87d1222d1e8b3fbbe4be4fbe6657e51eed1fc3d9b0b05071c"
+   },
+   {
+    "position": 8,
+    "cell": "F21",
+    "file": "F21_0.obj",
+    "sha256": "4fadd0d9a05fd21fde5e304aa1a9c7b5ea7228c066719c0a000789e885859e6a"
+   },
+   {
+    "position": 9,
+    "cell": "F14",
+    "file": "F14_3.obj",
+    "sha256": "51ff43a339d6d4121ad20626068505926ae5e051d842ecb0242b3a6998650c85"
+   },
+   {
+    "position": 10,
+    "cell": "D00",
+    "file": "D00_3.obj",
+    "sha256": "fe12ecb4d9875a90a198c58c2b46220c4389ae281961d143c3b1b11de143e854"
+   },
+   {
+    "position": 11,
+    "cell": "N10",
+    "file": "N10_1.obj",
+    "sha256": "cf726c0405641e8e698ca22a7c8ecd794ee0451bd28c995ef1d0c481273bf7b0"
+   },
+   {
+    "position": 12,
+    "cell": "O04",
+    "file": "O04_3.obj",
+    "sha256": "f62c405a5d1e0c43a5ecfba896038d137357de1b3330db7cf93aec5eee2898db"
+   },
+   {
+    "position": 13,
+    "cell": "K10",
+    "file": "K10_2.obj",
+    "sha256": "a213186c82c9811ac523d70eeee4439f5f296ac1536689559656ec9dd5ee6f0e"
+   },
+   {
+    "position": 14,
+    "cell": "U10",
+    "file": "U10_3.obj",
+    "sha256": "5705c15c5e0208e33eaed77e0cde047987fcbae49afb9dc4f5e31fc5874a730d"
+   },
+   {
+    "position": 15,
+    "cell": "L14",
+    "file": "L14_3.obj",
+    "sha256": "bb76fcbf616a20d93f1fc4842b24ebd2983e48d4bb6dd17e33e1da0f0223e401"
+   },
+   {
+    "position": 16,
+    "cell": "J04",
+    "file": "J04_3.obj",
+    "sha256": "f67a87edbc641e7a2f1c44eea66ae0f9c904e6f9e1f6f4fe9d931325a12b009e"
+   },
+   {
+    "position": 17,
+    "cell": "U03",
+    "file": "U03_0.obj",
+    "sha256": "3af81478a11a511938bdf4068222e389d4771c80c64fd34f96b4145ce8f85be2"
+   },
+   {
+    "position": 18,
+    "cell": "S13",
+    "file": "S13_1.obj",
+    "sha256": "c7780f5acf0119637ad8b4139715518570ea90a8ae841abd77a7c497890713a1"
+   },
+   {
+    "position": 19,
+    "cell": "U14",
+    "file": "U14_1.obj",
+    "sha256": "cdad9427524831100abe4d1a51ffe507f49ccea6043c46bca96a41d1fbff3817"
+   },
+   {
+    "position": 20,
+    "cell": "M00",
+    "file": "M00_0.obj",
+    "sha256": "f33d4bd1ae61aac3c286ef76523e9576a6ae936cfd8ab893178785428e98fad7"
+   },
+   {
+    "position": 21,
+    "cell": "M07",
+    "file": "M07_3.obj",
+    "sha256": "42609585d981578b162c7824266f087c61200526a23ee73e59254777d0965d5d"
+   },
+   {
+    "position": 22,
+    "cell": "N19",
+    "file": "N19_0.obj",
+    "sha256": "93dbdf6d5a35f347c23c9c67f89ab97a4707c2f2842c80576d2c400ba2b67edb"
+   },
+   {
+    "position": 23,
+    "cell": "H12",
+    "file": "H12_1.obj",
+    "sha256": "4687aca446434217c832bba9a408248dd3dd1808364cef012f927ba5d58331ab"
+   },
+   {
+    "position": 24,
+    "cell": "P16",
+    "file": "P16_3.obj",
+    "sha256": "15d878d7c94cd2c6fe5063a3e5044337751149d0ba8964715b93e4af48284c34"
+   },
+   {
+    "position": 25,
+    "cell": "F10",
+    "file": "F10_1.obj",
+    "sha256": "85ded2e7a0cc93cb3e68501a55b98bc0f12ad4794fd4d6bcfcf44b87d5c6d7b6"
+   },
+   {
+    "position": 26,
+    "cell": "A18",
+    "file": "A18_0.obj",
+    "sha256": "6d5cb9c8c5ada17827c742d80013a8bdc7ac7b3b8c8cca7e87d0e7f9c8dd89c0"
+   },
+   {
+    "position": 27,
+    "cell": "I25",
+    "file": "I25_0.obj",
+    "sha256": "af64923f57027b5479dc72de7247535a980b34592ef20f2334f034388599b935"
+   },
+   {
+    "position": 28,
+    "cell": "J18",
+    "file": "J18_3.obj",
+    "sha256": "e3e8665fb0bac0ce4f155aae44f8c1edd406bb24839b0c3f1485c6851ec82ef8"
+   },
+   {
+    "position": 29,
+    "cell": "N06",
+    "file": "N06_0.obj",
+    "sha256": "b9b8d49eff15ba7e9faa362b3dfb58f016c2144faaffdf9ff71741f15314d553"
+   },
+   {
+    "position": 30,
+    "cell": "H04",
+    "file": "H04_2.obj",
+    "sha256": "468668f18af55ea61350cce7e5b42b4a66976c87ce28e1553a08c574f332a633"
+   },
+   {
+    "position": 31,
+    "cell": "D22",
+    "file": "D22_0.obj",
+    "sha256": "b409dd7131a5444d114c738bb5aeb5c2aefa671cd0b965356b78b72c326cdd86"
+   },
+   {
+    "position": 32,
+    "cell": "B02",
+    "file": "B02_3.obj",
+    "sha256": "7da00a67eba8181d68faa1ce47654036db074d2f620908e67f252d1484d7cb3f"
+   },
+   {
+    "position": 33,
+    "cell": "I06",
+    "file": "I06_1.obj",
+    "sha256": "83253eb310f23948d643856c38c6de0123672150ab43ac29160ee7167f072ac3"
+   },
+   {
+    "position": 34,
+    "cell": "C10",
+    "file": "C10_0.obj",
+    "sha256": "57d7cd026cb4bb76eaf1c258c90148335349749c3822576d50d6309e2bb17f08"
+   },
+   {
+    "position": 35,
+    "cell": "D04",
+    "file": "D04_2.obj",
+    "sha256": "36d1530c2c7ac5eece824b928f46c392beede528e737302685e5bf8ecf175ff8"
+   },
+   {
+    "position": 36,
+    "cell": "C21",
+    "file": "C21_3.obj",
+    "sha256": "94275d2da33bfbafd75ec8305c441e8b3aa95db9f9111801c1ce3f800c45f421"
+   },
+   {
+    "position": 37,
+    "cell": "L07",
+    "file": "L07_0.obj",
+    "sha256": "81ce4a2d94a69d6ee082fcc1280b4807b0ff5fe1f1c3a5af462677ebb57b28e0"
+   },
+   {
+    "position": 38,
+    "cell": "X16",
+    "file": "X16_2.obj",
+    "sha256": "98a8c96c4679e1c1cdeb8f68163ab2c214505d9083077f038b1a588dc0ea4b90"
+   },
+   {
+    "position": 39,
+    "cell": "R12",
+    "file": "R12_2.obj",
+    "sha256": "711e69abf940b4a7803a2ccb5b6bc3a6ebd7eaf23534a9e00b1e1c59b34d4a4d"
+   },
+   {
+    "position": 40,
+    "cell": "H11",
+    "file": "H11_3.obj",
+    "sha256": "0a90d62f4e19f302155b2dd9cf97f827c4c8a71f38a4890829140e2cb010bc4b"
+   },
+   {
+    "position": 41,
+    "cell": "X19",
+    "file": "X19_3.obj",
+    "sha256": "8598347d192d6faab248b05e1b63384725e2b1472014a425f76c6c24ef293f87"
+   },
+   {
+    "position": 42,
+    "cell": "I20",
+    "file": "I20_1.obj",
+    "sha256": "43cd53b21e4fbc497077ca31d02f7ba075d42274115ea4954fcea572a52fc612"
+   },
+   {
+    "position": 43,
+    "cell": "W11",
+    "file": "W11_1.obj",
+    "sha256": "caf289b0f2ae211dbc93d8824fd752f2601a1c1b80f3968fa08dc1039a6878f9"
+   },
+   {
+    "position": 44,
+    "cell": "X22",
+    "file": "X22_3.obj",
+    "sha256": "dd3174c55b53df26e94888f3ec39272e4c61f864e2c7d813fa86732c0aa7c4f0"
+   },
+   {
+    "position": 45,
+    "cell": "R20",
+    "file": "R20_1.obj",
+    "sha256": "6aeee84d66996a6dc4fac1db51063a3a93897d5e9535077f4b44cc8bc3097444"
+   },
+   {
+    "position": 46,
+    "cell": "L23",
+    "file": "L23_0.obj",
+    "sha256": "826b8c7192eb7967504c7c14c87a9e2128b4fa77c11a60916bb7a8060f83bf6d"
+   },
+   {
+    "position": 47,
+    "cell": "S12",
+    "file": "S12_0.obj",
+    "sha256": "663bf5ff6725ce1f2ca77768f0f4fad4325688b32fc10fa1c70dc272861ca7c9"
+   },
+   {
+    "position": 48,
+    "cell": "T21",
+    "file": "T21_3.obj",
+    "sha256": "cd983e3227d50723e07f090a4b617fe962d29004a0e543be1b488c25c8fa04fb"
+   },
+   {
+    "position": 49,
+    "cell": "A11",
+    "file": "A11_0.obj",
+    "sha256": "6261ee707c587b8cfa4d5e48fc05afa249efefeb8820e9fbb52dde091dd0ccae"
+   },
+   {
+    "position": 50,
+    "cell": "P10",
+    "file": "P10_1.obj",
+    "sha256": "7bfc293a0a52f194ddf940015c475cc5e8f1039ff7293167e47cce0c7274f155"
+   },
+   {
+    "position": 51,
+    "cell": "F09",
+    "file": "F09_3.obj",
+    "sha256": "2397139a6fc9d1636a9428e3cf12dda6d8e8f6139c1472420bae8f11039f6252"
+   },
+   {
+    "position": 52,
+    "cell": "U23",
+    "file": "U23_3.obj",
+    "sha256": "e5677e9298f94a13b46f837b00b0f9df6b9688b63f1fbaf8ef5cf025a636fe5c"
+   },
+   {
+    "position": 53,
+    "cell": "B15",
+    "file": "B15_3.obj",
+    "sha256": "07fa7c23b1d8bb9b03f5d81feadf60628bcff7e3b74f2ac2919d473f257508f0"
+   },
+   {
+    "position": 54,
+    "cell": "E25",
+    "file": "E25_1.obj",
+    "sha256": "794d05222a39ee5d02cc3ba1e41e6915c7733332a37cdb92c57f2c2d89f1a44a"
+   },
+   {
+    "position": 55,
+    "cell": "J01",
+    "file": "J01_3.obj",
+    "sha256": "3ade41b8a6fb09f33a7558ebaccc68e0cec2bff894a9f44aba1307c98b9733bc"
+   },
+   {
+    "position": 56,
+    "cell": "G23",
+    "file": "G23_2.obj",
+    "sha256": "c754485349b045b081511d2f74ad5363ab8ceda2a026821a0ad332d13205437d"
+   },
+   {
+    "position": 57,
+    "cell": "T06",
+    "file": "T06_1.obj",
+    "sha256": "cab17cccd2b0d5f80ced308a978ba49c30cc5f5603743fdfe0321e5889b89d98"
+   },
+   {
+    "position": 58,
+    "cell": "O15",
+    "file": "O15_0.obj",
+    "sha256": "92192ded0381d84ce1b1b5d70951e4f95be8074e270570dcfdbd481d3ed8e904"
+   },
+   {
+    "position": 59,
+    "cell": "U08",
+    "file": "U08_0.obj",
+    "sha256": "6120d574cd7be8738bdbc9d5683f865066488faf9dd63cacd19535242013aaea"
+   },
+   {
+    "position": 60,
+    "cell": "M21",
+    "file": "M21_2.obj",
+    "sha256": "489f6b7e631bfbf57d43154fcfb1cf2735f8058562ab868a3da36120c57e4e5c"
+   },
+   {
+    "position": 61,
+    "cell": "L12",
+    "file": "L12_2.obj",
+    "sha256": "76de19b8a1b145b39d6ccabfb00d8e7673f60891bb56901dbb4917340a5e18a4"
+   },
+   {
+    "position": 62,
+    "cell": "W14",
+    "file": "W14_0.obj",
+    "sha256": "11f7099d4f30795dfda05a26dbb4306f334f43f7d3660faeab271b53cb499f49"
+   },
+   {
+    "position": 63,
+    "cell": "V23",
+    "file": "V23_3.obj",
+    "sha256": "9b2add3ea98cdd6cc893f09748e03399a04ed264150d9e78c5ea4fa8c1867198"
+   },
+   {
+    "position": 64,
+    "cell": "O10",
+    "file": "O10_1.obj",
+    "sha256": "93b3fd3100d27fb639fef6ac3d8665b6d8043ec170951473fc86adcab2853453"
+   },
+   {
+    "position": 65,
+    "cell": "B20",
+    "file": "B20_1.obj",
+    "sha256": "acb79029fac0c2a1bb2a73a50ae461b6cdcefdcad3710d0c8906384d351799c0"
+   },
+   {
+    "position": 66,
+    "cell": "K22",
+    "file": "K22_2.obj",
+    "sha256": "073786273f6d5fcbac051e3d0c2e407e76258934415d3a61ef389ccb06ee2c0f"
+   },
+   {
+    "position": 67,
+    "cell": "N01",
+    "file": "N01_1.obj",
+    "sha256": "d0e9357676241b38066c6a7256520a033ec12aa372b38f4eb99d92794bf89e99"
+   },
+   {
+    "position": 68,
+    "cell": "K06",
+    "file": "K06_3.obj",
+    "sha256": "d8a3a0221fcb306d912f52c88e22091428fc606d2bab7622317d66fc939507a6"
+   },
+   {
+    "position": 69,
+    "cell": "T18",
+    "file": "T18_0.obj",
+    "sha256": "36f6e9e5e97b32aa65fc88e78c1c45c1c827940da2088dc932f86a3d11cd00dd"
+   },
+   {
+    "position": 70,
+    "cell": "P11",
+    "file": "P11_1.obj",
+    "sha256": "6231907f65e74e2275757e476ca5b0212f0590eb5f8ced587e87b954a375e55e"
+   },
+   {
+    "position": 71,
+    "cell": "W07",
+    "file": "W07_1.obj",
+    "sha256": "8788c004c31a853cf47d1a426fa7fb6aa86f1f79340a91ed105f0ea46bb54980"
+   },
+   {
+    "position": 72,
+    "cell": "L11",
+    "file": "L11_2.obj",
+    "sha256": "e2e53b85801a6f619313e35afbe1cd2219105ce0a10c4fb0de41b61527ef393f"
+   },
+   {
+    "position": 73,
+    "cell": "V03",
+    "file": "V03_1.obj",
+    "sha256": "106f9fe73d11ce99d0f6c6c295dac43eb94d95a5d77ece2d79f53fa72fc4c491"
+   },
+   {
+    "position": 74,
+    "cell": "B21",
+    "file": "B21_2.obj",
+    "sha256": "bd181330b4a8625391c3c664cb17cc5dbe309bcef85b3c17a5df5fc6e01bfa39"
+   },
+   {
+    "position": 75,
+    "cell": "S04",
+    "file": "S04_3.obj",
+    "sha256": "f6ac1546a8389cca800d16c3210b30ce96b8dbe5bd8983c6bdd36bf7d7254b0c"
+   },
+   {
+    "position": 76,
+    "cell": "R13",
+    "file": "R13_3.obj",
+    "sha256": "2b30638afe455a39e35cd3bd98871baee411845f815ef77c18c8aad4fba3be7a"
+   },
+   {
+    "position": 77,
+    "cell": "S02",
+    "file": "S02_2.obj",
+    "sha256": "ddcc4f42fe5a862a0ce86a3e21cc090df3f3e0d5331a68d0ac7ed30f1a05858b"
+   },
+   {
+    "position": 78,
+    "cell": "R22",
+    "file": "R22_0.obj",
+    "sha256": "21aeec3df91aaf1b3fdb9d85330b53fbd5954c9ea6b2701cc7aea9f647cbba8e"
+   },
+   {
+    "position": 79,
+    "cell": "B10",
+    "file": "B10_2.obj",
+    "sha256": "f9a18fdb19004724e7507684cb8f3ddd37523af2328edb8fac3158d376d927d6"
+   },
+   {
+    "position": 80,
+    "cell": "G25",
+    "file": "G25_0.obj",
+    "sha256": "6f574f87e214eb30f510799f3fd08359804b763b96ddf1678140c850a5a1225a"
+   },
+   {
+    "position": 81,
+    "cell": "P22",
+    "file": "P22_1.obj",
+    "sha256": "c6acafeb3bccae878b64cfab91467f3a1ec1c0240192394b9d9ea0fed9aafc1f"
+   },
+   {
+    "position": 82,
+    "cell": "J08",
+    "file": "J08_3.obj",
+    "sha256": "22c0a1894247b4f4b5d990d8d3e47b322b645daa3db002e6dbebb034ac57c223"
+   },
+   {
+    "position": 83,
+    "cell": "O01",
+    "file": "O01_0.obj",
+    "sha256": "7ea072e20ae97d63ad309e2dd46633dc7eab088f288cdd564b75a234f62552b8"
+   },
+   {
+    "position": 84,
+    "cell": "H23",
+    "file": "H23_1.obj",
+    "sha256": "654e376b525e5684dca61a2fa7030bbb1ac5b3e93aca52ecf8240ab1908171fb"
+   },
+   {
+    "position": 85,
+    "cell": "O07",
+    "file": "O07_2.obj",
+    "sha256": "2d9f1ad0fab9fd57eac5c0c61ace62648a301bc04f820dd582b0661f430558fa"
+   },
+   {
+    "position": 86,
+    "cell": "N25",
+    "file": "N25_3.obj",
+    "sha256": "f7104dd8247d51e80c3667345fd103dd29122f5b4ec7133f321555523c9c5c3e"
+   },
+   {
+    "position": 87,
+    "cell": "J10",
+    "file": "J10_0.obj",
+    "sha256": "4a1889f5241bee273cedfccbd6bd4d1cd0fbc05554e0d5ea914db04b33583c51"
+   },
+   {
+    "position": 88,
+    "cell": "K02",
+    "file": "K02_2.obj",
+    "sha256": "7f219bfb09f5ad7a5e42c60d82984af9c4d30f6f9bc0eb3e2066dd81bce5eaf8"
+   },
+   {
+    "position": 89,
+    "cell": "V11",
+    "file": "V11_1.obj",
+    "sha256": "9bb1ec433f064eddfb211570b6890d97bfd52567e2affa529a77fc0dd69e2c1d"
+   },
+   {
+    "position": 90,
+    "cell": "E18",
+    "file": "E18_2.obj",
+    "sha256": "d49e6c29d8a0a364e552b3cba589632d79f42a429d9f3abaf19d0d428ac1c991"
+   },
+   {
+    "position": 91,
+    "cell": "S15",
+    "file": "S15_0.obj",
+    "sha256": "4f392489b8d1d2fbad142f5e7677824bfe4dab8b871cd9423d24debc87f43d29"
+   },
+   {
+    "position": 92,
+    "cell": "M23",
+    "file": "M23_3.obj",
+    "sha256": "41c06124506662ee6cc6d57ce87db8086b671322f501bf967379851b7c9a9168"
+   },
+   {
+    "position": 93,
+    "cell": "S05",
+    "file": "S05_1.obj",
+    "sha256": "ee6eb4fd50afe4b159fec5a0de0173065f0d375e0bcc451ec240f6b5b7742855"
+   },
+   {
+    "position": 94,
+    "cell": "S14",
+    "file": "S14_1.obj",
+    "sha256": "d6a70e98a2648ed2ab6605b2bf64849b666ec566cd6bbbc9832b699bfea720be"
+   },
+   {
+    "position": 95,
+    "cell": "F06",
+    "file": "F06_0.obj",
+    "sha256": "3aaaf38c52cd7e7bf27323497d802dcb6e971aa3a45ff8269cb06404008e52d3"
+   },
+   {
+    "position": 96,
+    "cell": "Q24",
+    "file": "Q24_1.obj",
+    "sha256": "161cee826a1326d1a52de68e250d8c6d5b40f70b4b9db1341c42d83f70fa6284"
+   },
+   {
+    "position": 97,
+    "cell": "N09",
+    "file": "N09_3.obj",
+    "sha256": "9e552ad29e96e464a3432cc6ede8e84344fcef4230243c1cb2ee5cacf765998a"
+   },
+   {
+    "position": 98,
+    "cell": "Q14",
+    "file": "Q14_0.obj",
+    "sha256": "3fd0b96a09164a8afeaf035eea1d9af19bd51e86e2051e244d7cfbbe6e54c315"
+   },
+   {
+    "position": 99,
+    "cell": "M16",
+    "file": "M16_0.obj",
+    "sha256": "e3ba7dc5084a2ed644968ad26b59de2c1215b1c18c7e9998f6d96a139cb36845"
+   },
+   {
+    "position": 100,
+    "cell": "C07",
+    "file": "C07_1.obj",
+    "sha256": "09087bfe1fb8ae08c4f86ab1d1fb6b1972a3474f41867885ed11b017da025ae4"
+   },
+   {
+    "position": 101,
+    "cell": "V19",
+    "file": "V19_3.obj",
+    "sha256": "8b4de07956faf5b11fecbd3c4e28424854e9b956d45569f0bfe8442748fc18ec"
+   },
+   {
+    "position": 102,
+    "cell": "H21",
+    "file": "H21_1.obj",
+    "sha256": "2b7edc33d353545c9629e959d94ec68a4755bf5ac60444cc2e317984d3074905"
+   },
+   {
+    "position": 103,
+    "cell": "Q18",
+    "file": "Q18_2.obj",
+    "sha256": "156c693e819796c882f35a25740fad15f2cfa837bc8d58c5093e97163ff25031"
+   },
+   {
+    "position": 104,
+    "cell": "P24",
+    "file": "P24_0.obj",
+    "sha256": "967c97f3eaf55bb0be209dec50d405d80a7d377ace01e65d470fedee90d2debb"
+   },
+   {
+    "position": 105,
+    "cell": "C20",
+    "file": "C20_3.obj",
+    "sha256": "2ed4b0115043259d205937344ece6a6d88db95f3c378c8406a92d66e2ce10289"
+   },
+   {
+    "position": 106,
+    "cell": "X12",
+    "file": "X12_1.obj",
+    "sha256": "baae327cb7e0be2b193cad391cb6e2dd0895cd19c1e20b4b930e300da7d55f8a"
+   },
+   {
+    "position": 107,
+    "cell": "F11",
+    "file": "F11_2.obj",
+    "sha256": "9e04992d11812f9907ff72e255c7f8f80ba07bd4dc9ec55d6b207e3d2c0da64a"
+   },
+   {
+    "position": 108,
+    "cell": "L04",
+    "file": "L04_3.obj",
+    "sha256": "bf5efc17073dc5712156ed39545384021258229bbdcd923304c9bc3ac9db3d88"
+   },
+   {
+    "position": 109,
+    "cell": "P08",
+    "file": "P08_0.obj",
+    "sha256": "eee2afff241d0728d49473a3c1ef101290c45ddc57d5f808279f985b1d9895d2"
+   },
+   {
+    "position": 110,
+    "cell": "C02",
+    "file": "C02_2.obj",
+    "sha256": "c87a1eb3da10eed8c20539e64973373135a0b8e1cfd044ba37c2967c095ea6fc"
+   },
+   {
+    "position": 111,
+    "cell": "S11",
+    "file": "S11_0.obj",
+    "sha256": "b3be8eecf5c2f923a981c02199490095ff0ca946a306cca9c988b922d475c383"
+   },
+   {
+    "position": 112,
+    "cell": "U16",
+    "file": "U16_2.obj",
+    "sha256": "d660ecfb201240bed14622eb10133b80e4280a95e5c35adfd3e6b3ca0678a199"
+   },
+   {
+    "position": 113,
+    "cell": "P17",
+    "file": "P17_2.obj",
+    "sha256": "a9d3c25bb34e46765ecfc34f30ddcb625b20d3df1a7852f1f819ae5e49bd259e"
+   },
+   {
+    "position": 114,
+    "cell": "J16",
+    "file": "J16_0.obj",
+    "sha256": "988ad24404fbb79dfaab42eae160c2e45313226dc8a382d9b35e46ed7172abb5"
+   },
+   {
+    "position": 115,
+    "cell": "B24",
+    "file": "B24_2.obj",
+    "sha256": "068eac32dca771a588961d53cd140512fd81e02101650ee388836a84b6f22b51"
+   },
+   {
+    "position": 116,
+    "cell": "H24",
+    "file": "H24_1.obj",
+    "sha256": "89d83f81a3f8152c060f228732b74ec130bab89fc9c54228ccec06ab0f3314e3"
+   },
+   {
+    "position": 117,
+    "cell": "V10",
+    "file": "V10_2.obj",
+    "sha256": "c2e49a6ce3710d08f124124a4c415220e2ff46b0e3a9d09417da0a8ce98e7d7e"
+   },
+   {
+    "position": 118,
+    "cell": "X04",
+    "file": "X04_1.obj",
+    "sha256": "2dfa8ba610b58b7b816aa0a93d24e12424751258b6478a3631ea21928bdd2d09"
+   },
+   {
+    "position": 119,
+    "cell": "K08",
+    "file": "K08_0.obj",
+    "sha256": "a7d49d6090894c41cf780fee23ef0f0b7b2a03f441c5cfaa0cfffeaf1340ab28"
+   },
+   {
+    "position": 120,
+    "cell": "D02",
+    "file": "D02_1.obj",
+    "sha256": "0a6cbe25af63bad6f8ebc022b64618d6053d26a0699889eb0363c7ffb5fe9921"
+   },
+   {
+    "position": 121,
+    "cell": "S25",
+    "file": "S25_3.obj",
+    "sha256": "ae093accf4f49c2ddb0a123abea731287d04ba0050fe8f7971a6ebe96ba58c12"
+   },
+   {
+    "position": 122,
+    "cell": "U25",
+    "file": "U25_1.obj",
+    "sha256": "84ee4c6e1ff5b3d54e4efdbc79c2b3f83b44eaa9800f7c8db60e2023720952bd"
+   },
+   {
+    "position": 123,
+    "cell": "L24",
+    "file": "L24_0.obj",
+    "sha256": "0be26a51f666b33f922cbe418cf8200e27e6d8fd8a2f94c8a8cf61462074a054"
+   },
+   {
+    "position": 124,
+    "cell": "C05",
+    "file": "C05_2.obj",
+    "sha256": "6586f9601204ba6f276eda524cc5e1110d7748430f208b20c3d6784ddc75f391"
+   },
+   {
+    "position": 125,
+    "cell": "L10",
+    "file": "L10_3.obj",
+    "sha256": "a7c1dd7b54679fd7e1a488ccbfb509064ca924ae917ba0d36f0102a121cfbfc2"
+   },
+   {
+    "position": 126,
+    "cell": "I10",
+    "file": "I10_2.obj",
+    "sha256": "ad90a89e10577b40f0855400d0b20c5ddb2c49c2059ea95e75bae180b43fa941"
+   },
+   {
+    "position": 127,
+    "cell": "C19",
+    "file": "C19_0.obj",
+    "sha256": "901c5c0160f5fd07ca195b9c6b753bd3e5ff89be991ff4b01d7aea60cd42c75f"
+   },
+   {
+    "position": 128,
+    "cell": "G24",
+    "file": "G24_2.obj",
+    "sha256": "fcf29debb4a4f3b54fb2326a70d443410324735e4bfeb7ca5b3e5ed972a8c606"
+   },
+   {
+    "position": 129,
+    "cell": "D19",
+    "file": "D19_1.obj",
+    "sha256": "b84143a6bf976bc26cd3ec0f8cac6ae7bda80e7ffc4ed26f35b4c591f252fc2e"
+   },
+   {
+    "position": 130,
+    "cell": "W20",
+    "file": "W20_0.obj",
+    "sha256": "fced8675c19ad468802bf045d02f5e1de89dba6b077ba28e04a4b5fabb866d43"
+   },
+   {
+    "position": 131,
+    "cell": "X18",
+    "file": "X18_3.obj",
+    "sha256": "61ef448c142bb3f46fceec9f708bbb9ef2ccde26186eee9f9272b42f56e59a35"
+   },
+   {
+    "position": 132,
+    "cell": "J00",
+    "file": "J00_1.obj",
+    "sha256": "5dccd68d1b922a1fe9973f77393557a2a9e3c5f3800a05bb4c94e0d5cb8fbfac"
+   },
+   {
+    "position": 133,
+    "cell": "H07",
+    "file": "H07_0.obj",
+    "sha256": "79c0b3fb88d29edd9322a40323e71fd7f7765c149689b9efd0c01b294b1160aa"
+   },
+   {
+    "position": 134,
+    "cell": "G11",
+    "file": "G11_2.obj",
+    "sha256": "fe910a32096f00e0f5599abe5cee42171c85c60d469f639c126f10222a10e034"
+   },
+   {
+    "position": 135,
+    "cell": "M14",
+    "file": "M14_1.obj",
+    "sha256": "5f4ef7d2a4f3852f20a75076776c89bfce21705baa57119cbc9eee32bddb8fda"
+   },
+   {
+    "position": 136,
+    "cell": "T03",
+    "file": "T03_3.obj",
+    "sha256": "41e8def9f23453f0613dc437dd00bd9a60f3e43a775169674f331b2a955e126a"
+   },
+   {
+    "position": 137,
+    "cell": "F19",
+    "file": "F19_1.obj",
+    "sha256": "9abe02566deea4b219bca719b2e3a8aadc1a8ea6c64f35c5430f66b8df433932"
+   },
+   {
+    "position": 138,
+    "cell": "H02",
+    "file": "H02_3.obj",
+    "sha256": "528eeaa22270258038ad0c346fbf908950072658cdd6aa29a10633b00cfc5896"
+   },
+   {
+    "position": 139,
+    "cell": "M20",
+    "file": "M20_3.obj",
+    "sha256": "3293c2a415b60d811b9237c611e50e563b5a0ba13335bfe31fd69ddecd195d01"
+   },
+   {
+    "position": 140,
+    "cell": "N12",
+    "file": "N12_1.obj",
+    "sha256": "6e7a70e79fa6575cdd3dbb5ca0808329699e4b1c3f8501f3e6aedf99162756cf"
+   },
+   {
+    "position": 141,
+    "cell": "N21",
+    "file": "N21_2.obj",
+    "sha256": "981018b7902b7d1ed0d3ec43a07ffde45ae8af37d20f71ebd088a6cfd78bf666"
+   },
+   {
+    "position": 142,
+    "cell": "H09",
+    "file": "H09_1.obj",
+    "sha256": "0519da2222299fd542ea9322a6c2188ae7a784475e555a28c79d202c2716f00d"
+   },
+   {
+    "position": 143,
+    "cell": "G18",
+    "file": "G18_1.obj",
+    "sha256": "5a92931c738d79e7b45423c4e8fd29d9d3ae39bff54d2d8e4cae589a157fe95e"
+   },
+   {
+    "position": 144,
+    "cell": "W23",
+    "file": "W23_2.obj",
+    "sha256": "6bdb9f074a60e5e39bfe7a4323986715f3bf8465587e3c32134f03c893aa99b9"
+   },
+   {
+    "position": 145,
+    "cell": "D01",
+    "file": "D01_1.obj",
+    "sha256": "e7b2c48633b9cfa3729d734598465714c82482783db14f68ca751a462ca88925"
+   },
+   {
+    "position": 146,
+    "cell": "F18",
+    "file": "F18_3.obj",
+    "sha256": "25f2dbb0e8636257f220596b9cbdf13ab9d1a7ede2101a7c24fcc4416efcaae4"
+   },
+   {
+    "position": 147,
+    "cell": "C23",
+    "file": "C23_0.obj",
+    "sha256": "2d162e0dd08baaaa0da283875598169ec53846f5b13848b08f677a34b8545eb2"
+   },
+   {
+    "position": 148,
+    "cell": "H22",
+    "file": "H22_1.obj",
+    "sha256": "2d193c1707c9480d99144487a1dae4955fed7cfc3397b044f27da17d70c1512a"
+   },
+   {
+    "position": 149,
+    "cell": "P19",
+    "file": "P19_0.obj",
+    "sha256": "ed3ba845c4311b089f377428aa4bfd94dc1eb34d62a59b8ab6386e2501bacb10"
+   },
+   {
+    "position": 150,
+    "cell": "P05",
+    "file": "P05_1.obj",
+    "sha256": "12a66e59445671c8211292eb2d6ba101fff2c0cb83919065c85513d7f8672c80"
+   },
+   {
+    "position": 151,
+    "cell": "V21",
+    "file": "V21_1.obj",
+    "sha256": "d4e9bf4985a9cbb95624660351ed072a2ba0c75fdd2fa1aedb065706aa53b75a"
+   },
+   {
+    "position": 152,
+    "cell": "N22",
+    "file": "N22_0.obj",
+    "sha256": "a8fcb559e6c137214300297e34d0c1add564fa464b5b74f605676ae36e9f5e8b"
+   },
+   {
+    "position": 153,
+    "cell": "M01",
+    "file": "M01_3.obj",
+    "sha256": "805584f27e79f8113da75694d0d50e99eab25ba5ab4f7c89601a116eb690c9d4"
+   },
+   {
+    "position": 154,
+    "cell": "W19",
+    "file": "W19_0.obj",
+    "sha256": "0933e5d989744470f8cf959b9b5b8e7fdb38b9879123d7d1e991f5d69a0cd307"
+   },
+   {
+    "position": 155,
+    "cell": "D14",
+    "file": "D14_3.obj",
+    "sha256": "b1312180465a92693c01d047ecdebc25dbfeab01729747f4251eb403acf1b875"
+   },
+   {
+    "position": 156,
+    "cell": "I11",
+    "file": "I11_1.obj",
+    "sha256": "9c2e941ae65a063c276541559486f32dae695b15e2221d6f22b3140acf3ee429"
+   },
+   {
+    "position": 157,
+    "cell": "P15",
+    "file": "P15_0.obj",
+    "sha256": "844b77314c83083710c07117b8439c1ceeb453b5f9680eda178cbdde86787df4"
+   },
+   {
+    "position": 158,
+    "cell": "G14",
+    "file": "G14_1.obj",
+    "sha256": "b12abb1ea2b9e399a1fcdf3e0e24bf0fe8c002d5d225c56373f2e9284eb0ef2f"
+   },
+   {
+    "position": 159,
+    "cell": "X06",
+    "file": "X06_3.obj",
+    "sha256": "94f9b6cf9ff19d34d32d0f6009929a55d4c7b12c1141b22290c1d0e7ddbaf93a"
+   },
+   {
+    "position": 160,
+    "cell": "R19",
+    "file": "R19_1.obj",
+    "sha256": "2ac5b69c835755e1d3928d8bac0c04b4a67a6452e13677e5e07cfcd415cb2edc"
+   },
+   {
+    "position": 161,
+    "cell": "S21",
+    "file": "S21_1.obj",
+    "sha256": "fc10c8054da1fdd5871a8579f07cfa8a561ba0fc9f68bca11a120d3906fd0fe3"
+   },
+   {
+    "position": 162,
+    "cell": "O24",
+    "file": "O24_1.obj",
+    "sha256": "3e4ef3cf40414e96a3edbdf3544132f87c2c45413c32b28130ae51928327e351"
+   },
+   {
+    "position": 163,
+    "cell": "B13",
+    "file": "B13_0.obj",
+    "sha256": "3ce41dbd620bfa678a2f2933c3fe1c3f151325802fe8d9ef5681683afb9c2226"
+   },
+   {
+    "position": 164,
+    "cell": "R09",
+    "file": "R09_3.obj",
+    "sha256": "5301c8842828f2cc219eb882bb2f5a87ad8fa389b4a246328768debc5eb8531c"
+   },
+   {
+    "position": 165,
+    "cell": "F17",
+    "file": "F17_0.obj",
+    "sha256": "02651710cc7f3420a77a61066c3fc5b19f9509601c4b5123a827e110a3f47830"
+   },
+   {
+    "position": 166,
+    "cell": "E02",
+    "file": "E02_1.obj",
+    "sha256": "17a26d7b3e6230885e773d9ec2ee8237300e4f7710f7dea3b369856ea259a63d"
+   },
+   {
+    "position": 167,
+    "cell": "H10",
+    "file": "H10_2.obj",
+    "sha256": "0934de221d870c576bc5b3224c8fe4eb38b18880a4a7f583f1f5e007e7c73e77"
+   },
+   {
+    "position": 168,
+    "cell": "Q08",
+    "file": "Q08_0.obj",
+    "sha256": "8bfce0401a075876cc11dc8e4d215a6d150790f27ff2dbb12efc3de5c9b9e995"
+   },
+   {
+    "position": 169,
+    "cell": "R18",
+    "file": "R18_2.obj",
+    "sha256": "eb0cded05f232f8cedb149cc143f74d6d44eec0f0e312745f41d33d26b274978"
+   },
+   {
+    "position": 170,
+    "cell": "W02",
+    "file": "W02_0.obj",
+    "sha256": "65ccacdec7f4668e6afb1debbdcd2f7d95e1deee2d53e2bb5057eca4ff365a09"
+   },
+   {
+    "position": 171,
+    "cell": "G01",
+    "file": "G01_2.obj",
+    "sha256": "958dcb54aa57fbd4c0cc808f110450d662c34493b6cf8facced666ae0e1b88fa"
+   },
+   {
+    "position": 172,
+    "cell": "K05",
+    "file": "K05_0.obj",
+    "sha256": "882b43a896898f8ab8ab808c9ddf380030d5df52bb71679117a396f9fb4a7233"
+   },
+   {
+    "position": 173,
+    "cell": "D20",
+    "file": "D20_0.obj",
+    "sha256": "16217c251dec0aa4a1350431e5bd0b80c5cf9780c34675d0a38a3e98e72cf211"
+   },
+   {
+    "position": 174,
+    "cell": "X14",
+    "file": "X14_0.obj",
+    "sha256": "5c9502e449a01b41ca6d338f862551d3bb6c0e8bd3db2aeb7c7746e1eb5c4ce7"
+   },
+   {
+    "position": 175,
+    "cell": "B16",
+    "file": "B16_1.obj",
+    "sha256": "d7dd896f1d5f944f57b89f3b4e7fcaa61fb1ad1e8e601aefa9c3e05e6cc6c5f4"
+   },
+   {
+    "position": 176,
+    "cell": "S09",
+    "file": "S09_2.obj",
+    "sha256": "777761ccdccf2f097faba77b1f5b2a43c993d52b0a55bb36f8f66a3705199a9e"
+   },
+   {
+    "position": 177,
+    "cell": "C11",
+    "file": "C11_0.obj",
+    "sha256": "2b695437e0ceb110196ee4e18452f9e63bbf969c4a4f1e13b493a1dbc39ea0a2"
+   },
+   {
+    "position": 178,
+    "cell": "K25",
+    "file": "K25_0.obj",
+    "sha256": "297f7369de6ccf837636be13c165a7b0370d816a68fcf95acf2c5aff8c2ab748"
+   },
+   {
+    "position": 179,
+    "cell": "G10",
+    "file": "G10_2.obj",
+    "sha256": "ea7c16d2d0ff4fda111375baa3fda550ffff72ae724f1a3bdbd25583c1da9072"
+   },
+   {
+    "position": 180,
+    "cell": "P13",
+    "file": "P13_1.obj",
+    "sha256": "83455114bc9b1bd00ffca48b777d87252adc7e385e22caa0d070257b5b2d8089"
+   },
+   {
+    "position": 181,
+    "cell": "G06",
+    "file": "G06_1.obj",
+    "sha256": "678dab6f7223dde30bfe6163ca0d3e87958c31d9ef30cbcc65d13b36f741f660"
+   },
+   {
+    "position": 182,
+    "cell": "T04",
+    "file": "T04_2.obj",
+    "sha256": "460817f4c18307e0b42da2539976d1e622d8fd951e83847aa7bb926b4f733cab"
+   },
+   {
+    "position": 183,
+    "cell": "A00",
+    "file": "A00_1.obj",
+    "sha256": "981ed6981cfcd60b0aafe3371c3c3270e448100af7cf0925cf9d7d5246c1d713"
+   },
+   {
+    "position": 184,
+    "cell": "Q20",
+    "file": "Q20_0.obj",
+    "sha256": "79fe49f41ba65b9c628fe326235ed3d289df8c07263eda1e7571f4692d9f98a0"
+   },
+   {
+    "position": 185,
+    "cell": "L17",
+    "file": "L17_2.obj",
+    "sha256": "8f6df3359cedd23f216ffdbc237030de274841cdca7338ed4de7246603cc5551"
+   },
+   {
+    "position": 186,
+    "cell": "B18",
+    "file": "B18_0.obj",
+    "sha256": "869382286c8b3208ab68edeb3f5b2bf01521dee8a2c7f828c9427465de27d8b8"
+   },
+   {
+    "position": 187,
+    "cell": "N16",
+    "file": "N16_3.obj",
+    "sha256": "4692ad3e0134d4e2821405cf88d95885ba5199b7d9f57413c453e192d42639c2"
+   },
+   {
+    "position": 188,
+    "cell": "N14",
+    "file": "N14_3.obj",
+    "sha256": "beb4e6452f9a0c4feaa079da988dade30ec07d65bca39ac3cc74990251cfb7ef"
+   },
+   {
+    "position": 189,
+    "cell": "N18",
+    "file": "N18_1.obj",
+    "sha256": "9c62028b934c7b07be9ab4fec7186884a94a2891d37ea808ea7bcb2782e42e63"
+   },
+   {
+    "position": 190,
+    "cell": "T09",
+    "file": "T09_0.obj",
+    "sha256": "869d404374a660fc33a2108ccf5a4ceacb239147991b88add21d5636d3635315"
+   },
+   {
+    "position": 191,
+    "cell": "D08",
+    "file": "D08_0.obj",
+    "sha256": "207add661d830b1bec9b06c6a30299ed94ec47d2cfc989f2ba764d6b9817de39"
+   },
+   {
+    "position": 192,
+    "cell": "D21",
+    "file": "D21_3.obj",
+    "sha256": "380d37975068151c4c9d693e040fd3288af1dee9227eb3d06c8315bd5c816212"
+   },
+   {
+    "position": 193,
+    "cell": "N05",
+    "file": "N05_2.obj",
+    "sha256": "2e9d28cd09a797bfec15adc56d6b537c2bdbdedd5c07331a99483c66503d88cd"
+   },
+   {
+    "position": 194,
+    "cell": "R06",
+    "file": "R06_0.obj",
+    "sha256": "16718e4d9da5f860e5a212813478703862bd317ac317a8d6a0068b228d9d75eb"
+   },
+   {
+    "position": 195,
+    "cell": "V22",
+    "file": "V22_1.obj",
+    "sha256": "20ec8fca8c822af2bd88f93178229de88bd943ea6eb5b48cedc200e5e50e4bad"
+   },
+   {
+    "position": 196,
+    "cell": "I13",
+    "file": "I13_3.obj",
+    "sha256": "0ec49177a486c9039ab14de5645b91a46ee29eae913be0772997848a943cca54"
+   },
+   {
+    "position": 197,
+    "cell": "Q21",
+    "file": "Q21_2.obj",
+    "sha256": "119bdb852d4e3aa1e39cbd9105b2420794a85b7b89db4ce38c36661a5589889a"
+   },
+   {
+    "position": 198,
+    "cell": "C13",
+    "file": "C13_2.obj",
+    "sha256": "1a44bc1efdc1ccd5014b2e5514beb76c3b68733a843b421225c955715f888062"
+   },
+   {
+    "position": 199,
+    "cell": "V14",
+    "file": "V14_3.obj",
+    "sha256": "3c3cafc57e900b6621198b716422e2a3fefa66615ec7561ebc5d9f49943573a2"
+   },
+   {
+    "position": 200,
+    "cell": "K03",
+    "file": "K03_2.obj",
+    "sha256": "5670f6311208d695eccd2485142db4a42928a44703989b7047478ca0e39352a0"
+   },
+   {
+    "position": 201,
+    "cell": "W21",
+    "file": "W21_3.obj",
+    "sha256": "cf8e853b4b4be1a97c5bc3effc16dc6897db7f108d7d5ff055423d14f4ba42f1"
+   },
+   {
+    "position": 202,
+    "cell": "I04",
+    "file": "I04_3.obj",
+    "sha256": "65e1a9df1680b586753c3b9e5babc973472686b6b7546beccdd32b61adf5d74e"
+   },
+   {
+    "position": 203,
+    "cell": "A10",
+    "file": "A10_0.obj",
+    "sha256": "497f54b140687f24556cd5a8b0baac365fbce09cf732e8c1541d2b657f7b86c6"
+   },
+   {
+    "position": 204,
+    "cell": "O25",
+    "file": "O25_2.obj",
+    "sha256": "44a0a31f97cb9d771922b283686f67bea2d838e9f9dd46627d7d3813b905ed28"
+   },
+   {
+    "position": 205,
+    "cell": "S22",
+    "file": "S22_1.obj",
+    "sha256": "a76307a418a10c29b885089e354e3cdf4a407d7301ca25f1b7a22bc778683562"
+   },
+   {
+    "position": 206,
+    "cell": "W18",
+    "file": "W18_0.obj",
+    "sha256": "f4d3735289a3b096fa34ad4d95b112cba1673bc9cde2c480b8feb2710d72d8e5"
+   },
+   {
+    "position": 207,
+    "cell": "U05",
+    "file": "U05_2.obj",
+    "sha256": "814430663a6df650d0f922a3e2d1c7229d1643841b6896cf3ec888671b83dd28"
+   },
+   {
+    "position": 208,
+    "cell": "K16",
+    "file": "K16_1.obj",
+    "sha256": "1789cb0724ae34f0069256bebb9445b9164d66b165038eb2143429c9d5292363"
+   },
+   {
+    "position": 209,
+    "cell": "C16",
+    "file": "C16_0.obj",
+    "sha256": "e8ee667cc8cd1724d050de086679be735f339a611dbb37592dcaf75e59be2914"
+   },
+   {
+    "position": 210,
+    "cell": "Q02",
+    "file": "Q02_1.obj",
+    "sha256": "b24d2bfd36eba6c62c541ab9799de2ad0772546bcface9fe5f206f00194a2b36"
+   },
+   {
+    "position": 211,
+    "cell": "M10",
+    "file": "M10_1.obj",
+    "sha256": "8c70fae8137e76b2b29181c87b3a4ba8e409c846c502004fd20a62c6c236b5d0"
+   },
+   {
+    "position": 212,
+    "cell": "K18",
+    "file": "K18_1.obj",
+    "sha256": "765f81219add06b5020d1d43df9ca61c10c0170f956515930d3d90abc7f3495d"
+   },
+   {
+    "position": 213,
+    "cell": "K00",
+    "file": "K00_3.obj",
+    "sha256": "5724c57e93523636734fedcc34d85abac0f1bbc4cf057fa7ad00e787f29c186a"
+   },
+   {
+    "position": 214,
+    "cell": "A19",
+    "file": "A19_0.obj",
+    "sha256": "d5a589167c60fab2afe942382724e5cca7577a7850b58686231664fa721b1019"
+   },
+   {
+    "position": 215,
+    "cell": "P06",
+    "file": "P06_0.obj",
+    "sha256": "8a5bcbff5844b0a5c3bbc0ee2fc235705febdc65b1f04c594321f8e962f5ac6b"
+   },
+   {
+    "position": 216,
+    "cell": "W05",
+    "file": "W05_3.obj",
+    "sha256": "9cf1fecdb853ec207f2db2b4afb3352a7812e03b42b059faf4147ac46085334f"
+   },
+   {
+    "position": 217,
+    "cell": "B23",
+    "file": "B23_3.obj",
+    "sha256": "a4b17eea7d5d78e499340323545af1e9ec54d9328f0bc7f3aacc5837d27af1cb"
+   },
+   {
+    "position": 218,
+    "cell": "A24",
+    "file": "A24_0.obj",
+    "sha256": "61ce9e963f0fd313ad25bc50e7a1aece7ee564396df7f177437b9b7541b1b130"
+   },
+   {
+    "position": 219,
+    "cell": "W13",
+    "file": "W13_1.obj",
+    "sha256": "a3cd75a9ab06e1e2baa5508bcae58f7daf153f48f1af1a900f514622c11015b8"
+   },
+   {
+    "position": 220,
+    "cell": "U17",
+    "file": "U17_0.obj",
+    "sha256": "cddb50e2586134c9b2f7bb4f40a8decd8884b32d0af3b47daafcb599b24a4fa7"
+   },
+   {
+    "position": 221,
+    "cell": "H18",
+    "file": "H18_1.obj",
+    "sha256": "cb770bee110e93ebf595a86b66f86a5d06b9cb315d6e47a9b51c50557a3e5cd6"
+   },
+   {
+    "position": 222,
+    "cell": "P09",
+    "file": "P09_0.obj",
+    "sha256": "202754074ced751baddbaf99707d2eeb2b905988b650863250e198ebc7d58f16"
+   },
+   {
+    "position": 223,
+    "cell": "J19",
+    "file": "J19_2.obj",
+    "sha256": "6b8d82d7796a07af56e2e1a36232f7755de645641fc5c4a40e29f3ba719eee88"
+   },
+   {
+    "position": 224,
+    "cell": "I08",
+    "file": "I08_1.obj",
+    "sha256": "083185ef9b9efe78cb01d8434d1ff44e3f469be9f2d4753e51e61f5b85668380"
+   },
+   {
+    "position": 225,
+    "cell": "O12",
+    "file": "O12_2.obj",
+    "sha256": "7baf0bd6256aa5cce513725936c0ef0b501a5146074f881d08a92bc82c9d71c9"
+   },
+   {
+    "position": 226,
+    "cell": "Q12",
+    "file": "Q12_2.obj",
+    "sha256": "17fbd264b91488a682ecb77dca8238816a1118ef82d17c600775f9280155565e"
+   },
+   {
+    "position": 227,
+    "cell": "D11",
+    "file": "D11_3.obj",
+    "sha256": "9aafbd7148e33f6b9cf7b1c692a0c0137bbf5aac668c9bfda0205bcebe49d92a"
+   },
+   {
+    "position": 228,
+    "cell": "N11",
+    "file": "N11_1.obj",
+    "sha256": "aabcaf4c44f8d879bf26560802cc2b72919ce5fbc036098a2e593d22b5f5687e"
+   },
+   {
+    "position": 229,
+    "cell": "B17",
+    "file": "B17_1.obj",
+    "sha256": "cb5475f891081ff6888d75931e89676133d778f1dc2f4b65979085e1019c985f"
+   },
+   {
+    "position": 230,
+    "cell": "L16",
+    "file": "L16_1.obj",
+    "sha256": "639b2e582a1fec8b802a9277de235957b778e2b66de9f9002fb93cc5eb66e6a2"
+   },
+   {
+    "position": 231,
+    "cell": "U12",
+    "file": "U12_0.obj",
+    "sha256": "72750d431498959d2dd604cb57add85fda877447123faf7a22ccf5f213a3c135"
+   },
+   {
+    "position": 232,
+    "cell": "U04",
+    "file": "U04_2.obj",
+    "sha256": "23c92652269469a1504e67abc3e088f5edd3c3aacdaa98226b881959f8905b8f"
+   },
+   {
+    "position": 233,
+    "cell": "S17",
+    "file": "S17_0.obj",
+    "sha256": "63271b5efd3a8ef57b88b864554519315b4e708817ed5bbedb190610a9254410"
+   },
+   {
+    "position": 234,
+    "cell": "A20",
+    "file": "A20_0.obj",
+    "sha256": "2c9f23a943e3f94da10578e43ac67018e7244860971fad98318aa89596a25c27"
+   },
+   {
+    "position": 235,
+    "cell": "X15",
+    "file": "X15_3.obj",
+    "sha256": "05fdab61a58f72b354d1b442441e743886b1bb758cf40e304f2ace6d85f47bb7"
+   },
+   {
+    "position": 236,
+    "cell": "A22",
+    "file": "A22_0.obj",
+    "sha256": "342125effcca7175cf60c9636fd00ba8a4aa191c4d94790209bb78c07dc3d968"
+   },
+   {
+    "position": 237,
+    "cell": "X03",
+    "file": "X03_1.obj",
+    "sha256": "8728178c7e761306f3e99169565e9a9efd1e6a4e479b064e2fac0b4f7af209a0"
+   },
+   {
+    "position": 238,
+    "cell": "A02",
+    "file": "A02_0.obj",
+    "sha256": "20e8b119f27f72e3132f6c9d3ddc7879b97109a095941641469cf0ee88ffe04a"
+   },
+   {
+    "position": 239,
+    "cell": "O21",
+    "file": "O21_1.obj",
+    "sha256": "788dd2f96e7423b72d83b4957203140562c239d5b0606217961cafa07d5f88af"
+   },
+   {
+    "position": 240,
+    "cell": "H16",
+    "file": "H16_2.obj",
+    "sha256": "22c19a708063a26108fca646607bd4d9dfb7cd162580684c78a51a5ab28fa131"
+   },
+   {
+    "position": 241,
+    "cell": "E16",
+    "file": "E16_1.obj",
+    "sha256": "5cf75a07be7d5677f70b564fe81dc20df9e494a5735db32e352a6c3347df9dd3"
+   },
+   {
+    "position": 242,
+    "cell": "I12",
+    "file": "I12_1.obj",
+    "sha256": "81d6510d09ddb33e25851a6d2f1d7d9df73e8d5cca2d84516bab3675d27ead12"
+   },
+   {
+    "position": 243,
+    "cell": "V15",
+    "file": "V15_1.obj",
+    "sha256": "51907c6163c0651278e396e8149fa1f46bd47afe1923ecf023abb3e1f5de365b"
+   },
+   {
+    "position": 244,
+    "cell": "H00",
+    "file": "H00_1.obj",
+    "sha256": "b2416c2b09124f08e317dbcf82f0d6d12becb9262dfb5f1d6e2f943e933fa576"
+   },
+   {
+    "position": 245,
+    "cell": "F23",
+    "file": "F23_0.obj",
+    "sha256": "bdbb9d9fd6c22d2ed9e2961c43f8110d90ab7816292cf92f1d75e8cf0e053547"
+   },
+   {
+    "position": 246,
+    "cell": "T13",
+    "file": "T13_0.obj",
+    "sha256": "957571616272315e823125d12b6c1919aa3bd05145d62ac1e7e9b8944ada4b64"
+   },
+   {
+    "position": 247,
+    "cell": "O19",
+    "file": "O19_3.obj",
+    "sha256": "de776832f7bdc1c05f8dbd46324ab4d8a4151fd5301ae209785dad5431056a1e"
+   },
+   {
+    "position": 248,
+    "cell": "J13",
+    "file": "J13_0.obj",
+    "sha256": "a201b84cd694e7f2339609043918e468f0692dbadd71e33e254a98a8b7afb831"
+   },
+   {
+    "position": 249,
+    "cell": "D25",
+    "file": "D25_1.obj",
+    "sha256": "7ca37087708a96f71303de0bf3c8d5f5b241c66ac7f2eceb9260743f78e641d2"
+   },
+   {
+    "position": 250,
+    "cell": "J22",
+    "file": "J22_3.obj",
+    "sha256": "9f1a7118c327b60bfba6d00f9d2ad69ddd67928896ee47f96acc61fbe542a4d8"
+   },
+   {
+    "position": 251,
+    "cell": "M22",
+    "file": "M22_3.obj",
+    "sha256": "ca4356da1ef1accc56b6a3ebfbe9bd3c7046a2e8c4728bc070479e70413ce2f4"
+   },
+   {
+    "position": 252,
+    "cell": "S07",
+    "file": "S07_0.obj",
+    "sha256": "81a38356ef2d8c0dc0e7fe1044ff896572f0a92cbe9c4ca2bbe07e1dda40963c"
+   },
+   {
+    "position": 253,
+    "cell": "U07",
+    "file": "U07_2.obj",
+    "sha256": "013ef287cd54f9991c238f0f7524a04a44dcf3ff03b0b39892f141ca12b22450"
+   },
+   {
+    "position": 254,
+    "cell": "T08",
+    "file": "T08_0.obj",
+    "sha256": "238858777833362aa5cd4e811cc35c03b1f41a6d5719d9384ad1e5d0a6fc5183"
+   },
+   {
+    "position": 255,
+    "cell": "T12",
+    "file": "T12_3.obj",
+    "sha256": "78f40dde7bcd513152a482c7dcef16f6434a283b03719c44b1d0276b09cc235f"
+   },
+   {
+    "position": 256,
+    "cell": "V09",
+    "file": "V09_3.obj",
+    "sha256": "0bbaf06f744ba51ac416194c172991f060fb207aa2a2b567888895d06df59bd1"
+   },
+   {
+    "position": 257,
+    "cell": "J23",
+    "file": "J23_2.obj",
+    "sha256": "284b8982dc159b24cdc4b2133c4b5bbf36949f8c642f7c2af565651e1dc5b022"
+   },
+   {
+    "position": 258,
+    "cell": "D13",
+    "file": "D13_2.obj",
+    "sha256": "fbde06c689c84e6f1e6a1480439850b5298b07d6da451ed467b5664d22d85ee9"
+   },
+   {
+    "position": 259,
+    "cell": "M09",
+    "file": "M09_1.obj",
+    "sha256": "63cf5187c68bdc3c7de85f73b1a7e3206ca02429d8c6a20ec0212361b36e16b6"
+   },
+   {
+    "position": 260,
+    "cell": "T02",
+    "file": "T02_0.obj",
+    "sha256": "012b52b87efe47fdb646a27903ddc19d969589f5fc8b12bac108f5c74a4b036b"
+   },
+   {
+    "position": 261,
+    "cell": "G00",
+    "file": "G00_2.obj",
+    "sha256": "430ffc2a492923126c4b8b9c1aa8a8864376f1d7889a00a797db69b96d6cf507"
+   },
+   {
+    "position": 262,
+    "cell": "F20",
+    "file": "F20_3.obj",
+    "sha256": "d5343b97c323d8971c871286be15d55ebc6e06574ed3a2ec4d08c615edf7b2c8"
+   },
+   {
+    "position": 263,
+    "cell": "G15",
+    "file": "G15_2.obj",
+    "sha256": "7bc9b8b712a32a39b555a7793213633bd39fa75a2ac97d0853d882966e423205"
+   },
+   {
+    "position": 264,
+    "cell": "I05",
+    "file": "I05_1.obj",
+    "sha256": "459a8ac1f2a27525011ff3d669640a733e1fdabb900dfe160aeb565d7729a969"
+   },
+   {
+    "position": 265,
+    "cell": "E23",
+    "file": "E23_2.obj",
+    "sha256": "c6afb4bf26aa78fc70b9c050802bbb4a4aeffb360b517f3bcc154c715ff880c3"
+   },
+   {
+    "position": 266,
+    "cell": "K24",
+    "file": "K24_0.obj",
+    "sha256": "6c2d29b6b9c9da1d5eb643ca565cabcc20be0f10929aac94450b41d700afde4a"
+   },
+   {
+    "position": 267,
+    "cell": "V05",
+    "file": "V05_2.obj",
+    "sha256": "02938560ec8ecac25ca305e1425dcf731d02500d73ca0c15a3329eb4213279c5"
+   },
+   {
+    "position": 268,
+    "cell": "J24",
+    "file": "J24_3.obj",
+    "sha256": "ef9d34dd759949affdca343bb7a6311d7dcbd984a25d113f91307e71773ea67e"
+   },
+   {
+    "position": 269,
+    "cell": "O05",
+    "file": "O05_2.obj",
+    "sha256": "8c647e6d75e1fa364504bac99f555a1481aa65b0411233ef67e51774442e7b6a"
+   },
+   {
+    "position": 270,
+    "cell": "Q19",
+    "file": "Q19_3.obj",
+    "sha256": "18552bb894110cc4af8fd489fd3fc0991258a654e1c015a2470d523a809fbbaa"
+   },
+   {
+    "position": 271,
+    "cell": "I24",
+    "file": "I24_1.obj",
+    "sha256": "c3b86344fc357f20714c6b2aae1a01faa83d05b7e9de8eafeed14d84983813ce"
+   },
+   {
+    "position": 272,
+    "cell": "I03",
+    "file": "I03_2.obj",
+    "sha256": "6ed75d617c2cb93d03430b5be45ec22b6366bf36db4570e2e5d189824435e6fa"
+   },
+   {
+    "position": 273,
+    "cell": "T15",
+    "file": "T15_2.obj",
+    "sha256": "0ac8e9627e9e41ccb72851bc9d584837f9dfa0a7ec48ebb25ffdaafb8d011fa0"
+   },
+   {
+    "position": 274,
+    "cell": "J11",
+    "file": "J11_3.obj",
+    "sha256": "d0961dafaf39ffb995d2a007e0a3e14cf14439381659cc6138f1cb48cc3c1c90"
+   },
+   {
+    "position": 275,
+    "cell": "J21",
+    "file": "J21_2.obj",
+    "sha256": "18656394928371a15871c65c6b1a732e349b8c53c5e8bb023498acff72a76f88"
+   },
+   {
+    "position": 276,
+    "cell": "A07",
+    "file": "A07_0.obj",
+    "sha256": "c2978b99881b7cc100758bc6b512ec354cb33a03742603eab9b4ffb550bde78a"
+   },
+   {
+    "position": 277,
+    "cell": "S16",
+    "file": "S16_2.obj",
+    "sha256": "48560ebe690eb0529aacb5d933c52bdcdd62a76489a579f5a8a107e2a30aae8a"
+   },
+   {
+    "position": 278,
+    "cell": "F13",
+    "file": "F13_2.obj",
+    "sha256": "cae925cdbd20fe04dcc67dacd613813ada55c612edd0847077f5886107f4ba31"
+   },
+   {
+    "position": 279,
+    "cell": "K23",
+    "file": "K23_1.obj",
+    "sha256": "5b89a39d2e788acfdde73b1fba7f8007eccf67bc2a05cfd5438e9e50ae418b1f"
+   },
+   {
+    "position": 280,
+    "cell": "E03",
+    "file": "E03_1.obj",
+    "sha256": "942ac236d9b0733be389dbd5a1082a7809fa756e5aff3b69ebc8beb3735d1705"
+   },
+   {
+    "position": 281,
+    "cell": "C03",
+    "file": "C03_3.obj",
+    "sha256": "c93fe918b4a4ee9ecc0a8d5028f8a5bb737f2c398a2c0cd605ae3f96c3e72c27"
+   },
+   {
+    "position": 282,
+    "cell": "Q07",
+    "file": "Q07_3.obj",
+    "sha256": "78d622bf9099d1bd4d6b8a0a82a13a5c76e2e16858635095caf65d2e2648fd60"
+   },
+   {
+    "position": 283,
+    "cell": "P25",
+    "file": "P25_3.obj",
+    "sha256": "8fac8f49389d8d82ca14209af09716dcd3e8b77bff32e76ccafbe2fe4ad42879"
+   },
+   {
+    "position": 284,
+    "cell": "U20",
+    "file": "U20_2.obj",
+    "sha256": "bfc301de7fe08f8c4027e18797537ed5a532b9f0b7788990e276cd2d83d44d59"
+   },
+   {
+    "position": 285,
+    "cell": "W16",
+    "file": "W16_0.obj",
+    "sha256": "10e799e75778d9feedc3dbf86443fd07a584f96c4c1ad6232cdf400ce549e76a"
+   },
+   {
+    "position": 286,
+    "cell": "P04",
+    "file": "P04_2.obj",
+    "sha256": "0b9dc94e359c5ce571b0601e095aeaa86ec405dd6f13d14ae2e9bb89b9e81a2b"
+   },
+   {
+    "position": 287,
+    "cell": "F16",
+    "file": "F16_2.obj",
+    "sha256": "c6502da725871bd69206301fc10c6dac8e96706493c5004b082be8e1cda309e6"
+   },
+   {
+    "position": 288,
+    "cell": "V18",
+    "file": "V18_3.obj",
+    "sha256": "731c4e5148665e4691ab337ac2a3aaad3c93fac6f6e664ae78ae8ffdaa9e8bb5"
+   },
+   {
+    "position": 289,
+    "cell": "C14",
+    "file": "C14_3.obj",
+    "sha256": "53e857eb9218a4d6c7752930d8b38d3170f43592e5801567389015796040f79d"
+   },
+   {
+    "position": 290,
+    "cell": "P20",
+    "file": "P20_2.obj",
+    "sha256": "4bb560bad8e47f5edb5436b3e066fdf0396af16a58b293581fd657e301c22df2"
+   },
+   {
+    "position": 291,
+    "cell": "A21",
+    "file": "A21_0.obj",
+    "sha256": "0c659084fd0150dc80becb8ea133b7cbad1839908875511347e96083304fe636"
+   },
+   {
+    "position": 292,
+    "cell": "S06",
+    "file": "S06_0.obj",
+    "sha256": "2c87f106a099a16e1fc62e3c82f033f91c5a8d67fadbe683b4791ba3431f8dd8"
+   },
+   {
+    "position": 293,
+    "cell": "Q03",
+    "file": "Q03_3.obj",
+    "sha256": "e2d167aaa2eaf1ee55688011acf58642ce58305a2bd9f182b30cd69f99207b4c"
+   },
+   {
+    "position": 294,
+    "cell": "K11",
+    "file": "K11_0.obj",
+    "sha256": "2fe304cf1b2a8e245ee8c112ba7bf8031d7d07651560a2cbe88d867c5a026de2"
+   },
+   {
+    "position": 295,
+    "cell": "E19",
+    "file": "E19_2.obj",
+    "sha256": "53c801a582de9c9c83a33d8cf7b3db5d399b046816639ef2e807104e6bfc7e13"
+   },
+   {
+    "position": 296,
+    "cell": "W12",
+    "file": "W12_1.obj",
+    "sha256": "8814fed4e18d189a936b5a161d0e2c6853b1c9815303ea6f85d9eaf2e537df31"
+   },
+   {
+    "position": 297,
+    "cell": "E21",
+    "file": "E21_2.obj",
+    "sha256": "dd0392d46535ba104999920a0f440be19de0a8664e71c8a1cf518fa56e9a19e6"
+   },
+   {
+    "position": 298,
+    "cell": "G04",
+    "file": "G04_2.obj",
+    "sha256": "f1981608804ae8661c45afa957f24b60d482e1d0b2e5cea2a055f652de3e3b19"
+   },
+   {
+    "position": 299,
+    "cell": "D07",
+    "file": "D07_0.obj",
+    "sha256": "ce6326a77abc68d4e7147e92f1f5f67d0be3d70116a0cf53fa5485d4fddf1e45"
+   }
+  ],
+  "evaluation_set": [
+   {
+    "cell": "A0",
+    "file": "A0.obj",
+    "sha256": "3fd9f097a27f713f8b58a5039e8032bcd8eff40f22f1c3c0fe7706219a98799a"
+   },
+   {
+    "cell": "A1",
+    "file": "A1.obj",
+    "sha256": "67e7bd8d5d9fca33a8121a3492746a20ae93d86accc5f269fef8f033a766f62a"
+   },
+   {
+    "cell": "A2",
+    "file": "A2.obj",
+    "sha256": "6f8df6c3f36e49a961bf6288e20b856dae27e594aa1202a715a2f59cb526d602"
+   },
+   {
+    "cell": "A3",
+    "file": "A3.obj",
+    "sha256": "a69d40893ca5e2a9d0bafe96a7b06b89828c326a9764ac2bd5457b765621f2b4"
+   },
+   {
+    "cell": "A4",
+    "file": "A4.obj",
+    "sha256": "9585d1cb20340bed4f1a4b9e17dc8735f6a62c298d56262aaf4b1cf39330fa37"
+   },
+   {
+    "cell": "A5",
+    "file": "A5.obj",
+    "sha256": "18b60a82583cd316372daa0afefe181d9a544e79afa8f7f0679771315254f899"
+   },
+   {
+    "cell": "A6",
+    "file": "A6.obj",
+    "sha256": "42a3ad7d9c896dad41772b61e7048d9686efe1c18c38001134dca196c2620cfe"
+   },
+   {
+    "cell": "B0",
+    "file": "B0.obj",
+    "sha256": "03d469722c8ee14101fb73229111f847c29d44639979b9402994bbc4a44cc110"
+   },
+   {
+    "cell": "B1",
+    "file": "B1.obj",
+    "sha256": "f7358694cc2ede5baca054f2e4b125f6d2aabbb6db89c9a6d9010c6fb3529f9a"
+   },
+   {
+    "cell": "B2",
+    "file": "B2.obj",
+    "sha256": "df1931a40bbdfb238ece55821e330182954549516f85bd36de5049782df9d393"
+   },
+   {
+    "cell": "B3",
+    "file": "B3.obj",
+    "sha256": "152a3a0286a3d404dff243b1bf6438ee39de774fea266ae2b06b4a4d4f5a8c2e"
+   },
+   {
+    "cell": "B6",
+    "file": "B6.obj",
+    "sha256": "97ea4d5a18c5ffda643511b5f7b3c6495c9969ce27a29cc4767fd96043908dd1"
+   },
+   {
+    "cell": "C0",
+    "file": "C0.obj",
+    "sha256": "2d04d5922581c9ad4259a61c035d417fb9810638e8adf08308cc88e33acbfa1b"
+   },
+   {
+    "cell": "C1",
+    "file": "C1.obj",
+    "sha256": "006d5f8acdc5daa0d54c9c280dea9778f48242372ee8305bb905ee736e8d1653"
+   },
+   {
+    "cell": "C2",
+    "file": "C2.obj",
+    "sha256": "d08d4a827111e2b32660db701004a9cb5b2abf8da735bece19bb90c47e4720ea"
+   },
+   {
+    "cell": "C3",
+    "file": "C3.obj",
+    "sha256": "172a490323810d3d63725317b4b9c884d7864f3449c478271b2eace5f4992cf5"
+   },
+   {
+    "cell": "C4",
+    "file": "C4.obj",
+    "sha256": "4ef636f346d4c7e499933ca82f1a2980c6eedfcc3b0d25743ae6fb286c232776"
+   },
+   {
+    "cell": "C6",
+    "file": "C6.obj",
+    "sha256": "98987f457d7fd87ff0dfb82d3dfc1e3748da186d279b6e9cd70bfda4ab5defd4"
+   },
+   {
+    "cell": "D0",
+    "file": "D0.obj",
+    "sha256": "b845d357ef50732d52f7083e5109e4913c06f4b2259be3dae030c0447e99b6f4"
+   },
+   {
+    "cell": "D1",
+    "file": "D1.obj",
+    "sha256": "64a434c90797b85b3a542d217cd79aef6bf896101b1a29ffe47d9f884112a106"
+   },
+   {
+    "cell": "D2",
+    "file": "D2.obj",
+    "sha256": "c39e68b12e0c8c8156b34e1c924f33a467527b9cc2da293ebf6ff284728882bd"
+   },
+   {
+    "cell": "D3",
+    "file": "D3.obj",
+    "sha256": "cbd616f8457be6707714f2d41f5686c9906e968c7266c5679dcf1e3032b8dde5"
+   },
+   {
+    "cell": "D5",
+    "file": "D5.obj",
+    "sha256": "4e354fa4d4ef67ad1f87770119c0b455167f9917464f380eee6a95f58769f921"
+   },
+   {
+    "cell": "D6",
+    "file": "D6.obj",
+    "sha256": "33e3943f317e5f8006cfd25b50bc76afab95ede87ea60f9e5489e10e57c67ef4"
+   },
+   {
+    "cell": "E0",
+    "file": "E0.obj",
+    "sha256": "5d55aa79aa22443ef52b637b8c54ae48376ce46b5791819fa7c1038519851cbb"
+   },
+   {
+    "cell": "E1",
+    "file": "E1.obj",
+    "sha256": "d9facd5ff225f17b72406c6838b60ca79845ea5e60b738caeaea7a4111ec3503"
+   },
+   {
+    "cell": "E2",
+    "file": "E2.obj",
+    "sha256": "6bb97b26dec6989108236841666b5e82fc7e505e77a75e2cd4755a41e7fe318d"
+   },
+   {
+    "cell": "E3",
+    "file": "E3.obj",
+    "sha256": "d9275de5b4c2d84a16a724babf6916f31a45f921d0461ac947a40297ec9e3efd"
+   },
+   {
+    "cell": "E4",
+    "file": "E4.obj",
+    "sha256": "5f2b3891dad3e6373806e922aca6f60876fd72df570d70fb322bc8553a26ddc5"
+   },
+   {
+    "cell": "E5",
+    "file": "E5.obj",
+    "sha256": "7e4176cf9e56b29261a4488244d27b89166656288ca3257e53b0f42f426ca7ca"
+   },
+   {
+    "cell": "E6",
+    "file": "E6.obj",
+    "sha256": "ce7e31ef30804e0982ff42e3c773e65242f004f01ca16a7e9d310f8faaa7ecce"
+   },
+   {
+    "cell": "F0",
+    "file": "F0.obj",
+    "sha256": "c3d820ad4ad208fa5b064c8f77f28c4b5b892298ee785d0a71b968cf4da929e7"
+   },
+   {
+    "cell": "F1",
+    "file": "F1.obj",
+    "sha256": "6ae42c3b28320eeba3e19d7492ea1d650d5c8e222abcff65f42045d110273457"
+   },
+   {
+    "cell": "F2",
+    "file": "F2.obj",
+    "sha256": "9e2294ddcc143e1cb9ed9a1263d80e73f022eee0fc8d947c7ce1240163731e87"
+   },
+   {
+    "cell": "F3",
+    "file": "F3.obj",
+    "sha256": "f4c584d359cc2da5e229d723a726443f1cf0e8ee01a6f8632a30a64d312c5034"
+   },
+   {
+    "cell": "F4",
+    "file": "F4.obj",
+    "sha256": "affd4d3941ddbb880afaba8013111607661fa90d3070e79f18573a18b7497145"
+   },
+   {
+    "cell": "F5",
+    "file": "F5.obj",
+    "sha256": "08d55db83911307ee29c2ecd4e670ce06c46d0971734ff149ed9f3e78a9b50c5"
+   },
+   {
+    "cell": "F6",
+    "file": "F6.obj",
+    "sha256": "ca881d4914d2f1cc50ec2d9e4c239ddf8546e21b34e8cccedec15b428ca13b81"
+   },
+   {
+    "cell": "G0",
+    "file": "G0.obj",
+    "sha256": "c54da0b70ed0e336bd34a906cc489670fb9bdfe474ab93430b8a06639701b996"
+   },
+   {
+    "cell": "G1",
+    "file": "G1.obj",
+    "sha256": "99a025e8b71a09ab23df77acf441a526f3391218b801d1d35d77aff9e62c552d"
+   },
+   {
+    "cell": "G2",
+    "file": "G2.obj",
+    "sha256": "771357fcb27b391d21a507e6372091bb1c2e22d02ca53efc07bc2bd9884fa32c"
+   },
+   {
+    "cell": "G3",
+    "file": "G3.obj",
+    "sha256": "6d6f6ee2ff1103588028fad19c4d322ab3dfe1ad4dea1ebf9e9b420a295ee4e2"
+   },
+   {
+    "cell": "G4",
+    "file": "G4.obj",
+    "sha256": "f332fbbc2eabd2e6826692451c8305fb8bc48755e506d0866114c137f5c4bf95"
+   },
+   {
+    "cell": "G5",
+    "file": "G5.obj",
+    "sha256": "9afcda314ce14c0f1e420d80ec17ed1e590395984d56a0ec9ceb7c9c421c8801"
+   },
+   {
+    "cell": "G6",
+    "file": "G6.obj",
+    "sha256": "bb0221bd227ee5c9383c11359c7eadcc793232265322927b7926ca2afa18dbf1"
+   }
+  ],
+  "excluded_smoke_test_positions": [
+   500,
+   501,
+   502
+  ],
+  "reserve_positions": "300-598"
+ },
+ "statistical_analysis": "PHASE7_PROTOCOL.md II.6; implemented in egad_confirm.py analyse",
+ "failure_handling": "PHASE7_PROTOCOL.md II.7 and II.9",
+ "budget": {
+  "catalogue_timeout_s": 3600,
+  "physics": "first grasps only; torsion grid for M0, M1 and Joint",
+  "timing_objects": 60,
+  "compute": "CPU only, no GPU"
+ }
+}

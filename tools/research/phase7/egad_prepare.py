@@ -2,7 +2,7 @@
 
     python -I tools/research/phase7/egad_prepare.py select --egad DIR --out selection.json --seed 20261202 --count N
     python -I tools/research/phase7/egad_prepare.py build --egad DIR --selection selection.json \
-        --binary target/release/axisforge --out POOL --jobs 4
+        --binary target/release/axisforge --out POOL --jobs 4 [--positions START STOP] [--evaluation-set]
 
 Rules (fixed in PHASE7_PROTOCOL.md, part II, before any object is planned):
 
@@ -18,7 +18,8 @@ Rules (fixed in PHASE7_PROTOCOL.md, part II, before any object is planned):
 4. Pose: resting on the most probable stable face (trimesh.poses.compute_stable_poses).
 5. Cell: the demo cell without parts, the part placed as every Phase IV/V part
    (add-object --units m --mass 0.1 --at 0.42 0 0.42). The mass is assumed.
-6. Collision pieces for MuJoCo: CoACD (threshold 0.05, seed 0), written as model_collision_*.obj.
+6. Collision pieces for MuJoCo: CoACD (threshold 0.1, at most 32 pieces, no preprocessing, 60 tree-search
+   iterations with 10 nodes, seed 0), written as model_collision_*.obj. Chosen on excluded cells only (COACD_KW).
 """
 import argparse
 from concurrent.futures import ProcessPoolExecutor
@@ -36,6 +37,11 @@ FRAC = .8
 PLACEMENT = ['0.42', '0', '0.42']
 MASS = '0.1'
 CELL = re.compile(r'^([A-Z])(\d+)_(\d+)$')
+# Chosen on excluded smoke-test cells (order positions 500-502) before part II: threshold 0.05 without a cap gave
+# 100-150 pieces in 200-400 s per object; 32 is the cap of the GSO collision models used in development (median and
+# maximum 32 pieces); preprocessing is off because every selected mesh passed the watertight check; the lighter
+# tree search (60 iterations, 10 nodes) halves the time (J20: 66 s, hull volume / mesh volume 1.23).
+COACD_KW = dict(threshold=.1, max_convex_hull=32, preprocess_mode='off', mcts_iterations=60, mcts_nodes=10, seed=0)
 
 
 def sha256(path):
@@ -123,12 +129,12 @@ def build_one(task):
         return row
     import coacd
     coacd.set_log_level('error')
-    parts = coacd.run_coacd(coacd.Mesh(m.vertices, m.faces), threshold=.05, seed=0)
+    parts = coacd.run_coacd(coacd.Mesh(m.vertices, m.faces), **COACD_KW)
     coll = folder/'collision'
     coll.mkdir(exist_ok=True)
     for i, (v, f) in enumerate(parts):
         trimesh.Trimesh(v, f).export(coll/f'model_collision_{i}.obj')
-    row.update(kept=True, project=f'{name}/cell.axisforge', project_sha256=sha256(cell), model_sha256=sha256(model),
+    row.update(kept=True, project=f'{name}/cell.axisforge', project_sha256=sha256(cell), model_sha256=sha256(model), coacd=COACD_KW,
                collision_pieces=len(parts), seconds=round(time.perf_counter()-start, 1))
     return row
 
@@ -141,14 +147,17 @@ def build(a):
     subprocess.run([a.binary, 'demo', '--no-parts', '--out', str(empty)], check=True, capture_output=True)
     root = Path(a.egad)
     find = {p.name: p for p in root.glob('**/egad_*_set/*.obj')}
-    tasks = [(find[r['file']], f"egad_{r['cell']}", str(out), a.binary, str(empty)) for r in sel['primary']]
-    tasks += [(find[r['file']], f"egad_eval_{r['cell']}", str(out), a.binary, str(empty)) for r in sel['evaluation_set']]
+    lo, hi = a.positions
+    tasks = [(find[r['file']], f"egad_{r['cell']}", str(out), a.binary, str(empty)) for r in sel['primary'][lo:hi]]
+    if a.evaluation_set:
+        tasks += [(find[r['file']], f"egad_eval_{r['cell']}", str(out), a.binary, str(empty)) for r in sel['evaluation_set']]
     rows = []
     with ProcessPoolExecutor(max_workers=a.jobs) as pool:
         for row in pool.map(build_one, tasks):
             rows.append(row)
             print(row['name'], row.get('kept'), row.get('collision_pieces'), row.get('seconds'), flush=True)
-    (out/'built.json').write_text(json.dumps(dict(rows=rows, empty_sha256=sha256(empty)), indent=1) + '\n')
+    (out/'built.json').write_text(json.dumps(dict(rows=rows, empty_sha256=sha256(empty), positions=[lo, hi],
+                                                  evaluation_set=a.evaluation_set), indent=1) + '\n')
 
 
 def main():
@@ -158,6 +167,9 @@ def main():
     s.add_argument('--seed', type=int, default=20261202); s.add_argument('--count', type=int, required=True)
     b = sub.add_parser('build'); b.add_argument('--egad', required=True); b.add_argument('--selection', required=True)
     b.add_argument('--binary', required=True); b.add_argument('--out', required=True); b.add_argument('--jobs', type=int, default=4)
+    b.add_argument('--positions', type=int, nargs=2, default=(0, None), metavar=('START', 'STOP'),
+                   help='slice of the frozen primary order to build (python slice, STOP exclusive)')
+    b.add_argument('--evaluation-set', action='store_true', help='also build the 45 evaluation-set objects')
     a = p.parse_args()
     select(a) if a.cmd == 'select' else build(a)
 

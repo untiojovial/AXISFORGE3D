@@ -214,6 +214,28 @@
     }
    }
   },
+  "Joint superior to M0, robustness (v3) (fixed sequence after non-inferiority)": {
+   "development_difference": 0.0927,
+   "margin": 0.0,
+   "power": {
+    "one-sided 0.025/3 (Holm, family of 3)": {
+     "100": 0.427,
+     "150": 0.613,
+     "200": 0.769,
+     "250": 0.872,
+     "300": 0.93,
+     "400": 0.985
+    },
+    "one-sided 0.025": {
+     "100": 0.608,
+     "150": 0.786,
+     "200": 0.899,
+     "250": 0.943,
+     "300": 0.978,
+     "400": 0.994
+    }
+   }
+  },
   "Joint non-inferior to M0, load tolerance (v3), margin 10 pp": {
    "development_difference": -0.0265,
    "margin": 0.1,
@@ -234,6 +256,30 @@
      "300": 0.859,
      "400": 0.945
     }
+   }
+  }
+ },
+ "N_F": {
+  "P1: Joint N_F < M0 (one-sided Wilcoxon, Holm step 0.025/3)": {
+   "development_ratio": 0.2128,
+   "power": {
+    "100": 1.0,
+    "150": 1.0,
+    "200": 1.0,
+    "250": 1.0,
+    "300": 1.0,
+    "400": 1.0
+   }
+  },
+  "H3: Joint N_F non-inferior to M1, ratio margin 1.25 (bootstrap CI)": {
+   "development_ratio": 1.0299,
+   "power": {
+    "100": 0.942,
+    "150": 0.991,
+    "200": 0.997,
+    "250": 1.0,
+    "300": 1.0,
+    "400": 1.0
    }
   }
  },

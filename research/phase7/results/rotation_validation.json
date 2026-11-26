@@ -1,0 +1,824 @@
+{
+ "source": "physics_dev_with_joint.json.gz",
+ "development_parts": 151,
+ "unit": "part (first viable grasp of each method)",
+ "evidence": "development (GSO); simulation only, not a real robot; no multiplicity correction",
+ "joint_betas_by_fold": [
+  0.2,
+  0.3,
+  0.3,
+  0.3,
+  0.3
+ ],
+ "torsion_m": 0.005,
+ "thresholds_deg": [
+  5.0,
+  10.0,
+  15.0,
+  20.0
+ ],
+ "primary_threshold_deg": 15.0,
+ "rationale": "15 deg was fixed before any v3 result: it moves a point 80 mm from the grip axis by about 20 mm, the slip limit. Other thresholds are sensitivity only.",
+ "by_threshold": {
+  "5": {
+   "rates": {
+    "M0": {
+     "robust": 0.7086,
+     "load": 0.4437
+    },
+    "M1": {
+     "robust": 0.7285,
+     "load": 0.3775
+    },
+    "M4": {
+     "robust": 0.7682,
+     "load": 0.4636
+    },
+    "M9": {
+     "robust": 0.7815,
+     "load": 0.2848
+    },
+    "Joint": {
+     "robust": 0.8079,
+     "load": 0.4503
+    }
+   },
+   "ranking_robust": [
+    "Joint",
+    "M9",
+    "M4",
+    "M1",
+    "M0"
+   ],
+   "ranking_load": [
+    "M4",
+    "Joint",
+    "M0",
+    "M1",
+    "M9"
+   ],
+   "contrasts": {
+    "Joint - M0, robust": {
+     "difference": 0.0993,
+     "ci95": [
+      0.0331,
+      0.1656
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 21,
+      "only_b": 6,
+      "p": 0.005925
+     }
+    },
+    "Joint - M0, load": {
+     "difference": 0.0066,
+     "ci95": [
+      -0.0397,
+      0.0531
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 8,
+      "only_b": 7,
+      "p": 1.0
+     }
+    },
+    "Joint - M1, robust": {
+     "difference": 0.0795,
+     "ci95": [
+      0.0331,
+      0.1325
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 14,
+      "only_b": 2,
+      "p": 0.004181
+     }
+    },
+    "Joint - M1, load": {
+     "difference": 0.0728,
+     "ci95": [
+      0.0199,
+      0.1258
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 14,
+      "only_b": 3,
+      "p": 0.012726
+     }
+    },
+    "M4 - M1, robust": {
+     "difference": 0.0397,
+     "ci95": [
+      0.0,
+      0.0795
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 8,
+      "only_b": 2,
+      "p": 0.109375
+     }
+    },
+    "M4 - M1, load": {
+     "difference": 0.0861,
+     "ci95": [
+      0.0331,
+      0.1391
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 16,
+      "only_b": 3,
+      "p": 0.004425
+     }
+    },
+    "M9 - M1, robust": {
+     "difference": 0.053,
+     "ci95": [
+      0.0132,
+      0.0927
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 1,
+      "p": 0.021484
+     }
+    },
+    "M9 - M1, load": {
+     "difference": -0.0927,
+     "ci95": [
+      -0.1457,
+      -0.0397
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 2,
+      "only_b": 16,
+      "p": 0.001312
+     }
+    },
+    "M4 - M0, robust": {
+     "difference": 0.0596,
+     "ci95": [
+      -0.0066,
+      0.1325
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 19,
+      "only_b": 10,
+      "p": 0.136046
+     }
+    },
+    "M4 - M0, load": {
+     "difference": 0.0199,
+     "ci95": [
+      -0.0265,
+      0.0662
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 6,
+      "p": 0.607239
+     }
+    },
+    "M9 - M0, robust": {
+     "difference": 0.0728,
+     "ci95": [
+      0.0,
+      0.1457
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 21,
+      "only_b": 10,
+      "p": 0.070756
+     }
+    },
+    "M9 - M0, load": {
+     "difference": -0.1589,
+     "ci95": [
+      -0.2318,
+      -0.0927
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 4,
+      "only_b": 28,
+      "p": 1.9e-05
+     }
+    }
+   },
+   "kendall_tau_vs_15deg": {
+    "robust": 1.0,
+    "load": 0.4
+   }
+  },
+  "10": {
+   "rates": {
+    "M0": {
+     "robust": 0.7748,
+     "load": 0.5497
+    },
+    "M1": {
+     "robust": 0.8146,
+     "load": 0.4238
+    },
+    "M4": {
+     "robust": 0.8477,
+     "load": 0.5298
+    },
+    "M9": {
+     "robust": 0.8609,
+     "load": 0.3311
+    },
+    "Joint": {
+     "robust": 0.8874,
+     "load": 0.5364
+    }
+   },
+   "ranking_robust": [
+    "Joint",
+    "M9",
+    "M4",
+    "M1",
+    "M0"
+   ],
+   "ranking_load": [
+    "M0",
+    "Joint",
+    "M4",
+    "M1",
+    "M9"
+   ],
+   "contrasts": {
+    "Joint - M0, robust": {
+     "difference": 0.1126,
+     "ci95": [
+      0.0464,
+      0.1854
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 24,
+      "only_b": 7,
+      "p": 0.003327
+     }
+    },
+    "Joint - M0, load": {
+     "difference": -0.0132,
+     "ci95": [
+      -0.0728,
+      0.0464
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 11,
+      "p": 0.823803
+     }
+    },
+    "Joint - M1, robust": {
+     "difference": 0.0728,
+     "ci95": [
+      0.0265,
+      0.1258
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 13,
+      "only_b": 2,
+      "p": 0.007385
+     }
+    },
+    "Joint - M1, load": {
+     "difference": 0.1126,
+     "ci95": [
+      0.0596,
+      0.1722
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 19,
+      "only_b": 2,
+      "p": 0.000221
+     }
+    },
+    "M4 - M1, robust": {
+     "difference": 0.0331,
+     "ci95": [
+      -0.0066,
+      0.0728
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 7,
+      "only_b": 2,
+      "p": 0.179688
+     }
+    },
+    "M4 - M1, load": {
+     "difference": 0.106,
+     "ci95": [
+      0.053,
+      0.1589
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 18,
+      "only_b": 2,
+      "p": 0.000402
+     }
+    },
+    "M9 - M1, robust": {
+     "difference": 0.0464,
+     "ci95": [
+      0.0066,
+      0.0927
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 2,
+      "p": 0.06543
+     }
+    },
+    "M9 - M1, load": {
+     "difference": -0.0927,
+     "ci95": [
+      -0.1523,
+      -0.0331
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 4,
+      "only_b": 18,
+      "p": 0.004344
+     }
+    },
+    "M4 - M0, robust": {
+     "difference": 0.0728,
+     "ci95": [
+      0.0,
+      0.1457
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 22,
+      "only_b": 11,
+      "p": 0.080143
+     }
+    },
+    "M4 - M0, load": {
+     "difference": -0.0199,
+     "ci95": [
+      -0.0795,
+      0.0397
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 8,
+      "only_b": 11,
+      "p": 0.647606
+     }
+    },
+    "M9 - M0, robust": {
+     "difference": 0.0861,
+     "ci95": [
+      0.0132,
+      0.1656
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 24,
+      "only_b": 11,
+      "p": 0.04096
+     }
+    },
+    "M9 - M0, load": {
+     "difference": -0.2185,
+     "ci95": [
+      -0.298,
+      -0.1391
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 6,
+      "only_b": 39,
+      "p": 1e-06
+     }
+    }
+   },
+   "kendall_tau_vs_15deg": {
+    "robust": 1.0,
+    "load": 1.0
+   }
+  },
+  "15": {
+   "rates": {
+    "M0": {
+     "robust": 0.8013,
+     "load": 0.5894
+    },
+    "M1": {
+     "robust": 0.8477,
+     "load": 0.4503
+    },
+    "M4": {
+     "robust": 0.8543,
+     "load": 0.5497
+    },
+    "M9": {
+     "robust": 0.8874,
+     "load": 0.3907
+    },
+    "Joint": {
+     "robust": 0.894,
+     "load": 0.5629
+    }
+   },
+   "ranking_robust": [
+    "Joint",
+    "M9",
+    "M4",
+    "M1",
+    "M0"
+   ],
+   "ranking_load": [
+    "M0",
+    "Joint",
+    "M4",
+    "M1",
+    "M9"
+   ],
+   "contrasts": {
+    "Joint - M0, robust": {
+     "difference": 0.0927,
+     "ci95": [
+      0.0265,
+      0.1589
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 21,
+      "only_b": 7,
+      "p": 0.012541
+     }
+    },
+    "Joint - M0, load": {
+     "difference": -0.0265,
+     "ci95": [
+      -0.0927,
+      0.0397
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 11,
+      "only_b": 15,
+      "p": 0.557197
+     }
+    },
+    "Joint - M1, robust": {
+     "difference": 0.0464,
+     "ci95": [
+      0.0,
+      0.0927
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 10,
+      "only_b": 3,
+      "p": 0.092285
+     }
+    },
+    "Joint - M1, load": {
+     "difference": 0.1126,
+     "ci95": [
+      0.053,
+      0.1722
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 20,
+      "only_b": 3,
+      "p": 0.000488
+     }
+    },
+    "M4 - M1, robust": {
+     "difference": 0.0066,
+     "ci95": [
+      -0.0265,
+      0.0397
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 4,
+      "only_b": 3,
+      "p": 1.0
+     }
+    },
+    "M4 - M1, load": {
+     "difference": 0.0993,
+     "ci95": [
+      0.0464,
+      0.1589
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 18,
+      "only_b": 3,
+      "p": 0.00149
+     }
+    },
+    "M9 - M1, robust": {
+     "difference": 0.0397,
+     "ci95": [
+      -0.0066,
+      0.0861
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 3,
+      "p": 0.145996
+     }
+    },
+    "M9 - M1, load": {
+     "difference": -0.0596,
+     "ci95": [
+      -0.1126,
+      -0.0066
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 5,
+      "only_b": 14,
+      "p": 0.063568
+     }
+    },
+    "M4 - M0, robust": {
+     "difference": 0.053,
+     "ci95": [
+      -0.0199,
+      0.1258
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 19,
+      "only_b": 11,
+      "p": 0.200488
+     }
+    },
+    "M4 - M0, load": {
+     "difference": -0.0397,
+     "ci95": [
+      -0.0993,
+      0.0265
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 15,
+      "p": 0.307456
+     }
+    },
+    "M9 - M0, robust": {
+     "difference": 0.0861,
+     "ci95": [
+      0.0132,
+      0.1589
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 22,
+      "only_b": 9,
+      "p": 0.029449
+     }
+    },
+    "M9 - M0, load": {
+     "difference": -0.1987,
+     "ci95": [
+      -0.2848,
+      -0.1192
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 39,
+      "p": 1.5e-05
+     }
+    }
+   },
+   "kendall_tau_vs_15deg": {
+    "robust": 1.0,
+    "load": 1.0
+   }
+  },
+  "20": {
+   "rates": {
+    "M0": {
+     "robust": 0.8146,
+     "load": 0.6026
+    },
+    "M1": {
+     "robust": 0.8609,
+     "load": 0.457
+    },
+    "M4": {
+     "robust": 0.8675,
+     "load": 0.5629
+    },
+    "M9": {
+     "robust": 0.9073,
+     "load": 0.3974
+    },
+    "Joint": {
+     "robust": 0.9073,
+     "load": 0.5695
+    }
+   },
+   "ranking_robust": [
+    "M9",
+    "Joint",
+    "M4",
+    "M1",
+    "M0"
+   ],
+   "ranking_load": [
+    "M0",
+    "Joint",
+    "M4",
+    "M1",
+    "M9"
+   ],
+   "contrasts": {
+    "Joint - M0, robust": {
+     "difference": 0.0927,
+     "ci95": [
+      0.0265,
+      0.1589
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 21,
+      "only_b": 7,
+      "p": 0.012541
+     }
+    },
+    "Joint - M0, load": {
+     "difference": -0.0331,
+     "ci95": [
+      -0.0993,
+      0.0265
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 9,
+      "only_b": 14,
+      "p": 0.404873
+     }
+    },
+    "Joint - M1, robust": {
+     "difference": 0.0464,
+     "ci95": [
+      0.0,
+      0.0927
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 10,
+      "only_b": 3,
+      "p": 0.092285
+     }
+    },
+    "Joint - M1, load": {
+     "difference": 0.1126,
+     "ci95": [
+      0.053,
+      0.1722
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 20,
+      "only_b": 3,
+      "p": 0.000488
+     }
+    },
+    "M4 - M1, robust": {
+     "difference": 0.0066,
+     "ci95": [
+      -0.0265,
+      0.0397
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 4,
+      "only_b": 3,
+      "p": 1.0
+     }
+    },
+    "M4 - M1, load": {
+     "difference": 0.106,
+     "ci95": [
+      0.053,
+      0.1656
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 18,
+      "only_b": 2,
+      "p": 0.000402
+     }
+    },
+    "M9 - M1, robust": {
+     "difference": 0.0464,
+     "ci95": [
+      0.0132,
+      0.0861
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 8,
+      "only_b": 1,
+      "p": 0.039062
+     }
+    },
+    "M9 - M1, load": {
+     "difference": -0.0596,
+     "ci95": [
+      -0.1192,
+      -0.0066
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 5,
+      "only_b": 14,
+      "p": 0.063568
+     }
+    },
+    "M4 - M0, robust": {
+     "difference": 0.053,
+     "ci95": [
+      -0.0199,
+      0.1258
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 19,
+      "only_b": 11,
+      "p": 0.200488
+     }
+    },
+    "M4 - M0, load": {
+     "difference": -0.0397,
+     "ci95": [
+      -0.0993,
+      0.0199
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 8,
+      "only_b": 14,
+      "p": 0.286279
+     }
+    },
+    "M9 - M0, robust": {
+     "difference": 0.0927,
+     "ci95": [
+      0.0265,
+      0.1589
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 21,
+      "only_b": 7,
+      "p": 0.012541
+     }
+    },
+    "M9 - M0, load": {
+     "difference": -0.2053,
+     "ci95": [
+      -0.2914,
+      -0.1258
+     ],
+     "n": 151,
+     "mcnemar": {
+      "only_a": 8,
+      "only_b": 39,
+      "p": 6e-06
+     }
+    }
+   },
+   "kendall_tau_vs_15deg": {
+    "robust": 0.949,
+    "load": 1.0
+   }
+  }
+ }
+}

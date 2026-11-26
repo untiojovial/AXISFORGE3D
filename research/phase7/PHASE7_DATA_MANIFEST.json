@@ -1,0 +1,127 @@
+{
+ "note": "Data used in Phase VII, their roles, provenance and licences as declared by the sources (verify before any release). No dataset or third-party weight is redistributed by this repository unless stated.",
+ "datasets": [
+  {
+   "name": "Google Scanned Objects (GSO)",
+   "role": "development (Phase V library 100 parts + 200 Phase V test parts, of which 151 viable with dynamics)",
+   "licence": "CC BY 4.0 (declared by the source)",
+   "citation": "downs2022gso",
+   "redistributed": false,
+   "local_files": "catalogues, store and collision models in the session scratch; Phase V/VI result files in the repository"
+  },
+  {
+   "name": "YCB object set (16 parts)",
+   "role": "development (Phase V library)",
+   "licence": "not verified in Phase VII (see Phase V audit)",
+   "redistributed": false
+  },
+  {
+   "name": "EGAD training set (2 281 meshes)",
+   "role": "confirmatory pool: primary order positions 0-299; positions 500-502 smoke test (excluded); 300-598 reserve",
+   "licence": "BSD-3-Clause (EGAD_LICENSE.txt, from the authors repository)",
+   "citation": "morrison2020egad",
+   "archive": "egadtrainset.zip",
+   "archive_sha256": "ba6c647062bcdfa146a9f026c31c0bea4b91661d36f53f07bef323054073b127",
+   "source": "CSIRO Data Access Portal public resource (data doi:10.25912/5eaa52c6eb6b4), downloaded 2026-11-26 without any access control",
+   "selection_file": "research/phase7/egad_selection.json",
+   "selection_sha256": "9943dc20cb6a3d3135f096d8f628aa6d984fbea3ef8b7a39b6a48ef010c904e3",
+   "cells_in_pool": 602,
+   "primary_order_length": 599,
+   "rejected": [
+    {
+     "cell": "M03",
+     "file": "M03_2.obj",
+     "sha256": "d8bb7b877570391b35ea57595a0f02d4ee31cd2e82a5eaa4b20d0a397e38e1ce",
+     "reason": "not watertight"
+    },
+    {
+     "cell": "X23",
+     "file": "X23_0.obj",
+     "sha256": "2a10cd9ae2baaf801961c2d10d8797dae377e3ac73348fdc38789c8a1773c42d",
+     "reason": "not watertight"
+    },
+    {
+     "cell": "O16",
+     "file": "O16_1.obj",
+     "sha256": "b51d74692f28773a59293bca0b81f50ff7007307166b72cb0d617aa33a64f956",
+     "reason": "not watertight"
+    }
+   ],
+   "redistributed": false
+  },
+  {
+   "name": "EGAD evaluation set (49 meshes)",
+   "role": "secondary confirmatory set (45 accepted)",
+   "licence": "BSD-3-Clause",
+   "archive": "egadevalset.zip",
+   "archive_sha256": "f3fff4c7f46331b87dbd916a437c95d330a53dc5dbf11c391c50f09b07773137",
+   "rejected": [
+    {
+     "cell": "B4",
+     "file": "B4.obj",
+     "sha256": "fb91ecbd76cca13beb7b4e57680cd87c1a3227c812d78ca19d8428c3fe0a0af7",
+     "reason": "not watertight"
+    },
+    {
+     "cell": "B5",
+     "file": "B5.obj",
+     "sha256": "9c23c3473634eb2536dc851a558e1cc80e6e1fedad83792bf3e1ce31973dd6c9",
+     "reason": "not watertight"
+    },
+    {
+     "cell": "C5",
+     "file": "C5.obj",
+     "sha256": "a8f04c7bf9c4bfaa1c37d3d935b1dc7b422534e8402cb1f971dcf56d94402a38",
+     "reason": "not watertight"
+    },
+    {
+     "cell": "D4",
+     "file": "D4.obj",
+     "sha256": "68484e4e159f6408e3532cb96d6ca86d98b1f2671c5481b404edeb56fdd414f8",
+     "reason": "not watertight"
+    }
+   ],
+   "redistributed": false
+  },
+  {
+   "name": "Phase III sealed objects (8)",
+   "role": "untouched in Phase VII",
+   "redistributed": false
+  }
+ ],
+ "models": [
+  {
+   "name": "DINOv3 ViT-S/16 (timm copy, lvd1689m)",
+   "role": "global descriptors (development; secondary H5 on EGAD)",
+   "licence": "DINOv3 License (as distributed with the weights)",
+   "weights_sha256": "2a1ec16ae28ffa07bc0ead0241ee7df9fc26451fe6f9f839b7b3afa0a906b040",
+   "config_sha256": "8eb1eeb3a94a3faddfcdd9ae693607a9cd9c8b91c34381578f7f0a48ce454eef",
+   "redistributed": false,
+   "note": "Phase V committed DINOv3 descriptors of development parts; redistribution of derived artefacts is the author decision"
+  },
+  {
+   "name": "DINOv2 ViT-S/14",
+   "role": "global descriptors (development)",
+   "licence": "Apache-2.0 (declared)",
+   "redistributed": false
+  },
+  {
+   "name": "OpenCLIP ViT-B/32 quickgelu LAION-400M e31",
+   "role": "global descriptors (development, L11)",
+   "licence": "code MIT; weight licence not verified",
+   "weights_sha256": "d867053b2301634007ed9af230bfb1a217ec634f6c0329f04092133ae5c4b89e",
+   "redistributed": false
+  },
+  {
+   "name": "Untrained ViT (DINOv3 architecture, seeds 0-4)",
+   "role": "random-feature control",
+   "licence": "generated locally",
+   "redistributed": false
+  }
+ ],
+ "splits": {
+  "development_folds": "5-fold grouped by product name, seed 20261201 (research/phase7 mlp folds.json)",
+  "phase6_outer_folds": "seed 20261130",
+  "confirmation": "PHASE7_PROTOCOL.md part II; frozen in PHASE7_MODEL_FREEZE.json"
+ }
+}

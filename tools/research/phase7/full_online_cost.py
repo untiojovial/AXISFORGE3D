@@ -14,7 +14,7 @@ M0 has no prior: T_total = T_plan. The first call of each (part, method) is 'fir
 'repeat' (file cache warm). Because the prior needs the candidates before planning, the planner generates
 them twice; 'integrated' subtracts the planner's own generation time to estimate a single-process
 implementation (an engineering estimate, reported separately). Render + DINOv3 encoding of a new part is
-timed separately (8 views at 224 px) as the extra cost a visual prior would add. Unit: the part.
+timed separately (Phase V recipe: 16 views at 96 px) as the extra cost a visual prior would add. Unit: the part.
 Models (P(F): gradient boosting on the 316 development parts; P(H|F): gradient boosting on the 151) are
 trained before timing and are not part of the online cost.
 """
@@ -125,22 +125,23 @@ def main():
             print(n, m, round(rows[-1]['T_total'], 3), flush=True)
     dino = None
     if a.dino_checkpoint:
-        from research_grasping.phase3.render_cpu import cameras, render
+        from research_grasping.phase4 import visual_prior as vp
         from research_grasping.phase4.frozen_models import load_frozen
-        from research_grasping.phase4.visual_prior import part_mesh
         enc = load_frozen('dinov3-timm', a.dino_checkpoint, config_sha256=a.dino_config_sha256,
                           weights_sha256=a.dino_weights_sha256, model_revision=a.dino_revision)
         dr = []
         for n in parts[:20]:
             t = time.perf_counter()
-            v, f = part_mesh(Path(a.projects)/store[n]['project'], n)
-            k, T = cameras(np.array([v.min(0), v.max(0)]), 8, 224, 224)
-            imgs = [render(v, f, k, tt, 224, 224)['rgb'] for tt in T]
+            v, f = vp.part_mesh(Path(a.projects)/store[n]['project'], n)
+            imgs = vp.render_views(v, f)
             t_render = time.perf_counter() - t
-            t = time.perf_counter(); enc.encode(imgs); t_enc = time.perf_counter() - t
-            dr.append(dict(part=n, render_s=t_render, encode_s=t_enc))
+            t = time.perf_counter(); d = vp.describe(enc, imgs); t_enc = time.perf_counter() - t
+            cos = float(d @ np.asarray(store[n]['descriptors']['dinov3'], float))
+            dr.append(dict(part=n, render_s=t_render, encode_s=t_enc, cosine_to_stored_descriptor=round(cos, 6)))
         dino = dict(parts=len(dr), render_s=pct([d['render_s'] for d in dr]), encode_s=pct([d['encode_s'] for d in dr]),
-                    note='CPU renderer (Python rasteriser) and DINOv3 ViT-S/16 on CPU, one thread')
+                    min_cosine_to_stored=min(d['cosine_to_stored_descriptor'] for d in dr),
+                    note=f'Phase V descriptor recipe ({vp.RECIPE}; {vp.VIEWS} views at {vp.SIZE} px), DINOv3 ViT-S/16 (timm) '
+                         'on CPU, one thread; cosine to the stored Phase V descriptor checks the recipe')
     summary = {}
     for m in ('M0', 'M1', 'Joint'):
         for call in ('first', 'repeat'):

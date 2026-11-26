@@ -26,8 +26,10 @@ KS = (1, 5, 10, 20, 50)
 CONTRASTS = [('L8', 'L2'), ('L7', 'L2'), ('L8', 'L10'), ('L8', 'L9'), ('L8', 'L8p'), ('L2', 'L0'), ('L11', 'L2')]
 LINEAR = [('L4', 'L6'), ('L3', 'L5'), ('L10', 'L8'), ('L1', 'L0'), ('L2', 'L1')]
 VISUAL = [('L5', 'L2v'), ('L6', 'L2v'), ('L7', 'L2'), ('L8', 'L2'), ('L9', 'L2'), ('L11', 'L2'), ('L8p', 'L2'),
-          ('L8', 'L8p'), ('L8', 'L9'), ('L6', 'L5'), ('L8', 'L7')]
+          ('L8', 'L8p'), ('L8', 'L9'), ('L6', 'L5'), ('L8', 'L7'), ('L10', 'L2'), ('L10', 'L10p'), ('L10', 'L10r'),
+          ('L10p', 'L2'), ('L10r', 'L2')]  # the L10 rows were added after L10 turned out best (post hoc)
 RANKING = [('L2-rank', 'L2'), ('L8-rank', 'L8'), ('L8-rank', 'L2-rank')]
+LOCAL = [('LG', 'L2'), ('LD', 'L2'), ('LGD', 'L2'), ('LD', 'LG'), ('LGD', 'LG'), ('LGD', 'LD')]
 SENS = [('L2-k8', 'L2'), ('L2-k32', 'L2'), ('L6-k8', 'L6'), ('L6-k32', 'L6'), ('L8-k8', 'L8'), ('L8-k32', 'L8')]
 
 
@@ -84,6 +86,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     for k in ('pred-dir', 'catalogues', 'dev', 'sweep', 'out-dir'):
         p.add_argument(f'--{k}', required=True)
+    p.add_argument('--local-dir', help='local_features.py output, for coverage statistics')
     a = p.parse_args()
     pd = Path(a.pred_dir)
     dev = set(json.loads(Path(a.dev).read_text())['parts'])
@@ -189,6 +192,23 @@ def main():
                                                            variants={k: info[k] for k in info if k in {x for p in VISUAL for x in p}}), indent=1) + '\n')
     (od/'ranking_loss_benchmark.json').write_text(json.dumps(dict(**common, contrasts=contrasts(RANKING),
                                                                   variants={k: info[k] for k in ('L2', 'L8', 'L2-rank', 'L8-rank') if k in info}), indent=1) + '\n')
+    if any(v in info for v in ('LG', 'LD', 'LGD')):
+        cov = None
+        if a.local_dir:
+            vis, off, nv = [], [], 0
+            for f in sorted(Path(a.local_dir).glob('*.npz')):
+                z = np.load(f)
+                vis.append(np.concatenate([z['vis_a'] > 0, z['vis_b'] > 0])); off.append(np.concatenate([z['offset_a'], z['offset_b']]))
+                nv += 1
+            vis, off = np.concatenate(vis), np.concatenate(off)
+            cov = dict(parts=nv, contacts=int(len(vis)), visible_in_at_least_one_view=round(float(vis.mean()), 4),
+                       snap_offset_mm=dict(median=round(float(np.median(off))*1e3, 2), p90=round(float(np.percentile(off, 90))*1e3, 2)))
+        (od/'local_features_benchmark.json').write_text(json.dumps(dict(
+            **common, design='PHASE7_PROTOCOL.md I.3 (local visual features): DINOv3 patch tokens sampled at the two contacts '
+                             '(snapped to the render surface; 8 views, 224 px), PCA 16 per contact fitted on the training fold; '
+                             'classical local geometry (eigenvalue ratios and normal angle within 10 mm); appended to v; '
+                             'same MLP with u as L2', coverage=cov, contrasts=contrasts(LOCAL),
+            variants={k: info[k] for k in ('L2', 'LG', 'LD', 'LGD') if k in info}), indent=1) + '\n')
     for v in sorted(info):
         i = info[v]
         print(f"{v:8s} AUC {i['auc']} ece {i['ece']} N_F {i['N_F_gmean']} s@1 {i['success@1']} s@5 {i['success@5']} "

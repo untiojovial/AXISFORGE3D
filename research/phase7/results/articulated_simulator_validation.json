@@ -1,0 +1,353 @@
+{
+ "status": "executed (pilot)",
+ "note": "    python tools/research/phase7/articulated_pilot.py run --binary target/release/axisforge --store store.json         --projects POOL --collision COLLISION_DIR --catalogues cat80/         --physics research/phase7/results/physics_dev_with_joint.json.gz --out-dir art/ --jobs 1     python tools/research/phase7/articulated_pilot.py report --physics ... --out-dir art/         --out research/phase7/results/articulated_simulator_validation.json  For every development part, the first viable grasp of M0, M1, M4, M9 and Joint (unique labels) is planned again with the native planner (an encoded prior puts that label first) to get its joint values, then simulated with research_grasping/phase7/articulated.py in seven conditions (nominal, mass x2, mass x0.5, friction 0.3, loads 0.5/1/2 kg; torsion 0.005; pose noise is not applied at this level). The report compares the articulated verdicts with the floating-gripper v3 verdicts of the same grasps and conditions. Development evidence; a pilot, not a calibrated arm model.",
+ "model": "research_grasping/phase7/articulated.py",
+ "parts_simulated": 151,
+ "parts_all_methods": 151,
+ "planner_label_errors": {},
+ "robustness_definition": "robust4 = held in nominal, mass x2, mass x0.5 and friction 0.3 (pose-noise conditions are not simulated at the articulated level, so robust4 differs from the six-condition robustness of v3 and the two are compared on the same four conditions)",
+ "agreement_by_condition": {
+  "nominal": {
+   "grasps": 430,
+   "v3_held": 0.9209,
+   "articulated_held": 0.9116,
+   "agreement": 0.9721,
+   "kappa": 0.8182,
+   "v3_only": 8,
+   "articulated_only": 4
+  },
+  "mass x2": {
+   "grasps": 430,
+   "v3_held": 0.9209,
+   "articulated_held": 0.914,
+   "agreement": 0.9651,
+   "kappa": 0.7698,
+   "v3_only": 9,
+   "articulated_only": 6
+  },
+  "mass x0.5": {
+   "grasps": 430,
+   "v3_held": 0.9023,
+   "articulated_held": 0.907,
+   "agreement": 0.9674,
+   "kappa": 0.8113,
+   "v3_only": 6,
+   "articulated_only": 8
+  },
+  "friction 0.3": {
+   "grasps": 430,
+   "v3_held": 0.907,
+   "articulated_held": 0.893,
+   "agreement": 0.9535,
+   "kappa": 0.7417,
+   "v3_only": 13,
+   "articulated_only": 7
+  },
+  "load 0.5 kg": {
+   "grasps": 430,
+   "v3_held": 0.886,
+   "articulated_held": 0.8814,
+   "agreement": 0.9395,
+   "kappa": 0.7058,
+   "v3_only": 14,
+   "articulated_only": 12
+  },
+  "load 1 kg": {
+   "grasps": 430,
+   "v3_held": 0.7116,
+   "articulated_held": 0.7581,
+   "agreement": 0.8698,
+   "kappa": 0.6667,
+   "v3_only": 18,
+   "articulated_only": 38
+  },
+  "load 2 kg": {
+   "grasps": 430,
+   "v3_held": 0.5651,
+   "articulated_held": 0.4047,
+   "agreement": 0.793,
+   "kappa": 0.5961,
+   "v3_only": 79,
+   "articulated_only": 10
+  }
+ },
+ "rates": {
+  "v3 floating gripper": {
+   "M0": {
+    "robust4": 0.8146,
+    "load": 0.5894
+   },
+   "M1": {
+    "robust4": 0.8675,
+    "load": 0.4503
+   },
+   "M4": {
+    "robust4": 0.8675,
+    "load": 0.5497
+   },
+   "M9": {
+    "robust4": 0.9073,
+    "load": 0.3907
+   },
+   "Joint": {
+    "robust4": 0.9007,
+    "load": 0.5629
+   }
+  },
+  "articulated": {
+   "M0": {
+    "robust4": 0.8212,
+    "load": 0.4901
+   },
+   "M1": {
+    "robust4": 0.8543,
+    "load": 0.351
+   },
+   "M4": {
+    "robust4": 0.8742,
+    "load": 0.3179
+   },
+   "M9": {
+    "robust4": 0.8808,
+    "load": 0.2649
+   },
+   "Joint": {
+    "robust4": 0.9007,
+    "load": 0.3179
+   }
+  }
+ },
+ "contrasts": {
+  "v3 floating gripper": {
+   "Joint - M0, robust4": {
+    "difference": 0.0861,
+    "ci95": [
+     0.0265,
+     0.1523
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 19,
+     "only_b": 6,
+     "p": 0.014633
+    }
+   },
+   "Joint - M0, load": {
+    "difference": -0.0265,
+    "ci95": [
+     -0.0927,
+     0.0397
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 11,
+     "only_b": 15,
+     "p": 0.557197
+    }
+   },
+   "Joint - M1, robust4": {
+    "difference": 0.0331,
+    "ci95": [
+     -0.0066,
+     0.0795
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 8,
+     "only_b": 3,
+     "p": 0.226562
+    }
+   },
+   "Joint - M1, load": {
+    "difference": 0.1126,
+    "ci95": [
+     0.053,
+     0.1722
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 20,
+     "only_b": 3,
+     "p": 0.000488
+    }
+   },
+   "M4 - M1, robust4": {
+    "difference": 0.0,
+    "ci95": [
+     -0.0331,
+     0.0331
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 3,
+     "only_b": 3,
+     "p": 1.0
+    }
+   },
+   "M4 - M1, load": {
+    "difference": 0.0993,
+    "ci95": [
+     0.0464,
+     0.1589
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 18,
+     "only_b": 3,
+     "p": 0.00149
+    }
+   },
+   "M9 - M1, robust4": {
+    "difference": 0.0397,
+    "ci95": [
+     0.0,
+     0.0795
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 8,
+     "only_b": 2,
+     "p": 0.109375
+    }
+   },
+   "M9 - M1, load": {
+    "difference": -0.0596,
+    "ci95": [
+     -0.1126,
+     -0.0066
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 5,
+     "only_b": 14,
+     "p": 0.063568
+    }
+   }
+  },
+  "articulated": {
+   "Joint - M0, robust4": {
+    "difference": 0.0795,
+    "ci95": [
+     0.0199,
+     0.1391
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 17,
+     "only_b": 5,
+     "p": 0.016901
+    }
+   },
+   "Joint - M0, load": {
+    "difference": -0.1722,
+    "ci95": [
+     -0.245,
+     -0.106
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 3,
+     "only_b": 29,
+     "p": 3e-06
+    }
+   },
+   "Joint - M1, robust4": {
+    "difference": 0.0464,
+    "ci95": [
+     0.0066,
+     0.0927
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 9,
+     "only_b": 2,
+     "p": 0.06543
+    }
+   },
+   "Joint - M1, load": {
+    "difference": -0.0331,
+    "ci95": [
+     -0.106,
+     0.0397
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 14,
+     "only_b": 19,
+     "p": 0.48685
+    }
+   },
+   "M4 - M1, robust4": {
+    "difference": 0.0199,
+    "ci95": [
+     -0.0132,
+     0.053
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 5,
+     "only_b": 2,
+     "p": 0.453125
+    }
+   },
+   "M4 - M1, load": {
+    "difference": -0.0331,
+    "ci95": [
+     -0.106,
+     0.0397
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 13,
+     "only_b": 18,
+     "p": 0.47313
+    }
+   },
+   "M9 - M1, robust4": {
+    "difference": 0.0265,
+    "ci95": [
+     -0.0132,
+     0.0662
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 7,
+     "only_b": 3,
+     "p": 0.34375
+    }
+   },
+   "M9 - M1, load": {
+    "difference": -0.0861,
+    "ci95": [
+     -0.1457,
+     -0.0331
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 4,
+     "only_b": 17,
+     "p": 0.007197
+    }
+   }
+  }
+ },
+ "controller": {
+  "max_tracking_error_rad": {
+   "median": 0.0505,
+   "p99": 0.104,
+   "max": 0.1188
+  },
+  "trials_with_torque_saturation": 0,
+  "trials": 3010,
+  "unstable_trials": 0
+ },
+ "seconds_per_part_median": 7.0,
+ "limitations": [
+  "the robot is the cell model (link masses and inertias from the project), not a calibrated industrial arm",
+  "arm links have no collision geometry",
+  "joint-space lift instead of a Cartesian one; shake through the base joint",
+  "computed-torque control with exact model, no joint friction, backlash or sensor noise",
+  "same contact model and uncalibrated torsional friction as v3",
+  "simulation, not a real robot"
+ ]
+}

@@ -40,6 +40,10 @@ VARIANTS = {
     'L8-k32': dict(kind='mlp', geometry=True, visual='dinov3', latent=32),
     'L2-rank': dict(kind='mlp', geometry=True, loss='listwise'),
     'L8-rank': dict(kind='mlp', geometry=True, visual='dinov3', loss='listwise'),
+    # controls for the linear branch, added after L10 turned out best among the DINO + geometry variants
+    # (declared post hoc; same architecture and folds)
+    'L10p': dict(kind='mlp', geometry=True, visual='dinov3-permuted', linear=True),
+    'L10r': dict(kind='mlp', geometry=True, visual='vit-random-s0', linear=True),
     # local features at the contacts (protocol I.3): appended to the candidate block v
     'LG': dict(kind='mlp', geometry=True, local='geo'),
     'LD': dict(kind='mlp', geometry=True, local='dino'),

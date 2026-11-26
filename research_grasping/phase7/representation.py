@@ -112,6 +112,7 @@ class MLPModel:
         if self.visual:
             self.sd = Standardiser().fit(np.vstack([data[p]['d'] for p in train_parts]))
         dims = dict(v=vt.shape[1], u=len(data[train_parts[0]]['u']), d=len(data[train_parts[0]]['d']) if self.visual else 0)
+        self.dims = dims
         self.net = build_net(dims, self.geometry, self.visual, self.linear_visual, self.latent)
         opt = torch.optim.AdamW(self.net.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
         T = self._tensors(data, train_parts)
@@ -140,6 +141,31 @@ class MLPModel:
         self.train_seconds = time.perf_counter() - start
         self.params = int(sum(p.numel() for p in self.net.parameters()))
         return self
+
+    def state(self):
+        """Everything needed to rebuild the fitted model, as tensors and plain values (torch.save, weights_only)."""
+        import torch
+        st = dict(config=dict(geometry=self.geometry, visual=self.visual, linear_visual=self.linear_visual, loss=self.loss,
+                              latent=self.latent, seed=self.seed),
+                  dims=self.dims, net={k: v.clone() for k, v in self.net.state_dict().items()},
+                  epochs=self.epochs, params=self.params)
+        for name in ('sv', 'su', 'sd'):
+            if hasattr(self, name):
+                st[name] = dict(mean=torch.tensor(getattr(self, name).mean), std=torch.tensor(getattr(self, name).std))
+        return st
+
+    @classmethod
+    def from_state(cls, st):
+        m = cls(**st['config'])
+        m.dims, m.epochs, m.params = st['dims'], st['epochs'], st['params']
+        for name in ('sv', 'su', 'sd'):
+            if name in st:
+                z = Standardiser(); z.mean, z.std = st[name]['mean'].numpy(), st[name]['std'].numpy()
+                setattr(m, name, z)
+        m.net = build_net(m.dims, m.geometry, m.visual, m.linear_visual, m.latent)
+        m.net.load_state_dict(st['net'])
+        m.net.eval()
+        return m
 
     def _tensors(self, data, parts):
         import torch

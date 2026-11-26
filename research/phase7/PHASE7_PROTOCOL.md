@@ -198,3 +198,231 @@ acquired during planning cannot pay back its cost. The decision and its evidence
 
 Models trained at 80 mm, applied zero-shot to the existing 40 mm and 120 mm catalogues of the 316 parts.
 Compared with models trained for each gripper, with the same folds.
+
+## Part II — confirmation (fixed before any confirmatory object is planned)
+
+Written after every development experiment of Part I and before the planner, the physics, any model or
+any renderer has touched a confirmatory EGAD object. It is committed together with
+[PHASE7_MODEL_FREEZE.json](PHASE7_MODEL_FREEZE.json). Nothing below may change once the first
+confirmatory catalogue is built; an error found later is handled by II.9.
+
+### II.1 What has touched EGAD so far
+
+- **Selection.** [egad_selection.json](egad_selection.json) (commit `c55ca8b`) fixes the seeded order
+  of 599 primary cells and the 45 evaluation-set objects. It used metadata and geometric checks only.
+- **Disclosed deviation D1.** The cells of primary positions 0 and 1 (L01, N23) were built while the
+  preparation code was being written: scaling, stable pose, `add-object` and collision decomposition.
+  Nothing was planned, simulated, rendered or predicted for them. Their geometric records (extents,
+  number of collision pieces) were seen. They stay in the confirmatory set and are rebuilt with the
+  final preparation code.
+- **Smoke test.** Positions 500–502 (J17, J20, L08) went through the whole pipeline (build, catalogue,
+  descriptors, orders, physics, articulated, timing, analysis) to test the code and choose the
+  collision decomposition. **They are excluded from every confirmatory analysis**, as is every position
+  ≥ 300.
+
+### II.2 Confirmatory set
+
+**Primary set.**
+
+- Objects: EGAD training-set primary order positions **0–299 (300 objects)**, one mesh per grid cell
+  (no near-identical siblings).
+- Sample size, from development power
+  ([phase7_statistical_power.json](results/phase7_statistical_power.json); paired resampling of the 151
+  development parts, observed and shrunken effects):
+
+  | Hypothesis | Power at 200 viable objects |
+  |---|---|
+  | P1 | ≈ 1.00 |
+  | P2 | 0.99 (Holm step 0.025/3) |
+  | P3 | 0.997 |
+  | P2 superiority | 0.77 (0.93 at 300) |
+  | S1 | 0.97 (0.73 shrunken) |
+  | S3 | 0.99 (0.80 shrunken) |
+  | S2 | 0.43 — underpowered, kept as historical |
+
+- Viable fraction: 300 objects give about 200–280 viable objects if 65–95 % are viable. The viable
+  fraction in the smoke test was 3/3. GSO was 0.755.
+
+**Secondary set.** The 45 accepted EGAD evaluation-set objects, analysed with the same code and reported
+separately. They never enter the primary families.
+
+**Untouched.** The 8 sealed Phase III objects and every GSO/YCB development part.
+
+**Inclusion and exclusion.**
+
+- Inclusion: a watertight mesh with positive volume, already applied in the selection; failures were
+  replaced by the next cell in the seeded order.
+- No object is removed for any outcome.
+- Every selected object enters the population metrics with one status:
+  - `viable`;
+  - `no viable candidate` (candidates generated, none feasible);
+  - `no candidate generated`;
+  - `planner budget exhausted` (exhaustive plan longer than 3 600 s);
+  - `catalogue error`;
+  - `cell build refused`.
+- These statuses mean "AxisForge found no grasp", never "physically ungraspable".
+
+### II.3 Preparation (frozen code: `tools/research/phase7/egad_prepare.py`)
+
+- **Scale.** The dataset authors' rule for an 80 mm gripper.
+- **Pose.** The most probable stable pose.
+- **Cell.** The demo cell without parts; `add-object --units m --mass 0.1 --at 0.42 0 0.42`. The mass is
+  assumed.
+- **Collision pieces.** CoACD with threshold 0.1, at most 32 pieces, no preprocessing, 60 tree-search
+  iterations with 10 nodes, seed 0.
+  - These settings were chosen on the excluded smoke cells.
+  - Threshold 0.05 without a cap gave 100–150 pieces in 200–400 s per object.
+  - 32 is the cap of the GSO collision models used in development.
+- **Catalogue.** The exhaustive 80 mm catalogue (`research-candidates` and an exhaustive `plan`).
+
+### II.4 Frozen methods (hashes in PHASE7_MODEL_FREEZE.json)
+
+**Models.**
+
+| Symbol | Model | Training data | Label |
+|---|---|---|---|
+| P(F) | Gradient boosting, Phase V settings, seed 0, 19 candidate features | 316 development parts (376 690 candidates) | Exhaustive 80 mm feasibility |
+| P(H\|F) | Gradient boosting, seed 0 | Viable candidates of the 151 dynamic development parts (12 585) | Phase VI v2 robustness in the six standard conditions |
+
+p̃ = P(F)/max over the object's candidates.
+
+**Methods.** All share the planner's stroke gate (makeable first).
+
+| Id | Order |
+|---|---|
+| M0 | The original planner order |
+| M1 | Preliminary + 2·p̃ |
+| M4 | p̃^0.8 · Q_cen^0.2 |
+| M9 | p̃ · P(H\|F) |
+| **FORTIS-R Joint (final method)** | p̃ · P(H\|F) · max(Q_cen, 10⁻³)^0.3 |
+| Hybrid (secondary) | Round robin of Joint and M0. Bound: N_hybrid ≤ 2·min(N_Joint, N_M0) |
+
+- β = 0.3: the protocol I.4 criterion applied to all 151 development parts; also chosen in 4 of 5 outer
+  folds.
+
+**H5 representations.** MLPs with the Part I architecture, trained on the 316 development parts, 3 seeds,
+predictions averaged, integrated as M1:
+
+| Id | Role | Inputs |
+|---|---|---|
+| L2 | Geometry MLP | v, u |
+| L10 | The best DINO + geometry MLP in development | v, u, DINOv3 through a linear branch |
+| L10p | Control | Permuted DINOv3 |
+| L10r | Control | Untrained ViT |
+| L8 | Reported | Nonlinear DINOv3 branch |
+
+- Descriptors use the Phase V recipe (16 views, 96 px, neutral grey; reproduced with cosine 1.000000
+  on development parts).
+
+**Main choices.**
+
+- Main baseline: M0 (the original planner).
+- Best learned baseline: M1.
+- Main physical criterion: v3 (15°, torsion 0.005 m).
+- Main operational metric: N_F, the number of candidates the planner examines until the first viable
+  grasp.
+- Main configuration: the 80 mm gripper of the demo cell.
+
+### II.5 Measurements
+
+- **N_F and first grasps.** From the exact order simulator on each object's catalogue.
+- **Population metrics.** Success@B for B = 1, 5, 10, 20, 50 over all objects; an object without a viable
+  candidate is a failure.
+- **Physics v3.** First viable grasp of M0, M1, M4, M9 and Joint, in the nine conditions at torsion 0.005.
+  - The torsion grid (0.001, 0.02) covers M0, M1 and Joint.
+  - Unstable simulations count as not held.
+  - The v2 criterion is also reported (historical).
+  - Rotation limits 5/10/20° are sensitivity only.
+- **Articulated level.** The cell's arm (`research_grasping/phase7/articulated.py`) for the M0, M1 and
+  Joint first grasps of primary viable objects, in seven conditions (no pose noise). Descriptive.
+- **Full online cost (H4).**
+  - Objects: 60 primary viable objects drawn with seed 20261207.
+  - Methods: M0, M1 and Joint, in a random order per object, with one thread and nothing else running.
+  - Calls: one warm-up call per run, then four calls per object and method; the median of calls 2–4 is
+    taken.
+  - T_total (from receiving the object to the planner's answer):
+    - M0: the planner call.
+    - M1 and Joint: the `research-candidates` process + features + inference + prior file + the
+      planner call.
+  - The planner's own stage timings are kept.
+
+### II.6 Hypotheses and analysis
+
+**Unit and directions.** The unit is the object, and all comparisons are paired by object. Directions are
+fixed one-sided at α = 0.025. Effect sizes always come with 95 % CIs: bootstrap with 10 000 draws, seed
+20261128.
+
+**Primary family.** Holm across P1–P3 at one-sided familywise α = 0.025, on primary viable objects.
+
+| Id | Claim | Test | Supported only if |
+|---|---|---|---|
+| P1 | Joint examines fewer candidates than M0 | Geometric-mean ratio N_F(Joint)/N_F(M0); one-sided Wilcoxon signed-rank on the log ratios | Holm-adjusted p < 0.025 **and** the 95 % CI upper limit < 1 |
+| P2 | Joint's v3 robustness (six standard conditions) is non-inferior to M0's, margin 5 percentage points | One-sided z test on the paired difference | Holm-adjusted p < 0.025 **and** the one-sided 97.5 % lower limit > −0.05 |
+| P2-sup | Joint is more robust than M0 (fixed sequence) | Exact one-sided McNemar at 0.025/3 | Tested only if P2 holds; p < 0.025/3 **and** a positive difference |
+| P3 (= H3) | Joint's N_F is non-inferior to M1's (the best learned baseline), ratio margin 1.25 | One-sided t test on log ratios against log 1.25 | Holm-adjusted p < 0.025 **and** the one-sided 97.5 % upper limit < 1.25 |
+
+H3's "margen temporal" is expressed in examined candidates. Each candidate costs about the same planner
+time, and N_F is free of timing noise. Measured time is reported by S6.
+
+**Secondary family.** Holm across S1–S7 at one-sided 0.025; reported as secondary.
+
+| Id | Claim |
+|---|---|
+| S1 (H1, historical) | M4 > M1 in load tolerance (v3) |
+| S2 (H2, historical) | M9 > M1 in robustness (v3) |
+| S3 | Joint > M1 in load tolerance (v3) |
+| S4 | Joint > M1 in robustness (v3) |
+| S5 | Joint's load tolerance (v3) is non-inferior to M0's, margin 10 pp |
+| S6 (H4) | Joint's full online cost T_total is lower than M0's (ratio, Wilcoxon) |
+| S7 (H5) | L10 examines fewer candidates than L2 |
+
+- S1 and S2 use McNemar. They keep their historical meaning; the physical definition changes from v2 to
+  v3, and the v2 versions are reported next to them.
+- **H5** holds only if S7 is supported **and** L10 < L10p (95 % CI upper limit below 1). L10r, L8 and L2
+  vs gradient boosting are reported.
+
+**Descriptive, outside both families.**
+
+- Population Success@B and the status counts.
+- The hybrid's bound check and the number of objects with negative transfer.
+- Torsion and rotation-threshold sensitivity of P2 and S3.
+- The articulated replication.
+- The evaluation set.
+- Development vs EGAD rates (`cross_dataset_results.json`).
+
+Not significant is never reported as equivalent. Development and confirmation results appear in
+separate sections.
+
+### II.7 Failure handling
+
+- Every object keeps its status (II.2).
+- A planner or simulator crash is retried once with the same inputs. Only a deterministic code failure
+  on a frozen path is a critical error (II.9).
+- A viable object without dynamics is listed in `missing_dynamics` and excluded only from the dynamic
+  tests.
+- Nothing is rerun to change an outcome.
+
+### II.8 Changes from the Phase VI draft and from Part I, all decided on development data
+
+1. **Load tolerance moved to secondary.**
+   - The Phase VI draft (and a Phase VII draft) had "Joint > M1 load tolerance" as primary.
+   - The development articulated pilot
+     ([articulated_simulator_validation.json](results/articulated_simulator_validation.json)) agrees with
+     the floating gripper on the standard conditions (agreement 0.95–0.97). It disagrees on heavy loads:
+     Joint − M1 load is +11.3 pp with v3 but −3.3 [−10.6, 4.0] with the arm.
+   - So load-tolerance claims depend on the simulator level and are not primary.
+2. **H5 targets L10, not the pre-declared L8.**
+   - L8 did not differ from L2 or from its permuted control in development.
+   - L10 was the best DINO + geometry variant.
+   - Its linear-branch controls (L10p, L10r) were added to the development benchmark after L10's result
+     was seen (declared post hoc).
+3. **The P(F) used by M1/M4/M9/Joint is refitted on all 316 development parts.** In development it was
+   Phase V's library model.
+4. **The collision decomposition** was chosen on the excluded smoke cells (II.3).
+
+### II.9 Errors after the test is opened
+
+- The method is not changed.
+- An error found after opening is documented with the affected results kept.
+- The record states whether a new test set is needed. Unused positions 300–499 of the frozen order are
+  the reserve.

@@ -53,6 +53,7 @@ def simulate(pairs, n, alpha, reps=4000, shrink=0., seed=20261203):
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--physics', required=True); p.add_argument('--out', required=True)
+    p.add_argument('--nf', help='negative_transfer_analysis.json (per-part N_F) for the N_F hypotheses')
     a = p.parse_args()
     ph = json.load(gzip.open(a.physics, 'rt'))
     core, trials = ph['core'], ph['trials']
@@ -68,6 +69,7 @@ def main():
     noninf = {}
     if 'Joint' in core[parts[0]]:
         noninf = {'Joint non-inferior to M0, robustness (v3), margin 5 pp': (pairs('Joint', 'M0', 'robust'), .05),
+                  'Joint superior to M0, robustness (v3) (fixed sequence after non-inferiority)': (pairs('Joint', 'M0', 'robust'), 0.),
                   'Joint non-inferior to M0, load tolerance (v3), margin 10 pp': (pairs('Joint', 'M0', 'load'), .10)}
     out = dict(note=__doc__.strip().split('\n\n', 1)[1].replace('\n', ' '), development_parts=len(parts), hypotheses={})
     sizes = (100, 150, 200, 250, 300, 400)
@@ -100,6 +102,28 @@ def main():
                     hits += (s.mean() - z*se) > -margin
                 row['power'][alpha_label][str(n)] = round(hits/4000, 3)
         out['non_inferiority'][h] = row
+    if a.nf:
+        nfp = json.loads(Path(a.nf).read_text())['per_part_N_F']
+        out['N_F'] = {}
+        from scipy.stats import wilcoxon
+        for label, (x, y, kind, margin) in {'P1: Joint N_F < M0 (one-sided Wilcoxon, Holm step 0.025/3)': ('Joint', 'M0', 'sup', None),
+                                             'H3: Joint N_F non-inferior to M1, ratio margin 1.25 (bootstrap CI)': ('Joint', 'M1', 'ni', 1.25)}.items():
+            d = np.log(np.array([nfp[n][x]/nfp[n][y] for n in sorted(nfp)], float))
+            row = dict(development_ratio=round(float(np.exp(d.mean())), 4), power={})
+            rng = np.random.default_rng(20261206)
+            for n in sizes:
+                hits = 0
+                reps = 1000
+                for _ in range(reps):
+                    s_ = d[rng.integers(0, len(d), n)]
+                    if kind == 'sup':
+                        nz = s_[s_ != 0]
+                        hits += len(nz) > 0 and wilcoxon(nz, alternative='less').pvalue < .025/3
+                    else:
+                        bs = s_[rng.integers(0, n, (400, n))].mean(1)
+                        hits += np.exp(np.percentile(bs, 100-100*.025/3)) < margin
+                row['power'][str(n)] = round(hits/reps, 3)
+            out['N_F'][label] = row
     out['viable_fraction_assumed'] = {'GSO (Phase V)': .755, 'conservative': .55}
     Path(a.out).write_text(json.dumps(out, indent=1) + '\n')
     print(json.dumps(out, indent=1)[:6000])
