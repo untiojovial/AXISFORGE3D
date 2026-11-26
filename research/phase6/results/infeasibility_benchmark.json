@@ -1,0 +1,1625 @@
+{
+ "note": "\"Infeasible\" = no viable grasp among the generated candidates (not proof that the part cannot be grasped). Phase V test parts, 80 mm gripper, experiment B.",
+ "library_threshold_max_p": 0.00854,
+ "library_viable_parts": 88,
+ "levels": {
+  "demonstrable": {
+   "parts": 0,
+   "nonviable": 0,
+   "viable": 0
+  },
+  "estimated": {
+   "parts": 13,
+   "nonviable": 13,
+   "viable": 0
+  },
+  "none": {
+   "parts": 187,
+   "nonviable": 36,
+   "viable": 151
+  }
+ },
+ "auc_max_p_for_nonviable": 0.9897,
+ "parts": {
+  "3D_Dollhouse_Happy_Brother": {
+   "viable": true,
+   "makeable": 1050,
+   "max_p": 0.94677,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "3D_Dollhouse_Lamp": {
+   "viable": true,
+   "makeable": 718,
+   "max_p": 0.96095,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "3D_Dollhouse_TablePurple": {
+   "viable": true,
+   "makeable": 730,
+   "max_p": 0.96491,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "3M_Antislip_Surfacing_Light_Duty_White": {
+   "viable": false,
+   "makeable": 634,
+   "max_p": 0.00366,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "3M_Vinyl_Tape_Green_1_x_36_yd": {
+   "viable": false,
+   "makeable": 488,
+   "max_p": 0.00064,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Android_Figure_Chrome": {
+   "viable": true,
+   "makeable": 944,
+   "max_p": 0.9647,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Android_Figure_Panda": {
+   "viable": true,
+   "makeable": 904,
+   "max_p": 0.99248,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Android_Lego": {
+   "viable": true,
+   "makeable": 668,
+   "max_p": 0.88925,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Beetle_Adventure_Racing_Nintendo_64": {
+   "viable": true,
+   "makeable": 664,
+   "max_p": 0.91451,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Beta_Glucan": {
+   "viable": true,
+   "makeable": 738,
+   "max_p": 0.99822,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Bifidus_Balance_FOS": {
+   "viable": true,
+   "makeable": 780,
+   "max_p": 0.99789,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Blackcurrant_Lutein": {
+   "viable": true,
+   "makeable": 752,
+   "max_p": 0.99808,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD": {
+   "viable": false,
+   "makeable": 642,
+   "max_p": 0.00127,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Borage_GLA240Gamma_Tocopherol": {
+   "viable": true,
+   "makeable": 692,
+   "max_p": 0.99576,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Breyer_Horse_Of_The_Year_2015": {
+   "viable": true,
+   "makeable": 672,
+   "max_p": 0.91746,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Brother_Ink_Cartridge_Magenta_LC75M": {
+   "viable": true,
+   "makeable": 590,
+   "max_p": 0.9825,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "CARSII": {
+   "viable": true,
+   "makeable": 830,
+   "max_p": 0.06663,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Canon_Ink_Cartridge_Green_6": {
+   "viable": true,
+   "makeable": 556,
+   "max_p": 0.5176,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Canon_Pixma_Chromalife_100_Magenta_8": {
+   "viable": true,
+   "makeable": 706,
+   "max_p": 0.79134,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Canon_Pixma_Ink_Cartridge_251_M": {
+   "viable": true,
+   "makeable": 702,
+   "max_p": 0.95856,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Canon_Pixma_Ink_Cartridge_8": {
+   "viable": true,
+   "makeable": 718,
+   "max_p": 0.66652,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Canon_Pixma_Ink_Cartridge_8_Green": {
+   "viable": true,
+   "makeable": 700,
+   "max_p": 0.80732,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+   "viable": true,
+   "makeable": 680,
+   "max_p": 0.88981,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Chef_Style_Round_Cake_Pan_9_inch_pan": {
+   "viable": false,
+   "makeable": 636,
+   "max_p": 0.0615,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "CoQ10_BjTLbuRVt1t": {
+   "viable": true,
+   "makeable": 784,
+   "max_p": 0.99795,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Cole_Hardware_Dishtowel_Blue": {
+   "viable": false,
+   "makeable": 646,
+   "max_p": 0.01321,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Cole_Hardware_Dishtowel_BlueWhite": {
+   "viable": false,
+   "makeable": 638,
+   "max_p": 0.02371,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Cole_Hardware_Dishtowel_Multicolors": {
+   "viable": false,
+   "makeable": 652,
+   "max_p": 0.0363,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Cole_Hardware_Dishtowel_Red": {
+   "viable": false,
+   "makeable": 652,
+   "max_p": 0.02712,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Cole_Hardware_Dishtowel_Stripe": {
+   "viable": false,
+   "makeable": 630,
+   "max_p": 0.02311,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Cole_Hardware_Mini_Honey_Dipper": {
+   "viable": true,
+   "makeable": 1200,
+   "max_p": 0.88281,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Cole_Hardware_Plant_Saucer_Glazed_9": {
+   "viable": false,
+   "makeable": 606,
+   "max_p": 0.11753,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Cole_Hardware_Saucer_Electric": {
+   "viable": false,
+   "makeable": 674,
+   "max_p": 0.09238,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Crayola_Bonus_64_Crayons": {
+   "viable": true,
+   "makeable": 510,
+   "max_p": 0.96609,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Crayola_Crayons_24_count": {
+   "viable": true,
+   "makeable": 644,
+   "max_p": 0.99184,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Crayola_Crayons_Washable_24_crayons": {
+   "viable": true,
+   "makeable": 624,
+   "max_p": 0.99102,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+   "viable": true,
+   "makeable": 430,
+   "max_p": 0.98716,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Dell_Ink_Cartridge": {
+   "viable": true,
+   "makeable": 510,
+   "max_p": 0.38486,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Dell_Ink_Cartridge_Yellow_31": {
+   "viable": true,
+   "makeable": 618,
+   "max_p": 0.54339,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Dino_4": {
+   "viable": true,
+   "makeable": 712,
+   "max_p": 0.94799,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Ecoforms_Plant_Container_S14Turquoise": {
+   "viable": false,
+   "makeable": 736,
+   "max_p": 0.13778,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Ecoforms_Plant_Container_S24NATURAL": {
+   "viable": false,
+   "makeable": 696,
+   "max_p": 0.1123,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Ecoforms_Plant_Plate_S11Turquoise": {
+   "viable": false,
+   "makeable": 846,
+   "max_p": 0.01575,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Ecoforms_Plant_Saucer_S14MOCHA": {
+   "viable": false,
+   "makeable": 718,
+   "max_p": 0.15904,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Ecoforms_Plant_Saucer_S14NATURAL": {
+   "viable": false,
+   "makeable": 700,
+   "max_p": 0.00839,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Ecoforms_Plant_Saucer_S17MOCHA": {
+   "viable": false,
+   "makeable": 684,
+   "max_p": 0.03001,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Ecoforms_Plant_Saucer_S20MOCHA": {
+   "viable": false,
+   "makeable": 680,
+   "max_p": 0.31176,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Ecoforms_Plate_S20Avocado": {
+   "viable": false,
+   "makeable": 670,
+   "max_p": 0.10649,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Epson_273XL_Ink_Cartridge_Magenta": {
+   "viable": true,
+   "makeable": 618,
+   "max_p": 0.92782,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+   "viable": true,
+   "makeable": 520,
+   "max_p": 0.98397,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+   "viable": true,
+   "makeable": 572,
+   "max_p": 0.97996,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+   "viable": true,
+   "makeable": 564,
+   "max_p": 0.99298,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+   "viable": true,
+   "makeable": 690,
+   "max_p": 0.94241,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+   "viable": true,
+   "makeable": 692,
+   "max_p": 0.96187,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "FIRE_ENGINE": {
+   "viable": true,
+   "makeable": 622,
+   "max_p": 0.93706,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "FIRE_TRUCK": {
+   "viable": true,
+   "makeable": 482,
+   "max_p": 0.64955,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "FemDophilus": {
+   "viable": true,
+   "makeable": 732,
+   "max_p": 0.99571,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+   "viable": true,
+   "makeable": 608,
+   "max_p": 0.92344,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Fujifilm_instax_SHARE_SP1_10_photos": {
+   "viable": true,
+   "makeable": 480,
+   "max_p": 0.98422,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "GoPro_HERO3_Composite_Cable": {
+   "viable": true,
+   "makeable": 1204,
+   "max_p": 0.56334,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Google_Cardboard_Original_package": {
+   "viable": false,
+   "makeable": 592,
+   "max_p": 0.00759,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+   "viable": true,
+   "makeable": 2166,
+   "max_p": 0.43862,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+   "viable": true,
+   "makeable": 736,
+   "max_p": 0.99142,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total": {
+   "viable": false,
+   "makeable": 500,
+   "max_p": 0.12447,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+   "viable": true,
+   "makeable": 766,
+   "max_p": 0.99283,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "HP_1800_Tablet_8GB_7": {
+   "viable": false,
+   "makeable": 650,
+   "max_p": 0.02872,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "HP_Card_Invitation_Kit": {
+   "viable": true,
+   "makeable": 492,
+   "max_p": 0.97945,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Hey_You_Pikachu_Nintendo_64": {
+   "viable": true,
+   "makeable": 668,
+   "max_p": 0.90107,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Home_Fashions_Washcloth_Linen": {
+   "viable": false,
+   "makeable": 670,
+   "max_p": 0.00721,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Home_Fashions_Washcloth_Olive_Green": {
+   "viable": false,
+   "makeable": 616,
+   "max_p": 0.02989,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+   "viable": true,
+   "makeable": 626,
+   "max_p": 0.83716,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Inositol": {
+   "viable": true,
+   "makeable": 698,
+   "max_p": 0.99215,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "JarroDophilusFOS_Value_Size": {
+   "viable": true,
+   "makeable": 652,
+   "max_p": 0.99273,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+   "viable": true,
+   "makeable": 712,
+   "max_p": 0.99488,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+   "viable": true,
+   "makeable": 642,
+   "max_p": 0.99405,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+   "viable": true,
+   "makeable": 984,
+   "max_p": 0.81161,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+   "viable": true,
+   "makeable": 454,
+   "max_p": 0.98554,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+   "viable": true,
+   "makeable": 430,
+   "max_p": 0.98933,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+   "viable": true,
+   "makeable": 440,
+   "max_p": 0.99115,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+   "viable": true,
+   "makeable": 450,
+   "max_p": 0.98657,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+   "viable": true,
+   "makeable": 614,
+   "max_p": 0.9238,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Kotex_U_Barely_There_Liners_Thin_60_count": {
+   "viable": true,
+   "makeable": 324,
+   "max_p": 0.98192,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Kotobuki_Saucer_Dragon_Fly": {
+   "viable": false,
+   "makeable": 788,
+   "max_p": 0.03827,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Krill_Oil": {
+   "viable": true,
+   "makeable": 736,
+   "max_p": 0.99754,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Lactoferrin": {
+   "viable": true,
+   "makeable": 706,
+   "max_p": 0.99602,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game": {
+   "viable": false,
+   "makeable": 644,
+   "max_p": 0.03621,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Lutein": {
+   "viable": true,
+   "makeable": 718,
+   "max_p": 0.99829,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "MK7": {
+   "viable": true,
+   "makeable": 720,
+   "max_p": 0.9979,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Magnifying_Glassassrt": {
+   "viable": true,
+   "makeable": 904,
+   "max_p": 0.58238,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+   "viable": true,
+   "makeable": 802,
+   "max_p": 0.98818,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+   "viable": true,
+   "makeable": 652,
+   "max_p": 0.9888,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Mario_Luigi_Dream_Team_Nintendo_3DS_Game": {
+   "viable": false,
+   "makeable": 682,
+   "max_p": 0.01545,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "My_First_Rolling_Lion": {
+   "viable": true,
+   "makeable": 552,
+   "max_p": 0.98284,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+   "viable": true,
+   "makeable": 410,
+   "max_p": 0.98958,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+   "viable": true,
+   "makeable": 452,
+   "max_p": 0.9964,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+   "viable": true,
+   "makeable": 462,
+   "max_p": 0.98131,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+   "viable": true,
+   "makeable": 636,
+   "max_p": 0.94676,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+   "viable": true,
+   "makeable": 728,
+   "max_p": 0.56055,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+   "viable": true,
+   "makeable": 688,
+   "max_p": 0.89392,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Nikon_1_AW1_w11275mm_Lens_Silver": {
+   "viable": true,
+   "makeable": 734,
+   "max_p": 0.99632,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Nintendo_Mario_Action_Figure": {
+   "viable": true,
+   "makeable": 830,
+   "max_p": 0.98051,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Now_Designs_Snack_Bags_Bicycle_2_count": {
+   "viable": false,
+   "makeable": 614,
+   "max_p": 0.00077,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "OXO_Cookie_Spatula": {
+   "viable": true,
+   "makeable": 784,
+   "max_p": 0.69764,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Object": {
+   "viable": true,
+   "makeable": 648,
+   "max_p": 0.85672,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+   "viable": true,
+   "makeable": 452,
+   "max_p": 0.99316,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+   "viable": true,
+   "makeable": 486,
+   "max_p": 0.9944,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+   "viable": true,
+   "makeable": 462,
+   "max_p": 0.98591,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+   "viable": true,
+   "makeable": 448,
+   "max_p": 0.99211,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+   "viable": true,
+   "makeable": 422,
+   "max_p": 0.98877,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+   "viable": true,
+   "makeable": 420,
+   "max_p": 0.9923,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+   "viable": true,
+   "makeable": 476,
+   "max_p": 0.99311,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+   "viable": true,
+   "makeable": 454,
+   "max_p": 0.99105,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+   "viable": true,
+   "makeable": 506,
+   "max_p": 0.99266,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+   "viable": true,
+   "makeable": 498,
+   "max_p": 0.99626,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+   "viable": true,
+   "makeable": 476,
+   "max_p": 0.99363,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+   "viable": true,
+   "makeable": 450,
+   "max_p": 0.98836,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+   "viable": true,
+   "makeable": 450,
+   "max_p": 0.99459,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+   "viable": true,
+   "makeable": 422,
+   "max_p": 0.99325,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+   "viable": true,
+   "makeable": 432,
+   "max_p": 0.98833,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+   "viable": true,
+   "makeable": 438,
+   "max_p": 0.99292,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+   "viable": true,
+   "makeable": 478,
+   "max_p": 0.99351,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+   "viable": true,
+   "makeable": 440,
+   "max_p": 0.99262,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+   "viable": true,
+   "makeable": 414,
+   "max_p": 0.9921,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "PEEKABOO_ROLLER": {
+   "viable": true,
+   "makeable": 1152,
+   "max_p": 0.99635,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Paper_Mario_Sticker_Star_Nintendo_3DS_Game": {
+   "viable": false,
+   "makeable": 658,
+   "max_p": 0.00049,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_Blue_Plasma_Orbital": {
+   "viable": true,
+   "makeable": 386,
+   "max_p": 0.98842,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_Face_Finishing_Moisturizer": {
+   "viable": true,
+   "makeable": 658,
+   "max_p": 0.99807,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+   "viable": true,
+   "makeable": 686,
+   "max_p": 0.99808,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_High_Potency_Evening_Repair": {
+   "viable": true,
+   "makeable": 806,
+   "max_p": 0.99797,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+   "viable": true,
+   "makeable": 998,
+   "max_p": 0.99796,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+   "viable": true,
+   "makeable": 386,
+   "max_p": 0.98965,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_Neuropeptide_Facial_Conformer": {
+   "viable": true,
+   "makeable": 822,
+   "max_p": 0.99576,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+   "viable": true,
+   "makeable": 672,
+   "max_p": 0.99684,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_No_Bronzer_Bronzer": {
+   "viable": true,
+   "makeable": 854,
+   "max_p": 0.99865,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Perricone_MD_No_Mascara_Mascara": {
+   "viable": true,
+   "makeable": 776,
+   "max_p": 0.9956,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Perricone_MD_Photo_Plasma": {
+   "viable": true,
+   "makeable": 420,
+   "max_p": 0.98976,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_The_Crease_Cure_Duo": {
+   "viable": true,
+   "makeable": 462,
+   "max_p": 0.99328,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_The_Power_Treatments": {
+   "viable": true,
+   "makeable": 518,
+   "max_p": 0.9926,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Perricone_MD_Vitamin_C_Ester_Serum": {
+   "viable": true,
+   "makeable": 370,
+   "max_p": 0.99443,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+   "viable": true,
+   "makeable": 598,
+   "max_p": 0.92309,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Pet_Dophilus_powder": {
+   "viable": true,
+   "makeable": 738,
+   "max_p": 0.99842,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Phillips_Caplets_Size_24": {
+   "viable": true,
+   "makeable": 546,
+   "max_p": 0.99047,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Phillips_Colon_Health_Probiotic_Capsule": {
+   "viable": true,
+   "makeable": 420,
+   "max_p": 0.98488,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+   "viable": true,
+   "makeable": 484,
+   "max_p": 0.99344,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "PhosphOmega": {
+   "viable": true,
+   "makeable": 634,
+   "max_p": 0.98855,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Pokmon_X_Nintendo_3DS_Game": {
+   "viable": false,
+   "makeable": 660,
+   "max_p": 0.01372,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Pokmon_Y_Nintendo_3DS_Game": {
+   "viable": false,
+   "makeable": 670,
+   "max_p": 0.01319,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+   "viable": true,
+   "makeable": 630,
+   "max_p": 0.95394,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Prostate_Optimizer": {
+   "viable": true,
+   "makeable": 692,
+   "max_p": 0.99222,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "QAbsorb_CoQ10_53iUqjWjW3O": {
+   "viable": true,
+   "makeable": 716,
+   "max_p": 0.99687,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "REEF_ZENFUN": {
+   "viable": true,
+   "makeable": 514,
+   "max_p": 0.07062,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "RESCUE_CREW": {
+   "viable": true,
+   "makeable": 500,
+   "max_p": 0.29709,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "ROAD_CONSTRUCTION_SET": {
+   "viable": true,
+   "makeable": 528,
+   "max_p": 0.02384,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse": {
+   "viable": false,
+   "makeable": 704,
+   "max_p": 0.49216,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "SAMe_200_KX7ZmOw47co": {
+   "viable": true,
+   "makeable": 442,
+   "max_p": 0.99393,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "SCHOOL_BUS": {
+   "viable": true,
+   "makeable": 1290,
+   "max_p": 0.92468,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "SPEED_BOAT": {
+   "viable": true,
+   "makeable": 530,
+   "max_p": 0.73026,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Schleich_African_Black_Rhino": {
+   "viable": true,
+   "makeable": 748,
+   "max_p": 0.95538,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Schleich_Allosaurus": {
+   "viable": true,
+   "makeable": 648,
+   "max_p": 0.62653,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Schleich_Hereford_Bull": {
+   "viable": true,
+   "makeable": 682,
+   "max_p": 0.84688,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Schleich_Lion_Action_Figure": {
+   "viable": true,
+   "makeable": 886,
+   "max_p": 0.85051,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Schleich_S_Bayala_Unicorn_70432": {
+   "viable": true,
+   "makeable": 712,
+   "max_p": 0.57673,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+   "viable": true,
+   "makeable": 652,
+   "max_p": 0.99525,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+   "viable": true,
+   "makeable": 682,
+   "max_p": 0.98932,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+   "viable": true,
+   "makeable": 670,
+   "max_p": 0.6174,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+   "viable": true,
+   "makeable": 614,
+   "max_p": 0.96097,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White": {
+   "viable": false,
+   "makeable": 466,
+   "max_p": 0.02443,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Shurtape_30_Day_Removal_UV_Delct_15": {
+   "viable": false,
+   "makeable": 392,
+   "max_p": 0.00063,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Shurtape_Gaffers_Tape_Silver_2_x_60_yd": {
+   "viable": false,
+   "makeable": 444,
+   "max_p": 0.0002,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Shurtape_Tape_Purple_CP28": {
+   "viable": false,
+   "makeable": 302,
+   "max_p": 0.00067,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Simon_Swipe_Game": {
+   "viable": false,
+   "makeable": 704,
+   "max_p": 0.12587,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Sleep_Optimizer": {
+   "viable": true,
+   "makeable": 614,
+   "max_p": 0.94333,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Sony_Acid_Music_Studio": {
+   "viable": true,
+   "makeable": 548,
+   "max_p": 0.98826,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Sony_Downloadable_Loops": {
+   "viable": true,
+   "makeable": 552,
+   "max_p": 0.9826,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Spectrum_Wall_Mount": {
+   "viable": true,
+   "makeable": 632,
+   "max_p": 0.06911,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Star_Wars_Rogue_Squadron_Nintendo_64": {
+   "viable": true,
+   "makeable": 656,
+   "max_p": 0.95889,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Super_Mario_3D_World_Wii_U_Game": {
+   "viable": false,
+   "makeable": 622,
+   "max_p": 0.00095,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Sushi_Mat": {
+   "viable": false,
+   "makeable": 602,
+   "max_p": 0.01162,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Tag_Dishtowel_18_x_26": {
+   "viable": false,
+   "makeable": 630,
+   "max_p": 0.00234,
+   "level": "estimated",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Tag_Dishtowel_Basket_Weave_Red_18_x_26": {
+   "viable": false,
+   "makeable": 624,
+   "max_p": 0.02073,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Tag_Dishtowel_Green": {
+   "viable": false,
+   "makeable": 616,
+   "max_p": 0.09274,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26": {
+   "viable": false,
+   "makeable": 654,
+   "max_p": 0.0165,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Thomas_Friends_Woodan_Railway_Henry": {
+   "viable": true,
+   "makeable": 868,
+   "max_p": 0.95245,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+   "viable": true,
+   "makeable": 936,
+   "max_p": 0.97789,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+   "viable": true,
+   "makeable": 994,
+   "max_p": 0.98631,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Threshold_Bamboo_Ceramic_Soap_Dish": {
+   "viable": true,
+   "makeable": 482,
+   "max_p": 0.12709,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Threshold_Hand_Towel_Blue_Medallion_16_x_27": {
+   "viable": false,
+   "makeable": 508,
+   "max_p": 0.01552,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Threshold_Porcelain_Serving_Bowl_Coupe_White": {
+   "viable": false,
+   "makeable": 578,
+   "max_p": 0.23265,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Threshold_Ramekin_White_Porcelain": {
+   "viable": false,
+   "makeable": 360,
+   "max_p": 0.00896,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total": {
+   "viable": false,
+   "makeable": 482,
+   "max_p": 0.27274,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total": {
+   "viable": false,
+   "makeable": 376,
+   "max_p": 0.03538,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Twinlab_Nitric_Fuel": {
+   "viable": true,
+   "makeable": 718,
+   "max_p": 0.98992,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Twinlab_Premium_Creatine_Fuel_Powder": {
+   "viable": true,
+   "makeable": 694,
+   "max_p": 0.99232,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "VEGETABLE_GARDEN": {
+   "viable": true,
+   "makeable": 530,
+   "max_p": 0.59301,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "WHALE_WHISTLE_6PCS_SET": {
+   "viable": false,
+   "makeable": 1132,
+   "max_p": 0.10369,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+   "viable": true,
+   "makeable": 662,
+   "max_p": 0.99551,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  },
+  "Wilton_Easy_Layers_Cake_Pan_Set": {
+   "viable": true,
+   "makeable": 520,
+   "max_p": 0.98764,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Womens_Multi_13": {
+   "viable": true,
+   "makeable": 694,
+   "max_p": 0.99224,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "Wooden_ABC_123_Blocks_50_pack": {
+   "viable": true,
+   "makeable": 358,
+   "max_p": 0.992,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "too_wide"
+  },
+  "YumYum_D3_Liquid": {
+   "viable": true,
+   "makeable": 1286,
+   "max_p": 0.99169,
+   "level": "none",
+   "solve_s": null,
+   "main_rejection": "pregrasp_unreachable"
+  }
+ }
+}
