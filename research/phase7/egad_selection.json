@@ -1,0 +1,3922 @@
+{
+ "source": "EGAD (Morrison, Corke, Leitner 2020), BSD-3; training set 2 281 meshes, evaluation set 49",
+ "archives": "see research/phase7/PHASE7_DATA_MANIFEST.json",
+ "seed": 20261202,
+ "count": 10000,
+ "rule": "(fixed in PHASE7_PROTOCOL.md, part II, before any object is planned):\n\n1. Pool: the EGAD training set (2 281 meshes, BSD-3, Morrison et al. 2020). Meshes are named by grid\n   cell (difficulty letter, complexity number) with up to four meshes per cell; one mesh is drawn per\n   cell (seeded), so near-identical siblings never enter together. Cells are then drawn at random\n   (seeded) up to --count. The 49-object evaluation set is prepared separately as a secondary set.\n2. Mesh checks: loads as one triangle mesh; watertight after merging duplicate vertices; positive\n   volume. Failures are recorded and replaced by the next drawn cell; never by planning outcome.\n3. Scale: the dataset authors' published rule (scripts/prepare_meshes.py) for an 80 mm gripper:\n   largest oriented-box side = 80 mm; if the smallest side then exceeds 0.8 x 80 mm, shrink it to that.\n   The objects are therefore 3D-printable shapes at gripper scale, not real products.\n4. Pose: resting on the most probable stable face (trimesh.poses.compute_stable_poses).\n5. Cell: the demo cell without parts, the part placed as every Phase IV/V part\n   (add-object --units m --mass 0.1 --at 0.42 0 0.42). The mass is assumed.\n6. Collision pieces for MuJoCo: CoACD (threshold 0.05, seed 0), written as model_collision_*.obj.",
+ "cells_in_pool": 602,
+ "primary": [
+  {
+   "cell": "L01",
+   "file": "L01_2.obj",
+   "sha256": "d2152cba33213f503c1dd634e7dc84a2e55569b39d6bb2a3c090f4deaed0c23f",
+   "reason": null
+  },
+  {
+   "cell": "N23",
+   "file": "N23_3.obj",
+   "sha256": "1f909edd790fef7f6fb9a7100935c542a5619502ee6801f52c029fe1f73b41de",
+   "reason": null
+  },
+  {
+   "cell": "K14",
+   "file": "K14_1.obj",
+   "sha256": "d939e385ea0db70a258f41fed5e40fe260ac882c175c6c17ee2baaf952d2324c",
+   "reason": null
+  },
+  {
+   "cell": "G20",
+   "file": "G20_3.obj",
+   "sha256": "08f66aea7efe4276c0acd1faea7955309051605bb61e88082664941b80551253",
+   "reason": null
+  },
+  {
+   "cell": "F24",
+   "file": "F24_3.obj",
+   "sha256": "a86b1330e8f42298eb37cb93fc9d26490147381174e6cd2226c29c824678c45d",
+   "reason": null
+  },
+  {
+   "cell": "L00",
+   "file": "L00_0.obj",
+   "sha256": "5c1561774dc30aab0cec4c3bb2c5bc323bd9e88f39019aaebf460e2d81a3b8b6",
+   "reason": null
+  },
+  {
+   "cell": "A03",
+   "file": "A03_0.obj",
+   "sha256": "c02ced64e6fe14dee47de395ff59f8a5fd6c3abd7cf284ea099ee8a47092422b",
+   "reason": null
+  },
+  {
+   "cell": "E09",
+   "file": "E09_3.obj",
+   "sha256": "cbeb2e2f8b7289c87d1222d1e8b3fbbe4be4fbe6657e51eed1fc3d9b0b05071c",
+   "reason": null
+  },
+  {
+   "cell": "F21",
+   "file": "F21_0.obj",
+   "sha256": "4fadd0d9a05fd21fde5e304aa1a9c7b5ea7228c066719c0a000789e885859e6a",
+   "reason": null
+  },
+  {
+   "cell": "F14",
+   "file": "F14_3.obj",
+   "sha256": "51ff43a339d6d4121ad20626068505926ae5e051d842ecb0242b3a6998650c85",
+   "reason": null
+  },
+  {
+   "cell": "D00",
+   "file": "D00_3.obj",
+   "sha256": "fe12ecb4d9875a90a198c58c2b46220c4389ae281961d143c3b1b11de143e854",
+   "reason": null
+  },
+  {
+   "cell": "N10",
+   "file": "N10_1.obj",
+   "sha256": "cf726c0405641e8e698ca22a7c8ecd794ee0451bd28c995ef1d0c481273bf7b0",
+   "reason": null
+  },
+  {
+   "cell": "O04",
+   "file": "O04_3.obj",
+   "sha256": "f62c405a5d1e0c43a5ecfba896038d137357de1b3330db7cf93aec5eee2898db",
+   "reason": null
+  },
+  {
+   "cell": "K10",
+   "file": "K10_2.obj",
+   "sha256": "a213186c82c9811ac523d70eeee4439f5f296ac1536689559656ec9dd5ee6f0e",
+   "reason": null
+  },
+  {
+   "cell": "U10",
+   "file": "U10_3.obj",
+   "sha256": "5705c15c5e0208e33eaed77e0cde047987fcbae49afb9dc4f5e31fc5874a730d",
+   "reason": null
+  },
+  {
+   "cell": "L14",
+   "file": "L14_3.obj",
+   "sha256": "bb76fcbf616a20d93f1fc4842b24ebd2983e48d4bb6dd17e33e1da0f0223e401",
+   "reason": null
+  },
+  {
+   "cell": "J04",
+   "file": "J04_3.obj",
+   "sha256": "f67a87edbc641e7a2f1c44eea66ae0f9c904e6f9e1f6f4fe9d931325a12b009e",
+   "reason": null
+  },
+  {
+   "cell": "U03",
+   "file": "U03_0.obj",
+   "sha256": "3af81478a11a511938bdf4068222e389d4771c80c64fd34f96b4145ce8f85be2",
+   "reason": null
+  },
+  {
+   "cell": "S13",
+   "file": "S13_1.obj",
+   "sha256": "c7780f5acf0119637ad8b4139715518570ea90a8ae841abd77a7c497890713a1",
+   "reason": null
+  },
+  {
+   "cell": "U14",
+   "file": "U14_1.obj",
+   "sha256": "cdad9427524831100abe4d1a51ffe507f49ccea6043c46bca96a41d1fbff3817",
+   "reason": null
+  },
+  {
+   "cell": "M00",
+   "file": "M00_0.obj",
+   "sha256": "f33d4bd1ae61aac3c286ef76523e9576a6ae936cfd8ab893178785428e98fad7",
+   "reason": null
+  },
+  {
+   "cell": "M07",
+   "file": "M07_3.obj",
+   "sha256": "42609585d981578b162c7824266f087c61200526a23ee73e59254777d0965d5d",
+   "reason": null
+  },
+  {
+   "cell": "N19",
+   "file": "N19_0.obj",
+   "sha256": "93dbdf6d5a35f347c23c9c67f89ab97a4707c2f2842c80576d2c400ba2b67edb",
+   "reason": null
+  },
+  {
+   "cell": "H12",
+   "file": "H12_1.obj",
+   "sha256": "4687aca446434217c832bba9a408248dd3dd1808364cef012f927ba5d58331ab",
+   "reason": null
+  },
+  {
+   "cell": "P16",
+   "file": "P16_3.obj",
+   "sha256": "15d878d7c94cd2c6fe5063a3e5044337751149d0ba8964715b93e4af48284c34",
+   "reason": null
+  },
+  {
+   "cell": "F10",
+   "file": "F10_1.obj",
+   "sha256": "85ded2e7a0cc93cb3e68501a55b98bc0f12ad4794fd4d6bcfcf44b87d5c6d7b6",
+   "reason": null
+  },
+  {
+   "cell": "A18",
+   "file": "A18_0.obj",
+   "sha256": "6d5cb9c8c5ada17827c742d80013a8bdc7ac7b3b8c8cca7e87d0e7f9c8dd89c0",
+   "reason": null
+  },
+  {
+   "cell": "I25",
+   "file": "I25_0.obj",
+   "sha256": "af64923f57027b5479dc72de7247535a980b34592ef20f2334f034388599b935",
+   "reason": null
+  },
+  {
+   "cell": "J18",
+   "file": "J18_3.obj",
+   "sha256": "e3e8665fb0bac0ce4f155aae44f8c1edd406bb24839b0c3f1485c6851ec82ef8",
+   "reason": null
+  },
+  {
+   "cell": "N06",
+   "file": "N06_0.obj",
+   "sha256": "b9b8d49eff15ba7e9faa362b3dfb58f016c2144faaffdf9ff71741f15314d553",
+   "reason": null
+  },
+  {
+   "cell": "H04",
+   "file": "H04_2.obj",
+   "sha256": "468668f18af55ea61350cce7e5b42b4a66976c87ce28e1553a08c574f332a633",
+   "reason": null
+  },
+  {
+   "cell": "D22",
+   "file": "D22_0.obj",
+   "sha256": "b409dd7131a5444d114c738bb5aeb5c2aefa671cd0b965356b78b72c326cdd86",
+   "reason": null
+  },
+  {
+   "cell": "B02",
+   "file": "B02_3.obj",
+   "sha256": "7da00a67eba8181d68faa1ce47654036db074d2f620908e67f252d1484d7cb3f",
+   "reason": null
+  },
+  {
+   "cell": "I06",
+   "file": "I06_1.obj",
+   "sha256": "83253eb310f23948d643856c38c6de0123672150ab43ac29160ee7167f072ac3",
+   "reason": null
+  },
+  {
+   "cell": "C10",
+   "file": "C10_0.obj",
+   "sha256": "57d7cd026cb4bb76eaf1c258c90148335349749c3822576d50d6309e2bb17f08",
+   "reason": null
+  },
+  {
+   "cell": "D04",
+   "file": "D04_2.obj",
+   "sha256": "36d1530c2c7ac5eece824b928f46c392beede528e737302685e5bf8ecf175ff8",
+   "reason": null
+  },
+  {
+   "cell": "C21",
+   "file": "C21_3.obj",
+   "sha256": "94275d2da33bfbafd75ec8305c441e8b3aa95db9f9111801c1ce3f800c45f421",
+   "reason": null
+  },
+  {
+   "cell": "L07",
+   "file": "L07_0.obj",
+   "sha256": "81ce4a2d94a69d6ee082fcc1280b4807b0ff5fe1f1c3a5af462677ebb57b28e0",
+   "reason": null
+  },
+  {
+   "cell": "X16",
+   "file": "X16_2.obj",
+   "sha256": "98a8c96c4679e1c1cdeb8f68163ab2c214505d9083077f038b1a588dc0ea4b90",
+   "reason": null
+  },
+  {
+   "cell": "R12",
+   "file": "R12_2.obj",
+   "sha256": "711e69abf940b4a7803a2ccb5b6bc3a6ebd7eaf23534a9e00b1e1c59b34d4a4d",
+   "reason": null
+  },
+  {
+   "cell": "H11",
+   "file": "H11_3.obj",
+   "sha256": "0a90d62f4e19f302155b2dd9cf97f827c4c8a71f38a4890829140e2cb010bc4b",
+   "reason": null
+  },
+  {
+   "cell": "X19",
+   "file": "X19_3.obj",
+   "sha256": "8598347d192d6faab248b05e1b63384725e2b1472014a425f76c6c24ef293f87",
+   "reason": null
+  },
+  {
+   "cell": "I20",
+   "file": "I20_1.obj",
+   "sha256": "43cd53b21e4fbc497077ca31d02f7ba075d42274115ea4954fcea572a52fc612",
+   "reason": null
+  },
+  {
+   "cell": "W11",
+   "file": "W11_1.obj",
+   "sha256": "caf289b0f2ae211dbc93d8824fd752f2601a1c1b80f3968fa08dc1039a6878f9",
+   "reason": null
+  },
+  {
+   "cell": "X22",
+   "file": "X22_3.obj",
+   "sha256": "dd3174c55b53df26e94888f3ec39272e4c61f864e2c7d813fa86732c0aa7c4f0",
+   "reason": null
+  },
+  {
+   "cell": "R20",
+   "file": "R20_1.obj",
+   "sha256": "6aeee84d66996a6dc4fac1db51063a3a93897d5e9535077f4b44cc8bc3097444",
+   "reason": null
+  },
+  {
+   "cell": "L23",
+   "file": "L23_0.obj",
+   "sha256": "826b8c7192eb7967504c7c14c87a9e2128b4fa77c11a60916bb7a8060f83bf6d",
+   "reason": null
+  },
+  {
+   "cell": "S12",
+   "file": "S12_0.obj",
+   "sha256": "663bf5ff6725ce1f2ca77768f0f4fad4325688b32fc10fa1c70dc272861ca7c9",
+   "reason": null
+  },
+  {
+   "cell": "T21",
+   "file": "T21_3.obj",
+   "sha256": "cd983e3227d50723e07f090a4b617fe962d29004a0e543be1b488c25c8fa04fb",
+   "reason": null
+  },
+  {
+   "cell": "A11",
+   "file": "A11_0.obj",
+   "sha256": "6261ee707c587b8cfa4d5e48fc05afa249efefeb8820e9fbb52dde091dd0ccae",
+   "reason": null
+  },
+  {
+   "cell": "P10",
+   "file": "P10_1.obj",
+   "sha256": "7bfc293a0a52f194ddf940015c475cc5e8f1039ff7293167e47cce0c7274f155",
+   "reason": null
+  },
+  {
+   "cell": "F09",
+   "file": "F09_3.obj",
+   "sha256": "2397139a6fc9d1636a9428e3cf12dda6d8e8f6139c1472420bae8f11039f6252",
+   "reason": null
+  },
+  {
+   "cell": "U23",
+   "file": "U23_3.obj",
+   "sha256": "e5677e9298f94a13b46f837b00b0f9df6b9688b63f1fbaf8ef5cf025a636fe5c",
+   "reason": null
+  },
+  {
+   "cell": "B15",
+   "file": "B15_3.obj",
+   "sha256": "07fa7c23b1d8bb9b03f5d81feadf60628bcff7e3b74f2ac2919d473f257508f0",
+   "reason": null
+  },
+  {
+   "cell": "E25",
+   "file": "E25_1.obj",
+   "sha256": "794d05222a39ee5d02cc3ba1e41e6915c7733332a37cdb92c57f2c2d89f1a44a",
+   "reason": null
+  },
+  {
+   "cell": "J01",
+   "file": "J01_3.obj",
+   "sha256": "3ade41b8a6fb09f33a7558ebaccc68e0cec2bff894a9f44aba1307c98b9733bc",
+   "reason": null
+  },
+  {
+   "cell": "G23",
+   "file": "G23_2.obj",
+   "sha256": "c754485349b045b081511d2f74ad5363ab8ceda2a026821a0ad332d13205437d",
+   "reason": null
+  },
+  {
+   "cell": "T06",
+   "file": "T06_1.obj",
+   "sha256": "cab17cccd2b0d5f80ced308a978ba49c30cc5f5603743fdfe0321e5889b89d98",
+   "reason": null
+  },
+  {
+   "cell": "O15",
+   "file": "O15_0.obj",
+   "sha256": "92192ded0381d84ce1b1b5d70951e4f95be8074e270570dcfdbd481d3ed8e904",
+   "reason": null
+  },
+  {
+   "cell": "U08",
+   "file": "U08_0.obj",
+   "sha256": "6120d574cd7be8738bdbc9d5683f865066488faf9dd63cacd19535242013aaea",
+   "reason": null
+  },
+  {
+   "cell": "M21",
+   "file": "M21_2.obj",
+   "sha256": "489f6b7e631bfbf57d43154fcfb1cf2735f8058562ab868a3da36120c57e4e5c",
+   "reason": null
+  },
+  {
+   "cell": "L12",
+   "file": "L12_2.obj",
+   "sha256": "76de19b8a1b145b39d6ccabfb00d8e7673f60891bb56901dbb4917340a5e18a4",
+   "reason": null
+  },
+  {
+   "cell": "W14",
+   "file": "W14_0.obj",
+   "sha256": "11f7099d4f30795dfda05a26dbb4306f334f43f7d3660faeab271b53cb499f49",
+   "reason": null
+  },
+  {
+   "cell": "V23",
+   "file": "V23_3.obj",
+   "sha256": "9b2add3ea98cdd6cc893f09748e03399a04ed264150d9e78c5ea4fa8c1867198",
+   "reason": null
+  },
+  {
+   "cell": "O10",
+   "file": "O10_1.obj",
+   "sha256": "93b3fd3100d27fb639fef6ac3d8665b6d8043ec170951473fc86adcab2853453",
+   "reason": null
+  },
+  {
+   "cell": "B20",
+   "file": "B20_1.obj",
+   "sha256": "acb79029fac0c2a1bb2a73a50ae461b6cdcefdcad3710d0c8906384d351799c0",
+   "reason": null
+  },
+  {
+   "cell": "K22",
+   "file": "K22_2.obj",
+   "sha256": "073786273f6d5fcbac051e3d0c2e407e76258934415d3a61ef389ccb06ee2c0f",
+   "reason": null
+  },
+  {
+   "cell": "N01",
+   "file": "N01_1.obj",
+   "sha256": "d0e9357676241b38066c6a7256520a033ec12aa372b38f4eb99d92794bf89e99",
+   "reason": null
+  },
+  {
+   "cell": "K06",
+   "file": "K06_3.obj",
+   "sha256": "d8a3a0221fcb306d912f52c88e22091428fc606d2bab7622317d66fc939507a6",
+   "reason": null
+  },
+  {
+   "cell": "T18",
+   "file": "T18_0.obj",
+   "sha256": "36f6e9e5e97b32aa65fc88e78c1c45c1c827940da2088dc932f86a3d11cd00dd",
+   "reason": null
+  },
+  {
+   "cell": "P11",
+   "file": "P11_1.obj",
+   "sha256": "6231907f65e74e2275757e476ca5b0212f0590eb5f8ced587e87b954a375e55e",
+   "reason": null
+  },
+  {
+   "cell": "W07",
+   "file": "W07_1.obj",
+   "sha256": "8788c004c31a853cf47d1a426fa7fb6aa86f1f79340a91ed105f0ea46bb54980",
+   "reason": null
+  },
+  {
+   "cell": "L11",
+   "file": "L11_2.obj",
+   "sha256": "e2e53b85801a6f619313e35afbe1cd2219105ce0a10c4fb0de41b61527ef393f",
+   "reason": null
+  },
+  {
+   "cell": "V03",
+   "file": "V03_1.obj",
+   "sha256": "106f9fe73d11ce99d0f6c6c295dac43eb94d95a5d77ece2d79f53fa72fc4c491",
+   "reason": null
+  },
+  {
+   "cell": "B21",
+   "file": "B21_2.obj",
+   "sha256": "bd181330b4a8625391c3c664cb17cc5dbe309bcef85b3c17a5df5fc6e01bfa39",
+   "reason": null
+  },
+  {
+   "cell": "S04",
+   "file": "S04_3.obj",
+   "sha256": "f6ac1546a8389cca800d16c3210b30ce96b8dbe5bd8983c6bdd36bf7d7254b0c",
+   "reason": null
+  },
+  {
+   "cell": "R13",
+   "file": "R13_3.obj",
+   "sha256": "2b30638afe455a39e35cd3bd98871baee411845f815ef77c18c8aad4fba3be7a",
+   "reason": null
+  },
+  {
+   "cell": "S02",
+   "file": "S02_2.obj",
+   "sha256": "ddcc4f42fe5a862a0ce86a3e21cc090df3f3e0d5331a68d0ac7ed30f1a05858b",
+   "reason": null
+  },
+  {
+   "cell": "R22",
+   "file": "R22_0.obj",
+   "sha256": "21aeec3df91aaf1b3fdb9d85330b53fbd5954c9ea6b2701cc7aea9f647cbba8e",
+   "reason": null
+  },
+  {
+   "cell": "B10",
+   "file": "B10_2.obj",
+   "sha256": "f9a18fdb19004724e7507684cb8f3ddd37523af2328edb8fac3158d376d927d6",
+   "reason": null
+  },
+  {
+   "cell": "G25",
+   "file": "G25_0.obj",
+   "sha256": "6f574f87e214eb30f510799f3fd08359804b763b96ddf1678140c850a5a1225a",
+   "reason": null
+  },
+  {
+   "cell": "P22",
+   "file": "P22_1.obj",
+   "sha256": "c6acafeb3bccae878b64cfab91467f3a1ec1c0240192394b9d9ea0fed9aafc1f",
+   "reason": null
+  },
+  {
+   "cell": "J08",
+   "file": "J08_3.obj",
+   "sha256": "22c0a1894247b4f4b5d990d8d3e47b322b645daa3db002e6dbebb034ac57c223",
+   "reason": null
+  },
+  {
+   "cell": "O01",
+   "file": "O01_0.obj",
+   "sha256": "7ea072e20ae97d63ad309e2dd46633dc7eab088f288cdd564b75a234f62552b8",
+   "reason": null
+  },
+  {
+   "cell": "H23",
+   "file": "H23_1.obj",
+   "sha256": "654e376b525e5684dca61a2fa7030bbb1ac5b3e93aca52ecf8240ab1908171fb",
+   "reason": null
+  },
+  {
+   "cell": "O07",
+   "file": "O07_2.obj",
+   "sha256": "2d9f1ad0fab9fd57eac5c0c61ace62648a301bc04f820dd582b0661f430558fa",
+   "reason": null
+  },
+  {
+   "cell": "N25",
+   "file": "N25_3.obj",
+   "sha256": "f7104dd8247d51e80c3667345fd103dd29122f5b4ec7133f321555523c9c5c3e",
+   "reason": null
+  },
+  {
+   "cell": "J10",
+   "file": "J10_0.obj",
+   "sha256": "4a1889f5241bee273cedfccbd6bd4d1cd0fbc05554e0d5ea914db04b33583c51",
+   "reason": null
+  },
+  {
+   "cell": "K02",
+   "file": "K02_2.obj",
+   "sha256": "7f219bfb09f5ad7a5e42c60d82984af9c4d30f6f9bc0eb3e2066dd81bce5eaf8",
+   "reason": null
+  },
+  {
+   "cell": "V11",
+   "file": "V11_1.obj",
+   "sha256": "9bb1ec433f064eddfb211570b6890d97bfd52567e2affa529a77fc0dd69e2c1d",
+   "reason": null
+  },
+  {
+   "cell": "E18",
+   "file": "E18_2.obj",
+   "sha256": "d49e6c29d8a0a364e552b3cba589632d79f42a429d9f3abaf19d0d428ac1c991",
+   "reason": null
+  },
+  {
+   "cell": "S15",
+   "file": "S15_0.obj",
+   "sha256": "4f392489b8d1d2fbad142f5e7677824bfe4dab8b871cd9423d24debc87f43d29",
+   "reason": null
+  },
+  {
+   "cell": "M23",
+   "file": "M23_3.obj",
+   "sha256": "41c06124506662ee6cc6d57ce87db8086b671322f501bf967379851b7c9a9168",
+   "reason": null
+  },
+  {
+   "cell": "S05",
+   "file": "S05_1.obj",
+   "sha256": "ee6eb4fd50afe4b159fec5a0de0173065f0d375e0bcc451ec240f6b5b7742855",
+   "reason": null
+  },
+  {
+   "cell": "S14",
+   "file": "S14_1.obj",
+   "sha256": "d6a70e98a2648ed2ab6605b2bf64849b666ec566cd6bbbc9832b699bfea720be",
+   "reason": null
+  },
+  {
+   "cell": "F06",
+   "file": "F06_0.obj",
+   "sha256": "3aaaf38c52cd7e7bf27323497d802dcb6e971aa3a45ff8269cb06404008e52d3",
+   "reason": null
+  },
+  {
+   "cell": "Q24",
+   "file": "Q24_1.obj",
+   "sha256": "161cee826a1326d1a52de68e250d8c6d5b40f70b4b9db1341c42d83f70fa6284",
+   "reason": null
+  },
+  {
+   "cell": "N09",
+   "file": "N09_3.obj",
+   "sha256": "9e552ad29e96e464a3432cc6ede8e84344fcef4230243c1cb2ee5cacf765998a",
+   "reason": null
+  },
+  {
+   "cell": "Q14",
+   "file": "Q14_0.obj",
+   "sha256": "3fd0b96a09164a8afeaf035eea1d9af19bd51e86e2051e244d7cfbbe6e54c315",
+   "reason": null
+  },
+  {
+   "cell": "M16",
+   "file": "M16_0.obj",
+   "sha256": "e3ba7dc5084a2ed644968ad26b59de2c1215b1c18c7e9998f6d96a139cb36845",
+   "reason": null
+  },
+  {
+   "cell": "C07",
+   "file": "C07_1.obj",
+   "sha256": "09087bfe1fb8ae08c4f86ab1d1fb6b1972a3474f41867885ed11b017da025ae4",
+   "reason": null
+  },
+  {
+   "cell": "V19",
+   "file": "V19_3.obj",
+   "sha256": "8b4de07956faf5b11fecbd3c4e28424854e9b956d45569f0bfe8442748fc18ec",
+   "reason": null
+  },
+  {
+   "cell": "H21",
+   "file": "H21_1.obj",
+   "sha256": "2b7edc33d353545c9629e959d94ec68a4755bf5ac60444cc2e317984d3074905",
+   "reason": null
+  },
+  {
+   "cell": "Q18",
+   "file": "Q18_2.obj",
+   "sha256": "156c693e819796c882f35a25740fad15f2cfa837bc8d58c5093e97163ff25031",
+   "reason": null
+  },
+  {
+   "cell": "P24",
+   "file": "P24_0.obj",
+   "sha256": "967c97f3eaf55bb0be209dec50d405d80a7d377ace01e65d470fedee90d2debb",
+   "reason": null
+  },
+  {
+   "cell": "C20",
+   "file": "C20_3.obj",
+   "sha256": "2ed4b0115043259d205937344ece6a6d88db95f3c378c8406a92d66e2ce10289",
+   "reason": null
+  },
+  {
+   "cell": "X12",
+   "file": "X12_1.obj",
+   "sha256": "baae327cb7e0be2b193cad391cb6e2dd0895cd19c1e20b4b930e300da7d55f8a",
+   "reason": null
+  },
+  {
+   "cell": "F11",
+   "file": "F11_2.obj",
+   "sha256": "9e04992d11812f9907ff72e255c7f8f80ba07bd4dc9ec55d6b207e3d2c0da64a",
+   "reason": null
+  },
+  {
+   "cell": "L04",
+   "file": "L04_3.obj",
+   "sha256": "bf5efc17073dc5712156ed39545384021258229bbdcd923304c9bc3ac9db3d88",
+   "reason": null
+  },
+  {
+   "cell": "P08",
+   "file": "P08_0.obj",
+   "sha256": "eee2afff241d0728d49473a3c1ef101290c45ddc57d5f808279f985b1d9895d2",
+   "reason": null
+  },
+  {
+   "cell": "C02",
+   "file": "C02_2.obj",
+   "sha256": "c87a1eb3da10eed8c20539e64973373135a0b8e1cfd044ba37c2967c095ea6fc",
+   "reason": null
+  },
+  {
+   "cell": "S11",
+   "file": "S11_0.obj",
+   "sha256": "b3be8eecf5c2f923a981c02199490095ff0ca946a306cca9c988b922d475c383",
+   "reason": null
+  },
+  {
+   "cell": "U16",
+   "file": "U16_2.obj",
+   "sha256": "d660ecfb201240bed14622eb10133b80e4280a95e5c35adfd3e6b3ca0678a199",
+   "reason": null
+  },
+  {
+   "cell": "P17",
+   "file": "P17_2.obj",
+   "sha256": "a9d3c25bb34e46765ecfc34f30ddcb625b20d3df1a7852f1f819ae5e49bd259e",
+   "reason": null
+  },
+  {
+   "cell": "J16",
+   "file": "J16_0.obj",
+   "sha256": "988ad24404fbb79dfaab42eae160c2e45313226dc8a382d9b35e46ed7172abb5",
+   "reason": null
+  },
+  {
+   "cell": "B24",
+   "file": "B24_2.obj",
+   "sha256": "068eac32dca771a588961d53cd140512fd81e02101650ee388836a84b6f22b51",
+   "reason": null
+  },
+  {
+   "cell": "H24",
+   "file": "H24_1.obj",
+   "sha256": "89d83f81a3f8152c060f228732b74ec130bab89fc9c54228ccec06ab0f3314e3",
+   "reason": null
+  },
+  {
+   "cell": "V10",
+   "file": "V10_2.obj",
+   "sha256": "c2e49a6ce3710d08f124124a4c415220e2ff46b0e3a9d09417da0a8ce98e7d7e",
+   "reason": null
+  },
+  {
+   "cell": "X04",
+   "file": "X04_1.obj",
+   "sha256": "2dfa8ba610b58b7b816aa0a93d24e12424751258b6478a3631ea21928bdd2d09",
+   "reason": null
+  },
+  {
+   "cell": "K08",
+   "file": "K08_0.obj",
+   "sha256": "a7d49d6090894c41cf780fee23ef0f0b7b2a03f441c5cfaa0cfffeaf1340ab28",
+   "reason": null
+  },
+  {
+   "cell": "D02",
+   "file": "D02_1.obj",
+   "sha256": "0a6cbe25af63bad6f8ebc022b64618d6053d26a0699889eb0363c7ffb5fe9921",
+   "reason": null
+  },
+  {
+   "cell": "S25",
+   "file": "S25_3.obj",
+   "sha256": "ae093accf4f49c2ddb0a123abea731287d04ba0050fe8f7971a6ebe96ba58c12",
+   "reason": null
+  },
+  {
+   "cell": "U25",
+   "file": "U25_1.obj",
+   "sha256": "84ee4c6e1ff5b3d54e4efdbc79c2b3f83b44eaa9800f7c8db60e2023720952bd",
+   "reason": null
+  },
+  {
+   "cell": "L24",
+   "file": "L24_0.obj",
+   "sha256": "0be26a51f666b33f922cbe418cf8200e27e6d8fd8a2f94c8a8cf61462074a054",
+   "reason": null
+  },
+  {
+   "cell": "C05",
+   "file": "C05_2.obj",
+   "sha256": "6586f9601204ba6f276eda524cc5e1110d7748430f208b20c3d6784ddc75f391",
+   "reason": null
+  },
+  {
+   "cell": "L10",
+   "file": "L10_3.obj",
+   "sha256": "a7c1dd7b54679fd7e1a488ccbfb509064ca924ae917ba0d36f0102a121cfbfc2",
+   "reason": null
+  },
+  {
+   "cell": "I10",
+   "file": "I10_2.obj",
+   "sha256": "ad90a89e10577b40f0855400d0b20c5ddb2c49c2059ea95e75bae180b43fa941",
+   "reason": null
+  },
+  {
+   "cell": "C19",
+   "file": "C19_0.obj",
+   "sha256": "901c5c0160f5fd07ca195b9c6b753bd3e5ff89be991ff4b01d7aea60cd42c75f",
+   "reason": null
+  },
+  {
+   "cell": "G24",
+   "file": "G24_2.obj",
+   "sha256": "fcf29debb4a4f3b54fb2326a70d443410324735e4bfeb7ca5b3e5ed972a8c606",
+   "reason": null
+  },
+  {
+   "cell": "D19",
+   "file": "D19_1.obj",
+   "sha256": "b84143a6bf976bc26cd3ec0f8cac6ae7bda80e7ffc4ed26f35b4c591f252fc2e",
+   "reason": null
+  },
+  {
+   "cell": "W20",
+   "file": "W20_0.obj",
+   "sha256": "fced8675c19ad468802bf045d02f5e1de89dba6b077ba28e04a4b5fabb866d43",
+   "reason": null
+  },
+  {
+   "cell": "X18",
+   "file": "X18_3.obj",
+   "sha256": "61ef448c142bb3f46fceec9f708bbb9ef2ccde26186eee9f9272b42f56e59a35",
+   "reason": null
+  },
+  {
+   "cell": "J00",
+   "file": "J00_1.obj",
+   "sha256": "5dccd68d1b922a1fe9973f77393557a2a9e3c5f3800a05bb4c94e0d5cb8fbfac",
+   "reason": null
+  },
+  {
+   "cell": "H07",
+   "file": "H07_0.obj",
+   "sha256": "79c0b3fb88d29edd9322a40323e71fd7f7765c149689b9efd0c01b294b1160aa",
+   "reason": null
+  },
+  {
+   "cell": "G11",
+   "file": "G11_2.obj",
+   "sha256": "fe910a32096f00e0f5599abe5cee42171c85c60d469f639c126f10222a10e034",
+   "reason": null
+  },
+  {
+   "cell": "M14",
+   "file": "M14_1.obj",
+   "sha256": "5f4ef7d2a4f3852f20a75076776c89bfce21705baa57119cbc9eee32bddb8fda",
+   "reason": null
+  },
+  {
+   "cell": "T03",
+   "file": "T03_3.obj",
+   "sha256": "41e8def9f23453f0613dc437dd00bd9a60f3e43a775169674f331b2a955e126a",
+   "reason": null
+  },
+  {
+   "cell": "F19",
+   "file": "F19_1.obj",
+   "sha256": "9abe02566deea4b219bca719b2e3a8aadc1a8ea6c64f35c5430f66b8df433932",
+   "reason": null
+  },
+  {
+   "cell": "H02",
+   "file": "H02_3.obj",
+   "sha256": "528eeaa22270258038ad0c346fbf908950072658cdd6aa29a10633b00cfc5896",
+   "reason": null
+  },
+  {
+   "cell": "M20",
+   "file": "M20_3.obj",
+   "sha256": "3293c2a415b60d811b9237c611e50e563b5a0ba13335bfe31fd69ddecd195d01",
+   "reason": null
+  },
+  {
+   "cell": "N12",
+   "file": "N12_1.obj",
+   "sha256": "6e7a70e79fa6575cdd3dbb5ca0808329699e4b1c3f8501f3e6aedf99162756cf",
+   "reason": null
+  },
+  {
+   "cell": "N21",
+   "file": "N21_2.obj",
+   "sha256": "981018b7902b7d1ed0d3ec43a07ffde45ae8af37d20f71ebd088a6cfd78bf666",
+   "reason": null
+  },
+  {
+   "cell": "H09",
+   "file": "H09_1.obj",
+   "sha256": "0519da2222299fd542ea9322a6c2188ae7a784475e555a28c79d202c2716f00d",
+   "reason": null
+  },
+  {
+   "cell": "G18",
+   "file": "G18_1.obj",
+   "sha256": "5a92931c738d79e7b45423c4e8fd29d9d3ae39bff54d2d8e4cae589a157fe95e",
+   "reason": null
+  },
+  {
+   "cell": "W23",
+   "file": "W23_2.obj",
+   "sha256": "6bdb9f074a60e5e39bfe7a4323986715f3bf8465587e3c32134f03c893aa99b9",
+   "reason": null
+  },
+  {
+   "cell": "D01",
+   "file": "D01_1.obj",
+   "sha256": "e7b2c48633b9cfa3729d734598465714c82482783db14f68ca751a462ca88925",
+   "reason": null
+  },
+  {
+   "cell": "F18",
+   "file": "F18_3.obj",
+   "sha256": "25f2dbb0e8636257f220596b9cbdf13ab9d1a7ede2101a7c24fcc4416efcaae4",
+   "reason": null
+  },
+  {
+   "cell": "C23",
+   "file": "C23_0.obj",
+   "sha256": "2d162e0dd08baaaa0da283875598169ec53846f5b13848b08f677a34b8545eb2",
+   "reason": null
+  },
+  {
+   "cell": "H22",
+   "file": "H22_1.obj",
+   "sha256": "2d193c1707c9480d99144487a1dae4955fed7cfc3397b044f27da17d70c1512a",
+   "reason": null
+  },
+  {
+   "cell": "P19",
+   "file": "P19_0.obj",
+   "sha256": "ed3ba845c4311b089f377428aa4bfd94dc1eb34d62a59b8ab6386e2501bacb10",
+   "reason": null
+  },
+  {
+   "cell": "P05",
+   "file": "P05_1.obj",
+   "sha256": "12a66e59445671c8211292eb2d6ba101fff2c0cb83919065c85513d7f8672c80",
+   "reason": null
+  },
+  {
+   "cell": "V21",
+   "file": "V21_1.obj",
+   "sha256": "d4e9bf4985a9cbb95624660351ed072a2ba0c75fdd2fa1aedb065706aa53b75a",
+   "reason": null
+  },
+  {
+   "cell": "N22",
+   "file": "N22_0.obj",
+   "sha256": "a8fcb559e6c137214300297e34d0c1add564fa464b5b74f605676ae36e9f5e8b",
+   "reason": null
+  },
+  {
+   "cell": "M01",
+   "file": "M01_3.obj",
+   "sha256": "805584f27e79f8113da75694d0d50e99eab25ba5ab4f7c89601a116eb690c9d4",
+   "reason": null
+  },
+  {
+   "cell": "W19",
+   "file": "W19_0.obj",
+   "sha256": "0933e5d989744470f8cf959b9b5b8e7fdb38b9879123d7d1e991f5d69a0cd307",
+   "reason": null
+  },
+  {
+   "cell": "D14",
+   "file": "D14_3.obj",
+   "sha256": "b1312180465a92693c01d047ecdebc25dbfeab01729747f4251eb403acf1b875",
+   "reason": null
+  },
+  {
+   "cell": "I11",
+   "file": "I11_1.obj",
+   "sha256": "9c2e941ae65a063c276541559486f32dae695b15e2221d6f22b3140acf3ee429",
+   "reason": null
+  },
+  {
+   "cell": "P15",
+   "file": "P15_0.obj",
+   "sha256": "844b77314c83083710c07117b8439c1ceeb453b5f9680eda178cbdde86787df4",
+   "reason": null
+  },
+  {
+   "cell": "G14",
+   "file": "G14_1.obj",
+   "sha256": "b12abb1ea2b9e399a1fcdf3e0e24bf0fe8c002d5d225c56373f2e9284eb0ef2f",
+   "reason": null
+  },
+  {
+   "cell": "X06",
+   "file": "X06_3.obj",
+   "sha256": "94f9b6cf9ff19d34d32d0f6009929a55d4c7b12c1141b22290c1d0e7ddbaf93a",
+   "reason": null
+  },
+  {
+   "cell": "R19",
+   "file": "R19_1.obj",
+   "sha256": "2ac5b69c835755e1d3928d8bac0c04b4a67a6452e13677e5e07cfcd415cb2edc",
+   "reason": null
+  },
+  {
+   "cell": "S21",
+   "file": "S21_1.obj",
+   "sha256": "fc10c8054da1fdd5871a8579f07cfa8a561ba0fc9f68bca11a120d3906fd0fe3",
+   "reason": null
+  },
+  {
+   "cell": "O24",
+   "file": "O24_1.obj",
+   "sha256": "3e4ef3cf40414e96a3edbdf3544132f87c2c45413c32b28130ae51928327e351",
+   "reason": null
+  },
+  {
+   "cell": "B13",
+   "file": "B13_0.obj",
+   "sha256": "3ce41dbd620bfa678a2f2933c3fe1c3f151325802fe8d9ef5681683afb9c2226",
+   "reason": null
+  },
+  {
+   "cell": "R09",
+   "file": "R09_3.obj",
+   "sha256": "5301c8842828f2cc219eb882bb2f5a87ad8fa389b4a246328768debc5eb8531c",
+   "reason": null
+  },
+  {
+   "cell": "F17",
+   "file": "F17_0.obj",
+   "sha256": "02651710cc7f3420a77a61066c3fc5b19f9509601c4b5123a827e110a3f47830",
+   "reason": null
+  },
+  {
+   "cell": "E02",
+   "file": "E02_1.obj",
+   "sha256": "17a26d7b3e6230885e773d9ec2ee8237300e4f7710f7dea3b369856ea259a63d",
+   "reason": null
+  },
+  {
+   "cell": "H10",
+   "file": "H10_2.obj",
+   "sha256": "0934de221d870c576bc5b3224c8fe4eb38b18880a4a7f583f1f5e007e7c73e77",
+   "reason": null
+  },
+  {
+   "cell": "Q08",
+   "file": "Q08_0.obj",
+   "sha256": "8bfce0401a075876cc11dc8e4d215a6d150790f27ff2dbb12efc3de5c9b9e995",
+   "reason": null
+  },
+  {
+   "cell": "R18",
+   "file": "R18_2.obj",
+   "sha256": "eb0cded05f232f8cedb149cc143f74d6d44eec0f0e312745f41d33d26b274978",
+   "reason": null
+  },
+  {
+   "cell": "W02",
+   "file": "W02_0.obj",
+   "sha256": "65ccacdec7f4668e6afb1debbdcd2f7d95e1deee2d53e2bb5057eca4ff365a09",
+   "reason": null
+  },
+  {
+   "cell": "G01",
+   "file": "G01_2.obj",
+   "sha256": "958dcb54aa57fbd4c0cc808f110450d662c34493b6cf8facced666ae0e1b88fa",
+   "reason": null
+  },
+  {
+   "cell": "K05",
+   "file": "K05_0.obj",
+   "sha256": "882b43a896898f8ab8ab808c9ddf380030d5df52bb71679117a396f9fb4a7233",
+   "reason": null
+  },
+  {
+   "cell": "D20",
+   "file": "D20_0.obj",
+   "sha256": "16217c251dec0aa4a1350431e5bd0b80c5cf9780c34675d0a38a3e98e72cf211",
+   "reason": null
+  },
+  {
+   "cell": "X14",
+   "file": "X14_0.obj",
+   "sha256": "5c9502e449a01b41ca6d338f862551d3bb6c0e8bd3db2aeb7c7746e1eb5c4ce7",
+   "reason": null
+  },
+  {
+   "cell": "B16",
+   "file": "B16_1.obj",
+   "sha256": "d7dd896f1d5f944f57b89f3b4e7fcaa61fb1ad1e8e601aefa9c3e05e6cc6c5f4",
+   "reason": null
+  },
+  {
+   "cell": "S09",
+   "file": "S09_2.obj",
+   "sha256": "777761ccdccf2f097faba77b1f5b2a43c993d52b0a55bb36f8f66a3705199a9e",
+   "reason": null
+  },
+  {
+   "cell": "C11",
+   "file": "C11_0.obj",
+   "sha256": "2b695437e0ceb110196ee4e18452f9e63bbf969c4a4f1e13b493a1dbc39ea0a2",
+   "reason": null
+  },
+  {
+   "cell": "K25",
+   "file": "K25_0.obj",
+   "sha256": "297f7369de6ccf837636be13c165a7b0370d816a68fcf95acf2c5aff8c2ab748",
+   "reason": null
+  },
+  {
+   "cell": "G10",
+   "file": "G10_2.obj",
+   "sha256": "ea7c16d2d0ff4fda111375baa3fda550ffff72ae724f1a3bdbd25583c1da9072",
+   "reason": null
+  },
+  {
+   "cell": "P13",
+   "file": "P13_1.obj",
+   "sha256": "83455114bc9b1bd00ffca48b777d87252adc7e385e22caa0d070257b5b2d8089",
+   "reason": null
+  },
+  {
+   "cell": "G06",
+   "file": "G06_1.obj",
+   "sha256": "678dab6f7223dde30bfe6163ca0d3e87958c31d9ef30cbcc65d13b36f741f660",
+   "reason": null
+  },
+  {
+   "cell": "T04",
+   "file": "T04_2.obj",
+   "sha256": "460817f4c18307e0b42da2539976d1e622d8fd951e83847aa7bb926b4f733cab",
+   "reason": null
+  },
+  {
+   "cell": "A00",
+   "file": "A00_1.obj",
+   "sha256": "981ed6981cfcd60b0aafe3371c3c3270e448100af7cf0925cf9d7d5246c1d713",
+   "reason": null
+  },
+  {
+   "cell": "Q20",
+   "file": "Q20_0.obj",
+   "sha256": "79fe49f41ba65b9c628fe326235ed3d289df8c07263eda1e7571f4692d9f98a0",
+   "reason": null
+  },
+  {
+   "cell": "L17",
+   "file": "L17_2.obj",
+   "sha256": "8f6df3359cedd23f216ffdbc237030de274841cdca7338ed4de7246603cc5551",
+   "reason": null
+  },
+  {
+   "cell": "B18",
+   "file": "B18_0.obj",
+   "sha256": "869382286c8b3208ab68edeb3f5b2bf01521dee8a2c7f828c9427465de27d8b8",
+   "reason": null
+  },
+  {
+   "cell": "N16",
+   "file": "N16_3.obj",
+   "sha256": "4692ad3e0134d4e2821405cf88d95885ba5199b7d9f57413c453e192d42639c2",
+   "reason": null
+  },
+  {
+   "cell": "N14",
+   "file": "N14_3.obj",
+   "sha256": "beb4e6452f9a0c4feaa079da988dade30ec07d65bca39ac3cc74990251cfb7ef",
+   "reason": null
+  },
+  {
+   "cell": "N18",
+   "file": "N18_1.obj",
+   "sha256": "9c62028b934c7b07be9ab4fec7186884a94a2891d37ea808ea7bcb2782e42e63",
+   "reason": null
+  },
+  {
+   "cell": "T09",
+   "file": "T09_0.obj",
+   "sha256": "869d404374a660fc33a2108ccf5a4ceacb239147991b88add21d5636d3635315",
+   "reason": null
+  },
+  {
+   "cell": "D08",
+   "file": "D08_0.obj",
+   "sha256": "207add661d830b1bec9b06c6a30299ed94ec47d2cfc989f2ba764d6b9817de39",
+   "reason": null
+  },
+  {
+   "cell": "D21",
+   "file": "D21_3.obj",
+   "sha256": "380d37975068151c4c9d693e040fd3288af1dee9227eb3d06c8315bd5c816212",
+   "reason": null
+  },
+  {
+   "cell": "N05",
+   "file": "N05_2.obj",
+   "sha256": "2e9d28cd09a797bfec15adc56d6b537c2bdbdedd5c07331a99483c66503d88cd",
+   "reason": null
+  },
+  {
+   "cell": "R06",
+   "file": "R06_0.obj",
+   "sha256": "16718e4d9da5f860e5a212813478703862bd317ac317a8d6a0068b228d9d75eb",
+   "reason": null
+  },
+  {
+   "cell": "V22",
+   "file": "V22_1.obj",
+   "sha256": "20ec8fca8c822af2bd88f93178229de88bd943ea6eb5b48cedc200e5e50e4bad",
+   "reason": null
+  },
+  {
+   "cell": "I13",
+   "file": "I13_3.obj",
+   "sha256": "0ec49177a486c9039ab14de5645b91a46ee29eae913be0772997848a943cca54",
+   "reason": null
+  },
+  {
+   "cell": "Q21",
+   "file": "Q21_2.obj",
+   "sha256": "119bdb852d4e3aa1e39cbd9105b2420794a85b7b89db4ce38c36661a5589889a",
+   "reason": null
+  },
+  {
+   "cell": "C13",
+   "file": "C13_2.obj",
+   "sha256": "1a44bc1efdc1ccd5014b2e5514beb76c3b68733a843b421225c955715f888062",
+   "reason": null
+  },
+  {
+   "cell": "V14",
+   "file": "V14_3.obj",
+   "sha256": "3c3cafc57e900b6621198b716422e2a3fefa66615ec7561ebc5d9f49943573a2",
+   "reason": null
+  },
+  {
+   "cell": "K03",
+   "file": "K03_2.obj",
+   "sha256": "5670f6311208d695eccd2485142db4a42928a44703989b7047478ca0e39352a0",
+   "reason": null
+  },
+  {
+   "cell": "W21",
+   "file": "W21_3.obj",
+   "sha256": "cf8e853b4b4be1a97c5bc3effc16dc6897db7f108d7d5ff055423d14f4ba42f1",
+   "reason": null
+  },
+  {
+   "cell": "I04",
+   "file": "I04_3.obj",
+   "sha256": "65e1a9df1680b586753c3b9e5babc973472686b6b7546beccdd32b61adf5d74e",
+   "reason": null
+  },
+  {
+   "cell": "A10",
+   "file": "A10_0.obj",
+   "sha256": "497f54b140687f24556cd5a8b0baac365fbce09cf732e8c1541d2b657f7b86c6",
+   "reason": null
+  },
+  {
+   "cell": "O25",
+   "file": "O25_2.obj",
+   "sha256": "44a0a31f97cb9d771922b283686f67bea2d838e9f9dd46627d7d3813b905ed28",
+   "reason": null
+  },
+  {
+   "cell": "S22",
+   "file": "S22_1.obj",
+   "sha256": "a76307a418a10c29b885089e354e3cdf4a407d7301ca25f1b7a22bc778683562",
+   "reason": null
+  },
+  {
+   "cell": "W18",
+   "file": "W18_0.obj",
+   "sha256": "f4d3735289a3b096fa34ad4d95b112cba1673bc9cde2c480b8feb2710d72d8e5",
+   "reason": null
+  },
+  {
+   "cell": "U05",
+   "file": "U05_2.obj",
+   "sha256": "814430663a6df650d0f922a3e2d1c7229d1643841b6896cf3ec888671b83dd28",
+   "reason": null
+  },
+  {
+   "cell": "K16",
+   "file": "K16_1.obj",
+   "sha256": "1789cb0724ae34f0069256bebb9445b9164d66b165038eb2143429c9d5292363",
+   "reason": null
+  },
+  {
+   "cell": "C16",
+   "file": "C16_0.obj",
+   "sha256": "e8ee667cc8cd1724d050de086679be735f339a611dbb37592dcaf75e59be2914",
+   "reason": null
+  },
+  {
+   "cell": "Q02",
+   "file": "Q02_1.obj",
+   "sha256": "b24d2bfd36eba6c62c541ab9799de2ad0772546bcface9fe5f206f00194a2b36",
+   "reason": null
+  },
+  {
+   "cell": "M10",
+   "file": "M10_1.obj",
+   "sha256": "8c70fae8137e76b2b29181c87b3a4ba8e409c846c502004fd20a62c6c236b5d0",
+   "reason": null
+  },
+  {
+   "cell": "K18",
+   "file": "K18_1.obj",
+   "sha256": "765f81219add06b5020d1d43df9ca61c10c0170f956515930d3d90abc7f3495d",
+   "reason": null
+  },
+  {
+   "cell": "K00",
+   "file": "K00_3.obj",
+   "sha256": "5724c57e93523636734fedcc34d85abac0f1bbc4cf057fa7ad00e787f29c186a",
+   "reason": null
+  },
+  {
+   "cell": "A19",
+   "file": "A19_0.obj",
+   "sha256": "d5a589167c60fab2afe942382724e5cca7577a7850b58686231664fa721b1019",
+   "reason": null
+  },
+  {
+   "cell": "P06",
+   "file": "P06_0.obj",
+   "sha256": "8a5bcbff5844b0a5c3bbc0ee2fc235705febdc65b1f04c594321f8e962f5ac6b",
+   "reason": null
+  },
+  {
+   "cell": "W05",
+   "file": "W05_3.obj",
+   "sha256": "9cf1fecdb853ec207f2db2b4afb3352a7812e03b42b059faf4147ac46085334f",
+   "reason": null
+  },
+  {
+   "cell": "B23",
+   "file": "B23_3.obj",
+   "sha256": "a4b17eea7d5d78e499340323545af1e9ec54d9328f0bc7f3aacc5837d27af1cb",
+   "reason": null
+  },
+  {
+   "cell": "A24",
+   "file": "A24_0.obj",
+   "sha256": "61ce9e963f0fd313ad25bc50e7a1aece7ee564396df7f177437b9b7541b1b130",
+   "reason": null
+  },
+  {
+   "cell": "W13",
+   "file": "W13_1.obj",
+   "sha256": "a3cd75a9ab06e1e2baa5508bcae58f7daf153f48f1af1a900f514622c11015b8",
+   "reason": null
+  },
+  {
+   "cell": "U17",
+   "file": "U17_0.obj",
+   "sha256": "cddb50e2586134c9b2f7bb4f40a8decd8884b32d0af3b47daafcb599b24a4fa7",
+   "reason": null
+  },
+  {
+   "cell": "H18",
+   "file": "H18_1.obj",
+   "sha256": "cb770bee110e93ebf595a86b66f86a5d06b9cb315d6e47a9b51c50557a3e5cd6",
+   "reason": null
+  },
+  {
+   "cell": "P09",
+   "file": "P09_0.obj",
+   "sha256": "202754074ced751baddbaf99707d2eeb2b905988b650863250e198ebc7d58f16",
+   "reason": null
+  },
+  {
+   "cell": "J19",
+   "file": "J19_2.obj",
+   "sha256": "6b8d82d7796a07af56e2e1a36232f7755de645641fc5c4a40e29f3ba719eee88",
+   "reason": null
+  },
+  {
+   "cell": "I08",
+   "file": "I08_1.obj",
+   "sha256": "083185ef9b9efe78cb01d8434d1ff44e3f469be9f2d4753e51e61f5b85668380",
+   "reason": null
+  },
+  {
+   "cell": "O12",
+   "file": "O12_2.obj",
+   "sha256": "7baf0bd6256aa5cce513725936c0ef0b501a5146074f881d08a92bc82c9d71c9",
+   "reason": null
+  },
+  {
+   "cell": "Q12",
+   "file": "Q12_2.obj",
+   "sha256": "17fbd264b91488a682ecb77dca8238816a1118ef82d17c600775f9280155565e",
+   "reason": null
+  },
+  {
+   "cell": "D11",
+   "file": "D11_3.obj",
+   "sha256": "9aafbd7148e33f6b9cf7b1c692a0c0137bbf5aac668c9bfda0205bcebe49d92a",
+   "reason": null
+  },
+  {
+   "cell": "N11",
+   "file": "N11_1.obj",
+   "sha256": "aabcaf4c44f8d879bf26560802cc2b72919ce5fbc036098a2e593d22b5f5687e",
+   "reason": null
+  },
+  {
+   "cell": "B17",
+   "file": "B17_1.obj",
+   "sha256": "cb5475f891081ff6888d75931e89676133d778f1dc2f4b65979085e1019c985f",
+   "reason": null
+  },
+  {
+   "cell": "L16",
+   "file": "L16_1.obj",
+   "sha256": "639b2e582a1fec8b802a9277de235957b778e2b66de9f9002fb93cc5eb66e6a2",
+   "reason": null
+  },
+  {
+   "cell": "U12",
+   "file": "U12_0.obj",
+   "sha256": "72750d431498959d2dd604cb57add85fda877447123faf7a22ccf5f213a3c135",
+   "reason": null
+  },
+  {
+   "cell": "U04",
+   "file": "U04_2.obj",
+   "sha256": "23c92652269469a1504e67abc3e088f5edd3c3aacdaa98226b881959f8905b8f",
+   "reason": null
+  },
+  {
+   "cell": "S17",
+   "file": "S17_0.obj",
+   "sha256": "63271b5efd3a8ef57b88b864554519315b4e708817ed5bbedb190610a9254410",
+   "reason": null
+  },
+  {
+   "cell": "A20",
+   "file": "A20_0.obj",
+   "sha256": "2c9f23a943e3f94da10578e43ac67018e7244860971fad98318aa89596a25c27",
+   "reason": null
+  },
+  {
+   "cell": "X15",
+   "file": "X15_3.obj",
+   "sha256": "05fdab61a58f72b354d1b442441e743886b1bb758cf40e304f2ace6d85f47bb7",
+   "reason": null
+  },
+  {
+   "cell": "A22",
+   "file": "A22_0.obj",
+   "sha256": "342125effcca7175cf60c9636fd00ba8a4aa191c4d94790209bb78c07dc3d968",
+   "reason": null
+  },
+  {
+   "cell": "X03",
+   "file": "X03_1.obj",
+   "sha256": "8728178c7e761306f3e99169565e9a9efd1e6a4e479b064e2fac0b4f7af209a0",
+   "reason": null
+  },
+  {
+   "cell": "A02",
+   "file": "A02_0.obj",
+   "sha256": "20e8b119f27f72e3132f6c9d3ddc7879b97109a095941641469cf0ee88ffe04a",
+   "reason": null
+  },
+  {
+   "cell": "O21",
+   "file": "O21_1.obj",
+   "sha256": "788dd2f96e7423b72d83b4957203140562c239d5b0606217961cafa07d5f88af",
+   "reason": null
+  },
+  {
+   "cell": "H16",
+   "file": "H16_2.obj",
+   "sha256": "22c19a708063a26108fca646607bd4d9dfb7cd162580684c78a51a5ab28fa131",
+   "reason": null
+  },
+  {
+   "cell": "E16",
+   "file": "E16_1.obj",
+   "sha256": "5cf75a07be7d5677f70b564fe81dc20df9e494a5735db32e352a6c3347df9dd3",
+   "reason": null
+  },
+  {
+   "cell": "I12",
+   "file": "I12_1.obj",
+   "sha256": "81d6510d09ddb33e25851a6d2f1d7d9df73e8d5cca2d84516bab3675d27ead12",
+   "reason": null
+  },
+  {
+   "cell": "V15",
+   "file": "V15_1.obj",
+   "sha256": "51907c6163c0651278e396e8149fa1f46bd47afe1923ecf023abb3e1f5de365b",
+   "reason": null
+  },
+  {
+   "cell": "H00",
+   "file": "H00_1.obj",
+   "sha256": "b2416c2b09124f08e317dbcf82f0d6d12becb9262dfb5f1d6e2f943e933fa576",
+   "reason": null
+  },
+  {
+   "cell": "F23",
+   "file": "F23_0.obj",
+   "sha256": "bdbb9d9fd6c22d2ed9e2961c43f8110d90ab7816292cf92f1d75e8cf0e053547",
+   "reason": null
+  },
+  {
+   "cell": "T13",
+   "file": "T13_0.obj",
+   "sha256": "957571616272315e823125d12b6c1919aa3bd05145d62ac1e7e9b8944ada4b64",
+   "reason": null
+  },
+  {
+   "cell": "O19",
+   "file": "O19_3.obj",
+   "sha256": "de776832f7bdc1c05f8dbd46324ab4d8a4151fd5301ae209785dad5431056a1e",
+   "reason": null
+  },
+  {
+   "cell": "J13",
+   "file": "J13_0.obj",
+   "sha256": "a201b84cd694e7f2339609043918e468f0692dbadd71e33e254a98a8b7afb831",
+   "reason": null
+  },
+  {
+   "cell": "D25",
+   "file": "D25_1.obj",
+   "sha256": "7ca37087708a96f71303de0bf3c8d5f5b241c66ac7f2eceb9260743f78e641d2",
+   "reason": null
+  },
+  {
+   "cell": "J22",
+   "file": "J22_3.obj",
+   "sha256": "9f1a7118c327b60bfba6d00f9d2ad69ddd67928896ee47f96acc61fbe542a4d8",
+   "reason": null
+  },
+  {
+   "cell": "M22",
+   "file": "M22_3.obj",
+   "sha256": "ca4356da1ef1accc56b6a3ebfbe9bd3c7046a2e8c4728bc070479e70413ce2f4",
+   "reason": null
+  },
+  {
+   "cell": "S07",
+   "file": "S07_0.obj",
+   "sha256": "81a38356ef2d8c0dc0e7fe1044ff896572f0a92cbe9c4ca2bbe07e1dda40963c",
+   "reason": null
+  },
+  {
+   "cell": "U07",
+   "file": "U07_2.obj",
+   "sha256": "013ef287cd54f9991c238f0f7524a04a44dcf3ff03b0b39892f141ca12b22450",
+   "reason": null
+  },
+  {
+   "cell": "T08",
+   "file": "T08_0.obj",
+   "sha256": "238858777833362aa5cd4e811cc35c03b1f41a6d5719d9384ad1e5d0a6fc5183",
+   "reason": null
+  },
+  {
+   "cell": "T12",
+   "file": "T12_3.obj",
+   "sha256": "78f40dde7bcd513152a482c7dcef16f6434a283b03719c44b1d0276b09cc235f",
+   "reason": null
+  },
+  {
+   "cell": "V09",
+   "file": "V09_3.obj",
+   "sha256": "0bbaf06f744ba51ac416194c172991f060fb207aa2a2b567888895d06df59bd1",
+   "reason": null
+  },
+  {
+   "cell": "J23",
+   "file": "J23_2.obj",
+   "sha256": "284b8982dc159b24cdc4b2133c4b5bbf36949f8c642f7c2af565651e1dc5b022",
+   "reason": null
+  },
+  {
+   "cell": "D13",
+   "file": "D13_2.obj",
+   "sha256": "fbde06c689c84e6f1e6a1480439850b5298b07d6da451ed467b5664d22d85ee9",
+   "reason": null
+  },
+  {
+   "cell": "M09",
+   "file": "M09_1.obj",
+   "sha256": "63cf5187c68bdc3c7de85f73b1a7e3206ca02429d8c6a20ec0212361b36e16b6",
+   "reason": null
+  },
+  {
+   "cell": "T02",
+   "file": "T02_0.obj",
+   "sha256": "012b52b87efe47fdb646a27903ddc19d969589f5fc8b12bac108f5c74a4b036b",
+   "reason": null
+  },
+  {
+   "cell": "G00",
+   "file": "G00_2.obj",
+   "sha256": "430ffc2a492923126c4b8b9c1aa8a8864376f1d7889a00a797db69b96d6cf507",
+   "reason": null
+  },
+  {
+   "cell": "F20",
+   "file": "F20_3.obj",
+   "sha256": "d5343b97c323d8971c871286be15d55ebc6e06574ed3a2ec4d08c615edf7b2c8",
+   "reason": null
+  },
+  {
+   "cell": "G15",
+   "file": "G15_2.obj",
+   "sha256": "7bc9b8b712a32a39b555a7793213633bd39fa75a2ac97d0853d882966e423205",
+   "reason": null
+  },
+  {
+   "cell": "I05",
+   "file": "I05_1.obj",
+   "sha256": "459a8ac1f2a27525011ff3d669640a733e1fdabb900dfe160aeb565d7729a969",
+   "reason": null
+  },
+  {
+   "cell": "E23",
+   "file": "E23_2.obj",
+   "sha256": "c6afb4bf26aa78fc70b9c050802bbb4a4aeffb360b517f3bcc154c715ff880c3",
+   "reason": null
+  },
+  {
+   "cell": "K24",
+   "file": "K24_0.obj",
+   "sha256": "6c2d29b6b9c9da1d5eb643ca565cabcc20be0f10929aac94450b41d700afde4a",
+   "reason": null
+  },
+  {
+   "cell": "V05",
+   "file": "V05_2.obj",
+   "sha256": "02938560ec8ecac25ca305e1425dcf731d02500d73ca0c15a3329eb4213279c5",
+   "reason": null
+  },
+  {
+   "cell": "J24",
+   "file": "J24_3.obj",
+   "sha256": "ef9d34dd759949affdca343bb7a6311d7dcbd984a25d113f91307e71773ea67e",
+   "reason": null
+  },
+  {
+   "cell": "O05",
+   "file": "O05_2.obj",
+   "sha256": "8c647e6d75e1fa364504bac99f555a1481aa65b0411233ef67e51774442e7b6a",
+   "reason": null
+  },
+  {
+   "cell": "Q19",
+   "file": "Q19_3.obj",
+   "sha256": "18552bb894110cc4af8fd489fd3fc0991258a654e1c015a2470d523a809fbbaa",
+   "reason": null
+  },
+  {
+   "cell": "I24",
+   "file": "I24_1.obj",
+   "sha256": "c3b86344fc357f20714c6b2aae1a01faa83d05b7e9de8eafeed14d84983813ce",
+   "reason": null
+  },
+  {
+   "cell": "I03",
+   "file": "I03_2.obj",
+   "sha256": "6ed75d617c2cb93d03430b5be45ec22b6366bf36db4570e2e5d189824435e6fa",
+   "reason": null
+  },
+  {
+   "cell": "T15",
+   "file": "T15_2.obj",
+   "sha256": "0ac8e9627e9e41ccb72851bc9d584837f9dfa0a7ec48ebb25ffdaafb8d011fa0",
+   "reason": null
+  },
+  {
+   "cell": "J11",
+   "file": "J11_3.obj",
+   "sha256": "d0961dafaf39ffb995d2a007e0a3e14cf14439381659cc6138f1cb48cc3c1c90",
+   "reason": null
+  },
+  {
+   "cell": "J21",
+   "file": "J21_2.obj",
+   "sha256": "18656394928371a15871c65c6b1a732e349b8c53c5e8bb023498acff72a76f88",
+   "reason": null
+  },
+  {
+   "cell": "A07",
+   "file": "A07_0.obj",
+   "sha256": "c2978b99881b7cc100758bc6b512ec354cb33a03742603eab9b4ffb550bde78a",
+   "reason": null
+  },
+  {
+   "cell": "S16",
+   "file": "S16_2.obj",
+   "sha256": "48560ebe690eb0529aacb5d933c52bdcdd62a76489a579f5a8a107e2a30aae8a",
+   "reason": null
+  },
+  {
+   "cell": "F13",
+   "file": "F13_2.obj",
+   "sha256": "cae925cdbd20fe04dcc67dacd613813ada55c612edd0847077f5886107f4ba31",
+   "reason": null
+  },
+  {
+   "cell": "K23",
+   "file": "K23_1.obj",
+   "sha256": "5b89a39d2e788acfdde73b1fba7f8007eccf67bc2a05cfd5438e9e50ae418b1f",
+   "reason": null
+  },
+  {
+   "cell": "E03",
+   "file": "E03_1.obj",
+   "sha256": "942ac236d9b0733be389dbd5a1082a7809fa756e5aff3b69ebc8beb3735d1705",
+   "reason": null
+  },
+  {
+   "cell": "C03",
+   "file": "C03_3.obj",
+   "sha256": "c93fe918b4a4ee9ecc0a8d5028f8a5bb737f2c398a2c0cd605ae3f96c3e72c27",
+   "reason": null
+  },
+  {
+   "cell": "Q07",
+   "file": "Q07_3.obj",
+   "sha256": "78d622bf9099d1bd4d6b8a0a82a13a5c76e2e16858635095caf65d2e2648fd60",
+   "reason": null
+  },
+  {
+   "cell": "P25",
+   "file": "P25_3.obj",
+   "sha256": "8fac8f49389d8d82ca14209af09716dcd3e8b77bff32e76ccafbe2fe4ad42879",
+   "reason": null
+  },
+  {
+   "cell": "U20",
+   "file": "U20_2.obj",
+   "sha256": "bfc301de7fe08f8c4027e18797537ed5a532b9f0b7788990e276cd2d83d44d59",
+   "reason": null
+  },
+  {
+   "cell": "W16",
+   "file": "W16_0.obj",
+   "sha256": "10e799e75778d9feedc3dbf86443fd07a584f96c4c1ad6232cdf400ce549e76a",
+   "reason": null
+  },
+  {
+   "cell": "P04",
+   "file": "P04_2.obj",
+   "sha256": "0b9dc94e359c5ce571b0601e095aeaa86ec405dd6f13d14ae2e9bb89b9e81a2b",
+   "reason": null
+  },
+  {
+   "cell": "F16",
+   "file": "F16_2.obj",
+   "sha256": "c6502da725871bd69206301fc10c6dac8e96706493c5004b082be8e1cda309e6",
+   "reason": null
+  },
+  {
+   "cell": "V18",
+   "file": "V18_3.obj",
+   "sha256": "731c4e5148665e4691ab337ac2a3aaad3c93fac6f6e664ae78ae8ffdaa9e8bb5",
+   "reason": null
+  },
+  {
+   "cell": "C14",
+   "file": "C14_3.obj",
+   "sha256": "53e857eb9218a4d6c7752930d8b38d3170f43592e5801567389015796040f79d",
+   "reason": null
+  },
+  {
+   "cell": "P20",
+   "file": "P20_2.obj",
+   "sha256": "4bb560bad8e47f5edb5436b3e066fdf0396af16a58b293581fd657e301c22df2",
+   "reason": null
+  },
+  {
+   "cell": "A21",
+   "file": "A21_0.obj",
+   "sha256": "0c659084fd0150dc80becb8ea133b7cbad1839908875511347e96083304fe636",
+   "reason": null
+  },
+  {
+   "cell": "S06",
+   "file": "S06_0.obj",
+   "sha256": "2c87f106a099a16e1fc62e3c82f033f91c5a8d67fadbe683b4791ba3431f8dd8",
+   "reason": null
+  },
+  {
+   "cell": "Q03",
+   "file": "Q03_3.obj",
+   "sha256": "e2d167aaa2eaf1ee55688011acf58642ce58305a2bd9f182b30cd69f99207b4c",
+   "reason": null
+  },
+  {
+   "cell": "K11",
+   "file": "K11_0.obj",
+   "sha256": "2fe304cf1b2a8e245ee8c112ba7bf8031d7d07651560a2cbe88d867c5a026de2",
+   "reason": null
+  },
+  {
+   "cell": "E19",
+   "file": "E19_2.obj",
+   "sha256": "53c801a582de9c9c83a33d8cf7b3db5d399b046816639ef2e807104e6bfc7e13",
+   "reason": null
+  },
+  {
+   "cell": "W12",
+   "file": "W12_1.obj",
+   "sha256": "8814fed4e18d189a936b5a161d0e2c6853b1c9815303ea6f85d9eaf2e537df31",
+   "reason": null
+  },
+  {
+   "cell": "E21",
+   "file": "E21_2.obj",
+   "sha256": "dd0392d46535ba104999920a0f440be19de0a8664e71c8a1cf518fa56e9a19e6",
+   "reason": null
+  },
+  {
+   "cell": "G04",
+   "file": "G04_2.obj",
+   "sha256": "f1981608804ae8661c45afa957f24b60d482e1d0b2e5cea2a055f652de3e3b19",
+   "reason": null
+  },
+  {
+   "cell": "D07",
+   "file": "D07_0.obj",
+   "sha256": "ce6326a77abc68d4e7147e92f1f5f67d0be3d70116a0cf53fa5485d4fddf1e45",
+   "reason": null
+  },
+  {
+   "cell": "C01",
+   "file": "C01_0.obj",
+   "sha256": "ce0438116275a50280b77865f15752485f5c85a5a9b958c46ed40de30b68525c",
+   "reason": null
+  },
+  {
+   "cell": "R21",
+   "file": "R21_1.obj",
+   "sha256": "b96d2fcf32baf70df4832dd462331800ac036bc4bd6a75a1509f5327cdd6f512",
+   "reason": null
+  },
+  {
+   "cell": "R10",
+   "file": "R10_2.obj",
+   "sha256": "bd2fbbc216015395c2143aa27f3149c78fcff1f6c787761dc8021a687a3c46a8",
+   "reason": null
+  },
+  {
+   "cell": "U24",
+   "file": "U24_3.obj",
+   "sha256": "a786013284497125d43709cf5924971ec1e6bd2e4641e0a40a92c51f1a9aaaad",
+   "reason": null
+  },
+  {
+   "cell": "J14",
+   "file": "J14_1.obj",
+   "sha256": "a79a4ea09651ec5fd7d6f69aecd6f2228a923a378691510b2179baeec616b332",
+   "reason": null
+  },
+  {
+   "cell": "K15",
+   "file": "K15_3.obj",
+   "sha256": "d4a4a6df53cc1bf0b516f24800abe7b68c2e4f04c63ccec173fdb7013526ec9c",
+   "reason": null
+  },
+  {
+   "cell": "M11",
+   "file": "M11_2.obj",
+   "sha256": "d3479191cf549f347c439c2b07a491d3cb8255df2b66aac75561eb4bee40f779",
+   "reason": null
+  },
+  {
+   "cell": "E13",
+   "file": "E13_0.obj",
+   "sha256": "12d7d6377278cdf8f69567d147aee7107e9d454142beb5eca76cdbcd26e6627b",
+   "reason": null
+  },
+  {
+   "cell": "U06",
+   "file": "U06_2.obj",
+   "sha256": "b382fcff7a87fa3de70de6f28220cc80f904532b54c2f05368635f0b9fc1451b",
+   "reason": null
+  },
+  {
+   "cell": "F02",
+   "file": "F02_0.obj",
+   "sha256": "4bf3368df1eb8028ed70850c11dea3852d1c774057856c9ac51368d68c71fa98",
+   "reason": null
+  },
+  {
+   "cell": "U09",
+   "file": "U09_0.obj",
+   "sha256": "85f41cf42150669fb41138dd64d7e624f4d05a59513c6c50cb3df1f2389e5675",
+   "reason": null
+  },
+  {
+   "cell": "E20",
+   "file": "E20_3.obj",
+   "sha256": "5551ac7e4924396cf2b022eb375712ca40a18a2c60284399eaabe7ff6880a19d",
+   "reason": null
+  },
+  {
+   "cell": "V13",
+   "file": "V13_1.obj",
+   "sha256": "0294f8d2d7ef77ec50285648a813bed980b7712af823394ae06b390c1913489c",
+   "reason": null
+  },
+  {
+   "cell": "R14",
+   "file": "R14_3.obj",
+   "sha256": "7d6d2a72d743831e45128eaf0f896fc97d13c4e854a086fb58d03994ff263178",
+   "reason": null
+  },
+  {
+   "cell": "H05",
+   "file": "H05_3.obj",
+   "sha256": "002f9a5ca2886c16099909a09a048ebd3bd870309c336534d8811bee11212819",
+   "reason": null
+  },
+  {
+   "cell": "X08",
+   "file": "X08_2.obj",
+   "sha256": "374dc307d30be0f77437fda1914ab0696ce6e578e3f6ce43efd65e0695cac80a",
+   "reason": null
+  },
+  {
+   "cell": "H15",
+   "file": "H15_0.obj",
+   "sha256": "f3d2c9d86da34d60d12ffabf50b2b0864c15b58c65d87bebdff7fefd18995dd3",
+   "reason": null
+  },
+  {
+   "cell": "M19",
+   "file": "M19_0.obj",
+   "sha256": "7d79880a696edbed768d9490e90db759861a119cd7f7720e6fa5ace86cc354a2",
+   "reason": null
+  },
+  {
+   "cell": "N04",
+   "file": "N04_2.obj",
+   "sha256": "2455ec19363f18884b941f431629ead34dd29e40702590d69e301902c7ec0f05",
+   "reason": null
+  },
+  {
+   "cell": "F04",
+   "file": "F04_2.obj",
+   "sha256": "22ff86623f4e85623aec99dafca37c95529a3b87f3a95baf20d8abb91450ec79",
+   "reason": null
+  },
+  {
+   "cell": "U11",
+   "file": "U11_3.obj",
+   "sha256": "218921ecdd09ba6a10023033da889a1dd215b982bd0246473fe1517030c947fa",
+   "reason": null
+  },
+  {
+   "cell": "M05",
+   "file": "M05_1.obj",
+   "sha256": "a7911708565ae8430c5d6f9283c127efb6ab41176e7b0c028c27f33aa2402330",
+   "reason": null
+  },
+  {
+   "cell": "T24",
+   "file": "T24_3.obj",
+   "sha256": "4327563d7e678202fefdeb42e50c3f371a62326e0dc22523e935c94c5c48bf53",
+   "reason": null
+  },
+  {
+   "cell": "O02",
+   "file": "O02_2.obj",
+   "sha256": "e9acffbbb1eb1468ddb33b27bd7377a929758ad2ff1e9ea148db5943825000cb",
+   "reason": null
+  },
+  {
+   "cell": "H19",
+   "file": "H19_2.obj",
+   "sha256": "66e1930e38d4276f3b23a9163f0b34ee5b6415e2565b0e41626f0b4c0e951798",
+   "reason": null
+  },
+  {
+   "cell": "D05",
+   "file": "D05_2.obj",
+   "sha256": "246f2bfaecb48d46c9bbcea3a19697b7232eaadc242c2f3edaf3e51b7b8ddffa",
+   "reason": null
+  },
+  {
+   "cell": "M17",
+   "file": "M17_2.obj",
+   "sha256": "fa1d4720cc6b441a95b26eb6324e309bc8c1401302d54f8b664d3ae4068a3717",
+   "reason": null
+  },
+  {
+   "cell": "A05",
+   "file": "A05_0.obj",
+   "sha256": "9c7af1e463e6882ad652278e58fd31267d5403bf2df2a28cc05805ceacd32ae2",
+   "reason": null
+  },
+  {
+   "cell": "N24",
+   "file": "N24_1.obj",
+   "sha256": "031f7d5267d02a9273f217e99808348a059e2bc37e2fc5fb57f503c7dfd838c8",
+   "reason": null
+  },
+  {
+   "cell": "J02",
+   "file": "J02_0.obj",
+   "sha256": "9e51916228ab940bba14d1cf6cf0d09574850687494abbfedd4b5645dcacfdc1",
+   "reason": null
+  },
+  {
+   "cell": "O08",
+   "file": "O08_0.obj",
+   "sha256": "ceb1109126923202d278f4839e9e13a924c9ed85f8f8b93bcf9b5e9e4a442b6f",
+   "reason": null
+  },
+  {
+   "cell": "R23",
+   "file": "R23_3.obj",
+   "sha256": "670e43c93aad1ba652764c3719c693317f51f1d246775d5fb1504a5d000717c1",
+   "reason": null
+  },
+  {
+   "cell": "V06",
+   "file": "V06_1.obj",
+   "sha256": "9d3533438470f6cd02dff373f94441b77bc4cc763283152f1fd9c2fb849cc7bc",
+   "reason": null
+  },
+  {
+   "cell": "C08",
+   "file": "C08_1.obj",
+   "sha256": "f5d216cbe78706f9a2c56736621d073fe479062436f38367e03e82879b1ebbd7",
+   "reason": null
+  },
+  {
+   "cell": "F01",
+   "file": "F01_3.obj",
+   "sha256": "84915dec028ae610124ef5731693f0ed565f0a2c50b472ce4c3c36dce173a011",
+   "reason": null
+  },
+  {
+   "cell": "B19",
+   "file": "B19_1.obj",
+   "sha256": "9d403afe7047da678ba73c9112d71d546456fbc1ad21f2353acea1f3f069c2c6",
+   "reason": null
+  },
+  {
+   "cell": "G12",
+   "file": "G12_2.obj",
+   "sha256": "e9f64e3899efa4e232da95d598e216971f4967bb3a5ccc261acbf2af99d95dd4",
+   "reason": null
+  },
+  {
+   "cell": "M04",
+   "file": "M04_0.obj",
+   "sha256": "0ed7d83f79988f97d6d80ee8e96ee420e3d690959354741235e685d26117c88b",
+   "reason": null
+  },
+  {
+   "cell": "Q17",
+   "file": "Q17_3.obj",
+   "sha256": "e5bbdf7246bd6570899357e088a7c064ff7163108fb10705a2fa3753ff793b15",
+   "reason": null
+  },
+  {
+   "cell": "C25",
+   "file": "C25_0.obj",
+   "sha256": "8094187a5cff03f67a18a29450aa79500a003c49e84eacc64c89f0c2bc2aa416",
+   "reason": null
+  },
+  {
+   "cell": "R17",
+   "file": "R17_3.obj",
+   "sha256": "40242f5f12320ff7174c1f559296808f51811af4e27209b834d217be38361412",
+   "reason": null
+  },
+  {
+   "cell": "M15",
+   "file": "M15_0.obj",
+   "sha256": "3278be6b723d9ac6fbb1596ece0fe22d96ce8542b1e5f810810577a52e5f1cf9",
+   "reason": null
+  },
+  {
+   "cell": "F15",
+   "file": "F15_1.obj",
+   "sha256": "578f7cfa073505811d03de9ab47f11f6597ed3a14dbfc88c015b1d04cbd3ec21",
+   "reason": null
+  },
+  {
+   "cell": "E11",
+   "file": "E11_0.obj",
+   "sha256": "954620a32d0699ff66d7433ecedb951a32acf0a6d3f2623d7c45d19939a272c3",
+   "reason": null
+  },
+  {
+   "cell": "L19",
+   "file": "L19_1.obj",
+   "sha256": "2a59f763e46ce664037092f9443a675e0b3c1e696a9dc1ae386be0f941170d55",
+   "reason": null
+  },
+  {
+   "cell": "S19",
+   "file": "S19_0.obj",
+   "sha256": "773cdaed5b4910c46e761b1348532b8f73cfc261bb0ef6b1a50661bb75c72b42",
+   "reason": null
+  },
+  {
+   "cell": "R03",
+   "file": "R03_0.obj",
+   "sha256": "d4c601a47f7354eb637d3297ef8920eef8ef6f1748650075c3dba2fad48d4a70",
+   "reason": null
+  },
+  {
+   "cell": "T17",
+   "file": "T17_1.obj",
+   "sha256": "2c0c0b345a0e1a6756698954c15badce8850635e4dd593d1592dc334b41347f0",
+   "reason": null
+  },
+  {
+   "cell": "X25",
+   "file": "X25_1.obj",
+   "sha256": "cc553596d606e042e1919b22ae9f933a63aa1dd3fca018826da5b9889422fcdc",
+   "reason": null
+  },
+  {
+   "cell": "E00",
+   "file": "E00_3.obj",
+   "sha256": "93e1c4aa3bbe9122b550aea118daea817e74230f82c1669c5c88a6326de4c756",
+   "reason": null
+  },
+  {
+   "cell": "P03",
+   "file": "P03_3.obj",
+   "sha256": "06927fd1171d6c6bf35d8739e0629221be8375e43028484fd22cc608dafcad5f",
+   "reason": null
+  },
+  {
+   "cell": "P18",
+   "file": "P18_0.obj",
+   "sha256": "bfa432e5df1f6d9795fec490e10d2cf17f11be358ec64d642fbb1f9683bea4a2",
+   "reason": null
+  },
+  {
+   "cell": "E24",
+   "file": "E24_2.obj",
+   "sha256": "cfaaa8fcf488af882db8b88fbe7eb7df762401df4804eddae1a33c179e99a487",
+   "reason": null
+  },
+  {
+   "cell": "F08",
+   "file": "F08_1.obj",
+   "sha256": "696d0b960936d91f49801f6150ba1ee676a81ce0d44fe2f43bfc2ade6e542b79",
+   "reason": null
+  },
+  {
+   "cell": "B11",
+   "file": "B11_1.obj",
+   "sha256": "279a29024686db5f111698da73ce2e850cef3dfa674e4cb1266ccdfde22c7efc",
+   "reason": null
+  },
+  {
+   "cell": "C09",
+   "file": "C09_3.obj",
+   "sha256": "be26cedb8c0c256736e59a6ff5cdb7bd65571c2c61074d35e0c8bb88ef291e0b",
+   "reason": null
+  },
+  {
+   "cell": "Q10",
+   "file": "Q10_2.obj",
+   "sha256": "3bc8f674362fdfe13f8ac726bfca360b755a9d065f1fdd99a19d6d4f66396245",
+   "reason": null
+  },
+  {
+   "cell": "M18",
+   "file": "M18_0.obj",
+   "sha256": "a58826f9f9571ca2f27837558f5ec3eb64eff60eecfaa9b38a5cf5825777b07a",
+   "reason": null
+  },
+  {
+   "cell": "L09",
+   "file": "L09_2.obj",
+   "sha256": "412405355519fc9c85da77b35c6ef972ce9451fa78564af7188b7baa993881e7",
+   "reason": null
+  },
+  {
+   "cell": "M13",
+   "file": "M13_1.obj",
+   "sha256": "30b6425457cca4709be526007d28c7ff3916d85529392a7731802a8d27dd071d",
+   "reason": null
+  },
+  {
+   "cell": "I15",
+   "file": "I15_0.obj",
+   "sha256": "2f1c4ad127921e0ff3bb06f0ddaa611dfbdfc8ca2d9101ca241d008f64d94990",
+   "reason": null
+  },
+  {
+   "cell": "U18",
+   "file": "U18_1.obj",
+   "sha256": "f85d31262efe3d7ee15fc4c6002b24baaea167c03b0d891c9d53b9e3ced94cd9",
+   "reason": null
+  },
+  {
+   "cell": "T16",
+   "file": "T16_1.obj",
+   "sha256": "04ddb7f1a85c833bb5da5adc6252f8e62f1814e218963bf1502c8db50f093214",
+   "reason": null
+  },
+  {
+   "cell": "V24",
+   "file": "V24_2.obj",
+   "sha256": "cb2e2e4995a9dda70400288d0dd0ad27d29b3bac550447b7951fc0ae2491ca22",
+   "reason": null
+  },
+  {
+   "cell": "L22",
+   "file": "L22_0.obj",
+   "sha256": "1ca2dd50373a9f64b4f66418c11c15eb047843880f0d3e7b30f930b35f60216a",
+   "reason": null
+  },
+  {
+   "cell": "K04",
+   "file": "K04_3.obj",
+   "sha256": "49b85adc97a1cff00da7663e502cdb286db93490e8cc4c8d600133bafa5b5b4b",
+   "reason": null
+  },
+  {
+   "cell": "C18",
+   "file": "C18_0.obj",
+   "sha256": "12ea22821decec5aa5be74b874182a7050e57d0e105203aa45431078c5d8961d",
+   "reason": null
+  },
+  {
+   "cell": "C15",
+   "file": "C15_3.obj",
+   "sha256": "b4c0d9e8921ee81b6d143777ef0cec602c54ce8a6a78e74cbedad711dc092bc4",
+   "reason": null
+  },
+  {
+   "cell": "O17",
+   "file": "O17_2.obj",
+   "sha256": "af0cb6078584258c5ebe4459cb13cb3d69ae70acbfc7aa1a41214d10274ec854",
+   "reason": null
+  },
+  {
+   "cell": "K21",
+   "file": "K21_1.obj",
+   "sha256": "08c9218457f67c33895e3e41221e70098be7b3bc6afb685095c2fa8826c10111",
+   "reason": null
+  },
+  {
+   "cell": "Q05",
+   "file": "Q05_3.obj",
+   "sha256": "c94cee386f8f5d4ea2ed272ac7c11e7b2765213527466fcd0c9fb880bd83bd66",
+   "reason": null
+  },
+  {
+   "cell": "H25",
+   "file": "H25_1.obj",
+   "sha256": "46c7505be0ea0a2c01db177f129f3a280d834bc9ad1510978cd81367023bcf83",
+   "reason": null
+  },
+  {
+   "cell": "Q09",
+   "file": "Q09_3.obj",
+   "sha256": "3354acb360ebc01cfc16abb2c3847d6f1574409d2dadd0876d96df148dac188c",
+   "reason": null
+  },
+  {
+   "cell": "T25",
+   "file": "T25_1.obj",
+   "sha256": "3c8ab300baf76282aa647d301e633ef45394fa9249f8010f2fc51f431fc1c235",
+   "reason": null
+  },
+  {
+   "cell": "D10",
+   "file": "D10_2.obj",
+   "sha256": "64f3f4363b83b4da90d94e89bb459af31bb7393a915d86b8c43590599be4bdab",
+   "reason": null
+  },
+  {
+   "cell": "D06",
+   "file": "D06_0.obj",
+   "sha256": "38d1b9882df9e4464b5fc85debc012c8a15cf5a30fe3e532c76a884a9a0df5cc",
+   "reason": null
+  },
+  {
+   "cell": "T14",
+   "file": "T14_3.obj",
+   "sha256": "34f2791a2d616ea14efae860299a0d92236de810589a93e14175aa0b792be4e3",
+   "reason": null
+  },
+  {
+   "cell": "G05",
+   "file": "G05_1.obj",
+   "sha256": "d5f5c36404fea8da4531a102ef01707a52e1b28ad5b6f9215aa303de3e62e72c",
+   "reason": null
+  },
+  {
+   "cell": "C04",
+   "file": "C04_1.obj",
+   "sha256": "127c86b5e848658cf7e7874ad382b462509275403db978a70d4b32e7a83a8ef6",
+   "reason": null
+  },
+  {
+   "cell": "X02",
+   "file": "X02_2.obj",
+   "sha256": "2aed7d0887f5d75db1276a4d434ef945f6c4d93d914413ba21276c840b5d211b",
+   "reason": null
+  },
+  {
+   "cell": "C12",
+   "file": "C12_2.obj",
+   "sha256": "9676bb124092c57974b3b234a7184665e5a0e412d849f09f13d4d3e2596a0de8",
+   "reason": null
+  },
+  {
+   "cell": "I01",
+   "file": "I01_0.obj",
+   "sha256": "a81594bda2405f1f07a5de8b37d93cc2fe6cf8e1d4ef1f7785e674713e2343ae",
+   "reason": null
+  },
+  {
+   "cell": "N20",
+   "file": "N20_3.obj",
+   "sha256": "7887d79be2d5e544cc39e03b29b65bc3be0d54d509bcb8f6f4259bd4efd7f815",
+   "reason": null
+  },
+  {
+   "cell": "I02",
+   "file": "I02_3.obj",
+   "sha256": "7404255dfb64fc924c5d885290eae609762c5ba5901f8c5b9c2b6cd44277e3cf",
+   "reason": null
+  },
+  {
+   "cell": "B03",
+   "file": "B03_2.obj",
+   "sha256": "e2f6e75ea429be300709f107607c171220916f2e177c88d9b71f254018979d2d",
+   "reason": null
+  },
+  {
+   "cell": "A13",
+   "file": "A13_0.obj",
+   "sha256": "fac1478af979a1a63141976f27bcf108931220fd3006d2b4a1647f71edaf2af7",
+   "reason": null
+  },
+  {
+   "cell": "E01",
+   "file": "E01_2.obj",
+   "sha256": "9d82e7f8d4b4ec27ac52cf58005c1b016eaae77572f257f06b4f843a79cc63fd",
+   "reason": null
+  },
+  {
+   "cell": "O11",
+   "file": "O11_3.obj",
+   "sha256": "7ca06d2414c2bbf8ab64b5067670960a446b2d89a26afc8ce69565447964ddd8",
+   "reason": null
+  },
+  {
+   "cell": "U19",
+   "file": "U19_3.obj",
+   "sha256": "fb3f40ca0faf29481a6ab2c1c09a8aecfeb803bced6838226163e901f2d7e55a",
+   "reason": null
+  },
+  {
+   "cell": "E22",
+   "file": "E22_3.obj",
+   "sha256": "f8dac0a6805323300e41f259b6f6b7b5b8f8c6d7913b38e931c59a2669fef664",
+   "reason": null
+  },
+  {
+   "cell": "U22",
+   "file": "U22_3.obj",
+   "sha256": "30715e31864bb8c0d41520b04b9a0d07c2941618f4f5ae0a778d0b86070d0ef4",
+   "reason": null
+  },
+  {
+   "cell": "B01",
+   "file": "B01_0.obj",
+   "sha256": "6d6dfa5c16fdcbd312d758bf87a83d1130a361d805fb032c8d1f4f5cc5b156cb",
+   "reason": null
+  },
+  {
+   "cell": "S23",
+   "file": "S23_3.obj",
+   "sha256": "48680ddbfe6b53ca93fd8ea6e5fb05ff0ab52c2ad638fd53c405972f582aab9d",
+   "reason": null
+  },
+  {
+   "cell": "A14",
+   "file": "A14_0.obj",
+   "sha256": "df3f826dcc447258192f2ce525805159325a581a33e216d661f267a5fb5a180e",
+   "reason": null
+  },
+  {
+   "cell": "J09",
+   "file": "J09_3.obj",
+   "sha256": "3537cae7b32e64fe169519b821404c64ffdc6665e2c377aaca2a1e544cef4a2d",
+   "reason": null
+  },
+  {
+   "cell": "T20",
+   "file": "T20_0.obj",
+   "sha256": "3900ad0b7e83c1ae9794edea355826bc9652d22e831c6b030d254d9703c2a12d",
+   "reason": null
+  },
+  {
+   "cell": "G22",
+   "file": "G22_1.obj",
+   "sha256": "29b24fe85a760ee2d0e5b426f92468203b2dc3c6443abcaf514e0df48e1f4e13",
+   "reason": null
+  },
+  {
+   "cell": "L20",
+   "file": "L20_2.obj",
+   "sha256": "30e17a703ade1c12cef751403acd5299e8805f606b54ac368ab4fd2ccd58a143",
+   "reason": null
+  },
+  {
+   "cell": "R02",
+   "file": "R02_2.obj",
+   "sha256": "97f4da0be26fc10f8a86fffb74af136d07c630458249d78d12ac06af291207bb",
+   "reason": null
+  },
+  {
+   "cell": "T07",
+   "file": "T07_1.obj",
+   "sha256": "0468e7f2311d25b700bd057187d53f2e7368c6de14c5a4ddf256ef8d740959c3",
+   "reason": null
+  },
+  {
+   "cell": "C22",
+   "file": "C22_1.obj",
+   "sha256": "2852bbf91c30051c003bd4b479fb74a4a84238a737a5c434d553a87a75c84463",
+   "reason": null
+  },
+  {
+   "cell": "S24",
+   "file": "S24_0.obj",
+   "sha256": "47deffeb5bb4f869855cf09b5b554b760a71e5110d6035dc0f66b72b1edbe55b",
+   "reason": null
+  },
+  {
+   "cell": "V17",
+   "file": "V17_0.obj",
+   "sha256": "f065984bce106e358153e7bc8f8f47a8456b07235f8d0cba5e8fc22227c08e64",
+   "reason": null
+  },
+  {
+   "cell": "K09",
+   "file": "K09_3.obj",
+   "sha256": "7d3176c08849b3d127099c5629a2a5a991062b92831ea60ce405d510c57a50c6",
+   "reason": null
+  },
+  {
+   "cell": "V07",
+   "file": "V07_3.obj",
+   "sha256": "96f311471a25775df8b7d823486999e8f257886b50ce379be59105e21be18cce",
+   "reason": null
+  },
+  {
+   "cell": "D09",
+   "file": "D09_0.obj",
+   "sha256": "7da7dd69c8aa8a730f28b3875a29b803a547ac39c7422d2f4b1bce68813e10b9",
+   "reason": null
+  },
+  {
+   "cell": "C24",
+   "file": "C24_3.obj",
+   "sha256": "fba7513fa34977c36477a5e50a3ca6e3b08c94f7d48b525f5d6ba62cb0a5e740",
+   "reason": null
+  },
+  {
+   "cell": "D17",
+   "file": "D17_3.obj",
+   "sha256": "a96b225baa59bcf607ab56c57b5532f03b35295830bb471010a5bc8da508bd76",
+   "reason": null
+  },
+  {
+   "cell": "R16",
+   "file": "R16_2.obj",
+   "sha256": "c4b21bfad887bc3ee66233314d591598b35fa60f7ad6e407869606ac7be8b5fe",
+   "reason": null
+  },
+  {
+   "cell": "U21",
+   "file": "U21_0.obj",
+   "sha256": "da9454d9ce4c22599e74f59cd241722fd57e510f7dbd2e6eb84f98acd0927f39",
+   "reason": null
+  },
+  {
+   "cell": "L13",
+   "file": "L13_3.obj",
+   "sha256": "873d1d92d9dad6a4436a1a73c1718d228d8943f5c8e04ed93c2f6ecd45f3b9d3",
+   "reason": null
+  },
+  {
+   "cell": "X00",
+   "file": "X00_0.obj",
+   "sha256": "0093700b30a74964da59549e675e1313c0050f2179c99309c5897f5f9764f991",
+   "reason": null
+  },
+  {
+   "cell": "T10",
+   "file": "T10_1.obj",
+   "sha256": "a55eb91c28471761d843eade9e5936426ea91c89d42a7a9bf62c59bff4bfcf49",
+   "reason": null
+  },
+  {
+   "cell": "I09",
+   "file": "I09_0.obj",
+   "sha256": "fb1e2192e931c49fdaef23cdcd9d8f856c65a352be2cd1f05ab1f38b6f15d20c",
+   "reason": null
+  },
+  {
+   "cell": "N07",
+   "file": "N07_0.obj",
+   "sha256": "b0f9267581c2aa4b74b04e15b4fbc7e7b1f9cd5869f8dbaba4913eba362e892d",
+   "reason": null
+  },
+  {
+   "cell": "J12",
+   "file": "J12_3.obj",
+   "sha256": "a0868134f257e4538939f537dcb5ae2f66f333b716e98bb8be8e75d65bb71cbc",
+   "reason": null
+  },
+  {
+   "cell": "S18",
+   "file": "S18_3.obj",
+   "sha256": "ba0c627c6c3614227a9e23764313341464c9561ea93bd9f3e95829e9abfad55a",
+   "reason": null
+  },
+  {
+   "cell": "X01",
+   "file": "X01_3.obj",
+   "sha256": "7e145d9863827fb37d1685205516e0f49ca4a18563bd4afe39066b535e706515",
+   "reason": null
+  },
+  {
+   "cell": "G13",
+   "file": "G13_0.obj",
+   "sha256": "a7196ff3ca7439210bc9bce750cfd628ffb45f1804507bc0f6f2f643bc2e803c",
+   "reason": null
+  },
+  {
+   "cell": "S10",
+   "file": "S10_3.obj",
+   "sha256": "05f7434a768390707a23a5eab243b2b7d387ec629f4cb47ef52f35614ef5ffd8",
+   "reason": null
+  },
+  {
+   "cell": "J25",
+   "file": "J25_2.obj",
+   "sha256": "35d5c2aa5e2f5cf89b2f86ebc263883c38d297b53e268da6c5be63d4760bde8c",
+   "reason": null
+  },
+  {
+   "cell": "Q22",
+   "file": "Q22_3.obj",
+   "sha256": "8869fe19b4183d8806e0c5cc0e39ae9c97ed70efa863bde3efd58707c597b202",
+   "reason": null
+  },
+  {
+   "cell": "L18",
+   "file": "L18_1.obj",
+   "sha256": "6e456dd5d2860dbda57ff9e12d80be12aecf9cc2b4d39f39f7fdf57b0077b65d",
+   "reason": null
+  },
+  {
+   "cell": "J06",
+   "file": "J06_2.obj",
+   "sha256": "458fc287acf3e5d8417393123f66754111a1d6114b7eb3d1a4d69203f443ddb9",
+   "reason": null
+  },
+  {
+   "cell": "M06",
+   "file": "M06_1.obj",
+   "sha256": "6322df5a3c943808e529438850ebe5dabc57da2449efa14e9b4e95c8f15d9a7e",
+   "reason": null
+  },
+  {
+   "cell": "G16",
+   "file": "G16_1.obj",
+   "sha256": "d5bfc6e0916e543941244c021e8dc851a46051cc47f4246797714b5e9566a1e6",
+   "reason": null
+  },
+  {
+   "cell": "H17",
+   "file": "H17_0.obj",
+   "sha256": "6b94eb596d092aafa029670e427f9caef11676adc747e30159bdef4c2ba7d87a",
+   "reason": null
+  },
+  {
+   "cell": "R24",
+   "file": "R24_3.obj",
+   "sha256": "0bfeea6df58ab26ad605cf1a98f3c65a851b0f41150563ebac89773bd784202c",
+   "reason": null
+  },
+  {
+   "cell": "D24",
+   "file": "D24_3.obj",
+   "sha256": "7e3aa12613b853282f433022d16ce211bbf9f04ee6d0db205551209cceedf67b",
+   "reason": null
+  },
+  {
+   "cell": "Q11",
+   "file": "Q11_3.obj",
+   "sha256": "b3b6e4108e46c3451d0fa13c6c8e6e43f4ac7c00dcc289ec45bb69e1a66275b5",
+   "reason": null
+  },
+  {
+   "cell": "X10",
+   "file": "X10_2.obj",
+   "sha256": "2ff94bca34c59c907e993112efc639a1507ccf6b027e2af5e7a6b25c31c9525c",
+   "reason": null
+  },
+  {
+   "cell": "I16",
+   "file": "I16_3.obj",
+   "sha256": "1a9d91f47f9a3dde8782943b76b414a76ce331fa497d6a804adb5e56fbc68e3c",
+   "reason": null
+  },
+  {
+   "cell": "W24",
+   "file": "W24_1.obj",
+   "sha256": "028e4df66a0cd1a53609817a70aa64695a601da73cbbd6cfc619b9305db2dedf",
+   "reason": null
+  },
+  {
+   "cell": "B09",
+   "file": "B09_0.obj",
+   "sha256": "45220981184fe7b8bc1f487d4effca6cd45cd5f5e3a0563241ffe6acbd18b324",
+   "reason": null
+  },
+  {
+   "cell": "E07",
+   "file": "E07_0.obj",
+   "sha256": "fff6262d01e16da75fdd7854867e7dcfdf7113eaf9b1dc2daf1ee4cfdfeb8c0b",
+   "reason": null
+  },
+  {
+   "cell": "L02",
+   "file": "L02_0.obj",
+   "sha256": "0225533d98e427298e21ee7a3c2d5067f3b7d9987e4a2802a7a2bde085db26ab",
+   "reason": null
+  },
+  {
+   "cell": "E14",
+   "file": "E14_1.obj",
+   "sha256": "42f7ace25ec77b406841a1fe659b49bee98556284f1c508044ab3c087212fc9f",
+   "reason": null
+  },
+  {
+   "cell": "W15",
+   "file": "W15_3.obj",
+   "sha256": "cfc26312bf7db99b1b11f3578039a0e4260474371f291e2d91e63ce661f09bac",
+   "reason": null
+  },
+  {
+   "cell": "L05",
+   "file": "L05_3.obj",
+   "sha256": "bc0ace9f3e5c368fcc3b5f9b66cae62934d178e520880582c6fdc819abd1120d",
+   "reason": null
+  },
+  {
+   "cell": "K12",
+   "file": "K12_3.obj",
+   "sha256": "c7ab7ce9143dd670130825d7df88a03674574057653fe6b9f3a623a92f729025",
+   "reason": null
+  },
+  {
+   "cell": "W08",
+   "file": "W08_3.obj",
+   "sha256": "1ca9d6b5b87221c4251e8184bece1f8e55fa4cedc565f315fd0e13d86bfe9d28",
+   "reason": null
+  },
+  {
+   "cell": "X21",
+   "file": "X21_2.obj",
+   "sha256": "117048e3b1a7e5bc9a39111655deaf8f3ad2d7ce3aa8c9a157eff85e76225fb8",
+   "reason": null
+  },
+  {
+   "cell": "I18",
+   "file": "I18_3.obj",
+   "sha256": "e2674708d8dbf94393c09b4fa0612ba3295e1bd5a4031d95f7410e2a7fd72026",
+   "reason": null
+  },
+  {
+   "cell": "L21",
+   "file": "L21_2.obj",
+   "sha256": "aeccb899455836228df22af113330bf9c4066450517e37a62a752c23a3d02add",
+   "reason": null
+  },
+  {
+   "cell": "T11",
+   "file": "T11_0.obj",
+   "sha256": "9e976fc04129f0cc3405118af5436c90720ead20af3f434f0f65f241196030de",
+   "reason": null
+  },
+  {
+   "cell": "O20",
+   "file": "O20_0.obj",
+   "sha256": "fe62d9ca661869f603ec83337f4967b793607f49740f95d80701774552fc17a5",
+   "reason": null
+  },
+  {
+   "cell": "R11",
+   "file": "R11_2.obj",
+   "sha256": "6d44da030d87d60505a8a0817497dfca95ecc64eb5b1c19e982f6237d7837b6b",
+   "reason": null
+  },
+  {
+   "cell": "W22",
+   "file": "W22_2.obj",
+   "sha256": "cbca0f9706a5401d840beed87d5299a46458465035db33e8db1f81b8f2693794",
+   "reason": null
+  },
+  {
+   "cell": "X17",
+   "file": "X17_2.obj",
+   "sha256": "5e3c8a8cdaf9045215c498ec6b0609f60842a0803bc828dde1706958b4bdad5e",
+   "reason": null
+  },
+  {
+   "cell": "W06",
+   "file": "W06_0.obj",
+   "sha256": "4a032cf90095d4e00aebab7f84a59c1ed9b7c65ff8c8d7eef5e044665fbaa988",
+   "reason": null
+  },
+  {
+   "cell": "P12",
+   "file": "P12_0.obj",
+   "sha256": "7bbc9fb381411e721da27fbe10a58790bcfd2887753c61274ea2fd85179bdbb4",
+   "reason": null
+  },
+  {
+   "cell": "W09",
+   "file": "W09_0.obj",
+   "sha256": "b20775e643c6ea288136e784cb22da838ea49364127ad5dbccb7a3e40efafdd9",
+   "reason": null
+  },
+  {
+   "cell": "C06",
+   "file": "C06_3.obj",
+   "sha256": "6545b86ad9d8a09a6a6954f623e8d7c8dbcf2f1d62ca0b988c8fcae76613fbf0",
+   "reason": null
+  },
+  {
+   "cell": "P07",
+   "file": "P07_3.obj",
+   "sha256": "ae12d7a0ef5dc765b20334d77dc6b7784243fa616295ae74d9a39b464344bf90",
+   "reason": null
+  },
+  {
+   "cell": "E10",
+   "file": "E10_2.obj",
+   "sha256": "662fc26f3a8f8cd995838697a2a6b86a12841fe757cbc88379ca93b2c78bd9e2",
+   "reason": null
+  },
+  {
+   "cell": "I21",
+   "file": "I21_0.obj",
+   "sha256": "903c366d42f5fef4941a3491220d1e456eded62b837f986388e162cd2b27cf0e",
+   "reason": null
+  },
+  {
+   "cell": "R25",
+   "file": "R25_1.obj",
+   "sha256": "dc40c2dc2b8d8778c199f014c54414e4dfe12adc4997514e8e02d8ba43696419",
+   "reason": null
+  },
+  {
+   "cell": "G17",
+   "file": "G17_1.obj",
+   "sha256": "7081e7096db2bde06ea864e18aba08f57aa9c994f971b10d406d59d6c7c7a9f0",
+   "reason": null
+  },
+  {
+   "cell": "D03",
+   "file": "D03_2.obj",
+   "sha256": "5fa6d21641f597030fdd27a85ab9bf772f1918d7b593bb4e8a291a2bfd0d60e1",
+   "reason": null
+  },
+  {
+   "cell": "G08",
+   "file": "G08_2.obj",
+   "sha256": "5db6ee235932705ab0c1beaee991ff463655c31d53816c17b62beab895a6531d",
+   "reason": null
+  },
+  {
+   "cell": "X11",
+   "file": "X11_2.obj",
+   "sha256": "a2b370657619813aedbd1eb428a57550c4e31c346ad103d1ffba8a5ab1e01dc8",
+   "reason": null
+  },
+  {
+   "cell": "P21",
+   "file": "P21_1.obj",
+   "sha256": "c910c23152db67ff8739929c29a09daa0562497c82a75aa04666e9fcf7d4e178",
+   "reason": null
+  },
+  {
+   "cell": "W25",
+   "file": "W25_2.obj",
+   "sha256": "aa4103aaaeea931f72ca59e8f64ae474619b4eceeebea34e55408948bd36bdea",
+   "reason": null
+  },
+  {
+   "cell": "J07",
+   "file": "J07_1.obj",
+   "sha256": "ac701864445ef295d3810574c4c36eab280972ed1ff931231594c96c46366127",
+   "reason": null
+  },
+  {
+   "cell": "F12",
+   "file": "F12_1.obj",
+   "sha256": "97f6eeb705f8744d8ee1d2135275ef55393ab486ae704adbde64cbdb70ae6af4",
+   "reason": null
+  },
+  {
+   "cell": "I07",
+   "file": "I07_1.obj",
+   "sha256": "848d04b7cc06c7383e6497ac9bc8ff4b6ebf8b8cdfba310beaa475a433cf0234",
+   "reason": null
+  },
+  {
+   "cell": "K01",
+   "file": "K01_1.obj",
+   "sha256": "45c68a2d61a76966c56b8a0a039ce158583bd8c4bd62f90705b0d8f6a355d448",
+   "reason": null
+  },
+  {
+   "cell": "O09",
+   "file": "O09_0.obj",
+   "sha256": "a6a54f966d33979104b284b33a45a76c7b1e4bf122bcf7c7ce1df34cfc3049b6",
+   "reason": null
+  },
+  {
+   "cell": "H20",
+   "file": "H20_1.obj",
+   "sha256": "808158f834ecf3e6b6d41c40076d437e44c0444abf8418548128420cccad00c1",
+   "reason": null
+  },
+  {
+   "cell": "N00",
+   "file": "N00_0.obj",
+   "sha256": "ecc8015cb9f1ba6bce57625c46b03823441dbfc1873cbe90f9d20390ddb49fe7",
+   "reason": null
+  },
+  {
+   "cell": "N15",
+   "file": "N15_0.obj",
+   "sha256": "cb06c3cc68f352fa6c210687ea46a6e25f7677a290d88c839c0b3e9727549180",
+   "reason": null
+  },
+  {
+   "cell": "Q04",
+   "file": "Q04_0.obj",
+   "sha256": "b732a21e65504d6b7022a9fe42fb018e672ad735c8fcce4d4a5239ee74d1d00d",
+   "reason": null
+  },
+  {
+   "cell": "G07",
+   "file": "G07_3.obj",
+   "sha256": "e50c38de396da3f79dca983d4560abc2054054a2a326a93946f0abaa5cd91d66",
+   "reason": null
+  },
+  {
+   "cell": "I00",
+   "file": "I00_1.obj",
+   "sha256": "7d2c84aea30f18528173a161230ea56716fcd9f33a7115da571e2bc7803f9f05",
+   "reason": null
+  },
+  {
+   "cell": "T22",
+   "file": "T22_3.obj",
+   "sha256": "605e22a4f4d06b620d55e6cc715173de11ba4142e801c637388b78e1cf4ecb4d",
+   "reason": null
+  },
+  {
+   "cell": "A16",
+   "file": "A16_1.obj",
+   "sha256": "a4cc9d13b6d69d5c60b56dde1ebd0b1c243bf8f9dde434b8bcaf67eed826821c",
+   "reason": null
+  },
+  {
+   "cell": "C17",
+   "file": "C17_3.obj",
+   "sha256": "bc20e4c559f1c94f958ad6b0b67eca4a50e612723514936b9bf4b04243d6be8a",
+   "reason": null
+  },
+  {
+   "cell": "D15",
+   "file": "D15_2.obj",
+   "sha256": "602eb2d0f3f46291baabb5c726bc1c12141f25c4c8488239f62db369b128da4b",
+   "reason": null
+  },
+  {
+   "cell": "Q16",
+   "file": "Q16_3.obj",
+   "sha256": "595ed29195d36e4f695541aa98b7b3e93e08a4644010c85895375d3ddc327fa7",
+   "reason": null
+  },
+  {
+   "cell": "Q23",
+   "file": "Q23_2.obj",
+   "sha256": "d7c8185aecd94056414e009f130c039ba91a36386ed4c7997259bfb965777109",
+   "reason": null
+  },
+  {
+   "cell": "G19",
+   "file": "G19_3.obj",
+   "sha256": "71213af533fd982f92143783e4335ef32389a3df036862f492b5a806cf4296c7",
+   "reason": null
+  },
+  {
+   "cell": "U15",
+   "file": "U15_1.obj",
+   "sha256": "77861cb4dd8434bb16fabf898b03fb075814fc22ece5f94bfcf40f64db3cd879",
+   "reason": null
+  },
+  {
+   "cell": "W03",
+   "file": "W03_0.obj",
+   "sha256": "3bc4bc09ea76d0f6eb49b74e6bfca3a06587f8311d61914fc9fff58ee2668247",
+   "reason": null
+  },
+  {
+   "cell": "F00",
+   "file": "F00_2.obj",
+   "sha256": "928eb22e86200869a03ee18bc7bdb3b1ec23f22ea917caac4284316a0be5ce55",
+   "reason": null
+  },
+  {
+   "cell": "B08",
+   "file": "B08_1.obj",
+   "sha256": "70595fb9b0dc5f82ff4e6d89d9615c679b9f4b350a9ff97c1e072d725993a414",
+   "reason": null
+  },
+  {
+   "cell": "H01",
+   "file": "H01_2.obj",
+   "sha256": "d847700dab761dfd52973d84d0434aa0d973d7fc26239336a606678f191f024a",
+   "reason": null
+  },
+  {
+   "cell": "T23",
+   "file": "T23_2.obj",
+   "sha256": "fe87020bb58034b3039d76f5facb4607774d4cd3f9c0c6640a903b398da5a70f",
+   "reason": null
+  },
+  {
+   "cell": "U13",
+   "file": "U13_3.obj",
+   "sha256": "36ed03d2765c1116c5e0d226bf8b3b06823f16cc07292176854ad1b09b16d0d9",
+   "reason": null
+  },
+  {
+   "cell": "I23",
+   "file": "I23_2.obj",
+   "sha256": "fb3f042575d51e58729e91982f6fce0bc6944a4034114b164dd39ad387468611",
+   "reason": null
+  },
+  {
+   "cell": "E06",
+   "file": "E06_2.obj",
+   "sha256": "6e9181fa994370ff7f3e0a5a5c02c9442a817563e80a7f45581fe5c6f35c2ebc",
+   "reason": null
+  },
+  {
+   "cell": "M12",
+   "file": "M12_3.obj",
+   "sha256": "6802c1944acc8711917518f43ff7d932301dadc850afe9e3f8258e37c1179c20",
+   "reason": null
+  },
+  {
+   "cell": "D12",
+   "file": "D12_3.obj",
+   "sha256": "90609f56f39f7940dcf40c609301c1d0fdfe2294e8ed1897f8589b448fbfa8fd",
+   "reason": null
+  },
+  {
+   "cell": "S20",
+   "file": "S20_2.obj",
+   "sha256": "405dd97ad3bb3fd346b3bc3f2d656c050c18477de019f523a68f56e5bd3c45d0",
+   "reason": null
+  },
+  {
+   "cell": "R07",
+   "file": "R07_1.obj",
+   "sha256": "8c2c9c8c65154a3dbceb4346cb12627f85750705beec39262a73f396870265c0",
+   "reason": null
+  },
+  {
+   "cell": "N03",
+   "file": "N03_0.obj",
+   "sha256": "dfb3a0ccc7c546a248839cb13ee302aaa5be3c3440ffe9384d817118cb6a7fc4",
+   "reason": null
+  },
+  {
+   "cell": "O13",
+   "file": "O13_0.obj",
+   "sha256": "3c7cd85f1898f2d4b52e0b70a79b9d3888050eb3dfd96204ccb4efe8faeb67ba",
+   "reason": null
+  },
+  {
+   "cell": "T19",
+   "file": "T19_2.obj",
+   "sha256": "287f9f2d1c903281dfc5a68d47d8bc5ec87f61f1e92a851db0c7c71960494fea",
+   "reason": null
+  },
+  {
+   "cell": "W04",
+   "file": "W04_3.obj",
+   "sha256": "d985197d503a81e9cbe90f7139afc07954e6882f318ffe2615e01a3d79715037",
+   "reason": null
+  },
+  {
+   "cell": "Q06",
+   "file": "Q06_3.obj",
+   "sha256": "c0453ebf2d682290bff7f11b68f70f908b1d27efce3ed1d6932d58cd6681da68",
+   "reason": null
+  },
+  {
+   "cell": "X07",
+   "file": "X07_0.obj",
+   "sha256": "4eba35842dc32956d7c0e77d1e8d897ba284dfefab8cceba8a6cf266ad0546f5",
+   "reason": null
+  },
+  {
+   "cell": "J17",
+   "file": "J17_3.obj",
+   "sha256": "f0b9b31cbae95380438c3b2620fefaf46c8e47fbd6f10278dc5f185aa6e9bb03",
+   "reason": null
+  },
+  {
+   "cell": "J20",
+   "file": "J20_1.obj",
+   "sha256": "9d2f68975e001e3f73e6df37427be03c734377acae3d32278b76d94d76393147",
+   "reason": null
+  },
+  {
+   "cell": "L08",
+   "file": "L08_2.obj",
+   "sha256": "4b66be4db19dfea8ca1cf09c9c1aabc1043d0d04b28cc81a5debf0bff7a66550",
+   "reason": null
+  },
+  {
+   "cell": "G21",
+   "file": "G21_1.obj",
+   "sha256": "5e5afa8e554ddd9477eb3ce6f7e3b3cb1b4fd34dc5bc0e45c310cfb52dbeb4ba",
+   "reason": null
+  },
+  {
+   "cell": "W17",
+   "file": "W17_1.obj",
+   "sha256": "8b32701a62d395fcb3ba3674895e326a5b32b06d4550e87f4c502f14e188a11f",
+   "reason": null
+  },
+  {
+   "cell": "B22",
+   "file": "B22_2.obj",
+   "sha256": "3b05312262898c2404a651511adbb6d7c738b2ee8eca259dd6b56dbf4d82c558",
+   "reason": null
+  },
+  {
+   "cell": "O22",
+   "file": "O22_2.obj",
+   "sha256": "eafe666c60bc15fa0dcfe647b33ef3bff60a3f2a5d719ec76d3b017bde08b441",
+   "reason": null
+  },
+  {
+   "cell": "V04",
+   "file": "V04_3.obj",
+   "sha256": "501a058cd3101334570eda00ed2221e31a4ae8939311a387dd147b99df31fee3",
+   "reason": null
+  },
+  {
+   "cell": "P02",
+   "file": "P02_2.obj",
+   "sha256": "e34fe3baf73d66fe2e5212dfbe7b4fd59c5d5955f389de1068c16467d3953ac4",
+   "reason": null
+  },
+  {
+   "cell": "G02",
+   "file": "G02_3.obj",
+   "sha256": "9305395fcee5851ff2f78aa9a393a54029834a734aa3061c857a726ec450faa0",
+   "reason": null
+  },
+  {
+   "cell": "M25",
+   "file": "M25_2.obj",
+   "sha256": "4b1765dd092e4696135038f49a32b5037f536077c9b192cb7d88e2eef4c5eeff",
+   "reason": null
+  },
+  {
+   "cell": "R08",
+   "file": "R08_3.obj",
+   "sha256": "bec2c188743e3aea038d58c4276018594d6dc2c1c7087648fb219b4c0b99f723",
+   "reason": null
+  },
+  {
+   "cell": "J15",
+   "file": "J15_3.obj",
+   "sha256": "ad61e99ae6976577095e343a15b841346dc4844dad2da772c4cd048ed70324fe",
+   "reason": null
+  },
+  {
+   "cell": "K17",
+   "file": "K17_3.obj",
+   "sha256": "4abd9a087552b265f4ea496b4a00661ed76d77751ca898a358dc8a8ad5d43db2",
+   "reason": null
+  },
+  {
+   "cell": "X13",
+   "file": "X13_2.obj",
+   "sha256": "866f61e573572edbe9970e6ae5be2a6cb74e44c9050d673e1b2f30433f15b9a8",
+   "reason": null
+  },
+  {
+   "cell": "V02",
+   "file": "V02_1.obj",
+   "sha256": "6fb24217930709fae9b274ff98322d7b744145fba212dcdb704f3acfc8f8a7d8",
+   "reason": null
+  },
+  {
+   "cell": "B12",
+   "file": "B12_2.obj",
+   "sha256": "f4fe6c88809bb71abb6a5a8527ca3ccc1895cd0e82c34d1688d5e813e66bc95b",
+   "reason": null
+  },
+  {
+   "cell": "Q15",
+   "file": "Q15_2.obj",
+   "sha256": "26d95e76f09591aee36fd74181a4eb2be1c047a1f5382d7b5ec11dfde5d8d7fe",
+   "reason": null
+  },
+  {
+   "cell": "J05",
+   "file": "J05_2.obj",
+   "sha256": "57420afa5483f07863e8ecd25639e613fbd2269f62ba67afd67c0d730703e9e5",
+   "reason": null
+  },
+  {
+   "cell": "U02",
+   "file": "U02_3.obj",
+   "sha256": "634211b1ab138a12c058696561b4dd0fb48768b0cf4cd72564818e99793dc867",
+   "reason": null
+  },
+  {
+   "cell": "H08",
+   "file": "H08_3.obj",
+   "sha256": "4314008ed7a9095519054001db859e6bf9b3931dd446605c2ed945eeff387b75",
+   "reason": null
+  },
+  {
+   "cell": "N13",
+   "file": "N13_1.obj",
+   "sha256": "fa684476a54262813730f7a381231292c893aba0189c2bed79e67e7aa7f3e94f",
+   "reason": null
+  },
+  {
+   "cell": "P01",
+   "file": "P01_2.obj",
+   "sha256": "a807ca6503c48aab0d57bf45dc39075c646dca64b564467f1cd02f0b4a5ec3fd",
+   "reason": null
+  },
+  {
+   "cell": "L15",
+   "file": "L15_0.obj",
+   "sha256": "582720f245c1700dd8de6f5fa49a5e522e98bad7246b0b9a5eb3996fbd1f60d5",
+   "reason": null
+  },
+  {
+   "cell": "X24",
+   "file": "X24_3.obj",
+   "sha256": "ac590d03cea6a1dfd5e6c152629052815579568f97c56940791cef9202cbe053",
+   "reason": null
+  },
+  {
+   "cell": "B07",
+   "file": "B07_3.obj",
+   "sha256": "96452263d4e596668fd5c1419ba11fa35baa64ac16acb22c95011377760657ed",
+   "reason": null
+  },
+  {
+   "cell": "H06",
+   "file": "H06_2.obj",
+   "sha256": "5399b90200a3bf5d76c2b2fdb6ea82cb26bddd14a94ee0e53062f36e806ee304",
+   "reason": null
+  },
+  {
+   "cell": "L03",
+   "file": "L03_0.obj",
+   "sha256": "687557fbff510f94f70ce7c641b594e26328679fbf5caf0c61094a41fc3d7eb9",
+   "reason": null
+  },
+  {
+   "cell": "E15",
+   "file": "E15_0.obj",
+   "sha256": "bfdcd1a44c0be6987bdd8b92cf4acbbeb9e79cb24b646c6328a04e663ac05d7d",
+   "reason": null
+  },
+  {
+   "cell": "M24",
+   "file": "M24_0.obj",
+   "sha256": "00c3bc6d8e55a01812033b31d8d979df9934d46e8fddb8a95b4855cc2f532330",
+   "reason": null
+  },
+  {
+   "cell": "G09",
+   "file": "G09_3.obj",
+   "sha256": "c414b1bceee851d8d65e2e86702653bae48aa15a0b820e2651b227477bfe33df",
+   "reason": null
+  },
+  {
+   "cell": "V25",
+   "file": "V25_2.obj",
+   "sha256": "f61a5692bbae4192f9e72f8a18d102fefd272a127277e86f786730b1c0d84c78",
+   "reason": null
+  },
+  {
+   "cell": "L06",
+   "file": "L06_0.obj",
+   "sha256": "02ca8d2db1fbc15b7d19d4e6dfcd7525735d967b9d4e9abe84ca93cd5f7e3dd1",
+   "reason": null
+  },
+  {
+   "cell": "R05",
+   "file": "R05_2.obj",
+   "sha256": "8e7bc933cad49c8f6cda4a192e039972a7eebbb063fdf69ef5aa8fa3c4045e8d",
+   "reason": null
+  },
+  {
+   "cell": "N08",
+   "file": "N08_0.obj",
+   "sha256": "ebb03696c54bfdddfbb125d3c5977423a7aa53ababf686291c3230615f943ffa",
+   "reason": null
+  },
+  {
+   "cell": "N17",
+   "file": "N17_2.obj",
+   "sha256": "baa518ec431a252fded226f8e1de5d636384649e9e9ceba78bcf569d65850afb",
+   "reason": null
+  },
+  {
+   "cell": "X20",
+   "file": "X20_2.obj",
+   "sha256": "a9191a4790cf2a3e3a32108db2754cca6772e08cd950df20d68cfcc5c3de9d5b",
+   "reason": null
+  },
+  {
+   "cell": "E17",
+   "file": "E17_3.obj",
+   "sha256": "495de0edd35993702e8798174c7a378b8e9bc685b1c72a5b194af50c715ad971",
+   "reason": null
+  },
+  {
+   "cell": "X09",
+   "file": "X09_0.obj",
+   "sha256": "12734e0321a25794fbb68a8f922b7d963ef23e140d03db9789cca45ad6213ffe",
+   "reason": null
+  },
+  {
+   "cell": "A08",
+   "file": "A08_0.obj",
+   "sha256": "1e1647a25ea443cb44520455e62bb6df7de429b62a653727ee0070211c5192b7",
+   "reason": null
+  },
+  {
+   "cell": "D18",
+   "file": "D18_2.obj",
+   "sha256": "57e5509ac142e0b66a8ed2f768f39d6b6e24cd0aaf6c4510df785ade447b2733",
+   "reason": null
+  },
+  {
+   "cell": "S03",
+   "file": "S03_0.obj",
+   "sha256": "46a657946a89737b3ca4718180553b1b4171a855eec32bce53f7d7453eafe72c",
+   "reason": null
+  },
+  {
+   "cell": "B04",
+   "file": "B04_2.obj",
+   "sha256": "60ebb3d5bfbbd5af5650bc3463a4341c65f0d9e2f3836b1afb9d0cfdadfc2bad",
+   "reason": null
+  },
+  {
+   "cell": "F22",
+   "file": "F22_2.obj",
+   "sha256": "75ad97d144cd09360604aef1909c87fe14966bb3a35fbb4a1063b13578f33da4",
+   "reason": null
+  },
+  {
+   "cell": "M08",
+   "file": "M08_3.obj",
+   "sha256": "92e49353fc66139618444442c0dc68e3378c275d0286a8e6efeb40861c6e27c9",
+   "reason": null
+  },
+  {
+   "cell": "B00",
+   "file": "B00_3.obj",
+   "sha256": "aa756c01077ea0d98a44194cf75236306e2cc3f21f5885326f075a93ecfc65af",
+   "reason": null
+  },
+  {
+   "cell": "B05",
+   "file": "B05_3.obj",
+   "sha256": "f023ef1ffbaa976c430de1dcdfaf716a0b63e406275481a2de00a7638d17d43d",
+   "reason": null
+  },
+  {
+   "cell": "O14",
+   "file": "O14_0.obj",
+   "sha256": "89087e21d6a6220c62df4a2fd4bb70f97f09552a1d6cce6861ca6818193ae704",
+   "reason": null
+  },
+  {
+   "cell": "Q13",
+   "file": "Q13_3.obj",
+   "sha256": "9016110600282f20bcd27639eee92ce7f027b953b591a514693ebdf325507df1",
+   "reason": null
+  },
+  {
+   "cell": "P14",
+   "file": "P14_3.obj",
+   "sha256": "e571c6560b97917c8b68a67dae9519b9510e9b259dadae52bfdfdd39015f9aec",
+   "reason": null
+  },
+  {
+   "cell": "B06",
+   "file": "B06_2.obj",
+   "sha256": "260b7b4732aa5b271a7c0d3cb2b00a3e4ef78477bedb26734789fbc2c1e4b7f6",
+   "reason": null
+  },
+  {
+   "cell": "L25",
+   "file": "L25_1.obj",
+   "sha256": "228ca653b6080c4dd22f989fc577bc77f30c19af6e7e8dda42e66667febd141f",
+   "reason": null
+  },
+  {
+   "cell": "I19",
+   "file": "I19_0.obj",
+   "sha256": "9aa1569fb200c24d2610ec6e19be4bc5e993f8d77d6675d42874905b56a7caf7",
+   "reason": null
+  },
+  {
+   "cell": "O23",
+   "file": "O23_1.obj",
+   "sha256": "5be7571ecde8469b0ca5c5e159f2f61f0e46c622ed1847fefc03a8c964aae683",
+   "reason": null
+  },
+  {
+   "cell": "T05",
+   "file": "T05_1.obj",
+   "sha256": "19982a289a70b917f8750c2a9492c34f7980c3a30b065eebf1da1d31c05bc149",
+   "reason": null
+  },
+  {
+   "cell": "V08",
+   "file": "V08_3.obj",
+   "sha256": "5709254f8eb0b24579757c679c79098063c89498e0776329b21ba73d36ffce1b",
+   "reason": null
+  },
+  {
+   "cell": "K19",
+   "file": "K19_1.obj",
+   "sha256": "b3382b938fef0290bbdf4f2d53fd8c593ba737d8855a5cd9df6004b66dbb29da",
+   "reason": null
+  },
+  {
+   "cell": "G03",
+   "file": "G03_1.obj",
+   "sha256": "911517bd8b0514b52850cbf2a6edeb32dd67b0ad6686fe147363d08c096a3872",
+   "reason": null
+  },
+  {
+   "cell": "X05",
+   "file": "X05_1.obj",
+   "sha256": "376cff3e2737f505dcf8e0a8a0ba3723fa829555b0d37c84c6181fcd1ae2d77c",
+   "reason": null
+  },
+  {
+   "cell": "A23",
+   "file": "A23_0.obj",
+   "sha256": "182a2c3f825a97d1332c5dda964ad41c178236185b50eb18a04da504748e6d8b",
+   "reason": null
+  },
+  {
+   "cell": "H13",
+   "file": "H13_0.obj",
+   "sha256": "aec2d9bc297ed74d5e217f5039bdad5a9f8089e259bbd288e13381970057a5e5",
+   "reason": null
+  },
+  {
+   "cell": "A01",
+   "file": "A01_1.obj",
+   "sha256": "6c2c2fb8fa6c5082d4e35d2f4ffe45dafaca1d173633d05ad4fd362bb545917a",
+   "reason": null
+  },
+  {
+   "cell": "H14",
+   "file": "H14_2.obj",
+   "sha256": "04949751843daf33ebd5cfb9c959f5ab894b2d4a7e348ce2d691df62d69bd80d",
+   "reason": null
+  },
+  {
+   "cell": "D23",
+   "file": "D23_2.obj",
+   "sha256": "147f094ed9b6091750febeed16e758e2689a0a7d199072f692dd24ff7723ffba",
+   "reason": null
+  },
+  {
+   "cell": "A06",
+   "file": "A06_0.obj",
+   "sha256": "0f6e248050d84d1899041fc2e7ed2ddda112d2ee732d1b1cb34ab699044d3e4b",
+   "reason": null
+  },
+  {
+   "cell": "H03",
+   "file": "H03_1.obj",
+   "sha256": "9b933e6bac454961b64b50231ba10f4b687cdf3b91049f88d0af2eea35ab1537",
+   "reason": null
+  },
+  {
+   "cell": "I22",
+   "file": "I22_1.obj",
+   "sha256": "73455ec4b9c377677203323d6ad97e57932ff807da20ec8c4e2b1375bcc89f9c",
+   "reason": null
+  },
+  {
+   "cell": "C00",
+   "file": "C00_3.obj",
+   "sha256": "e145e91e8da586f8da62fb97bb1e292159c21714ca9bbcc10964f1fd9e9f0eb7",
+   "reason": null
+  },
+  {
+   "cell": "S08",
+   "file": "S08_1.obj",
+   "sha256": "ab2a3b6e9180ae684b7bf4d7875b1e50e96cc188927be025ec273e4b9a3fd228",
+   "reason": null
+  },
+  {
+   "cell": "E08",
+   "file": "E08_2.obj",
+   "sha256": "a22c140af8fd148aa7f18aa2823e8020eaefbdab2bf3f69b32a0743a7f5bb0b4",
+   "reason": null
+  },
+  {
+   "cell": "I17",
+   "file": "I17_0.obj",
+   "sha256": "94deea87fe6320f928880ef5f5bb44a2e1b1787e5d263b5b837841aeca4dc4a5",
+   "reason": null
+  },
+  {
+   "cell": "V20",
+   "file": "V20_2.obj",
+   "sha256": "b2af309a81f21d6409dccd1e73c86ad75c54bcea2f64632e470f87866abffae3",
+   "reason": null
+  },
+  {
+   "cell": "E04",
+   "file": "E04_0.obj",
+   "sha256": "ef231ff0bc0280ba675aba3e6bbf2540ca0b411547524326d222dbe6afa059b4",
+   "reason": null
+  },
+  {
+   "cell": "P23",
+   "file": "P23_0.obj",
+   "sha256": "7bc3040b9b649ee8121b4712a2add6aa2104c40010b0e56a33a153e2b2fe3466",
+   "reason": null
+  },
+  {
+   "cell": "K13",
+   "file": "K13_0.obj",
+   "sha256": "de9b4962e3db0ef3c43de3cfa1cbbbe1831f5d25b1b228ed71f3c804cc5e86a1",
+   "reason": null
+  },
+  {
+   "cell": "F25",
+   "file": "F25_3.obj",
+   "sha256": "f5bf6dfd2bf18e28dca38462e828be711503958e33ec280a25367fc7161b4b86",
+   "reason": null
+  },
+  {
+   "cell": "V12",
+   "file": "V12_3.obj",
+   "sha256": "05be6789801e0c55b8520f73e809f9f811aa2ed06f495f7701f6052bff4b22d3",
+   "reason": null
+  },
+  {
+   "cell": "F05",
+   "file": "F05_3.obj",
+   "sha256": "ee2735f8f14234753573a95f1928a69d5345bf85c2d899d2d939065e468515d0",
+   "reason": null
+  },
+  {
+   "cell": "R04",
+   "file": "R04_1.obj",
+   "sha256": "68529264fe876ea1bbe852f8549fe12d775605e986b72e0c104c7d29b011a88d",
+   "reason": null
+  },
+  {
+   "cell": "Q25",
+   "file": "Q25_3.obj",
+   "sha256": "deb8ce60038650803893236f98c1f6cf94680d487ed20f1ee52cb0755c87770c",
+   "reason": null
+  },
+  {
+   "cell": "J03",
+   "file": "J03_0.obj",
+   "sha256": "df8ff1e45adab9d4f6d03293c997e96239a7e4e0ffaf1190573aa1aca5a2ab7a",
+   "reason": null
+  },
+  {
+   "cell": "O06",
+   "file": "O06_3.obj",
+   "sha256": "9d5b53c2b13026a57e04c49d8b757d04a5f371e7d32137d9f39b4d23a9ce612f",
+   "reason": null
+  },
+  {
+   "cell": "R15",
+   "file": "R15_1.obj",
+   "sha256": "f68bd8777e47493a84941ff4e658c1c5ac5b42ed989d33f0e8843edf2ad6c937",
+   "reason": null
+  },
+  {
+   "cell": "D16",
+   "file": "D16_2.obj",
+   "sha256": "541b313f8a7d1abe4d6fb381ba2a80b878671b4d79e992aeb1076b310823a877",
+   "reason": null
+  },
+  {
+   "cell": "I14",
+   "file": "I14_1.obj",
+   "sha256": "96774d1df26b4233145d2dbae9f2973dd55f24ba9acf392423965301d83ef557",
+   "reason": null
+  },
+  {
+   "cell": "K20",
+   "file": "K20_0.obj",
+   "sha256": "b12f2faa3f9aa823ab7983325f83f25787461d963a12f41b904a4f37a5a5aca0",
+   "reason": null
+  },
+  {
+   "cell": "M02",
+   "file": "M02_0.obj",
+   "sha256": "733d6c6a23acf62aa783ac22bfa8f854f53dc5ac5472bbab69a4dadbff10f70e",
+   "reason": null
+  },
+  {
+   "cell": "B14",
+   "file": "B14_2.obj",
+   "sha256": "79fb688383f5b6b03cd65aac63d28b21d47f2db886f161a56db82ef404327239",
+   "reason": null
+  },
+  {
+   "cell": "N02",
+   "file": "N02_3.obj",
+   "sha256": "e96e0abf70ab86ee9c46236da56c9e54dffbac93c2c635d1abbd9a1576f7b4f8",
+   "reason": null
+  },
+  {
+   "cell": "O18",
+   "file": "O18_1.obj",
+   "sha256": "f13544f4bbfa6ca2b21f45c3d606908386284ec7d2acc402f3a375a9eee1ae0a",
+   "reason": null
+  },
+  {
+   "cell": "E12",
+   "file": "E12_3.obj",
+   "sha256": "b86350d2f0ac4a262ef6118dc03114291b5cd09fa8a89f4caad53bbacafb8ed9",
+   "reason": null
+  },
+  {
+   "cell": "B25",
+   "file": "B25_1.obj",
+   "sha256": "01e166068aae8cb5a6d9efcc7f1d464932bf84960e0baf1268fe0d8cefdb5eb6",
+   "reason": null
+  },
+  {
+   "cell": "W10",
+   "file": "W10_1.obj",
+   "sha256": "e733d329757eca9f7dff8e3adbf4f7949ddf01d43d1362c4bad2aa77818522e1",
+   "reason": null
+  },
+  {
+   "cell": "K07",
+   "file": "K07_2.obj",
+   "sha256": "fc09b698beffe3d559d72997d8d4dd38b4dc863137b976ace61035956f3d4337",
+   "reason": null
+  },
+  {
+   "cell": "F07",
+   "file": "F07_3.obj",
+   "sha256": "e77a5c3b7d650493d62f922dd25f2e834b6fe15e1711c19c2dd3452b7ee971f1",
+   "reason": null
+  },
+  {
+   "cell": "V16",
+   "file": "V16_0.obj",
+   "sha256": "a8bf58212e97fb6e312eb45286036ca3bcb388ddb2501796f9d5d6f8618ed46d",
+   "reason": null
+  },
+  {
+   "cell": "O03",
+   "file": "O03_3.obj",
+   "sha256": "896cef2b21eb0f60942f18e2840be2a41b4c955a0d458e429d1101acb64a87b6",
+   "reason": null
+  },
+  {
+   "cell": "F03",
+   "file": "F03_1.obj",
+   "sha256": "6ab5b1053e56cf38ff92caf0dd03d7a1d74c843da3f06b8d29d805cd325ec2cd",
+   "reason": null
+  },
+  {
+   "cell": "E05",
+   "file": "E05_3.obj",
+   "sha256": "692f2eb359632d9a5be46f950058b30312adf988123a821fb6f0fcddea431715",
+   "reason": null
+  }
+ ],
+ "primary_rejected": [
+  {
+   "cell": "M03",
+   "file": "M03_2.obj",
+   "sha256": "d8bb7b877570391b35ea57595a0f02d4ee31cd2e82a5eaa4b20d0a397e38e1ce",
+   "reason": "not watertight"
+  },
+  {
+   "cell": "X23",
+   "file": "X23_0.obj",
+   "sha256": "2a10cd9ae2baaf801961c2d10d8797dae377e3ac73348fdc38789c8a1773c42d",
+   "reason": "not watertight"
+  },
+  {
+   "cell": "O16",
+   "file": "O16_1.obj",
+   "sha256": "b51d74692f28773a59293bca0b81f50ff7007307166b72cb0d617aa33a64f956",
+   "reason": "not watertight"
+  }
+ ],
+ "evaluation_set": [
+  {
+   "cell": "A0",
+   "file": "A0.obj",
+   "sha256": "3fd9f097a27f713f8b58a5039e8032bcd8eff40f22f1c3c0fe7706219a98799a",
+   "reason": null
+  },
+  {
+   "cell": "A1",
+   "file": "A1.obj",
+   "sha256": "67e7bd8d5d9fca33a8121a3492746a20ae93d86accc5f269fef8f033a766f62a",
+   "reason": null
+  },
+  {
+   "cell": "A2",
+   "file": "A2.obj",
+   "sha256": "6f8df6c3f36e49a961bf6288e20b856dae27e594aa1202a715a2f59cb526d602",
+   "reason": null
+  },
+  {
+   "cell": "A3",
+   "file": "A3.obj",
+   "sha256": "a69d40893ca5e2a9d0bafe96a7b06b89828c326a9764ac2bd5457b765621f2b4",
+   "reason": null
+  },
+  {
+   "cell": "A4",
+   "file": "A4.obj",
+   "sha256": "9585d1cb20340bed4f1a4b9e17dc8735f6a62c298d56262aaf4b1cf39330fa37",
+   "reason": null
+  },
+  {
+   "cell": "A5",
+   "file": "A5.obj",
+   "sha256": "18b60a82583cd316372daa0afefe181d9a544e79afa8f7f0679771315254f899",
+   "reason": null
+  },
+  {
+   "cell": "A6",
+   "file": "A6.obj",
+   "sha256": "42a3ad7d9c896dad41772b61e7048d9686efe1c18c38001134dca196c2620cfe",
+   "reason": null
+  },
+  {
+   "cell": "B0",
+   "file": "B0.obj",
+   "sha256": "03d469722c8ee14101fb73229111f847c29d44639979b9402994bbc4a44cc110",
+   "reason": null
+  },
+  {
+   "cell": "B1",
+   "file": "B1.obj",
+   "sha256": "f7358694cc2ede5baca054f2e4b125f6d2aabbb6db89c9a6d9010c6fb3529f9a",
+   "reason": null
+  },
+  {
+   "cell": "B2",
+   "file": "B2.obj",
+   "sha256": "df1931a40bbdfb238ece55821e330182954549516f85bd36de5049782df9d393",
+   "reason": null
+  },
+  {
+   "cell": "B3",
+   "file": "B3.obj",
+   "sha256": "152a3a0286a3d404dff243b1bf6438ee39de774fea266ae2b06b4a4d4f5a8c2e",
+   "reason": null
+  },
+  {
+   "cell": "B6",
+   "file": "B6.obj",
+   "sha256": "97ea4d5a18c5ffda643511b5f7b3c6495c9969ce27a29cc4767fd96043908dd1",
+   "reason": null
+  },
+  {
+   "cell": "C0",
+   "file": "C0.obj",
+   "sha256": "2d04d5922581c9ad4259a61c035d417fb9810638e8adf08308cc88e33acbfa1b",
+   "reason": null
+  },
+  {
+   "cell": "C1",
+   "file": "C1.obj",
+   "sha256": "006d5f8acdc5daa0d54c9c280dea9778f48242372ee8305bb905ee736e8d1653",
+   "reason": null
+  },
+  {
+   "cell": "C2",
+   "file": "C2.obj",
+   "sha256": "d08d4a827111e2b32660db701004a9cb5b2abf8da735bece19bb90c47e4720ea",
+   "reason": null
+  },
+  {
+   "cell": "C3",
+   "file": "C3.obj",
+   "sha256": "172a490323810d3d63725317b4b9c884d7864f3449c478271b2eace5f4992cf5",
+   "reason": null
+  },
+  {
+   "cell": "C4",
+   "file": "C4.obj",
+   "sha256": "4ef636f346d4c7e499933ca82f1a2980c6eedfcc3b0d25743ae6fb286c232776",
+   "reason": null
+  },
+  {
+   "cell": "C6",
+   "file": "C6.obj",
+   "sha256": "98987f457d7fd87ff0dfb82d3dfc1e3748da186d279b6e9cd70bfda4ab5defd4",
+   "reason": null
+  },
+  {
+   "cell": "D0",
+   "file": "D0.obj",
+   "sha256": "b845d357ef50732d52f7083e5109e4913c06f4b2259be3dae030c0447e99b6f4",
+   "reason": null
+  },
+  {
+   "cell": "D1",
+   "file": "D1.obj",
+   "sha256": "64a434c90797b85b3a542d217cd79aef6bf896101b1a29ffe47d9f884112a106",
+   "reason": null
+  },
+  {
+   "cell": "D2",
+   "file": "D2.obj",
+   "sha256": "c39e68b12e0c8c8156b34e1c924f33a467527b9cc2da293ebf6ff284728882bd",
+   "reason": null
+  },
+  {
+   "cell": "D3",
+   "file": "D3.obj",
+   "sha256": "cbd616f8457be6707714f2d41f5686c9906e968c7266c5679dcf1e3032b8dde5",
+   "reason": null
+  },
+  {
+   "cell": "D5",
+   "file": "D5.obj",
+   "sha256": "4e354fa4d4ef67ad1f87770119c0b455167f9917464f380eee6a95f58769f921",
+   "reason": null
+  },
+  {
+   "cell": "D6",
+   "file": "D6.obj",
+   "sha256": "33e3943f317e5f8006cfd25b50bc76afab95ede87ea60f9e5489e10e57c67ef4",
+   "reason": null
+  },
+  {
+   "cell": "E0",
+   "file": "E0.obj",
+   "sha256": "5d55aa79aa22443ef52b637b8c54ae48376ce46b5791819fa7c1038519851cbb",
+   "reason": null
+  },
+  {
+   "cell": "E1",
+   "file": "E1.obj",
+   "sha256": "d9facd5ff225f17b72406c6838b60ca79845ea5e60b738caeaea7a4111ec3503",
+   "reason": null
+  },
+  {
+   "cell": "E2",
+   "file": "E2.obj",
+   "sha256": "6bb97b26dec6989108236841666b5e82fc7e505e77a75e2cd4755a41e7fe318d",
+   "reason": null
+  },
+  {
+   "cell": "E3",
+   "file": "E3.obj",
+   "sha256": "d9275de5b4c2d84a16a724babf6916f31a45f921d0461ac947a40297ec9e3efd",
+   "reason": null
+  },
+  {
+   "cell": "E4",
+   "file": "E4.obj",
+   "sha256": "5f2b3891dad3e6373806e922aca6f60876fd72df570d70fb322bc8553a26ddc5",
+   "reason": null
+  },
+  {
+   "cell": "E5",
+   "file": "E5.obj",
+   "sha256": "7e4176cf9e56b29261a4488244d27b89166656288ca3257e53b0f42f426ca7ca",
+   "reason": null
+  },
+  {
+   "cell": "E6",
+   "file": "E6.obj",
+   "sha256": "ce7e31ef30804e0982ff42e3c773e65242f004f01ca16a7e9d310f8faaa7ecce",
+   "reason": null
+  },
+  {
+   "cell": "F0",
+   "file": "F0.obj",
+   "sha256": "c3d820ad4ad208fa5b064c8f77f28c4b5b892298ee785d0a71b968cf4da929e7",
+   "reason": null
+  },
+  {
+   "cell": "F1",
+   "file": "F1.obj",
+   "sha256": "6ae42c3b28320eeba3e19d7492ea1d650d5c8e222abcff65f42045d110273457",
+   "reason": null
+  },
+  {
+   "cell": "F2",
+   "file": "F2.obj",
+   "sha256": "9e2294ddcc143e1cb9ed9a1263d80e73f022eee0fc8d947c7ce1240163731e87",
+   "reason": null
+  },
+  {
+   "cell": "F3",
+   "file": "F3.obj",
+   "sha256": "f4c584d359cc2da5e229d723a726443f1cf0e8ee01a6f8632a30a64d312c5034",
+   "reason": null
+  },
+  {
+   "cell": "F4",
+   "file": "F4.obj",
+   "sha256": "affd4d3941ddbb880afaba8013111607661fa90d3070e79f18573a18b7497145",
+   "reason": null
+  },
+  {
+   "cell": "F5",
+   "file": "F5.obj",
+   "sha256": "08d55db83911307ee29c2ecd4e670ce06c46d0971734ff149ed9f3e78a9b50c5",
+   "reason": null
+  },
+  {
+   "cell": "F6",
+   "file": "F6.obj",
+   "sha256": "ca881d4914d2f1cc50ec2d9e4c239ddf8546e21b34e8cccedec15b428ca13b81",
+   "reason": null
+  },
+  {
+   "cell": "G0",
+   "file": "G0.obj",
+   "sha256": "c54da0b70ed0e336bd34a906cc489670fb9bdfe474ab93430b8a06639701b996",
+   "reason": null
+  },
+  {
+   "cell": "G1",
+   "file": "G1.obj",
+   "sha256": "99a025e8b71a09ab23df77acf441a526f3391218b801d1d35d77aff9e62c552d",
+   "reason": null
+  },
+  {
+   "cell": "G2",
+   "file": "G2.obj",
+   "sha256": "771357fcb27b391d21a507e6372091bb1c2e22d02ca53efc07bc2bd9884fa32c",
+   "reason": null
+  },
+  {
+   "cell": "G3",
+   "file": "G3.obj",
+   "sha256": "6d6f6ee2ff1103588028fad19c4d322ab3dfe1ad4dea1ebf9e9b420a295ee4e2",
+   "reason": null
+  },
+  {
+   "cell": "G4",
+   "file": "G4.obj",
+   "sha256": "f332fbbc2eabd2e6826692451c8305fb8bc48755e506d0866114c137f5c4bf95",
+   "reason": null
+  },
+  {
+   "cell": "G5",
+   "file": "G5.obj",
+   "sha256": "9afcda314ce14c0f1e420d80ec17ed1e590395984d56a0ec9ceb7c9c421c8801",
+   "reason": null
+  },
+  {
+   "cell": "G6",
+   "file": "G6.obj",
+   "sha256": "bb0221bd227ee5c9383c11359c7eadcc793232265322927b7926ca2afa18dbf1",
+   "reason": null
+  }
+ ],
+ "evaluation_rejected": [
+  {
+   "cell": "B4",
+   "file": "B4.obj",
+   "sha256": "fb91ecbd76cca13beb7b4e57680cd87c1a3227c812d78ca19d8428c3fe0a0af7",
+   "reason": "not watertight"
+  },
+  {
+   "cell": "B5",
+   "file": "B5.obj",
+   "sha256": "9c23c3473634eb2536dc851a558e1cc80e6e1fedad83792bf3e1ce31973dd6c9",
+   "reason": "not watertight"
+  },
+  {
+   "cell": "C5",
+   "file": "C5.obj",
+   "sha256": "a8f04c7bf9c4bfaa1c37d3d935b1dc7b422534e8402cb1f971dcf56d94402a38",
+   "reason": "not watertight"
+  },
+  {
+   "cell": "D4",
+   "file": "D4.obj",
+   "sha256": "68484e4e159f6408e3532cb96d6ca86d98b1f2671c5481b404edeb56fdd414f8",
+   "reason": "not watertight"
+  }
+ ]
+}

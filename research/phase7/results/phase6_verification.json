@@ -1,0 +1,211 @@
+{
+ "checks": [
+  {
+   "what": "Phase V learned/box",
+   "claimed": [
+    0.565,
+    0.462,
+    0.685
+   ],
+   "found": [
+    0.565,
+    0.462,
+    0.685
+   ],
+   "ok": true,
+   "source": "research/phase5/results/analysis.json"
+  },
+  {
+   "what": "Phase V afat/learned",
+   "claimed": [
+    1.058,
+    0.986,
+    1.142
+   ],
+   "found": [
+    1.058,
+    0.986,
+    1.142
+   ],
+   "ok": true,
+   "source": "research/phase5/results/analysis.json"
+  },
+  {
+   "what": "Phase V afat/afat-novis",
+   "claimed": [
+    1.011,
+    0.959,
+    1.07
+   ],
+   "found": [
+    1.011,
+    0.959,
+    1.07
+   ],
+   "ok": true,
+   "source": "research/phase5/results/analysis.json"
+  },
+  {
+   "what": "Phase V visual:dinov3/visual:vit-random",
+   "claimed": [
+    0.322,
+    0.259,
+    0.399
+   ],
+   "found": [
+    0.322,
+    0.259,
+    0.399
+   ],
+   "ok": true,
+   "source": "research/phase5/results/analysis.json"
+  },
+  {
+   "what": "Phase V learned/default (B, 80 mm)",
+   "claimed": [
+    0.207,
+    0.152,
+    0.282
+   ],
+   "found": [
+    0.207,
+    0.152,
+    0.282
+   ],
+   "ok": true,
+   "source": "research/phase5/results/analysis.json"
+  },
+  {
+   "what": "Phase VI M0 robust / load tolerant",
+   "claimed": [
+    0.841,
+    0.649
+   ],
+   "found": [
+    0.8411,
+    0.649
+   ],
+   "ok": true,
+   "source": "research/phase6/results/fusion_benchmark.json"
+  },
+  {
+   "what": "Phase VI M1 robust / load tolerant",
+   "claimed": [
+    0.907,
+    0.483
+   ],
+   "found": [
+    0.9073,
+    0.4834
+   ],
+   "ok": true,
+   "source": "research/phase6/results/fusion_benchmark.json"
+  },
+  {
+   "what": "Phase VI M4 robust / load tolerant",
+   "claimed": [
+    0.927,
+    0.603
+   ],
+   "found": [
+    0.9272,
+    0.6026
+   ],
+   "ok": true,
+   "source": "research/phase6/results/fusion_benchmark.json"
+  },
+  {
+   "what": "Phase VI M9 robust / load tolerant",
+   "claimed": [
+    0.96,
+    0.464
+   ],
+   "found": [
+    0.9603,
+    0.4636
+   ],
+   "ok": true,
+   "source": "research/phase6/results/robustness_prediction.json"
+  },
+  {
+   "what": "Phase VI M4 - M1 load tolerance",
+   "claimed": [
+    0.119,
+    0.066,
+    0.179
+   ],
+   "found": [
+    0.1192,
+    0.0662,
+    0.1788
+   ],
+   "ok": true,
+   "source": "fusion_benchmark.json"
+  },
+  {
+   "what": "Phase VI M4 vs M0 load tolerance not shown superior",
+   "claimed": "CI includes 0",
+   "found": [
+    -0.106,
+    0.0132
+   ],
+   "ok": true,
+   "source": "fusion_benchmark.json"
+  },
+  {
+   "what": "Phase VI M9 - M1 robustness",
+   "claimed": [
+    0.053,
+    0.02,
+    0.093
+   ],
+   "found": [
+    0.053,
+    0.0199,
+    0.0927
+   ],
+   "ok": true,
+   "source": "robustness_prediction.json"
+  },
+  {
+   "what": "Phase VI time per planner call vs default (about -24 %)",
+   "claimed": "~0.76",
+   "found": [
+    0.7637,
+    0.7656
+   ],
+   "ok": true,
+   "source": "cost_profile_online.json (60 parts; planner call only, prior construction excluded)"
+  },
+  {
+   "what": "Phase VI random within gate / default",
+   "claimed": [
+    1.18,
+    0.91,
+    1.52
+   ],
+   "found": [
+    1.1781,
+    0.9082,
+    1.5246
+   ],
+   "ok": true,
+   "source": "fusion_benchmark.json"
+  },
+  {
+   "what": "Phase VI torsion sensitivity (verdicts changed of 180)",
+   "claimed": [
+    17,
+    20
+   ],
+   "found": [
+    17,
+    20
+   ],
+   "ok": true,
+   "source": "physics_validation.json"
+  }
+ ],
+ "passed": 15,
+ "total": 15
+}
