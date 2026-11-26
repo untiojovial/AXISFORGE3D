@@ -51,6 +51,7 @@ pub mod candidate;
 pub mod diversity;
 pub mod hand;
 pub mod hull;
+pub mod learned;
 pub mod planner;
 pub mod quality;
 pub mod registry;
@@ -59,6 +60,7 @@ pub mod wrench;
 
 pub use candidate::{synthesize, GraspCandidate, SynthesisOptions};
 pub use hand::{synthesize_hand, Hand, HandGrasp, HandSynthesis, HAND_GENERATOR};
+pub use learned::{LearnedModels, LearnedOrder, OrderMode};
 pub use planner::{
     plan_pick, plan_pick_with, research_candidates, CandidatePrior, GraspPlan, PlanReport,
     PlanTimings, PlannerOptions, Rejection, RejectionReason, ResearchCandidate, AUTO_GENERATOR,

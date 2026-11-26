@@ -115,6 +115,12 @@ pub struct PlannerOptions {
     /// which lies in `[0, 1]`: at the default 2 the prior decides the order
     /// and the estimate breaks ties.
     pub prior_weight: f64,
+    /// A learned examination order evaluated on the planner's own candidates
+    /// ([`crate::learned`]): one generation, the same checks, a different
+    /// order. Set in process (it is not part of the serialised options) and
+    /// exclusive with `candidate_prior`.
+    #[serde(skip)]
+    pub learned_order: Option<crate::learned::LearnedOrder>,
 }
 
 /// One candidate's score from an outside model.
@@ -153,6 +159,7 @@ impl Default for PlannerOptions {
             preshape: None,
             candidate_prior: Vec::new(),
             prior_weight: 2.0,
+            learned_order: None,
         }
     }
 }
@@ -206,6 +213,11 @@ impl PlannerOptions {
             )));
         }
         let mut labels = std::collections::BTreeSet::new();
+        if self.learned_order.is_some() && !self.candidate_prior.is_empty() {
+            return Err(DomainError::unsupported(
+                "a learned order and an outside prior cannot be combined".to_owned(),
+            ));
+        }
         for prior in &self.candidate_prior {
             if !prior.score.is_finite() || !(0.0..=1.0).contains(&prior.score) {
                 return Err(DomainError::unsupported(format!(
@@ -353,6 +365,10 @@ pub struct PlanTimings {
     pub accepted_seconds: f64,
     /// Part of the search spent on rejected candidates, by reason.
     pub rejected_seconds: BTreeMap<String, f64>,
+    /// Part of the ranking spent on a learned order: part bounds, features,
+    /// model inference and sorting. Zero without one.
+    #[serde(default)]
+    pub learned_seconds: f64,
 }
 
 /// A clock reading, or `None` where the target has no clock (wasm32).
@@ -816,13 +832,17 @@ fn search(
     Ok(())
 }
 
+/// Ranked candidates (sort key, candidate), how many the prior scored and how
+/// many of its labels matched none.
+type Ranked = (Vec<(f64, GraspCandidate)>, usize, usize);
+
 /// Candidates in the order they are examined, with how many of them the
 /// prior scored and how many of its labels matched none.
-fn rank(
-    context: &Context<'_>,
-    candidates: Vec<GraspCandidate>,
-) -> (Vec<(f64, GraspCandidate)>, usize, usize) {
+fn rank(context: &Context<'_>, candidates: Vec<GraspCandidate>) -> DomainResult<Ranked> {
     let options = context.options;
+    if let Some(learned) = &options.learned_order {
+        return rank_learned(context, learned, candidates);
+    }
     let prior: BTreeMap<&str, f64> = options
         .candidate_prior
         .iter()
@@ -847,7 +867,57 @@ fn rank(
     // same request always examines candidates in the same order.
     ranked.sort_by(|a, b| b.0.total_cmp(&a.0));
     let unmatched = prior.len().saturating_sub(matched);
-    (ranked, matched, unmatched)
+    Ok((ranked, matched, unmatched))
+}
+
+/// [`rank`] with a learned order: the same preliminary scores and gate, the
+/// models evaluated on these candidates, and the research simulator's order
+/// arithmetic ([`crate::learned::order`]). The first element of each pair is
+/// the candidate's position in the order (lower first).
+fn rank_learned(
+    context: &Context<'_>,
+    learned: &crate::learned::LearnedOrder,
+    candidates: Vec<GraspCandidate>,
+) -> DomainResult<Ranked> {
+    use crate::learned;
+    let (low, high) = learned::visual_bounds(context.project, context.body)?;
+    let preliminary: Vec<f64> = candidates
+        .iter()
+        .map(|c| preliminary_score(&context.quality_input(c)))
+        .collect();
+    let makeable: Vec<bool> = candidates.iter().map(|c| context.gate(c).is_ok()).collect();
+    let features: Vec<[f64; learned::FEATURES]> = candidates
+        .iter()
+        .enumerate()
+        .map(|(i, c)| learned::features(c, preliminary[i], makeable[i], &low, &high))
+        .collect();
+    let scores = learned::score_candidates(&learned.models, &features);
+    let offsets: Vec<f64> = candidates.iter().map(|c| c.center_offset).collect();
+    let order = learned::order(
+        &learned.models,
+        learned.mode,
+        &preliminary,
+        &makeable,
+        &offsets,
+        &scores,
+    );
+    let n = candidates.len();
+    let mut slots: Vec<Option<GraspCandidate>> = candidates.into_iter().map(Some).collect();
+    let ranked = order
+        .iter()
+        .enumerate()
+        .map(|(position, &i)| {
+            #[allow(clippy::cast_precision_loss)] // positions are far below 2^52
+            let key = position as f64;
+            (
+                key,
+                slots[i]
+                    .take()
+                    .expect("an order visits each candidate once"),
+            )
+        })
+        .collect();
+    Ok((ranked, n, 0))
 }
 
 /// What a hand synthesis takes from the planner's options.
@@ -1041,8 +1111,13 @@ pub fn plan_pick_with(
     };
     let generation_seconds = since(generation_started);
     let ranking_started = tick();
-    let (ranked, prior_matched, prior_unmatched) = rank(&context, candidates);
+    let (ranked, prior_matched, prior_unmatched) = rank(&context, candidates)?;
     let ranking_seconds = since(ranking_started);
+    let learned_seconds = if options.learned_order.is_some() {
+        ranking_seconds
+    } else {
+        0.0
+    };
 
     let mut report = PlanReport {
         body_id: body.id.clone(),
@@ -1060,6 +1135,7 @@ pub fn plan_pick_with(
             setup_seconds,
             generation_seconds,
             ranking_seconds,
+            learned_seconds,
             ..PlanTimings::default()
         },
     };

@@ -1,0 +1,80 @@
+{
+ "note": "    python tools/research/phase7_extension/p2_audit.py --results research/phase7/results         --out research/phase7_extension/results/p2_statistical_audit.json  Recomputed from the committed per-object outputs only (confirmation_orders.json, confirmation_trials.json.gz):  1. the paired table of robustness (v3, six standard conditions, torsion 0.005) of Joint vs M0; 2. the pre-specified test (paired-difference z test with the sample SD, ddof 1; margin -5 pp) and its Holm step; 3. alternatives for paired binary data, as sensitivity analyses:    - Wald test with the multinomial (MLE) variance of the paired difference;    - Tango's score test for a paired difference (Tango 1998, Statistics in Medicine 17:891-908) at the margin,      and the score interval obtained by inverting it;    - Newcombe's hybrid score interval for a paired difference (Newcombe 1998, Statistics in Medicine      17:2635-2650, method 10), without continuity correction; 4. the full-precision one-sided p-values of the whole primary family and Holm recomputed with them.  The references above are cited for the formulas; they are not yet in references_verified.json.",
+ "objects": 220,
+ "paired_table": {
+  "both_robust": 196,
+  "joint_only": 4,
+  "m0_only": 8,
+  "neither": 12
+ },
+ "difference": -0.01818181818181818,
+ "margin": -0.05,
+ "pre_specified": {
+  "method": "pre-specified: z test, sample SD of the paired differences (ddof 1)",
+  "z": 2.022265543104879,
+  "p_one_sided": 0.02157446315102397,
+  "lower_97_5": -0.04901975172116707,
+  "se": 0.015733928675523926
+ },
+ "wald_mle": {
+  "method": "Wald, multinomial (MLE) variance",
+  "z": 2.026877329124058,
+  "p_one_sided": 0.021337479786495483,
+  "lower_97_5": -0.0489495856836306
+ },
+ "tango": {
+  "method": "Tango score test at the margin, and its inverted 95 % interval",
+  "z": 1.7541973343868205,
+  "p_one_sided": 0.039698349914308456,
+  "ci95": [
+   -0.05453933544825471,
+   0.01462366236198234
+  ],
+  "supports_noninferiority_at_0_025": false
+ },
+ "newcombe_method10": {
+  "method": "Newcombe hybrid score interval (method 10), no continuity correction",
+  "ci95": [
+   -0.05297224690728844,
+   0.014396259931340277
+  ],
+  "lower_bound_above_margin": false
+ },
+ "original_reported": {
+  "difference": -0.0182,
+  "lower_97_5": -0.049,
+  "holm_p": 0.021574
+ },
+ "primary_family_full_precision": {
+  "p_one_sided": {
+   "P1": 3.218850123250796e-09,
+   "P2": 0.02157446315102397,
+   "P3": 2.469801839128961e-22
+  },
+  "holm": {
+   "P3": 7.409405517386884e-22,
+   "P1": 6.437700246501592e-09,
+   "P2": 0.02157446315102397
+  },
+  "stored_holm_p": {
+   "P1": 0.0,
+   "P3": 0.0
+  }
+ },
+ "holm_with_alternative_P2": {
+  "Tango": {
+   "holm_p_P2": 0.039698349914308456,
+   "supported_at_0_025": false
+  },
+  "Wald MLE": {
+   "holm_p_P2": 0.021337479786495483,
+   "supported_at_0_025": true
+  }
+ },
+ "superiority_mcnemar": {
+  "favourable": 4,
+  "unfavourable": 8,
+  "superiority_p_one_sided": 0.927001953125
+ },
+ "conclusion": "The pre-specified test supports non-inferiority narrowly (lower bound -4.9 pp vs margin -5). Score-based methods for paired binary data do not: see tango and newcombe_method10. The pre-specified result is kept as the confirmatory result; the discrepancy is reported."
+}

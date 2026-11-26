@@ -187,6 +187,14 @@ enum Command {
         /// Stop after this many feasible grasps.
         #[arg(long, default_value_t = 3)]
         nr_grasps: usize,
+        /// Learned models (`axisforge-learned-order` JSON) evaluated on the
+        /// planner's own candidates to order them: one generation, the same
+        /// checks. Exclusive with --prior.
+        #[arg(long, value_name = "FILE", conflicts_with = "prior")]
+        learned: Option<PathBuf>,
+        /// Learned order to use with --learned: m1, m4, m9, joint or hybrid.
+        #[arg(long, default_value = "joint", requires = "learned")]
+        order: String,
     },
     /// Export generator-order grasp candidates, optionally evaluating one index.
     ResearchCandidates {
@@ -204,6 +212,11 @@ enum Command {
         /// epsilon of the pad contacts; no IK or collisions).
         #[arg(long, conflicts_with = "evaluate")]
         static_quality: bool,
+        /// Also report the native learned features and model outputs of every
+        /// candidate (`axisforge-learned-order` JSON); the output becomes
+        /// {"records": [...], "learned": {...}}.
+        #[arg(long, value_name = "FILE")]
+        learned: Option<PathBuf>,
     },
     /// Plan the whole cycle: pick a part, carry it to a target and set it
     /// down, from the start posture and back, every motion proven clear.
@@ -261,6 +274,17 @@ impl From<DemoObstacles> for templates::Obstacles {
 }
 
 /// Reads candidate scores from an outside model into the planner options.
+/// Reads and validates a learned-order file; returns the models and the seconds it took.
+fn load_learned_models(path: &Path) -> Result<(axisforge_grasping::LearnedModels, f64)> {
+    let started = std::time::Instant::now();
+    let text =
+        std::fs::read_to_string(path).with_context(|| format!("reading {}", path.display()))?;
+    let models: axisforge_grasping::LearnedModels =
+        serde_json::from_str(&text).with_context(|| format!("parsing {}", path.display()))?;
+    models.validate()?;
+    Ok((models, started.elapsed().as_secs_f64()))
+}
+
 fn load_prior(path: &Path, options: &mut axisforge_grasping::PlannerOptions) -> Result<()> {
     #[derive(serde::Deserialize)]
     #[serde(untagged)]
@@ -749,6 +773,8 @@ fn run(cli: Cli) -> Result<()> {
             json,
             prior,
             nr_grasps,
+            learned,
+            order,
         } => {
             let mut options = axisforge_grasping::PlannerOptions {
                 nr_grasps,
@@ -756,6 +782,13 @@ fn run(cli: Cli) -> Result<()> {
             };
             if let Some(path) = &prior {
                 load_prior(path, &mut options)?;
+            }
+            let mut model_load_seconds = None;
+            if let Some(path) = &learned {
+                let (models, seconds) = load_learned_models(path)?;
+                let mode = axisforge_grasping::OrderMode::from_name(&order)?;
+                options.learned_order = Some(axisforge_grasping::LearnedOrder::new(models, mode)?);
+                model_load_seconds = Some(seconds);
             }
             let mut session = session_for(&file)?;
             let body_id = session
@@ -785,7 +818,12 @@ fn run(cli: Cli) -> Result<()> {
                 );
             }
             if json {
-                println!("{}", serde_json::to_string_pretty(&report)?);
+                let mut value = serde_json::to_value(&report)?;
+                if let (Some(seconds), Some(map)) = (model_load_seconds, value.as_object_mut()) {
+                    map.insert("modelLoadSeconds".to_owned(), serde_json::json!(seconds));
+                    map.insert("learnedOrder".to_owned(), serde_json::json!(order));
+                }
+                println!("{}", serde_json::to_string_pretty(&value)?);
                 return Ok(());
             }
             println!(
@@ -832,6 +870,7 @@ fn run(cli: Cli) -> Result<()> {
             evaluate,
             diverse_limit,
             static_quality,
+            learned,
         } => {
             let session = session_for(&file)?;
             let body_id = &session
@@ -861,6 +900,44 @@ fn run(cli: Cli) -> Result<()> {
                 ),
                 None => records,
             };
+            if let Some(path) = &learned {
+                use axisforge_grasping::learned;
+                let (models, load_seconds) = load_learned_models(path)?;
+                let started = std::time::Instant::now();
+                let part = session
+                    .project()
+                    .environment
+                    .body(body_id)
+                    .ok_or_else(|| anyhow!("body vanished"))?;
+                let (low, high) = learned::visual_bounds(session.project(), part)?;
+                let features: Vec<[f64; learned::FEATURES]> = records
+                    .iter()
+                    .map(|r| {
+                        learned::features(
+                            &r.candidate,
+                            r.preliminary_score,
+                            r.makeable,
+                            &low,
+                            &high,
+                        )
+                    })
+                    .collect();
+                let scores = learned::score_candidates(&models, &features);
+                let seconds = started.elapsed().as_secs_f64();
+                let out = serde_json::json!({
+                    "records": records,
+                    "learned": {
+                        "bounds": [[low.x, low.y, low.z], [high.x, high.y, high.z]],
+                        "features": features,
+                        "feasibility": scores.feasibility,
+                        "robustness": scores.robustness,
+                        "modelLoadSeconds": load_seconds,
+                        "inferenceSeconds": seconds,
+                    }
+                });
+                println!("{}", serde_json::to_string(&out)?);
+                return Ok(());
+            }
             println!("{}", serde_json::to_string(&records)?);
         }
         Command::Cycle {

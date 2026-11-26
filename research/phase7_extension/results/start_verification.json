@@ -1,0 +1,162 @@
+{
+ "checks": [
+  {
+   "item": "development parts",
+   "quoted": 316,
+   "file_value": 316,
+   "match": true
+  },
+  {
+   "item": "development viable parts (representation study)",
+   "quoted": 239,
+   "file_value": 239,
+   "match": true
+  },
+  {
+   "item": "primary EGAD objects",
+   "quoted": 300,
+   "file_value": 300,
+   "match": true
+  },
+  {
+   "item": "primary viable",
+   "quoted": 220,
+   "file_value": 220,
+   "match": true
+  },
+  {
+   "item": "evaluation-set objects",
+   "quoted": 45,
+   "file_value": 45,
+   "match": true
+  },
+  {
+   "item": "evaluation-set viable",
+   "quoted": 35,
+   "file_value": 35,
+   "match": true
+  },
+  {
+   "item": "P1 ratio and CI",
+   "quoted": [
+    0.609,
+    [
+     0.516,
+     0.711
+    ]
+   ],
+   "file_value": [
+    0.6092,
+    [
+     0.5162,
+     0.7109
+    ]
+   ],
+   "match": true
+  },
+  {
+   "item": "P2 difference, CI, lower bound, Holm p",
+   "quoted": [
+    -0.018,
+    [
+     -0.05,
+     0.014
+    ],
+    -0.049,
+    0.021574
+   ],
+   "file_value": [
+    -0.0182,
+    [
+     -0.05,
+     0.0136
+    ],
+    -0.049,
+    0.021574
+   ],
+   "match": true
+  },
+  {
+   "item": "P3 ratio and CI",
+   "quoted": [
+    0.993,
+    [
+     0.953,
+     1.037
+    ]
+   ],
+   "file_value": [
+    0.9929,
+    [
+     0.9525,
+     1.0366
+    ]
+   ],
+   "match": true
+  },
+  {
+   "item": "S5 load tolerance Joint - M0",
+   "quoted": -0.064,
+   "file_value": -0.0636,
+   "match": true
+  },
+  {
+   "item": "S6 full online cost ratio (EGAD)",
+   "quoted": 1.94,
+   "file_value": 1.9375,
+   "match": true
+  },
+  {
+   "item": "no secondary hypothesis supported",
+   "quoted": true,
+   "file_value": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "match": true
+  },
+  {
+   "item": "timing objects",
+   "quoted": 60,
+   "file_value": 60,
+   "match": true
+  },
+  {
+   "item": "development full cost Joint/M0",
+   "quoted": null,
+   "file_value": {
+    "ratio": 1.7628,
+    "ci95": [
+     1.6095,
+     1.9102
+    ],
+    "faster_parts": 5,
+    "slower_parts": 55
+   },
+   "match": true
+  }
+ ],
+ "all_match": true,
+ "issue_A_S6_in_evaluation_set": {
+  "present": true,
+  "value": {
+   "ratio": 1.9375,
+   "ci95": [
+    1.836,
+    2.0349
+   ],
+   "objects": 60
+  },
+  "same_as_primary": true,
+  "timing_objects_in_evaluation_set": 0
+ },
+ "issue_F_p_values_stored_as_zero": [
+  "P1: FORTIS-R Joint examines fewer candidates than the original planner (N_F ratio < 1)",
+  "P3 (H3): Joint N_F non-inferior to the best learned baseline M1, ratio margin 1.25"
+ ]
+}
