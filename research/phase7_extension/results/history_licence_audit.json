@@ -1,0 +1,114 @@
+{
+ "note": "Audit the Git history and remote branches for third-party-licensed files committed without their licence copy.\n\n    python tools/licenses/audit_history.py --out research/phase7_extension/results/history_licence_audit.json\n\nIt reads only Git metadata: the commits that added DINOv3-derived files, the commit that added\nLICENSES/DINOv3-License.md, and, for every remote-tracking branch, whether its head carries DINOv3-derived files and\nthe licence copy. Nothing is rewritten. The report states the scope of the gap and the remedies that do not rewrite\nhistory; applying a remedy to a branch other than the working branches needs the author's authorisation.\n",
+ "dinov3_files": {
+  "research/phase4/grasp_prior/scale/test/dinov3-metric.npz": {
+   "first_added_in": "2a0b8f6",
+   "date": "2026-11-25T21:16:55+00:00"
+  },
+  "research/phase4/grasp_prior/scale/test/dinov3.npz": {
+   "first_added_in": "2a0b8f6",
+   "date": "2026-11-25T21:16:55+00:00"
+  },
+  "research/phase4/grasp_prior/scale/development/dinov3-metric.npz": {
+   "first_added_in": "df48486",
+   "date": "2026-11-25T20:59:47+00:00"
+  },
+  "research/phase4/embedding_experiment/dinov3/README.md": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/embedding_experiment/dinov3/analysis.json": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/embedding_experiment/dinov3/bundle_index.json": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/embedding_experiment/dinov3/dinov3_panel.png": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/embedding_experiment/dinov3/global_embeddings.npz": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/embedding_experiment/dinov3/reproduction.json": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/embedding_experiment/dinov3/summary.json": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/grasp_prior/new_parts/dinov3.npz": {
+   "first_added_in": "08bd728",
+   "date": "2026-11-25T20:20:20+00:00"
+  },
+  "research/phase4/grasp_prior/dinov3.npz": {
+   "first_added_in": "75bec22",
+   "date": "2026-11-25T19:59:47+00:00"
+  }
+ },
+ "licence_copy_added_in": {
+  "commit": "fd982a9",
+  "date": "2026-11-26T17:47:04+00:00"
+ },
+ "history_window": {
+  "first_dinov3_file": {
+   "first_added_in": "75bec22",
+   "date": "2026-11-25T19:59:47+00:00"
+  },
+  "licence_copy": "fd982a9",
+  "commits_between": 24,
+  "statement": "Between these commits DINOv3-derived embeddings were in the history without a copy of the DINOv3 License. The folder README described the licence terms and the citation duty, but did not include the licence text. Those commits stay in the history; excluding the embeddings from the new package does not remove them from Git history or from any copy already made."
+ },
+ "branches": {
+  "origin/claude/new-session-nsx8rp": {
+   "head": "a09dbcd",
+   "dinov3_files": 12,
+   "licence_copy": true,
+   "gap": false
+  },
+  "origin/integration/axisforge-phase2": {
+   "head": "e4e4f70",
+   "dinov3_files": 0,
+   "licence_copy": false,
+   "gap": false
+  },
+  "origin/research/axisforge-phase3": {
+   "head": "bc94fda",
+   "dinov3_files": 0,
+   "licence_copy": false,
+   "gap": false
+  },
+  "origin/research/axisforge-phase4": {
+   "head": "b2393ca",
+   "dinov3_files": 0,
+   "licence_copy": false,
+   "gap": false
+  },
+  "origin/research/axisforge-phase6-fortis-r": {
+   "head": "4c3e8af",
+   "dinov3_files": 12,
+   "licence_copy": false,
+   "gap": true
+  },
+  "origin/research/axisforge-phase7-final-publication": {
+   "head": "a09dbcd",
+   "dinov3_files": 12,
+   "licence_copy": true,
+   "gap": false
+  }
+ },
+ "remedies_without_rewriting": [
+  "A notice on the working branches (README and THIRD_PARTY_NOTICES) that every DINOv3-derived file in any commit or branch of this repository is governed by the DINOv3 License, with the copy at LICENSES/DINOv3-License.md (done).",
+  "With the author's authorisation: a fast-forward commit on each branch with a gap that adds LICENSES/DINOv3-License.md and a short notice (no history rewrite, no force push).",
+  "Alternatively, with the author's authorisation: archive or delete stale branches through the hosting service; this removes the branch, not the commits from existing clones or forks."
+ ],
+ "not_done": [
+  "history rewrite",
+  "force push",
+  "any change to branches other than the two working branches"
+ ]
+}

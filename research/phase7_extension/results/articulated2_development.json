@@ -1,0 +1,706 @@
+{
+ "note": "    python tools/research/phase7_extension/articulated2_dev.py run --binary target/release/axisforge --store store.json         --projects POOL --collision COLLISION_DIR --catalogues cat80/ --physics research/phase7/results/physics_dev_with_joint.json.gz         --out-dir art2/ --jobs 2 [--labels-json extra.json]     python tools/research/phase7_extension/articulated2_dev.py report --physics ... --out-dir art2/         --out research/phase7_extension/results/articulated2_development.json  Development only (151 dynamic parts). Grasps: the first viable grasp of M0, M1 and Joint (Phase VII out-of-fold orders), plus any labels in --labels-json (e.g. the selected method's). Each is re-planned with the native planner (a one-label prior) to get its joint values. It is then simulated with research_grasping/phase7x/articulated2.py:  - standard: nominal, mass x2, mass x0.5, friction 0.3 at the pilot's timing; - loads 0.5, 1 and 2 kg at the pilot's timing and with three timing variants: lift 0.5 s (fast), lift 2.0 s   (slow), close 0.25 s (fast closing); - controls on M0's first grasp: jaws kept open (must not lift), frictionless contacts (must slip),   gravity off (must hold).  Torsion 0.005 m. Pose noise is not applied at this level. Telemetry per trial: rise, slip, rotation, contact, pad normal forces, friction use, grip-force and torque saturation, tracking error, relative motion, unexpected link-table/link-part and palm-table contacts.",
+ "parts": 151,
+ "controls": {
+  "control: open": {
+   "trials": 151,
+   "held_art": 0,
+   "lifted": 0,
+   "unstable": 0
+  },
+  "control: frictionless": {
+   "trials": 151,
+   "held_art": 0,
+   "lifted": 0,
+   "unstable": 0
+  },
+  "control: zero-g": {
+   "trials": 151,
+   "held_art": 118,
+   "lifted": 137,
+   "unstable": 0
+  }
+ },
+ "held_art_rate": {
+  "M0": {
+   "nominal": {
+    "n": 151,
+    "held_art": 0.8543046357615894
+   },
+   "mass x2": {
+    "n": 151,
+    "held_art": 0.8675496688741722
+   },
+   "mass x0.5": {
+    "n": 151,
+    "held_art": 0.8741721854304636
+   },
+   "friction 0.3": {
+    "n": 151,
+    "held_art": 0.8410596026490066
+   },
+   "load 0.5 kg": {
+    "n": 151,
+    "held_art": 0.8344370860927153
+   },
+   "load 1 kg": {
+    "n": 151,
+    "held_art": 0.7350993377483444
+   },
+   "load 2 kg": {
+    "n": 151,
+    "held_art": 0.4900662251655629
+   },
+   "load 0.5 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.8344370860927153
+   },
+   "load 1 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.7284768211920529
+   },
+   "load 2 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.48344370860927155
+   },
+   "load 0.5 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.8211920529801324
+   },
+   "load 1 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.7284768211920529
+   },
+   "load 2 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.4966887417218543
+   },
+   "load 0.5 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.8344370860927153
+   },
+   "load 1 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.7350993377483444
+   },
+   "load 2 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.4900662251655629
+   }
+  },
+  "M1": {
+   "nominal": {
+    "n": 151,
+    "held_art": 0.9072847682119205
+   },
+   "mass x2": {
+    "n": 151,
+    "held_art": 0.9139072847682119
+   },
+   "mass x0.5": {
+    "n": 151,
+    "held_art": 0.8807947019867549
+   },
+   "friction 0.3": {
+    "n": 151,
+    "held_art": 0.8940397350993378
+   },
+   "load 0.5 kg": {
+    "n": 151,
+    "held_art": 0.847682119205298
+   },
+   "load 1 kg": {
+    "n": 151,
+    "held_art": 0.6754966887417219
+   },
+   "load 2 kg": {
+    "n": 151,
+    "held_art": 0.3509933774834437
+   },
+   "load 0.5 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.8344370860927153
+   },
+   "load 1 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.6556291390728477
+   },
+   "load 2 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.3443708609271523
+   },
+   "load 0.5 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.8344370860927153
+   },
+   "load 1 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.6754966887417219
+   },
+   "load 2 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.3443708609271523
+   },
+   "load 0.5 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.847682119205298
+   },
+   "load 1 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.6821192052980133
+   },
+   "load 2 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.3509933774834437
+   }
+  },
+  "Joint": {
+   "nominal": {
+    "n": 151,
+    "held_art": 0.9403973509933775
+   },
+   "mass x2": {
+    "n": 151,
+    "held_art": 0.9271523178807947
+   },
+   "mass x0.5": {
+    "n": 151,
+    "held_art": 0.9337748344370861
+   },
+   "friction 0.3": {
+    "n": 151,
+    "held_art": 0.9139072847682119
+   },
+   "load 0.5 kg": {
+    "n": 151,
+    "held_art": 0.9006622516556292
+   },
+   "load 1 kg": {
+    "n": 151,
+    "held_art": 0.7682119205298014
+   },
+   "load 2 kg": {
+    "n": 151,
+    "held_art": 0.31788079470198677
+   },
+   "load 0.5 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.8741721854304636
+   },
+   "load 1 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.7549668874172185
+   },
+   "load 2 kg | lift 0.5 s": {
+    "n": 151,
+    "held_art": 0.32450331125827814
+   },
+   "load 0.5 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.8874172185430463
+   },
+   "load 1 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.7682119205298014
+   },
+   "load 2 kg | lift 2.0 s": {
+    "n": 151,
+    "held_art": 0.31788079470198677
+   },
+   "load 0.5 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.8940397350993378
+   },
+   "load 1 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.7682119205298014
+   },
+   "load 2 kg | close 0.25 s": {
+    "n": 151,
+    "held_art": 0.31788079470198677
+   }
+  }
+ },
+ "telemetry": {
+  "M0": {
+   "nominal": {
+    "peak_friction_use_median": 0.283,
+    "grip_saturated_share": 0.31125827814569534,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 2.36,
+    "tracking_error_rad_median": 0.0475
+   },
+   "mass x2": {
+    "peak_friction_use_median": 0.298,
+    "grip_saturated_share": 0.44370860927152317,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 2.49,
+    "tracking_error_rad_median": 0.0477
+   },
+   "mass x0.5": {
+    "peak_friction_use_median": 0.264,
+    "grip_saturated_share": 0.13245033112582782,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 2.04,
+    "tracking_error_rad_median": 0.0474
+   },
+   "friction 0.3": {
+    "peak_friction_use_median": 0.236,
+    "grip_saturated_share": 0.304635761589404,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 2.29,
+    "tracking_error_rad_median": 0.0475
+   },
+   "load 0.5 kg": {
+    "peak_friction_use_median": 0.353,
+    "grip_saturated_share": 0.5894039735099338,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.24,
+    "tracking_error_rad_median": 0.049
+   },
+   "load 1 kg": {
+    "peak_friction_use_median": 0.467,
+    "grip_saturated_share": 0.6423841059602649,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.63,
+    "tracking_error_rad_median": 0.0528
+   },
+   "load 2 kg": {
+    "peak_friction_use_median": 0.494,
+    "grip_saturated_share": 0.6556291390728477,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 9.27,
+    "tracking_error_rad_median": 0.061
+   },
+   "load 0.5 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.41,
+    "grip_saturated_share": 0.6225165562913907,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.13,
+    "tracking_error_rad_median": 0.0822
+   },
+   "load 1 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.484,
+    "grip_saturated_share": 0.6357615894039735,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.48,
+    "tracking_error_rad_median": 0.0839
+   },
+   "load 2 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.495,
+    "grip_saturated_share": 0.6622516556291391,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 9.31,
+    "tracking_error_rad_median": 0.095
+   },
+   "load 0.5 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.332,
+    "grip_saturated_share": 0.5894039735099338,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.37,
+    "tracking_error_rad_median": 0.0453
+   },
+   "load 1 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.463,
+    "grip_saturated_share": 0.6423841059602649,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.93,
+    "tracking_error_rad_median": 0.0454
+   },
+   "load 2 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.495,
+    "grip_saturated_share": 0.6556291390728477,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 9.49,
+    "tracking_error_rad_median": 0.0466
+   },
+   "load 0.5 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.363,
+    "grip_saturated_share": 0.6026490066225165,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.21,
+    "tracking_error_rad_median": 0.049
+   },
+   "load 1 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.457,
+    "grip_saturated_share": 0.6490066225165563,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.61,
+    "tracking_error_rad_median": 0.0528
+   },
+   "load 2 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.494,
+    "grip_saturated_share": 0.6622516556291391,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 9.28,
+    "tracking_error_rad_median": 0.061
+   }
+  },
+  "M1": {
+   "nominal": {
+    "peak_friction_use_median": 0.255,
+    "grip_saturated_share": 0.31125827814569534,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.53,
+    "tracking_error_rad_median": 0.0482
+   },
+   "mass x2": {
+    "peak_friction_use_median": 0.252,
+    "grip_saturated_share": 0.4370860927152318,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.81,
+    "tracking_error_rad_median": 0.0486
+   },
+   "mass x0.5": {
+    "peak_friction_use_median": 0.192,
+    "grip_saturated_share": 0.15894039735099338,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.81,
+    "tracking_error_rad_median": 0.0482
+   },
+   "friction 0.3": {
+    "peak_friction_use_median": 0.236,
+    "grip_saturated_share": 0.2913907284768212,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.62,
+    "tracking_error_rad_median": 0.0482
+   },
+   "load 0.5 kg": {
+    "peak_friction_use_median": 0.285,
+    "grip_saturated_share": 0.5761589403973509,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 5.17,
+    "tracking_error_rad_median": 0.05
+   },
+   "load 1 kg": {
+    "peak_friction_use_median": 0.399,
+    "grip_saturated_share": 0.6158940397350994,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 10.26,
+    "tracking_error_rad_median": 0.054
+   },
+   "load 2 kg": {
+    "peak_friction_use_median": 0.492,
+    "grip_saturated_share": 0.5894039735099338,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 46.52,
+    "tracking_error_rad_median": 0.0611
+   },
+   "load 0.5 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.337,
+    "grip_saturated_share": 0.5960264900662252,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.73,
+    "tracking_error_rad_median": 0.0738
+   },
+   "load 1 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.423,
+    "grip_saturated_share": 0.6158940397350994,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 10.24,
+    "tracking_error_rad_median": 0.0765
+   },
+   "load 2 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.497,
+    "grip_saturated_share": 0.5960264900662252,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 57.73,
+    "tracking_error_rad_median": 0.0828
+   },
+   "load 0.5 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.281,
+    "grip_saturated_share": 0.5761589403973509,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 5.57,
+    "tracking_error_rad_median": 0.0465
+   },
+   "load 1 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.4,
+    "grip_saturated_share": 0.6158940397350994,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 10.72,
+    "tracking_error_rad_median": 0.05
+   },
+   "load 2 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.499,
+    "grip_saturated_share": 0.5894039735099338,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 46.49,
+    "tracking_error_rad_median": 0.0551
+   },
+   "load 0.5 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.292,
+    "grip_saturated_share": 0.5827814569536424,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 5.17,
+    "tracking_error_rad_median": 0.05
+   },
+   "load 1 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.399,
+    "grip_saturated_share": 0.6158940397350994,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 9.53,
+    "tracking_error_rad_median": 0.0537
+   },
+   "load 2 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.493,
+    "grip_saturated_share": 0.5827814569536424,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 45.23,
+    "tracking_error_rad_median": 0.0611
+   }
+  },
+  "Joint": {
+   "nominal": {
+    "peak_friction_use_median": 0.326,
+    "grip_saturated_share": 0.304635761589404,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.31,
+    "tracking_error_rad_median": 0.0486
+   },
+   "mass x2": {
+    "peak_friction_use_median": 0.291,
+    "grip_saturated_share": 0.423841059602649,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.51,
+    "tracking_error_rad_median": 0.049
+   },
+   "mass x0.5": {
+    "peak_friction_use_median": 0.299,
+    "grip_saturated_share": 0.1390728476821192,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.23,
+    "tracking_error_rad_median": 0.0483
+   },
+   "friction 0.3": {
+    "peak_friction_use_median": 0.27,
+    "grip_saturated_share": 0.2980132450331126,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 3.31,
+    "tracking_error_rad_median": 0.0486
+   },
+   "load 0.5 kg": {
+    "peak_friction_use_median": 0.39,
+    "grip_saturated_share": 0.5629139072847682,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.29,
+    "tracking_error_rad_median": 0.0507
+   },
+   "load 1 kg": {
+    "peak_friction_use_median": 0.484,
+    "grip_saturated_share": 0.6291390728476821,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 6.14,
+    "tracking_error_rad_median": 0.0554
+   },
+   "load 2 kg": {
+    "peak_friction_use_median": 0.5,
+    "grip_saturated_share": 0.6622516556291391,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 11.56,
+    "tracking_error_rad_median": 0.0641
+   },
+   "load 0.5 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.45,
+    "grip_saturated_share": 0.5960264900662252,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.17,
+    "tracking_error_rad_median": 0.078
+   },
+   "load 1 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.491,
+    "grip_saturated_share": 0.6423841059602649,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 5.95,
+    "tracking_error_rad_median": 0.0787
+   },
+   "load 2 kg | lift 0.5 s": {
+    "peak_friction_use_median": 0.5,
+    "grip_saturated_share": 0.6688741721854304,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 12.13,
+    "tracking_error_rad_median": 0.091
+   },
+   "load 0.5 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.374,
+    "grip_saturated_share": 0.5629139072847682,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.42,
+    "tracking_error_rad_median": 0.0471
+   },
+   "load 1 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.478,
+    "grip_saturated_share": 0.6291390728476821,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 6.24,
+    "tracking_error_rad_median": 0.0509
+   },
+   "load 2 kg | lift 2.0 s": {
+    "peak_friction_use_median": 0.5,
+    "grip_saturated_share": 0.6622516556291391,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 11.61,
+    "tracking_error_rad_median": 0.0607
+   },
+   "load 0.5 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.395,
+    "grip_saturated_share": 0.5761589403973509,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 4.25,
+    "tracking_error_rad_median": 0.0507
+   },
+   "load 1 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.477,
+    "grip_saturated_share": 0.6357615894039735,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 6.14,
+    "tracking_error_rad_median": 0.0553
+   },
+   "load 2 kg | close 0.25 s": {
+    "peak_friction_use_median": 0.5,
+    "grip_saturated_share": 0.6622516556291391,
+    "torque_saturated_share": 0.0,
+    "unexpected_link_contact_share": 0.0,
+    "palm_table_share": 0.0,
+    "max_relative_motion_mm_median": 11.47,
+    "tracking_error_rad_median": 0.0641
+   }
+  }
+ },
+ "joint_minus_m0_load_tolerance": {
+  "loads | pilot timing": {
+   "difference": -0.17218543046357615,
+   "ci95": [
+    -0.24503311258278146,
+    -0.10596026490066225
+   ],
+   "favourable": 3,
+   "unfavourable": 29,
+   "objects": 151
+  },
+  "loads | lift 0.5 s": {
+   "difference": -0.15894039735099338,
+   "ci95": [
+    -0.2251655629139073,
+    -0.09271523178807947
+   ],
+   "favourable": 3,
+   "unfavourable": 27,
+   "objects": 151
+  },
+  "loads | lift 2.0 s": {
+   "difference": -0.17880794701986755,
+   "ci95": [
+    -0.25165562913907286,
+    -0.11258278145695365
+   ],
+   "favourable": 3,
+   "unfavourable": 30,
+   "objects": 151
+  },
+  "loads | close 0.25 s": {
+   "difference": -0.17218543046357615,
+   "ci95": [
+    -0.24503311258278146,
+    -0.10596026490066225
+   ],
+   "favourable": 3,
+   "unfavourable": 29,
+   "objects": 151
+  }
+ }
+}

@@ -1,8 +1,38 @@
 {
  "note": "References added in the Phase VII extension. 'verified' means the bibliographic record was matched in Crossref (api.crossref.org) on 2026-11-26; the full texts are behind a paywall and were not read. The implementations in tools/research/phase7_extension/p2_audit.py are checked independently: the Tango restricted MLE against direct numerical maximisation, and both intervals by simulated coverage (tests/phase7_extension).",
  "references": [
-  {"key": "tango1998", "authors": "Tango T.", "year": 1998, "title": "Equivalence test and confidence interval for the difference in proportions for the paired-sample design", "journal": "Statistics in Medicine", "volume": 17, "issue": 8, "pages": "891-908", "doi": "10.1002/(SICI)1097-0258(19980430)17:8<891::AID-SIM780>3.0.CO;2-B", "verified": "crossref"},
-  {"key": "newcombe1998paired", "authors": "Newcombe R.G.", "year": 1998, "title": "Improved confidence intervals for the difference between binomial proportions based on paired data", "journal": "Statistics in Medicine", "volume": 17, "issue": 22, "pages": "2635-2650", "doi": "10.1002/(SICI)1097-0258(19981130)17:22<2635::AID-SIM954>3.0.CO;2-C", "verified": "crossref"},
-  {"key": "tfm2025", "authors": "Pérez González E.", "year": 2025, "title": "Robot grasping with Bayesian optimization informed with foundational models", "type": "Master's thesis (TFM), Universidad de Zaragoza", "verified": "no: provided by the author; a search of the Zaguan repository (zaguan.unizar.es) from this environment did not return a clear record and a second request was refused by the network. The author must confirm the exact title, year and URL or handle."}
+  {
+   "key": "tango1998",
+   "authors": "Tango T.",
+   "year": 1998,
+   "title": "Equivalence test and confidence interval for the difference in proportions for the paired-sample design",
+   "journal": "Statistics in Medicine",
+   "volume": 17,
+   "issue": 8,
+   "pages": "891-908",
+   "doi": "10.1002/(SICI)1097-0258(19980430)17:8<891::AID-SIM780>3.0.CO;2-B",
+   "verified": "crossref"
+  },
+  {
+   "key": "newcombe1998paired",
+   "authors": "Newcombe R.G.",
+   "year": 1998,
+   "title": "Improved confidence intervals for the difference between binomial proportions based on paired data",
+   "journal": "Statistics in Medicine",
+   "volume": 17,
+   "issue": 22,
+   "pages": "2635-2650",
+   "doi": "10.1002/(SICI)1097-0258(19981130)17:22<2635::AID-SIM954>3.0.CO;2-C",
+   "verified": "crossref"
+  },
+  {
+   "key": "perezgonzalez2025tfm",
+   "authors": "Pérez González E.",
+   "year": 2025,
+   "title": "Robot grasping with Bayesian optimization informed with foundational models",
+   "type": "Master's thesis (TFM), Universidad de Zaragoza",
+   "verified": "partly: title, author, university, year and the identifier TAZ-TFM-2025-047 come from the author-supplied PDF (research/legacy/RECONSTRUCTION.md); the Zaguan record URL recorded in research/phase7/references_verified.json could not be re-read from this environment (HTTP 403). The author must confirm the repository URL or handle.",
+   "identifier": "TAZ-TFM-2025-047"
+  }
  ]
 }

@@ -18,9 +18,34 @@
   collision and approach checks. GPD's image geometry (outer diameter, depth and height of the hand volume:
   0.10, 0.06 and 0.02 m) is the one its network was trained on, not the 80 mm AxisForge jaw. The adapter must
   not be presented as a reproduction of GPD's published results.
-- **Cost.** Measured on one thread: the median per development part is 22.6 s for preprocessing and
-  classification of the whole catalogue, plus 0.7 s to render two depth images.
-- **Results.** `results/external_baselines_v2.json`, written once the v3 physics of GPD's first grasps is complete.
+- **Presentation (fixed wording).** "Ranking-controlled comparison using GPD's pretrained classifier on a shared
+  candidate catalogue." Used in the protocol, the freeze record, the article and every results file.
+- **Cost.**
+  - Measured on one thread for the whole catalogue: the median per development part is 22.6 s, plus 0.7 s
+    to render two depth images (`external_baselines_v2.json`, cost block).
+  - The adapter now prints GPD's own stage timings. On 20 development parts the medians were 0.006 s for cloud
+    preprocessing, 9.07 s for image generation and 9.95 s for classification, plus 0.48 s of rendering
+    (`gpd_variability.json`; a different run with less machine load).
+  - The learned order costs about 10 ms per object.
+- **GPD is stochastic.** `HandSet::shadowVoxelsToPoints` (`src/gpd/candidate/hand_set.cpp`, lines 191–192)
+  seeds its generator from `std::random_device`, so two runs on the same cloud and candidates give different
+  images and scores. We did not modify the library. On 20 development parts scored twice
+  (`gpd_variability.json`):
+  - the median Pearson correlation of scores between runs was 0.743 (minimum 0.675);
+  - the first-ranked candidate changed in all 20 parts;
+  - the geometric-mean N_F was 19.23 and 23.44 in the two runs.
+
+  Every GPD result is therefore one draw. The development and confirmation runs are single runs, reported as
+  they are.
+- **Results.**
+  - Development: `results/external_baselines_v2.json`, 151 parts with v3 physics of GPD's first grasps.
+    - GPD+gate N_F geometric mean 7.73 (M0 6.07, Joint 1.29);
+    - robust 89.4 % (M0 80.1 %, Joint 89.4 %);
+    - load tolerant 37.1 % (M0 58.9 %, Joint 56.3 %).
+  - New confirmation: GPD+gate is a descriptive arm of `results/confirmation_x.json` on the same viable objects
+    as the other methods.
+  - Phase VII EGAD objects: scoring stopped after 21 of 255 objects and is reported as **not completed**. No
+    result is drawn from it.
 - **Full-pipeline level.** Not run. Letting GPD sample its own candidates would also require running the
   AxisForge planner's IK and collision checks on foreign candidates. That is a different experiment, and it is
   not needed to answer the ordering question.
@@ -45,6 +70,12 @@
 - **Weights.** Published as a Google Drive folder (README).
 - **This environment.** No GPU (`nvidia-smi` absent, no `/dev/nvidia*`). The official code cannot run on CPU
   without rewriting its CUDA operators, and that would no longer be the published method. **Not run.**
+
+## Status of the comparator line (closed)
+
+- GPD+gate is kept, at the ranking-controlled level only.
+- Dex-Net 2.0 and Contact-GraspNet are closed. No weights of doubtful provenance were used, and nothing was
+  reimplemented.
 
 ## Studied but not counted as baselines
 

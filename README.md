@@ -104,7 +104,9 @@ attribution and the files concerned, in
 in [LICENSES/](LICENSES).
 
 Embeddings computed with DINOv3 are distributed only under the
-[DINOv3 License](LICENSES/DINOv3-License.md), never under Apache-2.0. No
+[DINOv3 License](LICENSES/DINOv3-License.md), never under Apache-2.0, in every
+commit and branch of this repository, including those made before the licence
+copy was added (see THIRD_PARTY_NOTICES.md). No
 third-party mesh or model weight is redistributed. The scripts that fetch them
 from their publishers, pinned and checked by hash, are described in
 [tools/fetch/README.md](tools/fetch/README.md).
