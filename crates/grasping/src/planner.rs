@@ -1344,8 +1344,12 @@ mod tests {
         let parts = t.accepted_seconds + t.rejected_seconds.values().sum::<f64>();
         assert!(t.generation_seconds > 0.0 && t.search_seconds > 0.0);
         assert!(t.search_seconds + 1e-9 >= parts);
-        assert!(t.accepted_seconds > 0.0, "the cube is planned, so some time went to a plan");
-        let back: PlanReport = serde_json::from_str(&serde_json::to_string(&report).unwrap()).unwrap();
+        assert!(
+            t.accepted_seconds > 0.0,
+            "the cube is planned, so some time went to a plan"
+        );
+        let back: PlanReport =
+            serde_json::from_str(&serde_json::to_string(&report).unwrap()).unwrap();
         assert_eq!(back.timings, report.timings);
     }
 
