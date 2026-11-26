@@ -1,0 +1,367 @@
+{
+ "note": "    python tools/research/phase7/cross_dataset.py --results research/phase7/results --out research/phase7/results/cross_dataset_results.json  Descriptive only (PHASE7_PROTOCOL.md II.6): the two populations differ (household scans vs evolved shapes scaled to the gripper) and the development numbers are out of fold, the EGAD numbers frozen. No test.",
+ "development": {
+  "population": "GSO household scans (151 viable development parts, out of fold)",
+  "methods": {
+   "M0": {
+    "N_F_gmean": 6.065,
+    "robust_v3": 0.8013,
+    "load_tolerant_v3": 0.5894,
+    "robust_v2": 0.8411,
+    "load_tolerant_v2": 0.649
+   },
+   "M1": {
+    "N_F_gmean": 1.254,
+    "robust_v3": 0.8477,
+    "load_tolerant_v3": 0.4503,
+    "robust_v2": 0.9073,
+    "load_tolerant_v2": 0.4834
+   },
+   "M4": {
+    "N_F_gmean": 1.225,
+    "robust_v3": 0.8543,
+    "load_tolerant_v3": 0.5497,
+    "robust_v2": 0.9272,
+    "load_tolerant_v2": 0.6026
+   },
+   "M9": {
+    "N_F_gmean": 1.287,
+    "robust_v3": 0.8874,
+    "load_tolerant_v3": 0.3907,
+    "robust_v2": 0.9603,
+    "load_tolerant_v2": 0.4636
+   },
+   "Joint": {
+    "N_F_gmean": 1.291,
+    "robust_v3": 0.894,
+    "load_tolerant_v3": 0.5629,
+    "robust_v2": 0.9669,
+    "load_tolerant_v2": 0.6225
+   }
+  },
+  "contrasts_v3": {
+   "Joint - M0, robust": {
+    "difference": 0.0927,
+    "ci95": [
+     0.0265,
+     0.1589
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 21,
+     "only_b": 7,
+     "p": 0.012541
+    }
+   },
+   "Joint - M0, load": {
+    "difference": -0.0265,
+    "ci95": [
+     -0.0927,
+     0.0397
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 11,
+     "only_b": 15,
+     "p": 0.557197
+    }
+   },
+   "Joint - M1, robust": {
+    "difference": 0.0464,
+    "ci95": [
+     0.0,
+     0.0927
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 10,
+     "only_b": 3,
+     "p": 0.092285
+    }
+   },
+   "Joint - M1, load": {
+    "difference": 0.1126,
+    "ci95": [
+     0.053,
+     0.1722
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 20,
+     "only_b": 3,
+     "p": 0.000488
+    }
+   },
+   "M4 - M1, robust": {
+    "difference": 0.0066,
+    "ci95": [
+     -0.0265,
+     0.0397
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 4,
+     "only_b": 3,
+     "p": 1.0
+    }
+   },
+   "M4 - M1, load": {
+    "difference": 0.0993,
+    "ci95": [
+     0.0464,
+     0.1589
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 18,
+     "only_b": 3,
+     "p": 0.00149
+    }
+   },
+   "M9 - M1, robust": {
+    "difference": 0.0397,
+    "ci95": [
+     -0.0066,
+     0.0861
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 9,
+     "only_b": 3,
+     "p": 0.145996
+    }
+   },
+   "M9 - M1, load": {
+    "difference": -0.0596,
+    "ci95": [
+     -0.1126,
+     -0.0066
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 5,
+     "only_b": 14,
+     "p": 0.063568
+    }
+   },
+   "M4 - M0, robust": {
+    "difference": 0.053,
+    "ci95": [
+     -0.0199,
+     0.1258
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 19,
+     "only_b": 11,
+     "p": 0.200488
+    }
+   },
+   "M4 - M0, load": {
+    "difference": -0.0397,
+    "ci95": [
+     -0.0993,
+     0.0265
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 9,
+     "only_b": 15,
+     "p": 0.307456
+    }
+   },
+   "M9 - M0, robust": {
+    "difference": 0.0861,
+    "ci95": [
+     0.0132,
+     0.1589
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 22,
+     "only_b": 9,
+     "p": 0.029449
+    }
+   },
+   "M9 - M0, load": {
+    "difference": -0.1987,
+    "ci95": [
+     -0.2848,
+     -0.1192
+    ],
+    "n": 151,
+    "mcnemar": {
+     "only_a": 9,
+     "only_b": 39,
+     "p": 1.5e-05
+    }
+   }
+  }
+ },
+ "confirmation": {
+  "primary": {
+   "population": "EGAD primary: 220 viable of 300 objects",
+   "status_counts": {
+    "no viable candidate": 80,
+    "viable": 220
+   },
+   "methods": {
+    "M0": {
+     "N_F_gmean": 2.086,
+     "robust_v3": 0.9273,
+     "load_tolerant_v3": 0.85,
+     "robust_v2": 0.9545,
+     "load_tolerant_v2": 0.8864
+    },
+    "M1": {
+     "N_F_gmean": 1.28,
+     "robust_v3": 0.9182,
+     "load_tolerant_v3": 0.7773,
+     "robust_v2": 0.9364,
+     "load_tolerant_v2": 0.8409
+    },
+    "M4": {
+     "N_F_gmean": 1.287,
+     "robust_v3": 0.9,
+     "load_tolerant_v3": 0.7773,
+     "robust_v2": 0.9318,
+     "load_tolerant_v2": 0.8364
+    },
+    "M9": {
+     "N_F_gmean": 1.262,
+     "robust_v3": 0.9091,
+     "load_tolerant_v3": 0.7545,
+     "robust_v2": 0.9364,
+     "load_tolerant_v2": 0.8273
+    },
+    "Joint": {
+     "N_F_gmean": 1.271,
+     "robust_v3": 0.9091,
+     "load_tolerant_v3": 0.7864,
+     "robust_v2": 0.9318,
+     "load_tolerant_v2": 0.8409
+    }
+   },
+   "difference_EGAD_minus_development": {
+    "M0": {
+     "robust_v3": 0.126,
+     "load_tolerant_v3": 0.2606
+    },
+    "M1": {
+     "robust_v3": 0.0705,
+     "load_tolerant_v3": 0.327
+    },
+    "M4": {
+     "robust_v3": 0.0457,
+     "load_tolerant_v3": 0.2276
+    },
+    "M9": {
+     "robust_v3": 0.0217,
+     "load_tolerant_v3": 0.3638
+    },
+    "Joint": {
+     "robust_v3": 0.0151,
+     "load_tolerant_v3": 0.2235
+    }
+   },
+   "N_F_ratio_to_M0": {
+    "development": {
+     "M0": 1.0,
+     "M1": 0.2068,
+     "M4": 0.202,
+     "M9": 0.2122,
+     "Joint": 0.2129
+    },
+    "EGAD": {
+     "M0": 1.0,
+     "M1": 0.6136,
+     "M4": 0.617,
+     "M9": 0.605,
+     "Joint": 0.6093
+    }
+   }
+  },
+  "evaluation set (secondary)": {
+   "population": "EGAD evaluation set (secondary): 35 viable of 45 objects",
+   "status_counts": {
+    "no viable candidate": 10,
+    "viable": 35
+   },
+   "methods": {
+    "M0": {
+     "N_F_gmean": 2.894,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.6571,
+     "robust_v2": 0.8571,
+     "load_tolerant_v2": 0.7429
+    },
+    "M1": {
+     "N_F_gmean": 1.293,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.6,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.7714
+    },
+    "M4": {
+     "N_F_gmean": 1.386,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.5714,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.7714
+    },
+    "M9": {
+     "N_F_gmean": 1.296,
+     "robust_v3": 0.8286,
+     "load_tolerant_v3": 0.6,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.8
+    },
+    "Joint": {
+     "N_F_gmean": 1.37,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.5714,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.7714
+    }
+   },
+   "difference_EGAD_minus_development": {
+    "M0": {
+     "robust_v3": -0.0013,
+     "load_tolerant_v3": 0.0677
+    },
+    "M1": {
+     "robust_v3": -0.0477,
+     "load_tolerant_v3": 0.1497
+    },
+    "M4": {
+     "robust_v3": -0.0543,
+     "load_tolerant_v3": 0.0217
+    },
+    "M9": {
+     "robust_v3": -0.0588,
+     "load_tolerant_v3": 0.2093
+    },
+    "Joint": {
+     "robust_v3": -0.094,
+     "load_tolerant_v3": 0.0085
+    }
+   },
+   "N_F_ratio_to_M0": {
+    "development": {
+     "M0": 1.0,
+     "M1": 0.2068,
+     "M4": 0.202,
+     "M9": 0.2122,
+     "Joint": 0.2129
+    },
+    "EGAD": {
+     "M0": 1.0,
+     "M1": 0.4468,
+     "M4": 0.4789,
+     "M9": 0.4478,
+     "Joint": 0.4734
+    }
+   }
+  }
+ }
+}

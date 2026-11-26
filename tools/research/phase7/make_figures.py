@@ -119,14 +119,15 @@ def fig_confirmation(res, out, conf_dir):
     c = json.loads((Path(res)/'confirmation_results.json').read_text())
     S = c['sets']['primary']
     prim = S['primary']
-    fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.0), gridspec_kw=dict(width_ratios=[1.1, 1]))
+    fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.0), gridspec_kw=dict(width_ratios=[1.1, 1], wspace=.55))
     rows = [(k.split(':')[0], v['ratio'], *v['ci95']) for k, v in prim.items() if 'ratio' in v]
     forest(axes[0], rows, 'N_F ratio (95% CI)')
     axes[0].axvline(1.25, color=INK2, lw=.8, ls='--')
+    axes[0].set_xticks([t for t in (.4, .5, .6, .7, .8, 1., 1.25) if axes[0].get_xlim()[0] <= t <= axes[0].get_xlim()[1]])
     p2 = next(v for k, v in prim.items() if k.startswith('P2'))
     axes[1].plot(p2['ci95'], [0, 0], color='#257de0', lw=1.6); axes[1].plot(p2['difference'], 0, 'o', color='#257de0', ms=5, mec='white')
     axes[1].axvline(0, color=INK2, lw=.8); axes[1].axvline(-.05, color=INK2, lw=.8, ls='--')
-    axes[1].set_yticks([0]); axes[1].set_yticklabels(['P2 robust, Joint−M0']); axes[1].set_xlabel('Paired difference (95% CI); dashed = margin')
+    axes[1].set_yticks([0]); axes[1].set_yticklabels(['P2 robust\nJoint−M0']); axes[1].set_xlabel('Paired difference (95% CI)')
     axes[1].grid(axis='y', visible=False)
     fig.suptitle(f"EGAD primary set: {S['viable']} viable of {S['objects']} objects", fontsize=7, color=INK2, x=.01, ha='left')
     save(fig, out, 'fig_conf_primary')
@@ -138,7 +139,6 @@ def fig_confirmation(res, out, conf_dir):
         col, mk, lab = METHOD[m]
         y = [pop[m][f'success@{b}'] for b in B]
         ax.plot(B, y, color=col, marker=mk, ms=4.5, lw=1.6, label=lab)
-        ax.annotate(m, (B[-1], y[-1]), xytext=(4, 0), textcoords='offset points', va='center', fontsize=7, color=INK)
     ax.set_xscale('log'); ax.set_xticks(B); ax.set_xticklabels(B); ax.set_ylim(0, 1)
     ax.set_xlabel('Candidate budget B'); ax.set_ylabel('Share of all objects with a grasp within B')
     ax.legend(fontsize=6.5, loc='lower right')

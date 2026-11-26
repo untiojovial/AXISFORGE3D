@@ -1,0 +1,907 @@
+{
+ "protocol": "research/phase7/PHASE7_PROTOCOL.md part II",
+ "freeze": {
+  "p_feasible.pkl": "d1fe268da50679977e09808749dc662f075583ba42976c4c747cb9c03d906be6",
+  "p_robust_given_feasible.pkl": "c09fde52bf6153c3e550072709f71e5efb52a2c974ea693366ca328d3f34dfa8",
+  "mlp_L2_s0.pt": "b061a5eb5c27176a22624c70805c35361feef9119d190e839e9ad5dcc064edbd",
+  "mlp_L2_s1.pt": "2adb39b734fa0fa7b11af9077cfd014860c3afa7d8793bd0e93e74f19fda20ee",
+  "mlp_L2_s2.pt": "ac581301cdbc115a2e506b910997089db8faf0122e4a127ea22fa63eda10a02b",
+  "mlp_L10_s0.pt": "1a1e1e69a9379422455759b4d10a2a10ab431e8a5e7ec286f4e1a0d2e22e273a",
+  "mlp_L10_s1.pt": "4c0d15f8c2ac9d6ff6d5ecfdf0386c22385aa20012186bb2ca130a24bcc68f98",
+  "mlp_L10_s2.pt": "877a91ec7e798fcea75937665d76aa1537cf120a176df0122df3b677c3fadcab",
+  "mlp_L10p_s0.pt": "a84b13b2bdb678fcb4310f3756faa35eec229d410f50fed5f0d237282d62622c",
+  "mlp_L10p_s1.pt": "aa38824dffe50264478e2733a7e5e4a1730889c0454142d6d0ea8bfee0d5e274",
+  "mlp_L10p_s2.pt": "80fc064ebb38793990225ccd0d1a1ccbe435e5513b55e975ad2b71dbdfc3399a",
+  "mlp_L10r_s0.pt": "25a3bccc5ff8b65972f573717d8981a8f7be9fba1dc3cf9b79de6e63858dabd2",
+  "mlp_L10r_s1.pt": "389ec325f8de180b92cbc4df9e75a7e3239c5536e749e25167b1d048f9da0122",
+  "mlp_L10r_s2.pt": "626c06ee579574e0f4f79ea2fe93616bb304a3f0424e82437c77a454a8ce7db0",
+  "mlp_L8_s0.pt": "6b7e06aa6b9312ff27594742516b854a0a4a0503832b3817f36121a9c7cb9bf5",
+  "mlp_L8_s1.pt": "9c7c751cc25e0a4d9ced33ffb3c1d77341bb3c778b7e3398defae8d28775edf3",
+  "mlp_L8_s2.pt": "d8e20589a346b82ccb51a6d0d3bb893ac00d157ce43d01c9141013e5dadfbd3a"
+ },
+ "alpha_one_sided": 0.025,
+ "sets": {
+  "primary": {
+   "objects": 300,
+   "status_counts": {
+    "no viable candidate": 80,
+    "viable": 220
+   },
+   "viable": 220,
+   "viable_with_dynamics": 220,
+   "missing_dynamics": [],
+   "population_success_at_budget": {
+    "M0": {
+     "success@1": 0.5233,
+     "success@5": 0.6067,
+     "success@10": 0.6233,
+     "success@20": 0.6667,
+     "success@50": 0.6867
+    },
+    "M1": {
+     "success@1": 0.6167,
+     "success@5": 0.7,
+     "success@10": 0.7133,
+     "success@20": 0.7267,
+     "success@50": 0.7333
+    },
+    "M4": {
+     "success@1": 0.6267,
+     "success@5": 0.69,
+     "success@10": 0.71,
+     "success@20": 0.72,
+     "success@50": 0.73
+    },
+    "M9": {
+     "success@1": 0.6233,
+     "success@5": 0.7,
+     "success@10": 0.72,
+     "success@20": 0.7267,
+     "success@50": 0.7267
+    },
+    "Joint": {
+     "success@1": 0.63,
+     "success@5": 0.6933,
+     "success@10": 0.7133,
+     "success@20": 0.72,
+     "success@50": 0.73
+    },
+    "hybrid": {
+     "success@1": 0.63,
+     "success@5": 0.6967,
+     "success@10": 0.7033,
+     "success@20": 0.7167,
+     "success@50": 0.73
+    }
+   },
+   "rates_on_viable": {
+    "M0": {
+     "N_F_gmean": 2.086,
+     "robust_v3": 0.9273,
+     "load_tolerant_v3": 0.85,
+     "robust_v2": 0.9545,
+     "load_tolerant_v2": 0.8864
+    },
+    "M1": {
+     "N_F_gmean": 1.28,
+     "robust_v3": 0.9182,
+     "load_tolerant_v3": 0.7773,
+     "robust_v2": 0.9364,
+     "load_tolerant_v2": 0.8409
+    },
+    "M4": {
+     "N_F_gmean": 1.287,
+     "robust_v3": 0.9,
+     "load_tolerant_v3": 0.7773,
+     "robust_v2": 0.9318,
+     "load_tolerant_v2": 0.8364
+    },
+    "M9": {
+     "N_F_gmean": 1.262,
+     "robust_v3": 0.9091,
+     "load_tolerant_v3": 0.7545,
+     "robust_v2": 0.9364,
+     "load_tolerant_v2": 0.8273
+    },
+    "Joint": {
+     "N_F_gmean": 1.271,
+     "robust_v3": 0.9091,
+     "load_tolerant_v3": 0.7864,
+     "robust_v2": 0.9318,
+     "load_tolerant_v2": 0.8409
+    }
+   },
+   "primary": {
+    "P1: FORTIS-R Joint examines fewer candidates than the original planner (N_F ratio < 1)": {
+     "ratio": 0.6092,
+     "ci95": [
+      0.5162,
+      0.7109
+     ],
+     "p_one_sided": 3.218850123250796e-09,
+     "objects": 220,
+     "fewer": 58,
+     "more": 14,
+     "ties": 148,
+     "holm_p": 0.0,
+     "supported": true
+    },
+    "P2: Joint robustness (v3) non-inferior to the original planner, margin 5 pp": {
+     "difference": -0.0182,
+     "ci95": [
+      -0.05,
+      0.0136
+     ],
+     "n": 220,
+     "margin": 0.05,
+     "p_one_sided": 0.02157446315102397,
+     "lower_97_5": -0.049,
+     "holm_p": 0.021574,
+     "supported": true
+    },
+    "P3 (H3): Joint N_F non-inferior to the best learned baseline M1, ratio margin 1.25": {
+     "ratio": 0.9929,
+     "ci95": [
+      0.9525,
+      1.0366
+     ],
+     "p_one_sided": 2.469801839128961e-22,
+     "objects": 220,
+     "fewer": 15,
+     "more": 10,
+     "ties": 195,
+     "margin": 1.25,
+     "upper_97_5": 1.0356,
+     "holm_p": 0.0,
+     "supported": true
+    }
+   },
+   "P2-superiority (tested only if P2 holds, at 0.025/3)": {
+    "favourable": 4,
+    "unfavourable": 8,
+    "p_one_sided": 0.927001953125,
+    "difference": -0.0182,
+    "ci95": [
+     -0.05,
+     0.0136
+    ],
+    "n": 220,
+    "tested": true,
+    "level": 0.008333333333333333,
+    "supported": false
+   },
+   "secondary": {
+    "S1 (H1, historical): M4 load tolerance (v3) higher than M1": {
+     "favourable": 3,
+     "unfavourable": 3,
+     "p_one_sided": 0.65625,
+     "difference": 0.0,
+     "ci95": [
+      -0.0227,
+      0.0227
+     ],
+     "n": 220,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S2 (H2, historical): M9 robustness (v3) higher than M1": {
+     "favourable": 3,
+     "unfavourable": 5,
+     "p_one_sided": 0.85546875,
+     "difference": -0.0091,
+     "ci95": [
+      -0.0364,
+      0.0136
+     ],
+     "n": 220,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S3: Joint load tolerance (v3) higher than M1": {
+     "favourable": 5,
+     "unfavourable": 3,
+     "p_one_sided": 0.36328125,
+     "difference": 0.0091,
+     "ci95": [
+      -0.0136,
+      0.0364
+     ],
+     "n": 220,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S4: Joint robustness (v3) higher than M1": {
+     "favourable": 2,
+     "unfavourable": 4,
+     "p_one_sided": 0.890625,
+     "difference": -0.0091,
+     "ci95": [
+      -0.0318,
+      0.0136
+     ],
+     "n": 220,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S5: Joint load tolerance (v3) non-inferior to the original planner, margin 10 pp": {
+     "difference": -0.0636,
+     "ci95": [
+      -0.1091,
+      -0.0182
+     ],
+     "n": 220,
+     "margin": 0.1,
+     "p_one_sided": 0.06263746120984548,
+     "lower_97_5": -0.1101,
+     "holm_p": 0.438462,
+     "supported": false
+    },
+    "S6 (H4): Joint full online cost lower than the original planner": {
+     "ratio": 1.9375,
+     "ci95": [
+      1.836,
+      2.0349
+     ],
+     "p_one_sided": 0.9999999999905178,
+     "objects": 60,
+     "fewer": 1,
+     "more": 59,
+     "ties": 0,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S7 (H5): DINOv3 linear-branch MLP (L10) examines fewer candidates than the geometry MLP (L2)": {
+     "ratio": 1.0207,
+     "ci95": [
+      0.9713,
+      1.0726
+     ],
+     "p_one_sided": 0.8061522053190446,
+     "objects": 220,
+     "fewer": 16,
+     "more": 18,
+     "ties": 186,
+     "holm_p": 1.0,
+     "supported": false
+    }
+   },
+   "historical_v2_criterion": {
+    "H1 v2: M4 - M1 load tolerance": {
+     "favourable": 2,
+     "unfavourable": 3,
+     "p_one_sided": 0.8125,
+     "difference": -0.0045,
+     "ci95": [
+      -0.0273,
+      0.0136
+     ],
+     "n": 220
+    },
+    "H2 v2: M9 - M1 robustness": {
+     "favourable": 2,
+     "unfavourable": 2,
+     "p_one_sided": 0.6875,
+     "difference": 0.0,
+     "ci95": [
+      -0.0182,
+      0.0182
+     ],
+     "n": 220
+    }
+   },
+   "h5_controls": {
+    "L10 vs L10p": {
+     "ratio": 0.9772,
+     "ci95": [
+      0.9308,
+      1.0239
+     ],
+     "p_one_sided": 0.20194985933641285,
+     "objects": 220,
+     "fewer": 20,
+     "more": 13,
+     "ties": 187
+    },
+    "L10 vs L10r": {
+     "ratio": 1.0063,
+     "ci95": [
+      0.9627,
+      1.0515
+     ],
+     "p_one_sided": 0.5989008654445508,
+     "objects": 220,
+     "fewer": 19,
+     "more": 15,
+     "ties": 186
+    },
+    "L10 vs L8": {
+     "ratio": 1.0283,
+     "ci95": [
+      0.9861,
+      1.0748
+     ],
+     "p_one_sided": 0.8841914415445169,
+     "objects": 220,
+     "fewer": 13,
+     "more": 18,
+     "ties": 189
+    },
+    "L2 vs P(F) gradient boosting (M1)": {
+     "ratio": 1.0058,
+     "ci95": [
+      0.9457,
+      1.0674
+     ],
+     "p_one_sided": 0.6508855411925579,
+     "objects": 220,
+     "fewer": 19,
+     "more": 17,
+     "ties": 184
+    },
+    "rule": "H5 holds only if S7 is supported and L10 < L10p (95 % CI upper limit below 1)",
+    "H5_supported": false
+   },
+   "hybrid_interleave_Joint_M0": {
+    "N_F_gmean": 1.276,
+    "bound_violations": 0,
+    "worst_ratio_to_M0": 2.0,
+    "negative_transfer_objects_Joint": 14
+   },
+   "torsion_sensitivity": {
+    "0.001": {
+     "objects": 220,
+     "P2 Joint - M0 robust": {
+      "difference": -0.0636,
+      "ci95": [
+       -0.1045,
+       -0.0227
+      ],
+      "n": 220
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0227,
+      "ci95": [
+       -0.0136,
+       0.0591
+      ],
+      "n": 220
+     }
+    },
+    "0.02": {
+     "objects": 220,
+     "P2 Joint - M0 robust": {
+      "difference": -0.0273,
+      "ci95": [
+       -0.0545,
+       -0.0045
+      ],
+      "n": 220
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0045,
+      "ci95": [
+       -0.0182,
+       0.0273
+      ],
+      "n": 220
+     }
+    }
+   },
+   "rotation_threshold_sensitivity": {
+    "5": {
+     "P2 Joint - M0 robust": {
+      "difference": -0.0091,
+      "ci95": [
+       -0.0636,
+       0.0455
+      ],
+      "n": 220
+     },
+     "S3 Joint - M1 load": {
+      "difference": -0.0182,
+      "ci95": [
+       -0.0545,
+       0.0136
+      ],
+      "n": 220
+     }
+    },
+    "10": {
+     "P2 Joint - M0 robust": {
+      "difference": -0.0045,
+      "ci95": [
+       -0.0365,
+       0.0318
+      ],
+      "n": 220
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0045,
+      "ci95": [
+       -0.0227,
+       0.0364
+      ],
+      "n": 220
+     }
+    },
+    "20": {
+     "P2 Joint - M0 robust": {
+      "difference": -0.0227,
+      "ci95": [
+       -0.05,
+       0.0045
+      ],
+      "n": 220
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0091,
+      "ci95": [
+       -0.0136,
+       0.0364
+      ],
+      "n": 220
+     }
+    }
+   },
+   "articulated_replication": {
+    "objects": 220,
+    "note": "articulated pilot model (research_grasping/phase7/articulated.py); robust4 = four standard conditions without pose noise; descriptive, outside both families",
+    "Joint - M0, robust4": {
+     "difference": -0.0227,
+     "ci95": [
+      -0.0455,
+      0.0
+     ],
+     "n": 220
+    },
+    "Joint - M0, load": {
+     "difference": -0.05,
+     "ci95": [
+      -0.0955,
+      -0.0045
+     ],
+     "n": 220
+    },
+    "Joint - M1, robust4": {
+     "difference": 0.0045,
+     "ci95": [
+      -0.0182,
+      0.0273
+     ],
+     "n": 220
+    },
+    "Joint - M1, load": {
+     "difference": -0.0091,
+     "ci95": [
+      -0.0364,
+      0.0182
+     ],
+     "n": 220
+    }
+   }
+  },
+  "evaluation set (secondary)": {
+   "objects": 45,
+   "status_counts": {
+    "no viable candidate": 10,
+    "viable": 35
+   },
+   "viable": 35,
+   "viable_with_dynamics": 35,
+   "missing_dynamics": [],
+   "population_success_at_budget": {
+    "M0": {
+     "success@1": 0.4667,
+     "success@5": 0.5333,
+     "success@10": 0.6,
+     "success@20": 0.6667,
+     "success@50": 0.7111
+    },
+    "M1": {
+     "success@1": 0.6667,
+     "success@5": 0.7333,
+     "success@10": 0.7333,
+     "success@20": 0.7778,
+     "success@50": 0.7778
+    },
+    "M4": {
+     "success@1": 0.6444,
+     "success@5": 0.6889,
+     "success@10": 0.7333,
+     "success@20": 0.7778,
+     "success@50": 0.7778
+    },
+    "M9": {
+     "success@1": 0.6667,
+     "success@5": 0.7111,
+     "success@10": 0.7333,
+     "success@20": 0.7778,
+     "success@50": 0.7778
+    },
+    "Joint": {
+     "success@1": 0.6444,
+     "success@5": 0.6889,
+     "success@10": 0.7333,
+     "success@20": 0.7778,
+     "success@50": 0.7778
+    },
+    "hybrid": {
+     "success@1": 0.6444,
+     "success@5": 0.6889,
+     "success@10": 0.7111,
+     "success@20": 0.7556,
+     "success@50": 0.7778
+    }
+   },
+   "rates_on_viable": {
+    "M0": {
+     "N_F_gmean": 2.894,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.6571,
+     "robust_v2": 0.8571,
+     "load_tolerant_v2": 0.7429
+    },
+    "M1": {
+     "N_F_gmean": 1.293,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.6,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.7714
+    },
+    "M4": {
+     "N_F_gmean": 1.386,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.5714,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.7714
+    },
+    "M9": {
+     "N_F_gmean": 1.296,
+     "robust_v3": 0.8286,
+     "load_tolerant_v3": 0.6,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.8
+    },
+    "Joint": {
+     "N_F_gmean": 1.37,
+     "robust_v3": 0.8,
+     "load_tolerant_v3": 0.5714,
+     "robust_v2": 0.9143,
+     "load_tolerant_v2": 0.7714
+    }
+   },
+   "primary": {
+    "P1: FORTIS-R Joint examines fewer candidates than the original planner (N_F ratio < 1)": {
+     "ratio": 0.4734,
+     "ci95": [
+      0.2941,
+      0.7256
+     ],
+     "p_one_sided": 0.0029082266715167735,
+     "objects": 35,
+     "fewer": 14,
+     "more": 1,
+     "ties": 20,
+     "holm_p": 0.008725,
+     "supported": true
+    },
+    "P2: Joint robustness (v3) non-inferior to the original planner, margin 5 pp": {
+     "difference": 0.0,
+     "ci95": [
+      -0.0857,
+      0.0857
+     ],
+     "n": 35,
+     "margin": 0.05,
+     "p_one_sided": 0.11130237721579422,
+     "lower_97_5": -0.0804,
+     "holm_p": 0.111302,
+     "supported": false
+    },
+    "P3 (H3): Joint N_F non-inferior to the best learned baseline M1, ratio margin 1.25": {
+     "ratio": 1.0594,
+     "ci95": [
+      0.9346,
+      1.2322
+     ],
+     "p_one_sided": 0.01230175258501759,
+     "objects": 35,
+     "fewer": 3,
+     "more": 4,
+     "ties": 28,
+     "margin": 1.25,
+     "upper_97_5": 1.2222,
+     "holm_p": 0.024604,
+     "supported": true
+    }
+   },
+   "P2-superiority (tested only if P2 holds, at 0.025/3)": {
+    "favourable": 1,
+    "unfavourable": 1,
+    "p_one_sided": 0.75,
+    "difference": 0.0,
+    "ci95": [
+     -0.0857,
+     0.0857
+    ],
+    "n": 35,
+    "tested": false,
+    "level": 0.008333333333333333,
+    "supported": false
+   },
+   "secondary": {
+    "S1 (H1, historical): M4 load tolerance (v3) higher than M1": {
+     "favourable": 0,
+     "unfavourable": 1,
+     "p_one_sided": 1.0,
+     "difference": -0.0286,
+     "ci95": [
+      -0.0857,
+      0.0
+     ],
+     "n": 35,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S2 (H2, historical): M9 robustness (v3) higher than M1": {
+     "favourable": 1,
+     "unfavourable": 0,
+     "p_one_sided": 0.5,
+     "difference": 0.0286,
+     "ci95": [
+      0.0,
+      0.0857
+     ],
+     "n": 35,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S3: Joint load tolerance (v3) higher than M1": {
+     "favourable": 0,
+     "unfavourable": 1,
+     "p_one_sided": 1.0,
+     "difference": -0.0286,
+     "ci95": [
+      -0.0857,
+      0.0
+     ],
+     "n": 35,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S4: Joint robustness (v3) higher than M1": {
+     "favourable": 0,
+     "unfavourable": 0,
+     "p_one_sided": 1.0,
+     "difference": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "n": 35,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S5: Joint load tolerance (v3) non-inferior to the original planner, margin 10 pp": {
+     "difference": -0.0857,
+     "ci95": [
+      -0.2,
+      0.0286
+     ],
+     "n": 35,
+     "margin": 0.1,
+     "p_one_sided": 0.4104899524669589,
+     "lower_97_5": -0.2094,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S6 (H4): Joint full online cost lower than the original planner": {
+     "ratio": 1.9375,
+     "ci95": [
+      1.836,
+      2.0349
+     ],
+     "p_one_sided": 0.9999999999905178,
+     "objects": 60,
+     "fewer": 1,
+     "more": 59,
+     "ties": 0,
+     "holm_p": 1.0,
+     "supported": false
+    },
+    "S7 (H5): DINOv3 linear-branch MLP (L10) examines fewer candidates than the geometry MLP (L2)": {
+     "ratio": 0.9354,
+     "ci95": [
+      0.8054,
+      1.0823
+     ],
+     "p_one_sided": 0.28125,
+     "objects": 35,
+     "fewer": 4,
+     "more": 2,
+     "ties": 29,
+     "holm_p": 1.0,
+     "supported": false
+    }
+   },
+   "historical_v2_criterion": {
+    "H1 v2: M4 - M1 load tolerance": {
+     "favourable": 0,
+     "unfavourable": 0,
+     "p_one_sided": 1.0,
+     "difference": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "n": 35
+    },
+    "H2 v2: M9 - M1 robustness": {
+     "favourable": 0,
+     "unfavourable": 0,
+     "p_one_sided": 1.0,
+     "difference": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "n": 35
+    }
+   },
+   "h5_controls": {
+    "L10 vs L10p": {
+     "ratio": 1.0299,
+     "ci95": [
+      0.9572,
+      1.1479
+     ],
+     "p_one_sided": 0.625,
+     "objects": 35,
+     "fewer": 2,
+     "more": 1,
+     "ties": 32
+    },
+    "L10 vs L10r": {
+     "ratio": 1.0108,
+     "ci95": [
+      0.9101,
+      1.1435
+     ],
+     "p_one_sided": 0.625,
+     "objects": 35,
+     "fewer": 2,
+     "more": 1,
+     "ties": 32
+    },
+    "L10 vs L8": {
+     "ratio": 0.9854,
+     "ci95": [
+      0.871,
+      1.1172
+     ],
+     "p_one_sided": 0.5625,
+     "objects": 35,
+     "fewer": 2,
+     "more": 2,
+     "ties": 31
+    },
+    "L2 vs P(F) gradient boosting (M1)": {
+     "ratio": 0.9632,
+     "ci95": [
+      0.8178,
+      1.1238
+     ],
+     "p_one_sided": 0.3203125,
+     "objects": 35,
+     "fewer": 5,
+     "more": 3,
+     "ties": 27
+    },
+    "rule": "H5 holds only if S7 is supported and L10 < L10p (95 % CI upper limit below 1)",
+    "H5_supported": false
+   },
+   "hybrid_interleave_Joint_M0": {
+    "N_F_gmean": 1.416,
+    "bound_violations": 0,
+    "worst_ratio_to_M0": 2.0,
+    "negative_transfer_objects_Joint": 1
+   },
+   "torsion_sensitivity": {
+    "0.001": {
+     "objects": 35,
+     "P2 Joint - M0 robust": {
+      "difference": -0.1143,
+      "ci95": [
+       -0.2286,
+       -0.0286
+      ],
+      "n": 35
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0571,
+      "ci95": [
+       0.0,
+       0.1429
+      ],
+      "n": 35
+     }
+    },
+    "0.02": {
+     "objects": 35,
+     "P2 Joint - M0 robust": {
+      "difference": -0.0571,
+      "ci95": [
+       -0.1429,
+       0.0
+      ],
+      "n": 35
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "n": 35
+     }
+    }
+   },
+   "rotation_threshold_sensitivity": {
+    "5": {
+     "P2 Joint - M0 robust": {
+      "difference": 0.0286,
+      "ci95": [
+       -0.1143,
+       0.1714
+      ],
+      "n": 35
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0286,
+      "ci95": [
+       0.0,
+       0.0857
+      ],
+      "n": 35
+     }
+    },
+    "10": {
+     "P2 Joint - M0 robust": {
+      "difference": 0.0286,
+      "ci95": [
+       -0.0571,
+       0.1143
+      ],
+      "n": 35
+     },
+     "S3 Joint - M1 load": {
+      "difference": -0.0286,
+      "ci95": [
+       -0.0857,
+       0.0
+      ],
+      "n": 35
+     }
+    },
+    "20": {
+     "P2 Joint - M0 robust": {
+      "difference": 0.0,
+      "ci95": [
+       -0.0857,
+       0.0857
+      ],
+      "n": 35
+     },
+     "S3 Joint - M1 load": {
+      "difference": 0.0,
+      "ci95": [
+       -0.0857,
+       0.0857
+      ],
+      "n": 35
+     }
+    }
+   }
+  }
+ }
+}

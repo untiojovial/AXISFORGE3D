@@ -36,4 +36,13 @@ Under the previous criterion \devVtwoHeld{} trials were held; \devVtwoNotVthree{
 \input{tables/tab_conf_methods}
 \end{table}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_conf_rates.pdf}
+\caption{EGAD primary set: share of first viable grasps that are robust and load tolerant (v3, torsion 0.005~m) for every method.}
+\end{figure}
+
+\section{Execution record}
+The confirmation ran in a cloud container that restarted once during the physics stage (after 63 of the viable objects). Stages write one file per object only when the object is complete, so the run was resumed with the same frozen code and inputs; objects in progress at the restart were simulated again from scratch. No object was re-run because of its outcome. The frozen code hashes were checked before the analysis.
+
 \end{document}
