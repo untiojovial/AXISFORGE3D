@@ -635,6 +635,71 @@ mod tests {
         }
     }
 
+    /// Property test on the native implementation: on random catalogues the hybrid order is the round robin
+    /// of Joint and the original order, is a permutation, and finds a feasible candidate within twice the
+    /// better of the two orders.
+    #[test]
+    fn the_native_hybrid_keeps_its_bound_on_random_catalogues() {
+        let mut state = 0x9e37_79b9_7f4a_7c15_u64;
+        let mut next = move || {
+            state ^= state << 13;
+            state ^= state >> 7;
+            state ^= state << 17;
+            #[allow(clippy::cast_precision_loss)]
+            let u = (state >> 11) as f64 / (1u64 << 53) as f64;
+            u
+        };
+        let models = LearnedModels {
+            format: "axisforge-learned-order".into(),
+            version: 1,
+            features: FEATURE_NAMES.iter().map(|s| (*s).to_owned()).collect(),
+            feasibility: TreeModel {
+                baseline: 0f64.to_bits(),
+                trees: vec![leaf(0.0)],
+            },
+            robustness: Some(TreeModel {
+                baseline: 0f64.to_bits(),
+                trees: vec![leaf(0.0)],
+            }),
+            alpha: 0.8,
+            beta: 0.3,
+            q_floor: 1e-3,
+            finger_depth: 0.045,
+        };
+        for _ in 0..2000 {
+            #[allow(clippy::cast_possible_truncation, clippy::cast_sign_loss)]
+            let n = 1 + (next() * 80.0) as usize;
+            let pre: Vec<f64> = (0..n).map(|_| next()).collect();
+            let mk: Vec<bool> = (0..n).map(|_| next() < 0.8).collect();
+            let co: Vec<f64> = (0..n)
+                .map(|_| {
+                    if next() < 0.1 {
+                        f64::NAN
+                    } else {
+                        next() * 0.05
+                    }
+                })
+                .collect();
+            let scores = LearnedScores {
+                feasibility: (0..n).map(|_| next()).collect(),
+                robustness: Some((0..n).map(|_| next()).collect()),
+            };
+            let mut feasible: Vec<bool> = (0..n).map(|_| next() < 0.15).collect();
+            if !feasible.iter().any(|&f| f) {
+                feasible[n - 1] = true;
+            }
+            let joint = order(&models, OrderMode::Joint, &pre, &mk, &co, &scores);
+            let original = planner_order(&pre, &mk, None);
+            let hybrid = order(&models, OrderMode::Hybrid, &pre, &mk, &co, &scores);
+            assert_eq!(hybrid, interleave(&joint, &original));
+            let mut sorted = hybrid.clone();
+            sorted.sort_unstable();
+            assert_eq!(sorted, (0..n).collect::<Vec<_>>());
+            let hit = |o: &[usize]| o.iter().position(|&i| feasible[i]).unwrap() + 1;
+            assert!(hit(&hybrid) <= 2 * hit(&joint).min(hit(&original)));
+        }
+    }
+
     fn permutations(n: usize) -> Vec<Vec<usize>> {
         if n == 0 {
             return vec![vec![]];
