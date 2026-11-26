@@ -1,0 +1,232 @@
+{
+ "note": "    python tools/research/phase7_extension/memory_benchmark.py --binary target/release/axisforge         --models research/phase7_extension/native/learned_order_phase7.json --bench-raw BENCH_RAW_DIR         --dev-store store.json --dev-projects POOL --egad-store CONF/store.json --egad-projects EGAD_POOL         --objects 24 --out research/phase7_extension/results/memory_benchmark.json  Why a separate run: a child spawned from a Python process inherits, on Linux, the parent's peak RSS in ru_maxrss across exec. The integrated benchmark therefore recorded the Python parent's peak (about 170 MiB) for every mode, and those values are discarded. Here the planner reports its own peak (VmHWM from /proc/self/status, field peakResidentKiB of plan --json). The run uses a seeded subset of the benchmark objects, one cold call per mode, in a seeded random order.",
+ "objects": 24,
+ "model_file_bytes": 1240586,
+ "summary": {
+  "M0": {
+   "median_mib": 10.25390625,
+   "max_mib": 126.54296875,
+   "median_minus_M0_mib": 0.0
+  },
+  "m1": {
+   "median_mib": 10.587890625,
+   "max_mib": 127.4140625,
+   "median_minus_M0_mib": 0.79296875
+  },
+  "m4": {
+   "median_mib": 10.380859375,
+   "max_mib": 127.3515625,
+   "median_minus_M0_mib": 0.78515625
+  },
+  "m9": {
+   "median_mib": 10.82421875,
+   "max_mib": 14.078125,
+   "median_minus_M0_mib": 0.802734375
+  },
+  "joint": {
+   "median_mib": 10.4140625,
+   "max_mib": 127.2421875,
+   "median_minus_M0_mib": 0.76953125
+  },
+  "hybrid": {
+   "median_mib": 10.4375,
+   "max_mib": 127.328125,
+   "median_minus_M0_mib": 0.791015625
+  }
+ },
+ "per_object_kib": {
+  "Dell_Ink_Cartridge": {
+   "hybrid": 9568,
+   "m4": 9488,
+   "M0": 17852,
+   "m1": 9572,
+   "m9": 9608,
+   "joint": 9540
+  },
+  "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+   "joint": 10820,
+   "m9": 11312,
+   "m4": 10844,
+   "hybrid": 10872,
+   "m1": 10808,
+   "M0": 9772
+  },
+  "Perricone_MD_Photo_Plasma": {
+   "m9": 10628,
+   "m4": 10416,
+   "joint": 10508,
+   "M0": 9104,
+   "hybrid": 10504,
+   "m1": 10476
+  },
+  "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+   "m4": 11956,
+   "m9": 10628,
+   "M0": 11228,
+   "m1": 10660,
+   "joint": 11992,
+   "hybrid": 11960
+  },
+  "egad_R19": {
+   "joint": 11692,
+   "m1": 11628,
+   "hybrid": 11560,
+   "m9": 10856,
+   "m4": 11624,
+   "M0": 10836
+  },
+  "Borage_GLA240Gamma_Tocopherol": {
+   "m4": 10356,
+   "m9": 12148,
+   "M0": 9548,
+   "hybrid": 10420,
+   "m1": 12136,
+   "joint": 10356
+  },
+  "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+   "m1": 10876,
+   "joint": 9692,
+   "m9": 8544,
+   "m4": 9748,
+   "M0": 9032,
+   "hybrid": 9732
+  },
+  "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+   "m1": 8652,
+   "m9": 8628,
+   "joint": 8584,
+   "M0": 7816,
+   "hybrid": 8584,
+   "m4": 8612
+  },
+  "egad_I12": {
+   "m9": 13708,
+   "m1": 13856,
+   "M0": 11580,
+   "m4": 13756,
+   "joint": 13900,
+   "hybrid": 13792
+  },
+  "Crayola_Crayons_Washable_24_crayons": {
+   "m4": 8884,
+   "m9": 9020,
+   "joint": 8896,
+   "m1": 8956,
+   "M0": 13640,
+   "hybrid": 8956
+  },
+  "Perricone_MD_High_Potency_Evening_Repair": {
+   "m9": 9840,
+   "M0": 9456,
+   "m1": 9736,
+   "joint": 9884,
+   "hybrid": 9824,
+   "m4": 9808
+  },
+  "egad_O15": {
+   "m9": 11468,
+   "M0": 10576,
+   "hybrid": 11392,
+   "m1": 11368,
+   "joint": 11492,
+   "m4": 11376
+  },
+  "egad_C20": {
+   "M0": 11672,
+   "m9": 11548,
+   "m1": 12504,
+   "hybrid": 12612,
+   "joint": 12552,
+   "m4": 12592
+  },
+  "Canon_Pixma_Ink_Cartridge_8": {
+   "m1": 10280,
+   "M0": 10360,
+   "m4": 13048,
+   "hybrid": 13072,
+   "joint": 13012,
+   "m9": 13040
+  },
+  "egad_H12": {
+   "m4": 12408,
+   "joint": 12396,
+   "m1": 12404,
+   "hybrid": 12420,
+   "M0": 10424,
+   "m9": 12416
+  },
+  "egad_O25": {
+   "hybrid": 10220,
+   "m1": 10408,
+   "m9": 10492,
+   "joint": 10164,
+   "m4": 10180,
+   "M0": 9664
+  },
+  "Blackcurrant_Lutein": {
+   "M0": 10996,
+   "m9": 11356,
+   "joint": 10304,
+   "m4": 10384,
+   "hybrid": 10336,
+   "m1": 11292
+  },
+  "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+   "M0": 9236,
+   "m1": 10128,
+   "hybrid": 10068,
+   "m4": 10060,
+   "joint": 10056,
+   "m9": 10388
+  },
+  "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+   "joint": 9524,
+   "M0": 8148,
+   "m1": 8920,
+   "m9": 9532,
+   "hybrid": 9524,
+   "m4": 9004
+  },
+  "egad_F10": {
+   "m9": 12220,
+   "M0": 11404,
+   "m1": 12036,
+   "joint": 12040,
+   "hybrid": 12016,
+   "m4": 12024
+  },
+  "egad_M21": {
+   "m9": 12988,
+   "m4": 12896,
+   "M0": 12028,
+   "hybrid": 12952,
+   "m1": 12884,
+   "joint": 12792
+  },
+  "egad_K06": {
+   "m9": 11956,
+   "m4": 130408,
+   "M0": 129580,
+   "joint": 130296,
+   "m1": 130472,
+   "hybrid": 130384
+  },
+  "egad_D14": {
+   "hybrid": 14364,
+   "m4": 14488,
+   "M0": 12372,
+   "joint": 14448,
+   "m1": 14464,
+   "m9": 14416
+  },
+  "egad_T12": {
+   "M0": 8460,
+   "joint": 9212,
+   "m1": 9208,
+   "m4": 9144,
+   "hybrid": 9140,
+   "m9": 9136
+  }
+ },
+ "explained_outlier": "egad_K06: about 130 MB in every mode except m9 (12 MB). Re-run check: joint examines 1 candidate, \"surface 47 across 0\", 2.58 s search; m9 examines 1 candidate, \"surface 47 across 1 flipped\", 0.05 s search. The peak follows the motion planning of the grasp reached, not the learned model (+0.8 MiB median)."
+}

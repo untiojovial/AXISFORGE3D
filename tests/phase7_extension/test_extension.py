@@ -151,3 +151,35 @@ def test_round_robin_bound_holds_on_random_catalogues():
         na, nb, nh = common.first(cat, a)[0], common.first(cat, b)[0], common.first(cat, h)[0]
         assert nh <= 2*min(na, nb)
         assert nh <= min(2*na - 1, 2*nb)
+
+
+def test_tango_restricted_mle_matches_direct_maximisation():
+    """The closed form of q21 in p2_audit.tango_z is the restricted MLE of p21 under H0: p12 - p21 = theta
+    (multinomial likelihood b log(p21 + theta) + c log p21 + (n - b - c) log(1 - 2 p21 - theta), maximised numerically)."""
+    from scipy.optimize import minimize_scalar
+    m = tool(EXT/'p2_audit.py', 'p2_audit')
+    for b, c, n, theta in ((4, 8, 220, -.05), (10, 3, 150, .02), (0, 5, 60, -.1), (7, 7, 100, .05)):
+        lo = max(0., -theta) + 1e-12
+        hi = (1 - theta)/2 - 1e-12
+        nll = lambda q: -(b*np.log(q + theta) + c*np.log(q) + (n - b - c)*np.log(1 - 2*q - theta))  # noqa: E731
+        q_num = minimize_scalar(nll, bounds=(lo, hi), method='bounded', options=dict(xatol=1e-12)).x
+        A = 2*n; B = -b - c + (2*n - b + c)*theta; C_ = -c*theta*(1 - theta)
+        q_closed = (np.sqrt(B*B - 4*A*C_) - B)/(2*A)
+        assert q_closed == pytest.approx(q_num, abs=1e-7)
+
+
+def test_tango_and_newcombe_intervals_have_near_nominal_coverage():
+    """Simulated coverage of the 95 % intervals at a configuration like the Phase VII P2 table."""
+    m = tool(EXT/'p2_audit.py', 'p2_audit')
+    rng = np.random.default_rng(7)
+    p = np.array([.89, .02, .035, .055])  # both, first only, second only, neither
+    true = p[1] - p[2]
+    cov_t = cov_n = 0
+    reps = 400
+    for _ in range(reps):
+        a, b, c, d = rng.multinomial(220, p)
+        lo, hi = m.tango_interval(b, c, 220)
+        cov_t += lo <= true <= hi
+        nlo, nhi = m.newcombe10(a, b, c, d)
+        cov_n += nlo <= true <= nhi
+    assert .91 <= cov_t/reps <= .99 and .91 <= cov_n/reps <= .99
