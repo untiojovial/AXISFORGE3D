@@ -65,6 +65,24 @@ Ordered by how much each one limits the conclusions. Every item is also stated i
       planner). The full online cost therefore penalises the learned orders relative to an integrated
       implementation; that estimate is reported separately.
 
+## What the confirmation showed (added after the test; the frozen analysis is unchanged)
+
+16. **The development robustness and load-tolerance gains did not replicate on EGAD.**
+    - Robustness was −1.8 pp [−5.0, 1.4] vs the original planner. That is non-inferior only narrowly,
+      and only at the pre-registered torsion: it was −6.4 at 0.001 m and −2.7 at 0.02 m, both below zero.
+    - Load tolerance was −6.4 pp [−10.9, −1.8].
+    - No claim of improved robustness can be made.
+17. **Efficiency gains shrink with a better baseline.** The N_F ratio vs the original planner was 0.61 on
+    EGAD vs 0.21 in development. The original planner's order is already efficient on gripper-scaled
+    shapes.
+18. **Population coverage.** 80 of 300 primary objects had no viable candidate at all. Ordering cannot help
+    them, and they lower every method's population success equally.
+19. **Wall-clock.** The full online cost was 1.94× the original planner's (60 objects). An integrated
+    implementation was not built or measured on EGAD.
+20. **Execution incident.** The container restarted once during the confirmation physics. It was resumed
+    from per-object outputs with the same frozen code; objects in progress were re-simulated from
+    scratch. No outcome-dependent rerun.
+
 ## External baselines
 
 15. **No learned grasp detector was reproduced.**

@@ -1,23 +1,157 @@
 {
  "note": "Status of every stage and deliverable of the Phase VII request. 'executed' means run and its output stored; 'pilot' means run at reduced scope with the reason; 'not executed' and 'blocked' give the reason and, for blocked items, the closed list of actions that would unblock them. Nothing listed as not executed has an invented result file.",
  "stages": {
-  "A audit": {"status": "executed", "evidence": ["PHASE7_REPOSITORY_AUDIT.md", "results/phase6_verification.json (15/15 figures match)"]},
-  "B DINO + MLP (mandatory)": {"status": "executed", "evidence": ["results/mlp_benchmark.json", "results/linear_projection_benchmark.json", "results/visual_ablation.json", "results/ranking_loss_benchmark.json", "results/local_features_benchmark.json"], "scope": "L0-L11, L8p, L10p/L10r (post hoc), k 8/32 sensitivity, listwise loss for L2/L8, local LG/LD/LGD; 3 seeds; 5 grouped folds; 316 parts"},
-  "B local DINO patch features": {"status": "executed", "evidence": ["results/local_features_benchmark.json"]},
-  "C physics v3, mass/stress, rotation 5-20 deg": {"status": "executed", "evidence": ["results/physical_validation.json", "results/rotation_validation.json"]},
-  "C torsional friction sensitivity": {"status": "executed", "evidence": ["results/friction_sensitivity.json"], "values_m": [0.001, 0.0025, 0.005, 0.02]},
-  "C articulated simulation": {"status": "pilot (executed)", "evidence": ["results/articulated_simulator_validation.json", "research_grasping/phase7/articulated.py"], "scope": "the cell's own six-axis arm, computed-torque control, planner joint values; 151 development parts x first grasps of 5 methods x 7 conditions; EGAD replication of M0/M1/Joint (descriptive)", "not_done": "calibrated industrial arm model, arm collision geometry, Cartesian lift, joint friction"},
-  "C full online cost": {"status": "see results/full_online_costs.json and confirmation timing (H4)"},
-  "D few-shot / DKL / ADKF-IFT": {"status": "not executed (not justified)", "reason": "With the learned order the first examined candidate is viable for 87 % of development parts; the mean number of extra candidates any adaptive model could save is 1.30 (about 5 ms of planner time) against a fixed planner cost of 0.57 s, before paying for its own support evaluations. A support set can only be obtained by evaluating candidates, i.e. by doing the planner's work.", "evidence": ["results/few_shot_analysis.json", "PHASE7_PROTOCOL.md I.6"]},
-  "D FORTIS-R Joint (development)": {"status": "executed", "evidence": ["results/robustness_benchmark.json", "results/physics_dev_with_joint.json.gz"]},
-  "D negative transfer and fallback bound": {"status": "executed", "evidence": ["results/negative_transfer_analysis.json"]},
-  "D complementarity (FORTIS-MUL)": {"status": "limited", "reason": "the multiplicative fusion family (M4, M9, Joint) is the complementarity analysis; no separate FORTIS-MUL experiment beyond Phase VI's grid"},
-  "D cross-robot (40/120 mm)": {"status": "executed (development)", "evidence": ["results/cross_robot_results.json"], "note": "stroke variants of one cell, not other robots; unseen configurations only zero-shot from 80 mm"},
-  "D multifidelity / cost-aware ordering": {"status": "not executed as a separate method", "reason": "the per-candidate planner cost is nearly constant and the first-candidate hit rate is 87 %; the fallback (round robin) is the cost-aware safeguard studied. Planner stage timings are reported in the cost files."},
-  "E external baselines": {"status": "partial", "evidence": ["results/external_baselines.json"], "executed": "classical analytic ranking (force closure then wrench-space epsilon) at the ranking-controlled level on 40 development parts", "blocked": {"GPD": "requires PCL >= 1.9 and OpenCV (available via apt here: 532 packages) plus a C++ adapter to score AxisForge candidates or a pose bridge for the full pipeline; not built in this phase", "Contact-GraspNet": "requires TensorFlow 2.2-2.5 with CUDA and a GPU (>= 8 GB); no GPU", "Dex-Net GQ-CNN": "requires TensorFlow <= 1.15 and Python <= 3.7"}, "actions_to_unblock": ["install PCL/OpenCV and build GPD from its repository; write a C++ adapter that scores the planner's candidate poses with GPD's classifier (controlled ranking level)", "for the full-pipeline level: convert GPD/Contact-GraspNet top grasps to planner candidates and run them through the planner's feasibility check and the v3 physics", "run Contact-GraspNet on a CUDA machine or Colab from a prepared notebook (not run; no Colab results are reported)"]},
-  "E power and sample size": {"status": "executed", "evidence": ["results/phase7_statistical_power.json"]},
-  "E freeze": {"status": "executed", "evidence": ["PHASE7_MODEL_FREEZE.json", "frozen/", "commit de22a8a"]},
-  "F confirmation on EGAD": {"status": "see results/confirmation_results.json"},
-  "G publication package": {"status": "see publication/intelligent_service_robotics/ and publication_readiness.md"}
+  "A audit": {
+   "status": "executed",
+   "evidence": [
+    "PHASE7_REPOSITORY_AUDIT.md",
+    "results/phase6_verification.json (15/15 figures match)"
+   ]
+  },
+  "B DINO + MLP (mandatory)": {
+   "status": "executed",
+   "evidence": [
+    "results/mlp_benchmark.json",
+    "results/linear_projection_benchmark.json",
+    "results/visual_ablation.json",
+    "results/ranking_loss_benchmark.json",
+    "results/local_features_benchmark.json"
+   ],
+   "scope": "L0-L11, L8p, L10p/L10r (post hoc), k 8/32 sensitivity, listwise loss for L2/L8, local LG/LD/LGD; 3 seeds; 5 grouped folds; 316 parts"
+  },
+  "B local DINO patch features": {
+   "status": "executed",
+   "evidence": [
+    "results/local_features_benchmark.json"
+   ]
+  },
+  "C physics v3, mass/stress, rotation 5-20 deg": {
+   "status": "executed",
+   "evidence": [
+    "results/physical_validation.json",
+    "results/rotation_validation.json"
+   ]
+  },
+  "C torsional friction sensitivity": {
+   "status": "executed",
+   "evidence": [
+    "results/friction_sensitivity.json"
+   ],
+   "values_m": [
+    0.001,
+    0.0025,
+    0.005,
+    0.02
+   ]
+  },
+  "C articulated simulation": {
+   "status": "pilot (executed)",
+   "evidence": [
+    "results/articulated_simulator_validation.json",
+    "research_grasping/phase7/articulated.py"
+   ],
+   "scope": "the cell's own six-axis arm, computed-torque control, planner joint values; 151 development parts x first grasps of 5 methods x 7 conditions; EGAD replication of M0/M1/Joint (descriptive)",
+   "not_done": "calibrated industrial arm model, arm collision geometry, Cartesian lift, joint friction"
+  },
+  "C full online cost": {
+   "status": "executed",
+   "evidence": [
+    "results/full_online_costs.json (60 development parts, DINO extra cost on 20)",
+    "results/confirmation_timing.json (60 EGAD objects, H4)"
+   ]
+  },
+  "D few-shot / DKL / ADKF-IFT": {
+   "status": "not executed (not justified)",
+   "reason": "With the learned order the first examined candidate is viable for 87 % of development parts; the mean number of extra candidates any adaptive model could save is 1.30 (about 5 ms of planner time) against a fixed planner cost of 0.57 s, before paying for its own support evaluations. A support set can only be obtained by evaluating candidates, i.e. by doing the planner's work.",
+   "evidence": [
+    "results/few_shot_analysis.json",
+    "PHASE7_PROTOCOL.md I.6"
+   ]
+  },
+  "D FORTIS-R Joint (development)": {
+   "status": "executed",
+   "evidence": [
+    "results/robustness_benchmark.json",
+    "results/physics_dev_with_joint.json.gz"
+   ]
+  },
+  "D negative transfer and fallback bound": {
+   "status": "executed",
+   "evidence": [
+    "results/negative_transfer_analysis.json"
+   ]
+  },
+  "D complementarity (FORTIS-MUL)": {
+   "status": "limited",
+   "reason": "the multiplicative fusion family (M4, M9, Joint) is the complementarity analysis; no separate FORTIS-MUL experiment beyond Phase VI's grid"
+  },
+  "D cross-robot (40/120 mm)": {
+   "status": "executed (development)",
+   "evidence": [
+    "results/cross_robot_results.json"
+   ],
+   "note": "stroke variants of one cell, not other robots; unseen configurations only zero-shot from 80 mm"
+  },
+  "D multifidelity / cost-aware ordering": {
+   "status": "not executed as a separate method",
+   "reason": "the per-candidate planner cost is nearly constant and the first-candidate hit rate is 87 %; the fallback (round robin) is the cost-aware safeguard studied. Planner stage timings are reported in the cost files."
+  },
+  "E external baselines": {
+   "status": "partial",
+   "evidence": [
+    "results/external_baselines.json"
+   ],
+   "executed": "classical analytic ranking (force closure then wrench-space epsilon) at the ranking-controlled level on 40 development parts",
+   "blocked": {
+    "GPD": "requires PCL >= 1.9 and OpenCV (available via apt here: 532 packages) plus a C++ adapter to score AxisForge candidates or a pose bridge for the full pipeline; not built in this phase",
+    "Contact-GraspNet": "requires TensorFlow 2.2-2.5 with CUDA and a GPU (>= 8 GB); no GPU",
+    "Dex-Net GQ-CNN": "requires TensorFlow <= 1.15 and Python <= 3.7"
+   },
+   "actions_to_unblock": [
+    "install PCL/OpenCV and build GPD from its repository; write a C++ adapter that scores the planner's candidate poses with GPD's classifier (controlled ranking level)",
+    "for the full-pipeline level: convert GPD/Contact-GraspNet top grasps to planner candidates and run them through the planner's feasibility check and the v3 physics",
+    "run Contact-GraspNet on a CUDA machine or Colab from a prepared notebook (not run; no Colab results are reported)"
+   ]
+  },
+  "E power and sample size": {
+   "status": "executed",
+   "evidence": [
+    "results/phase7_statistical_power.json"
+   ]
+  },
+  "E freeze": {
+   "status": "executed",
+   "evidence": [
+    "PHASE7_MODEL_FREEZE.json",
+    "frozen/",
+    "commit de22a8a"
+   ]
+  },
+  "F confirmation on EGAD": {
+   "status": "executed",
+   "evidence": [
+    "results/confirmation_results.json",
+    "results/cross_dataset_results.json",
+    "results/confirmation_orders.json",
+    "results/confirmation_trials.json.gz",
+    "results/confirmation_articulated.json.gz",
+    "results/confirmation_status.json",
+    "results/confirmation_built.json"
+   ],
+   "summary": "primary 300 objects (220 viable): P1 supported, P2 supported narrowly, P2 superiority not supported, P3 supported; secondary S1-S7 not supported (H1, H2, H4, H5 not supported)",
+   "incident": "container restart during physics (63/255 objects done); resumed with the same frozen code"
+  },
+  "G publication package": {
+   "status": "executed (draft for the author)",
+   "evidence": [
+    "publication/intelligent_service_robotics/",
+    "research/phase7/publication_readiness.md",
+    "research/phase7/scientific_review.md"
+   ],
+   "not_done": [
+    "submission (needs the author)",
+    "Zenodo release / DOI (needs authorisation)"
+   ]
+  }
  }
 }

@@ -2004,10 +2004,12 @@ mod tests {
     #[test]
     fn planning_is_deterministic() {
         let (project, seed) = cell();
-        assert_eq!(
-            plan(&project, "dowel", &seed),
-            plan(&project, "dowel", &seed)
-        );
+        // Everything except the wall-clock stage timings must repeat exactly.
+        let mut first = plan(&project, "dowel", &seed);
+        let mut second = plan(&project, "dowel", &seed);
+        first.timings = PlanTimings::default();
+        second.timings = PlanTimings::default();
+        assert_eq!(first, second);
     }
 
     #[test]

@@ -89,3 +89,30 @@ These points are not in the Phase VI summary, or are only implicit there:
 | YCB models | Not verified in this phase | Names only | Verify before release |
 | EGAD | BSD-3 (QUT record and GitHub `LICENSE`) | Names, hashes and derived statistics only | Copyright: D. Morrison, ACRV/QUT 2020 |
 | UR5/robot models | Not used in the Phase VII experiments | — | |
+
+## 6. End-of-phase verification (after the confirmation)
+
+| Suite | Result |
+|---|---|
+| `cargo test --workspace --release --no-fail-fast` | **360 passed, 0 failed** (27 binaries) after the fix below |
+| `cargo clippy --workspace --all-targets --release -- -D warnings` | 0 warnings |
+| `cargo fmt --check` | clean |
+| `pytest tests` | **500 passed, 65 skipped** (472 earlier + 28 new Phase VII tests). The 65 skipped tests are not counted as passed; the reasons are as in §1 |
+
+**Regression found and fixed.**
+
+- **What failed.** The first end-of-phase run failed `planner::tests::planning_is_deterministic`.
+- **Cause.** Commit `925a39e` added wall-clock stage timings (`PlanTimings`) to `PlanReport`. The test
+  compares two whole reports, so it compared timings too. The plans themselves were identical.
+- **Fix.** The test now clears the timings before comparing. Every other field must still repeat
+  exactly. No planner behaviour changed, and no result depends on it.
+- **Correction to §1.** The count "360 with the Phase VII timing test" in §1 was not re-verified after
+  that commit. It is superseded by this section.
+
+**Effect on the freeze record.** The fix edits `crates/grasping/src/planner.rs`, one of the files hashed in
+`PHASE7_MODEL_FREEZE.json`, so its current hash no longer matches the record.
+
+- The change is confined to the `#[cfg(test)]` module and is not compiled into the planner binary.
+- It was made **after** the confirmatory analysis. The analysis checked every frozen code hash before
+  running and found no differences.
+- The frozen version is the one at commit `5a821dc` (`git show 5a821dc:crates/grasping/src/planner.rs`).
