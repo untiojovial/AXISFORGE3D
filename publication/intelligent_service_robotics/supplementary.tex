@@ -1,0 +1,39 @@
+%% Supplementary material. Every number is a macro from tables/numbers.tex or a generated table.
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+\usepackage{graphicx,booktabs,amsmath,amssymb,url}
+\input{tables/numbers}
+\begin{document}
+\title{Supplementary material: Learning where to look first without losing robustness}
+\author{\fnm{Eduardo} \sur{P\'erez Gonz\'alez}}
+\affil{\orgname{Independent Researcher}, \orgaddress{\city{Zaragoza}, \country{Spain}}}
+\abstract{Protocol summary, deviations, full development tables, secondary confirmatory results and sensitivity analyses. Source files: research/phase7 of the project repository.}
+\maketitle
+
+\section{Protocol, freeze and deviations}
+The development protocol (part I) was committed before the development experiments; the confirmatory protocol (part II), the hypotheses, the frozen models and the test manifest were committed together (commit \texttt{de22a8a}) before any confirmatory object was planned, and signed by SHA-256 hashes in \texttt{PHASE7\_MODEL\_FREEZE.json}. Disclosed deviations: (D1) the cells of two primary objects (positions 0 and 1) were built, geometry only, during pipeline development; (D2) the H5 target became the linear-branch variant L10 and its controls were added after L10's development result; (D3) load tolerance was moved from the primary to the secondary family after the articulated development pilot; (D4) the collision decomposition settings were chosen on excluded objects (positions 500--502).
+
+\section{Development: representation benchmark}
+\begin{table}[h]
+\caption{All representation variants (316 parts, out of fold; MLPs averaged over three seeds).}
+\centering\scriptsize
+\input{tables/tab_dev_representation}
+\end{table}
+
+\section{Development: physics corrections and sensitivity}
+Under the previous criterion \devVtwoHeld{} trials were held; \devVtwoNotVthree{} of them fail the rotation-and-contact criterion. Verdict changes relative to torsion 0.005~m: \devFlipLow\% (0.001), \devFlipMid\% (0.0025), \devFlipHigh\% (0.02). Development contrasts (v3): M4$-$M1 load tolerance \devMfourMoneLoad{} \devMfourMoneLoadCI; M9$-$M1 robustness \devMnineMoneRobust{} \devMnineMoneRobustCI; Joint$-$M1 robustness \devJointMoneRobust{} \devJointMoneRobustCI. Full per-condition rates: \texttt{physical\_validation.json}, \texttt{rotation\_validation.json}, \texttt{friction\_sensitivity.json}.
+
+\section{Confirmation: secondary family}
+\begin{table}[h]
+\caption{Secondary confirmatory hypotheses (Holm within the family, one-sided $\alpha=0.025$). Effects are paired differences (percentage points) or $N_F$/cost ratios with 95\% CIs.}
+\centering\scriptsize
+\input{tables/tab_conf_secondary}
+\end{table}
+
+\section{Confirmation: all methods}
+\begin{table}[h]
+\caption{EGAD primary set: geometric-mean $N_F$ (viable objects), Success@1 and Success@10 over all objects, and v3 rates on viable objects with dynamics.}
+\centering\small
+\input{tables/tab_conf_methods}
+\end{table}
+
+\end{document}
