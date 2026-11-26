@@ -17,7 +17,8 @@ review**, and this package does not claim otherwise.
 | Start of the extension | `15fd43f` | the state audited by `results/start_verification.json` |
 | Development selection rule | `49eb5bb` | committed before any v3 model was fitted |
 | Extension freeze (second confirmation) | `b478289` | `PHASE7X_FREEZE.json`: protocol, model X, analysis, binary; before any new object was catalogued |
-| Final | the commit that adds `results/confirmation_x.json` and `PUBLICATION_READINESS_FINAL.md` | — |
+| Second confirmation results | `040cde7` | `results/confirmation_x.json`, per-object outputs, execution record |
+| Final verdict | `542b274` and later documentation commits on the same branch | `FINAL_SCIENTIFIC_AUDIT.md`, `PUBLICATION_READINESS_FINAL.md` |
 
 Verify a freeze:
 
@@ -96,7 +97,9 @@ The proof: by step 2k − 1 the first k candidates of X have been examined, and 
 | GPD | `results/external_baselines_v2.json`, `results/gpd_variability.json` |
 | Exploratory | `results/articulated2_development.json`, `results/optuna_mlp.json` |
 
-The summary verdicts are in `PUBLICATION_READINESS_FINAL.md`.
+The summary verdicts are in `PUBLICATION_READINESS_FINAL.md`. Second confirmation in one line: C1, C2 and C3 were
+supported (N_F ratio 0.449; robustness +3.3 pp, non-inferior; 0.992 against M1); C4 (time) was not (0.998); S1 was
+supported; S2 and S3 were not.
 
 ## 7. Tests
 
