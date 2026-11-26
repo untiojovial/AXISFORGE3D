@@ -17,7 +17,8 @@ The table classifies every generalisation result produced so far. Its terms are 
 | 80 mm model applied to a 40 mm stroke | **zero-shot to a stroke variant** (not another robot) | 79 viable of 316 development parts | same arm, 40 mm stroke | zero-shot 1.98; retrained 2.11; default 9.39; zero-shot/retrained 0.94 (0.74–1.19) | `cross_robot_results.json` | development, grouped folds |
 | 80 mm model applied to a 120 mm stroke | zero-shot to a stroke variant | 254 viable of 316 | same arm, 120 mm stroke | zero-shot 1.30; retrained 1.22; default 4.97; zero-shot/retrained 1.07 (0.99–1.16) | `cross_robot_results.json` | development, grouped folds |
 | Robustness model P(H\|F) and Joint on EGAD | zero-shot, OOD | 220 | same arm, 80 mm | robustness non-inferior only narrowly and only at the pre-specified torsion (P2); load tolerance −6.4 pp vs M0 | Phase VII confirmation | confirmatory (P2), secondary (S5) |
-| New EGAD positions 300–499 | zero-shot, same family as the EGAD primary set (**not a new domain**) | 200, to be built | same arm, 80 mm | pending | extension protocol | to be confirmatory |
+| New EGAD positions 300–499 (second confirmation) | zero-shot, same family as the EGAD primary set (**not a new domain**) | 151 viable of 200 | same arm, 80 mm | X 1.17 vs M0 2.60; X/M0 ratio 0.449 (0.356–0.567); X/M1 0.992 (0.930–1.059) | `results/confirmation_x.json` (C1, C3) | confirmatory |
+| X's robustness model on the new positions | zero-shot, same family | 151 | same arm, 80 mm | robustness X−M0 +3.3 pp (Tango 0.7–7.5): non-inferior (C2); all-three-torsion robustness vs M1 0.0 pp (S2, not supported; development +25.2 pp) | `results/confirmation_x.json` | confirmatory (C2), secondary (S2, S3) |
 
 ## What these results do and do not show
 
@@ -25,7 +26,8 @@ The table classifies every generalisation result produced so far. Its terms are 
   also transferred to the 40 mm and 120 mm strokes of the same gripper on the development parts. There, the
   zero-shot model was not detectably worse than a model retrained for the stroke; the intervals include
   differences of up to about +16 % or −26 %.
-- **Robustness term.** It did not transfer reliably (P2, S5, torsion sensitivity).
+- **Robustness term.** It did not transfer as an advantage. Phase VII: P2 fragile, S5, torsion sensitivity. Second
+  confirmation: robustness non-inferior to M0 (C2), but the multi-torsion advantage that selected X was absent (S2).
 - **What was not tested.**
   - Other robots: different kinematics, a hand or a suction gripper. The project supports hands, but no
     learned-order experiment used one.
