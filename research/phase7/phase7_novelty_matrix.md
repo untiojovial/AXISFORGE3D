@@ -1,5 +1,7 @@
 # Phase VII — novelty matrix
 
+> **Historical Phase VII document, kept as written.** Some wording here was corrected later: "pre-registered" and "hash-signed" mean a protocol frozen in Git with SHA-256 digests, not a registry preregistration or signatures. Other corrections cover P3, the fallback bound and non-significant results. See `research/phase7_extension/FINAL_CORRECTIONS_REGISTER.md` (items B, C, D, H1, H2) and the current manuscript.
+
 **Rule.** Compare only with verified works ([phase7_literature_review.md](phase7_literature_review.md)).
 The search was targeted (about 40 queries), not systematic. "No direct precedent found" means *in this
 search*, never "new to the world".

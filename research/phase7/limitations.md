@@ -1,5 +1,7 @@
 # Phase VII — limitations
 
+> **Historical Phase VII document, kept as written.** Some wording here was corrected later: "pre-registered" and "hash-signed" mean a protocol frozen in Git with SHA-256 digests, not a registry preregistration or signatures. Other corrections cover P3, the fallback bound and non-significant results. See `research/phase7_extension/FINAL_CORRECTIONS_REGISTER.md` (items B, C, D, H1, H2) and the current manuscript.
+
 Ordered by how much each one limits the conclusions. Every item is also stated in the manuscript.
 
 ## Scope of the evidence

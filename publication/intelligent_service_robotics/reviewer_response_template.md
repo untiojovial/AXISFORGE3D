@@ -1,7 +1,7 @@
 # Response to reviewers — template
 
-Manuscript: *Learning where to look first without losing robustness: a pre-registered evaluation of
-candidate ordering for a complete parallel-jaw grasp planner*
+Manuscript: *Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded Fallback*
+(provisional title)
 
 Dear Editor,
 

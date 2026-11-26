@@ -1,5 +1,7 @@
 # Phase VII — simulated internal review (four perspectives)
 
+> **Historical Phase VII document, kept as written.** Some wording here was corrected later: "pre-registered" and "hash-signed" mean a protocol frozen in Git with SHA-256 digests, not a registry preregistration or signatures. Other corrections cover P3, the fallback bound and non-significant results. See `research/phase7_extension/FINAL_CORRECTIONS_REGISTER.md` (items B, C, D, H1, H2) and the current manuscript.
+
 **Not peer review.** These four reviews were written by the same AI system that ran the study, as a
 structured self-check of the manuscript (`publication/intelligent_service_robotics/`) and the repository.
 They do not replace independent review.
