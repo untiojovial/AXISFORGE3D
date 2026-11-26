@@ -1,0 +1,404 @@
+{
+ "classifier": "Phase V learned (HistGradientBoosting, seed 0) trained on the 116 library parts, all candidates",
+ "development_auc": 0.9934,
+ "candidates": {
+  "library": 135782,
+  "library_viable": 6484,
+  "development": 181196,
+  "development_viable": 12585
+ },
+ "centre_offset_missing": {
+  "library": 0,
+  "development": 0
+ },
+ "label": "exhaustive planner verdict (reach, IK, collisions, force closure); used only as the training target on library parts",
+ "leakage_checks": {
+  "development_in_library": 0,
+  "features_from_ik_collision_or_verdict": 0,
+  "object_level": "Phase V near-duplicate audit: 52 name variants and 74 look-alikes among the 200 Phase V test parts; Phase V sensitivity kept all decisions without them (research/phase5/near_duplicates.json)",
+  "cell_specific": "all parts share one cell (table, robot, part pose); height features carry cell-specific reach"
+ },
+ "features": [
+  {
+   "feature": "approach_x",
+   "meaning": "approach direction of the candidate",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -1.0,
+    1.0
+   ],
+   "auc_feasible_library": 0.648,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.6497,
+   "permutation_importance_auc": 0.0577
+  },
+  {
+   "feature": "approach_y",
+   "meaning": "approach direction of the candidate",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -1.0,
+    1.0
+   ],
+   "auc_feasible_library": 0.5011,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.5003,
+   "permutation_importance_auc": 0.0006
+  },
+  {
+   "feature": "approach_z",
+   "meaning": "approach direction of the candidate",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -1.0,
+    1.0
+   ],
+   "auc_feasible_library": 0.8465,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.8763,
+   "permutation_importance_auc": 0.0284
+  },
+  {
+   "feature": "closing_x",
+   "meaning": "|closing direction| of the candidate",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    0.0,
+    1.0
+   ],
+   "auc_feasible_library": 0.5824,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.5661,
+   "permutation_importance_auc": 0.0029
+  },
+  {
+   "feature": "closing_y",
+   "meaning": "|closing direction| of the candidate",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    0.0,
+    1.0
+   ],
+   "auc_feasible_library": 0.6342,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.6259,
+   "permutation_importance_auc": 0.0002
+  },
+  {
+   "feature": "closing_z",
+   "meaning": "|closing direction| of the candidate",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    0.0,
+    1.0
+   ],
+   "auc_feasible_library": 0.7775,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.7301,
+   "permutation_importance_auc": 0.0105
+  },
+  {
+   "feature": "width",
+   "meaning": "distance between the two contacts",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    0.0,
+    0.3336
+   ],
+   "auc_feasible_library": 0.6756,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.7135,
+   "permutation_importance_auc": 0.0014
+  },
+  {
+   "feature": "rel_x",
+   "meaning": "candidate centre relative to the part bounding box",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates; part bounding box in the cell (store low/high), computed once from the mesh",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -1.4017,
+    2.1746
+   ],
+   "auc_feasible_library": 0.6404,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.6428,
+   "permutation_importance_auc": 0.0012
+  },
+  {
+   "feature": "rel_y",
+   "meaning": "candidate centre relative to the part bounding box",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates; part bounding box in the cell (store low/high), computed once from the mesh",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -0.8566,
+    1.9669
+   ],
+   "auc_feasible_library": 0.5034,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.5028,
+   "permutation_importance_auc": 0.0003
+  },
+  {
+   "feature": "rel_z",
+   "meaning": "candidate centre relative to the part bounding box",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates; part bounding box in the cell (store low/high), computed once from the mesh",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low; encodes height above the table, specific to this cell (transfer to other cells untested)",
+   "range_library": [
+    -1.5173,
+    2.432
+   ],
+   "auc_feasible_library": 0.815,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.8312,
+   "permutation_importance_auc": 0.0014
+  },
+  {
+   "feature": "height",
+   "meaning": "candidate centre height above the bounding-box bottom",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates; part bounding box in the cell (store low/high), computed once from the mesh",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low; same as rel_z",
+   "range_library": [
+    -0.0253,
+    0.2406
+   ],
+   "auc_feasible_library": 0.8233,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.7675,
+   "permutation_importance_auc": 0.0343
+  },
+  {
+   "feature": "log_extent_x",
+   "meaning": "log of the part bounding-box size (same for all candidates of a part)",
+   "source": "part bounding box in the cell (store low/high), computed once from the mesh",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -4.0999,
+    -1.4199
+   ],
+   "auc_feasible_library": 0.7236,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.6115,
+   "permutation_importance_auc": 0.0016
+  },
+  {
+   "feature": "log_extent_y",
+   "meaning": "log of the part bounding-box size (same for all candidates of a part)",
+   "source": "part bounding box in the cell (store low/high), computed once from the mesh",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -3.8149,
+    -1.0961
+   ],
+   "auc_feasible_library": 0.6937,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.5116,
+   "permutation_importance_auc": 0.0009
+  },
+  {
+   "feature": "log_extent_z",
+   "meaning": "log of the part bounding-box size (same for all candidates of a part)",
+   "source": "part bounding box in the cell (store low/high), computed once from the mesh",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    -4.346,
+    -1.4247
+   ],
+   "auc_feasible_library": 0.6095,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.5333,
+   "permutation_importance_auc": 0.0023
+  },
+  {
+   "feature": "antipodal_a",
+   "meaning": "|normal at contact A . closing|",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    0.0009,
+    1.0
+   ],
+   "auc_feasible_library": 0.617,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.5835,
+   "permutation_importance_auc": 0.001
+  },
+  {
+   "feature": "antipodal_b",
+   "meaning": "|normal at contact B . closing|",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low",
+   "range_library": [
+    0.0009,
+    1.0
+   ],
+   "auc_feasible_library": 0.6181,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.5844,
+   "permutation_importance_auc": 0.0012
+  },
+  {
+   "feature": "centre_offset",
+   "meaning": "distance from the planner centre of mass to the closing line (lever arm); NaN set to 0",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low; assumes uniform density (planner centre of mass), not measured mass distribution",
+   "range_library": [
+    0.0,
+    0.1798
+   ],
+   "auc_feasible_library": 0.5147,
+   "direction_library": "lower is more often viable",
+   "auc_feasible_development": 0.5668,
+   "permutation_importance_auc": 0.0002
+  },
+  {
+   "feature": "preliminary",
+   "meaning": "planner preliminary score: stroke, grip force, centring, approach (uses the cell mass 0.1 kg and mu)",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low; depends on the assumed nominal mass and friction of the cell",
+   "range_library": [
+    0.1792,
+    0.8941
+   ],
+   "auc_feasible_library": 0.8258,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.8383,
+   "permutation_importance_auc": 0.0007
+  },
+  {
+   "feature": "makeable",
+   "meaning": "stroke and grip-force gate (uses the cell mass and the gripper force)",
+   "source": "planner candidate generation (`axisforge research-candidates`), 0.4 s per part for all candidates",
+   "cost": "no extra cost: read from the generated candidate or the bounding box (microseconds per candidate)",
+   "available_before_planning": true,
+   "needs": [
+    "candidate generation",
+    "stroke/force gate"
+   ],
+   "uses_ik_collision_or_verdict": false,
+   "leakage_risk": "low; depends on the assumed nominal mass; it is also the planner gate",
+   "range_library": [
+    0.0,
+    1.0
+   ],
+   "auc_feasible_library": 0.7423,
+   "direction_library": "higher is more often viable",
+   "auc_feasible_development": 0.7452,
+   "permutation_importance_auc": 0.0689
+  }
+ ]
+}

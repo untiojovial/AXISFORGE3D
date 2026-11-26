@@ -1,0 +1,661 @@
+{
+ "note": "Phase VI development (pilot) set: the Phase V test parts with a viable grasp at 80 mm in experiment B. They were the Phase V confirmatory test; in Phase VI they are development data and are never used as a confirmatory test again.",
+ "source": "research/phase5/results/test_rows.json.gz (experiment B, 80 mm, method default)",
+ "parts": {
+  "Android_Lego": {
+   "candidates": 1378,
+   "feasible": 61
+  },
+  "Star_Wars_Rogue_Squadron_Nintendo_64": {
+   "candidates": 1424,
+   "feasible": 98
+  },
+  "Breyer_Horse_Of_The_Year_2015": {
+   "candidates": 956,
+   "feasible": 22
+  },
+  "Perricone_MD_High_Potency_Evening_Repair": {
+   "candidates": 1226,
+   "feasible": 230
+  },
+  "Perricone_MD_Neuropeptide_Facial_Conformer": {
+   "candidates": 1260,
+   "feasible": 240
+  },
+  "Cole_Hardware_Mini_Honey_Dipper": {
+   "candidates": 1506,
+   "feasible": 154
+  },
+  "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+   "candidates": 1114,
+   "feasible": 74
+  },
+  "OXO_Cookie_Spatula": {
+   "candidates": 946,
+   "feasible": 6
+  },
+  "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+   "candidates": 1148,
+   "feasible": 173
+  },
+  "Nintendo_Mario_Action_Figure": {
+   "candidates": 1142,
+   "feasible": 132
+  },
+  "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+   "candidates": 1374,
+   "feasible": 77
+  },
+  "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+   "candidates": 1152,
+   "feasible": 229
+  },
+  "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+   "candidates": 1130,
+   "feasible": 59
+  },
+  "SCHOOL_BUS": {
+   "candidates": 1632,
+   "feasible": 64
+  },
+  "Object": {
+   "candidates": 1072,
+   "feasible": 59
+  },
+  "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+   "candidates": 1152,
+   "feasible": 178
+  },
+  "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+   "candidates": 1356,
+   "feasible": 77
+  },
+  "Borage_GLA240Gamma_Tocopherol": {
+   "candidates": 1150,
+   "feasible": 165
+  },
+  "SPEED_BOAT": {
+   "candidates": 1082,
+   "feasible": 2
+  },
+  "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+   "candidates": 982,
+   "feasible": 76
+  },
+  "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+   "candidates": 1328,
+   "feasible": 56
+  },
+  "Prostate_Optimizer": {
+   "candidates": 1150,
+   "feasible": 150
+  },
+  "Schleich_Lion_Action_Figure": {
+   "candidates": 1160,
+   "feasible": 66
+  },
+  "PEEKABOO_ROLLER": {
+   "candidates": 1152,
+   "feasible": 140
+  },
+  "Bifidus_Balance_FOS": {
+   "candidates": 1152,
+   "feasible": 188
+  },
+  "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+   "candidates": 1134,
+   "feasible": 62
+  },
+  "3D_Dollhouse_Happy_Brother": {
+   "candidates": 1280,
+   "feasible": 94
+  },
+  "Canon_Ink_Cartridge_Green_6": {
+   "candidates": 1352,
+   "feasible": 34
+  },
+  "QAbsorb_CoQ10_53iUqjWjW3O": {
+   "candidates": 1152,
+   "feasible": 170
+  },
+  "Wooden_ABC_123_Blocks_50_pack": {
+   "candidates": 1002,
+   "feasible": 51
+  },
+  "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+   "candidates": 1366,
+   "feasible": 55
+  },
+  "Canon_Pixma_Ink_Cartridge_8_Green": {
+   "candidates": 1400,
+   "feasible": 26
+  },
+  "RESCUE_CREW": {
+   "candidates": 1148,
+   "feasible": 22
+  },
+  "Perricone_MD_The_Power_Treatments": {
+   "candidates": 1018,
+   "feasible": 34
+  },
+  "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+   "candidates": 1070,
+   "feasible": 29
+  },
+  "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+   "candidates": 1134,
+   "feasible": 51
+  },
+  "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+   "candidates": 1132,
+   "feasible": 47
+  },
+  "Schleich_S_Bayala_Unicorn_70432": {
+   "candidates": 1080,
+   "feasible": 44
+  },
+  "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+   "candidates": 1082,
+   "feasible": 41
+  },
+  "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+   "candidates": 1298,
+   "feasible": 38
+  },
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+   "candidates": 1104,
+   "feasible": 33
+  },
+  "Phillips_Colon_Health_Probiotic_Capsule": {
+   "candidates": 1138,
+   "feasible": 77
+  },
+  "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+   "candidates": 1060,
+   "feasible": 40
+  },
+  "Epson_273XL_Ink_Cartridge_Magenta": {
+   "candidates": 1358,
+   "feasible": 24
+  },
+  "Threshold_Bamboo_Ceramic_Soap_Dish": {
+   "candidates": 1126,
+   "feasible": 2
+  },
+  "Schleich_Hereford_Bull": {
+   "candidates": 1124,
+   "feasible": 28
+  },
+  "Canon_Pixma_Ink_Cartridge_251_M": {
+   "candidates": 1434,
+   "feasible": 60
+  },
+  "Twinlab_Premium_Creatine_Fuel_Powder": {
+   "candidates": 1152,
+   "feasible": 164
+  },
+  "Canon_Pixma_Chromalife_100_Magenta_8": {
+   "candidates": 1414,
+   "feasible": 14
+  },
+  "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+   "candidates": 1082,
+   "feasible": 30
+  },
+  "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+   "candidates": 1076,
+   "feasible": 36
+  },
+  "HP_Card_Invitation_Kit": {
+   "candidates": 1246,
+   "feasible": 52
+  },
+  "Pet_Dophilus_powder": {
+   "candidates": 1152,
+   "feasible": 202
+  },
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+   "candidates": 1104,
+   "feasible": 30
+  },
+  "Sony_Downloadable_Loops": {
+   "candidates": 1308,
+   "feasible": 49
+  },
+  "Fujifilm_instax_SHARE_SP1_10_photos": {
+   "candidates": 1206,
+   "feasible": 61
+  },
+  "YumYum_D3_Liquid": {
+   "candidates": 1702,
+   "feasible": 302
+  },
+  "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+   "candidates": 1130,
+   "feasible": 71
+  },
+  "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+   "candidates": 1030,
+   "feasible": 56
+  },
+  "Phillips_Caplets_Size_24": {
+   "candidates": 1152,
+   "feasible": 93
+  },
+  "Android_Figure_Panda": {
+   "candidates": 1152,
+   "feasible": 164
+  },
+  "Schleich_Allosaurus": {
+   "candidates": 888,
+   "feasible": 6
+  },
+  "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+   "candidates": 1146,
+   "feasible": 153
+  },
+  "Wilton_Easy_Layers_Cake_Pan_Set": {
+   "candidates": 1042,
+   "feasible": 39
+  },
+  "Twinlab_Nitric_Fuel": {
+   "candidates": 1152,
+   "feasible": 169
+  },
+  "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+   "candidates": 1128,
+   "feasible": 73
+  },
+  "Sony_Acid_Music_Studio": {
+   "candidates": 1328,
+   "feasible": 58
+  },
+  "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+   "candidates": 1092,
+   "feasible": 27
+  },
+  "Spectrum_Wall_Mount": {
+   "candidates": 994,
+   "feasible": 20
+  },
+  "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+   "candidates": 1114,
+   "feasible": 49
+  },
+  "CARSII": {
+   "candidates": 1094,
+   "feasible": 10
+  },
+  "Perricone_MD_The_Crease_Cure_Duo": {
+   "candidates": 1064,
+   "feasible": 80
+  },
+  "Perricone_MD_Photo_Plasma": {
+   "candidates": 1138,
+   "feasible": 78
+  },
+  "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+   "candidates": 1382,
+   "feasible": 76
+  },
+  "GoPro_HERO3_Composite_Cable": {
+   "candidates": 1420,
+   "feasible": 4
+  },
+  "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+   "candidates": 1140,
+   "feasible": 96
+  },
+  "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+   "candidates": 1364,
+   "feasible": 58
+  },
+  "Lutein": {
+   "candidates": 1152,
+   "feasible": 178
+  },
+  "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+   "candidates": 1428,
+   "feasible": 66
+  },
+  "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+   "candidates": 1450,
+   "feasible": 68
+  },
+  "Perricone_MD_Vitamin_C_Ester_Serum": {
+   "candidates": 1142,
+   "feasible": 67
+  },
+  "VEGETABLE_GARDEN": {
+   "candidates": 950,
+   "feasible": 4
+  },
+  "Crayola_Crayons_Washable_24_crayons": {
+   "candidates": 1422,
+   "feasible": 87
+  },
+  "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+   "candidates": 1082,
+   "feasible": 38
+  },
+  "Kotex_U_Barely_There_Liners_Thin_60_count": {
+   "candidates": 1120,
+   "feasible": 58
+  },
+  "My_First_Rolling_Lion": {
+   "candidates": 1046,
+   "feasible": 37
+  },
+  "Krill_Oil": {
+   "candidates": 1146,
+   "feasible": 186
+  },
+  "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+   "candidates": 1108,
+   "feasible": 31
+  },
+  "FIRE_ENGINE": {
+   "candidates": 1218,
+   "feasible": 82
+  },
+  "Nikon_1_AW1_w11275mm_Lens_Silver": {
+   "candidates": 1152,
+   "feasible": 191
+  },
+  "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+   "candidates": 1370,
+   "feasible": 78
+  },
+  "Lactoferrin": {
+   "candidates": 1146,
+   "feasible": 192
+  },
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+   "candidates": 1012,
+   "feasible": 44
+  },
+  "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+   "candidates": 1432,
+   "feasible": 174
+  },
+  "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+   "candidates": 1392,
+   "feasible": 8
+  },
+  "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+   "candidates": 1270,
+   "feasible": 132
+  },
+  "SAMe_200_KX7ZmOw47co": {
+   "candidates": 1116,
+   "feasible": 61
+  },
+  "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+   "candidates": 1124,
+   "feasible": 62
+  },
+  "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+   "candidates": 1134,
+   "feasible": 83
+  },
+  "Perricone_MD_Face_Finishing_Moisturizer": {
+   "candidates": 1148,
+   "feasible": 195
+  },
+  "Dino_4": {
+   "candidates": 1096,
+   "feasible": 69
+  },
+  "Crayola_Crayons_24_count": {
+   "candidates": 1444,
+   "feasible": 94
+  },
+  "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+   "candidates": 1214,
+   "feasible": 41
+  },
+  "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+   "candidates": 1136,
+   "feasible": 58
+  },
+  "Dell_Ink_Cartridge_Yellow_31": {
+   "candidates": 1410,
+   "feasible": 10
+  },
+  "Brother_Ink_Cartridge_Magenta_LC75M": {
+   "candidates": 1374,
+   "feasible": 25
+  },
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+   "candidates": 1132,
+   "feasible": 85
+  },
+  "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+   "candidates": 1102,
+   "feasible": 37
+  },
+  "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+   "candidates": 1414,
+   "feasible": 105
+  },
+  "Hey_You_Pikachu_Nintendo_64": {
+   "candidates": 1398,
+   "feasible": 65
+  },
+  "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+   "candidates": 1130,
+   "feasible": 71
+  },
+  "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+   "candidates": 1130,
+   "feasible": 75
+  },
+  "Dell_Ink_Cartridge": {
+   "candidates": 1068,
+   "feasible": 10
+  },
+  "REEF_ZENFUN": {
+   "candidates": 970,
+   "feasible": 6
+  },
+  "Canon_Pixma_Ink_Cartridge_8": {
+   "candidates": 1386,
+   "feasible": 24
+  },
+  "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+   "candidates": 1146,
+   "feasible": 142
+  },
+  "CoQ10_BjTLbuRVt1t": {
+   "candidates": 1152,
+   "feasible": 201
+  },
+  "3D_Dollhouse_Lamp": {
+   "candidates": 950,
+   "feasible": 105
+  },
+  "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+   "candidates": 1080,
+   "feasible": 41
+  },
+  "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+   "candidates": 1398,
+   "feasible": 22
+  },
+  "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+   "candidates": 1152,
+   "feasible": 95
+  },
+  "PhosphOmega": {
+   "candidates": 1150,
+   "feasible": 157
+  },
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+   "candidates": 2166,
+   "feasible": 64
+  },
+  "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+   "candidates": 1408,
+   "feasible": 60
+  },
+  "Womens_Multi_13": {
+   "candidates": 1152,
+   "feasible": 168
+  },
+  "JarroDophilusFOS_Value_Size": {
+   "candidates": 1142,
+   "feasible": 126
+  },
+  "Android_Figure_Chrome": {
+   "candidates": 1152,
+   "feasible": 152
+  },
+  "Thomas_Friends_Woodan_Railway_Henry": {
+   "candidates": 1160,
+   "feasible": 39
+  },
+  "Beta_Glucan": {
+   "candidates": 1152,
+   "feasible": 166
+  },
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+   "candidates": 988,
+   "feasible": 18
+  },
+  "Inositol": {
+   "candidates": 1150,
+   "feasible": 166
+  },
+  "Magnifying_Glassassrt": {
+   "candidates": 1222,
+   "feasible": 8
+  },
+  "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+   "candidates": 1414,
+   "feasible": 170
+  },
+  "Perricone_MD_No_Bronzer_Bronzer": {
+   "candidates": 1238,
+   "feasible": 259
+  },
+  "Beetle_Adventure_Racing_Nintendo_64": {
+   "candidates": 1384,
+   "feasible": 57
+  },
+  "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+   "candidates": 1336,
+   "feasible": 53
+  },
+  "3D_Dollhouse_TablePurple": {
+   "candidates": 1114,
+   "feasible": 18
+  },
+  "Sleep_Optimizer": {
+   "candidates": 1392,
+   "feasible": 31
+  },
+  "Blackcurrant_Lutein": {
+   "candidates": 1152,
+   "feasible": 177
+  },
+  "MK7": {
+   "candidates": 1148,
+   "feasible": 188
+  },
+  "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+   "candidates": 1060,
+   "feasible": 38
+  },
+  "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+   "candidates": 1130,
+   "feasible": 75
+  },
+  "Schleich_African_Black_Rhino": {
+   "candidates": 1150,
+   "feasible": 36
+  },
+  "ROAD_CONSTRUCTION_SET": {
+   "candidates": 1022,
+   "feasible": 4
+  },
+  "Perricone_MD_No_Mascara_Mascara": {
+   "candidates": 1106,
+   "feasible": 185
+  },
+  "Crayola_Bonus_64_Crayons": {
+   "candidates": 1258,
+   "feasible": 84
+  },
+  "FIRE_TRUCK": {
+   "candidates": 1146,
+   "feasible": 62
+  },
+  "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+   "candidates": 1368,
+   "feasible": 54
+  },
+  "Perricone_MD_Blue_Plasma_Orbital": {
+   "candidates": 1146,
+   "feasible": 65
+  },
+  "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+   "candidates": 1310,
+   "feasible": 20
+  },
+  "FemDophilus": {
+   "candidates": 1130,
+   "feasible": 224
+  }
+ },
+ "nonviable": [
+  "3M_Antislip_Surfacing_Light_Duty_White",
+  "3M_Vinyl_Tape_Green_1_x_36_yd",
+  "Blue_Jasmine_Includes_Digital_Copy_UltraViolet_DVD",
+  "Chef_Style_Round_Cake_Pan_9_inch_pan",
+  "Cole_Hardware_Dishtowel_Blue",
+  "Cole_Hardware_Dishtowel_BlueWhite",
+  "Cole_Hardware_Dishtowel_Multicolors",
+  "Cole_Hardware_Dishtowel_Red",
+  "Cole_Hardware_Dishtowel_Stripe",
+  "Cole_Hardware_Plant_Saucer_Glazed_9",
+  "Cole_Hardware_Saucer_Electric",
+  "Ecoforms_Plant_Container_S14Turquoise",
+  "Ecoforms_Plant_Container_S24NATURAL",
+  "Ecoforms_Plant_Plate_S11Turquoise",
+  "Ecoforms_Plant_Saucer_S14MOCHA",
+  "Ecoforms_Plant_Saucer_S14NATURAL",
+  "Ecoforms_Plant_Saucer_S17MOCHA",
+  "Ecoforms_Plant_Saucer_S20MOCHA",
+  "Ecoforms_Plate_S20Avocado",
+  "Google_Cardboard_Original_package",
+  "Grreatv_Choice_Dog_Bowl_Gray_Bones_Plastic_20_fl_oz_total",
+  "HP_1800_Tablet_8GB_7",
+  "Home_Fashions_Washcloth_Linen",
+  "Home_Fashions_Washcloth_Olive_Green",
+  "Kotobuki_Saucer_Dragon_Fly",
+  "Luigis_Mansion_Dark_Moon_Nintendo_3DS_Game",
+  "Mario_Luigi_Dream_Team_Nintendo_3DS_Game",
+  "Now_Designs_Snack_Bags_Bicycle_2_count",
+  "Paper_Mario_Sticker_Star_Nintendo_3DS_Game",
+  "Pokmon_X_Nintendo_3DS_Game",
+  "Pokmon_Y_Nintendo_3DS_Game",
+  "Razer_Taipan_Black_Ambidextrous_Gaming_Mouse",
+  "Shaxon_100_Molded_Category_6_RJ45RJ45_Shielded_Patch_Cord_White",
+  "Shurtape_30_Day_Removal_UV_Delct_15",
+  "Shurtape_Gaffers_Tape_Silver_2_x_60_yd",
+  "Shurtape_Tape_Purple_CP28",
+  "Simon_Swipe_Game",
+  "Super_Mario_3D_World_Wii_U_Game",
+  "Sushi_Mat",
+  "Tag_Dishtowel_18_x_26",
+  "Tag_Dishtowel_Basket_Weave_Red_18_x_26",
+  "Tag_Dishtowel_Green",
+  "Tag_Dishtowel_Waffle_Gray_Checks_18_x_26",
+  "Threshold_Hand_Towel_Blue_Medallion_16_x_27",
+  "Threshold_Porcelain_Serving_Bowl_Coupe_White",
+  "Threshold_Ramekin_White_Porcelain",
+  "Top_Paw_Dog_Bow_Bone_Ceramic_13_fl_oz_total",
+  "Top_Paw_Dog_Bowl_Blue_Paw_Bone_Ceramic_25_fl_oz_total",
+  "WHALE_WHISTLE_6PCS_SET"
+ ]
+}

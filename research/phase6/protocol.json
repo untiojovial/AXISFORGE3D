@@ -1,0 +1,178 @@
+{
+ "phase": "VI (FORTIS-R)",
+ "status": "fixed before any fusion result was computed",
+ "development_parts": "research/phase6/dev_parts.json",
+ "library": "research/phase5/library_parts.txt",
+ "sealed_untouched": "research/phase3/dataset/manifest.lock.json (split=test, 8 objects)",
+ "physics": {
+  "module": "research_grasping/phase6/physics.py",
+  "centre_of_mass": "planner (recovered from the catalogue)",
+  "standard_conditions": {
+   "nominal": {},
+   "mass x2": {
+    "mass": 0.2
+   },
+   "mass x0.5": {
+    "mass": 0.05
+   },
+   "friction 0.3": {
+    "friction": 0.3
+   },
+   "pose noise 1": {
+    "noise_seed": 1
+   },
+   "pose noise 2": {
+    "noise_seed": 2
+   }
+  },
+  "stress_loads_kg": [
+   0.5,
+   1.0,
+   2.0
+  ],
+  "held": "rise >= 0.08 m and slip < 0.02 m",
+  "robust": "held in all six standard conditions",
+  "load_tolerant": "held at 0.5, 1 and 2 kg"
+ },
+ "fusion": {
+  "p": "Phase V learned classifier probability / per-part maximum",
+  "Q": {
+   "pre": "planner preliminary score",
+   "cen": "1 - center_offset/0.045, clipped to [0, 1]"
+  },
+  "Q_normalisation": "per-part min-max over all candidates",
+  "planner_weight": 1000000.0,
+  "methods": {
+   "M0": {
+    "name": "default"
+   },
+   "M1": {
+    "name": "learned (Phase V)"
+   },
+   "M2": {
+    "name": "afat (Phase V)"
+   },
+   "Ref": {
+    "name": "random within the gate, 20 seeds, N_F only"
+   },
+   "M3": {
+    "name": "weighted sum",
+    "alpha": [
+     0.0,
+     0.1,
+     0.2,
+     0.3,
+     0.4,
+     0.5,
+     0.6,
+     0.7,
+     0.8,
+     0.9,
+     1.0
+    ],
+    "Q": [
+     "pre",
+     "cen"
+    ]
+   },
+   "M4": {
+    "name": "weighted product",
+    "alpha": [
+     0.0,
+     0.1,
+     0.2,
+     0.3,
+     0.4,
+     0.5,
+     0.6,
+     0.7,
+     0.8,
+     0.9,
+     1.0
+    ],
+    "Q": [
+     "pre",
+     "cen"
+    ],
+    "Q_floor": 0.001
+   },
+   "M5": {
+    "name": "lexicographic",
+    "theta": [
+     0.3,
+     0.5,
+     0.7,
+     0.9
+    ],
+    "Q": [
+     "pre",
+     "cen"
+    ]
+   },
+   "M6": {
+    "name": "quality filter with fallback",
+    "tau": [
+     0.3,
+     0.5,
+     0.7,
+     0.9
+    ],
+    "Q": [
+     "pre",
+     "cen"
+    ]
+   },
+   "M7": {
+    "name": "weighted rank aggregation",
+    "alpha": [
+     0.1,
+     0.2,
+     0.3,
+     0.4,
+     0.5,
+     0.6,
+     0.7,
+     0.8,
+     0.9
+    ],
+    "Q": [
+     "pre",
+     "cen"
+    ]
+   },
+   "M8": {
+    "name": "Pareto fronts",
+    "Q": [
+     "pre",
+     "cen"
+    ]
+   }
+  },
+  "tuning": {
+   "scheme": "nested cross-validation by part",
+   "outer_folds": 5,
+   "seed": 20261130,
+   "criterion": "mean log N_FR over parts with a robust viable grasp"
+  },
+  "endpoints": {
+   "N_F": "candidates until the first viable grasp",
+   "R": "first viable grasp is robust",
+   "N_FR": "candidates until the first viable and robust grasp"
+  },
+  "contrasts": {
+   "against": [
+    "M0",
+    "M1"
+   ],
+   "ratio": "paired geometric-mean ratio, bootstrap 95% CI (10000, seed 20261128), Wilcoxon",
+   "proportion": "paired difference, bootstrap 95% CI, exact McNemar",
+   "multiplicity": "Holm within each endpoint"
+  },
+  "decision_rule": {
+   "robustness_noninferior_to_M0": "lower 95% CI of R_family - R_M0 > -0.05",
+   "faster_than_M0": "upper 95% CI of N_F ratio vs M0 < 1",
+   "keeps_M1_speed": "upper 95% CI of N_F ratio vs M1 <= 1.25"
+  },
+  "prior_passed_to_planner": "(s_normalised + 2*makeable)/3 with prior_weight 1e6, so the stroke/force gate stays first"
+ }
+}

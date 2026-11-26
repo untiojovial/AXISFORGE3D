@@ -1,0 +1,606 @@
+{
+ "model": "phase6 v2 (planner centre of mass); research_grasping/phase6/physics.py",
+ "gripper": {
+  "fingerWidth": 0.025,
+  "fingerDepth": 0.045,
+  "maxGripForce": 90.0
+ },
+ "free_flight": {
+  "free_fall": {
+   "t_s": 0.3,
+   "simulated_drop_m": 0.442922,
+   "exact_drop_m": 0.44145,
+   "relative_error": 0.00333
+  },
+  "torque_free_spin": {
+   "t_s": 2.0,
+   "angular_momentum_drift": 0.00021,
+   "energy_drift": 0.0002
+  },
+  "verdict": "pass"
+ },
+ "open_pads": {
+  "part": "40 mm cube, pads never close",
+  "held": false,
+  "rise_m": -0.0,
+  "touching": false,
+  "verdict": "pass"
+ },
+ "insufficient_force": {
+  "part": "40 mm cube, 0.1 kg, mu 0.5, centred top grasp",
+  "force_per_pad_N": [
+   0.25,
+   0.5,
+   0.75,
+   1.0,
+   1.25,
+   1.5,
+   2.0,
+   3.0,
+   5.0
+  ],
+  "held": [
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "simulated_threshold_N": 1.25,
+  "coulomb_band_N": [
+   0.981,
+   1.26
+  ],
+  "note": "band: weight only .. weight with the peak lift and shake accelerations",
+  "verdict": "pass"
+ },
+ "low_friction": {
+  "part": "same cube, 5 N per pad",
+  "mu": [
+   0.03,
+   0.05,
+   0.08,
+   0.1,
+   0.12,
+   0.15,
+   0.2,
+   0.3
+  ],
+  "held": [
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  "simulated_threshold": 0.12,
+  "coulomb_band": [
+   0.098,
+   0.126
+  ],
+  "verdict": "pass"
+ },
+ "simple_object": {
+  "part": "40 mm cube, centred top grasp",
+  "results": {
+   "nominal": true,
+   "mass x2": true,
+   "mass x0.5": true,
+   "friction 0.3": true,
+   "pose noise 1": true,
+   "pose noise 2": true
+  },
+  "verdict": "pass"
+ },
+ "lever_arm": {
+  "part": "160x30x30 mm bar, 45 N per pad, mu 0.5, torsional coefficient 0.005 m",
+  "rows": [
+   {
+    "offset_m": 0.0,
+    "mass_kg": [
+     0.05,
+     0.1,
+     0.2,
+     0.4,
+     0.8,
+     1.6
+    ],
+    "held": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "turn_deg": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "offset_m": 0.02,
+    "mass_kg": [
+     0.05,
+     0.1,
+     0.2,
+     0.4,
+     0.8,
+     1.6
+    ],
+    "held": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "turn_deg": [
+     0.0,
+     0.1,
+     0.1,
+     0.1,
+     0.2,
+     0.4
+    ]
+   },
+   {
+    "offset_m": 0.04,
+    "mass_kg": [
+     0.05,
+     0.1,
+     0.2,
+     0.4,
+     0.8,
+     1.6
+    ],
+    "held": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "turn_deg": [
+     0.1,
+     0.1,
+     0.2,
+     0.2,
+     0.4,
+     0.9
+    ]
+   },
+   {
+    "offset_m": 0.06,
+    "mass_kg": [
+     0.05,
+     0.1,
+     0.2,
+     0.4,
+     0.8,
+     1.6
+    ],
+    "held": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     false
+    ],
+    "turn_deg": [
+     0.1,
+     0.2,
+     0.2,
+     0.3,
+     0.7,
+     1.0
+    ]
+   }
+  ],
+  "note": "torque to carry: m g d; tangential capacity 2 mu F = 45 N is never the limit here"
+ },
+ "open_pads_real": {
+  "grasps": 60,
+  "held": 0,
+  "max_rise_m": -0.0001,
+  "verdict": "pass"
+ },
+ "timestep": {
+  "trials": 180,
+  "agree": 178,
+  "agreement": 0.9889,
+  "flips": [
+   [
+    "Dino_4",
+    "nominal",
+    false,
+    true
+   ],
+   [
+    "Dino_4",
+    "mass x2",
+    true,
+    false
+   ]
+  ]
+ },
+ "solver_cg": {
+  "trials": 180,
+  "agree": 180,
+  "agreement": 1.0,
+  "flips": []
+ },
+ "solver_pgs": {
+  "trials": 180,
+  "agree": 178,
+  "agreement": 0.9889,
+  "flips": [
+   [
+    "Dino_4",
+    "nominal",
+    false,
+    true
+   ],
+   [
+    "Dino_4",
+    "mass x2",
+    true,
+    false
+   ]
+  ]
+ },
+ "torsion_0.001": {
+  "trials": 180,
+  "agree": 163,
+  "agreement": 0.9056,
+  "flips": [
+   [
+    "Breyer_Horse_Of_The_Year_2015",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "Breyer_Horse_Of_The_Year_2015",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "CARSII",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "CARSII",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Canon_Pixma_Chromalife_100_Magenta_8",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "Canon_Pixma_Chromalife_100_Magenta_8",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Canon_Pixma_Ink_Cartridge_Cyan_251",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "Canon_Pixma_Ink_Cartridge_Cyan_251",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Dell_Ink_Cartridge",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Dino_4",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+    "mass x2",
+    true,
+    false
+   ]
+  ]
+ },
+ "torsion_0.02": {
+  "trials": 180,
+  "agree": 160,
+  "agreement": 0.8889,
+  "flips": [
+   [
+    "3D_Dollhouse_Happy_Brother",
+    "2 kg",
+    true,
+    false
+   ],
+   [
+    "Beetle_Adventure_Racing_Nintendo_64",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Brother_Ink_Cartridge_Magenta_LC75M",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "CARSII",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Canon_Pixma_Ink_Cartridge_8_Green",
+    "mass x2",
+    false,
+    true
+   ],
+   [
+    "Crayola_Bonus_64_Crayons",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Crayola_Crayons_24_count",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Dell_Ink_Cartridge",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Dino_4",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Epson_273XL_Ink_Cartridge_Magenta",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "FIRE_ENGINE",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Hey_You_Pikachu_Nintendo_64",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+    "2 kg",
+    false,
+    true
+   ],
+   [
+    "Kotex_U_Barely_There_Liners_Thin_60_count",
+    "2 kg",
+    false,
+    true
+   ]
+  ]
+ },
+ "com_v1_vs_v2": {
+  "note": "same grasps with v1 (vertex-mean) centre of mass",
+  "trials": 180,
+  "agree": 176,
+  "agreement": 0.9778,
+  "flips": [
+   [
+    "Canon_Pixma_Ink_Cartridge_8_Green",
+    "mass x2",
+    true,
+    false
+   ],
+   [
+    "Dell_Ink_Cartridge",
+    "2 kg",
+    true,
+    false
+   ],
+   [
+    "Dino_4",
+    "nominal",
+    true,
+    false
+   ],
+   [
+    "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+    "2 kg",
+    false,
+    true
+   ]
+  ]
+ },
+ "penetration": {
+  "grasps": 60,
+  "median_mm": 0.266,
+  "p95_mm": 0.393,
+  "max_mm": 1.098
+ },
+ "sample": {
+  "parts": [
+   "3D_Dollhouse_Happy_Brother",
+   "3D_Dollhouse_Lamp",
+   "3D_Dollhouse_TablePurple",
+   "Android_Figure_Chrome",
+   "Android_Figure_Panda",
+   "Android_Lego",
+   "Beetle_Adventure_Racing_Nintendo_64",
+   "Beta_Glucan",
+   "Bifidus_Balance_FOS",
+   "Blackcurrant_Lutein",
+   "Borage_GLA240Gamma_Tocopherol",
+   "Breyer_Horse_Of_The_Year_2015",
+   "Brother_Ink_Cartridge_Magenta_LC75M",
+   "CARSII",
+   "Canon_Ink_Cartridge_Green_6",
+   "Canon_Pixma_Chromalife_100_Magenta_8",
+   "Canon_Pixma_Ink_Cartridge_251_M",
+   "Canon_Pixma_Ink_Cartridge_8",
+   "Canon_Pixma_Ink_Cartridge_8_Green",
+   "Canon_Pixma_Ink_Cartridge_Cyan_251",
+   "CoQ10_BjTLbuRVt1t",
+   "Cole_Hardware_Mini_Honey_Dipper",
+   "Crayola_Bonus_64_Crayons",
+   "Crayola_Crayons_24_count",
+   "Crayola_Crayons_Washable_24_crayons",
+   "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box",
+   "Dell_Ink_Cartridge",
+   "Dell_Ink_Cartridge_Yellow_31",
+   "Dino_4",
+   "Epson_273XL_Ink_Cartridge_Magenta",
+   "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S",
+   "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White",
+   "Epson_T5803_Ink_Cartridge_Magenta_1pack",
+   "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack",
+   "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack",
+   "FIRE_ENGINE",
+   "FIRE_TRUCK",
+   "FemDophilus",
+   "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription",
+   "Fujifilm_instax_SHARE_SP1_10_photos",
+   "GoPro_HERO3_Composite_Cable",
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi",
+   "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI",
+   "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure",
+   "HP_Card_Invitation_Kit",
+   "Hey_You_Pikachu_Nintendo_64",
+   "House_of_Cards_The_Complete_First_Season_4_Discs_DVD",
+   "Inositol",
+   "JarroDophilusFOS_Value_Size",
+   "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct",
+   "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps",
+   "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L",
+   "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60",
+   "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60",
+   "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25",
+   "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50",
+   "Justified_The_Complete_Fourth_Season_3_Discs_DVD",
+   "Kotex_U_Barely_There_Liners_Thin_60_count",
+   "Krill_Oil",
+   "Lactoferrin"
+  ],
+  "grasp": "first viable grasp of the learned ordering"
+ },
+ "wall_s": 413.4
+}
