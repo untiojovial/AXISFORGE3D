@@ -154,10 +154,15 @@ def run(a):
     perm = np.random.default_rng(20261130).permutation(len(dev))
     folds = [perm[f::5] for f in range(5)]
     preds_sim, firsts, orders_all, fit_info = {}, {}, {}, []
+    fold_of = {}
     for k, test in enumerate(folds):
         train = [dev[i] for i in np.setdiff1d(np.arange(len(dev)), test)]
+        test_names = [dev[i] for i in test]
+        assert not set(train) & set(test_names), 'a test part is in the training set'
         models, info = fit_models(D, lab, sampled, train, k)
-        fit_info.append(dict(fold=k, **info))
+        fit_info.append(dict(fold=k, training_parts_listed=len(train), test_parts=len(test_names),
+                             train_test_overlap=0, **info))
+        fold_of.update({n: k for n in test_names})
         for i in test:
             n = dev[i]; cat = D['cats'][n]
             H = predict_all(D, models, n, D['h'][n])
@@ -167,6 +172,7 @@ def run(a):
             orders_all[n] = o
             firsts[n] = {m: C.first(cat, v) for m, v in o.items()}
         print('fold', k, info, flush=True)
+    D['fold_of'] = fold_of
     return D, lab, sampled, preds_sim, firsts, orders_all, fit_info
 
 
@@ -248,7 +254,29 @@ def analyse(a):
                      best_y_all3=best_rate, within_one_point=tied, candidate=cand, advantage_over_M1_pp=100*adv, final=final,
                      statement=('no robustness variant beat M1 by the required 2 points in development' if final == 'M1' else
                                 f'{final} beat M1 by {100*adv:.1f} points on y_all3 in development (optimistic: selected on the same parts)'))
+    man = json.loads((Path(a.v3sweep)/'manifest.json').read_text())['parts']
+    coverage = {n: dict(viable=man[n]['viable'], sampled=len(sampled[n]), simulated=len(lab[n])) for n in dev}
+    per_fold = {}
+    for m in methods:
+        per_fold[m] = {}
+        for k in range(5):
+            ns = [n for n in dev if D['fold_of'][n] == k]
+            per_fold[m][k] = dict(parts=len(ns), N_F_gmean=C.gmean([firsts[n][m][0] for n in ns]),
+                                  robust_y_all3=float(np.mean([lab[n][firsts[n][m][1]]['y_all3'] for n in ns])),
+                                  robust_y_std=float(np.mean([lab[n][firsts[n][m][1]]['y_std'] for n in ns])))
+    per_object = {n: {m: dict(nf=firsts[n][m][0], first=firsts[n][m][1], **{k_: lab[n][firsts[n][m][1]][k_] for k_ in
+                                                                          ('y_std', 'y_all3', 'y_load', 'y_ext', 'r_mean')})
+                      for m in methods} for n in dev}
     res = dict(note=__doc__.strip().split('\n\n', 1)[1].replace('\n', ' '), parts=len(dev),
+               definitions=dict(N_F='examined candidates until the first feasible one, over the complete catalogue',
+                                N_FR_simulated_gmean=('rank, among the SIMULATED candidates only (random sample of at most 30 viable '
+                                                      'candidates per part plus the first grasps of the compared orders) in the order '
+                                                      'of the method, of the first one robust under y_std; not an exhaustive-catalogue N_FR'),
+                                labels='y_std, y_all3, r_mean, y_ext (r_ext), y_load as in DEVELOPMENT_SELECTION_RULE.md'),
+               coverage=dict(per_part=coverage, simulated_total=int(sum(c['simulated'] for c in coverage.values())),
+                             viable_total=int(sum(c['viable'] for c in coverage.values())),
+                             share_of_viable_simulated=float(sum(c['simulated'] for c in coverage.values())/sum(c['viable'] for c in coverage.values()))),
+               per_fold=per_fold, per_object=per_object,
                labels=dict(simulated_candidates=sum(map(len, lab.values())), sampled=sum(len(s) for s in sampled.values()),
                            y_std_rate_sampled=float(np.mean([lab[n][l_]['y_std'] for n in dev for l_ in lab[n] if l_ in sampled[n]])),
                            y_all3_rate_sampled=float(np.mean([lab[n][l_]['y_all3'] for n in dev for l_ in lab[n] if l_ in sampled[n]]))),

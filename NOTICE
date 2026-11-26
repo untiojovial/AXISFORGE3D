@@ -1,0 +1,12 @@
+AxisForge3D
+Copyright 2026 Eduardo Pérez González
+
+This notice covers the author's own contributions to this repository, which are licensed under the Apache
+License, Version 2.0 (see LICENSE). Parts of the code and text were produced with AI assistance; see
+AI_USAGE.md. Third-party files keep their own copyright and licence notices; see THIRD_PARTY_NOTICES.md and
+LICENSES/. They include the UR5 robot model from example-robot-data (BSD-3-Clause), the GSO-derived renders
+(CC BY 4.0) and the DINOv3-derived embeddings (DINOv3 License).
+
+The scientific manuscript, the supplementary material and the submission documents under publication/ are NOT
+licensed under the Apache License 2.0. All rights are reserved by the author, pending publication. See
+publication/intelligent_service_robotics/RIGHTS.md.

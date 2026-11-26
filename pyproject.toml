@@ -9,6 +9,7 @@ description = "Scientific Bayesian optimization for externally evaluated experim
 readme = "docs/axisforge-bo/README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
+authors = [{ name = "Eduardo Pérez González" }]
 dependencies = ["numpy>=2.0,<3", "scipy>=1.15,<2"]
 
 [project.optional-dependencies]

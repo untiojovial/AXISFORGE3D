@@ -92,8 +92,12 @@ The [phase II research dossier](research/README.md) contains the thesis reconstr
 
 ## Licence
 
-AxisForge3D's own code, documentation and results are licensed under the
-[Apache License 2.0](LICENSE). Datasets, models, weights, robot models and
+AxisForge3D's own code, technical documentation and experimental results are
+licensed under the [Apache License 2.0](LICENSE) (Copyright 2026 Eduardo
+Pérez González; see [NOTICE](NOTICE)). The scientific manuscript and
+submission material in `publication/` are **not** covered by that licence; all
+rights are reserved pending publication (see
+[RIGHTS.md](publication/intelligent_service_robotics/RIGHTS.md)). Datasets, models, weights, robot models and
 other third-party material keep their own licences. They are listed, with
 attribution and the files concerned, in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and their licence texts are
