@@ -1,0 +1,363 @@
+{
+ "note": "Development only (316 parts: 116 library + 200 Phase V test). Out-of-fold predictions, 5 folds grouped by product name, 3 seeds for MLPs (1 for L0/L1); per-part metrics averaged over seeds. Robustness and N_FR on the 151 parts with Phase VI v2 dynamics.",
+ "parts": 316,
+ "viable_parts": 239,
+ "contrasts": {
+  "N_F": [
+   {
+    "a": "L2-rank",
+    "b": "L2",
+    "ratio": 1.0071,
+    "ci95": [
+     0.9401,
+     1.0759
+    ],
+    "parts": 239,
+    "better": 44,
+    "worse": 46,
+    "wilcoxon_p": 0.6622999410071753,
+    "holm_p": 0.8638184112446743
+   },
+   {
+    "a": "L8-rank",
+    "b": "L8",
+    "ratio": 1.0162,
+    "ci95": [
+     0.9598,
+     1.0761
+    ],
+    "parts": 239,
+    "better": 47,
+    "worse": 52,
+    "wilcoxon_p": 0.43190920562233714,
+    "holm_p": 0.8638184112446743
+   },
+   {
+    "a": "L8-rank",
+    "b": "L2-rank",
+    "ratio": 1.0237,
+    "ci95": [
+     0.9856,
+     1.0626
+    ],
+    "parts": 239,
+    "better": 42,
+    "worse": 47,
+    "wilcoxon_p": 0.148018606723919,
+    "holm_p": 0.44405582017175704
+   }
+  ],
+  "success@1": [
+   {
+    "a": "L2-rank",
+    "b": "L2",
+    "difference": -0.0127,
+    "ci95": [
+     -0.0401,
+     0.0137
+    ],
+    "parts": 316,
+    "wilcoxon_p": 0.21276584526825115,
+    "holm_p": 0.6166135177494342
+   },
+   {
+    "a": "L8-rank",
+    "b": "L8",
+    "difference": -0.0032,
+    "ci95": [
+     -0.0306,
+     0.0232
+    ],
+    "parts": 316,
+    "wilcoxon_p": 0.9169964442487571,
+    "holm_p": 0.9169964442487571
+   },
+   {
+    "a": "L8-rank",
+    "b": "L2-rank",
+    "difference": -0.0095,
+    "ci95": [
+     -0.0285,
+     0.0095
+    ],
+    "parts": 316,
+    "wilcoxon_p": 0.2055378392498114,
+    "holm_p": 0.6166135177494342
+   }
+  ],
+  "success@5": [
+   {
+    "a": "L2-rank",
+    "b": "L2",
+    "difference": 0.0011,
+    "ci95": [
+     -0.0169,
+     0.0179
+    ],
+    "parts": 316,
+    "wilcoxon_p": 0.6810434311212759,
+    "holm_p": 0.9489645692648545
+   },
+   {
+    "a": "L8-rank",
+    "b": "L8",
+    "difference": -0.0063,
+    "ci95": [
+     -0.0222,
+     0.0095
+    ],
+    "parts": 316,
+    "wilcoxon_p": 0.28810742528240896,
+    "holm_p": 0.8643222758472269
+   },
+   {
+    "a": "L8-rank",
+    "b": "L2-rank",
+    "difference": -0.0063,
+    "ci95": [
+     -0.0211,
+     0.0074
+    ],
+    "parts": 316,
+    "wilcoxon_p": 0.47448228463242725,
+    "holm_p": 0.9489645692648545
+   }
+  ],
+  "robust_first_dev": [
+   {
+    "a": "L2-rank",
+    "b": "L2",
+    "difference": -0.0486,
+    "ci95": [
+     -0.0839,
+     -0.0155
+    ],
+    "parts": 151,
+    "wilcoxon_p": 0.011479071690783554,
+    "holm_p": 0.03443721507235066
+   },
+   {
+    "a": "L8-rank",
+    "b": "L8",
+    "difference": -0.0155,
+    "ci95": [
+     -0.0508,
+     0.0199
+    ],
+    "parts": 151,
+    "wilcoxon_p": 0.3126236657773971,
+    "holm_p": 0.3126236657773971
+   },
+   {
+    "a": "L8-rank",
+    "b": "L2-rank",
+    "difference": 0.0243,
+    "ci95": [
+     -0.0066,
+     0.0552
+    ],
+    "parts": 151,
+    "wilcoxon_p": 0.11317763843392165,
+    "holm_p": 0.2263552768678433
+   }
+  ]
+ },
+ "variants": {
+  "L2": {
+   "seeds": 3,
+   "config": {
+    "kind": "mlp",
+    "geometry": true
+   },
+   "auc": 0.9755,
+   "auc_seeds": [
+    0.9932,
+    0.9669,
+    0.9664
+   ],
+   "log_loss": 0.2815,
+   "ece": 0.0194,
+   "N_F_gmean": 1.494,
+   "N_F_gmean_by_seed": [
+    1.496,
+    1.505,
+    1.482
+   ],
+   "success@1": 0.5992,
+   "success@5": 0.6825,
+   "success@10": 0.7068,
+   "success@20": 0.7247,
+   "success@50": 0.7532,
+   "precision@1": 0.5992,
+   "precision@5": 0.5956,
+   "precision@10": 0.5867,
+   "precision@20": 0.5645,
+   "precision@50": 0.5025,
+   "recall@1": 0.0215,
+   "recall@5": 0.0971,
+   "recall@10": 0.1722,
+   "recall@20": 0.3032,
+   "recall@50": 0.5983,
+   "robust_first_dev": 0.9029,
+   "N_FR_gmean_dev": 1.473,
+   "params": 8049,
+   "train_s_per_fold": 27.02,
+   "predict_ms_per_part": 1.315,
+   "epochs": [
+    32,
+    25,
+    9,
+    19,
+    40
+   ]
+  },
+  "L8": {
+   "seeds": 3,
+   "config": {
+    "kind": "mlp",
+    "geometry": true,
+    "visual": "dinov3"
+   },
+   "auc": 0.9661,
+   "auc_seeds": [
+    0.9652,
+    0.9661,
+    0.9669
+   ],
+   "log_loss": 0.4016,
+   "ece": 0.0291,
+   "N_F_gmean": 1.516,
+   "N_F_gmean_by_seed": [
+    1.543,
+    1.511,
+    1.494
+   ],
+   "success@1": 0.5802,
+   "success@5": 0.6835,
+   "success@10": 0.7089,
+   "success@20": 0.7321,
+   "success@50": 0.7521,
+   "precision@1": 0.5802,
+   "precision@5": 0.5854,
+   "precision@10": 0.5767,
+   "precision@20": 0.5588,
+   "precision@50": 0.4982,
+   "recall@1": 0.0193,
+   "recall@5": 0.0933,
+   "recall@10": 0.1712,
+   "recall@20": 0.3023,
+   "recall@50": 0.5946,
+   "robust_first_dev": 0.894,
+   "N_FR_gmean_dev": 1.526,
+   "params": 34753,
+   "train_s_per_fold": 39.26,
+   "predict_ms_per_part": 3.325,
+   "epochs": [
+    23,
+    23,
+    7,
+    16,
+    37
+   ]
+  },
+  "L2-rank": {
+   "seeds": 3,
+   "config": {
+    "kind": "mlp",
+    "geometry": true,
+    "loss": "listwise"
+   },
+   "auc": 0.9887,
+   "auc_seeds": [
+    0.9892,
+    0.9895,
+    0.9875
+   ],
+   "log_loss": 0.0601,
+   "ece": 0.011,
+   "N_F_gmean": 1.505,
+   "N_F_gmean_by_seed": [
+    1.481,
+    1.501,
+    1.533
+   ],
+   "success@1": 0.5865,
+   "success@5": 0.6835,
+   "success@10": 0.7141,
+   "success@20": 0.7352,
+   "success@50": 0.7511,
+   "precision@1": 0.5865,
+   "precision@5": 0.5764,
+   "precision@10": 0.5685,
+   "precision@20": 0.556,
+   "precision@50": 0.4908,
+   "recall@1": 0.0206,
+   "recall@5": 0.0925,
+   "recall@10": 0.1733,
+   "recall@20": 0.3132,
+   "recall@50": 0.5903,
+   "robust_first_dev": 0.8543,
+   "N_FR_gmean_dev": 1.613,
+   "params": 8049,
+   "train_s_per_fold": 70.3,
+   "predict_ms_per_part": 1.607,
+   "epochs": [
+    40,
+    40,
+    27,
+    32,
+    40
+   ]
+  },
+  "L8-rank": {
+   "seeds": 3,
+   "config": {
+    "kind": "mlp",
+    "geometry": true,
+    "visual": "dinov3",
+    "loss": "listwise"
+   },
+   "auc": 0.9882,
+   "auc_seeds": [
+    0.9889,
+    0.9884,
+    0.9874
+   ],
+   "log_loss": 0.0607,
+   "ece": 0.0099,
+   "N_F_gmean": 1.54,
+   "N_F_gmean_by_seed": [
+    1.577,
+    1.51,
+    1.534
+   ],
+   "success@1": 0.577,
+   "success@5": 0.6772,
+   "success@10": 0.7141,
+   "success@20": 0.7373,
+   "success@50": 0.75,
+   "precision@1": 0.577,
+   "precision@5": 0.569,
+   "precision@10": 0.5598,
+   "precision@20": 0.5468,
+   "precision@50": 0.4875,
+   "recall@1": 0.0205,
+   "recall@5": 0.0928,
+   "recall@10": 0.1707,
+   "recall@20": 0.3099,
+   "recall@50": 0.5836,
+   "robust_first_dev": 0.8786,
+   "N_FR_gmean_dev": 1.641,
+   "params": 34753,
+   "train_s_per_fold": 59.48,
+   "predict_ms_per_part": 3.142,
+   "epochs": [
+    29,
+    40,
+    29,
+    26,
+    40
+   ]
+  }
+ }
+}

@@ -1,39 +1,402 @@
 {
- "note": "Every entry was checked at a primary or bibliographic source (arXiv, publisher, proceedings, DBLP, institutional repository) during Phase VI or VII. Entries marked 'not_found' must not be cited.",
+ "note": "Every entry was checked at a primary or bibliographic source (arXiv, publisher, proceedings, DBLP, institutional repository) during Phase VI or VII. Entries marked 'not_found' must not be cited. Phase VII additions were checked on 2026-11-26 by web search against publisher, proceedings or arXiv records.",
  "references": [
-  {"key": "chen2023adkfift", "authors": "Wenlin Chen, Austin Tripp, José Miguel Hernández-Lobato", "title": "Meta-learning Adaptive Deep Kernel Gaussian Processes for Molecular Property Prediction", "venue": "International Conference on Learning Representations (ICLR)", "year": 2023, "id": "arXiv:2205.02708", "url": "https://arxiv.org/abs/2205.02708"},
-  {"key": "caron2021dino", "authors": "Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, Armand Joulin", "title": "Emerging Properties in Self-Supervised Vision Transformers", "venue": "IEEE/CVF International Conference on Computer Vision (ICCV), pp. 9650-9660", "year": 2021, "id": "arXiv:2104.14294", "url": "https://arxiv.org/abs/2104.14294"},
-  {"key": "simeoni2025dinov3", "authors": "Oriane Siméoni et al.", "title": "DINOv3", "venue": "arXiv preprint", "year": 2025, "id": "arXiv:2508.10104", "url": "https://arxiv.org/abs/2508.10104"},
-  {"key": "montana1988kinematics", "authors": "David J. Montana", "title": "The Kinematics of Contact and Grasp", "venue": "The International Journal of Robotics Research 7(3):17-32", "year": 1988, "id": "doi:10.1177/027836498800700302"},
-  {"key": "srinivas2010gpucb", "authors": "Niranjan Srinivas, Andreas Krause, Sham Kakade, Matthias Seeger", "title": "Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design", "venue": "International Conference on Machine Learning (ICML), pp. 1015-1022", "year": 2010, "url": "https://dblp.uni-trier.de/rec/conf/icml/SrinivasKKS10.html"},
-  {"key": "gardner2014constraints", "authors": "Jacob R. Gardner, Matt J. Kusner, Zhixiang Xu, Kilian Q. Weinberger, John P. Cunningham", "title": "Bayesian Optimization with Inequality Constraints", "venue": "ICML, PMLR 32:937-945", "year": 2014, "url": "https://proceedings.mlr.press/v32/gardner14.html"},
-  {"key": "hernandezlobato2015pesc", "authors": "José Miguel Hernández-Lobato, Michael A. Gelbart, Matthew W. Hoffman, Ryan P. Adams, Zoubin Ghahramani", "title": "Predictive Entropy Search for Bayesian Optimization with Unknown Constraints", "venue": "ICML, PMLR 37:1699-1707", "year": 2015, "id": "arXiv:1502.05312", "url": "https://proceedings.mlr.press/v37/hernandez-lobatob15.html"},
-  {"key": "wilson2016dkl", "authors": "Andrew Gordon Wilson, Zhiting Hu, Ruslan Salakhutdinov, Eric P. Xing", "title": "Deep Kernel Learning", "venue": "AISTATS, PMLR 51:370-378", "year": 2016, "url": "https://proceedings.mlr.press/v51/wilson16.html"},
-  {"key": "guo2017calibration", "authors": "Chuan Guo, Geoff Pleiss, Yu Sun, Kilian Q. Weinberger", "title": "On Calibration of Modern Neural Networks", "venue": "ICML, PMLR 70:1321-1330", "year": 2017, "url": "https://proceedings.mlr.press/v70/guo17a.html"},
-  {"key": "mahler2017dexnet2", "authors": "Jeffrey Mahler, Jacky Liang, Sherdil Niyaz, Michael Laskey, Richard Doan, Xinyu Liu, Juan Aparicio Ojea, Ken Goldberg", "title": "Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics", "venue": "Robotics: Science and Systems (RSS) XIII", "year": 2017, "id": "arXiv:1703.09312; doi:10.15607/RSS.2017.XIII.058"},
-  {"key": "sundermeyer2021contactgraspnet", "authors": "Martin Sundermeyer, Arsalan Mousavian, Rudolph Triebel, Dieter Fox", "title": "Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes", "venue": "IEEE International Conference on Robotics and Automation (ICRA)", "year": 2021, "id": "arXiv:2103.14127; doi:10.1109/ICRA48506.2021.9561877"},
-  {"key": "tenpas2017gpd", "authors": "Andreas ten Pas, Marcus Gualtieri, Kate Saenko, Robert Platt", "title": "Grasp Pose Detection in Point Clouds", "venue": "The International Journal of Robotics Research 36(13-14):1455-1473", "year": 2017, "id": "arXiv:1706.09911"},
-  {"key": "xu2021adagrasp", "authors": "Zhenjia Xu, Beichun Qi, Shubham Agrawal, Shuran Song", "title": "AdaGrasp: Learning an Adaptive Gripper-Aware Grasping Policy", "venue": "ICRA", "year": 2021, "id": "arXiv:2011.14206"},
-  {"key": "ferrari1992planning", "authors": "Carlo Ferrari, John Canny", "title": "Planning optimal grasps", "venue": "IEEE International Conference on Robotics and Automation (ICRA), pp. 2290-2295", "year": 1992, "id": "doi:10.1109/ROBOT.1992.219918"},
-  {"key": "weisz2012pose", "authors": "Jonathan Weisz, Peter K. Allen", "title": "Pose Error Robust Grasping from Contact Wrench Space Metrics", "venue": "ICRA, pp. 557-562", "year": 2012, "url": "https://www.cs.columbia.edu/~allen/PAPERS/weisz_icra12.pdf"},
-  {"key": "nogueira2016unscented", "authors": "José Nogueira, Ruben Martinez-Cantin, Alexandre Bernardino, Lorenzo Jamone", "title": "Unscented Bayesian Optimization for Safe Robot Grasping", "venue": "IEEE/RSJ IROS, pp. 1967-1972", "year": 2016, "id": "arXiv:1603.02038; doi:10.1109/IROS.2016.7759310"},
-  {"key": "lou2020reachability", "authors": "Xibai Lou, Yang Yang, Changhyun Choi", "title": "Learning to Generate 6-DoF Grasp Poses with Reachability Awareness", "venue": "ICRA, pp. 1532-1538", "year": 2020, "id": "arXiv:1910.06404; doi:10.1109/ICRA40945.2020.9197413"},
-  {"key": "akinola2021dynamic", "authors": "Iretiayo Akinola et al.", "title": "Dynamic Grasping with Reachability and Motion Awareness", "venue": "IEEE/RSJ IROS", "year": 2021, "id": "arXiv:2103.10562"},
-  {"key": "qin2025planned", "authors": "Liang Qin, Weiwei Wan, Jun Takahashi, Ryo Negishi, Masaki Matsushita, Kensuke Harada", "title": "Learning from Planned Data to Improve Robotic Pick-and-Place Planning Efficiency", "venue": "arXiv preprint", "year": 2025, "id": "arXiv:2506.15920"},
-  {"key": "kopicki2016oneshot", "authors": "Marek Kopicki, Renaud Detry, Maxime Adjigble, Rustam Stolkin, Aleš Leonardis, Jeremy L. Wyatt", "title": "One-shot learning and generation of dexterous grasps for novel objects", "venue": "The International Journal of Robotics Research 35(8):959-976", "year": 2016, "id": "doi:10.1177/0278364915594244"},
-  {"key": "feurer2018rgpe", "authors": "Matthias Feurer, Benjamin Letham, Frank Hutter, Eytan Bakshy", "title": "Practical Transfer Learning for Bayesian Optimization (first versions: Scalable Meta-Learning for Bayesian Optimization)", "venue": "arXiv preprint", "year": 2018, "id": "arXiv:1802.02219", "note": "RGPE; later versions add Hutter"},
-  {"key": "schilling2016poe", "authors": "Nicolas Schilling, Martin Wistuba, Lars Schmidt-Thieme", "title": "Scalable hyperparameter optimization with products of Gaussian process experts", "venue": "ECML PKDD", "year": 2016, "note": "verified through citing papers (e.g. Wistuba et al., Machine Learning 2018, doi:10.1007/s10994-017-5684-y); the acronym POGPE was not found"},
-  {"key": "zamir2018taskonomy", "authors": "Amir Zamir, Alexander Sax, William Shen, Leonidas Guibas, Jitendra Malik, Silvio Savarese", "title": "Taskonomy: Disentangling Task Transfer Learning", "venue": "IEEE/CVF CVPR", "year": 2018, "id": "arXiv:1804.08328; doi:10.1109/CVPR.2018.00391"},
-  {"key": "kim2023taskweb", "authors": "Joongwon Kim, Akari Asai, Gabriel Ilharco, Hannaneh Hajishirzi", "title": "TaskWeb: Selecting Better Source Tasks for Multi-task NLP", "venue": "EMNLP, pp. 11032-11052", "year": 2023, "id": "doi:10.18653/v1/2023.emnlp-main.680"},
-  {"key": "xu2025gesunigrasp", "authors": "Fangting Xu, Jilin Zhu, Xiaoming Gu, Jianzhong Tang", "title": "GES-UniGrasp: A Two-Stage Dexterous Grasping Strategy With Geometry-Based Expert Selection", "venue": "arXiv preprint", "year": 2025, "id": "arXiv:2509.23567"},
-  {"key": "kazanskii2026connectivity", "authors": "Maksim A. Kazanskii", "title": "Connectivity-Aware Exploration of Robotic Grasp Spaces", "venue": "arXiv preprint (peer review not verified)", "year": 2026, "id": "arXiv:2609.22983"},
-  {"key": "downs2022gso", "authors": "Laura Downs, Anthony Francis, Nate Koenig, Brandon Kinman, Ryan Hickman, Krista Reymann, Thomas B. McHugh, Vincent Vanhoucke", "title": "Google Scanned Objects: A High-Quality Dataset of 3D Scanned Household Items", "venue": "ICRA", "year": 2022, "id": "arXiv:2204.11918"},
-  {"key": "morrison2020egad", "authors": "Douglas Morrison, Peter Corke, Jürgen Leitner", "title": "EGAD! an Evolved Grasping Analysis Dataset for diversity and reproducibility in robotic manipulation", "venue": "IEEE Robotics and Automation Letters 5(3):4368-4375", "year": 2020, "id": "arXiv:2003.01314; data doi:10.25912/5eaa52c6eb6b4"},
-  {"key": "deitke2023objaverse", "authors": "Matt Deitke et al.", "title": "Objaverse: A Universe of Annotated 3D Objects", "venue": "arXiv preprint (venue not verified)", "year": 2022, "id": "arXiv:2212.08051"},
-  {"key": "perezgonzalez2025tfm", "authors": "Eduardo Pérez González (supervisor: Rubén Martínez Cantín)", "title": "Robot grasping with Bayesian optimization informed with foundational models", "venue": "Master's thesis, Universidad de Zaragoza, TAZ-TFM-2025-047", "year": 2025, "url": "https://zaguan.unizar.es/record/152263/files/TAZ-TFM-2025-047.pdf"}
+  {
+   "key": "chen2023adkfift",
+   "authors": "Wenlin Chen, Austin Tripp, José Miguel Hernández-Lobato",
+   "title": "Meta-learning Adaptive Deep Kernel Gaussian Processes for Molecular Property Prediction",
+   "venue": "International Conference on Learning Representations (ICLR)",
+   "year": 2023,
+   "id": "arXiv:2205.02708",
+   "url": "https://arxiv.org/abs/2205.02708"
+  },
+  {
+   "key": "caron2021dino",
+   "authors": "Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, Armand Joulin",
+   "title": "Emerging Properties in Self-Supervised Vision Transformers",
+   "venue": "IEEE/CVF International Conference on Computer Vision (ICCV), pp. 9650-9660",
+   "year": 2021,
+   "id": "arXiv:2104.14294",
+   "url": "https://arxiv.org/abs/2104.14294"
+  },
+  {
+   "key": "simeoni2025dinov3",
+   "authors": "Oriane Siméoni et al.",
+   "title": "DINOv3",
+   "venue": "arXiv preprint",
+   "year": 2025,
+   "id": "arXiv:2508.10104",
+   "url": "https://arxiv.org/abs/2508.10104"
+  },
+  {
+   "key": "montana1988kinematics",
+   "authors": "David J. Montana",
+   "title": "The Kinematics of Contact and Grasp",
+   "venue": "The International Journal of Robotics Research 7(3):17-32",
+   "year": 1988,
+   "id": "doi:10.1177/027836498800700302"
+  },
+  {
+   "key": "srinivas2010gpucb",
+   "authors": "Niranjan Srinivas, Andreas Krause, Sham Kakade, Matthias Seeger",
+   "title": "Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design",
+   "venue": "International Conference on Machine Learning (ICML), pp. 1015-1022",
+   "year": 2010,
+   "url": "https://dblp.uni-trier.de/rec/conf/icml/SrinivasKKS10.html"
+  },
+  {
+   "key": "gardner2014constraints",
+   "authors": "Jacob R. Gardner, Matt J. Kusner, Zhixiang Xu, Kilian Q. Weinberger, John P. Cunningham",
+   "title": "Bayesian Optimization with Inequality Constraints",
+   "venue": "ICML, PMLR 32:937-945",
+   "year": 2014,
+   "url": "https://proceedings.mlr.press/v32/gardner14.html"
+  },
+  {
+   "key": "hernandezlobato2015pesc",
+   "authors": "José Miguel Hernández-Lobato, Michael A. Gelbart, Matthew W. Hoffman, Ryan P. Adams, Zoubin Ghahramani",
+   "title": "Predictive Entropy Search for Bayesian Optimization with Unknown Constraints",
+   "venue": "ICML, PMLR 37:1699-1707",
+   "year": 2015,
+   "id": "arXiv:1502.05312",
+   "url": "https://proceedings.mlr.press/v37/hernandez-lobatob15.html"
+  },
+  {
+   "key": "wilson2016dkl",
+   "authors": "Andrew Gordon Wilson, Zhiting Hu, Ruslan Salakhutdinov, Eric P. Xing",
+   "title": "Deep Kernel Learning",
+   "venue": "AISTATS, PMLR 51:370-378",
+   "year": 2016,
+   "url": "https://proceedings.mlr.press/v51/wilson16.html"
+  },
+  {
+   "key": "guo2017calibration",
+   "authors": "Chuan Guo, Geoff Pleiss, Yu Sun, Kilian Q. Weinberger",
+   "title": "On Calibration of Modern Neural Networks",
+   "venue": "ICML, PMLR 70:1321-1330",
+   "year": 2017,
+   "url": "https://proceedings.mlr.press/v70/guo17a.html"
+  },
+  {
+   "key": "mahler2017dexnet2",
+   "authors": "Jeffrey Mahler, Jacky Liang, Sherdil Niyaz, Michael Laskey, Richard Doan, Xinyu Liu, Juan Aparicio Ojea, Ken Goldberg",
+   "title": "Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics",
+   "venue": "Robotics: Science and Systems (RSS) XIII",
+   "year": 2017,
+   "id": "arXiv:1703.09312; doi:10.15607/RSS.2017.XIII.058"
+  },
+  {
+   "key": "sundermeyer2021contactgraspnet",
+   "authors": "Martin Sundermeyer, Arsalan Mousavian, Rudolph Triebel, Dieter Fox",
+   "title": "Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes",
+   "venue": "IEEE International Conference on Robotics and Automation (ICRA)",
+   "year": 2021,
+   "id": "arXiv:2103.14127; doi:10.1109/ICRA48506.2021.9561877"
+  },
+  {
+   "key": "tenpas2017gpd",
+   "authors": "Andreas ten Pas, Marcus Gualtieri, Kate Saenko, Robert Platt",
+   "title": "Grasp Pose Detection in Point Clouds",
+   "venue": "The International Journal of Robotics Research 36(13-14):1455-1473",
+   "year": 2017,
+   "id": "arXiv:1706.09911"
+  },
+  {
+   "key": "xu2021adagrasp",
+   "authors": "Zhenjia Xu, Beichun Qi, Shubham Agrawal, Shuran Song",
+   "title": "AdaGrasp: Learning an Adaptive Gripper-Aware Grasping Policy",
+   "venue": "ICRA",
+   "year": 2021,
+   "id": "arXiv:2011.14206"
+  },
+  {
+   "key": "ferrari1992planning",
+   "authors": "Carlo Ferrari, John Canny",
+   "title": "Planning optimal grasps",
+   "venue": "IEEE International Conference on Robotics and Automation (ICRA), pp. 2290-2295",
+   "year": 1992,
+   "id": "doi:10.1109/ROBOT.1992.219918"
+  },
+  {
+   "key": "weisz2012pose",
+   "authors": "Jonathan Weisz, Peter K. Allen",
+   "title": "Pose Error Robust Grasping from Contact Wrench Space Metrics",
+   "venue": "ICRA, pp. 557-562",
+   "year": 2012,
+   "url": "https://www.cs.columbia.edu/~allen/PAPERS/weisz_icra12.pdf"
+  },
+  {
+   "key": "nogueira2016unscented",
+   "authors": "José Nogueira, Ruben Martinez-Cantin, Alexandre Bernardino, Lorenzo Jamone",
+   "title": "Unscented Bayesian Optimization for Safe Robot Grasping",
+   "venue": "IEEE/RSJ IROS, pp. 1967-1972",
+   "year": 2016,
+   "id": "arXiv:1603.02038; doi:10.1109/IROS.2016.7759310"
+  },
+  {
+   "key": "lou2020reachability",
+   "authors": "Xibai Lou, Yang Yang, Changhyun Choi",
+   "title": "Learning to Generate 6-DoF Grasp Poses with Reachability Awareness",
+   "venue": "ICRA, pp. 1532-1538",
+   "year": 2020,
+   "id": "arXiv:1910.06404; doi:10.1109/ICRA40945.2020.9197413"
+  },
+  {
+   "key": "akinola2021dynamic",
+   "authors": "Iretiayo Akinola et al.",
+   "title": "Dynamic Grasping with Reachability and Motion Awareness",
+   "venue": "IEEE/RSJ IROS",
+   "year": 2021,
+   "id": "arXiv:2103.10562"
+  },
+  {
+   "key": "qin2025planned",
+   "authors": "Liang Qin, Weiwei Wan, Jun Takahashi, Ryo Negishi, Masaki Matsushita, Kensuke Harada",
+   "title": "Learning from Planned Data to Improve Robotic Pick-and-Place Planning Efficiency",
+   "venue": "arXiv preprint",
+   "year": 2025,
+   "id": "arXiv:2506.15920"
+  },
+  {
+   "key": "kopicki2016oneshot",
+   "authors": "Marek Kopicki, Renaud Detry, Maxime Adjigble, Rustam Stolkin, Aleš Leonardis, Jeremy L. Wyatt",
+   "title": "One-shot learning and generation of dexterous grasps for novel objects",
+   "venue": "The International Journal of Robotics Research 35(8):959-976",
+   "year": 2016,
+   "id": "doi:10.1177/0278364915594244"
+  },
+  {
+   "key": "feurer2018rgpe",
+   "authors": "Matthias Feurer, Benjamin Letham, Frank Hutter, Eytan Bakshy",
+   "title": "Practical Transfer Learning for Bayesian Optimization (first versions: Scalable Meta-Learning for Bayesian Optimization)",
+   "venue": "arXiv preprint",
+   "year": 2018,
+   "id": "arXiv:1802.02219",
+   "note": "RGPE; later versions add Hutter"
+  },
+  {
+   "key": "schilling2016poe",
+   "authors": "Nicolas Schilling, Martin Wistuba, Lars Schmidt-Thieme",
+   "title": "Scalable hyperparameter optimization with products of Gaussian process experts",
+   "venue": "ECML PKDD",
+   "year": 2016,
+   "note": "verified through citing papers (e.g. Wistuba et al., Machine Learning 2018, doi:10.1007/s10994-017-5684-y); the acronym POGPE was not found"
+  },
+  {
+   "key": "zamir2018taskonomy",
+   "authors": "Amir Zamir, Alexander Sax, William Shen, Leonidas Guibas, Jitendra Malik, Silvio Savarese",
+   "title": "Taskonomy: Disentangling Task Transfer Learning",
+   "venue": "IEEE/CVF CVPR",
+   "year": 2018,
+   "id": "arXiv:1804.08328; doi:10.1109/CVPR.2018.00391"
+  },
+  {
+   "key": "kim2023taskweb",
+   "authors": "Joongwon Kim, Akari Asai, Gabriel Ilharco, Hannaneh Hajishirzi",
+   "title": "TaskWeb: Selecting Better Source Tasks for Multi-task NLP",
+   "venue": "EMNLP, pp. 11032-11052",
+   "year": 2023,
+   "id": "doi:10.18653/v1/2023.emnlp-main.680"
+  },
+  {
+   "key": "xu2025gesunigrasp",
+   "authors": "Fangting Xu, Jilin Zhu, Xiaoming Gu, Jianzhong Tang",
+   "title": "GES-UniGrasp: A Two-Stage Dexterous Grasping Strategy With Geometry-Based Expert Selection",
+   "venue": "arXiv preprint",
+   "year": 2025,
+   "id": "arXiv:2509.23567"
+  },
+  {
+   "key": "kazanskii2026connectivity",
+   "authors": "Maksim A. Kazanskii",
+   "title": "Connectivity-Aware Exploration of Robotic Grasp Spaces",
+   "venue": "arXiv preprint (peer review not verified)",
+   "year": 2026,
+   "id": "arXiv:2609.22983"
+  },
+  {
+   "key": "downs2022gso",
+   "authors": "Laura Downs, Anthony Francis, Nate Koenig, Brandon Kinman, Ryan Hickman, Krista Reymann, Thomas B. McHugh, Vincent Vanhoucke",
+   "title": "Google Scanned Objects: A High-Quality Dataset of 3D Scanned Household Items",
+   "venue": "ICRA",
+   "year": 2022,
+   "id": "arXiv:2204.11918"
+  },
+  {
+   "key": "morrison2020egad",
+   "authors": "Douglas Morrison, Peter Corke, Jürgen Leitner",
+   "title": "EGAD! an Evolved Grasping Analysis Dataset for diversity and reproducibility in robotic manipulation",
+   "venue": "IEEE Robotics and Automation Letters 5(3):4368-4375",
+   "year": 2020,
+   "id": "arXiv:2003.01314; data doi:10.25912/5eaa52c6eb6b4"
+  },
+  {
+   "key": "deitke2023objaverse",
+   "authors": "Matt Deitke et al.",
+   "title": "Objaverse: A Universe of Annotated 3D Objects",
+   "venue": "arXiv preprint (venue not verified)",
+   "year": 2022,
+   "id": "arXiv:2212.08051"
+  },
+  {
+   "key": "perezgonzalez2025tfm",
+   "authors": "Eduardo Pérez González (supervisor: Rubén Martínez Cantín)",
+   "title": "Robot grasping with Bayesian optimization informed with foundational models",
+   "venue": "Master's thesis, Universidad de Zaragoza, TAZ-TFM-2025-047",
+   "year": 2025,
+   "url": "https://zaguan.unizar.es/record/152263/files/TAZ-TFM-2025-047.pdf"
+  },
+  {
+   "key": "bohg2014survey",
+   "authors": "Jeannette Bohg, Antonio Morales, Tamim Asfour, Danica Kragic",
+   "title": "Data-Driven Grasp Synthesis—A Survey",
+   "venue": "IEEE Transactions on Robotics 30(2):289-309",
+   "year": 2014,
+   "id": "doi:10.1109/TRO.2013.2289018; arXiv:1309.2660"
+  },
+  {
+   "key": "newbury2023review",
+   "authors": "Rhys Newbury, Morris Gu, Lachlan Chumbley, Arsalan Mousavian, Clemens Eppner, Jürgen Leitner, Jeannette Bohg, Antonio Morales, Tamim Asfour, Danica Kragic, Dieter Fox, Akansel Cosgun",
+   "title": "Deep Learning Approaches to Grasp Synthesis: A Review",
+   "venue": "IEEE Transactions on Robotics 39(5):3994-4015",
+   "year": 2023,
+   "id": "doi:10.1109/TRO.2023.3280597; arXiv:2207.02556",
+   "note": "author list from the arXiv record; verify order before submission"
+  },
+  {
+   "key": "todorov2012mujoco",
+   "authors": "Emanuel Todorov, Tom Erez, Yuval Tassa",
+   "title": "MuJoCo: A physics engine for model-based control",
+   "venue": "IEEE/RSJ IROS, pp. 5026-5033",
+   "year": 2012,
+   "id": "doi:10.1109/IROS.2012.6386109"
+  },
+  {
+   "key": "wei2022coacd",
+   "authors": "Xinyue Wei, Minghua Liu, Zhan Ling, Hao Su",
+   "title": "Approximate Convex Decomposition for 3D Meshes with Collision-Aware Concavity and Tree Search",
+   "venue": "ACM Transactions on Graphics 41(4):42 (SIGGRAPH 2022)",
+   "year": 2022,
+   "id": "doi:10.1145/3528223.3530103; arXiv:2205.02961"
+  },
+  {
+   "key": "oquab2024dinov2",
+   "authors": "Maxime Oquab et al.",
+   "title": "DINOv2: Learning Robust Visual Features without Supervision",
+   "venue": "Transactions on Machine Learning Research",
+   "year": 2024,
+   "id": "arXiv:2304.07193",
+   "note": "year differs between sources (2023 in the authors BibTeX, 2024 in a library record); check TMLR before submission"
+  },
+  {
+   "key": "holm1979",
+   "authors": "Sture Holm",
+   "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+   "venue": "Scandinavian Journal of Statistics 6(2):65-70",
+   "year": 1979,
+   "id": "JSTOR 4615733"
+  },
+  {
+   "key": "osada2002shape",
+   "authors": "Robert Osada, Thomas Funkhouser, Bernard Chazelle, David Dobkin",
+   "title": "Shape Distributions",
+   "venue": "ACM Transactions on Graphics 21(4):807-832",
+   "year": 2002,
+   "id": "doi:10.1145/571647.571648"
+  },
+  {
+   "key": "cao2007listnet",
+   "authors": "Zhe Cao, Tao Qin, Tie-Yan Liu, Ming-Feng Tsai, Hang Li",
+   "title": "Learning to Rank: From Pairwise Approach to Listwise Approach",
+   "venue": "ICML, pp. 129-136",
+   "year": 2007,
+   "id": "doi:10.1145/1273496.1273513"
+  },
+  {
+   "key": "eppner2019billion",
+   "authors": "Clemens Eppner, Arsalan Mousavian, Dieter Fox",
+   "title": "A Billion Ways to Grasp: An Evaluation of Grasp Sampling Schemes on a Dense, Physics-based Grasp Data Set",
+   "venue": "International Symposium on Robotics Research (ISRR)",
+   "year": 2019,
+   "id": "arXiv:1912.05604"
+  },
+  {
+   "key": "miller2004graspit",
+   "authors": "Andrew T. Miller, Peter K. Allen",
+   "title": "GraspIt! A versatile simulator for robotic grasping",
+   "venue": "IEEE Robotics & Automation Magazine 11(4):110-122",
+   "year": 2004
+  },
+  {
+   "key": "fang2020graspnet",
+   "authors": "Hao-Shu Fang, Chenxi Wang, Minghao Gou, Cewu Lu",
+   "title": "GraspNet-1Billion: A Large-Scale Benchmark for General Object Grasping",
+   "venue": "IEEE/CVF CVPR, pp. 11444-11453",
+   "year": 2020
+  },
+  {
+   "key": "radford2021clip",
+   "authors": "Alec Radford et al.",
+   "title": "Learning Transferable Visual Models From Natural Language Supervision",
+   "venue": "ICML, PMLR 139:8748-8763",
+   "year": 2021,
+   "id": "arXiv:2103.00020"
+  },
+  {
+   "key": "mcnemar1947",
+   "authors": "Quinn McNemar",
+   "title": "Note on the sampling error of the difference between correlated proportions or percentages",
+   "venue": "Psychometrika 12(2):153-157",
+   "year": 1947,
+   "id": "doi:10.1007/BF02295996"
+  },
+  {
+   "key": "wilcoxon1945",
+   "authors": "Frank Wilcoxon",
+   "title": "Individual Comparisons by Ranking Methods",
+   "venue": "Biometrics Bulletin 1(6):80-83",
+   "year": 1945
+  },
+  {
+   "key": "efron1979bootstrap",
+   "authors": "Bradley Efron",
+   "title": "Bootstrap Methods: Another Look at the Jackknife",
+   "venue": "The Annals of Statistics 7(1):1-26",
+   "year": 1979,
+   "id": "doi:10.1214/aos/1176344552"
+  },
+  {
+   "key": "pedregosa2011sklearn",
+   "authors": "Fabian Pedregosa et al.",
+   "title": "Scikit-learn: Machine Learning in Python",
+   "venue": "Journal of Machine Learning Research 12:2825-2830",
+   "year": 2011
+  },
+  {
+   "key": "paszke2019pytorch",
+   "authors": "Adam Paszke et al.",
+   "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library",
+   "venue": "Advances in Neural Information Processing Systems 32, pp. 8026-8037",
+   "year": 2019,
+   "id": "arXiv:1912.01703"
+  },
+  {
+   "key": "cherti2023openclip",
+   "authors": "Mehdi Cherti et al.",
+   "title": "Reproducible scaling laws for contrastive language-image learning",
+   "venue": "IEEE/CVF CVPR",
+   "year": 2023,
+   "id": "arXiv:2212.07143"
+  }
  ],
  "not_found": [
-  {"query": "Tfaily et al. (grasping / transfer)", "result": "no paper by an author named Tfaily found in two searches; not cited"},
-  {"query": "POGPE", "result": "acronym not found; the closest verified work is schilling2016poe"}
+  {
+   "query": "Tfaily et al. (grasping / transfer)",
+   "result": "no paper by an author named Tfaily found in two searches; not cited"
+  },
+  {
+   "query": "POGPE",
+   "result": "acronym not found; the closest verified work is schilling2016poe"
+  }
  ]
 }

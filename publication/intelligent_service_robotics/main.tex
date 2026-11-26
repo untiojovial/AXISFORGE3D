@@ -1,0 +1,169 @@
+%% Manuscript for Intelligent Service Robotics (Springer). Springer Nature LaTeX template (sn-jnl.cls,
+%% obtained from Springer Nature's LaTeX author support page; not redistributed here, see README.md).
+%% Every number in the text is a macro generated from the stored results by
+%% tools/research/phase7/make_tables.py (tables/numbers.tex); none is typed by hand.
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{url}
+
+\input{tables/numbers}
+
+\begin{document}
+
+\title[Robustness-aware candidate ordering for a complete grasp planner]{Learning where to look first without losing robustness: a pre-registered evaluation of candidate ordering for a complete parallel-jaw grasp planner}
+
+\author*{\fnm{Eduardo} \sur{P\'erez Gonz\'alez}}\email{[to be provided by the author]}
+
+\affil*{\orgname{Independent Researcher}, \orgaddress{\city{Zaragoza}, \country{Spain}}}
+
+\abstract{A complete grasp planner examines a catalogue of candidate grasps one by one---inverse kinematics, collisions, static wrench quality---and stops at the first feasible one. A classifier that predicts feasibility can reorder the catalogue so that far fewer candidates are examined, but the order it learns also decides which grasp is executed. We show, on \devParts{} household objects in simulation, that a learned feasibility order makes the planner reach a feasible grasp after \devNFMone{} instead of \devNFMzero{} candidates (geometric mean), and that it changes dynamic robustness and load tolerance. We propose FORTIS-R Joint, an order that multiplies the feasibility prior by a learned probability of dynamic robustness and by a centring term, and a round-robin fallback with a deterministic bound of twice the original planner's cost. Before testing, we corrected the physics (masses, centre of mass, in-hand rotation, torsional friction), ran an articulated-arm replication, measured frozen vision foundation-model features (DINOv2, DINOv3, OpenCLIP) against permuted and untrained controls, and froze the method, the hypotheses and the analysis. On \confObjects{} independently selected EGAD objects, FORTIS-R Joint examined \confPoneRatio{} times as many candidates as the original planner (\confPoneVerdict), its robustness relative to the original planner was \confPtwoDiff{} percentage points (non-inferiority \confPtwoVerdict), and its number of examined candidates relative to the best learned baseline was \confPthreeRatio{} (non-inferiority \confPthreeVerdict). Load-tolerance conclusions depended on the simulator level and on uncalibrated friction, and foundation-model features gave no development gain under the pre-declared rule. All results are simulation results, not robot experiments.}
+
+\keywords{Grasp planning, Parallel-jaw grasping, Learning to order, Dynamic robustness, Pre-registration, Vision foundation models}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+Service robots that pick previously unseen household objects must plan a grasp quickly and the grasp must hold. Sampling-based planners address the first need by generating a catalogue of candidate grasps and examining candidates until one passes every check \cite{bohg2014survey,newbury2023review}. Examining a candidate is the expensive part: inverse kinematics for the arm, collision checking of the approach and the grasp, and a static wrench-space quality test \cite{ferrari1992planning}. If the planner examines candidates in a poor order, it spends most of its time on candidates that fail.
+
+Learning which candidates are likely to pass, and examining those first, is an established idea \cite{lou2020reachability,akinola2021dynamic,qin2025planned}. Two aspects of it are less studied. First, the order does not only decide how long planning takes; it also decides \emph{which} feasible grasp is returned, and therefore whether the grasp survives perturbations, heavier loads or in-hand rotation. Prior work has shown that grasps that score best on an analytic metric are not always the most robust \cite{weisz2012pose}; here the tension is between reaching feasibility quickly and dynamic robustness. Second, conclusions about learned orders are usually drawn on the data used to design them.
+
+This article reports a controlled and pre-registered study of that tension for a complete parallel-jaw planner (AxisForge). Its contributions are:
+\begin{enumerate}
+\item an exact replay of the planner's own order arithmetic over exhaustively labelled catalogues, so that any order can be evaluated without re-planning (Sect.~\ref{sec:planner});
+\item corrected dynamic validation in MuJoCo \cite{todorov2012mujoco}---intended masses, the planner's centre of mass, an in-hand rotation criterion, a torsional-friction grid and an articulated-arm replication---and the evidence that load-tolerance conclusions depend on those modelling choices (Sect.~\ref{sec:physics});
+\item FORTIS-R Joint, a product of feasibility, learned robustness and a centring term, with a round-robin fallback whose cost is never more than twice that of the original order (Sect.~\ref{sec:methods});
+\item a development study of frozen vision foundation-model features \cite{caron2021dino,oquab2024dinov2,simeoni2025dinov3,radford2021clip} with permuted, untrained and linear controls, local patch features at the contacts, and a ranking loss (Sect.~\ref{sec:dev});
+\item an independent confirmation on EGAD \cite{morrison2020egad} with the method, the hypotheses, the sample size and the analysis frozen and signed by hashes before any confirmatory object was planned (Sect.~\ref{sec:conf}).
+\end{enumerate}
+We do not claim a new grasping algorithm: the components are known; the contribution is the controlled measurement and its confirmation. All experiments are in simulation.
+
+\section{Related work}\label{sec:related}
+
+\paragraph{Grasp synthesis.} Surveys distinguish analytic and data-driven synthesis and, among deep methods, sampling-based approaches, direct regression, reinforcement learning and exemplar methods \cite{bohg2014survey,newbury2023review}. Learned detectors such as Dex-Net 2.0 \cite{mahler2017dexnet2}, GPD \cite{tenpas2017gpd}, Contact-GraspNet \cite{sundermeyer2021contactgraspnet} and GraspNet-1Billion \cite{fang2020graspnet} score or generate grasps from sensor data. Eppner et al. showed that common sampling schemes leave parts of the grasp space uncovered \cite{eppner2019billion}. Our setting is downstream of generation: the catalogue is fixed and complete, and only the examination order is learned.
+
+\paragraph{Learning feasibility to save planning work.} Reachability has been learned as a property of the grasp pose \cite{lou2020reachability} and tied to the existence of an inverse-kinematics solution \cite{akinola2021dynamic}; planning efficiency in pick-and-place has been improved by learning from planned data \cite{qin2025planned}. Our baseline M1 belongs to this family.
+
+\paragraph{Quality and robustness.} Analytic quality goes back to the wrench-space ball of Ferrari and Canny \cite{ferrari1992planning} and the kinematics of contact \cite{montana1988kinematics}; GraspIt! made such analysis routine \cite{miller2004graspit}. Robustness to pose error \cite{weisz2012pose} and safe regions under input uncertainty \cite{nogueira2016unscented} motivate treating robustness separately from feasibility. Weighting a utility by the probability of satisfying constraints is standard in constrained Bayesian optimisation \cite{gardner2014constraints,hernandezlobato2015pesc}; our product fusion applies that intuition to an examination order.
+
+\paragraph{Foundation-model features and adaptation.} Self-supervised and language-supervised vision transformers \cite{caron2021dino,oquab2024dinov2,simeoni2025dinov3,radford2021clip,cherti2023openclip} provide generic object descriptors. The author's master's thesis used DINO features in a deep-kernel Gaussian process for grasp optimisation \cite{perezgonzalez2025tfm}, building on deep kernel learning \cite{wilson2016dkl}, ADKF-IFT \cite{chen2023adkfift} and GP-UCB \cite{srinivas2010gpucb}. We test whether such features help order candidates, and whether few-shot adaptation has room to help at all.
+
+\section{Planner, catalogue and exact order replay}\label{sec:planner}
+
+AxisForge is a Rust planner for a six-axis arm with a parallel-jaw gripper (80~mm stroke, 25~mm finger width, 45~mm finger depth, 90~N maximum grip force). For a part on a table it generates a deterministic catalogue of candidates (surface-normal pairs and their flipped variants; 1\,152 for each EGAD object) with a preliminary score. Candidates whose width fits the stroke (``makeable'') are examined first, in descending order of
+\begin{equation}
+s_i = \mathrm{pre}_i + w\,\pi_i + 10\,\mathbb{1}[\text{makeable}_i],
+\end{equation}
+where $\pi_i \in [0,1]$ is an optional external prior with weight $w\in[0,5]$. Examination stops at the first candidate that passes inverse kinematics, collision checks and a static wrench test; we call that candidate \emph{viable}. An exhaustive run labels every candidate of a part as viable or not, with its rejection reason. Because the order is a deterministic function of $(\mathrm{pre}, \pi, w)$, any prior can be replayed exactly on the labelled catalogue. An encoded prior that forces an arbitrary order with $w=5$ reproduced the simulator's first grasp in 60 of 60 parts and in every confirmatory timing call.
+
+\paragraph{Metrics.} $N_F$ is the number of candidates examined until the first viable one (objects with at least one viable candidate); we report geometric means and paired ratios. Success@$B$ is the share of \emph{all} selected objects whose first viable candidate is within budget $B$; objects without a viable candidate count as failures. These objects are not called physically ungraspable: the planner found no grasp for them.
+
+\section{Dynamic validation}\label{sec:physics}
+
+\paragraph{Floating-gripper test (v3).} The first viable grasp of each method is closed, lifted by 100~mm, held, shaken ($\pm$20~mm at 3~Hz) and released in MuJoCo with elliptic friction cones and torsional friction (condim 4) \cite{todorov2012mujoco}. The part has an assumed mass of 0.1~kg and the centre of mass the planner uses. A trial is \emph{held} when the part rises at least 80~mm, slips less than 20~mm relative to the palm, rotates at most 15$^\circ$ relative to the palm from the end of the grip to the end of the trial, and the pads still touch it. The 15$^\circ$ threshold was fixed before any per-method result: it moves a point 80~mm from the closing axis by about 20~mm, matching the linear tolerances; 5, 10 and 20$^\circ$ are sensitivity analyses. Six standard conditions (nominal, mass $\times$2 and $\times$0.5, friction 0.3, two pose-noise draws) define \emph{robust}; 0.5, 1 and 2~kg loads define \emph{load tolerant}. The two are never merged.
+
+\paragraph{Corrections relative to earlier phases.} Earlier versions of this study simulated 2~kg and 0.5~kg where 0.2 and 0.05~kg were intended, used a centre of mass up to 51~mm away from the planner's, compared against a random order outside the stroke gate, and counted a part that pivoted 66$^\circ$ in the jaws as held. The v3 test corrects all four. Among \devVtwoHeld{} trials that the previous criterion counted as held, \devVtwoNotVthree{} fail v3; \devTurnOverFifteen\% rotate more than 15$^\circ$.
+
+\paragraph{Torsional friction.} Torsional friction is not calibrated against hardware. Relative to the value used (0.005~m), \devFlipLow\%, \devFlipMid\% and \devFlipHigh\% of trial verdicts change at 0.001, 0.0025 and 0.02~m (Fig.~\ref{fig:torsion}).
+
+\paragraph{Articulated replication.} To test whether the floating palm matters, we built the cell's own six-axis arm (link masses and inertias from the project, revolute joints, prismatic jaws with their collision boxes) in MuJoCo and executed each grasp with the planner's joint values: computed-torque control, closing to the planner's closed configuration, a joint-space lift to the planner's lift configuration, and a shake through the base joint. On \artGrasps{} development first grasps the two levels agree on \artAgreeMin--\artAgreeMax\% of verdicts in the standard conditions (Cohen's $\kappa$ \artKappaMin--\artKappaMax), but diverge under heavy loads ($\kappa$ \artKappaTwoKg{} at 2~kg, where \artHeldTwoKgArt\% of grasps hold with the arm against \artHeldTwoKgVthree\% with the floating palm). The maximum joint tracking error was \artTrackMax~rad and no trial saturated the 120~N\,m torque limits.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_dev_torsion.pdf}
+\caption{Development: robustness and load tolerance of each method's first viable grasp across the torsional-friction grid (v3 criterion, \devParts{} GSO parts). Rankings in robustness are stable above 0.0025~m; load tolerance depends strongly on the uncalibrated parameter.}\label{fig:torsion}
+\end{figure}
+
+\section{Methods}\label{sec:methods}
+
+Let $P(F\mid g)$ be a classifier of feasibility for candidate $g$ and $\tilde p = P(F\mid g)/\max_{g'} P(F\mid g')$ its per-object normalisation. Let $P(H\mid F, g)$ be the probability that a feasible candidate is dynamically robust, and $Q_{cen}\in[0,1]$ the planner's centring term (one minus the lever arm between the closing line and the centre of mass, relative to the finger depth). All orders keep the stroke gate.
+\begin{itemize}
+\item \textbf{M0} (original planner): no prior.
+\item \textbf{M1} (learned feasibility): prior $\tilde p$ with $w=2$.
+\item \textbf{M4}: order by $\tilde p^{0.8}\,Q_{cen}^{0.2}$.
+\item \textbf{M9}: order by $\tilde p\cdot P(H\mid F)$.
+\item \textbf{FORTIS-R Joint} (final method): order by $\tilde p\cdot P(H\mid F)\cdot \max(Q_{cen},10^{-3})^{\beta}$ with $\beta=0.3$.
+\end{itemize}
+Fusion orders are passed to the native planner as encoded priors. $P(F)$ is gradient boosting \cite{pedregosa2011sklearn} on 19 candidate features (approach and closing directions, width, relative position, height, log extents, antipodality, centre offset, preliminary score, makeability); $P(H\mid F)$ is gradient boosting on the same features with the robust label. $\beta$ was chosen among $\{0.1,0.2,0.3,0.5\}$ by a criterion fixed in advance (standardised mean log $N_{FR}$ plus the share of first grasps that are not load tolerant), in nested cross-validation and on all development parts (0.3 in both).
+
+\paragraph{Fallback with a guarantee.} A learned order can be worse than the original on some objects (negative transfer). Interleaving the learned order $L$ and the original order $D$ ($L_1, D_1, L_2, D_2,\dots$, skipping candidates already examined) bounds the cost: after $2m$ steps the first $m$ candidates of both orders have been examined, so
+\begin{equation}
+N_{\text{hybrid}} \le 2\min(N_L, N_D),
+\end{equation}
+and with $k$ orders in round robin $N\le k\min_i N_i$. The bound needs no assumption about the prior.
+
+\section{Development study}\label{sec:dev}
+
+\paragraph{Data and splits.} Development used \devAllParts{} parts: 116 library parts (16 YCB, 100 GSO \cite{downs2022gso}) and 200 GSO test parts from earlier phases, of which \devParts{} have a viable grasp and dynamic labels. Representation models used 5-fold cross-validation grouped by product name; robustness models used the earlier phase's 5 outer folds. All development results are out of fold and are \emph{not} confirmatory.
+
+\paragraph{Order and robustness.} Table~\ref{tab:dev} shows the trade-off. The learned order reduces $N_F$ from \devNFMzero{} to \devNFMone, but its first grasps are less load tolerant than the original planner's (\devLoadMone\% vs \devLoadMzero\%). FORTIS-R Joint keeps the learned efficiency ($N_F$ \devNFJoint) and is more robust than the original planner (\devJointMzeroRobust{} percentage points, 95\% CI \devJointMzeroRobustCI), with load tolerance close to it (\devJointMzeroLoad, \devJointMzeroLoadCI). With the articulated arm, the robustness gain is preserved (\artJointMzeroRobust, \artJointMzeroRobustCI) but the load contrasts reverse: Joint$-$M1 load tolerance is \devJointMoneLoad{} percentage points with the floating palm and \artJointMoneLoad{} \artJointMoneLoadCI{} with the arm (Fig.~\ref{fig:articulated}). For this reason load tolerance was excluded from the primary confirmatory family.
+
+\begin{table}[t]
+\caption{Development (\devParts{} GSO parts, out of fold): geometric-mean $N_F$ and the share of first viable grasps that are robust or load tolerant under the corrected (v3) and the previous (v2) criteria; torsion 0.005~m.}\label{tab:dev}
+\centering\small
+\input{tables/tab_dev_methods}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_dev_articulated.pdf}
+\caption{Development: agreement between the floating-gripper test and the articulated-arm replication by condition (left), and the main contrasts at both levels (right, paired differences with 95\% bootstrap CIs). The levels agree in standard conditions and disagree under heavy loads.}\label{fig:articulated}
+\end{figure}
+
+\paragraph{Negative transfer.} The learned orders are worse than the original on few objects but sometimes by a lot: M1 on \devNegMone{} parts (worst ratio \devWorstMone), FORTIS-R Joint on \devNegJoint{} (worst \devWorstJoint). Interleaving Joint with M0 caps the worst ratio at \devHybridWorst{} with a geometric-mean $N_F$ of \devHybridNF.
+
+\paragraph{Representations.} We compared gradient boosting (L0), logistic regression and a three-branch MLP (candidate, geometry---log extents and the D2 shape distribution \cite{osada2002shape}---and vision) with frozen DINOv2, DINOv3 and OpenCLIP descriptors (unit mean of 16 grey renders), an untrained ViT, permuted embeddings and linear visual branches (Table~\ref{tab:rep}, Fig.~\ref{fig:rep}). Gradient boosting was the best ($N_F$ \repNFLzero, AUC \repAUCLzero); the geometry MLP needed \repLtwoLzero{} times as many candidates \repLtwoLzeroCI. Adding DINOv3 through a nonlinear branch did not help (\repLeightLtwo{} \repLeightLtwoCI) and did not differ from its permuted control (\repLeightPerm{} \repLeightPermCI). A linear DINOv3 branch (L10) was the best visual variant (\repLtenLtwo{} \repLtenLtwoCI{} vs the geometry MLP; \repLtenPerm{} \repLtenPermCI{} vs its permuted control, a control added after L10's result was seen); neither interval survives Holm correction, so no visual representation met the pre-declared development rule. DINOv3 patch tokens sampled at the contacts (\repVisibleShare\% of contacts visible after snapping to the render surface) and classical local geometry behaved alike (\repLDLtwo{} and \repLGLtwo). A listwise ranking loss \cite{cao2007listnet} did not help (\repRankLtwo{} \repRankLtwoCI).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig_dev_representation.pdf}
+\caption{Development: $N_F$ ratios between representation variants (geometric mean over \devAllParts{} parts, out of fold, 95\% bootstrap CIs, unadjusted). Values below 1 mean fewer examined candidates.}\label{fig:rep}
+\end{figure}
+
+\begin{table}[t]
+\caption{Development representation benchmark (\devAllParts{} parts, out of fold, MLPs averaged over three seeds). S@1: share of all parts whose first examined candidate is viable; Robust: share of robust first grasps (v2 labels) on the \devParts{} dynamic parts. $^\dagger$Added after L10's result was seen.}\label{tab:rep}
+\centering\scriptsize
+\input{tables/tab_dev_representation}
+\end{table}
+
+\paragraph{Room for adaptation.} With the learned order, the first examined candidate is viable for \fewFirstShare\% of development parts. A perfect adaptive model could therefore save on average \fewCeiling{} candidates per part (about \fewCeilingMs~ms of planner time) against a fixed cost of \fewFixedS~s per call, before paying for its own support evaluations. Few-shot adaptation, deep kernel learning and ADKF-IFT \cite{wilson2016dkl,chen2023adkfift} were therefore not run.
+
+\paragraph{Other grippers.} A feasibility model trained at 80~mm and applied zero-shot to 40~mm and 120~mm catalogues of the same parts needed \crossForty{} \crossFortyCI{} and \crossHundredtwenty{} \crossHundredtwentyCI{} times as many candidates as models trained for those grippers (\crossFortyViable{} and \crossHundredtwentyViable{} viable parts). These are separate configurations of one cell, not different robots.
+
+\input{confirmation}
+
+\section{Discussion}\label{sec:discussion}
+
+\input{discussion}
+
+\section{Conclusion}\label{sec:conclusion}
+
+\input{conclusion}
+
+\backmatter
+
+\bmhead{Supplementary information} The supplementary material (supplementary.tex) contains the full development tables, the protocol, the frozen hypotheses and the secondary analyses.
+
+\bmhead{Acknowledgements} [To be completed by the author.]
+
+\section*{Declarations}
+
+\begin{itemize}
+\item \textbf{Funding} [To be completed by the author. No funding is recorded in the repository.]
+\item \textbf{Competing interests} [To be completed by the author.]
+\item \textbf{Ethics approval and consent to participate} Not applicable: no human or animal participants.
+\item \textbf{Consent for publication} Not applicable.
+\item \textbf{Data availability} See data\_availability.md. EGAD (BSD-3) and Google Scanned Objects (CC BY 4.0) are public; derived catalogues, results and protocols are in the project repository.
+\item \textbf{Materials availability} Not applicable.
+\item \textbf{Code availability} See code\_availability.md.
+\item \textbf{Author contribution} E.P.G. conceived the study and is responsible for the work. Use of AI tools is described in ai\_usage\_disclosure.md.
+\item \textbf{Use of generative AI} Claude Code (Anthropic) and ChatGPT (OpenAI) were used as described in the AI-usage disclosure; they are not authors.
+\end{itemize}
+
+\bibliography{references}
+
+\end{document}
