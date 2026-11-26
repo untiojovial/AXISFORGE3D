@@ -198,7 +198,7 @@ def main():
                        regenerate_removed_parts=REGEN['ycb'] if any('YCB' in n for n in notes) else REGEN['dinov3'])
         inc.append(rec)
     meta = dict(package='axisforge3d-research-reproducibility', source_commit=commit, files_included=len(inc), files_excluded=len(exc),
-                rules=__doc__.strip().split('\n\n', 2)[1].replace('\n', ' '))
+                rules=__doc__.strip().split('\n\n', 3)[2].replace('\n', ' '))
     (out/'MANIFEST_INCLUDED.json').write_text(json.dumps(dict(meta, files=inc), indent=1) + '\n')
     (out/'MANIFEST_EXCLUDED.json').write_text(json.dumps(dict(meta, files=exc), indent=1) + '\n')
     shutil.copy(ROOT/'research/phase7_extension/package/PACKAGE_README.md', out/'PACKAGE_README.md')

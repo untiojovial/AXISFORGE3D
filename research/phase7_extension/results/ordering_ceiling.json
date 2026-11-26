@@ -1,0 +1,25 @@
+{
+ "note": "    python tools/research/phase7_extension/ordering_ceiling.py --benchmark research/phase7_extension/results/integrated_runtime_benchmark.json         --out research/phase7_extension/results/ordering_ceiling.json  An oracle order would examine one candidate: the first feasible one. Against the native Joint order it saves (N_F(Joint) - 1) rejected examinations per object. The cost of one rejected examination is the object's own median under M0, i.e. the rejected-candidate search time divided by the number rejected. The bound ignores the oracle's own inference cost, so the real gain of any learned model is smaller. Development and EGAD (already evaluated) are reported separately.",
+ "results": {
+  "development": {
+   "objects": 60,
+   "joint_excess_candidates_mean": 0.9333333333333333,
+   "rejected_candidate_cost_ms_median": 1.374387495748299,
+   "oracle_saving_ms_mean": 1.4321422973759639,
+   "oracle_saving_ms_max": 74.27658941666665,
+   "joint_total_s_median": 0.286113834000048,
+   "oracle_saving_share_mean": 0.0034833728547520623,
+   "oracle_saving_share_max": 0.16052380843293676
+  },
+  "egad": {
+   "objects": 60,
+   "joint_excess_candidates_mean": 0.5166666666666667,
+   "rejected_candidate_cost_ms_median": 2.7703510999999996,
+   "oracle_saving_ms_mean": 1.1438471327380952,
+   "oracle_saving_ms_max": 54.77907246428572,
+   "joint_total_s_median": 0.5087655714999073,
+   "oracle_saving_share_mean": 0.002115533490753124,
+   "oracle_saving_share_max": 0.10709780274246745
+  }
+ }
+}
