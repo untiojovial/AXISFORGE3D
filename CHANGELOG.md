@@ -42,9 +42,34 @@ historical Joint form with a robustness model trained on robustness at all three
 **DKL, ADKF-IFT and few-shot adaptation.** Not pursued: a perfect order would save at most about 1.4 ms per
 object.
 
-**New confirmation.** It runs on EGAD positions 300–499, which had never been used. It was frozen in
-`PHASE7X_FREEZE.json` (commit `b478289`) before any object was catalogued or planned. Results:
-`research/phase7_extension/results/confirmation_x.json`.
+**New confirmation.** It ran once on EGAD positions 300–499, which had never been used. It was frozen in
+`PHASE7X_FREEZE.json` (commit `b478289`) before any object was catalogued or planned, and the freeze was
+checked before and after every stage. Results: `research/phase7_extension/results/confirmation_x.json`.
+
+- Objects: 200 prepared and catalogued; 151 viable; 49 without a viable candidate.
+- C1 supported: Joint-multi examined 0.449 [0.356, 0.567] times the original planner's candidates.
+- C2 supported: robustness non-inferior, +3.3 pp (Tango [0.7, 7.5]).
+- C3 supported: non-inferior to M1, 0.992 [0.930, 1.059].
+- C4 not supported: cold-process time ratio 0.998 [0.978, 1.019]; slower on 142 of 200 objects.
+- S1 supported: load tolerance non-inferior at −10 pp.
+- S2 and S3 not supported: the multi-torsion robustness advantage that selected the method did not
+  replicate.
+
+**Exploratory.**
+
+- Articulated v2 (development, uncalibrated): Joint less load tolerant than M0, −17.2 pp. The positive
+  control was not passed as specified.
+- Optuna MLP search: reduced budget, no inclusion in any claim.
+
+**Manuscript.** Restructured for ISR:
+
+- iicol, 14 pages, 240-word abstract, 6 keywords;
+- new title: "Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded Fallback";
+- Statements and Declarations;
+- LLM use described in Methods.
+
+**Verdict.** `research/phase7_extension/PUBLICATION_READINESS_FINAL.md`: scientifically ready, pending author
+approval. Not submitted.
 
 **Licensing.**
 

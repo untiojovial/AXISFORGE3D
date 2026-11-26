@@ -19,6 +19,26 @@ Status values:
 - *applied*: the change is in the manuscript or document;
 - *closed*: nothing to change.
 
+## Status update (final manuscript, 2026-11-26)
+
+Every *registered* item below is now **applied**. The item tables keep their original status lines as the record
+of when each correction was registered.
+
+| Item | Applied in |
+|---|---|
+| A, S6 for the evaluation set | `confirmation.tex` ("measured on 60 primary objects only; the evaluation set was not timed") |
+| B, P3 wording | `confirmation.tex`, `discussion.tex`, `conclusion.tex`, abstract (rewritten), `cover_letter.md` |
+| C, non-significant ≠ no effect | `confirmation.tex` (secondary results, evaluation set), `conclusion.tex`, `discussion.tex` |
+| D, the bound concerns candidates | abstract, contributions, Methods ("Round-robin fallback", with its conditions), `confirmation.tex`, `confirmation_x.tex`, `discussion.tex`, `conclusion.tex` |
+| E, denominators | each rate states its population; P(F) trained on all 316 development parts (`confirmation.tex`); table captions |
+| F, p-values stored as 0 | full precision from `corrections_addendum.json` and `confirmation_x.json`; the macro formatter never prints 0 or 1 |
+| G, margins vs signs | `confirmation.tex` (S5 and torsion sensitivity worded as specified); `confirmation_x.tex` (C2 superiority not claimed; C4 not read as equal cost) |
+| H1, H2, "pre-registered" / "hash-signed" | removed from the manuscript, the cover letter and the reviewer template. The historical Phase VII documents keep their wording, with a note pointing here |
+| H3, title | new title, "Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded Fallback"; robustness is not in the title |
+| H4, cost estimate | replaced by the measured native cost (Sect. 8) and C4; the historical figure is kept as history |
+| H5, P2 audit | main text of the first confirmation (Tango, Newcombe, fragility) and supplement |
+| H6, H7 | `research/phase7_extension/LIMITATIONS.md`; the new abstract does not describe the articulated model as a replication |
+
 ## A. S6 (H4) reported for the evaluation set
 
 | | |

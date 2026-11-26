@@ -7,21 +7,24 @@
 official page by ChatGPT on 2026-11-26, without bypassing authentication, and passed on by the author. They are
 recorded as information from the official source, relayed. They were not verified directly from this environment.
 
-## Requirements and how the submission meets them
+## Requirements and how the submission meets them (status after the final build, 2026-11-26)
 
-| Requirement (as relayed) | How the submission meets it | Status |
+| Requirement (verified by ChatGPT on 2026-11-26 and relayed) | How the submission meets it | Status |
 |---|---|---|
-| At most **16 pages**, figures, tables, references and appendices included; exceeding it can lead to rejection without review | Manuscript rebuilt in the Springer template with `iicol` and checked by page count after compilation; secondary analyses moved to the supplementary material, limitations and negative results kept | to verify after the final build (stage 14) |
-| Springer Nature LaTeX template recommended, option `iicol` | `main.tex` to be switched from its current class to the Springer Nature template with `iicol` (stage 14) | pending (template files must come from Springer's official template package) |
-| Compiled PDF plus editable sources (figures, styles) | `publication/intelligent_service_robotics/` holds the `.tex`, `.bib`, figure PDFs and the build script | in place; final check at stage 14 |
-| Abstract of 150–250 words; no undefined abbreviations; no unspecified references | Abstract rewritten and counted | stage 14 |
-| 4–6 keywords | To be set in the template's keyword field | stage 14 |
-| Decimal heading numbering, at most three levels | Current structure uses sections and paragraphs; checked at stage 14 | stage 14 |
-| Numbered citations in square brackets | Springer template reference style (numbered) | stage 14 |
-| Title page: name, affiliation if any, corresponding author information, ORCID if available; authors without institutional affiliation are allowed | Placeholders only; **no affiliation is invented** | author input needed (name, e-mail, ORCID; affiliation or "independent researcher") |
-| "Statements and Declarations" section with the relevant items (competing interests, funding, …) | Section drafted in `declarations.md`; the entries that depend on the author's real situation stay as placeholders | author input needed |
-| LLMs cannot be authors; substantive LLM use must be documented in Methods or another suitable section; the copy-editing exception does not cover this project; the human author is responsible for the content | `ai_usage_disclosure.md` and a Methods paragraph describe the roles of Claude Code and ChatGPT in implementation, experiments, analysis and writing | updated at stage 14 |
-| Hybrid journal; the subscription route should have no mandatory APC; no paid option is chosen for the author | Not selected or paid for here; the conditions of the subscription route must be confirmed by the author at submission | author decision |
+| At most **16 pages**, everything included | `manuscript.pdf`: 14 pages, figures, tables and references included; secondary material in the supplement | met |
+| Official Springer Nature LaTeX template; `iicol` recommended | `sn-jnl` with `[pdflatex,sn-mathphys-num,iicol]`; no margin or font changes | met |
+| Editable sources plus PDF | `.tex`, `.bib`, tables and figures in this folder; `manuscript.pdf`, `supplementary.pdf` | met |
+| Abstract of 150–250 words | 240 words (counted from the PDF text) | met |
+| 4–6 keywords | 6 | met |
+| At most three heading levels | numbered sections and run-in paragraph headings | met |
+| Numbered references in square brackets | `sn-mathphys-num` | met |
+| Title page: name, affiliation if any, corresponding author's details, ORCID if available | name and provisional affiliation; e-mail and ORCID **pending the author**; nothing invented | author input needed |
+| "Statements and Declarations" section | in `main.tex` (funding, competing interests, ethics, consent, data, materials, code, author contributions, use of generative AI, previous work); bracketed author fields | author input needed |
+| LLMs cannot be authors; substantive LLM use documented (Methods) and declared; human responsibility for the content | Methods paragraph "Use of large language models"; declaration; `ai_usage_disclosure.md`. The statement of responsibility is left for the author to confirm | author confirmation needed |
+| Hybrid journal: subscription route without APC; optional open access at €2,690 | **Decision: subscription, no APC.** No option selected or paid | decided by the author; confirm at submission |
+
+These requirements were verified by ChatGPT and relayed by the author. They were not read directly from this
+environment.
 
 Any requirement not in this list counts as **unverified** and is not assumed. That includes figure file formats,
 the supplementary-file size limit, the reviewer-suggestion policy, and the review model (single- or double-blind).

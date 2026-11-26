@@ -90,6 +90,13 @@ The independent Python research package supports Bayesian optimization of extern
 
 The [phase II research dossier](research/README.md) contains the thesis reconstruction, transfer experiments, and an AxisForge3D–MuJoCo pilot.
 
+## Research status
+
+The grasp-ordering study and its two confirmations are documented in `research/phase7` and
+`research/phase7_extension`. The final verdict, with every claim and its evidence, is in
+[PUBLICATION_READINESS_FINAL.md](research/phase7_extension/PUBLICATION_READINESS_FINAL.md). All results are
+simulation results.
+
 ## Licence
 
 AxisForge3D's own code, technical documentation and experimental results are
