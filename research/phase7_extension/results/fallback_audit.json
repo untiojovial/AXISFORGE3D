@@ -1,0 +1,4095 @@
+{
+ "note": "    python tools/research/phase7_extension/fallback_audit.py --validation research/phase7_extension/results/native_inference_validation.json         --dev-catalogues cat80/ --egad-catalogues CONF/cat80 --out research/phase7_extension/results/fallback_audit.json  Three levels:  1. **Theory.** The bound N_hybrid <= min(2 N_L - 1, 2 N_D) <= 2 min(N_L, N_D) for the round robin L1, D1, L2, D2, ...    that skips repeats. A candidate is feasible or not regardless of the order, so the hybrid stops no later than    L's first hit, at step 2 N_L - 1, and no later than D's, at step 2 N_D. 2. **Tests.**    - exhaustive over orders of 5 candidates (crates/grasping/src/learned.rs);    - a 2000-catalogue randomized property test of the native order;    - 3000 random catalogues of the reference interleave (tests/phase7_extension). 3. **Implementation.** On every viable object of the native equivalence run (151 development parts, 255 EGAD    objects), take the native planner's N_F for joint and hybrid (plan --learned --order ...). Take the original    planner's N_F from the catalogue order, which is the planner's own order. Then check the bound.  The development numbers use the frozen models, which were trained on those same parts. They are in-sample and therefore optimistic in N_F; the bound check does not depend on this.  The bound is about **examined candidates** only. It says nothing about time: the learned stage adds inference, and candidates differ in cost. It says nothing about the robustness or safety of the grasp found. Timing is measured separately (integrated_runtime_benchmark.json) with no temporal guarantee.",
+ "summary": {
+  "development": {
+   "objects": 151,
+   "violations": 0,
+   "tight_violations": 0,
+   "joint_worse_than_M0": 2,
+   "hybrid_worse_than_M0": 2,
+   "max_hybrid_over_M0": 2.0,
+   "max_joint_over_M0": 6.333333333333333,
+   "gmean": {
+    "M0": 6.065166028733954,
+    "joint": 1.0836198520285836,
+    "hybrid": 1.084922028403037
+   }
+  },
+  "egad": {
+   "objects": 255,
+   "violations": 0,
+   "tight_violations": 0,
+   "joint_worse_than_M0": 15,
+   "hybrid_worse_than_M0": 16,
+   "max_hybrid_over_M0": 2.0,
+   "max_joint_over_M0": 9.0,
+   "gmean": {
+    "M0": 2.1820699363077045,
+    "joint": 1.2840422230690476,
+    "hybrid": 1.294682921375109
+   }
+  }
+ },
+ "per_object": {
+  "3D_Dollhouse_Happy_Brother": {
+   "kind": "development",
+   "M0": 49,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "3D_Dollhouse_Lamp": {
+   "kind": "development",
+   "M0": 35,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "3D_Dollhouse_TablePurple": {
+   "kind": "development",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Android_Figure_Chrome": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Android_Figure_Panda": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Android_Lego": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Beetle_Adventure_Racing_Nintendo_64": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Beta_Glucan": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Bifidus_Balance_FOS": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Blackcurrant_Lutein": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Borage_GLA240Gamma_Tocopherol": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Breyer_Horse_Of_The_Year_2015": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 5,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Brother_Ink_Cartridge_Magenta_LC75M": {
+   "kind": "development",
+   "M0": 121,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "CARSII": {
+   "kind": "development",
+   "M0": 15,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Canon_Ink_Cartridge_Green_6": {
+   "kind": "development",
+   "M0": 83,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Canon_Pixma_Chromalife_100_Magenta_8": {
+   "kind": "development",
+   "M0": 93,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Canon_Pixma_Ink_Cartridge_251_M": {
+   "kind": "development",
+   "M0": 83,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Canon_Pixma_Ink_Cartridge_8": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Canon_Pixma_Ink_Cartridge_8_Green": {
+   "kind": "development",
+   "M0": 61,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Canon_Pixma_Ink_Cartridge_Cyan_251": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "CoQ10_BjTLbuRVt1t": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Cole_Hardware_Mini_Honey_Dipper": {
+   "kind": "development",
+   "M0": 9,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Crayola_Bonus_64_Crayons": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Crayola_Crayons_24_count": {
+   "kind": "development",
+   "M0": 31,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Crayola_Crayons_Washable_24_crayons": {
+   "kind": "development",
+   "M0": 30,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Crunch_Girl_Scouts_Candy_Bars_Peanut_Butter_Creme_78_oz_box": {
+   "kind": "development",
+   "M0": 75,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Dell_Ink_Cartridge": {
+   "kind": "development",
+   "M0": 71,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Dell_Ink_Cartridge_Yellow_31": {
+   "kind": "development",
+   "M0": 105,
+   "joint": 3,
+   "hybrid": 5,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Dino_4": {
+   "kind": "development",
+   "M0": 23,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Epson_273XL_Ink_Cartridge_Magenta": {
+   "kind": "development",
+   "M0": 141,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Epson_DURABrite_Ultra_786_Black_Ink_Cartridge_T786120S": {
+   "kind": "development",
+   "M0": 103,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Epson_LabelWorks_LC4WBN9_Tape_reel_labels_047_x_295_Roll_Black_on_White": {
+   "kind": "development",
+   "M0": 31,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Epson_T5803_Ink_Cartridge_Magenta_1pack": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Epson_UltraChrome_T0543_Ink_Cartridge_Magenta_1pack": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Epson_UltraChrome_T0548_Ink_Cartridge_Matte_Black_1pack": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "FIRE_ENGINE": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "FIRE_TRUCK": {
+   "kind": "development",
+   "M0": 17,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "FemDophilus": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Final_Fantasy_XIV_A_Realm_Reborn_60Day_Subscription": {
+   "kind": "development",
+   "M0": 101,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Fujifilm_instax_SHARE_SP1_10_photos": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "GoPro_HERO3_Composite_Cable": {
+   "kind": "development",
+   "M0": 235,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi": {
+   "kind": "development",
+   "M0": 45,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Granimals_20_Wooden_ABC_Blocks_Wagon_g2TinmUGGHI": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Guardians_of_the_Galaxy_Galactic_Battlers_Rocket_Raccoon_Figure": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "HP_Card_Invitation_Kit": {
+   "kind": "development",
+   "M0": 79,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Hey_You_Pikachu_Nintendo_64": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "House_of_Cards_The_Complete_First_Season_4_Discs_DVD": {
+   "kind": "development",
+   "M0": 103,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Inositol": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "JarroDophilusFOS_Value_Size": {
+   "kind": "development",
+   "M0": 17,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Jarrow_Formulas_Glucosamine_Hci_Mega_1000_100_ct": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Jarrow_Glucosamine_Chondroitin_Combination_120_Caps": {
+   "kind": "development",
+   "M0": 9,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Jawbone_UP24_Wireless_Activity_Tracker_Pink_Coral_L": {
+   "kind": "development",
+   "M0": 65,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Just_For_Men_Mustache_Beard_Brushin_Hair_Color_Gel_Kit_Jet_Black_M60": {
+   "kind": "development",
+   "M0": 85,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Just_For_Men_ShampooIn_Haircolor_Jet_Black_60": {
+   "kind": "development",
+   "M0": 43,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Just_For_Men_ShampooIn_Haircolor_Light_Brown_25": {
+   "kind": "development",
+   "M0": 97,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Just_For_Men_Shampoo_In_Haircolor_Darkest_Brown_50": {
+   "kind": "development",
+   "M0": 103,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Justified_The_Complete_Fourth_Season_3_Discs_DVD": {
+   "kind": "development",
+   "M0": 85,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Kotex_U_Barely_There_Liners_Thin_60_count": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Krill_Oil": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Lactoferrin": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Lutein": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "MK7": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Magnifying_Glassassrt": {
+   "kind": "development",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Marc_Anthony_True_Professional_Oil_of_Morocco_Argan_Oil_Treatment": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Marc_Anthony_True_Professional_Strictly_Curls_Curl_Defining_Lotion": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "My_First_Rolling_Lion": {
+   "kind": "development",
+   "M0": 45,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nestl_Crunch_Girl_Scouts_Cookie_Flavors_Caramel_Coconut_78_oz_box": {
+   "kind": "development",
+   "M0": 57,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nestl_Skinny_Cow_Heavenly_Crisp_Candy_Bar_Chocolate_Raspberry_6_pack_462_oz_total": {
+   "kind": "development",
+   "M0": 67,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nestle_Nips_Hard_Candy_Peanut_Butter": {
+   "kind": "development",
+   "M0": 81,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nestle_Raisinets_Milk_Chocolate_35_oz_992_g": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Michelangelo": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nickelodeon_Teenage_Mutant_Ninja_Turtles_Raphael": {
+   "kind": "development",
+   "M0": 39,
+   "joint": 2,
+   "hybrid": 3,
+   "bound": 4,
+   "tight_bound": 3,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nikon_1_AW1_w11275mm_Lens_Silver": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Nintendo_Mario_Action_Figure": {
+   "kind": "development",
+   "M0": 9,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "OXO_Cookie_Spatula": {
+   "kind": "development",
+   "M0": 99,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Object": {
+   "kind": "development",
+   "M0": 13,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_CL211XL_Remanufactured_Ink_Cartridge_TriColor": {
+   "kind": "development",
+   "M0": 9,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_CLI36_Remanufactured_Ink_Cartridge_TriColor": {
+   "kind": "development",
+   "M0": 19,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_CLI_221BK_Ink_Cartridge_Black_2946B001": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_CLI_8Y_Ink_Cartridge_Yellow_0623B002": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_PG21XL_Remanufactured_Ink_Cartridge_Black": {
+   "kind": "development",
+   "M0": 4,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_PGI22_Remanufactured_Ink_Cartridge_Black": {
+   "kind": "development",
+   "M0": 2,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_PGI35_Remanufactured_Ink_Cartridge_Black": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Canon_PG_240XL_Ink_Cartridge_Black_5206B001": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_Black": {
+   "kind": "development",
+   "M0": 2,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Dell_Series_11_Remanufactured_Ink_Cartridge_TriColor": {
+   "kind": "development",
+   "M0": 117,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Dell_Series_1_Remanufactured_Ink_Cartridge_Black": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Dell_Series_5_Remanufactured_Ink_Cartridge_Black": {
+   "kind": "development",
+   "M0": 2,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_Dell_Series_9_Ink_Cartridge_Black_MK992": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_HP_2_Remanufactured_Ink_Cartridges_Color_Cyan_Magenta_Yellow_3_count": {
+   "kind": "development",
+   "M0": 9,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_HP_564XL_Ink_Cartridge_Black_CN684WN": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_HP_61Tricolor_Ink_Cartridge": {
+   "kind": "development",
+   "M0": 4,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_HP_71_Remanufactured_Ink_Cartridge_Black": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_HP_75_Remanufactured_Ink_Cartridge_TriColor": {
+   "kind": "development",
+   "M0": 101,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Office_Depot_HP_932XL_Ink_Cartridge_Black_CN053A": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "PEEKABOO_ROLLER": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Blue_Plasma_Orbital": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Face_Finishing_Moisturizer": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Firming_Neck_Therapy_Treatment": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_High_Potency_Evening_Repair": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Hypoallergenic_Firming_Eye_Cream_05_oz": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Hypoallergenic_Gentle_Cleanser": {
+   "kind": "development",
+   "M0": 71,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Neuropeptide_Facial_Conformer": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Neuropeptide_Firming_Moisturizer": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_No_Bronzer_Bronzer": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_No_Mascara_Mascara": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Photo_Plasma": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_The_Crease_Cure_Duo": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_The_Power_Treatments": {
+   "kind": "development",
+   "M0": 91,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Perricone_MD_Vitamin_C_Ester_Serum": {
+   "kind": "development",
+   "M0": 2,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Persona_Q_Shadow_of_the_Labyrinth_Nintendo_3DS": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Pet_Dophilus_powder": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Phillips_Caplets_Size_24": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Phillips_Colon_Health_Probiotic_Capsule": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Phillips_Stool_Softener_Liquid_Gels_30_liquid_gels": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "PhosphOmega": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Polar_Herring_Fillets_Smoked_Peppered_705_oz_total": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Prostate_Optimizer": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "QAbsorb_CoQ10_53iUqjWjW3O": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "REEF_ZENFUN": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 19,
+   "hybrid": 6,
+   "bound": 6,
+   "tight_bound": 6,
+   "violation": false,
+   "tight_violation": false
+  },
+  "RESCUE_CREW": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "ROAD_CONSTRUCTION_SET": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "SAMe_200_KX7ZmOw47co": {
+   "kind": "development",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "SCHOOL_BUS": {
+   "kind": "development",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "SPEED_BOAT": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Schleich_African_Black_Rhino": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Schleich_Allosaurus": {
+   "kind": "development",
+   "M0": 83,
+   "joint": 2,
+   "hybrid": 3,
+   "bound": 4,
+   "tight_bound": 3,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Schleich_Hereford_Bull": {
+   "kind": "development",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Schleich_Lion_Action_Figure": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Schleich_S_Bayala_Unicorn_70432": {
+   "kind": "development",
+   "M0": 7,
+   "joint": 3,
+   "hybrid": 5,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Seagate_1TB_Backup_Plus_portable_drive_Blue": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Seagate_1TB_Backup_Plus_portable_drive_for_Mac": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Seagate_1TB_Wireless_Plus_mobile_device_storage": {
+   "kind": "development",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Seagate_Archive_HDD_8_TB_Internal_hard_drive_SATA_6Gbs_35_ST8000AS0002": {
+   "kind": "development",
+   "M0": 79,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Sleep_Optimizer": {
+   "kind": "development",
+   "M0": 107,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Sony_Acid_Music_Studio": {
+   "kind": "development",
+   "M0": 81,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Sony_Downloadable_Loops": {
+   "kind": "development",
+   "M0": 79,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Spectrum_Wall_Mount": {
+   "kind": "development",
+   "M0": 15,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Star_Wars_Rogue_Squadron_Nintendo_64": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Thomas_Friends_Woodan_Railway_Henry": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Thomas_Friends_Wooden_Railway_Porter_5JzRhMm3a9o": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Thomas_Friends_Wooden_Railway_Talking_Thomas_z7yi7UFHJRj": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Threshold_Bamboo_Ceramic_Soap_Dish": {
+   "kind": "development",
+   "M0": 97,
+   "joint": 54,
+   "hybrid": 82,
+   "bound": 108,
+   "tight_bound": 107,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Twinlab_Nitric_Fuel": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Twinlab_Premium_Creatine_Fuel_Powder": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "VEGETABLE_GARDEN": {
+   "kind": "development",
+   "M0": 33,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Weston_No_22_Cajun_Jerky_Tonic_12_fl_oz_nLj64ZnGwDh": {
+   "kind": "development",
+   "M0": 67,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Wilton_Easy_Layers_Cake_Pan_Set": {
+   "kind": "development",
+   "M0": 95,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Womens_Multi_13": {
+   "kind": "development",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "Wooden_ABC_123_Blocks_50_pack": {
+   "kind": "development",
+   "M0": 19,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "YumYum_D3_Liquid": {
+   "kind": "development",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A00": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A02": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A03": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A07": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A10": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A22": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_A24": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B02": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B13": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B15": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B16": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B17": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B23": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 3,
+   "hybrid": 3,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_B24": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C02": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C05": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C07": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C13": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C16": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 3,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 3,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_C23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D00": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D01": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D04": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D08": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D13": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D14": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D22": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_D25": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E02": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E03": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E09": {
+   "kind": "egad",
+   "M0": 19,
+   "joint": 9,
+   "hybrid": 15,
+   "bound": 18,
+   "tight_bound": 17,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E16": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E21": {
+   "kind": "egad",
+   "M0": 13,
+   "joint": 7,
+   "hybrid": 11,
+   "bound": 14,
+   "tight_bound": 13,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_E25": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F06": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F09": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F13": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F16": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F17": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_F24": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G00": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G01": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G04": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G11": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 3,
+   "hybrid": 3,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G15": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G23": {
+   "kind": "egad",
+   "M0": 11,
+   "joint": 6,
+   "hybrid": 11,
+   "bound": 12,
+   "tight_bound": 11,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G24": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_G25": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H00": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H02": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H12": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H16": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H22": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 2,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_H24": {
+   "kind": "egad",
+   "M0": 11,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I03": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I04": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I05": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I06": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I08": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I12": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I13": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I24": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_I25": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J01": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J04": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J08": {
+   "kind": "egad",
+   "M0": 17,
+   "joint": 3,
+   "hybrid": 5,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J11": {
+   "kind": "egad",
+   "M0": 4,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J13": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J16": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J22": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 20,
+   "hybrid": 8,
+   "bound": 10,
+   "tight_bound": 10,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_J24": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K03": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K06": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K08": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K16": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K22": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K24": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_K25": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L04": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L07": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L10": {
+   "kind": "egad",
+   "M0": 2,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L11": {
+   "kind": "egad",
+   "M0": 19,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L12": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 7,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L17": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 3,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_L24": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M01": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M07": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M09": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M10": {
+   "kind": "egad",
+   "M0": 95,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M14": {
+   "kind": "egad",
+   "M0": 257,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M16": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M20": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M22": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_M23": {
+   "kind": "egad",
+   "M0": 17,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N05": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N06": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N09": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N10": {
+   "kind": "egad",
+   "M0": 9,
+   "joint": 3,
+   "hybrid": 3,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N11": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N12": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N14": {
+   "kind": "egad",
+   "M0": 79,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N16": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N21": {
+   "kind": "egad",
+   "M0": 9,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N23": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_N25": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 2,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O04": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O05": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O12": {
+   "kind": "egad",
+   "M0": 21,
+   "joint": 3,
+   "hybrid": 3,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O15": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O19": {
+   "kind": "egad",
+   "M0": 63,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O21": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O24": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_O25": {
+   "kind": "egad",
+   "M0": 11,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P06": {
+   "kind": "egad",
+   "M0": 11,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P08": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P10": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P11": {
+   "kind": "egad",
+   "M0": 15,
+   "joint": 18,
+   "hybrid": 30,
+   "bound": 30,
+   "tight_bound": 30,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P13": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P15": {
+   "kind": "egad",
+   "M0": 10,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P17": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P22": {
+   "kind": "egad",
+   "M0": 2,
+   "joint": 2,
+   "hybrid": 3,
+   "bound": 4,
+   "tight_bound": 3,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P24": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_P25": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q08": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q12": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q18": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q19": {
+   "kind": "egad",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q21": {
+   "kind": "egad",
+   "M0": 19,
+   "joint": 3,
+   "hybrid": 5,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_Q24": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_R06": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 6,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_R09": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 3,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_R13": {
+   "kind": "egad",
+   "M0": 5,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_R18": {
+   "kind": "egad",
+   "M0": 13,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_R19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_R20": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_R22": {
+   "kind": "egad",
+   "M0": 101,
+   "joint": 191,
+   "hybrid": 168,
+   "bound": 202,
+   "tight_bound": 202,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_S06": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_S07": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_S09": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_S14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_S17": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_S22": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_T08": {
+   "kind": "egad",
+   "M0": 21,
+   "joint": 44,
+   "hybrid": 36,
+   "bound": 42,
+   "tight_bound": 42,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_T12": {
+   "kind": "egad",
+   "M0": 237,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_T13": {
+   "kind": "egad",
+   "M0": 143,
+   "joint": 7,
+   "hybrid": 13,
+   "bound": 14,
+   "tight_bound": 13,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_T18": {
+   "kind": "egad",
+   "M0": 27,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_T21": {
+   "kind": "egad",
+   "M0": 27,
+   "joint": 5,
+   "hybrid": 7,
+   "bound": 10,
+   "tight_bound": 9,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_U12": {
+   "kind": "egad",
+   "M0": 265,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_U25": {
+   "kind": "egad",
+   "M0": 27,
+   "joint": 3,
+   "hybrid": 5,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_V05": {
+   "kind": "egad",
+   "M0": 13,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_V19": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 3,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_V21": {
+   "kind": "egad",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_V22": {
+   "kind": "egad",
+   "M0": 93,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_V23": {
+   "kind": "egad",
+   "M0": 57,
+   "joint": 23,
+   "hybrid": 39,
+   "bound": 46,
+   "tight_bound": 45,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_W13": {
+   "kind": "egad",
+   "M0": 61,
+   "joint": 3,
+   "hybrid": 5,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_W14": {
+   "kind": "egad",
+   "M0": 39,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_X06": {
+   "kind": "egad",
+   "M0": 67,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_X12": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 2,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_X14": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_X18": {
+   "kind": "egad",
+   "M0": 147,
+   "joint": 27,
+   "hybrid": 47,
+   "bound": 54,
+   "tight_bound": 53,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_X19": {
+   "kind": "egad",
+   "M0": 81,
+   "joint": 3,
+   "hybrid": 3,
+   "bound": 6,
+   "tight_bound": 5,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_A1": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_A2": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 9,
+   "hybrid": 2,
+   "bound": 2,
+   "tight_bound": 2,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_A3": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_A4": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_A5": {
+   "kind": "egad",
+   "M0": 11,
+   "joint": 2,
+   "hybrid": 3,
+   "bound": 4,
+   "tight_bound": 3,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_A6": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_B0": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_B1": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_B2": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_B3": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_B6": {
+   "kind": "egad",
+   "M0": 29,
+   "joint": 11,
+   "hybrid": 17,
+   "bound": 22,
+   "tight_bound": 21,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_C0": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_C2": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_C3": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_C4": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_C6": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_D0": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_D1": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_D2": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_D3": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_D5": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_D6": {
+   "kind": "egad",
+   "M0": 3,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_E0": {
+   "kind": "egad",
+   "M0": 55,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_E1": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_E2": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_E3": {
+   "kind": "egad",
+   "M0": 9,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_E4": {
+   "kind": "egad",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_E5": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_E6": {
+   "kind": "egad",
+   "M0": 69,
+   "joint": 11,
+   "hybrid": 21,
+   "bound": 22,
+   "tight_bound": 21,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_F0": {
+   "kind": "egad",
+   "M0": 259,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_F2": {
+   "kind": "egad",
+   "M0": 11,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_F3": {
+   "kind": "egad",
+   "M0": 15,
+   "joint": 7,
+   "hybrid": 13,
+   "bound": 14,
+   "tight_bound": 13,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_F4": {
+   "kind": "egad",
+   "M0": 1,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_F5": {
+   "kind": "egad",
+   "M0": 7,
+   "joint": 1,
+   "hybrid": 1,
+   "bound": 2,
+   "tight_bound": 1,
+   "violation": false,
+   "tight_violation": false
+  },
+  "egad_eval_F6": {
+   "kind": "egad",
+   "M0": 23,
+   "joint": 4,
+   "hybrid": 7,
+   "bound": 8,
+   "tight_bound": 7,
+   "violation": false,
+   "tight_violation": false
+  }
+ }
+}
