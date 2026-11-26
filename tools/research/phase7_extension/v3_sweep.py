@@ -82,6 +82,7 @@ def main():
     p.add_argument('--cap', type=int, default=30)
     p.add_argument('--jobs', type=int, default=3)
     p.add_argument('--labels-json')
+    p.add_argument('--reverse', action='store_true', help='process parts in reverse order (a second runner on the same out-dir)')
     a = p.parse_args()
     Path(a.out_dir).mkdir(parents=True, exist_ok=True)
     dev = sorted(json.loads(Path(a.dev).read_text())['parts'])
@@ -101,10 +102,12 @@ def main():
         labels = sorted(set(sample) | set(core[n].values()))
         manifest[n] = dict(viable=len(viable), sampled=sample, core=core[n], simulated=labels)
         tasks.append((n, labels))
-    if not a.labels_json:
+    if not a.labels_json and not a.reverse:
         (Path(a.out_dir)/'manifest.json').write_text(json.dumps(dict(cap=a.cap, seed_base=20261210,
                                                                      plan={k: [c for c, _ in v] for k, v in PLAN.items()}, parts=manifest), indent=1))
     tasks.sort(key=lambda t: -len(t[1]))
+    if a.reverse:
+        tasks.reverse()
     with ProcessPoolExecutor(max_workers=a.jobs, initializer=init, initargs=(a,)) as pool:
         for part, sec in pool.map(job, tasks):
             print(part, round(sec), flush=True)

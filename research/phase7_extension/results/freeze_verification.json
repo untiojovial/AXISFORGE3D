@@ -1,0 +1,290 @@
+{
+ "external_models": [
+  {
+   "file": "mlp_L10_s0.pt",
+   "recorded": "1a1e1e69a9379422455759b4d10a2a10ab431e8a5e7ec286f4e1a0d2e22e273a",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10_s1.pt",
+   "recorded": "4c0d15f8c2ac9d6ff6d5ecfdf0386c22385aa20012186bb2ca130a24bcc68f98",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10_s2.pt",
+   "recorded": "877a91ec7e798fcea75937665d76aa1537cf120a176df0122df3b677c3fadcab",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10p_s0.pt",
+   "recorded": "a84b13b2bdb678fcb4310f3756faa35eec229d410f50fed5f0d237282d62622c",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10p_s1.pt",
+   "recorded": "aa38824dffe50264478e2733a7e5e4a1730889c0454142d6d0ea8bfee0d5e274",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10p_s2.pt",
+   "recorded": "80fc064ebb38793990225ccd0d1a1ccbe435e5513b55e975ad2b71dbdfc3399a",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10r_s0.pt",
+   "recorded": "25a3bccc5ff8b65972f573717d8981a8f7be9fba1dc3cf9b79de6e63858dabd2",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10r_s1.pt",
+   "recorded": "389ec325f8de180b92cbc4df9e75a7e3239c5536e749e25167b1d048f9da0122",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L10r_s2.pt",
+   "recorded": "626c06ee579574e0f4f79ea2fe93616bb304a3f0424e82437c77a454a8ce7db0",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L8_s0.pt",
+   "recorded": "6b7e06aa6b9312ff27594742516b854a0a4a0503832b3817f36121a9c7cb9bf5",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L8_s1.pt",
+   "recorded": "9c7c751cc25e0a4d9ced33ffb3c1d77341bb3c778b7e3398defae8d28775edf3",
+   "present": true,
+   "matches": true
+  },
+  {
+   "file": "mlp_L8_s2.pt",
+   "recorded": "d8e20589a346b82ccb51a6d0d3bb893ac00d157ce43d01c9141013e5dadfbd3a",
+   "present": true,
+   "matches": true
+  }
+ ],
+ "all_external_match": true,
+ "note": "    python tools/research/phase7_extension/verify_freeze.py --commit de22a8a --out research/phase7_extension/results/freeze_verification.json  For every file whose SHA-256 is recorded in research/phase7/PHASE7_MODEL_FREEZE.json (code, models in the repository, the protocol part II and the EGAD selection), the script compares the recorded hash with the file's bytes at the freeze commit (git show) and in the working tree. A file that differs now but matched at the freeze is listed as changed after the freeze, with the commits that touched it, so later edits are visible. Models kept outside the repository (DINOv3-input MLPs) are checked in --external-models if given. Historical hashes are not modified.",
+ "freeze_commit": "de22a8a22e868baea67ffbf8a7aeb46b873de1c4",
+ "freeze_record_sha256_at_commit": "cc353f6ef9daa66e01f40ee410ecbb848b214a9b56b7be6dd34bc382fe4f4b2e",
+ "freeze_record_unchanged_now": true,
+ "files": 25,
+ "all_match_at_freeze_commit": true,
+ "changed_after_freeze": [
+  {
+   "file": "apps/cli/src/main.rs",
+   "recorded": "e71282c601cd1495efb1c2c5484707778d0d07c90ddb6dfe9094024632794f71",
+   "matches_at_freeze_commit": true,
+   "matches_now": false,
+   "commits_after_freeze": [
+    "d995b37 Phase VII extension: native equivalence validated, corrections register, benchmark and GPD tools",
+    "2119f89 Phase VII extension: native learned ordering in the planner, start audit, P2 audit, GPD adapter"
+   ]
+  },
+  {
+   "file": "crates/grasping/src/planner.rs",
+   "recorded": "ade2b7a6710bddabc7cd997c71a2a676d6c7ef6fda9004d13fb66026ff334b15",
+   "matches_at_freeze_commit": true,
+   "matches_now": false,
+   "commits_after_freeze": [
+    "d995b37 Phase VII extension: native equivalence validated, corrections register, benchmark and GPD tools",
+    "2119f89 Phase VII extension: native learned ordering in the planner, start audit, P2 audit, GPD adapter",
+    "15fd43f Phase VII: reviews, readiness, cover letter, checklists; fix a determinism test"
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "file": "Cargo.lock",
+   "recorded": "5e51c55753002d84cb7f13aa2044f372d20dff1d3478dc3f333bd00762962671",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "apps/cli/src/main.rs",
+   "recorded": "e71282c601cd1495efb1c2c5484707778d0d07c90ddb6dfe9094024632794f71",
+   "matches_at_freeze_commit": true,
+   "matches_now": false,
+   "commits_after_freeze": [
+    "d995b37 Phase VII extension: native equivalence validated, corrections register, benchmark and GPD tools",
+    "2119f89 Phase VII extension: native learned ordering in the planner, start audit, P2 audit, GPD adapter"
+   ]
+  },
+  {
+   "file": "crates/grasping/src/planner.rs",
+   "recorded": "ade2b7a6710bddabc7cd997c71a2a676d6c7ef6fda9004d13fb66026ff334b15",
+   "matches_at_freeze_commit": true,
+   "matches_now": false,
+   "commits_after_freeze": [
+    "d995b37 Phase VII extension: native equivalence validated, corrections register, benchmark and GPD tools",
+    "2119f89 Phase VII extension: native learned ordering in the planner, start audit, P2 audit, GPD adapter",
+    "15fd43f Phase VII: reviews, readiness, cover letter, checklists; fix a determinism test"
+   ]
+  },
+  {
+   "file": "research/phase7/PHASE7_PROTOCOL.md",
+   "recorded": "22d3f64deee5adeebf8ce965d9fa53f97b91906f14daec94e280c162231f0056",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research/phase7/egad_selection.json",
+   "recorded": "9943dc20cb6a3d3135f096d8f628aa6d984fbea3ef8b7a39b6a48ef010c904e3",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research/phase7/frozen/mlp_L2_s0.pt",
+   "recorded": "b061a5eb5c27176a22624c70805c35361feef9119d190e839e9ad5dcc064edbd",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research/phase7/frozen/mlp_L2_s1.pt",
+   "recorded": "2adb39b734fa0fa7b11af9077cfd014860c3afa7d8793bd0e93e74f19fda20ee",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research/phase7/frozen/mlp_L2_s2.pt",
+   "recorded": "ac581301cdbc115a2e506b910997089db8faf0122e4a127ea22fa63eda10a02b",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research/phase7/frozen/p_feasible.pkl",
+   "recorded": "d1fe268da50679977e09808749dc662f075583ba42976c4c747cb9c03d906be6",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research/phase7/frozen/p_robust_given_feasible.pkl",
+   "recorded": "c09fde52bf6153c3e550072709f71e5efb52a2c974ea693366ca328d3f34dfa8",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase4/frozen_models.py",
+   "recorded": "a426d1133f1ba3b33d42e580d8d8bcf08fae36db186e79f9286dc1b055bf4a8e",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase4/visual_prior.py",
+   "recorded": "4146b85728040e9bc5ac6ae34d154fdc12ad60346c95d0b8ef8a06e19a483505",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase5/baselines.py",
+   "recorded": "8ac8c1438f94bfaa224fe83af7d539936b8efa464ad780ae2838f121a573bb2c",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase5/catalogue.py",
+   "recorded": "af758f87d7eeee7fecbbf9ff7611adfe10e806ecea3bd374934ac6d23ec7153f",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase5/dynamics.py",
+   "recorded": "15548d67dbcc184c2e798e89c7efbb826ba8945085b486fc62f1f5f894d98379",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase5/stats.py",
+   "recorded": "59983a34e4f9349c7cf92aea27bbb08725792a89a941d27b169214064486ce43",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase6/fusion.py",
+   "recorded": "5c54fe64eecd5852e41ba4446e273c3fd749e8937c562f8f7d7f21e410f25ff0",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase6/mechanism.py",
+   "recorded": "76c312c301ab5b0fc5c0e4a4bf943e919f4b47bc9ae1914fe2f3ca3a6655f2a9",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase6/physics.py",
+   "recorded": "24a1b682ec9a075b4ea17f07d22b0b9b4dae162438200ede599d164d31648dc1",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase7/articulated.py",
+   "recorded": "3ef1ff5df947a6b7bc47852f817dfbdaa660c9b40d2c5a4bed99ff91b757d2c9",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase7/physics.py",
+   "recorded": "0784f9a4d43f3aae0e69f08447c2f82ef4a0d2e9b57a601bb4545f193d5f303b",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "research_grasping/phase7/representation.py",
+   "recorded": "25a4b3dd6babeb682d3ccfdafcee8f19dd2c5be9f84499b9c91fb049a6d5a2ff",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "tools/research/phase7/egad_confirm.py",
+   "recorded": "c272ccb584e93dd9367fcdd391bfea5b8aa7a41219a164bdb73dcee46256f12d",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "tools/research/phase7/egad_prepare.py",
+   "recorded": "5394877dcebc5936aa4517868a3ce4df4b1a4feead6cafe0e022b2da702b6b01",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  },
+  {
+   "file": "tools/research/phase7/freeze_record.py",
+   "recorded": "59eada713c59f72a36acb7e646419386ca9b7ea435441aa588de9ebadf425c05",
+   "matches_at_freeze_commit": true,
+   "matches_now": true,
+   "commits_after_freeze": []
+  }
+ ]
+}
