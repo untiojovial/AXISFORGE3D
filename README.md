@@ -89,3 +89,18 @@ sellable product.
 The independent Python research package supports Bayesian optimization of external objectives. Installation, examples, scientific evidence and limitations are in the [AxisForgeBO guide](docs/axisforge-bo/README.md).
 
 The [phase II research dossier](research/README.md) contains the thesis reconstruction, transfer experiments, and an AxisForge3D–MuJoCo pilot.
+
+## Licence
+
+AxisForge3D's own code, documentation and results are licensed under the
+[Apache License 2.0](LICENSE). Datasets, models, weights, robot models and
+other third-party material keep their own licences. They are listed, with
+attribution and the files concerned, in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and their licence texts are
+in [LICENSES/](LICENSES).
+
+Embeddings computed with DINOv3 are distributed only under the
+[DINOv3 License](LICENSES/DINOv3-License.md), never under Apache-2.0. No
+third-party mesh or model weight is redistributed. The scripts that fetch them
+from their publishers, pinned and checked by hash, are described in
+[tools/fetch/README.md](tools/fetch/README.md).

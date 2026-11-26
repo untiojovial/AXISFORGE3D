@@ -1,0 +1,304 @@
+{
+ "note": "    python tools/licenses/build_manifest.py --out research/phase7_extension/third_party_manifest.json  The component records below are maintained by hand from the evidence named in each record; the script adds the SHA-256 of the affected committed files and of the licence texts kept in LICENSES/, so that any later change to them is visible. Verification date of every record: 2026-11-26 unless stated otherwise.",
+ "repository_commit_when_built": "49eb5bb445a96b5de1f23501e7de4443cb081e82",
+ "licence_texts_sha256": {
+  "LICENSES/Apache-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "LICENSES/BSD-3-Clause-EGAD.txt": "3fa99635183f273fb626a570a56e5d05a953e160af39f3b799964dcb1bff88a0",
+  "LICENSES/BSD-3-Clause-example-robot-data.txt": "69d6aaa72d964c5eac9dfac36dd0955f2f62562cf7de9d879e80788c35b7363e",
+  "LICENSES/CC-BY-4.0.txt": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+  "LICENSES/DINOv3-License.md": "25d122eb8f5b880fd23c736fb6ea8018ee45c12237e00b8a86d14c653904999e",
+  "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+ },
+ "components": [
+  {
+   "name": "AxisForge3D source code, documentation and own results",
+   "version": "repository",
+   "source": "this repository",
+   "license": "Apache-2.0",
+   "evidence": "LICENSE (official text from https://www.apache.org/licenses/LICENSE-2.0.txt); author authorisation of 2026-11-26",
+   "redistribution": "yes",
+   "attribution": "copyright holder: the AxisForge3D author (name pending)",
+   "affected": [
+    "LICENSE",
+    "Cargo.toml",
+    "pyproject.toml"
+   ],
+   "status": "compliant",
+   "notes": "Apache-2.0 covers only material the author has rights to; the third-party items below keep their own terms.",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "Cargo.toml": "d5d0ef91cfd9dfd4b496a13e92abdeaf40072c549bb19a2ba06d13ca6a7540df",
+    "pyproject.toml": "c3fea985334b1ef4d0e364c97c8561dc8e54efcb30d27dd815e3b16d3f13e4ff"
+   }
+  },
+  {
+   "name": "YCB Object and Model Set (16 objects of the GRASPA layouts)",
+   "version": "YCB-Video models as packaged by pybullet-object-models @ 57cc4007607f6bcbb0a5364ccab7636faf7a91e4",
+   "source": "https://github.com/eleramp/pybullet-object-models (ycb_objects/Ycb*/); upstream YCB: https://ycb-benchmarks.s3.amazonaws.com/index.html",
+   "license": "YCB dataset: CC BY 4.0 (YCB code: MIT). Packaging repository: LGPL-2.1 (its LICENSE file). YCB-Video model terms: not verified",
+   "evidence": "YCB S3 index page (\"License for the data set: Creative Commons Attribution 4.0 International (CC BY 4.0)\", \"License for the code: MIT license\") and AWS Open Data Registry entry (license: CC BY 4.0), both read on 2026-11-26; pybullet-object-models LICENSE (LGPL-2.1) and README (\"The YCB Video dataset (posecnn, YCB_Video_toolbox)\") read on 2026-11-26. Provenance check: the 16 meshes downloaded from the pinned commit reproduce the Phase IV objects exactly (identical world bounds, 0.0 mm, and identical candidate counts); the project-file hashes differ only by the project format.",
+   "redistribution": "meshes and renders: not redistributed; derived numeric data (bounds, grasp candidates, descriptors, statistics): included with attribution",
+   "attribution": "Calli et al. 2015 (YCB Object and Model Set); YCB-Video models of the PoseCNN project (https://rse-lab.cs.washington.edu/projects/posecnn/); pybullet-object-models (https://github.com/eleramp/pybullet-object-models); modifications: placed at (0.42, 0, 0.42) m in the demo cell, mass from the package URDF, no geometric change",
+   "affected": [
+    "tools/verify/ycb_pick.sh",
+    "research/phase4/grasp_prior/library.json",
+    "research/phase4/grasp_prior/dinov2.npz",
+    "research/phase4/grasp_prior/dinov3.npz",
+    "research/phase4/grasp_prior/openclip.npz",
+    "research/phase4/grasp_prior/vit-random.npz",
+    "research/phase5/results/descriptors.npz"
+   ],
+   "status": "resolved: licence and exact provenance verified; meshes not redistributed. Residual: whether LGPL-2.1 terms of the packaging repository attach to numeric data derived from its meshes (author decision D-YCB)",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "tools/verify/ycb_pick.sh": "50e3b664dad59d2af8414ab7bd15095bf86e754d5efd8a48e7b3cbba7340f6da",
+    "research/phase4/grasp_prior/library.json": "d82f9698491682936da3e4e747b3cff495aee6d5a71b626ece14e71f8ff8d83f",
+    "research/phase4/grasp_prior/dinov2.npz": "91a73f333b5776338e73b841c6a2da1633cbc437f3557efb57fc8db6867ba5ba",
+    "research/phase4/grasp_prior/dinov3.npz": "8a4dedabb88963dd5cb0ce06832aa151113dfb987e02d7a43f57bfb49cf5cfdd",
+    "research/phase4/grasp_prior/openclip.npz": "2e848805194596715647564ee1221521184ba6d5e44978a0f78fe61a0655cbd6",
+    "research/phase4/grasp_prior/vit-random.npz": "1c175587539bb70d9797d1a8600551460a01367e5b3fc1d2d50633191bf9bc9a",
+    "research/phase5/results/descriptors.npz": "87d542e3d32c13409be02dcfcf403ceea622f664f286b7bb5eb4dd8e35245dc0"
+   }
+  },
+  {
+   "name": "Google Scanned Objects (GSO)",
+   "version": "MuJoCo adaptation kevinzakka/mujoco_scanned_objects @ 6ff8d275cebfd5b47e49685e3cfbe64b20e49a3c",
+   "source": "https://github.com/kevinzakka/mujoco_scanned_objects; upstream https://arxiv.org/abs/2204.11918",
+   "license": "OBJ and PNG: CC BY 4.0; MJCF XML: MIT (as stated in the adaptation README)",
+   "evidence": "research/phase3/dataset/README.md (Phase III verification of the pinned README)",
+   "redistribution": "meshes not redistributed; renders of 22 objects (research/phase4/embedding_experiment/development-images.zip) are adaptations under CC BY 4.0; numeric data included with attribution",
+   "attribution": "Downs et al. 2022 (Google Scanned Objects); MuJoCo adaptation by K. Zakka; modifications: grey renders, CoACD/V-HACD collision pieces, placement in the demo cell",
+   "affected": [
+    "research/phase4/embedding_experiment/development-images.zip",
+    "research/phase5/results/descriptors.npz",
+    "research/phase5/results/parts.json"
+   ],
+   "status": "compliant with attribution (CC BY 4.0 notice in THIRD_PARTY_NOTICES.md and LICENSES/CC-BY-4.0.txt)",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "research/phase4/embedding_experiment/development-images.zip": "367a11c3bde0b63226cf841a7e70500a33fd57f757eee4d415ec3cbad55ee9a7",
+    "research/phase5/results/descriptors.npz": "87d542e3d32c13409be02dcfcf403ceea622f664f286b7bb5eb4dd8e35245dc0",
+    "research/phase5/results/parts.json": "94a9beffcb5e7185edc410546a91ee2050b61cd412ac09de5bc896d4b4334e44"
+   }
+  },
+  {
+   "name": "EGAD (Evolved Grasping Analysis Dataset)",
+   "version": "training set (2 281 meshes) and evaluation set (49); archives hashed in research/phase7/egad_archives.sha256",
+   "source": "https://github.com/dougsm/egad and the QUT data record",
+   "license": "BSD-3-Clause",
+   "evidence": "research/phase7/EGAD_LICENSE.txt (copied to LICENSES/BSD-3-Clause-EGAD.txt)",
+   "redistribution": "meshes not redistributed; names, hashes and derived statistics included",
+   "attribution": "Morrison, Corke, Leitner 2020; copyright D. Morrison, ACRV/QUT 2020; modifications: rescaled per the authors' rule, stable pose, CoACD pieces",
+   "affected": [
+    "research/phase7/egad_selection.json",
+    "research/phase7/results/*",
+    "research/phase7_extension/results/*"
+   ],
+   "status": "compliant",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "research/phase7/egad_selection.json": "9943dc20cb6a3d3135f096d8f628aa6d984fbea3ef8b7a39b6a48ef010c904e3",
+    "research/phase7/results/articulated_simulator_validation.json": "e1bd422fe91fdf60ff26ecdf17339ce98327bee85f08fbd7dd602235c8bedd2d",
+    "research/phase7/results/confirmation_articulated.json.gz": "ea2aa9ee7bc4048771be98f73963f7ccf863ecf042893fcc6621fcb8bb1f12e5",
+    "research/phase7/results/confirmation_built.json": "26ec7a8541d5003bf8a5fadbddf576406a4c802ec3cbeefda44922a7db2842e3",
+    "research/phase7/results/confirmation_orders.json": "71aeb8fc287e585938c76b3f2c6aa57646ee0a0f714791293bb30f8e17b245e4",
+    "research/phase7/results/confirmation_results.json": "3d34aaa286137bc34ae2b3b1f3895fb0a1d4abfe32335a004960c89851b86a8f",
+    "research/phase7/results/confirmation_status.json": "fe80694d4517261ab9092afaba9d6e98ce3c8640406814fc178491ede95e0bb3",
+    "research/phase7/results/confirmation_timing.json": "d4210a3f2f7f675f359dfb80c288c1f13d482b0d6d115283543917e2f3674816",
+    "research/phase7/results/confirmation_trials.json.gz": "1b1389c3fe9e662619e540cc4dcdcca90be8ce0d2a253cb943670de37a50a634",
+    "research/phase7/results/cross_dataset_results.json": "6032c807e4bf1c63ede4f0f9f63a9f7d48d161b9c8b547e10c780f10bfa16514",
+    "research/phase7/results/cross_robot_results.json": "cec0a62d90a4a8722aa38860f5ba57821bb589f0cfbe18c7b28c8389054095e0",
+    "research/phase7/results/external_baselines.json": "58961d410eefdd45047a7fa93c1160e7aec1f26b773b1bd925988ec743db60a1",
+    "research/phase7/results/few_shot_analysis.json": "02e80c92b7aea7372b3e314b2a8e52f75ad5ec85d9842b9ce7755167b8bec1ba",
+    "research/phase7/results/friction_sensitivity.json": "950bb02d91157c45a2400ecab90746cb8e8b286ebd1f55b05d26e35c0fd02cab",
+    "research/phase7/results/full_online_costs.json": "b4e7bf1eaccb4007293337a55103f019867a222ca91ed0bf4ea3ac7b399c33ad",
+    "research/phase7/results/linear_projection_benchmark.json": "ead8e553ad0f6858e906d45d9937fcc6b83d0f5599f2962f2920dc3a49b4af41",
+    "research/phase7/results/local_features_benchmark.json": "e85711d64e079e68820a5d3f8be74faff70831c5e4ddd47ac53ef012b589b0a6",
+    "research/phase7/results/mlp_benchmark.json": "f903cc687118463b92560c33563be518733b24bd2fef19e348abd91f5ddfae20",
+    "research/phase7/results/negative_transfer_analysis.json": "9b3da137f896c603254d62c7aa39f36eb7f034a474b02e481be03fa8aaf4b010",
+    "research/phase7/results/phase6_verification.json": "91e230815a018dd47795df77b389a03e4be21c68c9bec1b2e65a3c6685da2bb5",
+    "research/phase7/results/phase7_statistical_power.json": "7969b2127a31c9f72315d9a727474d0fc2b07f551254ae90cf11fc6ec73b6c32",
+    "research/phase7/results/physical_validation.json": "279e8cb59443dfd4cfdb07a377f682e86980fd2ed553eb9c664b5c68380e89b0",
+    "research/phase7/results/physics_dev.json.gz": "488cf0624c2a755fa1c34fdc75775d63480403c317fa5fd37e68d444c79acdcf",
+    "research/phase7/results/physics_dev_with_joint.json.gz": "51358d57bcfb7e984a1e8f430a04fb439e39ce288b07e5f9a78f1793458c046e",
+    "research/phase7/results/ranking_loss_benchmark.json": "4d54f97df205d9dcdfe83e11e4449eba9d471092ec4a43c874e787f3425d0553",
+    "research/phase7/results/robustness_benchmark.json": "885e61425b505d20f6b27327b3eb2c3bc07ec71e955c186300a95d61d903ae00",
+    "research/phase7/results/rotation_validation.json": "3aa50307acd52e734b04602de30ef0387fb413b59cbbaa71dd805f61bbf710c3",
+    "research/phase7/results/sweep_v2_extended.json.gz": "87f92af3b543b22228de8dda0e7d3611d11cb24407310e891fc3e6905358f769",
+    "research/phase7/results/visual_ablation.json": "f1d08b19d42b2f6c6b09c3efcbf3a64d8c699e1adc4ea96926e79053c70f7208",
+    "research/phase7_extension/results/corrections_addendum.json": "95ffb7c800a8aa945827e973c06d1424050ac1778e2ac38bfe4c70c7e3d2c180",
+    "research/phase7_extension/results/dependency_licences.json": "c141972e67f23797aa33871eb84f37aaa23f5a9afe7ec030963f79a3950dafbb",
+    "research/phase7_extension/results/native_inference_validation.json": "c6a33b5679d894e7b7b63e97489427f830e271d45a2c7cef2a687bafdc91caee",
+    "research/phase7_extension/results/new_set_untouched.json": "66203cd3884d15a4b2fe5373f90141b9f564e07c777aaf72e73fbf144ea633bb",
+    "research/phase7_extension/results/p2_statistical_audit.json": "2b17724303c0835c00c10f8f9313110796d2f4a015bd75009e6fd09a925b6207",
+    "research/phase7_extension/results/start_verification.json": "93d79d548ed3e9d8e69bb1373712dc1047a57edf77b2e53645577cd43fb192bc"
+   }
+  },
+  {
+   "name": "DINOv3 ViT-S/16 (Meta) and its embeddings",
+   "version": "timm copy used in Phases IV-VII (weights not in the repository)",
+   "source": "https://github.com/facebookresearch/dinov3",
+   "license": "DINOv3 License (Meta), last updated 2025-08-19 \u2014 not Apache-2.0",
+   "evidence": "LICENSES/DINOv3-License.md (fetched from https://raw.githubusercontent.com/facebookresearch/dinov3/main/LICENSE.md on 2026-11-26)",
+   "redistribution": "weights: no. Embeddings computed with the model: kept in the repository and distributed only under the DINOv3 License with a copy of it (clause 1.b.i), which satisfies the licence whether or not embeddings are derivative works; packaged separately from the Apache-2.0 material",
+   "attribution": "acknowledge the use of DINO Materials in any publication (clause 1.b.ii)",
+   "affected": [
+    "research/phase4/embedding_experiment/dinov3/global_embeddings.npz",
+    "research/phase4/grasp_prior/dinov3.npz",
+    "research/phase4/grasp_prior/new_parts/dinov3.npz",
+    "research/phase4/grasp_prior/scale/development/dinov3-metric.npz",
+    "research/phase4/grasp_prior/scale/test/dinov3.npz",
+    "research/phase4/grasp_prior/scale/test/dinov3-metric.npz",
+    "research/phase5/results/descriptors.npz",
+    "research/phase4/grasp_prior/new_parts/library.json.gz",
+    "research/phase4/grasp_prior/scale/test/test-library.json.gz",
+    "research/phase5/near_duplicates.json"
+   ],
+   "status": "compliant under the stricter reading (licence copy + DINOv3-License labelling); not relicensed",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "research/phase4/embedding_experiment/dinov3/global_embeddings.npz": "e3d3bc3c2cf41831c0c3b116f5b09f6bf032e9cf037124227a84b1f380bad776",
+    "research/phase4/grasp_prior/dinov3.npz": "8a4dedabb88963dd5cb0ce06832aa151113dfb987e02d7a43f57bfb49cf5cfdd",
+    "research/phase4/grasp_prior/new_parts/dinov3.npz": "eacabdfd6fe0b96c6e6aec9875bc5375ad5d6ed960c9847202ac33f68ec7b8bf",
+    "research/phase4/grasp_prior/scale/development/dinov3-metric.npz": "2d1468674352bdd7428e9d5c5ebc91f4c902922a60188a6045078b9e5797de0e",
+    "research/phase4/grasp_prior/scale/test/dinov3.npz": "8d95c0296c929f5dd46b0502644f952cb0386770c87524ae5f4e34f89ac8c1ad",
+    "research/phase4/grasp_prior/scale/test/dinov3-metric.npz": "07737d2579b9d3fcf271c5398869cc4454e701fb9f950cdbe30bf599ba6664a1",
+    "research/phase5/results/descriptors.npz": "87d542e3d32c13409be02dcfcf403ceea622f664f286b7bb5eb4dd8e35245dc0",
+    "research/phase4/grasp_prior/new_parts/library.json.gz": "5b07b24fff5707dbf7108ca2e7106e758e28a0cec788841e305131b36cf9b261",
+    "research/phase4/grasp_prior/scale/test/test-library.json.gz": "9c1321b385d14f5d33155b45b4f9465166ea23dd698add533b7ab51809a201e3",
+    "research/phase5/near_duplicates.json": "6ce6afec6433f6eb93ffd9679edbc1e5c7cb03a05826727f04a41d22217588a8"
+   }
+  },
+  {
+   "name": "DINOv2 ViT-S/14 (Meta)",
+   "version": "facebook/dinov2-small (revision recorded in the descriptor provenance)",
+   "source": "https://huggingface.co/facebook/dinov2-small",
+   "license": "Apache-2.0 (model card)",
+   "evidence": "research/phase7/PHASE7_REPOSITORY_AUDIT.md \u00a75",
+   "redistribution": "weights: no; embeddings: yes, with attribution",
+   "attribution": "Oquab et al. 2023 (DINOv2)",
+   "affected": [
+    "research/phase4/grasp_prior/dinov2.npz",
+    "research/phase5/results/descriptors.npz"
+   ],
+   "status": "compliant",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "research/phase4/grasp_prior/dinov2.npz": "91a73f333b5776338e73b841c6a2da1633cbc437f3557efb57fc8db6867ba5ba",
+    "research/phase5/results/descriptors.npz": "87d542e3d32c13409be02dcfcf403ceea622f664f286b7bb5eb4dd8e35245dc0"
+   }
+  },
+  {
+   "name": "OpenCLIP ViT-B-32-quickgelu, LAION-400M epoch 31",
+   "version": "open_clip_torch 4.2.2; checkpoint vit_b_32-quickgelu-laion400m_e31-d867053b.pt",
+   "source": "https://github.com/mlfoundations/open_clip/releases/download/v0.2-weights/vit_b_32-quickgelu-laion400m_e31-d867053b.pt",
+   "license": "weights: MIT (model card of the registry's mirror timm/vit_base_patch32_clip_224.laion400m_e31, \"license: mit\"); code: MIT. Training data LAION-400M: its own terms, not assessed (not redistributed)",
+   "evidence": "open_clip src/open_clip/pretrained.py (main, read 2026-11-26) maps laion400m_e31 of ViT-B-32-quickgelu to that URL and to hf_hub timm/vit_base_patch32_clip_224.laion400m_e31; the Hugging Face model card README declares license: mit (read 2026-11-26); the checkpoint used has SHA-256 d867053b2301634007ed9af230bfb1a217ec634f6c0329f04092133ae5c4b89e and 605 159 845 bytes (research_grasping/phase3/fetch_openclip.py), whose prefix matches the official file name",
+   "redistribution": "weights: no (fetch script with pinned URL, size and hash); embeddings: yes",
+   "attribution": "Ilharco et al. (OpenCLIP); Schuhmann et al. 2021 (LAION-400M)",
+   "affected": [
+    "research_grasping/phase3/fetch_openclip.py",
+    "research/phase4/grasp_prior/openclip.npz",
+    "research/phase4/embedding_experiment/openclip_development.zip"
+   ],
+   "status": "resolved: checkpoint identified (e31, not e32) and its declared licence verified",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "research_grasping/phase3/fetch_openclip.py": "9745454220103d543ab1e1c97110148b23ab8a7db2ecb8346c759974809a4446",
+    "research/phase4/grasp_prior/openclip.npz": "2e848805194596715647564ee1221521184ba6d5e44978a0f78fe61a0655cbd6",
+    "research/phase4/embedding_experiment/openclip_development.zip": "6fe723e9b9b28b9a29500a4ecf2bd76102fd7cdddd7d6a302e0001bf05317610"
+   }
+  },
+  {
+   "name": "GPD (Grasp Pose Detection) and its LeNet weights",
+   "version": "commit 6327f20eabfcba41a05fdd2e2ba408153dc2e958 (2021-07-15)",
+   "source": "https://github.com/atenpas/gpd",
+   "license": "BSD-2-Clause (repository LICENSE.md, copyright 2018 Andreas ten Pas); the weights ship in the same repository",
+   "evidence": "local clone, LICENSE.md",
+   "redistribution": "not redistributed; built locally; the adapter in tools/research/phase7_extension/gpd_adapter is own code (Apache-2.0) that links to the unmodified library",
+   "attribution": "ten Pas et al. 2017 (GPD)",
+   "affected": [
+    "tools/research/phase7_extension/gpd_adapter/*"
+   ],
+   "status": "compliant",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "tools/research/phase7_extension/gpd_adapter/CMakeLists.txt": "d9bb0700736e9fceec668b24e75e5fb619a86f0a96b78e7d29257748ed725e79",
+    "tools/research/phase7_extension/gpd_adapter/gpd_score_candidates.cpp": "016163a7d7da1efb261bd981aaf9b59e7705500e1851b7971751ef1f6db4df53"
+   }
+  },
+  {
+   "name": "UR5 model (example-robot-data)",
+   "version": "robots/ur_description (branch master at copy time)",
+   "source": "https://github.com/Gepetto/example-robot-data",
+   "license": "BSD-3-Clause",
+   "evidence": "apps/viewer/samples/ur5/LICENSE, crates/project-io/tests/data/ur5/LICENSE",
+   "redistribution": "yes, with the licence alongside",
+   "attribution": "LAAS-CNRS, University of Edinburgh, INRIA",
+   "affected": [
+    "apps/viewer/samples/ur5/*",
+    "crates/project-io/tests/data/ur5/*"
+   ],
+   "status": "compliant",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "apps/viewer/samples/ur5/LICENSE": "69d6aaa72d964c5eac9dfac36dd0955f2f62562cf7de9d879e80788c35b7363e",
+    "apps/viewer/samples/ur5/README.md": "7c1a12013975c6f9cbc6cd8b54c99d62b3e3ba8815f9825427764b8d123405f5",
+    "apps/viewer/samples/ur5/robot.urdf": "cede880fc2a987ef9dd23bbcda3e0ad1e7b1df8b58d638d100cfbff8ebc806cb",
+    "crates/project-io/tests/data/ur5/LICENSE": "69d6aaa72d964c5eac9dfac36dd0955f2f62562cf7de9d879e80788c35b7363e",
+    "crates/project-io/tests/data/ur5/README.md": "b07406194157bca0cfc6c773dc7b8f6d47987e08d6078f5eae61b041da8aa97c",
+    "crates/project-io/tests/data/ur5/ur5_robot.urdf": "cede880fc2a987ef9dd23bbcda3e0ad1e7b1df8b58d638d100cfbff8ebc806cb"
+   }
+  },
+  {
+   "name": "three.js",
+   "version": "0.150.1",
+   "source": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.150.1/three.min.js",
+   "license": "MIT",
+   "evidence": "loaded from the CDN at run time by apps/viewer (not vendored)",
+   "redistribution": "not redistributed",
+   "attribution": "three.js authors",
+   "affected": [
+    "apps/viewer/body.part.html"
+   ],
+   "status": "compliant",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "apps/viewer/body.part.html": "7e0254c0ea85ea090ab37ebe83c141a1581d8f1e85b3eca60a9ae015ee4f7639"
+   }
+  },
+  {
+   "name": "MuJoCo, CoACD, trimesh, PyTorch, scikit-learn and other Python packages; Rust crates",
+   "version": "see research/phase7_extension/results/dependency_licences.json",
+   "source": "PyPI / crates.io",
+   "license": "permissive (MIT, BSD, Apache-2.0, PSF, MIT-CMU); no copyleft dependency found",
+   "evidence": "tools/licenses/audit_dependencies.py output",
+   "redistribution": "not redistributed (installed by pip and cargo)",
+   "attribution": "THIRD_PARTY_NOTICES.md",
+   "affected": [
+    "Cargo.lock",
+    "pyproject.toml"
+   ],
+   "status": "compliant",
+   "verified": "2026-11-26",
+   "affected_sha256": {
+    "Cargo.lock": "5e51c55753002d84cb7f13aa2044f372d20dff1d3478dc3f333bd00762962671",
+    "pyproject.toml": "c3fea985334b1ef4d0e364c97c8561dc8e54efcb30d27dd815e3b16d3f13e4ff"
+   }
+  },
+  {
+   "name": "PCL, Eigen, OpenCV (system packages used to build GPD)",
+   "version": "Ubuntu packages of the build machine",
+   "source": "apt",
+   "license": "PCL BSD-3-Clause; Eigen MPL-2.0; OpenCV Apache-2.0 (as declared by the projects)",
+   "evidence": "not verified against the package copyright files in this pass",
+   "redistribution": "not redistributed",
+   "attribution": "\u2014",
+   "affected": [],
+   "status": "not applicable to the repository (build-time only)",
+   "verified": "2026-11-26",
+   "affected_sha256": {}
+  }
+ ]
+}

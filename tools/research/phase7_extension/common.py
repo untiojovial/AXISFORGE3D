@@ -1,8 +1,11 @@
 """Shared helpers of the Phase VII extension scripts (development orders, outcomes, statistics)."""
 import gzip
+import hashlib
 import json
 from pathlib import Path
+import pickle
 import sys
+import time
 
 import numpy as np
 
@@ -32,7 +35,9 @@ def dev_oof_orders(dev, cats, store, pri, sw, betas):
             Xt.append(X[n][idx])
             yt.append([all(c in sw['parts'][n][str(cats[n]['label'][i])] and sw['parts'][n][str(cats[n]['label'][i])][c][0]
                            for c in std) for i in idx])
+        t0 = time.perf_counter()
         model = bl.fit(np.vstack(Xt), np.concatenate(yt).astype(int), 0)
+        print(f'dev_oof_orders: fold {k} fitted on {sum(map(len, Xt))} rows in {time.perf_counter()-t0:.0f} s', file=sys.stderr, flush=True)
         for i in test:
             n = dev[i]; cat = cats[n]
             h = model.predict_proba(X[n])[:, 1]; h_oof[n] = h
@@ -46,7 +51,12 @@ def dev_oof_orders(dev, cats, store, pri, sw, betas):
     return orders, h_oof
 
 
-def load_dev(dev_json, catalogues, store_json, priors_npz, sweep_gz, physics_gz):
+def load_dev(dev_json, catalogues, store_json, priors_npz, sweep_gz, physics_gz, cache_dir=None):
+    """Development parts, catalogues, out-of-fold P(F) priors and the out-of-fold orders of M0-Joint.
+
+    The orders (5 gradient-boosting fits) are cached in cache_dir (default: next to the priors file) under a
+    key that hashes every input file, so a changed input never reuses a stale cache."""
+    t0 = time.perf_counter()
     dev = sorted(json.loads(Path(dev_json).read_text())['parts'])
     store = json.loads(Path(store_json).read_text())
     cats = {n: catalogue.load(Path(catalogues)/f'{n}.npz') for n in dev}
@@ -54,7 +64,16 @@ def load_dev(dev_json, catalogues, store_json, priors_npz, sweep_gz, physics_gz)
     pri = {n: pz[f'{n}|learned'].astype(float)/pz[f'{n}|learned'].max() for n in dev}
     sw = json.load(gzip.open(sweep_gz, 'rt'))
     ph = json.load(gzip.open(physics_gz, 'rt'))
-    orders, h = dev_oof_orders(dev, cats, store, pri, sw, ph['joint_betas_by_fold'])
+    print(f'load_dev: inputs read in {time.perf_counter()-t0:.0f} s', file=sys.stderr, flush=True)
+    key = hashlib.sha256(b''.join(hashlib.sha256(Path(f).read_bytes()).digest()
+                                  for f in (dev_json, store_json, priors_npz, sweep_gz, physics_gz))).hexdigest()[:16]
+    cache = Path(cache_dir or Path(priors_npz).parent)/f'dev_oof_orders_{key}.pkl'
+    if cache.exists():
+        orders, h = pickle.loads(cache.read_bytes())  # own cache file, keyed by the inputs' hashes
+    else:
+        orders, h = dev_oof_orders(dev, cats, store, pri, sw, ph['joint_betas_by_fold'])
+        cache.write_bytes(pickle.dumps((orders, h)))
+    print(f'load_dev: orders ready in {time.perf_counter()-t0:.0f} s', file=sys.stderr, flush=True)
     mism = [(n, m) for n in dev for m in ('M0', 'M1', 'M4', 'M9', 'Joint') if first(cats[n], orders[n][m])[1] != ph['core'][n][m]]
     if mism:
         raise SystemExit(f'development orders do not reproduce the Phase VII first grasps: {mism[:5]}')

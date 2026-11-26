@@ -114,6 +114,7 @@ def main():
     p.add_argument('--cold-reps', type=int, default=3); p.add_argument('--warm-calls', type=int, default=6)
     p.add_argument('--cpu', type=int, default=3); p.add_argument('--seed', type=int, default=20261211)
     p.add_argument('--limit', type=int)
+    p.add_argument('--raw-dir', help='one JSON per object, reused when present (restart-safe)')
     a = p.parse_args()
     dev_store = json.loads(Path(a.dev_store).read_text()); egad_store = json.loads(Path(a.egad_store).read_text())
     dev_names = sorted({r['part'] for r in json.loads(Path(a.dev_costs).read_text())['rows']})
@@ -126,7 +127,14 @@ def main():
         objects = objects[:a.limit]
     others = subprocess.run(['ps', '-eo', 'pcpu,comm', '--sort=-pcpu'], capture_output=True, text=True).stdout.splitlines()[1:8]
     raw, t_start = {}, time.time()
+    raw_dir = Path(a.raw_dir) if a.raw_dir else None
+    if raw_dir:
+        raw_dir.mkdir(parents=True, exist_ok=True)
     for i, (kind, n, proj) in enumerate(objects):
+        if raw_dir and (raw_dir/f'{n}.json').exists():
+            raw[n] = json.loads((raw_dir/f'{n}.json').read_text())
+            continue
+        rnd = random.Random(f'{a.seed}-{n}')  # per-object order of modes, independent of restarts
         load0 = os.getloadavg()[0]
         rec = dict(kind=kind, cold={m: [] for m in MODES}, warm={})
         for rep in range(a.cold_reps):
@@ -147,6 +155,8 @@ def main():
                                               search=c['timings']['searchSeconds']) for c in calls])
         rec['load_avg_before_after'] = [load0, os.getloadavg()[0]]
         raw[n] = rec
+        if raw_dir:
+            (raw_dir/f'{n}.json').write_text(json.dumps(rec))
         print(i+1, len(objects), kind, n, f'{time.time()-t_start:.0f}s load {load0:.2f}', flush=True)
 
     # consistency and per-object summaries

@@ -14,6 +14,8 @@ research_grasping/phase7/physics.py):
 - extended scenarios at 0.005 m: tangential friction 0.7, centre of mass shifted by +/-5 mm along world x.
 
 One JSON per part, written when the part is complete (restart-safe). No EGAD object is touched.
+With --labels-json FILE ({part: [label, ...]}) exactly those candidates are simulated instead (used for the
+first grasps of new development orders that the sample did not contain); write them to another --out-dir.
 """
 import argparse
 from concurrent.futures import ProcessPoolExecutor
@@ -79,11 +81,18 @@ def main():
         p.add_argument(f'--{k}', required=True)
     p.add_argument('--cap', type=int, default=30)
     p.add_argument('--jobs', type=int, default=3)
+    p.add_argument('--labels-json')
     a = p.parse_args()
     Path(a.out_dir).mkdir(parents=True, exist_ok=True)
     dev = sorted(json.loads(Path(a.dev).read_text())['parts'])
     core = json.load(gzip.open(a.physics, 'rt'))['core']
     tasks, manifest = [], {}
+    if a.labels_json:
+        want = json.loads(Path(a.labels_json).read_text())
+        tasks = [(n, sorted(set(ls))) for n, ls in want.items() if ls and n in set(dev)]
+        (Path(a.out_dir)/'manifest.json').write_text(json.dumps(dict(labels_json=a.labels_json, plan={k: [c for c, _ in v] for k, v in PLAN.items()},
+                                                                     parts={n: ls for n, ls in tasks}), indent=1))
+        dev = []
     for i, n in enumerate(dev):
         cat = catalogue.load(Path(a.catalogues)/f'{n}.npz')
         viable = [str(x) for x in cat['label'][cat['feasible']]]
@@ -92,8 +101,9 @@ def main():
         labels = sorted(set(sample) | set(core[n].values()))
         manifest[n] = dict(viable=len(viable), sampled=sample, core=core[n], simulated=labels)
         tasks.append((n, labels))
-    (Path(a.out_dir)/'manifest.json').write_text(json.dumps(dict(cap=a.cap, seed_base=20261210, plan={k: [c for c, _ in v] for k, v in PLAN.items()},
-                                                                 parts=manifest), indent=1))
+    if not a.labels_json:
+        (Path(a.out_dir)/'manifest.json').write_text(json.dumps(dict(cap=a.cap, seed_base=20261210,
+                                                                     plan={k: [c for c, _ in v] for k, v in PLAN.items()}, parts=manifest), indent=1))
     tasks.sort(key=lambda t: -len(t[1]))
     with ProcessPoolExecutor(max_workers=a.jobs, initializer=init, initargs=(a,)) as pool:
         for part, sec in pool.map(job, tasks):

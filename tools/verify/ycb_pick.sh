@@ -5,14 +5,18 @@
 #   tools/verify/ycb_pick.sh target/release/axisforge /path/to/empty/folder
 #
 # The meshes come from the pybullet-object-models project (LGPL-2.1; the YCB
-# models themselves are CC BY 4.0). They are downloaded into the folder given,
+# models themselves are CC BY 4.0; see THIRD_PARTY_NOTICES.md). They are downloaded into the folder given,
 # which should be new and empty: downloaded files are only read as mesh data.
 set -euo pipefail
 cli=$(realpath "$1")
 work=$2
 mkdir -p "$work"
 cd "$work"
-base=https://raw.githubusercontent.com/eleramp/pybullet-object-models/master/pybullet_object_models/ycb_objects
+# Pinned on 2026-11-26: this commit reproduces the Phase IV objects exactly (same world bounds and candidate
+# counts for all 16; see research/phase7_extension/ARTIFACT_REDISTRIBUTION_REGISTER.md). The original Phase IV
+# download used the branch head of that time, whose commit was not recorded.
+commit=57cc4007607f6bcbb0a5364ccab7636faf7a91e4
+base=https://raw.githubusercontent.com/eleramp/pybullet-object-models/$commit/pybullet_object_models/ycb_objects
 "$cli" demo --no-parts --out empty.axisforge > /dev/null
 for name in Banana ChipsCan CrackerBox FoamBrick GelatinBox Hammer MasterChefCan MediumClamp \
             MustardBottle Pear PottedMeatCan PowerDrill Scissors Strawberry TennisBall TomatoSoupCan; do
