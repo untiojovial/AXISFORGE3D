@@ -44,10 +44,14 @@ def labels_of(trials):
 
 
 def load_labels(a, dev):
-    lab, sampled = {}, {}
+    """Labels of every simulated candidate (sweep and extra). `sampled[n]` holds the sweep's random sample and
+    `train_set[n]` the sweep's whole simulated set (sample + the five reference orders' first grasps): the rule's
+    training rows. Extra simulations (first grasps of the compared variants) are used for evaluation only."""
+    lab, sampled, train_set = {}, {}, {}
     man = json.loads((Path(a.v3sweep)/'manifest.json').read_text())['parts']
     for n in dev:
         lab[n] = {}
+        train_set[n] = set()
         for d in (Path(a.v3sweep), Path(a.extra)):
             f = d/f'{n}.json'
             if f.exists():
@@ -55,16 +59,19 @@ def load_labels(a, dev):
                     y = labels_of(t)
                     if y:
                         lab[n][label] = y
+                        if d == Path(a.v3sweep):
+                            train_set[n].add(label)
         sampled[n] = set(man[n]['sampled']) if n in man else set()
-    return lab, sampled
+    return lab, sampled, train_set
 
 
-def fit_models(D, lab, sampled, train, k):
+def fit_models(D, lab_all, sampled, train, k, train_set):
     """Every P(H|F) model of the rule, fitted on the training parts' simulated viable candidates."""
     from sklearn.ensemble import HistGradientBoostingClassifier
     from sklearn.linear_model import LogisticRegression
     from sklearn.pipeline import make_pipeline
     from sklearn.preprocessing import StandardScaler
+    lab = {n: {l_: y for l_, y in lab_all[n].items() if l_ in train_set[n]} for n in train}  # sweep simulations only
     X, Y, P = [], {'y_std': [], 'y_all3': [], 'y_load': []}, []
     for n in train:
         cat = D['cats'][n]; lab_idx = {str(l): i for i, l in enumerate(cat['label'])}
@@ -150,7 +157,7 @@ def run(a):
     D['X'] = {n: bl.features(D['cats'][n], D['store'][n]['low'], D['store'][n]['high']) for n in dev}
     D['U'] = {n: np.concatenate([D['X'][n][0, rep.EXTENT_COLUMNS], np.asarray(D['store'][n]['descriptors']['d2'], float)]).astype(np.float32)
               for n in dev}
-    lab, sampled = load_labels(a, dev)
+    lab, sampled, train_set = load_labels(a, dev)
     perm = np.random.default_rng(20261130).permutation(len(dev))
     folds = [perm[f::5] for f in range(5)]
     preds_sim, firsts, orders_all, fit_info = {}, {}, {}, []
@@ -159,7 +166,7 @@ def run(a):
         train = [dev[i] for i in np.setdiff1d(np.arange(len(dev)), test)]
         test_names = [dev[i] for i in test]
         assert not set(train) & set(test_names), 'a test part is in the training set'
-        models, info = fit_models(D, lab, sampled, train, k)
+        models, info = fit_models(D, lab, sampled, train, k, train_set)
         fit_info.append(dict(fold=k, training_parts_listed=len(train), test_parts=len(test_names),
                              train_test_overlap=0, **info))
         fold_of.update({n: k for n in test_names})

@@ -16,6 +16,7 @@
 // CANDIDATES.txt: one grasp per line: cx cy cz ax ay az kx ky kz width (world frame, metres; a = approach
 // unit vector, k = closing unit vector). OUT.txt: one score per line, same order (higher = more likely
 // a good grasp, as GPD ranks).
+#include <chrono>
 #include <cstdio>
 #include <fstream>
 #include <iostream>
@@ -69,6 +70,9 @@ int main(int argc, char **argv) {
   for (int i = 0; i < 2; i++)
     for (int r = 0; r < 3; r++) views(r, i) = std::stod(argv[7 + 3 * i + r]);
 
+  using clock = std::chrono::steady_clock;
+  auto secs = [](clock::time_point a, clock::time_point b) { return std::chrono::duration<double>(b - a).count(); };
+  const auto t0 = clock::now();
   // GPD's default preprocessing (cfg/eigen_params.cfg): voxel grid 3 mm, normals with a 1 cm radius.
   gpd::util::Cloud cloud(left_file, right_file, views);
   cloud.voxelizeCloud(0.003f);
@@ -77,6 +81,7 @@ int main(int argc, char **argv) {
       cloud.getCloudProcessed()->getMatrixXfMap().cast<double>().block(0, 0, 3, cloud.getCloudProcessed()->points.size());
   gpd::util::PointList point_list(points, cloud.getNormals(), cloud.getCameraSource(), cloud.getViewPoints());
 
+  const auto t1 = clock::now();
   gpd::descriptor::ImageGeometry image_geometry(image_cfg);
   AdapterStrategy strategy(image_geometry);
   // A hand set only to reach GPD's shadow computation (HandSet::calculateShadow); its own search is not run.
@@ -128,12 +133,16 @@ int main(int argc, char **argv) {
                                    : std::make_unique<cv::Mat>(image_geometry.size_, image_geometry.size_,
                                                                CV_8UC(image_geometry.num_channels_), cv::Scalar(0.0)));
   }
+  const auto t2 = clock::now();
   std::shared_ptr<gpd::net::Classifier> classifier =
       gpd::net::Classifier::create("", weights, gpd::net::Classifier::Device::eCPU, 1);
   std::vector<float> scores = classifier->classifyImages(images);
+  const auto t3 = clock::now();
   std::ofstream out(out_file);
   for (float v : scores) out << v << "\n";
   std::cerr << "scored " << scores.size() << " candidates (" << n_empty << " with no cloud points nearby) from "
             << point_list.size() << " points\n";
+  // machine-readable stage timings (seconds), parsed by gpd_baseline.py
+  std::cerr << "TIMINGS cloud_preprocess=" << secs(t0, t1) << " images=" << secs(t1, t2) << " classify=" << secs(t2, t3) << "\n";
   return 0;
 }

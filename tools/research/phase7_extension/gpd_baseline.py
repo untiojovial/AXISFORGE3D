@@ -86,7 +86,12 @@ def score_one(task):
     if len(scores) != len(cat['label']):
         path.write_text(json.dumps(dict(error=f'{len(scores)} scores for {len(cat["label"])} candidates')))
         return n, 'error'
+    stages = {}
+    for line in r.stderr.splitlines():
+        if line.startswith('TIMINGS '):
+            stages = {k: float(v) for k, v in (kv.split('=') for kv in line.split()[1:])}
     path.write_text(json.dumps(dict(scores=[float(x) for x in scores], render_seconds=round(t_render, 3), gpd_seconds=round(t_gpd, 3),
+                                    gpd_stage_seconds=stages,
                                     cloud_points=[int(len(p)) for _, p in cams], stderr_tail=r.stderr[-300:])))
     return n, round(t_gpd, 1)
 

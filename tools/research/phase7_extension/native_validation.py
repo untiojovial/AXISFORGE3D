@@ -64,9 +64,12 @@ def main():
         p.add_argument(f'--{k}', required=True)
     p.add_argument('--jobs', type=int, default=1)
     p.add_argument('--frozen', default=str(ROOT/'research/phase7/frozen'))
+    p.add_argument('--robustness-pkl', help='robustness model to validate instead of the Phase VII one (e.g. the extension\'s X)')
+    p.add_argument('--modes', nargs='+', default=list(MODES))
     a = p.parse_args()
     pf = pickle.loads((Path(a.frozen)/'p_feasible.pkl').read_bytes())
-    ph = pickle.loads((Path(a.frozen)/'p_robust_given_feasible.pkl').read_bytes())
+    ph = pickle.loads(Path(a.robustness_pkl or Path(a.frozen)/'p_robust_given_feasible.pkl').read_bytes())
+    modes = {m: MODES[m] for m in a.modes}
     devj = json.loads(Path(a.dev).read_text())
     library = [s.strip() for s in Path(a.library).read_text().splitlines() if s.strip()]
     dev_store = json.loads(Path(a.dev_store).read_text())
@@ -106,11 +109,11 @@ def main():
         pt = bl.scores(pf, F); h = ph.predict_proba(F)[:, 1]
         po = py_orders(cat, pt, h)
         res = {}
-        for mode, key in MODES.items():
+        for mode, key in modes.items():
             rep = run([a.binary, 'plan', '--json', '--nr-grasps', '1', '--learned', a.models, '--order', mode, str(proj), n])
             native = (rep['candidatesExamined'], rep['plans'][0]['candidate']['label'] if rep['plans'] else None)
             ref = first(cat, po[key])
-            if kind == 'egad':
+            if kind == 'egad' and not a.robustness_pkl:
                 r = egad_rows[n][key]
                 ref_conf = (r['nf'], r['first'])
             else:
@@ -142,9 +145,12 @@ def main():
         objs = [v for v in l2.values() if v['kind'] == kind]
         summary[kind]['decisions'] = {mode: dict(objects=len(objs), matches=sum(v['modes'][mode]['match'] for v in objs),
                                                  mismatches=[n for n, v in l2.items() if v['kind'] == kind and not v['modes'][mode]['match']])
-                                      for mode in MODES}
+                                      for mode in modes}
     out = dict(note=__doc__.strip().split('\n\n', 1)[1].replace('\n', ' '), tolerances=dict(feature_abs=FEATURE_TOL, probability_abs=PROB_TOL,
-               decisions='identical'), models=a.models, summary=summary, level1=l1, level2=l2)
+               decisions='identical'), models=a.models, robustness_pkl=a.robustness_pkl, modes=list(modes),
+               reference=('Python replay with the same pickles (no confirmation reference exists for a new model)' if a.robustness_pkl
+                          else 'Python replay and the Phase VII confirmation orders.json'),
+               summary=summary, level1=l1, level2=l2)
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(out, indent=1) + '\n')
     print(json.dumps(summary, indent=1))

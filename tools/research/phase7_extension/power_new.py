@@ -55,13 +55,14 @@ def holm(ps):
 
 
 def shrink(x, kind, factor, margin):
-    """Move the per-object effects toward the null (factor 1 = observed, 0 = at the null or margin)."""
+    """Shift the per-object effects so that their mean moves toward the null (factor 1 = observed, 0 = at the null
+    or the margin), keeping the observed spread. Scaling would leave a t statistic unchanged and is not used."""
     x = np.asarray(x, float)
-    if kind in ('wilcoxon_less',):
-        return x*factor
+    if kind == 'wilcoxon_less':
+        return x - (1 - factor)*x.mean()
     if kind == 'ratio_ni_t':
-        return np.log(margin) + (x - np.log(margin))*factor if factor < 1 else x
-    return x  # binary outcomes are shifted by resampling weights instead (see main)
+        return x - (1 - factor)*(x.mean() - np.log(margin))
+    return x  # binary outcomes are shifted by flipping discordant pairs instead (see main)
 
 
 def main():
@@ -95,7 +96,8 @@ def main():
                             s[rng.choice(pos, min(k, len(pos)), replace=False)] = -1
                     ps.append(test(h['test'], s, h.get('margin')))
                 else:
-                    s = shrink(rng.choice(x, n), h['test'], factor, h.get('margin'))
+                    s = shrink(x, h['test'], factor, h.get('margin'))
+                    s = rng.choice(s, n)
                     ps.append(test(h['test'], s, h.get('margin')))
             rej[r] = holm(np.array(ps)) < alpha
         power = rej.mean(0)

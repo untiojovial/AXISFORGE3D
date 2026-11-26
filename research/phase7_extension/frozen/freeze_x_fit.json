@@ -1,0 +1,22 @@
+{
+ "method": "X = Joint-multi",
+ "training_parts": 151,
+ "training_candidates": 4322,
+ "positive_rate": 0.6557149467838963,
+ "model": {
+  "file": "research/phase7_extension/frozen/p_robust_all3.pkl",
+  "sha256": "1297122c477e91a37c5ed25954eb4401edf89dd82342472ba170d40278391b0d",
+  "kind": "HistGradientBoostingClassifier (baselines.classifier, seed 0)",
+  "n_iter": 200
+ },
+ "exported": {
+  "file": "research/phase7_extension/frozen/learned_order_x.json",
+  "sha256": "b6e27c2c7bd797031268cc4e6e9a4ce7de042a031dc119c4395d03facbaf995a"
+ },
+ "feasibility": {
+  "file": "research/phase7/frozen/p_feasible.pkl",
+  "sha256": "d1fe268da50679977e09808749dc662f075583ba42976c4c747cb9c03d906be6"
+ },
+ "beta": 0.3,
+ "q_floor": 0.001
+}

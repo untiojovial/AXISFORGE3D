@@ -1,6 +1,6 @@
 {
  "note": "    python tools/licenses/build_manifest.py --out research/phase7_extension/third_party_manifest.json  The component records below are maintained by hand from the evidence named in each record; the script adds the SHA-256 of the affected committed files and of the licence texts kept in LICENSES/, so that any later change to them is visible. Verification date of every record: 2026-11-26 unless stated otherwise.",
- "repository_commit_when_built": "49eb5bb445a96b5de1f23501e7de4443cb081e82",
+ "repository_commit_when_built": "31a17af6e44e865ef4cc697bf042859a06618e8e",
  "licence_texts_sha256": {
   "LICENSES/Apache-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
   "LICENSES/BSD-3-Clause-EGAD.txt": "3fa99635183f273fb626a570a56e5d05a953e160af39f3b799964dcb1bff88a0",
@@ -28,8 +28,8 @@
    "verified": "2026-11-26",
    "affected_sha256": {
     "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
-    "Cargo.toml": "d5d0ef91cfd9dfd4b496a13e92abdeaf40072c549bb19a2ba06d13ca6a7540df",
-    "pyproject.toml": "c3fea985334b1ef4d0e364c97c8561dc8e54efcb30d27dd815e3b16d3f13e4ff"
+    "Cargo.toml": "38514180bd7b5819863183b7353466674815eff4f4d9846a2c9509c4bab92fc8",
+    "pyproject.toml": "891d3332c1f6b271d8c1fbd9b52ada10297c849bf15a3c8400d1c50fbb28e73e"
    }
   },
   {
@@ -129,10 +129,19 @@
     "research/phase7/results/visual_ablation.json": "f1d08b19d42b2f6c6b09c3efcbf3a64d8c699e1adc4ea96926e79053c70f7208",
     "research/phase7_extension/results/corrections_addendum.json": "95ffb7c800a8aa945827e973c06d1424050ac1778e2ac38bfe4c70c7e3d2c180",
     "research/phase7_extension/results/dependency_licences.json": "c141972e67f23797aa33871eb84f37aaa23f5a9afe7ec030963f79a3950dafbb",
+    "research/phase7_extension/results/external_baselines_v2.json": "541074320e802170a56ddc89ae4d9f8662920f96199330d23ac64338c474f52d",
+    "research/phase7_extension/results/fallback_audit.json": "663a0817c93df45798c0817fb3d97fafe4d5706dbaf73e65e50a093734df3f70",
+    "research/phase7_extension/results/freeze_verification.json": "611f1acdb57c1e139ef6959562412da6b130e79bff2d3d985e6024b42b7d7b34",
+    "research/phase7_extension/results/integrated_runtime_benchmark.json": "580936748459eb48e936ccaa1795b4075d5db22201d95e05a3a44ca0c2769327",
+    "research/phase7_extension/results/load_inversion.json": "f701bcfb06740d0699bcb3b0c7cacc50f03acfb25946aaa8a5029b64a28c7cd3",
+    "research/phase7_extension/results/memory_benchmark.json": "7488d117aef4626bac206ee210db837743df2324c5e657bbb3c6da550b0516a7",
     "research/phase7_extension/results/native_inference_validation.json": "c6a33b5679d894e7b7b63e97489427f830e271d45a2c7cef2a687bafdc91caee",
+    "research/phase7_extension/results/native_inference_validation_x.json": "58aca093bd9ff6850c5095dff2d61f77b27fb4ad9dc60a7b0b4a5214c7bbf291",
     "research/phase7_extension/results/new_set_untouched.json": "66203cd3884d15a4b2fe5373f90141b9f564e07c777aaf72e73fbf144ea633bb",
+    "research/phase7_extension/results/ordering_ceiling.json": "dc61a68c099b58682711648c37d040dee4ffc06ab3fac65913c6abcbe91e9563",
     "research/phase7_extension/results/p2_statistical_audit.json": "2b17724303c0835c00c10f8f9313110796d2f4a015bd75009e6fd09a925b6207",
-    "research/phase7_extension/results/start_verification.json": "93d79d548ed3e9d8e69bb1373712dc1047a57edf77b2e53645577cd43fb192bc"
+    "research/phase7_extension/results/start_verification.json": "93d79d548ed3e9d8e69bb1373712dc1047a57edf77b2e53645577cd43fb192bc",
+    "research/phase7_extension/results/v3_models.json": "50ee7962aa265f209be9ecaf3e93c05aecd14c5f8e1f1a4543d60c92444e3f39"
    }
   },
   {
@@ -225,7 +234,7 @@
    "verified": "2026-11-26",
    "affected_sha256": {
     "tools/research/phase7_extension/gpd_adapter/CMakeLists.txt": "d9bb0700736e9fceec668b24e75e5fb619a86f0a96b78e7d29257748ed725e79",
-    "tools/research/phase7_extension/gpd_adapter/gpd_score_candidates.cpp": "016163a7d7da1efb261bd981aaf9b59e7705500e1851b7971751ef1f6db4df53"
+    "tools/research/phase7_extension/gpd_adapter/gpd_score_candidates.cpp": "d547c25cb829b797cc84f1dd6197aa90aa9a5da86210dd5600aaa1ab8578e0f7"
    }
   },
   {
@@ -284,7 +293,7 @@
    "verified": "2026-11-26",
    "affected_sha256": {
     "Cargo.lock": "5e51c55753002d84cb7f13aa2044f372d20dff1d3478dc3f333bd00762962671",
-    "pyproject.toml": "c3fea985334b1ef4d0e364c97c8561dc8e54efcb30d27dd815e3b16d3f13e4ff"
+    "pyproject.toml": "891d3332c1f6b271d8c1fbd9b52ada10297c849bf15a3c8400d1c50fbb28e73e"
    }
   },
   {

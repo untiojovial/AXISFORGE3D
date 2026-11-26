@@ -166,8 +166,8 @@ def analyse(a):
 
     def dev_outcome(n, label, which):
         return C.held(dev_trials(a, D, n).get(label), which) if label else None
-    egad = egad_table(a)
-    trials = json.load(gzip.open(Path(a.egad_trials), 'rt'))
+    egad = {} if a.skip_egad else egad_table(a)
+    trials = {} if a.skip_egad else json.load(gzip.open(Path(a.egad_trials), 'rt'))
 
     def egad_outcome(n, label, which):
         if not label:
@@ -180,13 +180,16 @@ def analyse(a):
                gpd=dict(source='https://github.com/atenpas/gpd', commit=a.gpd_commit, classifier='LeNet on 15-channel grasp images; GPD built without Caffe, OpenVINO or OpenCV DNN, i.e. its own Eigen implementation (EigenClassifier) on the CPU, one thread',
                         adapter='tools/research/phase7_extension/gpd_adapter (scores given candidates; GPD library unmodified)'),
                development=summarise(dev, dev_outcome),
-               egad_exploratory={s: summarise({n: r for n, r in egad.items() if r['set'] == s}, egad_outcome) for s in ('primary', 'evaluation')})
+               egad_exploratory=('not completed: GPD scoring of the already-evaluated EGAD objects was stopped after 21 of 255 '
+                                 'objects to free compute for the new confirmation; no result is reported for it') if a.skip_egad else
+               {s: summarise({n: r for n, r in egad.items() if r['set'] == s}, egad_outcome) for s in ('primary', 'evaluation')},
+               presentation="Ranking-controlled comparison using GPD's pretrained classifier on a shared candidate catalogue.")
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(res, indent=1) + '\n')
     for k in ('development',):
         for m, v in res[k]['methods'].items():
             print(k, m, round(v['N_F_gmean'], 3), v['success_at'], v['robust_v3'], v['load_tolerant_v3'], v['missing_outcomes'])
-    for s, blk in res['egad_exploratory'].items():
+    for s, blk in (res['egad_exploratory'].items() if isinstance(res['egad_exploratory'], dict) else []):
         for m, v in blk['methods'].items():
             print('egad', s, m, round(v['N_F_gmean'], 3), v['success_at'][1], v['robust_v3'], v['missing_outcomes'])
 
@@ -204,6 +207,7 @@ def main():
             s.add_argument('--out-dev', required=True); s.add_argument('--out-egad', required=True)
         else:
             s.add_argument('--out', required=True); s.add_argument('--gpd-commit', required=True)
+            s.add_argument('--skip-egad', action='store_true')
     a = p.parse_args()
     dict(needed=needed, analyse=analyse)[a.cmd](a)
 

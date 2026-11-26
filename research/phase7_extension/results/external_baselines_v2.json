@@ -1,0 +1,577 @@
+{
+ "note": "    python tools/research/phase7_extension/gpd_evaluate.py needed --gpd-dev gpd_dev/ --gpd-egad gpd_egad/         --dev research/phase6/dev_parts.json --catalogues cat80/ --store store.json --priors priors.npz         --sweep research/phase7/results/sweep_v2_extended.json.gz         --physics research/phase7/results/physics_dev_with_joint.json.gz --v3sweep v3sweep/         --egad-conf CONF --out-dev needed_dev.json --out-egad needed_egad.json     python tools/research/phase7_extension/gpd_evaluate.py analyse ... --extra-dev extra_dev/ --extra-egad extra_egad/         --out research/phase7_extension/results/external_baselines_v2.json  Level: ranking-controlled (the same AxisForge candidates, gripper, gate and checks; GPD only orders them). Orders compared on the same objects:  - GPD+gate: GPD scores with the planner's stroke gate first (research_grasping/phase6/fusion.order), the   primary GPD order, because every AxisForge order puts makeable candidates first; - GPD raw: descending GPD score, no gate (sensitivity); - M0 (original planner), M1, M4, M9, Joint, the hybrid of Joint and M0, and the hybrid of GPD+gate and M0.  Development: the 151 dynamic parts, AxisForge orders out of fold (tools/research/phase7_extension/common.py reproduces the Phase VII first grasps exactly). EGAD (exploratory: EGAD was already evaluated in Phase VII): the frozen models' orders from the confirmation. Robustness and load tolerance are the v3 criterion at torsion 0.005 m; GPD first grasps not simulated before are simulated by extra_physics.py with the same code and conditions. Cost: rendering two depth images, GPD preprocessing and classification of every candidate (one thread), per object.",
+ "gpd": {
+  "source": "https://github.com/atenpas/gpd",
+  "commit": "6327f20eabfcba41a05fdd2e2ba408153dc2e958",
+  "classifier": "LeNet on 15-channel grasp images; GPD built without Caffe, OpenVINO or OpenCV DNN, i.e. its own Eigen implementation (EigenClassifier) on the CPU, one thread",
+  "adapter": "tools/research/phase7_extension/gpd_adapter (scores given candidates; GPD library unmodified)"
+ },
+ "development": {
+  "methods": {
+   "Joint": {
+    "objects": 151,
+    "N_F_gmean": 1.2909317206757014,
+    "N_F_median": 1.0,
+    "N_F_max": 122,
+    "success_at": {
+     "1": 0.847682119205298,
+     "5": 0.9403973509933775,
+     "10": 0.9867549668874173,
+     "20": 0.9867549668874173,
+     "50": 0.9933774834437086
+    },
+    "robust_v3": 0.8940397350993378,
+    "load_tolerant_v3": 0.5629139072847682,
+    "missing_outcomes": 0
+   },
+   "M9": {
+    "objects": 151,
+    "N_F_gmean": 1.2872091018559602,
+    "N_F_median": 1.0,
+    "N_F_max": 103,
+    "success_at": {
+     "1": 0.8609271523178808,
+     "5": 0.9470198675496688,
+     "10": 0.9668874172185431,
+     "20": 0.9867549668874173,
+     "50": 0.9933774834437086
+    },
+    "robust_v3": 0.8874172185430463,
+    "load_tolerant_v3": 0.39072847682119205,
+    "missing_outcomes": 0
+   },
+   "M0": {
+    "objects": 151,
+    "N_F_gmean": 6.065166028733954,
+    "N_F_median": 3.0,
+    "N_F_max": 235,
+    "success_at": {
+     "1": 0.3973509933774834,
+     "5": 0.5761589403973509,
+     "10": 0.6490066225165563,
+     "20": 0.695364238410596,
+     "50": 0.7682119205298014
+    },
+    "robust_v3": 0.8013245033112583,
+    "load_tolerant_v3": 0.5894039735099338,
+    "missing_outcomes": 0
+   },
+   "M1": {
+    "objects": 151,
+    "N_F_gmean": 1.2535133900836306,
+    "N_F_median": 1.0,
+    "N_F_max": 93,
+    "success_at": {
+     "1": 0.8741721854304636,
+     "5": 0.9403973509933775,
+     "10": 0.9735099337748344,
+     "20": 0.9867549668874173,
+     "50": 0.9933774834437086
+    },
+    "robust_v3": 0.847682119205298,
+    "load_tolerant_v3": 0.4503311258278146,
+    "missing_outcomes": 0
+   },
+   "M4": {
+    "objects": 151,
+    "N_F_gmean": 1.224789636590578,
+    "N_F_median": 1.0,
+    "N_F_max": 63,
+    "success_at": {
+     "1": 0.8741721854304636,
+     "5": 0.9602649006622517,
+     "10": 0.9735099337748344,
+     "20": 0.9867549668874173,
+     "50": 0.9933774834437086
+    },
+    "robust_v3": 0.8543046357615894,
+    "load_tolerant_v3": 0.5496688741721855,
+    "missing_outcomes": 0
+   },
+   "GPD+gate": {
+    "objects": 151,
+    "N_F_gmean": 7.734683930657312,
+    "N_F_median": 7.0,
+    "N_F_max": 347,
+    "success_at": {
+     "1": 0.25165562913907286,
+     "5": 0.46357615894039733,
+     "10": 0.5894039735099338,
+     "20": 0.6821192052980133,
+     "50": 0.7947019867549668
+    },
+    "robust_v3": 0.8940397350993378,
+    "load_tolerant_v3": 0.3708609271523179,
+    "missing_outcomes": 0
+   },
+   "GPD raw": {
+    "objects": 151,
+    "N_F_gmean": 8.278064422227569,
+    "N_F_median": 7.0,
+    "N_F_max": 451,
+    "success_at": {
+     "1": 0.24503311258278146,
+     "5": 0.46357615894039733,
+     "10": 0.5761589403973509,
+     "20": 0.6754966887417219,
+     "50": 0.7880794701986755
+    },
+    "robust_v3": 0.8940397350993378,
+    "load_tolerant_v3": 0.3708609271523179,
+    "missing_outcomes": 0
+   },
+   "hybrid Joint/M0": {
+    "objects": 151,
+    "N_F_gmean": 1.316185180473837,
+    "N_F_median": 1.0,
+    "N_F_max": 136,
+    "success_at": {
+     "1": 0.847682119205298,
+     "5": 0.9271523178807947,
+     "10": 0.9668874172185431,
+     "20": 0.9867549668874173,
+     "50": 0.9867549668874173
+    },
+    "robust_v3": 0.8940397350993378,
+    "load_tolerant_v3": 0.5761589403973509,
+    "missing_outcomes": 0
+   },
+   "hybrid GPD/M0": {
+    "objects": 151,
+    "N_F_gmean": 4.404653620110174,
+    "N_F_median": 2.0,
+    "N_F_max": 439,
+    "success_at": {
+     "1": 0.25165562913907286,
+     "5": 0.6556291390728477,
+     "10": 0.7549668874172185,
+     "20": 0.8278145695364238,
+     "50": 0.8807947019867549
+    },
+    "robust_v3": 0.8940397350993378,
+    "load_tolerant_v3": 0.5099337748344371,
+    "missing_outcomes": 0
+   }
+  },
+  "contrasts": {
+   "GPD+gate vs M0": {
+    "N_F_ratio": {
+     "ratio": 1.2752633471225607,
+     "ci95": [
+      0.8700757500895474,
+      1.8521863247826966
+     ],
+     "fewer": 54,
+     "more": 81,
+     "ties": 16,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.09271523178807947,
+     "ci95": [
+      0.026490066225165563,
+      0.15894039735099338
+     ],
+     "favourable": 21,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.2185430463576159,
+     "ci95": [
+      -0.304635761589404,
+      -0.13245033112582782
+     ],
+     "favourable": 8,
+     "unfavourable": 41,
+     "objects": 151
+    }
+   },
+   "GPD+gate vs M1": {
+    "N_F_ratio": {
+     "ratio": 6.170403915782085,
+     "ci95": [
+      4.740595828650809,
+      8.085423178405453
+     ],
+     "fewer": 3,
+     "more": 113,
+     "ties": 35,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.046357615894039736,
+     "ci95": [
+      -0.013245033112582781,
+      0.10596026490066225
+     ],
+     "favourable": 14,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.07947019867549669,
+     "ci95": [
+      -0.15894039735099338,
+      0.0
+     ],
+     "favourable": 13,
+     "unfavourable": 25,
+     "objects": 151
+    }
+   },
+   "GPD+gate vs M9": {
+    "N_F_ratio": {
+     "ratio": 6.008879147533272,
+     "ci95": [
+      4.634838914057023,
+      7.833838869982842
+     ],
+     "fewer": 2,
+     "more": 113,
+     "ties": 36,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.006622516556291391,
+     "ci95": [
+      -0.046357615894039736,
+      0.059602649006622516
+     ],
+     "favourable": 8,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.019867549668874173,
+     "ci95": [
+      -0.09271523178807947,
+      0.052980132450331126
+     ],
+     "favourable": 16,
+     "unfavourable": 19,
+     "objects": 151
+    }
+   },
+   "GPD+gate vs Joint": {
+    "N_F_ratio": {
+     "ratio": 5.991551533499241,
+     "ci95": [
+      4.6461716004251015,
+      7.779678685257305
+     ],
+     "fewer": 4,
+     "more": 113,
+     "ties": 34,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.0,
+     "ci95": [
+      -0.046357615894039736,
+      0.046357615894039736
+     ],
+     "favourable": 7,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.19205298013245034,
+     "ci95": [
+      -0.26490066225165565,
+      -0.11920529801324503
+     ],
+     "favourable": 4,
+     "unfavourable": 33,
+     "objects": 151
+    }
+   },
+   "GPD raw vs M0": {
+    "N_F_ratio": {
+     "ratio": 1.3648537209055653,
+     "ci95": [
+      0.9256437574826963,
+      1.9949289444702496
+     ],
+     "fewer": 52,
+     "more": 84,
+     "ties": 15,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.09271523178807947,
+     "ci95": [
+      0.026490066225165563,
+      0.15894039735099338
+     ],
+     "favourable": 21,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.2185430463576159,
+     "ci95": [
+      -0.304635761589404,
+      -0.13245033112582782
+     ],
+     "favourable": 8,
+     "unfavourable": 41,
+     "objects": 151
+    }
+   },
+   "GPD raw vs M1": {
+    "N_F_ratio": {
+     "ratio": 6.6038899047383,
+     "ci95": [
+      5.055426301394534,
+      8.690524538286862
+     ],
+     "fewer": 2,
+     "more": 113,
+     "ties": 36,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.046357615894039736,
+     "ci95": [
+      -0.013245033112582781,
+      0.10596026490066225
+     ],
+     "favourable": 14,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.07947019867549669,
+     "ci95": [
+      -0.15894039735099338,
+      0.0
+     ],
+     "favourable": 13,
+     "unfavourable": 25,
+     "objects": 151
+    }
+   },
+   "GPD raw vs M9": {
+    "N_F_ratio": {
+     "ratio": 6.431017625879009,
+     "ci95": [
+      4.941292750913545,
+      8.430842665136273
+     ],
+     "fewer": 2,
+     "more": 114,
+     "ties": 35,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.006622516556291391,
+     "ci95": [
+      -0.046357615894039736,
+      0.059602649006622516
+     ],
+     "favourable": 8,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.019867549668874173,
+     "ci95": [
+      -0.09271523178807947,
+      0.052980132450331126
+     ],
+     "favourable": 16,
+     "unfavourable": 19,
+     "objects": 151
+    }
+   },
+   "GPD raw vs Joint": {
+    "N_F_ratio": {
+     "ratio": 6.412472704516588,
+     "ci95": [
+      4.933713906139186,
+      8.38261280495514
+     ],
+     "fewer": 3,
+     "more": 113,
+     "ties": 35,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.0,
+     "ci95": [
+      -0.046357615894039736,
+      0.046357615894039736
+     ],
+     "favourable": 7,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.19205298013245034,
+     "ci95": [
+      -0.26490066225165565,
+      -0.11920529801324503
+     ],
+     "favourable": 4,
+     "unfavourable": 33,
+     "objects": 151
+    }
+   },
+   "hybrid GPD/M0 vs M0": {
+    "N_F_ratio": {
+     "ratio": 0.7262214421242488,
+     "ci95": [
+      0.5596015259981253,
+      0.930850302765775
+     ],
+     "fewer": 45,
+     "more": 91,
+     "ties": 15,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.09271523178807947,
+     "ci95": [
+      0.039735099337748346,
+      0.1456953642384106
+     ],
+     "favourable": 16,
+     "unfavourable": 2,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.07947019867549669,
+     "ci95": [
+      -0.1390728476821192,
+      -0.019867549668874173
+     ],
+     "favourable": 6,
+     "unfavourable": 18,
+     "objects": 151
+    }
+   },
+   "hybrid GPD/M0 vs M1": {
+    "N_F_ratio": {
+     "ratio": 3.513846485370459,
+     "ci95": [
+      2.7638437322191898,
+      4.549539890993182
+     ],
+     "fewer": 9,
+     "more": 106,
+     "ties": 36,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.046357615894039736,
+     "ci95": [
+      -0.006622516556291391,
+      0.09933774834437085
+     ],
+     "favourable": 12,
+     "unfavourable": 5,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": 0.059602649006622516,
+     "ci95": [
+      -0.013245033112582781,
+      0.1326158940397327
+     ],
+     "favourable": 22,
+     "unfavourable": 13,
+     "objects": 151
+    }
+   },
+   "hybrid GPD/M0 vs M9": {
+    "N_F_ratio": {
+     "ratio": 3.42186332722425,
+     "ci95": [
+      2.698349265312174,
+      4.40098804602963
+     ],
+     "fewer": 7,
+     "more": 106,
+     "ties": 38,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.006622516556291391,
+     "ci95": [
+      -0.046357615894039736,
+      0.052980132450331126
+     ],
+     "favourable": 8,
+     "unfavourable": 7,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": 0.11920529801324503,
+     "ci95": [
+      0.046357615894039736,
+      0.19205298013245034
+     ],
+     "favourable": 27,
+     "unfavourable": 9,
+     "objects": 151
+    }
+   },
+   "hybrid GPD/M0 vs Joint": {
+    "N_F_ratio": {
+     "ratio": 3.411995808581328,
+     "ci95": [
+      2.7236698755336826,
+      4.335193137033406
+     ],
+     "fewer": 9,
+     "more": 108,
+     "ties": 34,
+     "objects": 151
+    },
+    "robust_difference": {
+     "difference": 0.0,
+     "ci95": [
+      -0.046357615894039736,
+      0.046357615894039736
+     ],
+     "favourable": 6,
+     "unfavourable": 6,
+     "objects": 151
+    },
+    "load_difference": {
+     "difference": -0.052980132450331126,
+     "ci95": [
+      -0.12582781456953643,
+      0.013245033112582781
+     ],
+     "favourable": 11,
+     "unfavourable": 19,
+     "objects": 151
+    }
+   }
+  },
+  "cost": {
+   "render_s": {
+    "median": 0.724,
+    "mean": 0.806794701986755,
+    "p90": 1.408,
+    "max": 2.902
+   },
+   "gpd_s": {
+    "median": 22.59,
+    "mean": 23.004079470198675,
+    "p90": 33.932,
+    "max": 47.011
+   },
+   "cloud_points": {
+    "median": 2184.0,
+    "mean": 2442.9867549668875,
+    "p90": 4321.0,
+    "max": 7669.0
+   }
+  }
+ },
+ "egad_exploratory": "not completed: GPD scoring of the already-evaluated EGAD objects was stopped after 21 of 255 objects to free compute for the new confirmation; no result is reported for it",
+ "presentation": "Ranking-controlled comparison using GPD's pretrained classifier on a shared candidate catalogue."
+}

@@ -183,3 +183,76 @@ def test_tango_and_newcombe_intervals_have_near_nominal_coverage():
         nlo, nhi = m.newcombe10(a, b, c, d)
         cov_n += nlo <= true <= nhi
     assert .91 <= cov_t/reps <= .99 and .91 <= cov_n/reps <= .99
+
+
+def test_confirmation_analysis_runs_on_synthetic_data(tmp_path):
+    """The frozen analysis stage of confirm_x.py on a small synthetic data set: counts, the four primary tests with
+    Holm, the secondary family, the fallback check and the cluster sensitivity are produced and consistent."""
+    import argparse
+    cx = tool(EXT/'confirm_x.py', 'confirm_x')
+    rng = np.random.default_rng(3)
+    out, pool = tmp_path/'out', tmp_path/'pool'
+    for d in ('orders', 'trials', 'timing'):
+        (out/d).mkdir(parents=True)
+    pool.mkdir()
+    methods = ['M0', 'M1', 'Joint-hist', 'Joint-multi', 'hybrid Joint-multi/M0']
+    built, status = [], {}
+    std = ('nominal', 'mass x2', 'mass x0.5', 'friction 0.3', 'pose noise 1', 'pose noise 2')
+    conds = std + ('load 0.5 kg', 'load 1 kg', 'load 2 kg')
+    for i in range(40):
+        n = f'egad_{"ABCDEFGH"[i % 8]}{i:02d}'
+        built.append(dict(name=n, kept=True))
+        viable = i % 5 != 0
+        status[n] = dict(status='viable' if viable else 'no viable candidate')
+        row = dict(viable=viable, candidates=100, methods={})
+        tr = {}
+        for m in methods:
+            nf = int(rng.integers(1, 4 if m != 'M0' else 9)) if viable else None
+            lab = f'{m}-{i}' if viable else None
+            row['methods'][m] = dict(nf=nf, first=lab)
+            if viable:
+                tr[lab] = {t: {c: dict(held_v3=bool(rng.random() < .85)) for c in conds} for t in ('0.001', '0.005', '0.02')}
+        if viable:
+            row['methods']['hybrid Joint-multi/M0']['nf'] = min(row['methods']['Joint-multi']['nf'], row['methods']['M0']['nf'])
+        (out/'orders'/f'{n}.json').write_text(json.dumps(row))
+        if viable:
+            (out/'trials'/f'{n}.json').write_text(json.dumps(dict(trials=tr)))
+        (out/'timing'/f'{n}.json').write_text(json.dumps(dict(load_before=1., load_after=1.,
+                                                              cold={m: [dict(wall=.4 + rng.random()*.1) for _ in range(3)] for m in methods})))
+    (pool/'built.json').write_text(json.dumps(dict(rows=built)))
+    (out/'status.json').write_text(json.dumps(status))
+    fr = tmp_path/'freeze.json'
+    fr.write_text(json.dumps(dict(files_sha256={}, protocol='synthetic', names=dict(X='Joint-multi', hybrid='hybrid Joint-multi/M0'))))
+    res_path = tmp_path/'res.json'
+    cx.analyse(argparse.Namespace(freeze=str(fr), out_dir=str(out), pool=str(pool), out=str(res_path)))
+    res = json.loads(res_path.read_text())
+    assert res['counts']['objects'] == 40 and res['counts']['viable'] == 32 and res['counts']['no_viable_candidate'] == 8
+    assert set(res['primary']) == {'C1', 'C2', 'C3', 'C4'}
+    assert all(0 <= v['holm_p'] <= 1 for v in res['primary'].values())
+    assert res['primary']['C1']['n'] == 32 and res['primary']['C4']['n'] == 40
+    assert res['descriptive']['fallback']['violations'] == 0
+    lo, hi = res['cluster_sensitivity']['C1_gmean_ratio']
+    assert lo <= res['primary']['C1']['gmean_ratio'] <= hi
+
+
+def test_exported_x_model_equals_scikit_learn():
+    """The extension's X (Joint-multi) robustness model exported for the native planner equals predict_proba."""
+    doc = json.loads((ROOT/'research/phase7_extension/frozen/learned_order_x.json').read_text())
+    fit = json.loads((ROOT/'research/phase7_extension/frozen/freeze_x_fit.json').read_text())
+    path = ROOT/fit['model']['file']
+    assert sha(path) == fit['model']['sha256']
+    model = pickle.loads(path.read_bytes())  # own frozen model, hash-checked
+    rng = np.random.default_rng(1)
+    X = rng.normal(size=(200, 19)); X[::9, 17] = np.nan
+    m = doc['robustness']
+    raw = np.full(len(X), np.frombuffer(np.uint64(m['baseline']).tobytes(), np.float64)[0])
+    for t in m['trees']:
+        thr = np.array(t['threshold'], np.uint64).view(np.float64); val = np.array(t['value'], np.uint64).view(np.float64)
+        for i, x in enumerate(X):
+            node = 0
+            while not t['leaf'][node]:
+                v = x[t['feature'][node]]
+                node = t['left'][node] if (t['missingLeft'][node] if np.isnan(v) else v <= thr[node]) else t['right'][node]
+            raw[i] += val[node]
+    np.testing.assert_allclose(1/(1+np.exp(-raw)), model.predict_proba(X)[:, 1], rtol=0, atol=1e-12)
+    assert doc['beta'] == .3 and doc['source']['feasibility']['sha256'] == sha(ROOT/'research/phase7/frozen/p_feasible.pkl')
