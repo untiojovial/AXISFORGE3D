@@ -126,14 +126,14 @@ al 80 % hacen falta:
 | Fe de erratas de la Fase V | Masas 2/0,5 kg en lugar de ×2/×0,5; centro de masas desplazado; orden aleatorio fuera del filtro | [fe de erratas](ERRATUM_PHASE5_DYNAMICS.md) | `f1f0891` | Ficheros de la Fase V sin modificar |
 | Rasgos y fuga | 19 rasgos de la generación; ninguno de cinemática inversa, colisiones ni veredicto | [feature_audit.json](results/feature_audit.json) | `f1f0891` | Altura específica de la celda |
 | Física | Controles con respuesta conocida superados; sensible a la fricción torsional | [physics_validation.json](results/physics_validation.json) | `f1f0891` | Sin calibrar con hardware |
-| Mecanismo | La pérdida era con 2 kg, por el brazo de palanca, porque el prior anula el centrado | [robustness_mechanism.json](results/robustness_mechanism.json) | este commit | Explicativo |
-| Masas correctas | El aprendido no pierde robustez estándar (+6,6 puntos); sí con 2 kg (−16,6) | ídem, B5 | este commit | Modelo de almohadillas |
-| Fusión simple | M4 recupera tolerancia a la carga (+11,9 frente a M1) a igual velocidad | [fusion_benchmark.json](results/fusion_benchmark.json) | este commit | Desarrollo; secundaria |
-| P(H\|F) aprendido | +5,3 puntos de robustez estándar frente a M1 a igual velocidad | [robustness_prediction.json](results/robustness_prediction.json) | este commit | Desarrollo; no mejora con cargas |
+| Mecanismo | La pérdida era con 2 kg, por el brazo de palanca, porque el prior anula el centrado | [robustness_mechanism.json](results/robustness_mechanism.json) | `eacd49f` | Explicativo |
+| Masas correctas | El aprendido no pierde robustez estándar (+6,6 puntos); sí con 2 kg (−16,6) | ídem, B5 | `eacd49f` | Modelo de almohadillas |
+| Fusión simple | M4 recupera tolerancia a la carga (+11,9 frente a M1) a igual velocidad | [fusion_benchmark.json](results/fusion_benchmark.json) | `eacd49f` | Desarrollo; secundaria |
+| P(H\|F) aprendido | +5,3 puntos de robustez estándar frente a M1 a igual velocidad | [robustness_prediction.json](results/robustness_prediction.json) | `eacd49f` | Desarrollo; no mejora con cargas |
 | Calibración | ECE 0,010 → 0,005 (Platt) | [calibration_results.json](results/calibration_results.json) | `74d81a4` | Una celda |
 | Inviabilidad temprana | 0 demostrables; 13/49 estimadas sin perder viables | [infeasibility_benchmark.json](results/infeasibility_benchmark.json) | `74d81a4` | «Inviable» = sin viable entre los generados |
-| Coste online | −24 % de tiempo con −80 % de candidatos | [cost_profile_online.json](results/cost_profile_online.json) | este commit | 60 piezas; sin tiempo por etapa |
-| Potencia | ~105 / 71 / 38 piezas nuevas según la hipótesis | [statistical_power.json](results/statistical_power.json) | este commit | Aproximación normal |
+| Coste online | −24 % de tiempo con −80 % de candidatos | [cost_profile_online.json](results/cost_profile_online.json) | `eacd49f` | 60 piezas; sin tiempo por etapa |
+| Potencia | ~105 / 71 / 38 piezas nuevas según la hipótesis | [statistical_power.json](results/statistical_power.json) | `eacd49f` | Aproximación normal |
 | Literatura y novedad | El clasificador de viabilidad no es nuevo; el compromiso entre velocidad y robustez, posible aportación empírica | [revisión](phase6_literature_review.md), [matriz](phase6_novelty_matrix.md) | `74d81a4` | Búsqueda dirigida, no sistemática |
 | TFM | Referencias con errores y una posible fuga en el vector de contexto; no se reutiliza como evidencia | [revisión científica](scientific_review.md) | `74d81a4` | Sin el código del TFM |
 
