@@ -40,7 +40,47 @@ VARIANTS = {
     'L8-k32': dict(kind='mlp', geometry=True, visual='dinov3', latent=32),
     'L2-rank': dict(kind='mlp', geometry=True, loss='listwise'),
     'L8-rank': dict(kind='mlp', geometry=True, visual='dinov3', loss='listwise'),
+    # local features at the contacts (protocol I.3): appended to the candidate block v
+    'LG': dict(kind='mlp', geometry=True, local='geo'),
+    'LD': dict(kind='mlp', geometry=True, local='dino'),
+    'LGD': dict(kind='mlp', geometry=True, local='both'),
 }
+LOCAL = {}
+
+
+def local_block(a, name):
+    if name not in LOCAL:
+        z = np.load(Path(a.local_dir)/f'{name}.npz')
+        LOCAL[name] = {k: z[k] for k in ('dino_a', 'dino_b', 'vis_a', 'vis_b', 'geo_a', 'geo_b', 'offset_a', 'offset_b')}
+    return LOCAL[name]
+
+
+def local_features(a, names, train, kind, seed=0):
+    """Per-candidate local features; the DINO part is reduced by a PCA fitted on training parts only."""
+    extra = {}
+    pca = None
+    if kind in ('dino', 'both'):
+        from sklearn.decomposition import PCA
+        rng = np.random.default_rng(seed)
+        rows = []
+        for n in train:
+            L = local_block(a, n)
+            m = np.concatenate([L['dino_a'][L['vis_a'] > 0], L['dino_b'][L['vis_b'] > 0]]).astype(np.float32)
+            if len(m):
+                rows.append(m[rng.choice(len(m), min(len(m), 200), replace=False)])
+        pca = PCA(16, random_state=seed).fit(np.vstack(rows))
+    for n in names:
+        L = local_block(a, n)
+        cols = [np.stack([L['vis_a'] > 0, L['vis_b'] > 0, L['offset_a']*100, L['offset_b']*100], 1).astype(np.float32)]
+        if kind in ('geo', 'both'):
+            cols += [L['geo_a'], L['geo_b']]
+        if kind in ('dino', 'both'):
+            for side in ('a', 'b'):
+                z = pca.transform(L[f'dino_{side}'].astype(np.float32))
+                z[L[f'vis_{side}'] == 0] = 0.
+                cols.append(z.astype(np.float32))
+        extra[n] = np.concatenate(cols, 1)
+    return extra
 SEEDS = (0, 1, 2)
 STA = {}
 
@@ -81,6 +121,8 @@ def job(task):
     variant, seed = task
     s = STA
     a, names, data, groups, folds = s['a'], s['names'], s['data'], s['groups'], s['folds']
+    if (Path(a.out_dir)/f'{variant}-s{seed}.npz').exists():  # another runner finished it
+        return variant, seed, 0.
     cfg = VARIANTS[variant]
     out, info = {}, []
     for k, test in enumerate(folds):
@@ -110,8 +152,9 @@ def job(task):
             info.append(dict(fold=k, train_s=round(train_s, 2), predict_s=round(pred_s, 4), params=params))
         else:
             vis = cfg.get('visual')
-            sub = {n: dict(v=data[n]['v'], y=data[n]['y'], u=data[n]['u'],
-                           d=data[n]['dv'][vis] if vis else None) for n in names}
+            extra = local_features(a, names, train, cfg['local'], seed) if cfg.get('local') else None
+            sub = {n: dict(v=np.concatenate([data[n]['v'], extra[n]], 1) if extra else data[n]['v'], y=data[n]['y'],
+                           u=data[n]['u'], d=data[n]['dv'][vis] if vis else None) for n in names}
             model = rep.MLPModel(geometry=cfg.get('geometry', False), visual=vis is not None,
                                  linear_visual=cfg.get('linear', False), loss=cfg.get('loss', 'bce'),
                                  latent=cfg.get('latent', rep.LATENT), seed=seed)
@@ -131,6 +174,7 @@ def main():
     for k in ('catalogues', 'store', 'library', 'test', 'out-dir'):
         p.add_argument(f'--{k}', required=True)
     p.add_argument('--openclip', action='append', required=True)
+    p.add_argument('--local-dir', help='per-part local features (local_features.py), for LG/LD/LGD')
     p.add_argument('--jobs', type=int, default=2)
     p.add_argument('--only', nargs='*')
     a = p.parse_args()

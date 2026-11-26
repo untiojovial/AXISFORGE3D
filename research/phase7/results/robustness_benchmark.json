@@ -1,0 +1,654 @@
+{
+ "note": "Development (151 parts), Phase VI outer folds; v2 labels (rise and slip). Exploratory.",
+ "summary": {
+  "M0": {
+   "N_F_gmean": 6.065,
+   "robust_rate": 0.8411,
+   "N_FR_gmean": 6.334,
+   "load_tolerant_rate": 0.649
+  },
+  "M1": {
+   "N_F_gmean": 1.254,
+   "robust_rate": 0.9073,
+   "N_FR_gmean": 1.333,
+   "load_tolerant_rate": 0.4834
+  },
+  "M4": {
+   "N_F_gmean": 1.225,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.279,
+   "load_tolerant_rate": 0.6026
+  },
+  "M9[hgb]": {
+   "N_F_gmean": 1.287,
+   "robust_rate": 0.9603,
+   "N_FR_gmean": 1.284,
+   "load_tolerant_rate": 0.4636
+  },
+  "Joint[hgb,b=0.1]": {
+   "N_F_gmean": 1.297,
+   "robust_rate": 0.9669,
+   "N_FR_gmean": 1.272,
+   "load_tolerant_rate": 0.6159
+  },
+  "Joint[hgb,b=0.2]": {
+   "N_F_gmean": 1.289,
+   "robust_rate": 0.9669,
+   "N_FR_gmean": 1.266,
+   "load_tolerant_rate": 0.6225
+  },
+  "Joint[hgb,b=0.3]": {
+   "N_F_gmean": 1.279,
+   "robust_rate": 0.9669,
+   "N_FR_gmean": 1.255,
+   "load_tolerant_rate": 0.6358
+  },
+  "Joint[hgb,b=0.5]": {
+   "N_F_gmean": 1.316,
+   "robust_rate": 0.9603,
+   "N_FR_gmean": 1.293,
+   "load_tolerant_rate": 0.6291
+  },
+  "M9[mlp-geo]": {
+   "N_F_gmean": 1.229,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.284,
+   "load_tolerant_rate": 0.5232
+  },
+  "Joint[mlp-geo,b=0.1]": {
+   "N_F_gmean": 1.244,
+   "robust_rate": 0.9338,
+   "N_FR_gmean": 1.283,
+   "load_tolerant_rate": 0.649
+  },
+  "Joint[mlp-geo,b=0.2]": {
+   "N_F_gmean": 1.23,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.269,
+   "load_tolerant_rate": 0.649
+  },
+  "Joint[mlp-geo,b=0.3]": {
+   "N_F_gmean": 1.244,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.294,
+   "load_tolerant_rate": 0.6556
+  },
+  "Joint[mlp-geo,b=0.5]": {
+   "N_F_gmean": 1.267,
+   "robust_rate": 0.9139,
+   "N_FR_gmean": 1.335,
+   "load_tolerant_rate": 0.6556
+  },
+  "M9[mlp-geo-dinov3]": {
+   "N_F_gmean": 1.245,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.287,
+   "load_tolerant_rate": 0.5166
+  },
+  "Joint[mlp-geo-dinov3,b=0.1]": {
+   "N_F_gmean": 1.246,
+   "robust_rate": 0.9404,
+   "N_FR_gmean": 1.273,
+   "load_tolerant_rate": 0.6556
+  },
+  "Joint[mlp-geo-dinov3,b=0.2]": {
+   "N_F_gmean": 1.247,
+   "robust_rate": 0.947,
+   "N_FR_gmean": 1.271,
+   "load_tolerant_rate": 0.6623
+  },
+  "Joint[mlp-geo-dinov3,b=0.3]": {
+   "N_F_gmean": 1.261,
+   "robust_rate": 0.947,
+   "N_FR_gmean": 1.295,
+   "load_tolerant_rate": 0.6689
+  },
+  "Joint[mlp-geo-dinov3,b=0.5]": {
+   "N_F_gmean": 1.286,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.335,
+   "load_tolerant_rate": 0.6623
+  },
+  "Joint[hgb]": {
+   "N_F_gmean": 1.291,
+   "robust_rate": 0.9669,
+   "N_FR_gmean": 1.269,
+   "load_tolerant_rate": 0.6225
+  },
+  "Joint[mlp-geo]": {
+   "N_F_gmean": 1.242,
+   "robust_rate": 0.9272,
+   "N_FR_gmean": 1.291,
+   "load_tolerant_rate": 0.6424
+  },
+  "Joint[mlp-geo-dinov3]": {
+   "N_F_gmean": 1.261,
+   "robust_rate": 0.947,
+   "N_FR_gmean": 1.295,
+   "load_tolerant_rate": 0.6623
+  }
+ },
+ "joint_beta_chosen": {
+  "Joint[hgb]": [
+   0.2,
+   0.3,
+   0.3,
+   0.3,
+   0.3
+  ],
+  "Joint[mlp-geo]": [
+   0.2,
+   0.3,
+   0.1,
+   0.3,
+   0.3
+  ],
+  "Joint[mlp-geo-dinov3]": [
+   0.2,
+   0.3,
+   0.3,
+   0.3,
+   0.3
+  ]
+ },
+ "p_h_given_f_oof_auc": {
+  "hgb": 0.956,
+  "mlp-geo": 0.7648,
+  "mlp-geo-dinov3": 0.7273
+ },
+ "contrasts": {
+  "M9[hgb] vs M1": {
+   "N_F": {
+    "ratio": 1.0269,
+    "ci95": [
+     0.981,
+     1.0796
+    ],
+    "parts": 151,
+    "better": 9,
+    "worse": 11,
+    "wilcoxon_p": 0.359452796508574
+   },
+   "robust": {
+    "difference": 0.053,
+    "ci95": [
+     0.0199,
+     0.0927
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": -0.0199,
+    "ci95": [
+     -0.0728,
+     0.0331
+    ],
+    "n": 151
+   }
+  },
+  "M9[hgb] vs M4": {
+   "N_F": {
+    "ratio": 1.051,
+    "ci95": [
+     0.9783,
+     1.1383
+    ],
+    "parts": 151,
+    "better": 13,
+    "worse": 13,
+    "wilcoxon_p": 0.2034451081274382
+   },
+   "robust": {
+    "difference": 0.0331,
+    "ci95": [
+     0.0,
+     0.0662
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": -0.1391,
+    "ci95": [
+     -0.2119,
+     -0.0728
+    ],
+    "n": 151
+   }
+  },
+  "M9[mlp-geo] vs M1": {
+   "N_F": {
+    "ratio": 0.98,
+    "ci95": [
+     0.9423,
+     1.0174
+    ],
+    "parts": 151,
+    "better": 10,
+    "worse": 5,
+    "wilcoxon_p": 0.2319410061667938
+   },
+   "robust": {
+    "difference": 0.0199,
+    "ci95": [
+     -0.0066,
+     0.053
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.0397,
+    "ci95": [
+     -0.0199,
+     0.0993
+    ],
+    "n": 151
+   }
+  },
+  "M9[mlp-geo] vs M4": {
+   "N_F": {
+    "ratio": 1.003,
+    "ci95": [
+     0.9428,
+     1.075
+    ],
+    "parts": 151,
+    "better": 12,
+    "worse": 8,
+    "wilcoxon_p": 0.9254780777776623
+   },
+   "robust": {
+    "difference": 0.0,
+    "ci95": [
+     -0.0331,
+     0.0331
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": -0.0795,
+    "ci95": [
+     -0.1523,
+     -0.0066
+    ],
+    "n": 151
+   }
+  },
+  "M9[mlp-geo] vs M9[hgb]": {
+   "N_F": {
+    "ratio": 0.9544,
+    "ci95": [
+     0.9049,
+     1.0034
+    ],
+    "parts": 151,
+    "better": 14,
+    "worse": 6,
+    "wilcoxon_p": 0.04966081576528094
+   },
+   "robust": {
+    "difference": -0.0331,
+    "ci95": [
+     -0.0728,
+     0.0
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.0596,
+    "ci95": [
+     0.0132,
+     0.106
+    ],
+    "n": 151
+   }
+  },
+  "M9[mlp-geo-dinov3] vs M1": {
+   "N_F": {
+    "ratio": 0.9929,
+    "ci95": [
+     0.9695,
+     1.0181
+    ],
+    "parts": 151,
+    "better": 7,
+    "worse": 3,
+    "wilcoxon_p": 0.537109375
+   },
+   "robust": {
+    "difference": 0.0199,
+    "ci95": [
+     -0.0199,
+     0.0596
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.0331,
+    "ci95": [
+     -0.0331,
+     0.0993
+    ],
+    "n": 151
+   }
+  },
+  "M9[mlp-geo-dinov3] vs M4": {
+   "N_F": {
+    "ratio": 1.0162,
+    "ci95": [
+     0.9562,
+     1.0885
+    ],
+    "parts": 151,
+    "better": 10,
+    "worse": 9,
+    "wilcoxon_p": 0.6717199532364952
+   },
+   "robust": {
+    "difference": 0.0,
+    "ci95": [
+     -0.0397,
+     0.0331
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": -0.0861,
+    "ci95": [
+     -0.1589,
+     -0.0132
+    ],
+    "n": 151
+   }
+  },
+  "M9[mlp-geo-dinov3] vs M9[hgb]": {
+   "N_F": {
+    "ratio": 0.9669,
+    "ci95": [
+     0.9212,
+     1.0085
+    ],
+    "parts": 151,
+    "better": 12,
+    "worse": 6,
+    "wilcoxon_p": 0.17586541793388966
+   },
+   "robust": {
+    "difference": -0.0331,
+    "ci95": [
+     -0.0795,
+     0.0066
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.053,
+    "ci95": [
+     0.0066,
+     0.0993
+    ],
+    "n": 151
+   }
+  },
+  "Joint[hgb] vs M1": {
+   "N_F": {
+    "ratio": 1.0299,
+    "ci95": [
+     0.9529,
+     1.112
+    ],
+    "parts": 151,
+    "better": 11,
+    "worse": 13,
+    "wilcoxon_p": 0.4230237971459374
+   },
+   "robust": {
+    "difference": 0.0596,
+    "ci95": [
+     0.0199,
+     0.106
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.1391,
+    "ci95": [
+     0.0795,
+     0.2053
+    ],
+    "n": 151
+   }
+  },
+  "Joint[hgb] vs M4": {
+   "N_F": {
+    "ratio": 1.054,
+    "ci95": [
+     1.0136,
+     1.104
+    ],
+    "parts": 151,
+    "better": 4,
+    "worse": 12,
+    "wilcoxon_p": 0.01984681898040744
+   },
+   "robust": {
+    "difference": 0.0397,
+    "ci95": [
+     0.0132,
+     0.0728
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.0199,
+    "ci95": [
+     -0.0199,
+     0.0596
+    ],
+    "n": 151
+   }
+  },
+  "Joint[hgb] vs M9[hgb]": {
+   "N_F": {
+    "ratio": 1.0029,
+    "ci95": [
+     0.9383,
+     1.0677
+    ],
+    "parts": 151,
+    "better": 8,
+    "worse": 11,
+    "wilcoxon_p": 0.8720152507212133
+   },
+   "robust": {
+    "difference": 0.0066,
+    "ci95": [
+     -0.0132,
+     0.0331
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.1589,
+    "ci95": [
+     0.0993,
+     0.2185
+    ],
+    "n": 151
+   }
+  },
+  "Joint[mlp-geo] vs M1": {
+   "N_F": {
+    "ratio": 0.9904,
+    "ci95": [
+     0.9213,
+     1.0658
+    ],
+    "parts": 151,
+    "better": 12,
+    "worse": 9,
+    "wilcoxon_p": 0.7147944172788152
+   },
+   "robust": {
+    "difference": 0.0199,
+    "ci95": [
+     -0.0132,
+     0.053
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.1589,
+    "ci95": [
+     0.0993,
+     0.2252
+    ],
+    "n": 151
+   }
+  },
+  "Joint[mlp-geo] vs M4": {
+   "N_F": {
+    "ratio": 1.0137,
+    "ci95": [
+     0.9861,
+     1.0456
+    ],
+    "parts": 151,
+    "better": 5,
+    "worse": 7,
+    "wilcoxon_p": 0.4345703125
+   },
+   "robust": {
+    "difference": 0.0,
+    "ci95": [
+     -0.0265,
+     0.0265
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.0397,
+    "ci95": [
+     -0.0066,
+     0.0861
+    ],
+    "n": 151
+   }
+  },
+  "Joint[mlp-geo] vs M9[hgb]": {
+   "N_F": {
+    "ratio": 0.9645,
+    "ci95": [
+     0.8881,
+     1.0433
+    ],
+    "parts": 151,
+    "better": 14,
+    "worse": 12,
+    "wilcoxon_p": 0.3469694570666956
+   },
+   "robust": {
+    "difference": -0.0331,
+    "ci95": [
+     -0.073,
+     0.0066
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.1788,
+    "ci95": [
+     0.1126,
+     0.245
+    ],
+    "n": 151
+   }
+  },
+  "Joint[mlp-geo-dinov3] vs M1": {
+   "N_F": {
+    "ratio": 1.0063,
+    "ci95": [
+     0.9348,
+     1.0837
+    ],
+    "parts": 151,
+    "better": 10,
+    "worse": 10,
+    "wilcoxon_p": 0.9404291687537614
+   },
+   "robust": {
+    "difference": 0.0397,
+    "ci95": [
+     0.0132,
+     0.0728
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.1788,
+    "ci95": [
+     0.1126,
+     0.245
+    ],
+    "n": 151
+   }
+  },
+  "Joint[mlp-geo-dinov3] vs M4": {
+   "N_F": {
+    "ratio": 1.0299,
+    "ci95": [
+     1.0064,
+     1.0587
+    ],
+    "parts": 151,
+    "better": 1,
+    "worse": 9,
+    "wilcoxon_p": 0.02734375
+   },
+   "robust": {
+    "difference": 0.0199,
+    "ci95": [
+     -0.0066,
+     0.053
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.0596,
+    "ci95": [
+     0.0132,
+     0.106
+    ],
+    "n": 151
+   }
+  },
+  "Joint[mlp-geo-dinov3] vs M9[hgb]": {
+   "N_F": {
+    "ratio": 0.9799,
+    "ci95": [
+     0.9002,
+     1.0632
+    ],
+    "parts": 151,
+    "better": 14,
+    "worse": 15,
+    "wilcoxon_p": 0.5806233751768871
+   },
+   "robust": {
+    "difference": -0.0132,
+    "ci95": [
+     -0.053,
+     0.0199
+    ],
+    "n": 151
+   },
+   "load_tolerant": {
+    "difference": 0.1987,
+    "ci95": [
+     0.1391,
+     0.2649
+    ],
+    "n": 151
+   }
+  }
+ }
+}

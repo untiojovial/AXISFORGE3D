@@ -1,0 +1,244 @@
+{
+ "note": "    python tools/research/phase7/power.py --physics physics_dev.json.gz --fusion research/phase6/results/fusion_benchmark.json         --out phase7_statistical_power.json  For each hypothesis, development parts are resampled with replacement (the part is the unit) to a given number of viable parts; the confirmatory test (exact McNemar, one-sided in the hypothesised direction, Holm across the family) is applied; power = share of 4 000 replicates that reject. Effects are taken as observed in development (v3 criterion, torsion 0.005) and, conservatively, with a third of the favourable discordant pairs turned into ties. Total objects = viable / assumed viable fraction (0.75 as in GSO, and a conservative 0.55).",
+ "development_parts": 151,
+ "hypotheses": {
+  "H1: M4 > M1, load tolerance (v3)": {
+   "development_discordant": {
+    "favourable": 18,
+    "unfavourable": 3,
+    "n": 151,
+    "rate_a": 0.5497,
+    "rate_b": 0.4503
+   },
+   "power": {
+    "observed effect": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.625,
+      "150": 0.841,
+      "200": 0.947,
+      "250": 0.983,
+      "300": 0.994,
+      "400": 1.0
+     },
+     "alpha 0.025": {
+      "100": 0.719,
+      "150": 0.906,
+      "200": 0.969,
+      "250": 0.992,
+      "300": 0.997,
+      "400": 1.0
+     }
+    },
+    "conservative (a third of favourable discordances removed)": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.262,
+      "150": 0.459,
+      "200": 0.62,
+      "250": 0.739,
+      "300": 0.843,
+      "400": 0.938
+     },
+     "alpha 0.025": {
+      "100": 0.354,
+      "150": 0.569,
+      "200": 0.729,
+      "250": 0.825,
+      "300": 0.891,
+      "400": 0.967
+     }
+    }
+   }
+  },
+  "H2: M9 > M1, robustness (v3)": {
+   "development_discordant": {
+    "favourable": 9,
+    "unfavourable": 3,
+    "n": 151,
+    "rate_a": 0.8874,
+    "rate_b": 0.8477
+   },
+   "power": {
+    "observed effect": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.114,
+      "150": 0.235,
+      "200": 0.318,
+      "250": 0.416,
+      "300": 0.518,
+      "400": 0.694
+     },
+     "alpha 0.025": {
+      "100": 0.172,
+      "150": 0.308,
+      "200": 0.426,
+      "250": 0.53,
+      "300": 0.628,
+      "400": 0.777
+     }
+    },
+    "conservative (a third of favourable discordances removed)": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.017,
+      "150": 0.061,
+      "200": 0.08,
+      "250": 0.12,
+      "300": 0.149,
+      "400": 0.214
+     },
+     "alpha 0.025": {
+      "100": 0.043,
+      "150": 0.097,
+      "200": 0.126,
+      "250": 0.175,
+      "300": 0.221,
+      "400": 0.289
+     }
+    }
+   }
+  },
+  "Joint > M1, load tolerance (v3)": {
+   "development_discordant": {
+    "favourable": 20,
+    "unfavourable": 3,
+    "n": 151,
+    "rate_a": 0.5629,
+    "rate_b": 0.4503
+   },
+   "power": {
+    "observed effect": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.718,
+      "150": 0.914,
+      "200": 0.977,
+      "250": 0.996,
+      "300": 0.998,
+      "400": 1.0
+     },
+     "alpha 0.025": {
+      "100": 0.806,
+      "150": 0.953,
+      "200": 0.987,
+      "250": 0.998,
+      "300": 0.999,
+      "400": 1.0
+     }
+    },
+    "conservative (a third of favourable discordances removed)": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.326,
+      "150": 0.539,
+      "200": 0.699,
+      "250": 0.829,
+      "300": 0.898,
+      "400": 0.974
+     },
+     "alpha 0.025": {
+      "100": 0.422,
+      "150": 0.646,
+      "200": 0.795,
+      "250": 0.887,
+      "300": 0.933,
+      "400": 0.984
+     }
+    }
+   }
+  },
+  "Joint > M1, robustness (v3)": {
+   "development_discordant": {
+    "favourable": 10,
+    "unfavourable": 3,
+    "n": 151,
+    "rate_a": 0.894,
+    "rate_b": 0.8477
+   },
+   "power": {
+    "observed effect": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.151,
+      "150": 0.302,
+      "200": 0.423,
+      "250": 0.55,
+      "300": 0.657,
+      "400": 0.808
+     },
+     "alpha 0.025": {
+      "100": 0.23,
+      "150": 0.402,
+      "200": 0.546,
+      "250": 0.653,
+      "300": 0.749,
+      "400": 0.872
+     }
+    },
+    "conservative (a third of favourable discordances removed)": {
+     "alpha 0.025 (first Holm step at family 2: 0.0125)": {
+      "100": 0.04,
+      "150": 0.099,
+      "200": 0.147,
+      "250": 0.203,
+      "300": 0.261,
+      "400": 0.362
+     },
+     "alpha 0.025": {
+      "100": 0.08,
+      "150": 0.151,
+      "200": 0.222,
+      "250": 0.292,
+      "300": 0.348,
+      "400": 0.466
+     }
+    }
+   }
+  }
+ },
+ "non_inferiority": {
+  "Joint non-inferior to M0, robustness (v3), margin 5 pp": {
+   "development_difference": 0.0927,
+   "margin": 0.05,
+   "power": {
+    "one-sided 0.025/3 (Holm, family of 3)": {
+     "100": 0.864,
+     "150": 0.972,
+     "200": 0.994,
+     "250": 1.0,
+     "300": 1.0,
+     "400": 1.0
+    },
+    "one-sided 0.025": {
+     "100": 0.93,
+     "150": 0.99,
+     "200": 1.0,
+     "250": 1.0,
+     "300": 1.0,
+     "400": 1.0
+    }
+   }
+  },
+  "Joint non-inferior to M0, load tolerance (v3), margin 10 pp": {
+   "development_difference": -0.0265,
+   "margin": 0.1,
+   "power": {
+    "one-sided 0.025/3 (Holm, family of 3)": {
+     "100": 0.277,
+     "150": 0.422,
+     "200": 0.555,
+     "250": 0.645,
+     "300": 0.762,
+     "400": 0.875
+    },
+    "one-sided 0.025": {
+     "100": 0.436,
+     "150": 0.584,
+     "200": 0.698,
+     "250": 0.797,
+     "300": 0.859,
+     "400": 0.945
+    }
+   }
+  }
+ },
+ "viable_fraction_assumed": {
+  "GSO (Phase V)": 0.755,
+  "conservative": 0.55
+ }
+}
