@@ -14,8 +14,10 @@ confirmation):
 - modes: M0 (the original planner), and the native learned orders m1, m4, m9, joint and hybrid
   (plan --learned --order MODE), every one with --nr-grasps 1, one thread, pinned to one CPU;
 - cold: a fresh process per call (process start, project load, model load, planning); --cold-reps
-  repetitions, modes in a seeded random order per object and repetition; wall time, user+system CPU and
-  peak resident memory (wait4) of the process;
+  repetitions, modes in a seeded random order per object and repetition; wall time and user+system CPU
+  (wait4) of the process. The peak-RSS field recorded by wait4 is NOT valid: on Linux a child spawned from
+  Python inherits the parent's peak across exec, so every mode showed the Python parent's ~170 MiB. Memory is
+  measured separately by memory_benchmark.py from the planner's own VmHWM;
 - warm: one process per object and mode planning --warm-calls times (project and models loaded once,
   the situation of a persistent service); the first call and the median of the remaining calls;
 - per call: the planner's own stage timings (setup, generation, ranking, the learned stage by step,
@@ -173,7 +175,6 @@ def main():
             row[m] = dict(cold_wall=float(np.median([c['wall'] for c in cold])),
                           cold_cpu=float(np.median([c['cpu'] for c in cold])),
                           cold_planner=float(np.median([c['planner_total'] for c in cold])),
-                          rss_mib=float(np.max([c['rss_mib'] for c in cold])),
                           warm_first=rec['warm'][m]['calls'][0]['wall'],
                           warm_steady=float(np.median([c['wall'] for c in steady])),
                           generation=float(np.median([c['generation'] for c in cold])),
@@ -200,7 +201,6 @@ def main():
                             model_load=describe([max(c['model_load'], 1e-9) for c in calls]) if m != 'M0' else None,
                             learned_total=describe([c['learned'] for c in calls]) if m != 'M0' else None,
                             learned_stages={k: describe(np.maximum(v, 1e-9)) for k, v in st.items()},
-                            rss_mib=describe([c['rss_mib'] for c in calls]),
                             examined_gmean=float(np.exp(np.mean([np.log(c['examined']) for c in calls]))))
         results[kind]['stages'] = stage
     models = Path(a.models)
@@ -213,6 +213,7 @@ def main():
                    binary_sha256=hashlib.sha256(Path(a.binary).read_bytes()).hexdigest(),
                    git_commit=subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip(),
                    other_processes_at_start=others, seconds=round(time.time()-t_start, 1)),
+               memory='see memory_benchmark.json (the rss_mib values in raw are the Python parent peak, invalid)',
                model=dict(file=str(models), bytes=models.stat().st_size, sha256=hashlib.sha256(models.read_bytes()).hexdigest(),
                           trees=sum(len(doc[k]['trees']) for k in ('feasibility', 'robustness') if doc.get(k)), nodes=nodes),
                design=dict(cold_reps=a.cold_reps, warm_calls=a.warm_calls, seed=a.seed, modes=MODES),

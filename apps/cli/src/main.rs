@@ -279,6 +279,15 @@ impl From<DemoObstacles> for templates::Obstacles {
 }
 
 /// Reads candidate scores from an outside model into the planner options.
+/// The process's peak resident set size in KiB (`VmHWM` in `/proc/self/status`), where available.
+fn peak_resident_kib() -> Option<u64> {
+    std::fs::read_to_string("/proc/self/status")
+        .ok()?
+        .lines()
+        .find_map(|l| l.strip_prefix("VmHWM:"))
+        .and_then(|v| v.trim().trim_end_matches("kB").trim().parse().ok())
+}
+
 /// Reads and validates a learned-order file; returns the models and the seconds it took.
 fn load_learned_models(path: &Path) -> Result<(axisforge_grasping::LearnedModels, f64)> {
     let started = std::time::Instant::now();
@@ -849,6 +858,11 @@ fn run(cli: Cli) -> Result<()> {
                         "projectLoadSeconds".to_owned(),
                         serde_json::json!(project_load_seconds),
                     );
+                    // Peak resident memory of this process (Linux; absent elsewhere). Read
+                    // here because a parent's rusage cannot separate it from its own peak.
+                    if let Some(kib) = peak_resident_kib() {
+                        map.insert("peakResidentKiB".to_owned(), serde_json::json!(kib));
+                    }
                     if repeat > 1 {
                         map.insert("calls".to_owned(), serde_json::Value::Array(calls));
                     }
