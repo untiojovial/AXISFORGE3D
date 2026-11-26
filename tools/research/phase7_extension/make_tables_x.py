@@ -7,11 +7,17 @@ ordering ceiling, v3 models, external baselines v2, GPD variability, fallback au
 confirmation_x.json if present). Outputs: numbers_x.tex (one \\newcommand per number) and tab_x_confirmation.tex.
 """
 import argparse
+import re
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 R = ROOT/'research/phase7_extension/results'
+
+
+def minus(text):
+    """Typographic minus for negative numbers in text (a hyphen before a digit at the start or after a space, '[' or '(')."""
+    return re.sub(r'(^|[\s\[(,])-(?=\d)', r'\1$-$', text, flags=re.M)
 
 
 class Macros:
@@ -38,9 +44,9 @@ def pv(x):
     """A p-value for the text: two significant digits, powers of ten below 0.001, never 0 or 1."""
     if x < 1e-3:
         m, e = '{:.1e}'.format(x).split('e')
-        return f'${m}\\times 10^{{{int(e)}}}$'
+        return f'\\ensuremath{{{m}\\times 10^{{{int(e)}}}}}'
     if x > .99:
-        return '$>0.99$'
+        return '\\ensuremath{>0.99}'
     return "{:.2g}".format(x)
 
 
@@ -235,7 +241,9 @@ def main():
                        f"{q(pv(v['holm_p']))} & {q('yes' if v['supported'] else 'no')} \\\\")
         tab += ['\\bottomrule', '\\end{tabular}']
         (out/'tab_x_confirmation.tex').write_text('\n'.join(tab) + '\n')
-    (out/'numbers_x.tex').write_text('\n'.join(M.lines) + '\n')
+    (out/'numbers_x.tex').write_text(minus('\n'.join(M.lines)) + '\n')
+    for t in out.glob('tab_x_*.tex'):
+        t.write_text(minus(t.read_text()))
     print(len(M.lines) - 1, 'macros')
 
 

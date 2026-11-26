@@ -7,6 +7,7 @@ Writes numbers.tex (one \\newcommand per number quoted in the text) and one tab_
 manuscript never types a result by hand: every quoted value is a macro defined here.
 """
 import argparse
+import re
 import json
 from pathlib import Path
 
@@ -28,6 +29,11 @@ def pct(x, d=1):
 
 def ci(c, scale=1, d=3):
     return f'[{c[0]*scale:.{d}f}, {c[1]*scale:.{d}f}]'
+
+
+def minus(text):
+    """Typographic minus for negative numbers in text (a hyphen before a digit at the start or after a space, '[' or '(')."""
+    return re.sub(r'(^|[\s\[(,])-(?=\d)', r'\1$-$', text, flags=re.M)
 
 
 class Macros:
@@ -278,7 +284,9 @@ def main():
     dev(a.results, M, a.out)
     have = confirmation(a.results, M, a.out)
     costs(a.results, M, a.out)
-    (Path(a.out)/'numbers.tex').write_text('\n'.join(M.lines) + '\n')
+    (Path(a.out)/'numbers.tex').write_text(minus('\n'.join(M.lines)) + '\n')
+    for t in Path(a.out).glob('tab_*.tex'):
+        t.write_text(minus(t.read_text()))
     print(len(M.lines)-1, 'macros; confirmation', have)
 
 
