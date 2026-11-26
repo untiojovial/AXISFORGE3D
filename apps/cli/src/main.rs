@@ -195,6 +195,11 @@ enum Command {
         /// Learned order to use with --learned: m1, m4, m9, joint or hybrid.
         #[arg(long, default_value = "joint", requires = "learned")]
         order: String,
+        /// Plan this many times in the same process (project and models
+        /// loaded once) and report every call's wall time and stage timings
+        /// under "calls" (with --json); the report is the first call's.
+        #[arg(long, default_value_t = 1, value_parser = clap::value_parser!(u32).range(1..))]
+        repeat: u32,
     },
     /// Export generator-order grasp candidates, optionally evaluating one index.
     ResearchCandidates {
@@ -775,6 +780,7 @@ fn run(cli: Cli) -> Result<()> {
             nr_grasps,
             learned,
             order,
+            repeat,
         } => {
             let mut options = axisforge_grasping::PlannerOptions {
                 nr_grasps,
@@ -790,7 +796,9 @@ fn run(cli: Cli) -> Result<()> {
                 options.learned_order = Some(axisforge_grasping::LearnedOrder::new(models, mode)?);
                 model_load_seconds = Some(seconds);
             }
+            let load_started = std::time::Instant::now();
             let mut session = session_for(&file)?;
+            let project_load_seconds = load_started.elapsed().as_secs_f64();
             let body_id = session
                 .project()
                 .environment
@@ -798,16 +806,29 @@ fn run(cli: Cli) -> Result<()> {
                 .ok_or_else(|| anyhow!("no body named '{body}' in {}", file.display()))?
                 .id
                 .clone();
-            let Response::Plan(report) = session.handle(
-                Request::PlanPick {
-                    body_id,
-                    options: Some(options),
-                },
-                &Default::default(),
-            )?
-            else {
-                return Err(anyhow!("unexpected reply"));
-            };
+            let mut calls = Vec::new();
+            let mut first = None;
+            for _ in 0..repeat {
+                let started = std::time::Instant::now();
+                let Response::Plan(report) = session.handle(
+                    Request::PlanPick {
+                        body_id: body_id.clone(),
+                        options: Some(options.clone()),
+                    },
+                    &Default::default(),
+                )?
+                else {
+                    return Err(anyhow!("unexpected reply"));
+                };
+                calls.push(serde_json::json!({
+                    "wallSeconds": started.elapsed().as_secs_f64(),
+                    "candidatesExamined": report.candidates_examined,
+                    "first": report.plans.first().map(|p| p.candidate.label.clone()),
+                    "timings": report.timings,
+                }));
+                first.get_or_insert(report);
+            }
+            let report = first.expect("repeat is at least 1");
             // On stderr, so `--json` output stays a single document.
             let blind = axisforge_service::links_without_collision(&session.project().robot);
             if !blind.is_empty() {
@@ -819,9 +840,18 @@ fn run(cli: Cli) -> Result<()> {
             }
             if json {
                 let mut value = serde_json::to_value(&report)?;
-                if let (Some(seconds), Some(map)) = (model_load_seconds, value.as_object_mut()) {
-                    map.insert("modelLoadSeconds".to_owned(), serde_json::json!(seconds));
-                    map.insert("learnedOrder".to_owned(), serde_json::json!(order));
+                if let Some(map) = value.as_object_mut() {
+                    if let Some(seconds) = model_load_seconds {
+                        map.insert("modelLoadSeconds".to_owned(), serde_json::json!(seconds));
+                        map.insert("learnedOrder".to_owned(), serde_json::json!(order));
+                    }
+                    map.insert(
+                        "projectLoadSeconds".to_owned(),
+                        serde_json::json!(project_load_seconds),
+                    );
+                    if repeat > 1 {
+                        map.insert("calls".to_owned(), serde_json::Value::Array(calls));
+                    }
                 }
                 println!("{}", serde_json::to_string_pretty(&value)?);
                 return Ok(());

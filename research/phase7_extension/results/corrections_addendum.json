@@ -1,0 +1,86 @@
+{
+ "note": "    python tools/research/phase7_extension/corrections_addendum.py --results research/phase7/results         --out research/phase7_extension/results/corrections_addendum.json  Reads only committed files; confirmation_results.json itself is never modified.  A  The evaluation-set block of confirmation_results.json carries an S6 (H4) entry that is a copy of the    primary one: the analysis added S6 to every set from the same timing file, and none of the 60 timed    objects is in the evaluation set. The correct evaluation-set value is \"not measured\". Holm over the    evaluation-set secondary family is recomputed without it. E  The denominators of every reported quantity, recounted from the files. F  Holm-adjusted p-values stored as 0 (rounded to 6 decimals) are given at full precision.",
+ "A_S6_in_evaluation_set": {
+  "entry": "S6 (H4): Joint full online cost lower than the original planner",
+  "evaluation_set_value_as_stored": {
+   "ratio": 1.9375,
+   "ci95": [
+    1.836,
+    2.0349
+   ],
+   "p_one_sided": 0.9999999999905178,
+   "objects": 60,
+   "fewer": 1,
+   "more": 59,
+   "ties": 0,
+   "holm_p": 1.0,
+   "supported": false
+  },
+  "primary_value": {
+   "ratio": 1.9375,
+   "ci95": [
+    1.836,
+    2.0349
+   ],
+   "p_one_sided": 0.9999999999905178,
+   "objects": 60,
+   "fewer": 1,
+   "more": 59,
+   "ties": 0,
+   "holm_p": 1.0,
+   "supported": false
+  },
+  "identical": true,
+  "timed_objects": 60,
+  "timed_objects_in_evaluation_set": 0,
+  "correct_evaluation_set_value": "not measured (no evaluation-set object was timed)",
+  "evaluation_set_holm_without_S6": {
+   "S7 (H5): DINOv3 linear-branch MLP (L10) examines fewer candidates than the geometry MLP (L2)": 1.0,
+   "S5: Joint load tolerance (v3) non-inferior to the original planner, margin 10 pp": 1.0,
+   "S2 (H2, historical): M9 robustness (v3) higher than M1": 1.0,
+   "S1 (H1, historical): M4 load tolerance (v3) higher than M1": 1.0,
+   "S3: Joint load tolerance (v3) higher than M1": 1.0,
+   "S4: Joint robustness (v3) higher than M1": 1.0
+  },
+  "evaluation_set_holm_as_stored": {
+   "S1 (H1, historical): M4 load tolerance (v3) higher than M1": 1.0,
+   "S2 (H2, historical): M9 robustness (v3) higher than M1": 1.0,
+   "S3: Joint load tolerance (v3) higher than M1": 1.0,
+   "S4: Joint robustness (v3) higher than M1": 1.0,
+   "S5: Joint load tolerance (v3) non-inferior to the original planner, margin 10 pp": 1.0,
+   "S6 (H4): Joint full online cost lower than the original planner": 1.0,
+   "S7 (H5): DINOv3 linear-branch MLP (L10) examines fewer candidates than the geometry MLP (L2)": 1.0
+  },
+  "cause": "tools/research/phase7/egad_confirm.py adds S6 to each set from the same timing file without filtering by set"
+ },
+ "E_denominators": {
+  "development parts with labelled catalogues (feature/probability analyses; P(F) training set)": 316,
+  "development dynamic parts (physics, fusion selection; the manuscript's \\devParts)": 151,
+  "development parts with full online cost measured": 60,
+  "primary EGAD objects (population metrics)": 300,
+  "primary viable objects (P1-P3, S1-S5, S7; rates conditional on a feasible grasp)": 220,
+  "primary viable objects with dynamics": 220,
+  "primary objects without any viable candidate": 80,
+  "evaluation-set objects": 45,
+  "evaluation-set viable objects": 35,
+  "timed objects (S6, seeded subset of the primary viable objects)": 60,
+  "timed objects that are primary viable": 60
+ },
+ "F_full_precision_holm_primary": {
+  "P1: FORTIS-R Joint examines fewer candidates than the original planner (N_F ratio < 1)": {
+   "p_one_sided": 3.218850123250796e-09,
+   "holm_p_stored": 0.0,
+   "holm_p_full_precision": 6.437700246501592e-09
+  },
+  "P2: Joint robustness (v3) non-inferior to the original planner, margin 5 pp": {
+   "p_one_sided": 0.02157446315102397,
+   "holm_p_stored": 0.021574,
+   "holm_p_full_precision": 0.02157446315102397
+  },
+  "P3 (H3): Joint N_F non-inferior to the best learned baseline M1, ratio margin 1.25": {
+   "p_one_sided": 2.469801839128961e-22,
+   "holm_p_stored": 0.0,
+   "holm_p_full_precision": 7.409405517386884e-22
+  }
+ }
+}

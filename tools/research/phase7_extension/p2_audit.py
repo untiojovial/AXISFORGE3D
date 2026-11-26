@@ -13,7 +13,8 @@ Recomputed from the committed per-object outputs only (confirmation_orders.json,
      and the score interval obtained by inverting it;
    - Newcombe's hybrid score interval for a paired difference (Newcombe 1998, Statistics in Medicine
      17:2635-2650, method 10), without continuity correction;
-4. the full-precision one-sided p-values of the whole primary family and Holm recomputed with them.
+4. the full-precision one-sided p-values of the whole primary family and Holm recomputed with them;
+5. fragility: the pre-specified test after changing the Joint outcome of a single object.
 
 The references above are cited for the formulas; they are not yet in references_verified.json.
 """
@@ -117,6 +118,15 @@ def main():
         for rank, k in enumerate(od):
             r_ = max(r_, min(1., (len(q)-rank)*q[k])); h_[k] = r_
         alt[lab] = dict(holm_p_P2=h_['P2'], supported_at_0_025=bool(h_['P2'] < .025))
+    def pre_test(a_, b_, c_, d_):
+        x = np.array([0]*a_ + [1]*b_ + [-1]*c_ + [0]*d_, float)
+        s_ = x.std(ddof=1)/np.sqrt(len(x))
+        return float(norm.sf((x.mean() - margin)/s_)), float(x.mean() - norm.ppf(.975)*s_)
+    frag = {}
+    for lab, cell in (('one Joint-only object becomes neither', (a11, b-1, c, d00+1)),
+                      ('one both-robust object becomes M0-only', (a11-1, b, c+1, d00))):
+        pv, lo = pre_test(*cell)
+        frag[lab] = dict(p_one_sided=pv, lower_97_5=lo, still_supported=bool(pv < .025 and lo > margin))
     mcn = dict(favourable=b, unfavourable=c, superiority_p_one_sided=float(binom.sf(b-1, b+c, .5)))
     out = dict(note=__doc__.strip().split('\n\n', 1)[1].replace('\n', ' '), objects=n,
                paired_table=dict(both_robust=a11, joint_only=b, m0_only=c, neither=d00),
@@ -126,14 +136,14 @@ def main():
                                       holm_p=pr[next(k for k in pr if k.startswith('P2'))]['holm_p']),
                primary_family_full_precision=dict(p_one_sided=ps, holm=holm,
                                                   stored_holm_p=dict(P1=pr[k1]['holm_p'], P3=pr[k3]['holm_p'])),
-               holm_with_alternative_P2=alt, superiority_mcnemar=mcn,
+               holm_with_alternative_P2=alt, superiority_mcnemar=mcn, fragility_pre_specified=frag,
                conclusion=('The pre-specified test supports non-inferiority narrowly (lower bound -4.9 pp vs margin -5). '
                            'Score-based methods for paired binary data do not: see tango and newcombe_method10. '
                            'The pre-specified result is kept as the confirmatory result; the discrepancy is reported.'))
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(out, indent=1) + '\n')
     print(json.dumps({k: out[k] for k in ('paired_table', 'difference', 'pre_specified', 'wald_mle', 'tango', 'newcombe_method10',
-                                          'primary_family_full_precision', 'holm_with_alternative_P2', 'superiority_mcnemar')}, indent=1))
+                                          'primary_family_full_precision', 'holm_with_alternative_P2', 'superiority_mcnemar', 'fragility_pre_specified')}, indent=1))
 
 
 if __name__ == '__main__':

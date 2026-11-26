@@ -1,5 +1,5 @@
 {
- "note": "    python tools/research/phase7_extension/p2_audit.py --results research/phase7/results         --out research/phase7_extension/results/p2_statistical_audit.json  Recomputed from the committed per-object outputs only (confirmation_orders.json, confirmation_trials.json.gz):  1. the paired table of robustness (v3, six standard conditions, torsion 0.005) of Joint vs M0; 2. the pre-specified test (paired-difference z test with the sample SD, ddof 1; margin -5 pp) and its Holm step; 3. alternatives for paired binary data, as sensitivity analyses:    - Wald test with the multinomial (MLE) variance of the paired difference;    - Tango's score test for a paired difference (Tango 1998, Statistics in Medicine 17:891-908) at the margin,      and the score interval obtained by inverting it;    - Newcombe's hybrid score interval for a paired difference (Newcombe 1998, Statistics in Medicine      17:2635-2650, method 10), without continuity correction; 4. the full-precision one-sided p-values of the whole primary family and Holm recomputed with them.  The references above are cited for the formulas; they are not yet in references_verified.json.",
+ "note": "    python tools/research/phase7_extension/p2_audit.py --results research/phase7/results         --out research/phase7_extension/results/p2_statistical_audit.json  Recomputed from the committed per-object outputs only (confirmation_orders.json, confirmation_trials.json.gz):  1. the paired table of robustness (v3, six standard conditions, torsion 0.005) of Joint vs M0; 2. the pre-specified test (paired-difference z test with the sample SD, ddof 1; margin -5 pp) and its Holm step; 3. alternatives for paired binary data, as sensitivity analyses:    - Wald test with the multinomial (MLE) variance of the paired difference;    - Tango's score test for a paired difference (Tango 1998, Statistics in Medicine 17:891-908) at the margin,      and the score interval obtained by inverting it;    - Newcombe's hybrid score interval for a paired difference (Newcombe 1998, Statistics in Medicine      17:2635-2650, method 10), without continuity correction; 4. the full-precision one-sided p-values of the whole primary family and Holm recomputed with them; 5. fragility: the pre-specified test after changing the Joint outcome of a single object.  The references above are cited for the formulas; they are not yet in references_verified.json.",
  "objects": 220,
  "paired_table": {
   "both_robust": 196,
@@ -75,6 +75,18 @@
   "favourable": 4,
   "unfavourable": 8,
   "superiority_p_one_sided": 0.927001953125
+ },
+ "fragility_pre_specified": {
+  "one Joint-only object becomes neither": {
+   "p_one_sided": 0.034812096321185274,
+   "lower_97_5": -0.05218885799627583,
+   "still_supported": false
+  },
+  "one both-robust object becomes M0-only": {
+   "p_one_sided": 0.047695714315988444,
+   "lower_97_5": -0.054781099414007065,
+   "still_supported": false
+  }
  },
  "conclusion": "The pre-specified test supports non-inferiority narrowly (lower bound -4.9 pp vs margin -5). Score-based methods for paired binary data do not: see tango and newcombe_method10. The pre-specified result is kept as the confirmatory result; the discrepancy is reported."
 }

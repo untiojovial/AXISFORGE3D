@@ -369,6 +369,10 @@ pub struct PlanTimings {
     /// model inference and sorting. Zero without one.
     #[serde(default)]
     pub learned_seconds: f64,
+    /// The learned stage by step (bounds, preliminary scores and gate,
+    /// features, inference, order), in seconds. Empty without a learned order.
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub learned_stages: BTreeMap<String, f64>,
 }
 
 /// A clock reading, or `None` where the target has no clock (wasm32).
@@ -832,9 +836,14 @@ fn search(
     Ok(())
 }
 
-/// Ranked candidates (sort key, candidate), how many the prior scored and how
-/// many of its labels matched none.
-type Ranked = (Vec<(f64, GraspCandidate)>, usize, usize);
+/// Ranked candidates (sort key, candidate), how many the prior scored, how
+/// many of its labels matched none, and the learned stage timings (if any).
+type Ranked = (
+    Vec<(f64, GraspCandidate)>,
+    usize,
+    usize,
+    BTreeMap<String, f64>,
+);
 
 /// Candidates in the order they are examined, with how many of them the
 /// prior scored and how many of its labels matched none.
@@ -867,7 +876,7 @@ fn rank(context: &Context<'_>, candidates: Vec<GraspCandidate>) -> DomainResult<
     // same request always examines candidates in the same order.
     ranked.sort_by(|a, b| b.0.total_cmp(&a.0));
     let unmatched = prior.len().saturating_sub(matched);
-    Ok((ranked, matched, unmatched))
+    Ok((ranked, matched, unmatched, BTreeMap::new()))
 }
 
 /// [`rank`] with a learned order: the same preliminary scores and gate, the
@@ -880,18 +889,28 @@ fn rank_learned(
     candidates: Vec<GraspCandidate>,
 ) -> DomainResult<Ranked> {
     use crate::learned;
+    let mut stages = BTreeMap::new();
+    let mut started = tick();
+    let mut lap = |name: &str, started: &mut Option<std::time::Instant>| {
+        stages.insert(name.to_owned(), since(*started));
+        *started = tick();
+    };
     let (low, high) = learned::visual_bounds(context.project, context.body)?;
+    lap("bounds", &mut started);
     let preliminary: Vec<f64> = candidates
         .iter()
         .map(|c| preliminary_score(&context.quality_input(c)))
         .collect();
     let makeable: Vec<bool> = candidates.iter().map(|c| context.gate(c).is_ok()).collect();
+    lap("preliminaryAndGate", &mut started);
     let features: Vec<[f64; learned::FEATURES]> = candidates
         .iter()
         .enumerate()
         .map(|(i, c)| learned::features(c, preliminary[i], makeable[i], &low, &high))
         .collect();
+    lap("features", &mut started);
     let scores = learned::score_candidates(&learned.models, &features);
+    lap("inference", &mut started);
     let offsets: Vec<f64> = candidates.iter().map(|c| c.center_offset).collect();
     let order = learned::order(
         &learned.models,
@@ -917,7 +936,8 @@ fn rank_learned(
             )
         })
         .collect();
-    Ok((ranked, n, 0))
+    lap("order", &mut started);
+    Ok((ranked, n, 0, stages))
 }
 
 /// What a hand synthesis takes from the planner's options.
@@ -1111,7 +1131,7 @@ pub fn plan_pick_with(
     };
     let generation_seconds = since(generation_started);
     let ranking_started = tick();
-    let (ranked, prior_matched, prior_unmatched) = rank(&context, candidates)?;
+    let (ranked, prior_matched, prior_unmatched, learned_stages) = rank(&context, candidates)?;
     let ranking_seconds = since(ranking_started);
     let learned_seconds = if options.learned_order.is_some() {
         ranking_seconds
@@ -1136,6 +1156,7 @@ pub fn plan_pick_with(
             generation_seconds,
             ranking_seconds,
             learned_seconds,
+            learned_stages,
             ..PlanTimings::default()
         },
     };
