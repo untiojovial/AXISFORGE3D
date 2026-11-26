@@ -1,0 +1,83 @@
+{
+ "note": "    python tools/research/phase7_extension/posthoc_x.py --archive research/phase7_extension/results/confirmation_x         --result research/phase7_extension/results/confirmation_x.json --out research/phase7_extension/results/confirmation_x_posthoc.json\n\nWritten after confirmation_x.json existed, because two results needed a closer description:\n\n1. C4. The geometric-mean time ratio was close to 1, while X was slower on most objects and the frozen one-sided\n   Wilcoxon sensitivity pointed the other way. This file gives the per-object ratio distribution, the split into\n   viable objects and objects without a viable candidate, and the two-sided Wilcoxon p.\n2. C2. The robustness difference rests on few discordant objects. The same fragility check as in the Phase VII\n   P2 audit: move one favourable object to \"neither\", and one \"both robust\" object to \"M0 only\".\n\nEverything is labelled post hoc. The confirmatory decisions are those in confirmation_x.json.",
+ "C4_time_ratio_per_object": {
+  "all": {
+   "n": 200,
+   "gmean": 0.9980598577185853,
+   "median": 1.022421640447841,
+   "q25": 0.9934221454309164,
+   "q75": 1.0394673772113503,
+   "slower": 142,
+   "faster": 58,
+   "wilcoxon_two_sided_p": 5.290150331863597e-05
+  },
+  "viable": {
+   "n": 151,
+   "gmean": 0.9908569425838964,
+   "median": 1.0226442698286613,
+   "q25": 0.980205816402623,
+   "q75": 1.0434430213348744,
+   "slower": 102,
+   "faster": 49,
+   "wilcoxon_two_sided_p": 0.027318267939197713
+  },
+  "no_viable_candidate": {
+   "n": 49,
+   "gmean": 1.0205875594750236,
+   "median": 1.0219459758343872,
+   "q25": 1.0072570032225925,
+   "q75": 1.0355578634394549,
+   "slower": 40,
+   "faster": 9,
+   "wilcoxon_two_sided_p": 2.0661705590896418e-07
+  },
+  "median_seconds": {
+   "M0_viable": 0.47444828700008657,
+   "X_viable": 0.4740976660000342,
+   "M0_no_viable": 0.6817970249999235,
+   "X_no_viable": 0.6968943480001144
+  }
+ },
+ "C2_fragility_tango": {
+  "as observed": {
+   "x_only": 5,
+   "y_only": 0,
+   "p_one_sided": 0.00013919059324395873,
+   "ci95": [
+    0.007482112272311225,
+    0.0751661223806009
+   ],
+   "lower_above_margin": true
+  },
+  "one X-only object becomes neither": {
+   "x_only": 4,
+   "y_only": 0,
+   "p_one_sided": 0.0002444025981899056,
+   "ci95": [
+    0.0010238936035058442,
+    0.06612610016008266
+   ],
+   "lower_above_margin": true
+  },
+  "one both-robust object becomes M0-only": {
+   "x_only": 5,
+   "y_only": 1,
+   "p_one_sided": 0.0004683074300854076,
+   "ci95": [
+    -0.0073236925330694815,
+    0.06952795899473581
+   ],
+   "lower_above_margin": true
+  },
+  "two both-robust objects become M0-only": {
+   "x_only": 5,
+   "y_only": 2,
+   "p_one_sided": 0.0014047346597974182,
+   "ci95": [
+    -0.01839282600014744,
+    0.06390409151189703
+   ],
+   "lower_above_margin": true
+  }
+ }
+}

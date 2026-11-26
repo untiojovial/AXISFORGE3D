@@ -1,0 +1,1602 @@
+{
+ "egad_C01": {
+  "name": "egad_C01",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 12,
+  "generate_s": 0.482,
+  "solve_s": 0.599
+ },
+ "egad_R21": {
+  "name": "egad_R21",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 14,
+  "generate_s": 1.131,
+  "solve_s": 1.841
+ },
+ "egad_R10": {
+  "name": "egad_R10",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 6,
+  "generate_s": 0.69,
+  "solve_s": 1.184
+ },
+ "egad_U24": {
+  "name": "egad_U24",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.295,
+  "solve_s": 0.726
+ },
+ "egad_J14": {
+  "name": "egad_J14",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 12,
+  "generate_s": 0.382,
+  "solve_s": 1.476
+ },
+ "egad_K15": {
+  "name": "egad_K15",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 50,
+  "generate_s": 0.615,
+  "solve_s": 2.6
+ },
+ "egad_M11": {
+  "name": "egad_M11",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 22,
+  "generate_s": 0.719,
+  "solve_s": 1.926
+ },
+ "egad_E13": {
+  "name": "egad_E13",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 13,
+  "generate_s": 0.519,
+  "solve_s": 1.257
+ },
+ "egad_U06": {
+  "name": "egad_U06",
+  "status": "no viable candidate",
+  "candidates": 1252,
+  "feasible": 0,
+  "generate_s": 0.406,
+  "solve_s": 0.754
+ },
+ "egad_F02": {
+  "name": "egad_F02",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 124,
+  "generate_s": 0.341,
+  "solve_s": 5.004
+ },
+ "egad_U09": {
+  "name": "egad_U09",
+  "status": "no viable candidate",
+  "candidates": 1324,
+  "feasible": 0,
+  "generate_s": 0.476,
+  "solve_s": 1.076
+ },
+ "egad_E20": {
+  "name": "egad_E20",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 44,
+  "generate_s": 0.485,
+  "solve_s": 2.037
+ },
+ "egad_V13": {
+  "name": "egad_V13",
+  "status": "no viable candidate",
+  "candidates": 1188,
+  "feasible": 0,
+  "generate_s": 0.252,
+  "solve_s": 0.694
+ },
+ "egad_R14": {
+  "name": "egad_R14",
+  "status": "viable",
+  "candidates": 1148,
+  "feasible": 2,
+  "generate_s": 0.445,
+  "solve_s": 0.781
+ },
+ "egad_H05": {
+  "name": "egad_H05",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 76,
+  "generate_s": 0.476,
+  "solve_s": 2.645
+ },
+ "egad_X08": {
+  "name": "egad_X08",
+  "status": "no viable candidate",
+  "candidates": 1122,
+  "feasible": 0,
+  "generate_s": 0.55,
+  "solve_s": 1.444
+ },
+ "egad_H15": {
+  "name": "egad_H15",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 36,
+  "generate_s": 0.711,
+  "solve_s": 2.269
+ },
+ "egad_M19": {
+  "name": "egad_M19",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 4,
+  "generate_s": 0.414,
+  "solve_s": 0.722
+ },
+ "egad_N04": {
+  "name": "egad_N04",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 46,
+  "generate_s": 0.698,
+  "solve_s": 2.56
+ },
+ "egad_F04": {
+  "name": "egad_F04",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 64,
+  "generate_s": 0.439,
+  "solve_s": 2.429
+ },
+ "egad_U11": {
+  "name": "egad_U11",
+  "status": "viable",
+  "candidates": 1700,
+  "feasible": 10,
+  "generate_s": 0.241,
+  "solve_s": 1.297
+ },
+ "egad_M05": {
+  "name": "egad_M05",
+  "status": "viable",
+  "candidates": 1146,
+  "feasible": 90,
+  "generate_s": 0.415,
+  "solve_s": 3.907
+ },
+ "egad_T24": {
+  "name": "egad_T24",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 36,
+  "generate_s": 0.583,
+  "solve_s": 1.414
+ },
+ "egad_O02": {
+  "name": "egad_O02",
+  "status": "no viable candidate",
+  "candidates": 1142,
+  "feasible": 0,
+  "generate_s": 1.06,
+  "solve_s": 0.547
+ },
+ "egad_H19": {
+  "name": "egad_H19",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 19,
+  "generate_s": 0.908,
+  "solve_s": 1.252
+ },
+ "egad_D05": {
+  "name": "egad_D05",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 62,
+  "generate_s": 0.234,
+  "solve_s": 1.967
+ },
+ "egad_M17": {
+  "name": "egad_M17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 40,
+  "generate_s": 0.399,
+  "solve_s": 2.144
+ },
+ "egad_A05": {
+  "name": "egad_A05",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 90,
+  "generate_s": 0.453,
+  "solve_s": 3.484
+ },
+ "egad_N24": {
+  "name": "egad_N24",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 28,
+  "generate_s": 0.497,
+  "solve_s": 1.823
+ },
+ "egad_J02": {
+  "name": "egad_J02",
+  "status": "viable",
+  "candidates": 1142,
+  "feasible": 174,
+  "generate_s": 0.536,
+  "solve_s": 5.933
+ },
+ "egad_O08": {
+  "name": "egad_O08",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.758,
+  "solve_s": 0.588
+ },
+ "egad_R23": {
+  "name": "egad_R23",
+  "status": "viable",
+  "candidates": 1148,
+  "feasible": 10,
+  "generate_s": 0.4,
+  "solve_s": 1.158
+ },
+ "egad_V06": {
+  "name": "egad_V06",
+  "status": "viable",
+  "candidates": 1540,
+  "feasible": 4,
+  "generate_s": 0.34,
+  "solve_s": 1.037
+ },
+ "egad_C08": {
+  "name": "egad_C08",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 44,
+  "generate_s": 0.482,
+  "solve_s": 1.93
+ },
+ "egad_F01": {
+  "name": "egad_F01",
+  "status": "viable",
+  "candidates": 1144,
+  "feasible": 73,
+  "generate_s": 0.403,
+  "solve_s": 2.728
+ },
+ "egad_B19": {
+  "name": "egad_B19",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 32,
+  "generate_s": 0.606,
+  "solve_s": 1.576
+ },
+ "egad_G12": {
+  "name": "egad_G12",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 144,
+  "generate_s": 0.515,
+  "solve_s": 4.519
+ },
+ "egad_M04": {
+  "name": "egad_M04",
+  "status": "viable",
+  "candidates": 1146,
+  "feasible": 50,
+  "generate_s": 0.795,
+  "solve_s": 2.143
+ },
+ "egad_Q17": {
+  "name": "egad_Q17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 12,
+  "generate_s": 0.383,
+  "solve_s": 1.32
+ },
+ "egad_C25": {
+  "name": "egad_C25",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 48,
+  "generate_s": 0.409,
+  "solve_s": 1.594
+ },
+ "egad_R17": {
+  "name": "egad_R17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 34,
+  "generate_s": 0.596,
+  "solve_s": 1.42
+ },
+ "egad_M15": {
+  "name": "egad_M15",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 50,
+  "generate_s": 0.685,
+  "solve_s": 1.965
+ },
+ "egad_F15": {
+  "name": "egad_F15",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 18,
+  "generate_s": 1.398,
+  "solve_s": 1.754
+ },
+ "egad_E11": {
+  "name": "egad_E11",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 14,
+  "generate_s": 1.098,
+  "solve_s": 1.089
+ },
+ "egad_L19": {
+  "name": "egad_L19",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 154,
+  "generate_s": 0.896,
+  "solve_s": 5.222
+ },
+ "egad_S19": {
+  "name": "egad_S19",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 64,
+  "generate_s": 1.045,
+  "solve_s": 3.09
+ },
+ "egad_R03": {
+  "name": "egad_R03",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 6,
+  "generate_s": 0.382,
+  "solve_s": 1.492
+ },
+ "egad_T17": {
+  "name": "egad_T17",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.483,
+  "solve_s": 0.798
+ },
+ "egad_X25": {
+  "name": "egad_X25",
+  "status": "no viable candidate",
+  "candidates": 1304,
+  "feasible": 0,
+  "generate_s": 0.315,
+  "solve_s": 0.645
+ },
+ "egad_E00": {
+  "name": "egad_E00",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 50,
+  "generate_s": 0.598,
+  "solve_s": 3.022
+ },
+ "egad_P03": {
+  "name": "egad_P03",
+  "status": "no viable candidate",
+  "candidates": 1150,
+  "feasible": 0,
+  "generate_s": 0.304,
+  "solve_s": 0.555
+ },
+ "egad_P18": {
+  "name": "egad_P18",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 18,
+  "generate_s": 0.719,
+  "solve_s": 1.797
+ },
+ "egad_E24": {
+  "name": "egad_E24",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 100,
+  "generate_s": 0.442,
+  "solve_s": 2.763
+ },
+ "egad_F08": {
+  "name": "egad_F08",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 24,
+  "generate_s": 0.459,
+  "solve_s": 1.399
+ },
+ "egad_B11": {
+  "name": "egad_B11",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 42,
+  "generate_s": 0.421,
+  "solve_s": 1.592
+ },
+ "egad_C09": {
+  "name": "egad_C09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 8,
+  "generate_s": 0.431,
+  "solve_s": 0.735
+ },
+ "egad_Q10": {
+  "name": "egad_Q10",
+  "status": "no viable candidate",
+  "candidates": 1150,
+  "feasible": 0,
+  "generate_s": 0.792,
+  "solve_s": 1.476
+ },
+ "egad_M18": {
+  "name": "egad_M18",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 24,
+  "generate_s": 0.604,
+  "solve_s": 1.75
+ },
+ "egad_L09": {
+  "name": "egad_L09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 42,
+  "generate_s": 0.594,
+  "solve_s": 2.579
+ },
+ "egad_M13": {
+  "name": "egad_M13",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 40,
+  "generate_s": 0.363,
+  "solve_s": 2.598
+ },
+ "egad_I15": {
+  "name": "egad_I15",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 190,
+  "generate_s": 0.908,
+  "solve_s": 4.634
+ },
+ "egad_U18": {
+  "name": "egad_U18",
+  "status": "no viable candidate",
+  "candidates": 1188,
+  "feasible": 0,
+  "generate_s": 0.42,
+  "solve_s": 0.871
+ },
+ "egad_T16": {
+  "name": "egad_T16",
+  "status": "no viable candidate",
+  "candidates": 1256,
+  "feasible": 0,
+  "generate_s": 0.313,
+  "solve_s": 0.673
+ },
+ "egad_V24": {
+  "name": "egad_V24",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 16,
+  "generate_s": 0.588,
+  "solve_s": 1.322
+ },
+ "egad_L22": {
+  "name": "egad_L22",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.784,
+  "solve_s": 0.677
+ },
+ "egad_K04": {
+  "name": "egad_K04",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.366,
+  "solve_s": 0.501
+ },
+ "egad_C18": {
+  "name": "egad_C18",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 40,
+  "generate_s": 0.479,
+  "solve_s": 2.195
+ },
+ "egad_C15": {
+  "name": "egad_C15",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 34,
+  "generate_s": 0.546,
+  "solve_s": 1.878
+ },
+ "egad_O17": {
+  "name": "egad_O17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 56,
+  "generate_s": 0.651,
+  "solve_s": 2.871
+ },
+ "egad_K21": {
+  "name": "egad_K21",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 50,
+  "generate_s": 0.575,
+  "solve_s": 2.515
+ },
+ "egad_Q05": {
+  "name": "egad_Q05",
+  "status": "viable",
+  "candidates": 1640,
+  "feasible": 6,
+  "generate_s": 0.394,
+  "solve_s": 1.248
+ },
+ "egad_H25": {
+  "name": "egad_H25",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 117,
+  "generate_s": 0.54,
+  "solve_s": 3.465
+ },
+ "egad_Q09": {
+  "name": "egad_Q09",
+  "status": "no viable candidate",
+  "candidates": 1150,
+  "feasible": 0,
+  "generate_s": 0.421,
+  "solve_s": 1.381
+ },
+ "egad_T25": {
+  "name": "egad_T25",
+  "status": "viable",
+  "candidates": 1212,
+  "feasible": 4,
+  "generate_s": 0.501,
+  "solve_s": 1.073
+ },
+ "egad_D10": {
+  "name": "egad_D10",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 24,
+  "generate_s": 0.527,
+  "solve_s": 1.681
+ },
+ "egad_D06": {
+  "name": "egad_D06",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.438,
+  "solve_s": 0.438
+ },
+ "egad_T14": {
+  "name": "egad_T14",
+  "status": "no viable candidate",
+  "candidates": 1212,
+  "feasible": 0,
+  "generate_s": 0.289,
+  "solve_s": 0.858
+ },
+ "egad_G05": {
+  "name": "egad_G05",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 194,
+  "generate_s": 0.487,
+  "solve_s": 5.364
+ },
+ "egad_C04": {
+  "name": "egad_C04",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.362,
+  "solve_s": 0.409
+ },
+ "egad_X02": {
+  "name": "egad_X02",
+  "status": "no viable candidate",
+  "candidates": 1150,
+  "feasible": 0,
+  "generate_s": 0.264,
+  "solve_s": 0.461
+ },
+ "egad_C12": {
+  "name": "egad_C12",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 20,
+  "generate_s": 0.458,
+  "solve_s": 1.501
+ },
+ "egad_I01": {
+  "name": "egad_I01",
+  "status": "viable",
+  "candidates": 1136,
+  "feasible": 138,
+  "generate_s": 0.414,
+  "solve_s": 3.946
+ },
+ "egad_N20": {
+  "name": "egad_N20",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 8,
+  "generate_s": 0.597,
+  "solve_s": 0.991
+ },
+ "egad_I02": {
+  "name": "egad_I02",
+  "status": "viable",
+  "candidates": 1116,
+  "feasible": 164,
+  "generate_s": 0.408,
+  "solve_s": 5.407
+ },
+ "egad_B03": {
+  "name": "egad_B03",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 68,
+  "generate_s": 0.366,
+  "solve_s": 2.492
+ },
+ "egad_A13": {
+  "name": "egad_A13",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 46,
+  "generate_s": 0.546,
+  "solve_s": 2.403
+ },
+ "egad_E01": {
+  "name": "egad_E01",
+  "status": "viable",
+  "candidates": 1142,
+  "feasible": 100,
+  "generate_s": 0.368,
+  "solve_s": 3.851
+ },
+ "egad_O11": {
+  "name": "egad_O11",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 28,
+  "generate_s": 0.555,
+  "solve_s": 2.149
+ },
+ "egad_U19": {
+  "name": "egad_U19",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.435,
+  "solve_s": 0.917
+ },
+ "egad_E22": {
+  "name": "egad_E22",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.578,
+  "solve_s": 0.704
+ },
+ "egad_U22": {
+  "name": "egad_U22",
+  "status": "no viable candidate",
+  "candidates": 1194,
+  "feasible": 0,
+  "generate_s": 0.333,
+  "solve_s": 0.753
+ },
+ "egad_B01": {
+  "name": "egad_B01",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 98,
+  "generate_s": 0.308,
+  "solve_s": 3.583
+ },
+ "egad_S23": {
+  "name": "egad_S23",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.362,
+  "solve_s": 0.703
+ },
+ "egad_A14": {
+  "name": "egad_A14",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 18,
+  "generate_s": 0.787,
+  "solve_s": 1.21
+ },
+ "egad_J09": {
+  "name": "egad_J09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 95,
+  "generate_s": 0.661,
+  "solve_s": 3.782
+ },
+ "egad_T20": {
+  "name": "egad_T20",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 30,
+  "generate_s": 0.48,
+  "solve_s": 2.47
+ },
+ "egad_G22": {
+  "name": "egad_G22",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 16,
+  "generate_s": 0.378,
+  "solve_s": 1.115
+ },
+ "egad_L20": {
+  "name": "egad_L20",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 24,
+  "generate_s": 0.456,
+  "solve_s": 1.598
+ },
+ "egad_R02": {
+  "name": "egad_R02",
+  "status": "no viable candidate",
+  "candidates": 1326,
+  "feasible": 0,
+  "generate_s": 0.324,
+  "solve_s": 0.618
+ },
+ "egad_T07": {
+  "name": "egad_T07",
+  "status": "no viable candidate",
+  "candidates": 1216,
+  "feasible": 0,
+  "generate_s": 0.289,
+  "solve_s": 0.653
+ },
+ "egad_C22": {
+  "name": "egad_C22",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 44,
+  "generate_s": 0.412,
+  "solve_s": 1.993
+ },
+ "egad_S24": {
+  "name": "egad_S24",
+  "status": "no viable candidate",
+  "candidates": 1150,
+  "feasible": 0,
+  "generate_s": 0.368,
+  "solve_s": 0.79
+ },
+ "egad_V17": {
+  "name": "egad_V17",
+  "status": "no viable candidate",
+  "candidates": 1444,
+  "feasible": 0,
+  "generate_s": 0.308,
+  "solve_s": 0.773
+ },
+ "egad_K09": {
+  "name": "egad_K09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 16,
+  "generate_s": 0.47,
+  "solve_s": 0.996
+ },
+ "egad_V07": {
+  "name": "egad_V07",
+  "status": "no viable candidate",
+  "candidates": 1164,
+  "feasible": 0,
+  "generate_s": 0.291,
+  "solve_s": 0.788
+ },
+ "egad_D09": {
+  "name": "egad_D09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 50,
+  "generate_s": 0.474,
+  "solve_s": 1.932
+ },
+ "egad_C24": {
+  "name": "egad_C24",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 113,
+  "generate_s": 0.418,
+  "solve_s": 3.465
+ },
+ "egad_D17": {
+  "name": "egad_D17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 32,
+  "generate_s": 0.567,
+  "solve_s": 1.827
+ },
+ "egad_R16": {
+  "name": "egad_R16",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 44,
+  "generate_s": 0.619,
+  "solve_s": 2.679
+ },
+ "egad_U21": {
+  "name": "egad_U21",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 34,
+  "generate_s": 0.739,
+  "solve_s": 2.048
+ },
+ "egad_L13": {
+  "name": "egad_L13",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 20,
+  "generate_s": 0.56,
+  "solve_s": 1.288
+ },
+ "egad_X00": {
+  "name": "egad_X00",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.261,
+  "solve_s": 0.433
+ },
+ "egad_T10": {
+  "name": "egad_T10",
+  "status": "no viable candidate",
+  "candidates": 1282,
+  "feasible": 0,
+  "generate_s": 0.266,
+  "solve_s": 0.702
+ },
+ "egad_I09": {
+  "name": "egad_I09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 116,
+  "generate_s": 0.479,
+  "solve_s": 4.135
+ },
+ "egad_N07": {
+  "name": "egad_N07",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 30,
+  "generate_s": 0.53,
+  "solve_s": 1.729
+ },
+ "egad_J12": {
+  "name": "egad_J12",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 29,
+  "generate_s": 0.54,
+  "solve_s": 1.742
+ },
+ "egad_S18": {
+  "name": "egad_S18",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 33,
+  "generate_s": 0.568,
+  "solve_s": 2.353
+ },
+ "egad_X01": {
+  "name": "egad_X01",
+  "status": "no viable candidate",
+  "candidates": 1146,
+  "feasible": 0,
+  "generate_s": 0.293,
+  "solve_s": 0.375
+ },
+ "egad_G13": {
+  "name": "egad_G13",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 32,
+  "generate_s": 0.48,
+  "solve_s": 1.887
+ },
+ "egad_S10": {
+  "name": "egad_S10",
+  "status": "viable",
+  "candidates": 1664,
+  "feasible": 10,
+  "generate_s": 0.268,
+  "solve_s": 1.273
+ },
+ "egad_J25": {
+  "name": "egad_J25",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 64,
+  "generate_s": 0.587,
+  "solve_s": 3.403
+ },
+ "egad_Q22": {
+  "name": "egad_Q22",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 18,
+  "generate_s": 0.498,
+  "solve_s": 1.888
+ },
+ "egad_L18": {
+  "name": "egad_L18",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.483,
+  "solve_s": 0.721
+ },
+ "egad_J06": {
+  "name": "egad_J06",
+  "status": "viable",
+  "candidates": 1160,
+  "feasible": 4,
+  "generate_s": 0.241,
+  "solve_s": 0.978
+ },
+ "egad_M06": {
+  "name": "egad_M06",
+  "status": "viable",
+  "candidates": 1434,
+  "feasible": 12,
+  "generate_s": 0.367,
+  "solve_s": 1.554
+ },
+ "egad_G16": {
+  "name": "egad_G16",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 26,
+  "generate_s": 0.588,
+  "solve_s": 1.874
+ },
+ "egad_H17": {
+  "name": "egad_H17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 44,
+  "generate_s": 0.54,
+  "solve_s": 2.347
+ },
+ "egad_R24": {
+  "name": "egad_R24",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.384,
+  "solve_s": 0.743
+ },
+ "egad_D24": {
+  "name": "egad_D24",
+  "status": "viable",
+  "candidates": 1148,
+  "feasible": 132,
+  "generate_s": 0.398,
+  "solve_s": 3.358
+ },
+ "egad_Q11": {
+  "name": "egad_Q11",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 38,
+  "generate_s": 0.532,
+  "solve_s": 1.838
+ },
+ "egad_X10": {
+  "name": "egad_X10",
+  "status": "viable",
+  "candidates": 1410,
+  "feasible": 4,
+  "generate_s": 0.306,
+  "solve_s": 0.978
+ },
+ "egad_I16": {
+  "name": "egad_I16",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 34,
+  "generate_s": 0.461,
+  "solve_s": 2.192
+ },
+ "egad_W24": {
+  "name": "egad_W24",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 6,
+  "generate_s": 0.519,
+  "solve_s": 1.513
+ },
+ "egad_B09": {
+  "name": "egad_B09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 168,
+  "generate_s": 0.37,
+  "solve_s": 4.475
+ },
+ "egad_E07": {
+  "name": "egad_E07",
+  "status": "viable",
+  "candidates": 1148,
+  "feasible": 38,
+  "generate_s": 0.459,
+  "solve_s": 2.178
+ },
+ "egad_L02": {
+  "name": "egad_L02",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 68,
+  "generate_s": 0.297,
+  "solve_s": 2.38
+ },
+ "egad_E14": {
+  "name": "egad_E14",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 20,
+  "generate_s": 0.475,
+  "solve_s": 1.135
+ },
+ "egad_W15": {
+  "name": "egad_W15",
+  "status": "no viable candidate",
+  "candidates": 1412,
+  "feasible": 0,
+  "generate_s": 0.269,
+  "solve_s": 0.926
+ },
+ "egad_L05": {
+  "name": "egad_L05",
+  "status": "viable",
+  "candidates": 1146,
+  "feasible": 116,
+  "generate_s": 0.481,
+  "solve_s": 4.345
+ },
+ "egad_K12": {
+  "name": "egad_K12",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.518,
+  "solve_s": 0.837
+ },
+ "egad_W08": {
+  "name": "egad_W08",
+  "status": "viable",
+  "candidates": 1676,
+  "feasible": 18,
+  "generate_s": 0.202,
+  "solve_s": 1.607
+ },
+ "egad_X21": {
+  "name": "egad_X21",
+  "status": "viable",
+  "candidates": 1404,
+  "feasible": 2,
+  "generate_s": 0.262,
+  "solve_s": 0.746
+ },
+ "egad_I18": {
+  "name": "egad_I18",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 42,
+  "generate_s": 0.423,
+  "solve_s": 1.504
+ },
+ "egad_L21": {
+  "name": "egad_L21",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 53,
+  "generate_s": 0.699,
+  "solve_s": 3.198
+ },
+ "egad_T11": {
+  "name": "egad_T11",
+  "status": "viable",
+  "candidates": 1680,
+  "feasible": 14,
+  "generate_s": 0.197,
+  "solve_s": 1.085
+ },
+ "egad_O20": {
+  "name": "egad_O20",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.401,
+  "solve_s": 0.729
+ },
+ "egad_R11": {
+  "name": "egad_R11",
+  "status": "viable",
+  "candidates": 1314,
+  "feasible": 6,
+  "generate_s": 0.401,
+  "solve_s": 1.26
+ },
+ "egad_W22": {
+  "name": "egad_W22",
+  "status": "no viable candidate",
+  "candidates": 1332,
+  "feasible": 0,
+  "generate_s": 0.269,
+  "solve_s": 0.748
+ },
+ "egad_X17": {
+  "name": "egad_X17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 6,
+  "generate_s": 0.555,
+  "solve_s": 1.257
+ },
+ "egad_W06": {
+  "name": "egad_W06",
+  "status": "viable",
+  "candidates": 1634,
+  "feasible": 4,
+  "generate_s": 0.325,
+  "solve_s": 1.128
+ },
+ "egad_P12": {
+  "name": "egad_P12",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 30,
+  "generate_s": 0.559,
+  "solve_s": 2.555
+ },
+ "egad_W09": {
+  "name": "egad_W09",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 32,
+  "generate_s": 0.611,
+  "solve_s": 2.607
+ },
+ "egad_C06": {
+  "name": "egad_C06",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 24,
+  "generate_s": 0.408,
+  "solve_s": 1.187
+ },
+ "egad_P07": {
+  "name": "egad_P07",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 4,
+  "generate_s": 0.572,
+  "solve_s": 0.989
+ },
+ "egad_E10": {
+  "name": "egad_E10",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 36,
+  "generate_s": 0.311,
+  "solve_s": 1.715
+ },
+ "egad_I21": {
+  "name": "egad_I21",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 36,
+  "generate_s": 0.59,
+  "solve_s": 2.165
+ },
+ "egad_R25": {
+  "name": "egad_R25",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 4,
+  "generate_s": 0.271,
+  "solve_s": 0.984
+ },
+ "egad_G17": {
+  "name": "egad_G17",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 48,
+  "generate_s": 0.483,
+  "solve_s": 2.065
+ },
+ "egad_D03": {
+  "name": "egad_D03",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 130,
+  "generate_s": 0.56,
+  "solve_s": 4.372
+ },
+ "egad_G08": {
+  "name": "egad_G08",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 34,
+  "generate_s": 0.481,
+  "solve_s": 1.511
+ },
+ "egad_X11": {
+  "name": "egad_X11",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 31,
+  "generate_s": 0.591,
+  "solve_s": 2.206
+ },
+ "egad_P21": {
+  "name": "egad_P21",
+  "status": "viable",
+  "candidates": 1144,
+  "feasible": 14,
+  "generate_s": 0.373,
+  "solve_s": 1.5
+ },
+ "egad_W25": {
+  "name": "egad_W25",
+  "status": "no viable candidate",
+  "candidates": 1252,
+  "feasible": 0,
+  "generate_s": 0.255,
+  "solve_s": 0.782
+ },
+ "egad_J07": {
+  "name": "egad_J07",
+  "status": "viable",
+  "candidates": 1146,
+  "feasible": 140,
+  "generate_s": 0.369,
+  "solve_s": 4.935
+ },
+ "egad_F12": {
+  "name": "egad_F12",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 56,
+  "generate_s": 0.513,
+  "solve_s": 2.305
+ },
+ "egad_I07": {
+  "name": "egad_I07",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 120,
+  "generate_s": 0.504,
+  "solve_s": 4.238
+ },
+ "egad_K01": {
+  "name": "egad_K01",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 150,
+  "generate_s": 0.36,
+  "solve_s": 4.114
+ },
+ "egad_O09": {
+  "name": "egad_O09",
+  "status": "no viable candidate",
+  "candidates": 1256,
+  "feasible": 0,
+  "generate_s": 0.274,
+  "solve_s": 0.576
+ },
+ "egad_H20": {
+  "name": "egad_H20",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 52,
+  "generate_s": 0.461,
+  "solve_s": 2.466
+ },
+ "egad_N00": {
+  "name": "egad_N00",
+  "status": "no viable candidate",
+  "candidates": 1150,
+  "feasible": 0,
+  "generate_s": 0.277,
+  "solve_s": 0.328
+ },
+ "egad_N15": {
+  "name": "egad_N15",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.428,
+  "solve_s": 0.799
+ },
+ "egad_Q04": {
+  "name": "egad_Q04",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.358,
+  "solve_s": 0.447
+ },
+ "egad_G07": {
+  "name": "egad_G07",
+  "status": "no viable candidate",
+  "candidates": 1150,
+  "feasible": 0,
+  "generate_s": 0.346,
+  "solve_s": 0.422
+ },
+ "egad_I00": {
+  "name": "egad_I00",
+  "status": "no viable candidate",
+  "candidates": 1152,
+  "feasible": 0,
+  "generate_s": 0.295,
+  "solve_s": 0.375
+ },
+ "egad_T22": {
+  "name": "egad_T22",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 20,
+  "generate_s": 0.52,
+  "solve_s": 1.61
+ },
+ "egad_A16": {
+  "name": "egad_A16",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 26,
+  "generate_s": 0.424,
+  "solve_s": 1.373
+ },
+ "egad_C17": {
+  "name": "egad_C17",
+  "status": "viable",
+  "candidates": 1146,
+  "feasible": 32,
+  "generate_s": 0.384,
+  "solve_s": 1.375
+ },
+ "egad_D15": {
+  "name": "egad_D15",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 32,
+  "generate_s": 0.501,
+  "solve_s": 1.648
+ },
+ "egad_Q16": {
+  "name": "egad_Q16",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 54,
+  "generate_s": 0.384,
+  "solve_s": 2.345
+ },
+ "egad_Q23": {
+  "name": "egad_Q23",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 28,
+  "generate_s": 0.481,
+  "solve_s": 3.51
+ },
+ "egad_G19": {
+  "name": "egad_G19",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 6,
+  "generate_s": 0.611,
+  "solve_s": 1.408
+ },
+ "egad_U15": {
+  "name": "egad_U15",
+  "status": "no viable candidate",
+  "candidates": 1168,
+  "feasible": 0,
+  "generate_s": 0.334,
+  "solve_s": 0.794
+ },
+ "egad_W03": {
+  "name": "egad_W03",
+  "status": "no viable candidate",
+  "candidates": 1412,
+  "feasible": 0,
+  "generate_s": 0.254,
+  "solve_s": 0.809
+ },
+ "egad_F00": {
+  "name": "egad_F00",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 78,
+  "generate_s": 0.408,
+  "solve_s": 3.206
+ },
+ "egad_B08": {
+  "name": "egad_B08",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 26,
+  "generate_s": 0.411,
+  "solve_s": 1.223
+ },
+ "egad_H01": {
+  "name": "egad_H01",
+  "status": "viable",
+  "candidates": 1150,
+  "feasible": 96,
+  "generate_s": 0.343,
+  "solve_s": 3.501
+ },
+ "egad_T23": {
+  "name": "egad_T23",
+  "status": "viable",
+  "candidates": 1140,
+  "feasible": 6,
+  "generate_s": 0.355,
+  "solve_s": 2.369
+ },
+ "egad_U13": {
+  "name": "egad_U13",
+  "status": "no viable candidate",
+  "candidates": 1252,
+  "feasible": 0,
+  "generate_s": 0.194,
+  "solve_s": 0.687
+ },
+ "egad_I23": {
+  "name": "egad_I23",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 38,
+  "generate_s": 0.689,
+  "solve_s": 2.136
+ },
+ "egad_E06": {
+  "name": "egad_E06",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 72,
+  "generate_s": 0.404,
+  "solve_s": 3.074
+ },
+ "egad_M12": {
+  "name": "egad_M12",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 40,
+  "generate_s": 0.346,
+  "solve_s": 1.882
+ },
+ "egad_D12": {
+  "name": "egad_D12",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 8,
+  "generate_s": 0.507,
+  "solve_s": 1.332
+ },
+ "egad_S20": {
+  "name": "egad_S20",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 2,
+  "generate_s": 0.383,
+  "solve_s": 0.901
+ },
+ "egad_R07": {
+  "name": "egad_R07",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 4,
+  "generate_s": 0.361,
+  "solve_s": 1.331
+ },
+ "egad_N03": {
+  "name": "egad_N03",
+  "status": "viable",
+  "candidates": 1146,
+  "feasible": 90,
+  "generate_s": 0.376,
+  "solve_s": 2.899
+ },
+ "egad_O13": {
+  "name": "egad_O13",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 4,
+  "generate_s": 0.552,
+  "solve_s": 1.325
+ },
+ "egad_T19": {
+  "name": "egad_T19",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 12,
+  "generate_s": 0.605,
+  "solve_s": 1.455
+ },
+ "egad_W04": {
+  "name": "egad_W04",
+  "status": "no viable candidate",
+  "candidates": 1418,
+  "feasible": 0,
+  "generate_s": 0.279,
+  "solve_s": 0.609
+ },
+ "egad_Q06": {
+  "name": "egad_Q06",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 30,
+  "generate_s": 0.452,
+  "solve_s": 2.167
+ },
+ "egad_X07": {
+  "name": "egad_X07",
+  "status": "viable",
+  "candidates": 1152,
+  "feasible": 44,
+  "generate_s": 0.588,
+  "solve_s": 1.74
+ }
+}

@@ -34,6 +34,16 @@ def pp(x, d=1):
     return f'{100*x:.{d}f}'
 
 
+def pv(x):
+    """A p-value for the text: two significant digits, powers of ten below 0.001, never 0 or 1."""
+    if x < 1e-3:
+        m, e = '{:.1e}'.format(x).split('e')
+        return f'${m}\\times 10^{{{int(e)}}}$'
+    if x > .99:
+        return '$>0.99$'
+    return "{:.2g}".format(x)
+
+
 def ci(a, d=2, scale=1.):
     return f'[{a[0]*scale:.{d}f}, {a[1]*scale:.{d}f}]'
 
@@ -58,7 +68,7 @@ def main():
     M.add('auditFragP', f(p2['fragility_pre_specified']['one Joint-only object becomes neither']['p_one_sided'], 3))
     M.add('auditDiscFav', p2['paired_table']['joint_only']); M.add('auditDiscUnfav', p2['paired_table']['m0_only'])
     ad = load('corrections_addendum.json')['F_full_precision_holm_primary']
-    M.add('auditPoneHolm', '{:.1e}'.format(next(v['holm_p_full_precision'] for k, v in ad.items() if k.startswith('P1'))).replace('e-0', 'e-'))
+    M.add('auditPoneHolm', pv(next(v['holm_p_full_precision'] for k, v in ad.items() if k.startswith('P1'))))
     # native implementation
     nv = load('native_inference_validation.json')['summary']; nx = load('native_inference_validation_x.json')['summary']
     M.add('natCandidates', f"{nv['development']['candidates'] + nv['egad']['candidates']:,}".replace(',', '\\,'))
@@ -122,7 +132,7 @@ def main():
         word = dict(C1='Cone', C2='Ctwo', C3='Cthree', C4='Cfour', S1='Sone', S2='Stwo', S3='Sthree')  # no digits in TeX names
         for k in ('C1', 'C2', 'C3', 'C4'):
             v = cx['primary'][k]; k = word[k]
-            M.add(f'nx{k}Verdict', 'supported' if v['supported'] else 'not supported'); M.add(f'nx{k}Holm', '{:.2g}'.format(v['holm_p']))
+            M.add(f'nx{k}Verdict', 'supported' if v['supported'] else 'not supported'); M.add(f'nx{k}Holm', pv(v['holm_p']))
             if 'gmean_ratio' in v:
                 M.add(f'nx{k}Eff', f(v['gmean_ratio'], 3)); M.add(f'nx{k}CI', ci(v['ci95'], 3))
             else:
@@ -131,7 +141,7 @@ def main():
         for k, v in cx['secondary'].items():
             tag = word[k.split()[0]]
             M.add(f'nx{tag}Verdict', 'supported' if v['supported'] else 'not supported'); M.add(f'nx{tag}Eff', pp(v['difference']))
-            M.add(f'nx{tag}CI', ci(v['tango_ci95'], 1, 100)); M.add(f'nx{tag}Holm', '{:.2g}'.format(v['holm_p']))
+            M.add(f'nx{tag}CI', ci(v['tango_ci95'], 1, 100)); M.add(f'nx{tag}Holm', pv(v['holm_p']))
         rt = cx['rates']
         for m, tag in (('M0', 'Mzero'), ('M1', 'Mone'), ('Joint-hist', 'Jhist'), ('Joint-multi', 'X')):
             M.add(f'nxNF{tag}', f(rt[m]['N_F_gmean'])); M.add(f'nxRob{tag}', pp(rt[m]['robust_v3'])); M.add(f'nxAll{tag}', pp(rt[m]['robust_all3']))
@@ -143,10 +153,10 @@ def main():
             v = cx['primary'][k]; t = word[k]
             M.add(f'nx{t}Fewer', v['fewer']); M.add(f'nx{t}More', v['more']); M.add(f'nx{t}Ties', v['ties']); M.add(f'nx{t}N', v['n'])
         M.add('nxCthreeUpper', f(cx['primary']['C3']['upper_97_5'], 3))
-        M.add('nxConeWilcoxonP', '{:.2g}'.format(cx['primary']['C1']['wilcoxon']['p_one_sided']))
-        M.add('nxCfourWilcoxonP', '{:.2g}'.format(cx['primary']['C4']['wilcoxon']['p_one_sided']))
+        M.add('nxConeWilcoxonP', pv(cx['primary']['C1']['wilcoxon']['p_one_sided']))
+        M.add('nxCfourWilcoxonP', pv(cx['primary']['C4']['wilcoxon']['p_one_sided']))
         v = cx['primary']['C2']; M.add('nxCtwoBoth', v['both']); M.add('nxCtwoNeither', v['neither']); M.add('nxCtwoN', v['n'])
-        M.add('nxCtwoP', '{:.2g}'.format(v['p_one_sided'])); M.add('nxCtwoMcnemar', '{:.2g}'.format(v['mcnemar_superiority_p_one_sided']))
+        M.add('nxCtwoP', pv(v['p_one_sided'])); M.add('nxCtwoMcnemar', pv(v['mcnemar_superiority_p_one_sided']))
         c = cx['counts']
         M.add('nxPlanErrors', c['planning_errors']); M.add('nxReplayMzero', len(c['replay_mismatches_M0'])); M.add('nxReplayLearned', len(c['replay_mismatches_learned']))
         M.add('nxUnstable', c['simulation_unstable_trials']); M.add('nxTrials', f"{c['simulation_trials']:,}".replace(',', '\\,'))
@@ -167,6 +177,16 @@ def main():
         M.add('nxTimeXPninetyfive', f(cx['timing']['Joint-multi']['p95_s'], 3))
         M.add('nxLoadBefore', f(cx['load_during_timing']['median_before'], 2)); M.add('nxClusters', cx['cluster_sensitivity']['clusters'])
         M.add('nxClusterCthree', ci(cx['cluster_sensitivity']['C3_gmean_ratio'], 3))
+        ph = load('confirmation_x_posthoc.json')
+        if ph:  # post hoc, labelled as such in the text
+            t4 = ph['C4_time_ratio_per_object']
+            M.add('phCfourMedian', f(t4['all']['median'], 3)); M.add('phCfourSlower', t4['all']['slower']); M.add('phCfourFaster', t4['all']['faster'])
+            M.add('phCfourWilcoxonTwo', pv(t4['all']['wilcoxon_two_sided_p']))
+            M.add('phCfourNoViableMedian', f(t4['no_viable_candidate']['median'], 3)); M.add('phCfourViableGmean', f(t4['viable']['gmean'], 3))
+            M.add('phCfourViableMedian', f(t4['viable']['median'], 3))
+            fr2 = ph['C2_fragility_tango']
+            M.add('phCtwoOneMoreCI', ci(fr2['one both-robust object becomes M0-only']['ci95'], 1, 100))
+            M.add('phCtwoOneLessCI', ci(fr2['one X-only object becomes neither']['ci95'], 1, 100))
         M.add('nxTimeMzero', f(cx['timing']['M0']['median_s'], 3)); M.add('nxTimeX', f(cx['timing']['Joint-multi']['median_s'], 3))
         cl = cx['cluster_sensitivity']
         M.add('nxClusterCone', ci(cl['C1_gmean_ratio'], 3)); M.add('nxClusterCtwo', ci(cl['C2_difference'], 1, 100))
@@ -206,13 +226,13 @@ def main():
                 eff, c95, cnt = f(v['gmean_ratio'], 3), ci(v['ci95'], 3), f"{v['fewer']}/{v['more']}/{v['ties']}"
             else:
                 eff, c95, cnt = pp(v['difference']), ci(v['tango_ci95'], 1, 100), f"{v['x_only']}/{v['y_only']}/{v['both'] + v['neither']}"
-            tab.append(f"{lab[k]} & {q(eff)} & {q(c95)} & {q(cnt)} & {q('{:.2g}'.format(v['holm_p']))} & {q('yes' if v['supported'] else 'no')} \\\\")
+            tab.append(f"{lab[k]} & {q(eff)} & {q(c95)} & {q(cnt)} & {q(pv(v['holm_p']))} & {q('yes' if v['supported'] else 'no')} \\\\")
         tab.append('\\midrule')
         slab = {'S1': 'S1 load X$-$M0 (pp)', 'S2': 'S2 all-3 X$-$M1 (pp)', 'S3': 'S3 all-3 X$-$M0 (pp)'}
         for k, v in cx['secondary'].items():
             t = k.split()[0]
             tab.append(f"{slab[t]} & {q(pp(v['difference']))} & {q(ci(v['tango_ci95'], 1, 100))} & {q(str(v['x_only']) + '/' + str(v['y_only']) + '/' + str(v['both'] + v['neither']))} & "
-                       f"{q('{:.2g}'.format(v['holm_p']))} & {q('yes' if v['supported'] else 'no')} \\\\")
+                       f"{q(pv(v['holm_p']))} & {q('yes' if v['supported'] else 'no')} \\\\")
         tab += ['\\bottomrule', '\\end{tabular}']
         (out/'tab_x_confirmation.tex').write_text('\n'.join(tab) + '\n')
     (out/'numbers_x.tex').write_text('\n'.join(M.lines) + '\n')

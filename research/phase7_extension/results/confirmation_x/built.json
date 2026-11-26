@@ -1,0 +1,5011 @@
+{
+ "rows": [
+  {
+   "name": "egad_C01",
+   "source": "C01_0.obj",
+   "extent_m": [
+    0.07294,
+    0.07295,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.08263035658652075,
+   "kept": true,
+   "project": "egad_C01/cell.axisforge",
+   "project_sha256": "a68e3693b31e156275bfdf922deb9184faa2504b8c6c7d4db58c8d3090357201",
+   "model_sha256": "4942268f5933f6ff2deb42575c6fa333a49dd7aebff3f88e930820adba904a87",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 2.7
+  },
+  {
+   "name": "egad_R21",
+   "source": "R21_1.obj",
+   "extent_m": [
+    0.05931,
+    0.07998,
+    0.04873
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3015095789828989,
+   "kept": true,
+   "project": "egad_R21/cell.axisforge",
+   "project_sha256": "b49d08ba3bb8cbe942174d40303a1cb35b4020291120dee721a152aa0b808785",
+   "model_sha256": "8f80b5f4d14b706d36e547a4e28136594a5eae3f5fa24ec5d0167e0a87633faa",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 13,
+   "seconds": 8.4
+  },
+  {
+   "name": "egad_R10",
+   "source": "R10_2.obj",
+   "extent_m": [
+    0.07998,
+    0.07727,
+    0.05954
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18135440814335127,
+   "kept": true,
+   "project": "egad_R10/cell.axisforge",
+   "project_sha256": "920931a4f5f7f74bbeb04aff7e01bb42149b1c05baa2ece51398086f3f4d1d51",
+   "model_sha256": "b973e68c2d3244c244727d1d4571db5914f70dd20df6f4c7aaedc4181cc92b54",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 4.9
+  },
+  {
+   "name": "egad_U24",
+   "source": "U24_3.obj",
+   "extent_m": [
+    0.10318,
+    0.10351,
+    0.03796
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.47440992425352096,
+   "kept": true,
+   "project": "egad_U24/cell.axisforge",
+   "project_sha256": "e528c4de3db70861053b9b0572026b6bf5c1237324f1b052b3b30e9ddc2e8add",
+   "model_sha256": "5e195cdae97971a21031f9896cddebf51d710a36544b48948d8fda185fd78bcc",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 21,
+   "seconds": 7.2
+  },
+  {
+   "name": "egad_J14",
+   "source": "J14_1.obj",
+   "extent_m": [
+    0.0799,
+    0.06427,
+    0.04751
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15020312480458833,
+   "kept": true,
+   "project": "egad_J14/cell.axisforge",
+   "project_sha256": "74aae95457bd5c638b8cec7a93f1483a91b860a7bf5d6f05a34f3b4c96a90322",
+   "model_sha256": "863d60f2e047517b2849f2ad2158b209b2134434b0c7a6044738d29c2df10618",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 10,
+   "seconds": 5.2
+  },
+  {
+   "name": "egad_K15",
+   "source": "K15_3.obj",
+   "extent_m": [
+    0.06403,
+    0.06518,
+    0.06496
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1813918722601441,
+   "kept": true,
+   "project": "egad_K15/cell.axisforge",
+   "project_sha256": "f7de01c7a688b11778b08fbe23e0a0b7cb9c35ccd218bc0cdf1f191f02499072",
+   "model_sha256": "c39c8ba84a9224c21f7216d09580ca3f6a3bb7a48d11cd06b8ec1a0b72e5b247",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 58.7
+  },
+  {
+   "name": "egad_M11",
+   "source": "M11_2.obj",
+   "extent_m": [
+    0.06485,
+    0.06475,
+    0.06436
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.31412054110829496,
+   "kept": true,
+   "project": "egad_M11/cell.axisforge",
+   "project_sha256": "5cb15935f6740e854f40b9a3e14feac6059d59ea834c9f1658408c0a8181b68a",
+   "model_sha256": "3a913107772dee66ea55653d2345422713e1498b60d18579372740d9e0b31d7b",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 27,
+   "seconds": 33.4
+  },
+  {
+   "name": "egad_E13",
+   "source": "E13_0.obj",
+   "extent_m": [
+    0.06428,
+    0.06443,
+    0.06397
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15558095687883253,
+   "kept": true,
+   "project": "egad_E13/cell.axisforge",
+   "project_sha256": "861a98a63ff0d6dfb51322450f53d401a9eceb122e32a56baa4e223e895083ee",
+   "model_sha256": "7b976f89c2b35f371c25a0afe65a49452083b58b46b27604fdd28419d30c7830",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 120.3
+  },
+  {
+   "name": "egad_U06",
+   "source": "U06_2.obj",
+   "extent_m": [
+    0.07948,
+    0.08001,
+    0.02959
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.38289876468380346,
+   "kept": true,
+   "project": "egad_U06/cell.axisforge",
+   "project_sha256": "6a90eaec118813b3aa700113bd528d414fcb341ceecae9f23fdfa1e66efcef17",
+   "model_sha256": "94a17360d0db2d286f88d9ca44103a97ee20360f85a50fee6e526bf4cfc8512c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 2,
+   "seconds": 3.0
+  },
+  {
+   "name": "egad_F02",
+   "source": "F02_0.obj",
+   "extent_m": [
+    0.06401,
+    0.06402,
+    0.06404
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.10389947216476812,
+   "kept": true,
+   "project": "egad_F02/cell.axisforge",
+   "project_sha256": "3e3750f9f4dff0eba2316a08d18d61dd275f8237692dfd2fbe0efa7eec390520",
+   "model_sha256": "1fb216da9f850058e3a66dd3a197ebfce91f0d4784919276b840c766a15ab616",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 2.3
+  },
+  {
+   "name": "egad_U09",
+   "source": "U09_0.obj",
+   "extent_m": [
+    0.06601,
+    0.08001,
+    0.02695
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.38220366708894216,
+   "kept": true,
+   "project": "egad_U09/cell.axisforge",
+   "project_sha256": "136c020cb48ffcd5f2a706d46dcb1fe72aa84d63a00a0126ba82c45ec657810d",
+   "model_sha256": "fd8f39414769fa6e6a36bf3b22c79e63fa2c6838b368cd23bcd8d9e781e040bd",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 9.2
+  },
+  {
+   "name": "egad_E20",
+   "source": "E20_3.obj",
+   "extent_m": [
+    0.06589,
+    0.08007,
+    0.05926
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15886277850385852,
+   "kept": true,
+   "project": "egad_E20/cell.axisforge",
+   "project_sha256": "a5825f4821ecd36423bdcf6455db976704a88435ca26de1d1948dd1e4df5ba78",
+   "model_sha256": "39b2bd5f7bc10faf9082ce08937d0bdd8ad99502a01fbb49907a54c0caf94068",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 30.1
+  },
+  {
+   "name": "egad_V13",
+   "source": "V13_1.obj",
+   "extent_m": [
+    0.07999,
+    0.07885,
+    0.03165
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.500989145006474,
+   "kept": true,
+   "project": "egad_V13/cell.axisforge",
+   "project_sha256": "4b720552f61d1dba1f038c5d3ca176b5a75b605450cee1dded1db9679b96f997",
+   "model_sha256": "4e566dacb51039461405a20057ff57fc46013f4a2230a4314c7043a01e2045d1",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 6.2
+  },
+  {
+   "name": "egad_R14",
+   "source": "R14_3.obj",
+   "extent_m": [
+    0.07958,
+    0.08,
+    0.05769
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.23669497682382612,
+   "kept": true,
+   "project": "egad_R14/cell.axisforge",
+   "project_sha256": "7bdd83d21ae3e06cceab5e387fc1d6388d6aa1a63b4e04372fd19b7123ce47ba",
+   "model_sha256": "3cda8e0e3ef2f240dde6bb2bf5aab21a98c14a0c777e66043ffb4dc09f2b7024",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 56.0
+  },
+  {
+   "name": "egad_H05",
+   "source": "H05_3.obj",
+   "extent_m": [
+    0.07726,
+    0.07726,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13593274234583794,
+   "kept": true,
+   "project": "egad_H05/cell.axisforge",
+   "project_sha256": "c90e6674938d21325a627f1a7e32891724f10f52a61668c50aa8aa196094eafd",
+   "model_sha256": "f042502d134c110793a9910aa461086bf96ff548c9c2d1deec1f3f642b3f1051",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 22.0
+  },
+  {
+   "name": "egad_X08",
+   "source": "X08_2.obj",
+   "extent_m": [
+    0.07989,
+    0.07997,
+    0.05935
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2897175399802082,
+   "kept": true,
+   "project": "egad_X08/cell.axisforge",
+   "project_sha256": "441980c2fb82abb645b40065bd47b6e700d379a9e0a80b555ec7fcb385c9f9b0",
+   "model_sha256": "b6ce47ff1456094af14c1450b87089ad1e14dc5fb1e4fb3334d895389d60d8e6",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 10,
+   "seconds": 14.5
+  },
+  {
+   "name": "egad_H15",
+   "source": "H15_0.obj",
+   "extent_m": [
+    0.06599,
+    0.06603,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.14983007992707706,
+   "kept": true,
+   "project": "egad_H15/cell.axisforge",
+   "project_sha256": "ab4fd8b9c37407d9025c277236b2fd0602deabda240308db06e91c7a7043a656",
+   "model_sha256": "0c3b1325df549b07f4575354aa7a2e45f9032f48fd9b1e71c6c459c736a3a74f",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 87.9
+  },
+  {
+   "name": "egad_M19",
+   "source": "M19_0.obj",
+   "extent_m": [
+    0.07063,
+    0.07859,
+    0.06392
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2623757598355468,
+   "kept": true,
+   "project": "egad_M19/cell.axisforge",
+   "project_sha256": "3c0794f3e551b85bb389fc57195d19457fe43e0ef7789f5d4dbd5850d29b06b4",
+   "model_sha256": "ba6b6eceed1f4f5233ea483a93296f2431118f7c6f6c7023b114bc2ff0f87adb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 17,
+   "seconds": 25.0
+  },
+  {
+   "name": "egad_N04",
+   "source": "N04_2.obj",
+   "extent_m": [
+    0.06405,
+    0.07561,
+    0.07567
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13544148407247714,
+   "kept": true,
+   "project": "egad_N04/cell.axisforge",
+   "project_sha256": "0cc54617c8b86e3d5d13208de50e75a1cd374d329454d98719876a2b46aeef57",
+   "model_sha256": "3d7b3a1b2a42cb1686a6987472611b3f2d3dc98d18a83d8502a5c67b2a82ffce",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 13.0
+  },
+  {
+   "name": "egad_F04",
+   "source": "F04_2.obj",
+   "extent_m": [
+    0.06697,
+    0.07236,
+    0.06697
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.14125970382151173,
+   "kept": true,
+   "project": "egad_F04/cell.axisforge",
+   "project_sha256": "cf2b5a2d8fce95352675f09bf271fddd70947ea7d06a6d27eac880b8ccf38db6",
+   "model_sha256": "e615ac7dd4554c09d8eed05cd89761988647cf4adbe60abdb13e42223cf5d4ef",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 18,
+   "seconds": 24.3
+  },
+  {
+   "name": "egad_U11",
+   "source": "U11_3.obj",
+   "extent_m": [
+    0.01772,
+    0.08,
+    0.0177
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.19163238241889344,
+   "kept": true,
+   "project": "egad_U11/cell.axisforge",
+   "project_sha256": "5386bbbdf5c7454c4287ce22ede0a0743b0c2a8a3f35a20ad9e84d378044b7e5",
+   "model_sha256": "e2fb4ca2a6a1b462fbfa2914f7e184263e4472967e509171e9c6b2379be7f5a4",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.5
+  },
+  {
+   "name": "egad_M05",
+   "source": "M05_1.obj",
+   "extent_m": [
+    0.06401,
+    0.06413,
+    0.06409
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16625081432027697,
+   "kept": true,
+   "project": "egad_M05/cell.axisforge",
+   "project_sha256": "5e2c201c1149dfc8925dfa45562e7d64b2d1f3ec78de906719257a686884cfba",
+   "model_sha256": "0a8827cf64283b9c25bca2de14bfb2954c86449d0290ad291ef9a45f5a4b5847",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 9.8
+  },
+  {
+   "name": "egad_T24",
+   "source": "T24_3.obj",
+   "extent_m": [
+    0.06525,
+    0.06605,
+    0.06405
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16651278046972884,
+   "kept": true,
+   "project": "egad_T24/cell.axisforge",
+   "project_sha256": "a1df721df3ed48dbf2a2379f3767f8c42db7643cfd8d3233fed81ef0c41d87db",
+   "model_sha256": "ee01ebe6b6d14bb1868722e9ab525e99da3674d3c12db6429c1880513c3edf4f",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 108.3
+  },
+  {
+   "name": "egad_O02",
+   "source": "O02_2.obj",
+   "extent_m": [
+    0.08,
+    0.08,
+    0.05231
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13672114315459236,
+   "kept": true,
+   "project": "egad_O02/cell.axisforge",
+   "project_sha256": "bb18ed4b7cdb2047f6dd82efa42700100314e9f4c223966137fd4aceae06f1fa",
+   "model_sha256": "b2844272613d20ca59c75eabf98307e583438b17354919d6d67193c3cf609fe3",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.8
+  },
+  {
+   "name": "egad_H19",
+   "source": "H19_2.obj",
+   "extent_m": [
+    0.06509,
+    0.06509,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.08042655725317474,
+   "kept": true,
+   "project": "egad_H19/cell.axisforge",
+   "project_sha256": "7d4a89338ca79dd6e028aadd28d5931169205d608d6352b7a8f9785825ed878c",
+   "model_sha256": "a0454cfba1a0deac8d02561925fb5b3bbcca45d9912a4962c12b3372facfb408",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 64.2
+  },
+  {
+   "name": "egad_D05",
+   "source": "D05_2.obj",
+   "extent_m": [
+    0.05285,
+    0.08001,
+    0.05283
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.12647439424453438,
+   "kept": true,
+   "project": "egad_D05/cell.axisforge",
+   "project_sha256": "052ae478a84f0dc66cc26a94aa3614c4cd6d91fc9c57983992fb41e98796bf79",
+   "model_sha256": "9da31d75f0a9e30f89385ae7d7b41e5a5481c6c7b83faf5436319bbb759413c2",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.3
+  },
+  {
+   "name": "egad_M17",
+   "source": "M17_2.obj",
+   "extent_m": [
+    0.08006,
+    0.06484,
+    0.05397
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1746565905111289,
+   "kept": true,
+   "project": "egad_M17/cell.axisforge",
+   "project_sha256": "90b0abf7a13ec49536a01f38a947a402764125d1d0eccf72d5363c452db51fad",
+   "model_sha256": "672b6dbafa898da15b8a92d8ca66bffdd45947d806dd1e3bae623aec94abded9",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 38.2
+  },
+  {
+   "name": "egad_A05",
+   "source": "A05_0.obj",
+   "extent_m": [
+    0.06508,
+    0.064,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.04932127712138038,
+   "kept": true,
+   "project": "egad_A05/cell.axisforge",
+   "project_sha256": "31080e2a63f550fc36f610b73ba65f136fd5bbcc4f8ec0f0cd8c547677027d41",
+   "model_sha256": "7dea52fda21ba1dde10e346fc95e2346ba78b87b79f80a96c0c0b17856065ce8",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 11,
+   "seconds": 23.9
+  },
+  {
+   "name": "egad_N24",
+   "source": "N24_1.obj",
+   "extent_m": [
+    0.07002,
+    0.07142,
+    0.06383
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.17463314872990038,
+   "kept": true,
+   "project": "egad_N24/cell.axisforge",
+   "project_sha256": "4b3dac409173ee084a6991be18b0e620f93d94e1a081c2978d4dab2e8a085b6a",
+   "model_sha256": "2ca3bef96b7f414b470fc45affdaf03eab9def0ffcc205640a00d37b236c8aeb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 46.1
+  },
+  {
+   "name": "egad_J02",
+   "source": "J02_0.obj",
+   "extent_m": [
+    0.06404,
+    0.06403,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16731133370018234,
+   "kept": true,
+   "project": "egad_J02/cell.axisforge",
+   "project_sha256": "559e55a7d812095cd2ac6478a3edcbe3e14dc33eb8e7f7560027d2947c06620c",
+   "model_sha256": "eaf1e71df261982739158f3b77afd6682fa2b519c79a34581822c56918b094ae",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 8.0
+  },
+  {
+   "name": "egad_O08",
+   "source": "O08_0.obj",
+   "extent_m": [
+    0.08001,
+    0.08,
+    0.0588
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.11028397600463236,
+   "kept": true,
+   "project": "egad_O08/cell.axisforge",
+   "project_sha256": "86446c8ac9e975e74b6af0f5c3e31a23fae89c144179d0e6842f8bd2a3e23c45",
+   "model_sha256": "333a5488092d0c35cdf382dfd8ba6b825ac10286db802d46ff82fe0952b08514",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 16,
+   "seconds": 21.8
+  },
+  {
+   "name": "egad_R23",
+   "source": "R23_3.obj",
+   "extent_m": [
+    0.07191,
+    0.08,
+    0.04256
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2995958239545088,
+   "kept": true,
+   "project": "egad_R23/cell.axisforge",
+   "project_sha256": "2bbd8747c72d755aefa8df93f6b28e111fa624880f93f608b5a8ea4e175beef4",
+   "model_sha256": "486557551398170e42d2d061def1aa59aa96c3b04a9a83f6b1861b677de17f26",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 20,
+   "seconds": 25.5
+  },
+  {
+   "name": "egad_V06",
+   "source": "V06_1.obj",
+   "extent_m": [
+    0.08,
+    0.04497,
+    0.01734
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.5544502894816075,
+   "kept": true,
+   "project": "egad_V06/cell.axisforge",
+   "project_sha256": "b19f9b86663e204a4a2d28c59ce999c6f0591a6418ab4a4f26d7b1bbcb7032de",
+   "model_sha256": "4dac3dbc51ff3dc03f90f9999823da3375a09b9f955e79509869b335b14f115d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.6
+  },
+  {
+   "name": "egad_C08",
+   "source": "C08_1.obj",
+   "extent_m": [
+    0.06435,
+    0.06432,
+    0.06397
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13943947231152468,
+   "kept": true,
+   "project": "egad_C08/cell.axisforge",
+   "project_sha256": "f093ebfa6ea2a53296b8a868eb858bf9827d6a2dad6e51334cff3d471e217356",
+   "model_sha256": "e3b3afdf53b740cd1864ab4f660a66241b69063c29882f5f1a7273d4dcc9851a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 54.9
+  },
+  {
+   "name": "egad_F01",
+   "source": "F01_3.obj",
+   "extent_m": [
+    0.06403,
+    0.06406,
+    0.06401
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.0898069022372012,
+   "kept": true,
+   "project": "egad_F01/cell.axisforge",
+   "project_sha256": "5a36ad5a621c227579390a141a8d86255199dd6b4cf5d6c8a97c406f9b2bf737",
+   "model_sha256": "e370d9abd5fd299919a871b8ef693d8aeb9decffc7b230768292ebc68aa173ea",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 3.1
+  },
+  {
+   "name": "egad_B19",
+   "source": "B19_1.obj",
+   "extent_m": [
+    0.06406,
+    0.06408,
+    0.06412
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16368822252682494,
+   "kept": true,
+   "project": "egad_B19/cell.axisforge",
+   "project_sha256": "b45cf98589bda6cfcbc8007966c047a3ee31ca01231de27e6a2775930c3cc9d1",
+   "model_sha256": "f6ca100ccb06ed1a74c8a1cd76e1d1f40041cdecce2c6801062d99b81c1558a5",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 124.3
+  },
+  {
+   "name": "egad_G12",
+   "source": "G12_2.obj",
+   "extent_m": [
+    0.06519,
+    0.06512,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.06150962846791507,
+   "kept": true,
+   "project": "egad_G12/cell.axisforge",
+   "project_sha256": "e8eed34699e46846ff06ab0edb01c99d29f70ec23a54261d5268b3f3417dd1fe",
+   "model_sha256": "e42bf5d407249d5a2dad0a21fff519aee32c4d2753ab03813c809d506903bf96",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 146.8
+  },
+  {
+   "name": "egad_M04",
+   "source": "M04_0.obj",
+   "extent_m": [
+    0.06422,
+    0.06413,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1669948132556354,
+   "kept": true,
+   "project": "egad_M04/cell.axisforge",
+   "project_sha256": "74bce79f1763ad612600507e6f909934ea3d97b8c399b6cfa55a9b0a6d80c341",
+   "model_sha256": "e56a8a47be0802b494b545840f030b24eb48d86e39aa4fa34d01a5acb5766dbc",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 2,
+   "seconds": 3.5
+  },
+  {
+   "name": "egad_Q17",
+   "source": "Q17_3.obj",
+   "extent_m": [
+    0.08005,
+    0.06232,
+    0.04622
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.45549930779871534,
+   "kept": true,
+   "project": "egad_Q17/cell.axisforge",
+   "project_sha256": "40d379d94887f6e7e50f44c850677b82f780d723fcc94d577c04458be06bbe83",
+   "model_sha256": "7747bee3686004160ab7952e632b3fa85fb4f2760a5febf5fab2908de9649861",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 12,
+   "seconds": 22.8
+  },
+  {
+   "name": "egad_C25",
+   "source": "C25_0.obj",
+   "extent_m": [
+    0.08486,
+    0.08467,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16445281784721397,
+   "kept": true,
+   "project": "egad_C25/cell.axisforge",
+   "project_sha256": "d6f145cf3838df463e192bb35e3bc0149c0e3dff9974e3918481068c89c3b1a7",
+   "model_sha256": "4433f9cd772350e1eeca1d3d67af8fc3c6a2827fa338f6c29bd9e4882ee03a9d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 44.5
+  },
+  {
+   "name": "egad_R17",
+   "source": "R17_3.obj",
+   "extent_m": [
+    0.06464,
+    0.08002,
+    0.0543
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.25130617103514025,
+   "kept": true,
+   "project": "egad_R17/cell.axisforge",
+   "project_sha256": "a948e1f45f2ba6bf49d1bbf1529ff2f7ca4991c08b2b46d4030a44052c1f084e",
+   "model_sha256": "b7052b7cb21eb628aaf02ccbe71ebbc4a55694bfc48ad974cb41951829d51543",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 16.5
+  },
+  {
+   "name": "egad_M15",
+   "source": "M15_0.obj",
+   "extent_m": [
+    0.08001,
+    0.05551,
+    0.05095
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.09965498992264704,
+   "kept": true,
+   "project": "egad_M15/cell.axisforge",
+   "project_sha256": "b8d7560b9fa4769e80814cc6f7338c4510cc18a41597e4bcea7859d50250ddc8",
+   "model_sha256": "aaf1296b39d47b51b0633a7fdec475b7c333c725e990357359c0d766623139b5",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 344.3
+  },
+  {
+   "name": "egad_F15",
+   "source": "F15_1.obj",
+   "extent_m": [
+    0.07279,
+    0.0728,
+    0.06402
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16628384960664636,
+   "kept": true,
+   "project": "egad_F15/cell.axisforge",
+   "project_sha256": "1b34aaf39ede7b1244699db0104bc78715d73ef108537815d33ef6348d655b26",
+   "model_sha256": "0b4ea1615450818a52dc14db46cfe14e7265428602067eb074079b1d1f2c01a4",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 102.2
+  },
+  {
+   "name": "egad_E11",
+   "source": "E11_0.obj",
+   "extent_m": [
+    0.06401,
+    0.06402,
+    0.06482
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.25051723691198374,
+   "kept": true,
+   "project": "egad_E11/cell.axisforge",
+   "project_sha256": "85c72e9fc8bbbbd96bc66e8a0a41dd77f2c43707655bfeacc25def2ae4e6b086",
+   "model_sha256": "4c18aeb62b860b1e52c1266ce9c9ff346c1bda30b0d69ebc4aa61b1762b97cdf",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 85.8
+  },
+  {
+   "name": "egad_L19",
+   "source": "L19_1.obj",
+   "extent_m": [
+    0.06674,
+    0.06457,
+    0.07449
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.11468184268830608,
+   "kept": true,
+   "project": "egad_L19/cell.axisforge",
+   "project_sha256": "222179b71bd80a2117923af45f36354b9d8d7c983cc0230a9ebcab4d47181c89",
+   "model_sha256": "abac3bf653cf53e4eb2bd483d573c3d8de3f0f71f5f390653dd0d2eaeae18a82",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 86.6
+  },
+  {
+   "name": "egad_S19",
+   "source": "S19_0.obj",
+   "extent_m": [
+    0.06509,
+    0.06404,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.10995203299982137,
+   "kept": true,
+   "project": "egad_S19/cell.axisforge",
+   "project_sha256": "aedb3bdeb751a1885dd98b5695e685cb909fb4f5a2bc0b1c4d0ac39b237b49a7",
+   "model_sha256": "1f5b6449ba5ee2c5043da0c0f3f5c111bc603e2e615f45064c59b836480c79e1",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 60.6
+  },
+  {
+   "name": "egad_R03",
+   "source": "R03_0.obj",
+   "extent_m": [
+    0.07708,
+    0.07993,
+    0.05972
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.24523111695995875,
+   "kept": true,
+   "project": "egad_R03/cell.axisforge",
+   "project_sha256": "cc8e1b6ab5933f01016cb58c5e19c227308debafdb597edcfe6da393cec661a8",
+   "model_sha256": "8983089e35b9a8d3bc6745d43fd97e0d348b6fe31dfc92a5188c7ba8ba1e92d5",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.1
+  },
+  {
+   "name": "egad_T17",
+   "source": "T17_1.obj",
+   "extent_m": [
+    0.09628,
+    0.09606,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.26104095153898216,
+   "kept": true,
+   "project": "egad_T17/cell.axisforge",
+   "project_sha256": "12451f0f368283fc8139068c51ed4c53e1dccf6e9247a3bacbe93c7980e0ef81",
+   "model_sha256": "435c64898619fc5fd671d0a8319736052e27637505a1184a088bac640318a42a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 74.0
+  },
+  {
+   "name": "egad_X25",
+   "source": "X25_1.obj",
+   "extent_m": [
+    0.07893,
+    0.0829,
+    0.01617
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.5239283168942399,
+   "kept": true,
+   "project": "egad_X25/cell.axisforge",
+   "project_sha256": "dabbea77b604360b8421c30f15b766cc9654c1b5dbe3595f4369f2e16f84ea79",
+   "model_sha256": "ae33953da2683e97b8a0fff5ab1dc75d80f57143ed72fdbf00fc950c704d4468",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 25,
+   "seconds": 17.6
+  },
+  {
+   "name": "egad_E00",
+   "source": "E00_3.obj",
+   "extent_m": [
+    0.06944,
+    0.06945,
+    0.06402
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15681000519405078,
+   "kept": true,
+   "project": "egad_E00/cell.axisforge",
+   "project_sha256": "14b18f7bbb0a6688c09868b2570b859649ab5f5a5762440036bdecf61e463619",
+   "model_sha256": "9046f88e6ef754b5b561b793fca0cd3853c9026aafb3123a2988a97daec38dee",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 2.8
+  },
+  {
+   "name": "egad_P03",
+   "source": "P03_3.obj",
+   "extent_m": [
+    0.10514,
+    0.10509,
+    0.05092
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2918181455424991,
+   "kept": true,
+   "project": "egad_P03/cell.axisforge",
+   "project_sha256": "4aa894331e6c9e2ca59210a39fd42cb634ef4dd4556d4922fa2873be01c77192",
+   "model_sha256": "d8f670cb71ff45c599d2ce2884bf58f93436fd2e115b920790611a2879a612a6",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 5,
+   "seconds": 7.2
+  },
+  {
+   "name": "egad_P18",
+   "source": "P18_0.obj",
+   "extent_m": [
+    0.06408,
+    0.07513,
+    0.06849
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.20667768779529305,
+   "kept": true,
+   "project": "egad_P18/cell.axisforge",
+   "project_sha256": "b6aa21a87427d64c3e91d0fdaa6f7a9e5b0b7a816d2fadd26ad4815cffdf2a7b",
+   "model_sha256": "8a8771df1476b2c312a4696761d92afab69f79cf71651e9c7a1b9004d8b9a282",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 122.2
+  },
+  {
+   "name": "egad_E24",
+   "source": "E24_2.obj",
+   "extent_m": [
+    0.07153,
+    0.06601,
+    0.06402
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1026797008564721,
+   "kept": true,
+   "project": "egad_E24/cell.axisforge",
+   "project_sha256": "da4780989aa8c1da95b36df14e8362a17a68e2fed6616c64c31c92cead98fdd5",
+   "model_sha256": "02749d19b564608a2e58850a7688f2912ad6f40433b3294322d74c984b096543",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 18,
+   "seconds": 31.3
+  },
+  {
+   "name": "egad_F08",
+   "source": "F08_1.obj",
+   "extent_m": [
+    0.07602,
+    0.07604,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.17574487985632375,
+   "kept": true,
+   "project": "egad_F08/cell.axisforge",
+   "project_sha256": "cf95155bb3591f58cb39c9e15a816804d837e118edab44ba2197bfdc2388e0ff",
+   "model_sha256": "34ec06be71b86186490252699e3ee91a802cc85828a32fe40cba75d4627c8ddc",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 25,
+   "seconds": 66.8
+  },
+  {
+   "name": "egad_B11",
+   "source": "B11_1.obj",
+   "extent_m": [
+    0.06413,
+    0.06427,
+    0.06407
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.04499621687399929,
+   "kept": true,
+   "project": "egad_B11/cell.axisforge",
+   "project_sha256": "664b3293854fa5478c2f5441897ec1a4ee97230e2460a94b3e1803601d22945c",
+   "model_sha256": "d78d481c83258165da62441131e5b75dba161c6264367c5e199a57d71cf5462b",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 105.6
+  },
+  {
+   "name": "egad_C09",
+   "source": "C09_3.obj",
+   "extent_m": [
+    0.06429,
+    0.06429,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18043074913570137,
+   "kept": true,
+   "project": "egad_C09/cell.axisforge",
+   "project_sha256": "5087f4a87c987d714021ebee85b7dc49998c71218279cb445b7e22e0c14097fa",
+   "model_sha256": "f9f285f63056efb8cb6fe3c653b11d4dbd150ba1b92e90769fe97c1717649646",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 84.6
+  },
+  {
+   "name": "egad_Q10",
+   "source": "Q10_2.obj",
+   "extent_m": [
+    0.08001,
+    0.07998,
+    0.0632
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18261389889387442,
+   "kept": true,
+   "project": "egad_Q10/cell.axisforge",
+   "project_sha256": "6efbf2ab24cd221424e7ed6a9553bf4a81b8772933127fd666e875e47042f6f3",
+   "model_sha256": "09a873a9f3f14671245aeef289cbf9ebcf9af2914909dfc68cdf2a59217ffcf4",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 51.9
+  },
+  {
+   "name": "egad_M18",
+   "source": "M18_0.obj",
+   "extent_m": [
+    0.07302,
+    0.06445,
+    0.06269
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.20563667190159776,
+   "kept": true,
+   "project": "egad_M18/cell.axisforge",
+   "project_sha256": "0a0661599147c87ab6b21327b675833598ae1b7155c7cab7e6da3f445fca9c68",
+   "model_sha256": "37a05101ee9f7a38a4d529b1c2ae483b7f3626e7433205d08ef6a9bb46777715",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 84.3
+  },
+  {
+   "name": "egad_L09",
+   "source": "L09_2.obj",
+   "extent_m": [
+    0.06405,
+    0.06402,
+    0.06408
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3056735896878658,
+   "kept": true,
+   "project": "egad_L09/cell.axisforge",
+   "project_sha256": "390d4931c6da66ca71b3ab6bf77c60a0b480ecbf5e6b7ce4c112fe7a0411e4b0",
+   "model_sha256": "b844efd7ec62f204fb698e9ad200339cd772c282c095be9b04c6fee2b88317f9",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 93.2
+  },
+  {
+   "name": "egad_M13",
+   "source": "M13_1.obj",
+   "extent_m": [
+    0.07549,
+    0.05936,
+    0.05216
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.142651984630646,
+   "kept": true,
+   "project": "egad_M13/cell.axisforge",
+   "project_sha256": "55928797373cb4b70c6cc45164d22ec3e0d23df373e789830c959806c8112398",
+   "model_sha256": "4637669635172b92a36a261a74dc24d7aa350abf5994c9219565bcbc9bfa163f",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 9,
+   "seconds": 17.0
+  },
+  {
+   "name": "egad_I15",
+   "source": "I15_0.obj",
+   "extent_m": [
+    0.06421,
+    0.06415,
+    0.07703
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.04444735376965888,
+   "kept": true,
+   "project": "egad_I15/cell.axisforge",
+   "project_sha256": "4f96023563c66c29ff1cfaf64aa86d38ad577526e069562ba4f78aaae9804ee4",
+   "model_sha256": "8623a09e83bda96e1eb11c167befe670ed6e98b7a93eb54d967192d6752aa7fb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 13,
+   "seconds": 25.6
+  },
+  {
+   "name": "egad_U18",
+   "source": "U18_1.obj",
+   "extent_m": [
+    0.08001,
+    0.07917,
+    0.03716
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.21869914335797935,
+   "kept": true,
+   "project": "egad_U18/cell.axisforge",
+   "project_sha256": "f23bf2b575ebe48a2c697f1fe0fe60b96d04b4fd84024b622ef91a6ce2b17a46",
+   "model_sha256": "03b51403ad828543c39a549bb350aadcaf5e6d9779fea7609bfde5b3c8596b63",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 61.4
+  },
+  {
+   "name": "egad_T16",
+   "source": "T16_1.obj",
+   "extent_m": [
+    0.08549,
+    0.0854,
+    0.03372
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2442992552871248,
+   "kept": true,
+   "project": "egad_T16/cell.axisforge",
+   "project_sha256": "21fdf9bedb069def81007ae95dcb9680f1ece7acd1407622908d6a8bf17d3cc8",
+   "model_sha256": "55af96f337766e32b50ae3d5012e3f18bce97676b26e62ed6423031cf21723ac",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 16,
+   "seconds": 35.8
+  },
+  {
+   "name": "egad_V24",
+   "source": "V24_2.obj",
+   "extent_m": [
+    0.06815,
+    0.06562,
+    0.06483
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18574555734636544,
+   "kept": true,
+   "project": "egad_V24/cell.axisforge",
+   "project_sha256": "d224811805f1ab2d8b4fac19e92f575954db67971848ce40623c21c08d11c983",
+   "model_sha256": "46ab3dd7769799d89965116e1caada401af90533c80252dacb33f34cac963c6f",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 101.5
+  },
+  {
+   "name": "egad_L22",
+   "source": "L22_0.obj",
+   "extent_m": [
+    0.0938,
+    0.09307,
+    0.06389
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16871159427836346,
+   "kept": true,
+   "project": "egad_L22/cell.axisforge",
+   "project_sha256": "26131f5287c6e6cb6728b33098f82e765c64db2cf3f904393b206856a9f7ae77",
+   "model_sha256": "79f060839c33924088b126d95a476b9c7292849bc6dfd75c527e26d4e351e2ee",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 99.1
+  },
+  {
+   "name": "egad_K04",
+   "source": "K04_3.obj",
+   "extent_m": [
+    0.07996,
+    0.07969,
+    0.06121
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1955166210862021,
+   "kept": true,
+   "project": "egad_K04/cell.axisforge",
+   "project_sha256": "23c7af2d84d876f7a10f0b9c6ca5c58fc6236cd70c9c809b54553a2cf36c97e6",
+   "model_sha256": "31c2d698c0918589daea22e39af55fa9a20ae0a2ceeacc3b219ff4890facb83e",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 14.3
+  },
+  {
+   "name": "egad_C18",
+   "source": "C18_0.obj",
+   "extent_m": [
+    0.06408,
+    0.06414,
+    0.06401
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15419675838039554,
+   "kept": true,
+   "project": "egad_C18/cell.axisforge",
+   "project_sha256": "e8dc0af96dc06f16f5c05678158c67c92542775fa28d58150287ce64854269f7",
+   "model_sha256": "398333ca1a1568cfa744e64e5b363b8257a0a29bc2240cc14133efaf6b6bfcff",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 130.4
+  },
+  {
+   "name": "egad_C15",
+   "source": "C15_3.obj",
+   "extent_m": [
+    0.08078,
+    0.08037,
+    0.06421
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13444741209629113,
+   "kept": true,
+   "project": "egad_C15/cell.axisforge",
+   "project_sha256": "f1386df54c04e426eb4c4937748776ae6832768c0d5f3d55873a363180e859db",
+   "model_sha256": "a92eb2046ec460dd89dcefd5dd76aed4c0a6617e82044c8a6f3c1e786eacafed",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 42.2
+  },
+  {
+   "name": "egad_O17",
+   "source": "O17_2.obj",
+   "extent_m": [
+    0.07041,
+    0.06447,
+    0.0679
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1794389052326197,
+   "kept": true,
+   "project": "egad_O17/cell.axisforge",
+   "project_sha256": "90e2bdc6b40df8b3990d197586f40e1014f49606e369b075c2f10cd6b7cc4951",
+   "model_sha256": "7a458a549b1cd00da3b5c245a0b8a50c1017a01d98a49d94456ce095a9023934",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 104.1
+  },
+  {
+   "name": "egad_K21",
+   "source": "K21_1.obj",
+   "extent_m": [
+    0.06753,
+    0.06416,
+    0.06368
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.11225475002130687,
+   "kept": true,
+   "project": "egad_K21/cell.axisforge",
+   "project_sha256": "d2f9b82a1a58d71dd0322a6659aa2796607c9e9d98a87d78f25ce53564666541",
+   "model_sha256": "7643147b0cbe33bba877d5e38dbaccc66058272244a5dbb904fc7894dbbf5ebe",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 227.0
+  },
+  {
+   "name": "egad_Q05",
+   "source": "Q05_3.obj",
+   "extent_m": [
+    0.03908,
+    0.08,
+    0.03168
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18996644523211864,
+   "kept": true,
+   "project": "egad_Q05/cell.axisforge",
+   "project_sha256": "43512723088e845377ab95cfaef8031b0135778e9906e98ac94dbe718866252c",
+   "model_sha256": "c494043adc65949b688bc48f2521712cdfe4aeac6740061c2fd72b77b3f8ebf5",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.6
+  },
+  {
+   "name": "egad_H25",
+   "source": "H25_1.obj",
+   "extent_m": [
+    0.06876,
+    0.06857,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.053525946808487906,
+   "kept": true,
+   "project": "egad_H25/cell.axisforge",
+   "project_sha256": "53a04d08ad50329735f23cf707611b6158888419077cecf6221b4921165f860a",
+   "model_sha256": "d5d252b3c65bdb7945fb510ac07289d417d16bdee186a0c84352dfe97979b5fe",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 50.5
+  },
+  {
+   "name": "egad_Q09",
+   "source": "Q09_3.obj",
+   "extent_m": [
+    0.09344,
+    0.0936,
+    0.06449
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18703953953434727,
+   "kept": true,
+   "project": "egad_Q09/cell.axisforge",
+   "project_sha256": "edc9ed2e2ab996bc12ce89b107ccaad7f9a45dffbf2d96f4aba0c361887a1669",
+   "model_sha256": "77e2c119e885dbfe558e81c8de510f75c6013c22be4d1f2abe6f35757230af13",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 21,
+   "seconds": 27.2
+  },
+  {
+   "name": "egad_T25",
+   "source": "T25_1.obj",
+   "extent_m": [
+    0.06925,
+    0.08151,
+    0.04039
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.513795806866842,
+   "kept": true,
+   "project": "egad_T25/cell.axisforge",
+   "project_sha256": "d5ec6207b413cf0d31b0c491bf1afee9829939ea2bdd864dcdac8de6572f595b",
+   "model_sha256": "455142e6dbbde1bb82e4cabbaa8ae6509eda628603aa0696c1db1e07b4b17c17",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 25,
+   "seconds": 30.9
+  },
+  {
+   "name": "egad_D10",
+   "source": "D10_2.obj",
+   "extent_m": [
+    0.07163,
+    0.06442,
+    0.06633
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.23787697851654982,
+   "kept": true,
+   "project": "egad_D10/cell.axisforge",
+   "project_sha256": "861138a84537d699aea7a699f7f35c7767fbc37c8d19458c8f589445019b7f8d",
+   "model_sha256": "d40fa07b92ae4a03eda800d818eae9b65bb37be19d174b80c170c4c0f1be0875",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 25,
+   "seconds": 33.7
+  },
+  {
+   "name": "egad_D06",
+   "source": "D06_0.obj",
+   "extent_m": [
+    0.07208,
+    0.07208,
+    0.0638
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1675845524796912,
+   "kept": true,
+   "project": "egad_D06/cell.axisforge",
+   "project_sha256": "f740c2582b309ca91168df1a9b3a600e3c05a6f7f630f97042c4a7152ac820b4",
+   "model_sha256": "256e7be2c74ca29038ddec38b09bc3ff97f72b0ce4d266a12a371f491321e2ad",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 17,
+   "seconds": 35.6
+  },
+  {
+   "name": "egad_T14",
+   "source": "T14_3.obj",
+   "extent_m": [
+    0.07358,
+    0.08611,
+    0.03251
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.41128882226529806,
+   "kept": true,
+   "project": "egad_T14/cell.axisforge",
+   "project_sha256": "8b58f2266025a1f58ff90ecd8a471ac5186977796d1cdf905218e1269902c611",
+   "model_sha256": "a29c823af2db18707e47492d95061540fce78b1c2746e98615372e15c118d79e",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 6,
+   "seconds": 5.8
+  },
+  {
+   "name": "egad_G05",
+   "source": "G05_1.obj",
+   "extent_m": [
+    0.06523,
+    0.06513,
+    0.07075
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.07841635482229434,
+   "kept": true,
+   "project": "egad_G05/cell.axisforge",
+   "project_sha256": "ffad6ae22f568dc5e0ba8cef266710074d53ae65c26dbd83f49c3783f36b217f",
+   "model_sha256": "739412c21c8f526e625c6c01233f337c94282b456d7b5dace8c77c481261798b",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 16,
+   "seconds": 43.4
+  },
+  {
+   "name": "egad_C04",
+   "source": "C04_1.obj",
+   "extent_m": [
+    0.0709,
+    0.0709,
+    0.06381
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.07810550973289164,
+   "kept": true,
+   "project": "egad_C04/cell.axisforge",
+   "project_sha256": "1cefd7ef4421b95839e5d5d7e84d6ed04b4c04d45ef7d46eb767b611b75549fa",
+   "model_sha256": "d0d50f0a7a258caffc68741f3e3f11d1c274008052c33c01d52b5f7c418f1ed3",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 9,
+   "seconds": 19.1
+  },
+  {
+   "name": "egad_X02",
+   "source": "X02_2.obj",
+   "extent_m": [
+    0.08,
+    0.07994,
+    0.05816
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2949522292593102,
+   "kept": true,
+   "project": "egad_X02/cell.axisforge",
+   "project_sha256": "50dd2031cf61a72e48582269f096312e67c311d1121529a9b5881457f98663a6",
+   "model_sha256": "21bd487042e22e711e19a2c855454effcbbc37ce9b1342e1fe7f947aa253e9ba",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.7
+  },
+  {
+   "name": "egad_C12",
+   "source": "C12_2.obj",
+   "extent_m": [
+    0.06406,
+    0.06401,
+    0.0645
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.20414101653438743,
+   "kept": true,
+   "project": "egad_C12/cell.axisforge",
+   "project_sha256": "2c1184dbf74b109322696733a26a57ab92f8cc50b83e84d512777ab6c44081f2",
+   "model_sha256": "52446fd3005b7d464711cf66429660a088895d48d6bb2adb9b1c7a22798f3d0b",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 81.0
+  },
+  {
+   "name": "egad_I01",
+   "source": "I01_0.obj",
+   "extent_m": [
+    0.06936,
+    0.06937,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.09352203261731573,
+   "kept": true,
+   "project": "egad_I01/cell.axisforge",
+   "project_sha256": "057248d9a59d346e4c145d6269b52fdabec54e33c89ee2e8c767fd4efd0c226c",
+   "model_sha256": "f42b400df9ec47d627715c0bd10c156d255f033833b0029677cd03db6e126ae9",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.0
+  },
+  {
+   "name": "egad_N20",
+   "source": "N20_3.obj",
+   "extent_m": [
+    0.08361,
+    0.08375,
+    0.06416
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.17785809146910225,
+   "kept": true,
+   "project": "egad_N20/cell.axisforge",
+   "project_sha256": "65958e3ec1499c2c83f278d1244cd289281d0aa9f8b055314458d43e503d390d",
+   "model_sha256": "e50a0b5a32c5ce9b3c9d1a0f27c6b6aa373cb4be3bbaa8a8138a2189d786a897",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 76.7
+  },
+  {
+   "name": "egad_I02",
+   "source": "I02_3.obj",
+   "extent_m": [
+    0.06406,
+    0.06402,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16622842718822547,
+   "kept": true,
+   "project": "egad_I02/cell.axisforge",
+   "project_sha256": "381ff2d2ab3d549e636b8c1d3b0226e43cc2a6bcbb14a6e3a606d1a22651477f",
+   "model_sha256": "b2862ea6422ff3bc70ed5fa0aa87be6cd01010d68d06037bab850019b338db02",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 3,
+   "seconds": 5.0
+  },
+  {
+   "name": "egad_B03",
+   "source": "B03_2.obj",
+   "extent_m": [
+    0.064,
+    0.064,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.07974711033211238,
+   "kept": true,
+   "project": "egad_B03/cell.axisforge",
+   "project_sha256": "68cfcdce5d6564c87aa7de6019cfe277fe72b16a48248c0807acc50b88ab27dd",
+   "model_sha256": "3613f87ab0cab27c6f1ad0711e2f1c6de638010a0fd3ba808156ffd60dbc37bf",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 4.2
+  },
+  {
+   "name": "egad_A13",
+   "source": "A13_0.obj",
+   "extent_m": [
+    0.06403,
+    0.06403,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.08764112706892442,
+   "kept": true,
+   "project": "egad_A13/cell.axisforge",
+   "project_sha256": "2dc81f41079f95203c1bb83146e44ee0d6df0d9002c6938c46b17183fbacd1a6",
+   "model_sha256": "233dc75c6f27b3fefc45c78022b7f4ac9046e5104b0ea1af6bda5f3e3652a8d8",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 131.8
+  },
+  {
+   "name": "egad_E01",
+   "source": "E01_2.obj",
+   "extent_m": [
+    0.06405,
+    0.06404,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.12501450904484163,
+   "kept": true,
+   "project": "egad_E01/cell.axisforge",
+   "project_sha256": "d427d3574024ccdb85fcd0909baaeba4549b6816181ece93f871622ae4975b77",
+   "model_sha256": "d885c6e3462108792a732070f27f90bd0613db34af9c416e93fa83b68a647ac8",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 3.1
+  },
+  {
+   "name": "egad_O11",
+   "source": "O11_3.obj",
+   "extent_m": [
+    0.07213,
+    0.06482,
+    0.06284
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2639384884288984,
+   "kept": true,
+   "project": "egad_O11/cell.axisforge",
+   "project_sha256": "e31654bafb56e65d3b6bb641bed4e1d93f6f6ac5b59201633c21f5f8798deae0",
+   "model_sha256": "d4579ebefc45fdee9510ab9f6f97d30b3d50c9a832e79d464c1df8ae0a44d212",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 79.4
+  },
+  {
+   "name": "egad_U19",
+   "source": "U19_3.obj",
+   "extent_m": [
+    0.08002,
+    0.07825,
+    0.0505
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3118237679378611,
+   "kept": true,
+   "project": "egad_U19/cell.axisforge",
+   "project_sha256": "8f09fa1ef7e459bf6f88f1e4ec444ffbab72f3aa44aa2c6d5e60dec6e1f6826b",
+   "model_sha256": "91408e38ebea388fbdb7396fbe60e315e7651f8d5ec7e97dd5290016cfa1399d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 18,
+   "seconds": 33.1
+  },
+  {
+   "name": "egad_E22",
+   "source": "E22_3.obj",
+   "extent_m": [
+    0.07375,
+    0.07388,
+    0.06398
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1105701629346198,
+   "kept": true,
+   "project": "egad_E22/cell.axisforge",
+   "project_sha256": "d9f32f713ca62b4bf10e0ca8199f7da6e5ddf121194befbbb2f25bd932d38107",
+   "model_sha256": "e432802790baad70aedd86a16c655085b545358d9e83605c18a5f5f8c589da4e",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 30,
+   "seconds": 47.9
+  },
+  {
+   "name": "egad_U22",
+   "source": "U22_3.obj",
+   "extent_m": [
+    0.07975,
+    0.08009,
+    0.03504
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.39847627068108493,
+   "kept": true,
+   "project": "egad_U22/cell.axisforge",
+   "project_sha256": "6a923adaadabae14fb3c0f2998e0d44763cb43f0fee33913ba4de454063c4009",
+   "model_sha256": "8d183896489774d302a48f07345c9fd6a6d49d7327e4d15baaace668b6db86b2",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 27,
+   "seconds": 25.1
+  },
+  {
+   "name": "egad_B01",
+   "source": "B01_0.obj",
+   "extent_m": [
+    0.07018,
+    0.06398,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.02775769132949175,
+   "kept": true,
+   "project": "egad_B01/cell.axisforge",
+   "project_sha256": "cf09d6d4086e15170fbf8b7fb4b25751825566363abe8562da7239496af8fc94",
+   "model_sha256": "a539ab03215300acb8d88994d810806b8a1e484d77e6fd40a3f50a6018161ffa",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 3.3
+  },
+  {
+   "name": "egad_S23",
+   "source": "S23_3.obj",
+   "extent_m": [
+    0.07842,
+    0.08009,
+    0.052
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15422496273511285,
+   "kept": true,
+   "project": "egad_S23/cell.axisforge",
+   "project_sha256": "cbe2f33e3b9f0d152075a63972b0f9849ccf70171910985cea2f6a8ce44a975e",
+   "model_sha256": "d2a07600a5a77147e35ce47161b049de4435ad19d3d87adc3eb20dcd95404e1d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 42.4
+  },
+  {
+   "name": "egad_A14",
+   "source": "A14_0.obj",
+   "extent_m": [
+    0.08436,
+    0.08457,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.10027535223025538,
+   "kept": true,
+   "project": "egad_A14/cell.axisforge",
+   "project_sha256": "051d03ce658789400c663dbcf4f18f02e84ef4a20f0e5ab949c84785083fc59e",
+   "model_sha256": "56fb773dc4dc5d18d32259d5e9b9b48b5b4d993c4be043cdc14ef6a506aaff6e",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 61.0
+  },
+  {
+   "name": "egad_J09",
+   "source": "J09_3.obj",
+   "extent_m": [
+    0.06401,
+    0.064,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.25591206772678776,
+   "kept": true,
+   "project": "egad_J09/cell.axisforge",
+   "project_sha256": "92464456619f9a25f1a815f1540a655ef4a7228e4be0fd71c9575b2d1e2ab0f4",
+   "model_sha256": "d96f034fddb72e86f82e949bbc73e849981a3580015d9303c2321f926cef1bbc",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 66.0
+  },
+  {
+   "name": "egad_T20",
+   "source": "T20_0.obj",
+   "extent_m": [
+    0.06424,
+    0.07287,
+    0.07388
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1261916172010025,
+   "kept": true,
+   "project": "egad_T20/cell.axisforge",
+   "project_sha256": "020986d555c2e7a44df4be93e686db35b97e877953bb5d33d68f3392902237ff",
+   "model_sha256": "4c6bf14f7bf460fc9d7a53cbda2aa6cea41ddb0493befc4767f0ae2f3d655acb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 98.2
+  },
+  {
+   "name": "egad_G22",
+   "source": "G22_1.obj",
+   "extent_m": [
+    0.06894,
+    0.06896,
+    0.06381
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1486083341455069,
+   "kept": true,
+   "project": "egad_G22/cell.axisforge",
+   "project_sha256": "a11d87f573ef6319f6f6bfca9fc01dab631821660e0d2c9166570794d8175c9e",
+   "model_sha256": "384cce4efd38f39d4eca3471be4d5259ce102044f9e6a59605850f54adc522e1",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 58.4
+  },
+  {
+   "name": "egad_L20",
+   "source": "L20_2.obj",
+   "extent_m": [
+    0.07798,
+    0.07747,
+    0.06397
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18768221432198398,
+   "kept": true,
+   "project": "egad_L20/cell.axisforge",
+   "project_sha256": "50689922c1cff1b1a4176170fc45e5cbf3fcb79c57da37d8791784f6fd1e19d9",
+   "model_sha256": "537769691837652a6307515026f9cc11f258eb218259cedb47aeef6b297d4fbc",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 35.3
+  },
+  {
+   "name": "egad_R02",
+   "source": "R02_2.obj",
+   "extent_m": [
+    0.08,
+    0.08001,
+    0.04002
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16776013980214718,
+   "kept": true,
+   "project": "egad_R02/cell.axisforge",
+   "project_sha256": "55b39e4f6b4d7dc98248cc2221561a7ebc1aed0f326e8bf79f6e96b277549f9b",
+   "model_sha256": "9a4bbf0ad00961b1d3700c8911fd97bb8dfa67482fe064fe3e801505d1680918",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.0
+  },
+  {
+   "name": "egad_T07",
+   "source": "T07_1.obj",
+   "extent_m": [
+    0.07994,
+    0.07993,
+    0.04013
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.21868693719161217,
+   "kept": true,
+   "project": "egad_T07/cell.axisforge",
+   "project_sha256": "5511cd75582f875ab2b6cb797c90938c8b888e4b7360941837dfacc4025f2a06",
+   "model_sha256": "09100fd82bee7162d886fc6401da82ce1b1ee52d16067072c52529f2f8ef0ceb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 13,
+   "seconds": 18.8
+  },
+  {
+   "name": "egad_C22",
+   "source": "C22_1.obj",
+   "extent_m": [
+    0.07808,
+    0.06819,
+    0.07474
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.10345376310453973,
+   "kept": true,
+   "project": "egad_C22/cell.axisforge",
+   "project_sha256": "866fabbde934be2f73a2e96dc1c93c91432e96582d3625fbc52a066945e01ae8",
+   "model_sha256": "bd2aecc34af6ef1770bf4f13b01f18feae086948a6930a8fbf36467211cfe813",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 31.4
+  },
+  {
+   "name": "egad_S24",
+   "source": "S24_0.obj",
+   "extent_m": [
+    0.07962,
+    0.08001,
+    0.04439
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3237465793709931,
+   "kept": true,
+   "project": "egad_S24/cell.axisforge",
+   "project_sha256": "da5e965f0eede638ad1a22d915b18a530c31c1d653d27bbffc6cf1f730d32f08",
+   "model_sha256": "a07537747cdb6c99e769537e668f572d43df495866d0c9c44769009768f5a439",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 30,
+   "seconds": 15.9
+  },
+  {
+   "name": "egad_V17",
+   "source": "V17_0.obj",
+   "extent_m": [
+    0.08,
+    0.07888,
+    0.02246
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.23374551202163094,
+   "kept": true,
+   "project": "egad_V17/cell.axisforge",
+   "project_sha256": "6967bb00f382a58db5c8e2439e2b2dd95108e951b2513386c85c6d0ccc656dfd",
+   "model_sha256": "43781e365c677ab1bff58a579a689165742f7c32118a0bff6c4e33f802bf24f0",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 5,
+   "seconds": 4.0
+  },
+  {
+   "name": "egad_K09",
+   "source": "K09_3.obj",
+   "extent_m": [
+    0.08239,
+    0.0826,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.19066693321706482,
+   "kept": true,
+   "project": "egad_K09/cell.axisforge",
+   "project_sha256": "e5db359257a4c882cb80d0e8b3b82719c47f4168e89d268c1960ad2ce70b9057",
+   "model_sha256": "e69b9fb67466553886dda8acc576f9e42276dee21affe76ecb9bb9c682ff135c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 18.1
+  },
+  {
+   "name": "egad_V07",
+   "source": "V07_3.obj",
+   "extent_m": [
+    0.07933,
+    0.07958,
+    0.03913
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.5902855857939105,
+   "kept": true,
+   "project": "egad_V07/cell.axisforge",
+   "project_sha256": "cece7c9e5e81294a0a1bf48ecf3c7d8ba3fb063845020a31a97becd3d879aa43",
+   "model_sha256": "50cd28b22741a7580d998fdb15162892b351f836772d771e37c30b165058ea71",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 7,
+   "seconds": 3.9
+  },
+  {
+   "name": "egad_D09",
+   "source": "D09_0.obj",
+   "extent_m": [
+    0.0642,
+    0.06419,
+    0.06401
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.12117416232559007,
+   "kept": true,
+   "project": "egad_D09/cell.axisforge",
+   "project_sha256": "4b57fc9bfa652729b4c1c0894adc693f5758b7a770eba0794faa712a225c9f30",
+   "model_sha256": "37c14c28bd451047bc65598cbd914db3f27a1c6b4deaaef6561ebcd1bbcd67e2",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 25.8
+  },
+  {
+   "name": "egad_C24",
+   "source": "C24_3.obj",
+   "extent_m": [
+    0.06668,
+    0.06669,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.10661395322762098,
+   "kept": true,
+   "project": "egad_C24/cell.axisforge",
+   "project_sha256": "97e7b263206467fa4782f732f278176fdf7d284e81dad4d6f5013772f413c87f",
+   "model_sha256": "a6ecd1006bceb28740bfaefdbe7f64557c7338d1cce408ba4b525172f55786e7",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 17,
+   "seconds": 12.0
+  },
+  {
+   "name": "egad_D17",
+   "source": "D17_3.obj",
+   "extent_m": [
+    0.08128,
+    0.08127,
+    0.06397
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1666647659712397,
+   "kept": true,
+   "project": "egad_D17/cell.axisforge",
+   "project_sha256": "8eadb3c57d3dd6f1ecdbce0feed6343fe226d8a2398f70f56d97390fd4cd9862",
+   "model_sha256": "71b0a9cf44357d4482732fa1915d817a5a62f1f34701e1c15c8ab57e430fa18d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 31.5
+  },
+  {
+   "name": "egad_R16",
+   "source": "R16_2.obj",
+   "extent_m": [
+    0.06465,
+    0.06401,
+    0.06542
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16184649105741408,
+   "kept": true,
+   "project": "egad_R16/cell.axisforge",
+   "project_sha256": "a0c5221e6239a25eff3354223c5e1362eddc89e61ed73ebf847646c0006f1f59",
+   "model_sha256": "0b35989edb525d0eb6222b35458f78c88c43d855519e095966c35c92e3409491",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 38.4
+  },
+  {
+   "name": "egad_U21",
+   "source": "U21_0.obj",
+   "extent_m": [
+    0.06526,
+    0.06449,
+    0.06405
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18319308227328573,
+   "kept": true,
+   "project": "egad_U21/cell.axisforge",
+   "project_sha256": "7a7c2a00d720b9869963d72cf63a46813e37dce782597c32e58f17d5fa738362",
+   "model_sha256": "8f4c6046493db99f46de3fc0e5e3dd33c2a7ba70609b8347af32f33b8d244543",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 86.5
+  },
+  {
+   "name": "egad_L13",
+   "source": "L13_3.obj",
+   "extent_m": [
+    0.08471,
+    0.08476,
+    0.06491
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1780752266985434,
+   "kept": true,
+   "project": "egad_L13/cell.axisforge",
+   "project_sha256": "f9b1d18d691add8f0aaccea4f89725d5f308f773279b702fa42cb1b8b1af9863",
+   "model_sha256": "e16c0b4fe42652d865e2c32b7fefda2127dc9fbb7fbea54ca938f05996dd8be7",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 86.2
+  },
+  {
+   "name": "egad_X00",
+   "source": "X00_0.obj",
+   "extent_m": [
+    0.08108,
+    0.0811,
+    0.05529
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.21830413195956708,
+   "kept": true,
+   "project": "egad_X00/cell.axisforge",
+   "project_sha256": "805edcb9cbe3b90c7baa5f84b01feb7720bf24de329a91ae469bd2c781c7f2a7",
+   "model_sha256": "fea5dbad6bfc3ff977c5dbe401711ff9d6e45990546c62f4d4f65d7aa9893020",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.5
+  },
+  {
+   "name": "egad_T10",
+   "source": "T10_1.obj",
+   "extent_m": [
+    0.07982,
+    0.08001,
+    0.02627
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.401492167466846,
+   "kept": true,
+   "project": "egad_T10/cell.axisforge",
+   "project_sha256": "6f6e668f206abf895b819e0037c4379a531efd1987fa12b338727784a8c05beb",
+   "model_sha256": "4cae122879c707c86fa735a227b30c207d2c6973fb0dfbd7ea485064d4a4497d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 4.4
+  },
+  {
+   "name": "egad_I09",
+   "source": "I09_0.obj",
+   "extent_m": [
+    0.06414,
+    0.06409,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16177861354248677,
+   "kept": true,
+   "project": "egad_I09/cell.axisforge",
+   "project_sha256": "39fb8c1d13ac20f15a6963acb92f66eedba24f3ba4928d4ce2fcf7a69f679e02",
+   "model_sha256": "6593104da9d315c2e402e4a64a3a70714822052d42f7b3ea763232e162c47769",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 17,
+   "seconds": 17.9
+  },
+  {
+   "name": "egad_N07",
+   "source": "N07_0.obj",
+   "extent_m": [
+    0.06401,
+    0.064,
+    0.06376
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15004097185870738,
+   "kept": true,
+   "project": "egad_N07/cell.axisforge",
+   "project_sha256": "fc386af3cea2eaad4fe202629b347fc528f2faa725ab4b30347424e1fdd584d0",
+   "model_sha256": "ad02f5e190d9106f9f38db3fd8f1e3d2a6d50bdcb404b4b481d06262f71e79db",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 14,
+   "seconds": 21.2
+  },
+  {
+   "name": "egad_J12",
+   "source": "J12_3.obj",
+   "extent_m": [
+    0.064,
+    0.06502,
+    0.06421
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13210564751551648,
+   "kept": true,
+   "project": "egad_J12/cell.axisforge",
+   "project_sha256": "cb8e3b15bb8afd02d07c5d414ebe05657ead5aee1a3e8f272c499ba17a05fee8",
+   "model_sha256": "12e7a9ca54d07886140ccb0303a740e01fe7cd0e30caedbeeadaab5856288cf3",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 92.7
+  },
+  {
+   "name": "egad_S18",
+   "source": "S18_3.obj",
+   "extent_m": [
+    0.06588,
+    0.0664,
+    0.06391
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.17485771388872115,
+   "kept": true,
+   "project": "egad_S18/cell.axisforge",
+   "project_sha256": "9a3d8e1d77959e0faeca1f074365806e1ffc849e599b9eddd6cf4da3001162bb",
+   "model_sha256": "4b1ced1137059b26e0874b16021947e504b39c0e82999dc61be69f63e26166ed",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 96.9
+  },
+  {
+   "name": "egad_X01",
+   "source": "X01_3.obj",
+   "extent_m": [
+    0.0793,
+    0.07928,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13216478381103638,
+   "kept": true,
+   "project": "egad_X01/cell.axisforge",
+   "project_sha256": "b2cd2e9dc81951c221ebf65fcbc93b2f4053e8564df0050a7a8e537412dd70c1",
+   "model_sha256": "6626460480e245101df67cd41a87a91fa4588483e54944614e98c175e0ecd78f",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 2.1
+  },
+  {
+   "name": "egad_G13",
+   "source": "G13_0.obj",
+   "extent_m": [
+    0.06404,
+    0.06404,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2352328894439652,
+   "kept": true,
+   "project": "egad_G13/cell.axisforge",
+   "project_sha256": "5193e6c42add7057bfdf4b0e1b1d4cfd75c058653b8f1a8b4a36fbdd60f199a5",
+   "model_sha256": "abe5fd5b5dad3ec35aca5e68201f8abfaaa4f2e9333ee32e6a1080d221cd3d43",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 68.5
+  },
+  {
+   "name": "egad_S10",
+   "source": "S10_3.obj",
+   "extent_m": [
+    0.08006,
+    0.0305,
+    0.02501
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2271340069873579,
+   "kept": true,
+   "project": "egad_S10/cell.axisforge",
+   "project_sha256": "c6aab340a55d9773ffa68843f838e3e4b77bd81311c7de4fb6c7eb638ab378ca",
+   "model_sha256": "622edd1751a599b7a8847e354398558acbe1b4a32a952a976f985b059d102833",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.5
+  },
+  {
+   "name": "egad_J25",
+   "source": "J25_2.obj",
+   "extent_m": [
+    0.06415,
+    0.06608,
+    0.06928
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18925784788274597,
+   "kept": true,
+   "project": "egad_J25/cell.axisforge",
+   "project_sha256": "9e96822a782d27964c1e80fb78ec5dcf056ca9856a9130c4e476ad4c801f5ff2",
+   "model_sha256": "7e8acc1dea37a4667b55e764d65448aec6158636d70f22ca4c1719e98ad05361",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 49.4
+  },
+  {
+   "name": "egad_Q22",
+   "source": "Q22_3.obj",
+   "extent_m": [
+    0.06417,
+    0.07495,
+    0.06202
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2007796716911123,
+   "kept": true,
+   "project": "egad_Q22/cell.axisforge",
+   "project_sha256": "68243d09389f7577e05f8131b6e4ea60ee4d23287b4e0f4e3761027d170d937c",
+   "model_sha256": "0d8b514441904acdb571ba5f4b4a75d19b4853e010bb27737721e2b1adfa7bbe",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 49.2
+  },
+  {
+   "name": "egad_L18",
+   "source": "L18_1.obj",
+   "extent_m": [
+    0.09876,
+    0.09909,
+    0.06401
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3113032818739435,
+   "kept": true,
+   "project": "egad_L18/cell.axisforge",
+   "project_sha256": "ebf7c58dd36a36d07840cb844347215ac27da7dfe48cdc079f68ffc33d0ebb8b",
+   "model_sha256": "2043614706b377dd77f3beb96d678ba1db19e6dfa101500f3ef88ff5d7324f6c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 67.0
+  },
+  {
+   "name": "egad_J06",
+   "source": "J06_2.obj",
+   "extent_m": [
+    0.08063,
+    0.06414,
+    0.04365
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.23719875533069226,
+   "kept": true,
+   "project": "egad_J06/cell.axisforge",
+   "project_sha256": "5b49b520db5bb9d3ef43c4da85b794d9243dd33a9477c7ac65963d9d17859c6e",
+   "model_sha256": "46ecc619706786baac423782274fcb3c6a75304a3727516fa4a4dff48b288b4c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 2,
+   "seconds": 1.9
+  },
+  {
+   "name": "egad_M06",
+   "source": "M06_1.obj",
+   "extent_m": [
+    0.08,
+    0.04359,
+    0.04354
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.06297171254860012,
+   "kept": true,
+   "project": "egad_M06/cell.axisforge",
+   "project_sha256": "a0a806d24066485b57628e16b2073761da73c562e95fe35a30595b7637c23884",
+   "model_sha256": "f55905d567c045a69a891f802d08008c533b58aa0faaf29ab8fbb322e8035293",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 3.4
+  },
+  {
+   "name": "egad_G16",
+   "source": "G16_1.obj",
+   "extent_m": [
+    0.07891,
+    0.0789,
+    0.06402
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16197011797284758,
+   "kept": true,
+   "project": "egad_G16/cell.axisforge",
+   "project_sha256": "a04f7abc1d5aacb37527db3a7e397038154355dfd0fbf75c8323d291fe2d5075",
+   "model_sha256": "d44d5266a00be2d5be593e0bddff12092f7cdf5456e20ebe3360d712bcb9be27",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 25,
+   "seconds": 32.4
+  },
+  {
+   "name": "egad_H17",
+   "source": "H17_0.obj",
+   "extent_m": [
+    0.06402,
+    0.06486,
+    0.06404
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16188072816816335,
+   "kept": true,
+   "project": "egad_H17/cell.axisforge",
+   "project_sha256": "1bbb75d743bd611606d9bd8bbd815a639aa81654e313ae38e935af231128def3",
+   "model_sha256": "505c4f64e1bce7a49459b93522a99c9931b338f0826585b3d3c1474c9fc86d94",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 50.7
+  },
+  {
+   "name": "egad_R24",
+   "source": "R24_3.obj",
+   "extent_m": [
+    0.07842,
+    0.07844,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2468751453579672,
+   "kept": true,
+   "project": "egad_R24/cell.axisforge",
+   "project_sha256": "16fdd9831286c7776a7e65cf8ae09567b2e0aef572cddd8e8802ed46e9ea2688",
+   "model_sha256": "4101c68e55733e65ee4412f38dc2ccc7ef94bf6fccda50d5bc4d4dc0b63e202d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 17.5
+  },
+  {
+   "name": "egad_D24",
+   "source": "D24_3.obj",
+   "extent_m": [
+    0.06503,
+    0.06506,
+    0.06395
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16883618679899112,
+   "kept": true,
+   "project": "egad_D24/cell.axisforge",
+   "project_sha256": "0d94ff427a9b317fc8f83cf8b5167d463d4ef2c290ba4515cd346da61cfcdea0",
+   "model_sha256": "6a6e4efca53992a55777d4cf7d6ed0d73fbbda1ef623b79d20400d7b6374db1a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 14.0
+  },
+  {
+   "name": "egad_Q11",
+   "source": "Q11_3.obj",
+   "extent_m": [
+    0.06412,
+    0.064,
+    0.0641
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1566878243717132,
+   "kept": true,
+   "project": "egad_Q11/cell.axisforge",
+   "project_sha256": "514c0e9135da69b7b0afe9c47c3c214a41005d4d57e7b80d5ba7021567d81a0e",
+   "model_sha256": "147f041d8f558d025c1f2f143e4a9c04db50c073b4e6f26f511c9e46f2b17f23",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 45.8
+  },
+  {
+   "name": "egad_X10",
+   "source": "X10_2.obj",
+   "extent_m": [
+    0.08001,
+    0.06733,
+    0.01568
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.5134649133847381,
+   "kept": true,
+   "project": "egad_X10/cell.axisforge",
+   "project_sha256": "83a0d0da6b7ba12a576405ab5dc0b457aa322b977691382f2636acaeffc24e32",
+   "model_sha256": "9d59bb1d6ad89132e7c733365462aa36b3bce1bc66b74735dbdef5885bd52548",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 2.7
+  },
+  {
+   "name": "egad_I16",
+   "source": "I16_3.obj",
+   "extent_m": [
+    0.064,
+    0.07541,
+    0.06749
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13530931775179458,
+   "kept": true,
+   "project": "egad_I16/cell.axisforge",
+   "project_sha256": "7350e7ad2fe85e25b3328d0704932fb7f4bd331de554c08d43feef2aac4fc419",
+   "model_sha256": "9f4ed801478ddcaeb9f432d6fcdbd12ebd0160d2ab9436b2dc60a16c3ead87c2",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 22,
+   "seconds": 16.9
+  },
+  {
+   "name": "egad_W24",
+   "source": "W24_1.obj",
+   "extent_m": [
+    0.06446,
+    0.06546,
+    0.06523
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.17877407262873368,
+   "kept": true,
+   "project": "egad_W24/cell.axisforge",
+   "project_sha256": "abaf97a20ec9468d8a849bf0dd1fb6335116c01db7d940f144ef3729c422b114",
+   "model_sha256": "ab3927d782f3d6ffea623c5bd03aab5eb1bacfa4e6b1aca83cf5fde3c23d6427",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 48.7
+  },
+  {
+   "name": "egad_B09",
+   "source": "B09_0.obj",
+   "extent_m": [
+    0.06591,
+    0.06591,
+    0.07203
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.07982908771437434,
+   "kept": true,
+   "project": "egad_B09/cell.axisforge",
+   "project_sha256": "0b013b1b57225f289604e6e054e29a223d48b4009b52ab826754896c118e4c73",
+   "model_sha256": "00d79fef4f0c40fd23bae5efa70b84a431ba39d67e299ce4cfb816fe39aa0efb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 20.1
+  },
+  {
+   "name": "egad_E07",
+   "source": "E07_0.obj",
+   "extent_m": [
+    0.0692,
+    0.06922,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.08753796759422282,
+   "kept": true,
+   "project": "egad_E07/cell.axisforge",
+   "project_sha256": "d8b0ddbc3f67e83d1beec0d7892a15d11b28eeb50df8794caa61f1b86d550eaf",
+   "model_sha256": "a5192dbd3a9157f3ce0f5ddef4e62c0f218c9138eca373a993422eeab1620338",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 21,
+   "seconds": 27.0
+  },
+  {
+   "name": "egad_L02",
+   "source": "L02_0.obj",
+   "extent_m": [
+    0.06401,
+    0.07563,
+    0.07565
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.11725908555038154,
+   "kept": true,
+   "project": "egad_L02/cell.axisforge",
+   "project_sha256": "f84b9519d7985e4628c463c2b059bcec45902f03d0559a1d35ef70ef1cf9ff0d",
+   "model_sha256": "6072e4ee58ebc0c183f089ba764e3da8177760a91d2fd4f15f44cb01fe38470a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.7
+  },
+  {
+   "name": "egad_E14",
+   "source": "E14_1.obj",
+   "extent_m": [
+    0.06424,
+    0.06442,
+    0.06425
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13881670111222869,
+   "kept": true,
+   "project": "egad_E14/cell.axisforge",
+   "project_sha256": "31290b4946abf8f275a9e6066f47d5246cd469b0c42f87711a9d4ac3adfc283e",
+   "model_sha256": "6bbea62b693dcb3909a33767a61925ebd073ab453950837f6a58e140288b7d27",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 43.3
+  },
+  {
+   "name": "egad_W15",
+   "source": "W15_3.obj",
+   "extent_m": [
+    0.05297,
+    0.08001,
+    0.02235
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.43308609661475733,
+   "kept": true,
+   "project": "egad_W15/cell.axisforge",
+   "project_sha256": "5a3565f51912d1dc10e779ca8a2181a59300f46df800dac6a3acc150313aa575",
+   "model_sha256": "ecabd3174de7e42089ee442c011ff541bae857261ea5274385838c6aaf453712",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 6,
+   "seconds": 2.4
+  },
+  {
+   "name": "egad_L05",
+   "source": "L05_3.obj",
+   "extent_m": [
+    0.0845,
+    0.08446,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.166268259118703,
+   "kept": true,
+   "project": "egad_L05/cell.axisforge",
+   "project_sha256": "c42139ad31a8bd6e0cf893847454c9ad34f86350e7f6871a9392b381bcf671b9",
+   "model_sha256": "2156b0e8feae8eee03546bd0f7fbd37b5f1e0a1b5b7c9b28230f4f4f1d30783a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 14.2
+  },
+  {
+   "name": "egad_K12",
+   "source": "K12_3.obj",
+   "extent_m": [
+    0.08528,
+    0.08372,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3384868009394775,
+   "kept": true,
+   "project": "egad_K12/cell.axisforge",
+   "project_sha256": "dd894252a27bc48cab3d144084ec12accc7e73c084a67f1491721411af72589f",
+   "model_sha256": "07b211d106430a6baea4529573629d8d80ff69f15e3a42aeab30b1c8b9246e46",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 28.6
+  },
+  {
+   "name": "egad_W08",
+   "source": "W08_3.obj",
+   "extent_m": [
+    0.08,
+    0.01881,
+    0.01009
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.44881080111921745,
+   "kept": true,
+   "project": "egad_W08/cell.axisforge",
+   "project_sha256": "c871e6e4874abff1eb73370ff8427406cef69d2199896c1dcd546e5b706b79e0",
+   "model_sha256": "136f1a0bae4b14ba557cf01f01a308b1eb18c4ef8950ba225c2c7cece22c8dc6",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.1
+  },
+  {
+   "name": "egad_X21",
+   "source": "X21_2.obj",
+   "extent_m": [
+    0.08241,
+    0.08543,
+    0.02166
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.5174677519777058,
+   "kept": true,
+   "project": "egad_X21/cell.axisforge",
+   "project_sha256": "b09e04da2193f1a9f9519fff4d5e3997aee95bfd9df84e1cb2cd17f32a78b632",
+   "model_sha256": "f52fbd4b007c58ac2075978a0e2ae64e6cd3ccbd6a5b35a35b9acbc8e91a6c1c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 12,
+   "seconds": 4.8
+  },
+  {
+   "name": "egad_I18",
+   "source": "I18_3.obj",
+   "extent_m": [
+    0.06507,
+    0.08,
+    0.05852
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.09156223517727222,
+   "kept": true,
+   "project": "egad_I18/cell.axisforge",
+   "project_sha256": "8561ee592eb3d52c5e27499ac048dbc8da4fc2727dd6f148e34547f2e191a6f0",
+   "model_sha256": "5e3b71b87c1192f37a2eb93a59e0b4a230d85df0630c3a5061830a4efe813552",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 28,
+   "seconds": 12.6
+  },
+  {
+   "name": "egad_L21",
+   "source": "L21_2.obj",
+   "extent_m": [
+    0.06401,
+    0.064,
+    0.06406
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2593539082690538,
+   "kept": true,
+   "project": "egad_L21/cell.axisforge",
+   "project_sha256": "0af8211eeee822e811f54e5873410eaf08b8ff5795c510fc91d2b09618582033",
+   "model_sha256": "b3972078b3783097485387de809ca851aa676bf38521803cfb35b0500d778e53",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 23.5
+  },
+  {
+   "name": "egad_T11",
+   "source": "T11_0.obj",
+   "extent_m": [
+    0.0545,
+    0.07105,
+    0.02028
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.22013795064839853,
+   "kept": true,
+   "project": "egad_T11/cell.axisforge",
+   "project_sha256": "ab1338c074839e3055636a447bc6d1cb8b4ec0ea7f3b56fbcf48f75be6b3f5c5",
+   "model_sha256": "8d5b63088bf5327b1589658a10c9c0c9f53a5fd976a359a822da8389b1db4de9",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.1
+  },
+  {
+   "name": "egad_O20",
+   "source": "O20_0.obj",
+   "extent_m": [
+    0.07965,
+    0.07976,
+    0.06396
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13455982397761848,
+   "kept": true,
+   "project": "egad_O20/cell.axisforge",
+   "project_sha256": "d3b02e60ea836d8f7cd4679fd2ed59f3a47daf3f529fcf77a2c1eedc9111e44f",
+   "model_sha256": "c7294a21c4f19d496ed78c347cb1ef22b8cc9e54a05dd0fc2ce210908f32268f",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 25.0
+  },
+  {
+   "name": "egad_R11",
+   "source": "R11_2.obj",
+   "extent_m": [
+    0.08,
+    0.04964,
+    0.0364
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.4625795262825794,
+   "kept": true,
+   "project": "egad_R11/cell.axisforge",
+   "project_sha256": "a3d79e215fdf3a70d1471bac633009d60dea4eca1fcf0e0f83bc563009187d5f",
+   "model_sha256": "5629b1ca94102ef177e6799440ab35868f99def6bd905c67b5a51247e0fc07c3",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 2.7
+  },
+  {
+   "name": "egad_W22",
+   "source": "W22_2.obj",
+   "extent_m": [
+    0.08504,
+    0.08933,
+    0.02097
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.44556335366700833,
+   "kept": true,
+   "project": "egad_W22/cell.axisforge",
+   "project_sha256": "3a194de7c8edc4606b18e39fae36ed149e6ecfeb0a864e479e670dbedd560c24",
+   "model_sha256": "5c46fb16eacfc4a6f7c676fd5452cfc747748e38d2546170f3401a427d783c2d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 13,
+   "seconds": 4.5
+  },
+  {
+   "name": "egad_X17",
+   "source": "X17_2.obj",
+   "extent_m": [
+    0.07897,
+    0.08004,
+    0.05602
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.4386846699253777,
+   "kept": true,
+   "project": "egad_X17/cell.axisforge",
+   "project_sha256": "236c4751f47523ac646116ca369bb45eae07773adf370dc487aa966b74a8bac3",
+   "model_sha256": "96da0c0b0a7810763aac1456d0139114a07670aff0741afc824d8b1533bfc9fc",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 22,
+   "seconds": 13.7
+  },
+  {
+   "name": "egad_W06",
+   "source": "W06_0.obj",
+   "extent_m": [
+    0.08,
+    0.04022,
+    0.02472
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3848072851611043,
+   "kept": true,
+   "project": "egad_W06/cell.axisforge",
+   "project_sha256": "560a2ee3e095c531a733fdd434b72369cb8d9a7bdeeff52c5ca7dc3538f1f04f",
+   "model_sha256": "c95fe311b02eae0939757518f8e5ddc6d1f733d964381a0b56c95c43749d45fa",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 2,
+   "seconds": 1.0
+  },
+  {
+   "name": "egad_P12",
+   "source": "P12_0.obj",
+   "extent_m": [
+    0.06516,
+    0.06404,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.17445607965542614,
+   "kept": true,
+   "project": "egad_P12/cell.axisforge",
+   "project_sha256": "903ddcc69590b35bc444dadd5122b4b492a2818378b3e2d45b2011e4740d6b56",
+   "model_sha256": "99436f7fc01ed9d9dd8e86a36a5683b5be6a33520a90936076c799cd9470c241",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 44.4
+  },
+  {
+   "name": "egad_W09",
+   "source": "W09_0.obj",
+   "extent_m": [
+    0.06447,
+    0.06451,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.30714293848291796,
+   "kept": true,
+   "project": "egad_W09/cell.axisforge",
+   "project_sha256": "bed1126a3e1fd1162eb8fed48a745c939eeabcb898e2a24c8bced15fdc971bf0",
+   "model_sha256": "8ef3b18193ba7ba11cf84725e8682cbe158f45cfce7ada33d35e4475cdb69d83",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 22.6
+  },
+  {
+   "name": "egad_C06",
+   "source": "C06_3.obj",
+   "extent_m": [
+    0.06913,
+    0.06912,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.07816541659725552,
+   "kept": true,
+   "project": "egad_C06/cell.axisforge",
+   "project_sha256": "d09b3d5c7f3d32f5b19e34d2bc8c56d052b0c3d6b3470710ed07bc35a270eb3a",
+   "model_sha256": "fac11c2c7d9793bdb38544c5886cd7c4d476163da78a958dfa53c07163f521a2",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 19.4
+  },
+  {
+   "name": "egad_P07",
+   "source": "P07_3.obj",
+   "extent_m": [
+    0.08256,
+    0.0825,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.14327362584046685,
+   "kept": true,
+   "project": "egad_P07/cell.axisforge",
+   "project_sha256": "28fc8e4f4f8eb39852ffffbcba4a496c0d8f6763dd7e99a35802546d64d1a38f",
+   "model_sha256": "b5fca8268e84874400db3f660a9c9cf9e045693abe23a7f9ade8ecd982a79ab8",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 17,
+   "seconds": 13.9
+  },
+  {
+   "name": "egad_E10",
+   "source": "E10_2.obj",
+   "extent_m": [
+    0.08028,
+    0.06131,
+    0.0594
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.062140128513905823,
+   "kept": true,
+   "project": "egad_E10/cell.axisforge",
+   "project_sha256": "fccdf0c21ae692590c1a1691b5d55561105c6486fa6e963c24f2e30f3f871f33",
+   "model_sha256": "5b4be77a09205942b4ffa7f9a89f71c7f55704bcfac26feae1af239cfa56047e",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 13,
+   "seconds": 10.5
+  },
+  {
+   "name": "egad_I21",
+   "source": "I21_0.obj",
+   "extent_m": [
+    0.06585,
+    0.06868,
+    0.06478
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.14134890858211666,
+   "kept": true,
+   "project": "egad_I21/cell.axisforge",
+   "project_sha256": "64590e60c4d2260995e783f4cfee07526ec387f973fa315a96206178a2ee2c5c",
+   "model_sha256": "e0585dfa60afa2b5e591c4cb8e3160fa35b007914d81cc019aa13fb3218285f0",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 40.6
+  },
+  {
+   "name": "egad_R25",
+   "source": "R25_1.obj",
+   "extent_m": [
+    0.08,
+    0.07835,
+    0.04206
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3650654732220214,
+   "kept": true,
+   "project": "egad_R25/cell.axisforge",
+   "project_sha256": "08999b0d9f1dfae20bf89ae1fa25a577a91dc8f3a374b4e87878c18a41cb9693",
+   "model_sha256": "7c2b55d849adc3674c848451718b27fc3e63b65dd32dce0509d105c61980f84a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 21,
+   "seconds": 5.1
+  },
+  {
+   "name": "egad_G17",
+   "source": "G17_1.obj",
+   "extent_m": [
+    0.06507,
+    0.06507,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1797495341273813,
+   "kept": true,
+   "project": "egad_G17/cell.axisforge",
+   "project_sha256": "0514363e2cef4d2b86bdd2260674b66ba3ef8cf1a108e06a0bae09bd687e1464",
+   "model_sha256": "576dd6bb475f8402ab6782d49f4a1d83805ed5d28c05a684f1443d75119f8908",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 38.1
+  },
+  {
+   "name": "egad_D03",
+   "source": "D03_2.obj",
+   "extent_m": [
+    0.06403,
+    0.06401,
+    0.06408
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16980054923927604,
+   "kept": true,
+   "project": "egad_D03/cell.axisforge",
+   "project_sha256": "19e2db39f146f0da5aab99fe43978ad6ed918261dcde649f8df99c531fab680d",
+   "model_sha256": "c6ad4fc3a0c551cfebf8b04b5c9efb75ea6cf8c5efe1f6e7a19195299084ebaf",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 17,
+   "seconds": 12.7
+  },
+  {
+   "name": "egad_G08",
+   "source": "G08_2.obj",
+   "extent_m": [
+    0.06852,
+    0.06937,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1340912957274945,
+   "kept": true,
+   "project": "egad_G08/cell.axisforge",
+   "project_sha256": "9b8df20ba92d7c7802b68c7051611689a4e60be1364a3e789d2c4a39117f283b",
+   "model_sha256": "0df5dc10a0067cc48638fab3582d83f0cddb91c3529318ad9ca3cfa156d2aee8",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 21,
+   "seconds": 18.1
+  },
+  {
+   "name": "egad_X11",
+   "source": "X11_2.obj",
+   "extent_m": [
+    0.06417,
+    0.06419,
+    0.06402
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3045387274408809,
+   "kept": true,
+   "project": "egad_X11/cell.axisforge",
+   "project_sha256": "13036f77c7efbaeae930d799b4b1dbe5fa7c6afe434ad04e62d51dc2b1101873",
+   "model_sha256": "e79c3db19caf6d8af2cd8454cc76ff97950ff855c34c993da9c3266680e8174c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 30.2
+  },
+  {
+   "name": "egad_P21",
+   "source": "P21_1.obj",
+   "extent_m": [
+    0.07904,
+    0.07999,
+    0.0622
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.28085948662380505,
+   "kept": true,
+   "project": "egad_P21/cell.axisforge",
+   "project_sha256": "c4c618be79830d3a1a41a3cd076d593a1cf4c3d8da9a48ad8af3d7ff5de22953",
+   "model_sha256": "48c790397a439b56366e222c07d60f86a01269717cee52589a0c4da42a3a0c5a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 18,
+   "seconds": 9.4
+  },
+  {
+   "name": "egad_W25",
+   "source": "W25_2.obj",
+   "extent_m": [
+    0.0845,
+    0.08056,
+    0.01971
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.48996585368225476,
+   "kept": true,
+   "project": "egad_W25/cell.axisforge",
+   "project_sha256": "aa1c1fbaff9f55b271ad447b5e25face1383da364162e0ecb216a023a0f02c9c",
+   "model_sha256": "44b340640b51d8a47d65f11219ecf0efc043df7fe8287899be218b39438502a8",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 14,
+   "seconds": 4.6
+  },
+  {
+   "name": "egad_J07",
+   "source": "J07_1.obj",
+   "extent_m": [
+    0.06403,
+    0.06404,
+    0.06409
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16558557976203064,
+   "kept": true,
+   "project": "egad_J07/cell.axisforge",
+   "project_sha256": "79a155b6cbd243c2cd4b1f015817b296b72afe2dc427724feed128b119d614d6",
+   "model_sha256": "4891f344d3eca79c5012d2c0cd1d5b62bbf71cd2a00a56d7fc06d78ecfff0c3a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 20,
+   "seconds": 9.2
+  },
+  {
+   "name": "egad_F12",
+   "source": "F12_1.obj",
+   "extent_m": [
+    0.06401,
+    0.06433,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.08547239414357866,
+   "kept": true,
+   "project": "egad_F12/cell.axisforge",
+   "project_sha256": "cc3ee497644232283204faeda350677ca716037a101983470e753e46263a7a12",
+   "model_sha256": "153427e33ef3103b69db0859eb66ede0eda6d25a20fc6612a79c3857e2f685ed",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 95.1
+  },
+  {
+   "name": "egad_I07",
+   "source": "I07_1.obj",
+   "extent_m": [
+    0.06403,
+    0.06403,
+    0.06402
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1660533330444176,
+   "kept": true,
+   "project": "egad_I07/cell.axisforge",
+   "project_sha256": "19ebfccf612631bf0536035c09ad8b0d71b9c958416e95c0728715643fabb971",
+   "model_sha256": "c9dc361d6c82e1050516a406d36cb0ff2b18103756ae5f6963ca30110ac73739",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 5.9
+  },
+  {
+   "name": "egad_K01",
+   "source": "K01_1.obj",
+   "extent_m": [
+    0.06404,
+    0.06402,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1674439320403982,
+   "kept": true,
+   "project": "egad_K01/cell.axisforge",
+   "project_sha256": "27853591f243a79b0616d9d943b61b717035798c8b79e056c7af2473223fc5cf",
+   "model_sha256": "743a561f464fbd1649e5c27565d9599c7273540fe31848c276366677504ce63d",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 5,
+   "seconds": 3.4
+  },
+  {
+   "name": "egad_O09",
+   "source": "O09_0.obj",
+   "extent_m": [
+    0.08,
+    0.07999,
+    0.03175
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.21468841525858717,
+   "kept": true,
+   "project": "egad_O09/cell.axisforge",
+   "project_sha256": "c0bb42f7bf0381a59b6d477138dfc51c0e6d5dcb26290e3199ade4f2dab06394",
+   "model_sha256": "d9b645f2eaf91bbf0a8b1e077ef09d143b375208868203709ac841d32f728af2",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 8,
+   "seconds": 3.0
+  },
+  {
+   "name": "egad_H20",
+   "source": "H20_1.obj",
+   "extent_m": [
+    0.063,
+    0.08335,
+    0.05929
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.13290932090674226,
+   "kept": true,
+   "project": "egad_H20/cell.axisforge",
+   "project_sha256": "1dbd82a3e96a7e2057e1cd8e546222a5091834f6a09295eaed148eada572c846",
+   "model_sha256": "79a5f5937d63ef97cafee6030c28665bb48ee343a4e42926693368d416dbf884",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 28,
+   "seconds": 17.1
+  },
+  {
+   "name": "egad_N00",
+   "source": "N00_0.obj",
+   "extent_m": [
+    0.08,
+    0.08,
+    0.06151
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3723536307285527,
+   "kept": true,
+   "project": "egad_N00/cell.axisforge",
+   "project_sha256": "0fd590e48431fcc9c691cf82aa9c9880ec2fe57e25414154997eb6b5f7ebb023",
+   "model_sha256": "82a3691d18b8e18e73012f9bc4a225c65fbaf093cf9d1bc0e7d600692c794b31",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.1
+  },
+  {
+   "name": "egad_N15",
+   "source": "N15_0.obj",
+   "extent_m": [
+    0.07849,
+    0.08006,
+    0.04954
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.4317522129190267,
+   "kept": true,
+   "project": "egad_N15/cell.axisforge",
+   "project_sha256": "270a9445b44c99f721eb20f29b20b20967ecaf1136dfdb586c14be35110cfe6a",
+   "model_sha256": "35e4ecf6fd18bc5761df34f428505a184f5e521d3fc2224ec33f3a6d22bc2043",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 23,
+   "seconds": 20.0
+  },
+  {
+   "name": "egad_Q04",
+   "source": "Q04_0.obj",
+   "extent_m": [
+    0.0828,
+    0.08277,
+    0.05821
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.27870665224723895,
+   "kept": true,
+   "project": "egad_Q04/cell.axisforge",
+   "project_sha256": "779e1aedb1e0c8d93cfb98fc18806ccc801d103eaf6332fc29fa30dccff81fdc",
+   "model_sha256": "ff19d2b9b38bf67eb054f507eb2c7d6503940e97ff020ec9bb06f4c02401642e",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 16,
+   "seconds": 9.8
+  },
+  {
+   "name": "egad_G07",
+   "source": "G07_3.obj",
+   "extent_m": [
+    0.07562,
+    0.07562,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1644923354263656,
+   "kept": true,
+   "project": "egad_G07/cell.axisforge",
+   "project_sha256": "65a042b2d233b7a590d115befe5423f8b7ffc2f0b93deb18f2c004342f811f28",
+   "model_sha256": "4ab940722c87d844e1d983f18c732ce592eceb398330e0e672361da9dd5adc40",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 17,
+   "seconds": 13.8
+  },
+  {
+   "name": "egad_I00",
+   "source": "I00_1.obj",
+   "extent_m": [
+    0.08309,
+    0.08313,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.19087495501374957,
+   "kept": true,
+   "project": "egad_I00/cell.axisforge",
+   "project_sha256": "711b1b470be39dde073fb97a41ccc4a4f39a30bff7406f71c913061e2d465d3e",
+   "model_sha256": "6c89666e4496bbe9b74fa29161b01d63ae4f4fa98e639404ab02f8d5254dffd1",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.0
+  },
+  {
+   "name": "egad_T22",
+   "source": "T22_3.obj",
+   "extent_m": [
+    0.06491,
+    0.07329,
+    0.06272
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.22200901018517522,
+   "kept": true,
+   "project": "egad_T22/cell.axisforge",
+   "project_sha256": "07fc879f196451a67d68cf339176e6b530ca847b3a480af3d4245f39810b128f",
+   "model_sha256": "5fcce69f6e9d9260b9193203e898550a916cfcc3b9c8f2695baecc0d16bd1590",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 31.1
+  },
+  {
+   "name": "egad_A16",
+   "source": "A16_1.obj",
+   "extent_m": [
+    0.06414,
+    0.06418,
+    0.06399
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.11566039459065744,
+   "kept": true,
+   "project": "egad_A16/cell.axisforge",
+   "project_sha256": "bb43e2d0e65ba29bba7decf53940a513890f27fb64b2352d96d83fc2be7eb384",
+   "model_sha256": "d5f566275179f8916acd2ac85fa2e96ad0d725eb9c5b4a0a7a9094892937612c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 45.0
+  },
+  {
+   "name": "egad_C17",
+   "source": "C17_3.obj",
+   "extent_m": [
+    0.07133,
+    0.07133,
+    0.0639
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.18364518097840596,
+   "kept": true,
+   "project": "egad_C17/cell.axisforge",
+   "project_sha256": "c62b29cfdf9ee068461ff643ea5104017797a0f0369f0de6227681857c7277c4",
+   "model_sha256": "90d088bd9bd17bc7634b970c6edc563a3b192dccc45bd02ac3a71f4ddd65fc24",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 25,
+   "seconds": 13.8
+  },
+  {
+   "name": "egad_D15",
+   "source": "D15_2.obj",
+   "extent_m": [
+    0.06497,
+    0.06408,
+    0.06501
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16424399232411982,
+   "kept": true,
+   "project": "egad_D15/cell.axisforge",
+   "project_sha256": "95625083b206ac9c0663896385ee32776d6447a491aec01e36f2356211fdc3af",
+   "model_sha256": "fedff6615f58a1df8920adfa4ce33366a5691fc694a65455ad544189b76a0137",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 33.6
+  },
+  {
+   "name": "egad_Q16",
+   "source": "Q16_3.obj",
+   "extent_m": [
+    0.06802,
+    0.06656,
+    0.06389
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.22832514359134193,
+   "kept": true,
+   "project": "egad_Q16/cell.axisforge",
+   "project_sha256": "8f4f7958d3bd9b1be258a983eb2ae05df63f1be902a93a4203915b7dd1f757d3",
+   "model_sha256": "dd66403e91c4f54ed499d4cd98b5b040734b0754ab8494471ba2dd6c96ba9337",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 17.2
+  },
+  {
+   "name": "egad_Q23",
+   "source": "Q23_2.obj",
+   "extent_m": [
+    0.06419,
+    0.065,
+    0.06595
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.19707618263642585,
+   "kept": true,
+   "project": "egad_Q23/cell.axisforge",
+   "project_sha256": "e84f65426ea26632e857c1547dc8e2fb5776529618b0fd7d0d7e57be669f81c6",
+   "model_sha256": "feea14eeab923e73a3886852daf180e0aff03c0bcdc7642be8d158ac54db7b30",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 49.4
+  },
+  {
+   "name": "egad_G19",
+   "source": "G19_3.obj",
+   "extent_m": [
+    0.06643,
+    0.06649,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.2546510678224945,
+   "kept": true,
+   "project": "egad_G19/cell.axisforge",
+   "project_sha256": "d473ecb2a0aac3945f346fa66c229a14cba28286487dc2f986f6781cbbf4961a",
+   "model_sha256": "adac105964d30b63ef367d8b37131676450e718c8d647086bbda1b381403f228",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 38.7
+  },
+  {
+   "name": "egad_U15",
+   "source": "U15_1.obj",
+   "extent_m": [
+    0.0871,
+    0.08717,
+    0.04107
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.40472495576031536,
+   "kept": true,
+   "project": "egad_U15/cell.axisforge",
+   "project_sha256": "e86172b7ea571ea9b26155928ec54b89351789c0f12220c14b01169676e95ca0",
+   "model_sha256": "3538aeac11576d992609c51188a03dd51b35ce77ccd9c976cd13a12c9fab1034",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 11.3
+  },
+  {
+   "name": "egad_W03",
+   "source": "W03_0.obj",
+   "extent_m": [
+    0.08004,
+    0.07999,
+    0.01549
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.5000139390676341,
+   "kept": true,
+   "project": "egad_W03/cell.axisforge",
+   "project_sha256": "49293c3f439b140fb2eab7fbff3152aa063a25b06665ece24785e266e6c51a42",
+   "model_sha256": "d6631052a686ed7cffe63b6166ceaac57f6945ffd8a894bd01ebb46e53a773cb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.3
+  },
+  {
+   "name": "egad_F00",
+   "source": "F00_2.obj",
+   "extent_m": [
+    0.064,
+    0.064,
+    0.06401
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.0904832033618966,
+   "kept": true,
+   "project": "egad_F00/cell.axisforge",
+   "project_sha256": "a0b5781bd144675b7491cbdf30d2835fbc312368c8d3c00fcc7cb3b0c9d761db",
+   "model_sha256": "d5937a817f6e09e33bfb65d7c69cbeaa1cff37d1dd3bcdb86139bc3a05753681",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 1.6
+  },
+  {
+   "name": "egad_B08",
+   "source": "B08_1.obj",
+   "extent_m": [
+    0.06414,
+    0.06414,
+    0.06401
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.09198360397427213,
+   "kept": true,
+   "project": "egad_B08/cell.axisforge",
+   "project_sha256": "d0680227b288f66d3c5e27379ba893367f03dc977f03d446d3750d5461debbf6",
+   "model_sha256": "6cde0d05c34afbaff7807cbf7996f6deaf3b02977f7127e3647ac3bfe8303054",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 31.8
+  },
+  {
+   "name": "egad_H01",
+   "source": "H01_2.obj",
+   "extent_m": [
+    0.08096,
+    0.081,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16737245725151853,
+   "kept": true,
+   "project": "egad_H01/cell.axisforge",
+   "project_sha256": "66846a837c0e84b1a24ea5f39bc6e49d6880baecbb99834055c256824402def7",
+   "model_sha256": "6b6696aac122ed13db27058335f05d385fee75210342829ed9ba2672b22ed9ec",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.4
+  },
+  {
+   "name": "egad_T23",
+   "source": "T23_2.obj",
+   "extent_m": [
+    0.09284,
+    0.09334,
+    0.05367
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.26848882673021,
+   "kept": true,
+   "project": "egad_T23/cell.axisforge",
+   "project_sha256": "ddc15a3b0461daf0ef454ce1fba1f056e268013167ed3cb02654077c53836728",
+   "model_sha256": "0aec03852232eee6b1948993777188bde92dbeffea4266fa3909987f36ad8409",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 31,
+   "seconds": 12.2
+  },
+  {
+   "name": "egad_U13",
+   "source": "U13_3.obj",
+   "extent_m": [
+    0.10561,
+    0.07242,
+    0.03361
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.45585556933037086,
+   "kept": true,
+   "project": "egad_U13/cell.axisforge",
+   "project_sha256": "440f012efc905fda7fc4ab1be7fb4d11d74822434d6e3a886c6e5e3c04fcab65",
+   "model_sha256": "425699093aa198d90b46f2c32b99edce56d7dcb3e3c80e28c7a3119bfb2fbbe9",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 3,
+   "seconds": 1.3
+  },
+  {
+   "name": "egad_I23",
+   "source": "I23_2.obj",
+   "extent_m": [
+    0.06616,
+    0.06805,
+    0.06429
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1657676799792696,
+   "kept": true,
+   "project": "egad_I23/cell.axisforge",
+   "project_sha256": "1eb970948ffd79f4e52f8f6fbe406039d810202c9b812b4d7c8f4f6d7cb4ad6b",
+   "model_sha256": "0ddc7ccbba00cd24f6150f7fd1bcffe28d2448750afe7d79aae8cdda8248852c",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 61.5
+  },
+  {
+   "name": "egad_E06",
+   "source": "E06_2.obj",
+   "extent_m": [
+    0.06406,
+    0.06401,
+    0.06406
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.08058659781684563,
+   "kept": true,
+   "project": "egad_E06/cell.axisforge",
+   "project_sha256": "cbf78e66c91ac8ee8eed30d8e27ca52d7b02c9a67639e0b6d284302ed7e05a43",
+   "model_sha256": "000509dbf36dbd031997dee2bbfc34c4e6fd9ccc682660f93a98193dd1bf6d2a",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 20,
+   "seconds": 43.3
+  },
+  {
+   "name": "egad_M12",
+   "source": "M12_3.obj",
+   "extent_m": [
+    0.06468,
+    0.0834,
+    0.06278
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1427160318758724,
+   "kept": true,
+   "project": "egad_M12/cell.axisforge",
+   "project_sha256": "fc929f1b6719a64073b64e84360f32d214c715b24078f5df8b48486f1e10ba8e",
+   "model_sha256": "192aaad7f15bf4370695a68c56b9cc48eda858c9249429cbef96e0714b8daf88",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 12.4
+  },
+  {
+   "name": "egad_D12",
+   "source": "D12_3.obj",
+   "extent_m": [
+    0.08427,
+    0.0845,
+    0.06401
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15542725629219648,
+   "kept": true,
+   "project": "egad_D12/cell.axisforge",
+   "project_sha256": "29b9c6a51fae92af72dd6b8b14d836c9ac822e3c30b542ebf5d0a811bb467c22",
+   "model_sha256": "0795bcf658195cacc388798f9cf95d7f48e94f2623d9c6693641fe67aa857aea",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 33.6
+  },
+  {
+   "name": "egad_S20",
+   "source": "S20_2.obj",
+   "extent_m": [
+    0.08184,
+    0.08054,
+    0.05928
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15492076750374512,
+   "kept": true,
+   "project": "egad_S20/cell.axisforge",
+   "project_sha256": "0be13d09508abca25de633d66131c4289a9ddd7ef6d630db1ebdbeab957301b9",
+   "model_sha256": "37d415dc444977024ae42ac1f71409992553b5a5598ce95ae0589b8151a18183",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 28,
+   "seconds": 11.6
+  },
+  {
+   "name": "egad_R07",
+   "source": "R07_1.obj",
+   "extent_m": [
+    0.08,
+    0.07426,
+    0.0604
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.3078529299543138,
+   "kept": true,
+   "project": "egad_R07/cell.axisforge",
+   "project_sha256": "0e5d9996dc7eed7730dde43a1fce707fcaabdc4844f1a87083f406862396805b",
+   "model_sha256": "f3dd4c470f6596da2e08b991f1221da1c68ca9014a7697304043b8e10de52159",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 16,
+   "seconds": 7.9
+  },
+  {
+   "name": "egad_N03",
+   "source": "N03_0.obj",
+   "extent_m": [
+    0.08,
+    0.08002,
+    0.0644
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.16643156698301875,
+   "kept": true,
+   "project": "egad_N03/cell.axisforge",
+   "project_sha256": "efa79d8770cf47d53dde1d32ce9cb05e87278b258de0287fa22171fddf187737",
+   "model_sha256": "777d40775172292cbdfeef76446d0e3190cad80bd5e541ab5b8f0b7a21af3ee3",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 4,
+   "seconds": 3.0
+  },
+  {
+   "name": "egad_O13",
+   "source": "O13_0.obj",
+   "extent_m": [
+    0.06462,
+    0.0796,
+    0.05821
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1864443392605695,
+   "kept": true,
+   "project": "egad_O13/cell.axisforge",
+   "project_sha256": "cba124261ab4ee3ed382e4739582dd26e6c3033abe843d8f294b8fa17362c7c0",
+   "model_sha256": "3379bc60ffdff13519daab67b77a3866720b30eb18b0f7b0230b89018213e7fb",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 24,
+   "seconds": 18.3
+  },
+  {
+   "name": "egad_T19",
+   "source": "T19_2.obj",
+   "extent_m": [
+    0.06563,
+    0.06495,
+    0.06392
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.28501869876204566,
+   "kept": true,
+   "project": "egad_T19/cell.axisforge",
+   "project_sha256": "41cd5adade34285952402d33185f4c5ac999515cb96ed7c1ea3a726ac2231cd6",
+   "model_sha256": "bf022a8cad3ad5094e3eba728efa30f93dc6f07dab66ee321639dc14398c5fd5",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 32.4
+  },
+  {
+   "name": "egad_W04",
+   "source": "W04_3.obj",
+   "extent_m": [
+    0.1054,
+    0.10542,
+    0.0203
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.4933197254370487,
+   "kept": true,
+   "project": "egad_W04/cell.axisforge",
+   "project_sha256": "1b27dc061705ab1dbd9bfd59fc41e713f83970af295bebb983b2a73980ef4363",
+   "model_sha256": "23234c6979e8fa00c5adca95aeac5034818690dec09feab2cd00caaa91f171bd",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 1,
+   "seconds": 0.2
+  },
+  {
+   "name": "egad_Q06",
+   "source": "Q06_3.obj",
+   "extent_m": [
+    0.06779,
+    0.06757,
+    0.064
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.1884774892006765,
+   "kept": true,
+   "project": "egad_Q06/cell.axisforge",
+   "project_sha256": "c4625268a3e9527430579588503f95e9286c3e3d95577d2a6861b1af5b254321",
+   "model_sha256": "480afda42ea7c403103fdfcf68e17db2cca257bfebc3d5712d0c19da0a512ae7",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 31,
+   "seconds": 15.6
+  },
+  {
+   "name": "egad_X07",
+   "source": "X07_0.obj",
+   "extent_m": [
+    0.07729,
+    0.07733,
+    0.0641
+   ],
+   "scale_rule": "EGAD prepare_meshes.py, width 0.08 m",
+   "stable_pose_probability": 0.15249155606573012,
+   "kept": true,
+   "project": "egad_X07/cell.axisforge",
+   "project_sha256": "0fe1dd9d19f001c431019e3927ae714c6e907d1880596c9ff96b6412270a0f7f",
+   "model_sha256": "944275e8e7df2518332a90c418a51ffa69df5329850b3c29204fe74018a60823",
+   "coacd": {
+    "threshold": 0.1,
+    "max_convex_hull": 32,
+    "preprocess_mode": "off",
+    "mcts_iterations": 60,
+    "mcts_nodes": 10,
+    "seed": 0
+   },
+   "collision_pieces": 32,
+   "seconds": 18.6
+  }
+ ],
+ "empty_sha256": "8e054178c12ffae2e4732aba54e64c5705f11334bdd53094d03eb76e7725cf51",
+ "positions": [
+  300,
+  500
+ ],
+ "evaluation_set": false,
+ "builder": "tools/research/phase7_extension/build_newset.py (egad_prepare.build_one)"
+}

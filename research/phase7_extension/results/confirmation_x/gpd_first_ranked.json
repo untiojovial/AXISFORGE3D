@@ -1,0 +1,606 @@
+{
+"egad_A05": {
+"label": "surface 26 across 5 flipped",
+"nf": 8
+},
+"egad_A13": {
+"label": "surface 25 across 5 flipped",
+"nf": 1
+},
+"egad_A14": {
+"label": "surface 24 across 5",
+"nf": 20
+},
+"egad_A16": {
+"label": "surface 41 across 3",
+"nf": 14
+},
+"egad_B01": {
+"label": "surface 0 across 1 flipped",
+"nf": 28
+},
+"egad_B03": {
+"label": "surface 47 across 1 flipped",
+"nf": 2
+},
+"egad_B08": {
+"label": "surface 14 across 7",
+"nf": 23
+},
+"egad_B09": {
+"label": "surface 4 across 7",
+"nf": 18
+},
+"egad_B11": {
+"label": "surface 26 across 1 flipped",
+"nf": 1
+},
+"egad_B19": {
+"label": "surface 23 onto 2",
+"nf": 4
+},
+"egad_C01": {
+"label": "surface 22 across 4",
+"nf": 15
+},
+"egad_C06": {
+"label": "surface 0 across 1 flipped",
+"nf": 13
+},
+"egad_C08": {
+"label": "surface 46 across 1 flipped",
+"nf": 7
+},
+"egad_C09": {
+"label": "surface 47 onto 2 flipped",
+"nf": 8
+},
+"egad_C12": {
+"label": "surface 44 across 7 flipped",
+"nf": 17
+},
+"egad_C15": {
+"label": "surface 11 across 0",
+"nf": 20
+},
+"egad_C17": {
+"label": "surface 31 onto 2 flipped",
+"nf": 59
+},
+"egad_C18": {
+"label": "surface 21 across 3",
+"nf": 4
+},
+"egad_C22": {
+"label": "surface 12 onto 2 flipped",
+"nf": 52
+},
+"egad_C24": {
+"label": "surface 47 across 0 flipped",
+"nf": 66
+},
+"egad_C25": {
+"label": "surface 25 across 7",
+"nf": 3
+},
+"egad_D03": {
+"label": "surface 30 across 5",
+"nf": 21
+},
+"egad_D05": {
+"label": "surface 27 across 5",
+"nf": 20
+},
+"egad_D09": {
+"label": "surface 22 across 7",
+"nf": 40
+},
+"egad_D10": {
+"label": "surface 16 across 7",
+"nf": 17
+},
+"egad_D12": {
+"label": "surface 41 across 4",
+"nf": 37
+},
+"egad_D15": {
+"label": "surface 17 onto 0",
+"nf": 13
+},
+"egad_D17": {
+"label": "surface 17 onto 2 flipped",
+"nf": 39
+},
+"egad_D24": {
+"label": "surface 3 across 7 flipped",
+"nf": 61
+},
+"egad_E00": {
+"label": "surface 40 onto 2 flipped",
+"nf": 14
+},
+"egad_E01": {
+"label": "surface 29 across 1 flipped",
+"nf": 1
+},
+"egad_E06": {
+"label": "surface 25 onto 2 flipped",
+"nf": 3
+},
+"egad_E07": {
+"label": "surface 2 across 1 flipped",
+"nf": 16
+},
+"egad_E10": {
+"label": "surface 15 across 5 flipped",
+"nf": 6
+},
+"egad_E11": {
+"label": "surface 43 onto 2 flipped",
+"nf": 13
+},
+"egad_E13": {
+"label": "surface 47 onto 0",
+"nf": 13
+},
+"egad_E14": {
+"label": "surface 19 across 7",
+"nf": 11
+},
+"egad_E20": {
+"label": "surface 9 onto 2 flipped",
+"nf": 41
+},
+"egad_E24": {
+"label": "surface 5 onto 1",
+"nf": 27
+},
+"egad_F00": {
+"label": "surface 21 across 3",
+"nf": 1
+},
+"egad_F01": {
+"label": "surface 23 across 1 flipped",
+"nf": 3
+},
+"egad_F02": {
+"label": "surface 16 across 5 flipped",
+"nf": 5
+},
+"egad_F04": {
+"label": "surface 36 onto 2 flipped",
+"nf": 8
+},
+"egad_F08": {
+"label": "surface 0 across 0 flipped",
+"nf": 32
+},
+"egad_F12": {
+"label": "surface 23 across 1 flipped",
+"nf": 1
+},
+"egad_F15": {
+"label": "surface 20 onto 2 flipped",
+"nf": 17
+},
+"egad_G05": {
+"label": "surface 0 across 7 flipped",
+"nf": 3
+},
+"egad_G08": {
+"label": "surface 20 across 7",
+"nf": 9
+},
+"egad_G12": {
+"label": "surface 16 onto 2 flipped",
+"nf": 5
+},
+"egad_G13": {
+"label": "surface 9 onto 2 flipped",
+"nf": 15
+},
+"egad_G16": {
+"label": "surface 42 across 5 flipped",
+"nf": 99
+},
+"egad_G17": {
+"label": "surface 33 onto 2",
+"nf": 5
+},
+"egad_G19": {
+"label": "surface 39 across 6 flipped",
+"nf": 156
+},
+"egad_G22": {
+"label": "surface 6 onto 2 flipped",
+"nf": 16
+},
+"egad_H01": {
+"label": "surface 36 across 4",
+"nf": 1
+},
+"egad_H05": {
+"label": "surface 44 across 7",
+"nf": 7
+},
+"egad_H15": {
+"label": "surface 34 across 6",
+"nf": 12
+},
+"egad_H17": {
+"label": "surface 19 onto 2 flipped",
+"nf": 6
+},
+"egad_H19": {
+"label": "surface 20 across 7 flipped",
+"nf": 9
+},
+"egad_H20": {
+"label": "surface 44 across 3 flipped",
+"nf": 32
+},
+"egad_H25": {
+"label": "surface 19 onto 2 flipped",
+"nf": 26
+},
+"egad_I01": {
+"label": "surface 47 across 6",
+"nf": 1
+},
+"egad_I02": {
+"label": "surface 1 onto 0 flipped",
+"nf": 2
+},
+"egad_I07": {
+"label": "surface 18 across 5 flipped",
+"nf": 1
+},
+"egad_I09": {
+"label": "surface 13 across 5",
+"nf": 4
+},
+"egad_I15": {
+"label": "surface 39 across 7",
+"nf": 36
+},
+"egad_I16": {
+"label": "surface 30 onto 2 flipped",
+"nf": 20
+},
+"egad_I18": {
+"label": "surface 22 across 7 flipped",
+"nf": 11
+},
+"egad_I21": {
+"label": "surface 30 onto 2 flipped",
+"nf": 14
+},
+"egad_I23": {
+"label": "surface 7 across 7",
+"nf": 9
+},
+"egad_J02": {
+"label": "surface 23 across 0 flipped",
+"nf": 2
+},
+"egad_J06": {
+"label": "surface 22 across 7 flipped",
+"nf": 485
+},
+"egad_J07": {
+"label": "surface 32 across 7 flipped",
+"nf": 7
+},
+"egad_J09": {
+"label": "surface 8 across 2",
+"nf": 4
+},
+"egad_J12": {
+"label": "surface 28 across 7",
+"nf": 15
+},
+"egad_J14": {
+"label": "surface 17 onto 0",
+"nf": 13
+},
+"egad_J25": {
+"label": "surface 45 across 6",
+"nf": 76
+},
+"egad_K01": {
+"label": "surface 17 across 3",
+"nf": 1
+},
+"egad_K09": {
+"label": "surface 13 across 7",
+"nf": 90
+},
+"egad_K15": {
+"label": "surface 41 onto 0",
+"nf": 15
+},
+"egad_K21": {
+"label": "surface 10 across 7",
+"nf": 37
+},
+"egad_L02": {
+"label": "surface 45 across 7 flipped",
+"nf": 3
+},
+"egad_L05": {
+"label": "surface 26 onto 3 flipped",
+"nf": 1
+},
+"egad_L09": {
+"label": "surface 5 across 7 flipped",
+"nf": 48
+},
+"egad_L13": {
+"label": "surface 17 across 5",
+"nf": 9
+},
+"egad_L19": {
+"label": "surface 32 across 6 flipped",
+"nf": 8
+},
+"egad_L20": {
+"label": "surface 26 onto 1 flipped",
+"nf": 119
+},
+"egad_L21": {
+"label": "surface 31 onto 2 flipped",
+"nf": 23
+},
+"egad_M04": {
+"label": "surface 37 onto 2",
+"nf": 5
+},
+"egad_M05": {
+"label": "surface 15 across 0 flipped",
+"nf": 20
+},
+"egad_M06": {
+"label": "surface 13 across 0 shallow",
+"nf": 313
+},
+"egad_M11": {
+"label": "surface 9 onto 2 flipped",
+"nf": 16
+},
+"egad_M12": {
+"label": "surface 34 across 4 flipped",
+"nf": 14
+},
+"egad_M13": {
+"label": "surface 25 across 4 flipped",
+"nf": 63
+},
+"egad_M15": {
+"label": "surface 29 across 5 flipped",
+"nf": 36
+},
+"egad_M17": {
+"label": "surface 32 across 0",
+"nf": 55
+},
+"egad_M18": {
+"label": "surface 20 across 4",
+"nf": 69
+},
+"egad_M19": {
+"label": "surface 21 onto 2",
+"nf": 64
+},
+"egad_N03": {
+"label": "surface 5 across 0",
+"nf": 2
+},
+"egad_N04": {
+"label": "surface 34 across 7",
+"nf": 2
+},
+"egad_N07": {
+"label": "surface 8 onto 2 flipped",
+"nf": 9
+},
+"egad_N20": {
+"label": "surface 31 across 7 flipped",
+"nf": 99
+},
+"egad_N24": {
+"label": "surface 32 onto 0 flipped",
+"nf": 54
+},
+"egad_O11": {
+"label": "surface 26 onto 0",
+"nf": 4
+},
+"egad_O13": {
+"label": "surface 0 onto 2",
+"nf": 8
+},
+"egad_O17": {
+"label": "surface 26 onto 2 flipped",
+"nf": 35
+},
+"egad_P07": {
+"label": "surface 47 onto 1",
+"nf": 29
+},
+"egad_P12": {
+"label": "surface 10 onto 2",
+"nf": 23
+},
+"egad_P18": {
+"label": "surface 25 onto 2 flipped",
+"nf": 10
+},
+"egad_P21": {
+"label": "surface 35 onto 2",
+"nf": 12
+},
+"egad_Q05": {
+"label": "surface 1 across 5 flipped",
+"nf": 636
+},
+"egad_Q06": {
+"label": "surface 11 onto 0 flipped",
+"nf": 32
+},
+"egad_Q11": {
+"label": "surface 47 across 7 flipped",
+"nf": 21
+},
+"egad_Q16": {
+"label": "surface 29 onto 0 flipped",
+"nf": 7
+},
+"egad_Q17": {
+"label": "surface 11 across 4 flipped",
+"nf": 62
+},
+"egad_Q22": {
+"label": "surface 24 onto 2",
+"nf": 17
+},
+"egad_Q23": {
+"label": "surface 21 onto 0 flipped",
+"nf": 30
+},
+"egad_R03": {
+"label": "surface 42 across 7 flipped",
+"nf": 300
+},
+"egad_R07": {
+"label": "surface 36 across 5",
+"nf": 30
+},
+"egad_R10": {
+"label": "surface 34 across 0",
+"nf": 53
+},
+"egad_R11": {
+"label": "surface 10 across 7",
+"nf": 141
+},
+"egad_R14": {
+"label": "surface 24 onto 2",
+"nf": 76
+},
+"egad_R16": {
+"label": "surface 14 onto 0 flipped",
+"nf": 16
+},
+"egad_R17": {
+"label": "surface 25 across 6 flipped",
+"nf": 19
+},
+"egad_R21": {
+"label": "surface 7 across 0 flipped",
+"nf": 14
+},
+"egad_R23": {
+"label": "surface 7 onto 2",
+"nf": 1
+},
+"egad_R25": {
+"label": "surface 39 onto 0 flipped",
+"nf": 79
+},
+"egad_S10": {
+"label": "surface 41 across 4 shallow flipped",
+"nf": 107
+},
+"egad_S18": {
+"label": "surface 8 onto 2",
+"nf": 2
+},
+"egad_S19": {
+"label": "surface 5 across 1 flipped",
+"nf": 73
+},
+"egad_S20": {
+"label": "surface 19 across 4",
+"nf": 384
+},
+"egad_T11": {
+"label": "surface 19 across 0 shallow",
+"nf": 99
+},
+"egad_T19": {
+"label": "surface 5 across 4",
+"nf": 54
+},
+"egad_T20": {
+"label": "surface 46 across 7 flipped",
+"nf": 26
+},
+"egad_T22": {
+"label": "surface 5 onto 2",
+"nf": 7
+},
+"egad_T23": {
+"label": "surface 8 across 0",
+"nf": 5
+},
+"egad_T24": {
+"label": "surface 8 onto 2",
+"nf": 41
+},
+"egad_T25": {
+"label": "surface 16 onto 2",
+"nf": 59
+},
+"egad_U11": {
+"label": "surface 29 across 5",
+"nf": 126
+},
+"egad_U21": {
+"label": "surface 14 across 0 flipped",
+"nf": 38
+},
+"egad_V06": {
+"label": "surface 16 onto 0 shallow",
+"nf": 181
+},
+"egad_V24": {
+"label": "surface 17 onto 2 flipped",
+"nf": 19
+},
+"egad_W06": {
+"label": "surface 15 onto 0 shallow",
+"nf": 199
+},
+"egad_W08": {
+"label": "surface 31 across 4 shallow",
+"nf": 15
+},
+"egad_W09": {
+"label": "surface 37 onto 2",
+"nf": 13
+},
+"egad_W24": {
+"label": "surface 29 across 4 flipped",
+"nf": 31
+},
+"egad_X07": {
+"label": "surface 35 across 5 flipped",
+"nf": 25
+},
+"egad_X10": {
+"label": "surface 29 onto 0 shallow",
+"nf": 113
+},
+"egad_X11": {
+"label": "surface 37 across 2 flipped",
+"nf": 35
+},
+"egad_X17": {
+"label": "surface 20 across 7 flipped",
+"nf": 1
+},
+"egad_X21": {
+"label": "surface 41 onto 2 shallow",
+"nf": 270
+}
+}

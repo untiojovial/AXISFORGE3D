@@ -1,0 +1,68 @@
+{
+ "note": "Archive the per-object outputs of the second confirmation and write its execution record.",
+ "stages": [
+  {
+   "stage": "build",
+   "utc": "2026-11-26T18:42:59Z"
+  },
+  {
+   "stage": "build",
+   "utc": "2026-11-26T22:31:46Z"
+  },
+  {
+   "stage": "catalogue",
+   "utc": "2026-11-26T22:44:46Z"
+  },
+  {
+   "stage": "gpd",
+   "utc": "2026-11-26T22:47:27Z"
+  },
+  {
+   "stage": "orders",
+   "utc": "2026-11-26T23:06:18Z"
+  },
+  {
+   "stage": "physics",
+   "utc": "2026-11-26T23:09:26Z"
+  },
+  {
+   "stage": "stages before timing done",
+   "utc": "2026-11-26T23:17:14Z"
+  },
+  {
+   "stage": "pause other jobs",
+   "utc": "2026-11-26T23:17:54Z"
+  },
+  {
+   "stage": "timing",
+   "utc": "2026-11-26T23:18:54Z"
+  },
+  {
+   "stage": "analyse",
+   "utc": "2026-11-26T23:45:25Z"
+  },
+  {
+   "stage": "done",
+   "utc": "2026-11-26T23:45:27Z"
+  }
+ ],
+ "freeze_checks": 10,
+ "restarts": [
+  "restart 1: container down between ~19:05 and 22:31 UTC 2026-11-26 during the build stage (101 of 200 objects complete); confirm_run.sh relaunched at 2026-11-26T22:32:24Z; completed rows kept, objects in progress rebuilt from scratch; freeze verified before relaunch"
+ ],
+ "timing": {
+  "paused": [
+   "stopped optuna pid 225",
+   "stopped optuna pid 226"
+  ],
+  "load_before": "load before timing: 1.06 3.24 4.34 1/121 5792",
+  "load_after": "load after timing: 1.00 1.00 1.57 1/117 9299",
+  "pinned_cpu": 3,
+  "threads": "OMP_NUM_THREADS=1, RAYON_NUM_THREADS=1"
+ },
+ "counts": {
+  "orders": 200,
+  "trials": 151,
+  "timing": 200
+ }
+}
