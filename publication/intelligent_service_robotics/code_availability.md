@@ -1,26 +1,52 @@
 # Code availability (draft)
 
-**Repository.** All code is in the project repository (GitHub `untiojovial/Colegio-Rumareda`). This
-covers the planner (Rust workspace `crates/`, `apps/cli`), the research tools and the analysis scripts
-(`tools/research/phase7/`, `research_grasping/`). **Its visibility (public or private) must be checked by
-the author before submission.**
+**Repository.**
 
-**Licence.** `Cargo.toml` and `pyproject.toml` declare **Apache-2.0**, but the repository root has no
-`LICENSE` file. Adding it is the author's decision.
+- GitHub `untiojovial/Colegio-Rumareda`.
+- Branches: `claude/new-session-nsx8rp` and `research/axisforge-phase7-final-publication`.
+- Contents:
+  - the planner (Rust workspace `crates/`, `apps/cli`);
+  - the native learned ordering (`crates/grasping/src/learned.rs`);
+  - the research tools and analysis scripts (`tools/research/phase7/`, `tools/research/phase7_extension/`,
+    `research_grasping/`);
+  - the tests.
+- **Visibility.** Whether the repository is public or private must be checked by the author before
+  submission.
 
-**Archival copy.** No Zenodo release or DOI has been created; that needs the author's authorisation. If
-the journal requires an archived copy, create one from the commit named in
-`research/phase7/PHASE7_MODEL_FREEZE.json` and the final Phase VII commit.
+**Licence.**
+
+- The author's own code, technical documentation and experimental results are under the Apache License 2.0
+  (`LICENSE`; `NOTICE`: "Copyright 2026 Eduardo Pérez González").
+- Third-party components keep their own licences: `THIRD_PARTY_NOTICES.md`, `LICENSES/`.
+- The manuscript and the submission material in `publication/` are **not** under Apache-2.0 (`RIGHTS.md`).
+
+**Archival copy.** No release, Zenodo deposit or DOI has been created; any of these needs the author's
+authorisation.
+
+- A local reproducibility package (`axisforge3d-research-reproducibility`) can be built from any commit with
+  `tools/package/build_package.py`. It comes with inclusion and exclusion manifests, and draft Zenodo
+  metadata is in `research/phase7_extension/package/zenodo_metadata.json`.
+- The commits that matter are:
+  - the Phase VII freeze, `de22a8a`;
+  - the extension freeze, `b478289` (`PHASE7X_FREEZE.json`);
+  - the final commit of the submission.
 
 **What each part reproduces.**
 
 | What | Entry point |
 |---|---|
-| Development experiments | `tools/research/phase7/{mlp_benchmark,mlp_eval,physics_dev,joint_v3,physics_report,articulated_pilot,negative_transfer,cross_robot,few_shot_analysis,power}.py` |
-| Confirmation | `tools/research/phase7/egad_prepare.py` and `egad_confirm.py` (stages freeze, prepare, describe, apply, physics, articulated, timing, analyse) |
-| Tables and figures | `tools/research/phase7/make_tables.py`, `make_figures.py` |
-| Costs | `tools/research/phase7/full_online_cost.py` and `egad_confirm.py timing` |
+| Development experiments (Phase VII) | `tools/research/phase7/*.py` |
+| First confirmation | `tools/research/phase7/egad_prepare.py`, `egad_confirm.py` |
+| Native integration, benchmark, fallback bound | `tools/research/phase7_extension/{export_models,native_validation,integrated_benchmark,memory_benchmark,ordering_ceiling,fallback_audit}.py` |
+| v3 labels and selection | `v3_sweep.py`, `extra_physics.py`, `v3_models.py`, `freeze_x.py` |
+| GPD (ranking-controlled) | `gpd_adapter/`, `gpd_baseline.py`, `gpd_evaluate.py`, `gpd_variability.py` |
+| Second confirmation | `build_newset.py`, `confirm_x.py` (prepare, orders, physics, timing, analyse) |
+| Tables and figures | `tools/research/phase7/make_tables.py`, `make_figures.py`, `tools/research/phase7_extension/make_tables_x.py` |
+| Clean-environment validation | `reproducibility/Dockerfile.repro`, `docker_validate.sh` |
 
-**Third-party model weights.** None are redistributed. DINOv3 is used under its own licence. The OpenCLIP
-LAION-400M weights have a licence that was not verified. Hashes are in
-`research/phase7/PHASE7_DATA_MANIFEST.json`.
+**Third-party weights.** None are redistributed.
+
+- DINOv3: gated, under its own licence.
+- OpenCLIP ViT-B-32 LAION-400M e31: MIT according to its model card. It is fetched by a pinned script and
+  checked by SHA-256.
+- GPD's classifier weights: shipped with the official GPD source, which is fetched at a pinned commit.
