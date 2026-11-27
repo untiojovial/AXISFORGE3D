@@ -2,7 +2,7 @@
 
 **Repository.**
 
-- GitHub `untiojovial/Colegio-Rumareda`.
+- GitHub `untiojovial/axisforge3d` (renamed from `Colegio-Rumareda` on 27 November 2026; the old address, cited in the submitted manuscript, redirects here).
 - Branches: `claude/new-session-nsx8rp` and `research/axisforge-phase7-final-publication`.
 - Contents:
   - the planner (Rust workspace `crates/`, `apps/cli`);
@@ -11,7 +11,7 @@
     `research_grasping/`);
   - the tests.
 - **Visibility.** Public: the GitHub repository listing reported `"visibility": "public"` on 2026-11-27.
-- **URL.** https://github.com/untiojovial/Colegio-Rumareda
+- **URL.** https://github.com/untiojovial/axisforge3d
 
 **Licence.**
 

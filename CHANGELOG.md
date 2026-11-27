@@ -3,6 +3,14 @@
 Research history of AxisForge3D's learned grasp-candidate ordering. Engineering history is in Git. Every
 result listed here stays in the repository unchanged, negative ones included.
 
+## Repository renamed (2026-11-27)
+
+The GitHub repository was renamed from `untiojovial/Colegio-Rumareda` to `untiojovial/axisforge3d` after the
+submission. GitHub redirects the old address, which the submitted manuscript, cover letter and title page cite;
+commits and branches are unchanged. The address was updated in `CITATION.cff`, `Cargo.toml`, the code and data
+availability notes, the Colab link of Phase 4 and the draft Zenodo metadata. The submitted documents keep the old
+address until a revised version is requested.
+
 ## Submission (2026-11-27)
 
 Submitted by the author to *Intelligent Service Robotics* through Editorial Manager on 27 November 2026 (double-blind review, subscription route, no APC). The manuscript number is not recorded in this public repository. Uploaded: the anonymised manuscript, the title page, an ethics statement for the

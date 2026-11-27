@@ -23,7 +23,7 @@
     "notes": "Third-party material keeps its own licence (THIRD_PARTY_NOTICES.md). Simulation results only; no real-robot experiment. Independent research; no funding; the author declares no competing interests.",
     "related_identifiers": [
       {
-        "identifier": "https://github.com/untiojovial/Colegio-Rumareda",
+        "identifier": "https://github.com/untiojovial/axisforge3d",
         "relation": "isSupplementTo",
         "scheme": "url"
       },
