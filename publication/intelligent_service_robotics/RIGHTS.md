@@ -11,11 +11,10 @@ holds rights to. See NOTICE.
 | Period | What the repository said | Notes |
 |---|---|---|
 | From 2026-11-26 04:16 UTC (commit `5b08627`, first public manuscript draft) to 17:47 UTC | No licence file at the root. `Cargo.toml` and `pyproject.toml` declared Apache-2.0 for the software packages only. | Default copyright: no licence was granted on the manuscript |
-| 2026-11-26 17:47 UTC (commit `fd982a9`) to the commit that adds this file | `README.md`: "AxisForge3D's own code, documentation and results are licensed under the Apache License 2.0" | Ambiguous: the word "documentation" can be read as covering this directory. Copies obtained in that window may carry that reading, and an Apache-2.0 grant is not revoked by a later change (licence, §2). |
+| 2026-11-26 17:47 UTC (commit `fd982a9`) to 18:27 UTC (commit `cbab6c5`, which adds this file) | `README.md`: "AxisForge3D's own code, documentation and results are licensed under the Apache License 2.0" | Ambiguous: the word "documentation" can be read as covering this directory. Copies obtained in that window may carry that reading, and an Apache-2.0 grant is not revoked by a later change (licence, §2). |
 | From this commit | `README.md`, `NOTICE` and this file exclude `publication/` from Apache-2.0 | — |
 
 **Editorial point to raise at submission (author).** The repository is public, so draft versions of the
-manuscript have been publicly visible since 2026-11-26. For about one day, the root README contained wording
-that could be read as an Apache-2.0 grant. Whether this is compatible with the journal's preprint and licensing
+manuscript have been publicly visible since 2026-11-26. For about 40 minutes (commit `fd982a9`, 17:47 UTC, to commit `cbab6c5`, 18:27 UTC, both on 2026-11-26), the root README contained wording that could be read as an Apache-2.0 grant. Commit `fd982a9` remains in the public history. Whether this is compatible with the journal's preprint and licensing
 policy has to be confirmed with Springer. It is listed in `PUBLICATION_READINESS_FINAL.md` as an author item.
 Nothing here states that the later wording revokes rights already granted.
