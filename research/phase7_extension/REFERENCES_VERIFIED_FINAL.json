@@ -1,0 +1,455 @@
+{
+ "date": "2026-11-27",
+ "scope": "References added or corrected in the final literature review. Earlier entries are in research/phase7/references_verified.json and research/phase7_extension/references_added.json.",
+ "method": "Each record was matched in Crossref by DOI (title, authors, venue, volume, issue, pages, year) or in the arXiv API (title, authors, dates, comments); published versions of preprints were searched in Crossref by title. Where a full text was legitimately accessible (arXiv, institutional repository) the passage supporting the claim was read; otherwise the claim is limited to the abstract. Peer-review status is recorded; preprints are marked in the bibliography.",
+ "not_accessible": [
+  "ScienceDirect pages of the three structural examples returned HTTP 403; their open-access copies in the Zaguan repository were read instead (see LITERATURE_REVIEW_FINAL.md, section 8).",
+  "The ISR submission guidelines still redirect to the Springer login from this environment (not re-read).",
+  "IEEE Xplore, Springer and ScienceDirect full texts behind paywalls were not read; claims about those works rest on their abstracts or on their arXiv versions, as stated per record."
+ ],
+ "references": [
+  {
+   "key": "qin2026planned",
+   "identifier": "10.1109/LRA.2025.3645512",
+   "title": "Learning From Planned Data to Improve Robotic Pick-and-Place Planning Efficiency",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:2506.15920 full text (preprint version) read: Sect. on comparison with analytical methods, Table I (time to solution, candidates attempted), experiments in simulation and real-world settings",
+   "claim_in_manuscript": "learns from planned data which candidates are shared grasps; faster than checking every candidate analytically, but more motion-planning attempts than the analytically filtered set (Table I of the arXiv version: rows T and N); closest precedent to M1. The published version (RA-L 11(2):2026-2033, 2026) supersedes the preprint previously cited",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "liu2025placement",
+   "identifier": "arXiv:2512.18922",
+   "title": "Optimizing Robotic Placement via Grasp-Dependent Feasibility Prediction",
+   "peer_reviewed": false,
+   "verified_with": "arXiv API record read 2026-11-27",
+   "what_was_read": "arXiv full text read: contributions, Table 1 (Succ@K under the same IK gate, planner and budget), limitations (single cuboid)",
+   "claim_in_manuscript": "ranks precomputed grasp-place candidates by learned IK and collision feasibility; fewer planner calls; preprint",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "ansari2026feasibility",
+   "identifier": "arXiv:2606.26700",
+   "title": "Learning Motion Feasibility from Point Clouds in Cluttered Environments",
+   "peer_reviewed": false,
+   "verified_with": "arXiv API record read 2026-11-27",
+   "what_was_read": "arXiv abstract",
+   "claim_in_manuscript": "benchmark of learned grasp motion feasibility from point clouds; novel objects; faster than sampling-based planners; preprint",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "jiang2022suction",
+   "identifier": "10.3389/fnbot.2022.806898",
+   "title": "Learning Suction Graspability Considering Grasp Quality and Robot Reachability for Bin-Picking",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:2111.02571 abstract and introduction",
+   "claim_in_manuscript": "learned suction quality combined with learned reachability; reachability shortens motion planning",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "wells2019feasibility",
+   "identifier": "10.1109/LRA.2019.2894861",
+   "title": "Learning Feasibility for Task and Motion Planning in Tabletop Environments",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; secondary description via search results",
+   "claim_in_manuscript": "feasibility classifier used as a heuristic in task and motion planning",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "akinola2021dynamic",
+   "identifier": "10.1109/IROS51168.2021.9636057",
+   "title": "Dynamic Grasping with Reachability and Motion Awareness",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record (authors and pages completed; the earlier entry had \"and others\")",
+   "claim_in_manuscript": "reachability and motion awareness for dynamic grasping",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "yuan2026grare",
+   "identifier": "arXiv:2608.00946",
+   "title": "GraRe: Grasp Candidate Re-Ranking for Frozen 6-DoF Grasp Detectors",
+   "peer_reviewed": false,
+   "verified_with": "arXiv API record read 2026-11-27",
+   "what_was_read": "arXiv full text read: contributions, training objective (minimum friction coefficient target), inference latency, limitations",
+   "claim_in_manuscript": "learned re-ranking of unchanged candidates of frozen 6-DoF detectors; reports added latency; real-robot experiments; preprint",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "matak2026fpte",
+   "identifier": "10.1109/LRA.2026.3713725",
+   "title": "First Plan Then Evaluate: Multi-Target Planning With Post-Planning Success Evaluation Improves Learning-Based Grasping Pipelines",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:2509.07162 abstract and experiments sections",
+   "claim_in_manuscript": "generator-evaluator-planner with next-best fallback lowers success; plans to several targets first",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "murali2026graspgen",
+   "identifier": "10.1109/ICRA57385.2026.11696426",
+   "title": "GraspGen: A Diffusion-based Framework for 6-DOF Grasping with On-Generator Training",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:2507.13097 abstract and method",
+   "claim_in_manuscript": "diffusion generator with a discriminator that scores and filters sampled grasps",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "enwerem2026firmgrasp",
+   "identifier": "arXiv:2607.25049",
+   "title": "FIRMGrasp: A Friction-Informed Risk Margin for Robust Grasp Synthesis",
+   "peer_reviewed": false,
+   "verified_with": "arXiv API record read 2026-11-27",
+   "what_was_read": "arXiv full text: abstract, results, future work (hardware validation left to future work)",
+   "claim_in_manuscript": "many nominally force-closed grasps lose closure at adverse friction; CVaR-based margin over the friction distribution; preprint",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "giuili2026oracle",
+   "identifier": "10.1007/s11370-026-00707-4",
+   "title": "ORACLE-Grasp: Zero-Shot Affordance-Aligned Robotic Grasping Using Large Multimodal Models",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record with abstract (Intelligent Service Robotics 19(3), article 46, 2026)",
+   "claim_in_manuscript": "zero-shot, affordance-aligned grasp selection with large multimodal models over candidate regions, with early stopping; published in the target journal",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "qureshi2021mpnet",
+   "identifier": "10.1109/TRO.2020.3006716",
+   "title": "Motion Planning Networks: Bridging the Gap Between Learning-Based and Classical Motion Planners",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:1907.06013 abstract",
+   "claim_in_manuscript": "hybrid with classical planners gives worst-case guarantees",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "silver2021ploi",
+   "identifier": "10.1609/aaai.v35i13.17421",
+   "title": "Planning with Learned Object Importance in Large Problem Instances using Graph Neural Networks",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:2009.05613 full text: incremental loop and Lemma 1 (PLOI is complete)",
+   "claim_in_manuscript": "learned object importance with incremental relaxation keeps the planner complete",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "mitzenmacher2022predictions",
+   "identifier": "10.1145/3528087",
+   "title": "Algorithms with Predictions",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record",
+   "claim_in_manuscript": "robustness to bad predictions is a design goal of algorithms with predictions",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "vandenbrand2024dynamic",
+   "identifier": "10.1137/1.9781611977912.126",
+   "title": "On Dynamic Graph Algorithms with Predictions",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:2307.09961 full text: the passage on simulating two algorithms step by step in parallel with a factor-of-two slowdown per instance",
+   "claim_in_manuscript": "antecedent of the round-robin bound",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "gomes2001portfolios",
+   "identifier": "10.1016/S0004-3702(00)00081-3",
+   "title": "Algorithm portfolios",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record",
+   "claim_in_manuscript": "algorithm portfolios: running algorithms in parallel or interleaved",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "wang2019negative",
+   "identifier": "10.1109/CVPR.2019.01155",
+   "title": "Characterizing and Avoiding Negative Transfer",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record (pages from Crossref; the CVF open-access page lists 11293-11302)",
+   "claim_in_manuscript": "definition of negative transfer",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "kressgazit2024empirical",
+   "identifier": "arXiv:2409.09491",
+   "title": "Robot Learning as an Empirical Science: Best Practices for Policy Evaluation",
+   "peer_reviewed": false,
+   "verified_with": "arXiv API record read 2026-11-27",
+   "what_was_read": "arXiv abstract",
+   "claim_in_manuscript": "robot-learning evaluations often lack trial counts, conditions and statistics; preprint",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "firoozi2025foundation",
+   "identifier": "10.1177/02783649241281508",
+   "title": "Foundation models in robotics: Applications, challenges, and the future",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record (IJRR 44(5):701-739; online 2024)",
+   "claim_in_manuscript": "survey of foundation models in robotics",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "lechuzsierra2024bo",
+   "identifier": "10.1109/LRA.2024.3475914",
+   "title": "Bayesian Optimization for Robust Robotic Grasping Using a Sensorized Compliant Hand",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record; arXiv:2410.18237 abstract",
+   "claim_in_manuscript": "Bayesian optimisation for robust grasping on a real sensorized compliant hand",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "eppner2021acronym",
+   "identifier": "10.1109/ICRA48506.2021.9560844",
+   "title": "ACRONYM: A Large-Scale Grasp Dataset Based on Simulation",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record",
+   "claim_in_manuscript": "large simulated grasp dataset (shared labels)",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "perezgonzalez2025tfm",
+   "identifier": "https://zaguan.unizar.es/record/152263",
+   "title": "Robot grasping with Bayesian optimization informed with foundational models",
+   "peer_reviewed": "degree thesis (not peer reviewed)",
+   "verified_with": "institutional repository",
+   "what_was_read": "Zaguan record (MARC export) and PDF read 2026-11-27: title, author, director, programme, year, identifier, licence CC BY-NC-SA 3.0, abstract and outline",
+   "claim_in_manuscript": "the author's master's thesis: sequential Bayesian optimisation of grasps for a humanoid hand in simulation (Simox), informed by DINO features and context",
+   "cited_in": [
+    "main text",
+    "supplement"
+   ]
+  },
+  {
+   "key": "sundermeyer2021contactgraspnet",
+   "identifier": "10.1109/ICRA48506.2021.9561877",
+   "title": "Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes",
+   "peer_reviewed": true,
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "what_was_read": "Crossref record (pages added)",
+   "claim_in_manuscript": "learned 6-DoF grasp generation (not run here: needs CUDA)",
+   "cited_in": [
+    "main text"
+   ]
+  },
+  {
+   "key": "driess2020dvh",
+   "identifier": "10.1109/ICRA40945.2020.9197291",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "lou2021carp",
+   "identifier": "10.1109/ICRA48506.2021.9561473",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "shanthi2024pickplace",
+   "identifier": "10.1109/LRA.2024.3360892",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "ichter2018sampling",
+   "identifier": "10.1109/ICRA.2018.8460730",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "orseau2021phs",
+   "identifier": "10.1609/aaai.v35i14.17469",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "luby1993speedup",
+   "identifier": "10.1016/0020-0190(93)90029-9",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "noseworthy2024amortized",
+   "identifier": "10.1109/ICRA57147.2024.10610789",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "shen2023f3rm",
+   "identifier": "arXiv:2308.07931 (CoRL 2023, PMLR 229)",
+   "verified_with": "arXiv API or earlier register",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": "conference version (see identifier)"
+  },
+  {
+   "key": "rashid2023lerftogo",
+   "identifier": "arXiv:2309.07970 (CoRL 2023, PMLR 229)",
+   "verified_with": "arXiv API or earlier register",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": "conference version (see identifier)"
+  },
+  {
+   "key": "dipalo2024dinobot",
+   "identifier": "10.1109/ICRA57147.2024.10610923",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "castanheira2018finding",
+   "identifier": "10.1109/IROS.2018.8594009",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "wistuba2021fsbo",
+   "identifier": "arXiv:2101.07667 (ICLR 2021)",
+   "verified_with": "arXiv API or earlier register",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": "conference version (see identifier)"
+  },
+  {
+   "key": "zhang2023negative",
+   "identifier": "10.1109/JAS.2022.106004",
+   "verified_with": "Crossref record (api.crossref.org/works/<doi>) read 2026-11-27",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "hernandezlobato2015pesc",
+   "identifier": "(Phase VII register)",
+   "verified_with": "arXiv API or earlier register",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "montana1988kinematics",
+   "identifier": "(Phase VII register)",
+   "verified_with": "arXiv API or earlier register",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "miller2004graspit",
+   "identifier": "(Phase VII register)",
+   "verified_with": "arXiv API or earlier register",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  },
+  {
+   "key": "eppner2019billion",
+   "identifier": "(Phase VII register)",
+   "verified_with": "arXiv API or earlier register",
+   "cited_in": [
+    "review documents only (not cited in the final manuscript, for length)"
+   ],
+   "peer_reviewed": true
+  }
+ ]
+}

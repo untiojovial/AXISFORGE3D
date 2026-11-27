@@ -3,9 +3,15 @@
 This package is for an independent reviewer who wants to audit the study without the history of how it was
 produced. Everything it points to is in the repository.
 
-**Status of the internal reviews.** All internal reviews and audits so far were written by AI systems (Claude
-Code, and ChatGPT through the author's instructions). They are self-checks. **They are not independent peer
-review**, and this package does not claim otherwise.
+**Status of the reviews.**
+
+| Review | Who | Status |
+|---|---|---|
+| Internal reviews and audits | AI systems (Claude Code, and ChatGPT through the author's instructions) | self-checks, **not independent peer review** |
+| Human review | the author, Eduardo Pérez González, on 26 November 2026 (`HUMAN_REVIEW_RECORD.md`) | done; the author's own review, with the scope the author communicated; later material still needs the author's approval |
+| Independent review | — | not done; this package is prepared for it |
+
+The final decisions and the responsibility are the author's. The AI systems were assistants.
 
 ## 1. Commits
 
@@ -19,6 +25,7 @@ review**, and this package does not claim otherwise.
 | Extension freeze (second confirmation) | `b478289` | `PHASE7X_FREEZE.json`: protocol, model X, analysis, binary; before any new object was catalogued |
 | Second confirmation results | `040cde7` | `results/confirmation_x.json`, per-object outputs, execution record |
 | Final verdict | `542b274` and later documentation commits on the same branch | `FINAL_SCIENTIFIC_AUDIT.md`, `PUBLICATION_READINESS_FINAL.md` |
+| Author data, declarations, literature review | `6107c4d` and the following commits (2026-11-27) | `HUMAN_REVIEW_RECORD.md`, `LITERATURE_REVIEW_FINAL.md`, `STATE_OF_THE_ART_MATRIX.md`, `NOVELTY_ASSESSMENT.md`, `REFERENCES_VERIFIED_FINAL.json` |
 
 Verify a freeze:
 
@@ -100,6 +107,15 @@ The proof: by step 2k − 1 the first k candidates of X have been examined, and 
 The summary verdicts are in `PUBLICATION_READINESS_FINAL.md`. Second confirmation in one line: C1, C2 and C3 were
 supported (N_F ratio 0.449; robustness +3.3 pp, non-inferior; 0.992 against M1); C4 (time) was not (0.998); S1 was
 supported; S2 and S3 were not.
+
+## 6b. Literature and originality
+
+- **Coverage.** `LITERATURE_REVIEW_FINAL.md` lists, family by family, what was known before the study.
+- **Antecedents.** It names the works that challenge the originality claims. Learned feasibility ordering is
+  precedented (Qin et al. 2026, Liu et al. 2025), and so is the round-robin bound (a parallel-execution property).
+- **Assessment.** `NOVELTY_ASSESSMENT.md` grades each contribution.
+- **References.** Every new or corrected reference is in `REFERENCES_VERIFIED_FINAL.json`, with the part of the paper
+  that was read.
 
 ## 7. Tests
 

@@ -86,7 +86,8 @@ stated in the manuscript or in the supplement.
 
 21. **AI assistance.** The implementation, experiments, analyses and text were produced with substantial
     assistance from AI systems (`AI_USAGE.md`). The internal reviews are not independent peer review. The
-    author's review and approval are pending.
+    author reviewed the research on 26 November 2026 (`HUMAN_REVIEW_RECORD.md`); later material still needs the
+    author's approval, and no independent peer review has taken place.
 22. **Declared deviations.**
     - Phase VII: D1–D4.
     - Extension: the mesh of position 300 was prepared, with no planning or simulation, before the freeze.

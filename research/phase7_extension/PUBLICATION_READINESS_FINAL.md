@@ -1,18 +1,27 @@
-# Publication readiness: final verdict (2026-11-26)
+# Publication readiness: final verdict (updated 2026-11-27)
 
-## Verdict: SCIENTIFICALLY READY, PENDING AUTHOR APPROVAL
+## Verdict: SCIENTIFICALLY AND EDITORIALLY READY, PENDING THE AUTHOR'S APPROVAL OF THE 27 NOVEMBER CHANGES AND THE AUTHORISATION TO SUBMIT
 
-**Done.** The evidence is complete:
+**Done.**
 
-- both confirmations were run once under frozen protocols;
-- every claim in the manuscript is backed by a committed results file;
-- negative and non-replicated results are reported;
-- the manuscript meets the relayed format limits.
+- Both confirmations were run once under frozen protocols.
+- Every claim in the manuscript is backed by a committed results file.
+- Negative and non-replicated results are reported.
+- The literature review is complete and verified; the introduction and related work state the gap and the
+  contributions against it.
+- The author's data and the editorial declarations are final, as confirmed by the author on 27 November 2026.
+- The author carried out a human review of the research on 26 November 2026 (`HUMAN_REVIEW_RECORD.md`).
+- The manuscript meets the relayed format limits (16 pages).
 
 **Why not "ready for submission".**
 
-- The author has not reviewed or approved the results, the analyses or the text.
-- Personal and editorial data are missing (§3).
+- The material produced after the author's review needs the author's approval:
+  - the final literature review;
+  - the rewritten introduction and related work;
+  - the comparison tables;
+  - the figure moved to the supplement for length;
+  - the Optuna exploratory analysis, still running when this was written.
+- Submitting needs the author's explicit authorisation.
 
 Nothing has been submitted, released or registered: no submission, no release, no DOI, no payment.
 
@@ -37,11 +46,14 @@ Nothing has been submitted, released or registered: no submission, no release, n
 | GPD (ranking-controlled) | development 1.28× M0; second confirmation 6.33× M0, load −7.3 pp; stochastic | `external_baselines_v2.json`, `gpd_variability.json`, `confirmation_x.json` | descriptive; Dex-Net and Contact-GraspNet closed |
 | Representations | no gain from frozen DINOv2, DINOv3 or OpenCLIP (H5 not supported) | Phase VII | bounded negative result |
 | DKL, ADKF-IFT | a perfect order would save ≈1.4 ms per object | `ordering_ceiling.json`, `DKL_ADKF_DECISION.md` | line closed |
-| Optuna (exploratory) | reduced budget (20 trials per family and fold); see `results/optuna_mlp.json` | — | exploratory only; no inclusion |
+| Optuna (exploratory) | reduced budget (20 trials per family and fold); still running on 2026-11-27, summary pending (`results/optuna_mlp.json`) | — | exploratory only; no inclusion |
 | Tests | fmt and clippy clean; 368 Rust tests, 512 Python tests pass; 65 skips investigated (external Phase III and IV bundles, optional numpyro) | `TEST_RESULTS.md` | pass |
 | Licences | Apache-2.0 for own code (NOTICE); third-party material keeps its licences; the manuscript is not Apache; YCB conservative; no DINOv3 in the package | `LICENSE_COMPLIANCE_REPORT.md` | compliant. Open: the phase6 branch remedy; the editorial question on the manuscript wording window |
 | Reproducibility | statistical and partial levels in a clean container (510 / 510 decisions); full pipeline once in the development environment | `REPRODUCIBILITY.md`, `reproducibility/DOCKER_VALIDATION_RECORD.md` | partial reproduction verified; full reproduction not repeated |
-| Editorial format (as relayed) | 14 pages ≤ 16 (iicol, template unchanged); abstract 240 words; 6 keywords; numbered references; editable sources and PDF | `publication/intelligent_service_robotics/` | meets the relayed limits |
+| Editorial format (as relayed) | 16 pages ≤ 16 (iicol, template unchanged); abstract 240 words; 6 keywords; 52 numbered references; editable sources and PDF; supplement 11 pages | `publication/intelligent_service_robotics/` | meets the relayed limits |
+| Literature and originality | verified review 2019–2026 (40 new or corrected records); M1 and the bound worded as known; gap stated as a combination not found in this search | `LITERATURE_REVIEW_FINAL.md`, `STATE_OF_THE_ART_MATRIX.md`, `NOVELTY_ASSESSMENT.md`, `REFERENCES_VERIFIED_FINAL.json` | done |
+| Author data and declarations | name, affiliation, e-mail, ORCID, funding (none), competing interests (none), ethics and consents (not applicable), CRediT, AI declaration, previous work; no acknowledgements | `main.tex`, `declarations.md`, `author_information.md` | final (confirmed by the author) |
+| Human review | personal review by the author, 26 November 2026; scope as communicated | `HUMAN_REVIEW_RECORD.md` | done; later material pending approval |
 | Editorial status | not submitted; subscription route chosen (no APC); no option selected or paid | `JOURNAL_REQUIREMENTS_VERIFIED.md` | **pending the author** |
 
 ## 2. What the article claims, and what it does not
@@ -62,21 +74,18 @@ Nothing has been submitted, released or registered: no submission, no release, n
 - that GPD's full pipeline is worse;
 - that the foundation-model features are useless outside this use.
 
-## 3. Blocking items for submission (author only)
+## 3. Status by category
 
-1. Read and approve every claim, the analyses and the final text. The AI reviews are not independent peer
-   review.
-2. Provide or confirm:
-   - e-mail and ORCID;
-   - affiliation ("Independent Researcher, Zaragoza, Spain" is provisional);
-   - funding, competing interests and the CRediT roles;
-   - the statement of responsibility in the AI declaration.
-3. Confirm the thesis record (repository URL or handle) and how it is disclosed to the editor.
-4. Check the repository's visibility, and decide on:
-   - the remedy for `research/axisforge-phase6-fortis-r` (DINOv3 licence copy);
-   - any Zenodo deposit or DOI.
-5. Consult the editor about the manuscript-licence wording window (`RIGHTS.md`), and confirm the subscription
-   route at submission.
+| Category | Status |
+|---|---|
+| **Tasks completed** | Both confirmations; audits and corrections; native implementation and benchmarks; GPD comparison; literature review and verification; introduction, related work and comparison tables; author data and declarations; AI-use records; human-review record; manuscript (16 pages) and supplement (11 pages); reproducibility package test build |
+| **Experiments completed** | Development; first confirmation; second confirmation; native validation; timing; articulated v2 (exploratory, failed a positive control) |
+| **Results pending** | Optuna exploratory summary (running; supports no claim whatever its outcome) |
+| **Scientific limitations** | Simulation only; uncalibrated contact; one object family (EGAD) for both confirmations; one planner, cell and gripper; robustness and time gains not established (`LIMITATIONS.md`) |
+| **Editorial rights questions** | The manuscript-licence wording window in the public repository (`RIGHTS.md`), to raise with the editor; the DINOv3 licence copy on the branch `research/axisforge-phase6-fortis-r` (remedy needs authorisation) |
+| **Human checks done** | The author's personal review of the research on 26 November 2026 (scope as communicated; no specific check is recorded beyond the author's statement) |
+| **Human approvals still needed** | (1) the 27 November changes listed above; (2) the Optuna summary when it exists; (3) the authorisation to submit, including the exclusive-submission statement, the date and the submitted commit in the cover letter; (4) the decisions on the phase6 branch remedy and on any Zenodo deposit or DOI (neither is required for submission) |
+| **Not verified from this environment** | The ISR submission page (login redirect): figure-format rules, supplementary size limit, review model, reviewer suggestions. To be checked on the official page at submission |
 
 ## 4. Not to do
 

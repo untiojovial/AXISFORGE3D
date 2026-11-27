@@ -3,8 +3,15 @@
 Written after `results/confirmation_x.json` existed. It checks every claim of the manuscript against its
 results file, the statistics of both confirmations, and the residual risks.
 
-**This audit is a self-check by the AI system that produced the work.** It is not independent peer review, and
-the author has not yet reviewed or approved the results.
+**This audit is a self-check by the AI system that assisted with the work.** It is not independent peer review.
+The author carried out a personal review of the research on 26 November 2026 (`HUMAN_REVIEW_RECORD.md`). That review
+is the author's own, not independent peer review, and it does not cover material produced afterwards (the Optuna
+exploratory analysis and the final literature review), which the author has to approve.
+
+**Literature (2026-11-27).** The claims in §1 were checked against the final literature review. Two claims are now
+worded as known ideas, not contributions: the learned feasibility order (precedents: Qin et al. 2026, Liu et al. 2025)
+and the round-robin bound (a parallel-execution property: van den Brand et al. 2024, Gomes and Selman 2001). See
+`LITERATURE_REVIEW_FINAL.md` and `NOVELTY_ASSESSMENT.md`.
 
 ## 1. Claims and their evidence
 
@@ -118,5 +125,6 @@ same gated catalogue and the checks are stateless. 0 violations in the second co
   conclusions.
 - **One object family.** Both confirmations come from EGAD, and the second one was designed knowing the first.
 - **One planner, one cell, one gripper.**
-- **AI involvement.** All implementation and analysis were produced with AI assistance. The independent
-  review and the author's approval are pending.
+- **AI involvement.** All implementation and analysis were produced with AI assistance under the author's
+  direction. The author reviewed the research on 26 November 2026. No independent peer review has taken place, and
+  the author's approval of the material produced after 26 November is pending.

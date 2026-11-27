@@ -31,8 +31,9 @@
    "year": 2025,
    "title": "Robot grasping with Bayesian optimization informed with foundational models",
    "type": "Master's thesis (TFM), Universidad de Zaragoza",
-   "verified": "partly: title, author, university, year and the identifier TAZ-TFM-2025-047 come from the author-supplied PDF (research/legacy/RECONSTRUCTION.md); the Zaguan record URL recorded in research/phase7/references_verified.json could not be re-read from this environment (HTTP 403). The author must confirm the repository URL or handle.",
-   "identifier": "TAZ-TFM-2025-047"
+   "verified": "yes, 2026-11-27: the Zaguan record https://zaguan.unizar.es/record/152263 (MARC export) and the PDF were read: title, author, director (Rubén Martínez Cantín), Máster Universitario en Robótica, Gráficos y Visión por Computador, Escuela de Ingeniería y Arquitectura, Universidad de Zaragoza, 2025, identifier TAZ-TFM-2025-047, licence CC BY-NC-SA 3.0. The earlier 403 no longer occurs.",
+   "identifier": "TAZ-TFM-2025-047",
+   "url": "https://zaguan.unizar.es/record/152263"
   }
  ]
 }

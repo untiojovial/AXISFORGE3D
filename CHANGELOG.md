@@ -3,6 +3,43 @@
 Research history of AxisForge3D's learned grasp-candidate ordering. Engineering history is in Git. Every
 result listed here stays in the repository unchanged, negative ones included.
 
+## Editorial closing (2026-11-27)
+
+**Author data and declarations** (confirmed by the author):
+
+- Eduardo Pérez González, Independent Researcher, Zaragoza, Spain;
+- e-mail eduperez2000g@gmail.com; ORCID 0009-0007-0303-8839;
+- no funding; no competing interests;
+- ethics and consents not applicable; materials not applicable;
+- CRediT roles;
+- the generative-AI declaration, built from the author's base text;
+- no acknowledgements.
+
+These are in `main.tex`, `declarations.md`, `author_information.md`, `CITATION.cff` and the draft Zenodo metadata.
+
+**Human review.** The author's personal review of the research on 26 November 2026 is recorded in
+`research/phase7_extension/HUMAN_REVIEW_RECORD.md`, with its scope as communicated. Material produced afterwards needs
+the author's approval.
+
+**Literature review.**
+
+- `LITERATURE_REVIEW_FINAL.md`, `STATE_OF_THE_ART_MATRIX.md`, `NOVELTY_ASSESSMENT.md` and
+  `REFERENCES_VERIFIED_FINAL.json`.
+- The closest precedents are Qin et al. (RA-L 2026; replaces the earlier preprint entry), Liu et al. (2025 preprint)
+  and GraRe (2026 preprint).
+- The round-robin bound is now presented as a known parallel-execution property (van den Brand et al., SODA 2024;
+  Gomes and Selman 2001), applied and checked.
+
+**Manuscript.**
+
+- New introduction: research questions RQ1–RQ4, and contributions with their evidence and outcomes.
+- Related work by family, with a comparison table (Table 1) and an extended table in the supplement (Table S5).
+- The Methods paragraph on AI use was revised.
+- 16 pages. For length, the first confirmation's contrast figure moved to the supplement (Fig. S6). The conclusion was
+  shortened.
+
+**No change** to any result, protocol, freeze or analysis.
+
 ## Phase VII extension (2026-11-26)
 
 **Corrections.**
