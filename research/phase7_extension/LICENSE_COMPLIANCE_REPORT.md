@@ -70,8 +70,8 @@
 
 **Branches.**
 
-- `research/axisforge-phase6-fortis-r` still has 12 DINOv3-derived files at its head (`4c3e8af`) and no
-  licence copy.
+- `research/axisforge-phase6-fortis-r` had 12 DINOv3-derived files at its head (`4c3e8af`) and no
+  licence copy. Since 2026-11-27 its head (`b56f75c`) carries the copy and a notice.
 - The working branches have the copy.
 
 **What was done (no rewrite).**
@@ -80,7 +80,9 @@
   governed by the DINOv3 License, whose copy is in `LICENSES/`.
 - No history rewrite and no force push.
 
-**Proposed, pending the author's authorisation.** Either:
+**Done (2026-11-27, authorised by the author as "whatever is least harmful to the project").** A fast-forward commit
+on `research/axisforge-phase6-fortis-r` (`b56f75c`) adds `LICENSES/DINOv3-License.md` and a notice in its `README.md`.
+Nothing was removed and no history was rewritten. The options that had been proposed were:
 
 - a fast-forward commit on `research/axisforge-phase6-fortis-r` adding the licence copy and the notice; or
 - archiving or deleting that stale branch through the hosting service.
@@ -104,8 +106,8 @@ given commit.
 
 ## Still open (author decisions)
 
-1. **D-release.** Any release, Zenodo deposit or DOI. None was created.
-2. **D-phase6-branch.** The remedy for `research/axisforge-phase6-fortis-r` (above).
+1. **D-release.** Any release, Zenodo deposit or DOI. **Declined** by the author on 2026-11-27; none was created.
+2. **D-phase6-branch.** The remedy for `research/axisforge-phase6-fortis-r` (above). **Done** on 2026-11-27 (`b56f75c`).
 3. **D-manuscript-window.** Decided by the author on 2026-11-27: the ambiguous wording between `fd982a9` and
    `cbab6c5` (40 minutes) is not raised with the editor. The public drafts are disclosed as a preprint in the cover
    letter, and the history stays in `RIGHTS.md`.

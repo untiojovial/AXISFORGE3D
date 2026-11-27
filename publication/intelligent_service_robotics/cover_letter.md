@@ -1,11 +1,11 @@
-# Cover letter (draft for the author)
+# Cover letter
 
-**Do not send without the author's review.** Two fields can only be filled at submission: the date and the commit of
-the submitted version. The author has to confirm the exclusive-submission sentence when submitting.
+Final text, 27 November 2026, to paste or upload in Editorial Manager. By submitting, the author confirms the
+exclusive-submission sentence at the end.
 
 ---
 
-[Date of submission]
+27 November 2026
 
 To the Editor-in-Chief, *Intelligent Service Robotics*
 
@@ -49,8 +49,9 @@ with guarantees) from what this study adds.
 
 **Why it fits the journal.** We report mixed and negative results deliberately, because we believe they are useful to
 practitioners who add learned components to classical grasp planners. Code, protocols, frozen models and per-object
-results are in the public repository https://github.com/untiojovial/Colegio-Rumareda. The submitted version is commit
-[commit at submission].
+results are in the public repository https://github.com/untiojovial/Colegio-Rumareda. The code, frozen models and results of the
+submitted version are at commit `10e4eb0` (branch `research/axisforge-phase7-final-publication`).
+Later commits on that branch change only documentation and submission files.
 
 **Relation to the author's master's thesis.**
 
@@ -70,6 +71,9 @@ results are in the public repository https://github.com/untiojovial/Colegio-Ruma
 **Preprint.** Draft versions of the manuscript have been publicly available in the project repository since 26
 November 2026.
 
+**Files.** The manuscript (PDF and LaTeX sources) and Online Resource 1 (ESM_1.pdf). Copies with the author's details
+withheld are available should the review be double-blind.
+
 **Use of AI.**
 
 - **Claude Code (Anthropic).** Used substantially, under the author's direction and supervision, to implement the
@@ -80,8 +84,7 @@ November 2026.
   full responsibility for it.
 - **Authorship.** No AI system is an author. The use is described in the Methods and in the declarations.
 
-**Exclusive submission.** The manuscript has not been published and is not under consideration elsewhere. [Author to
-confirm at submission.]
+**Exclusive submission.** The manuscript has not been published and is not under consideration elsewhere.
 
 Suggested reviewers: none.
 

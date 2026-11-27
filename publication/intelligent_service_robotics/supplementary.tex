@@ -3,12 +3,19 @@
 \usepackage{graphicx,booktabs,amsmath,amssymb,url}
 \input{tables/numbers}
 \input{tables/numbers_x}
+\providecommand{\anonymous}{0}
+\newcommand{\anon}[2]{\ifnum\anonymous=1 #1\else #2\fi}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
 \begin{document}
-\title{Supplementary material: Learned Grasp Candidate Ordering with Feasibility Priors and Bounded Fallback: Two Prospective Confirmations in Simulation}
+\title{Online Resource 1. Supplementary material for ``Learned Grasp Candidate Ordering with Feasibility Priors and Bounded Fallback: Two Prospective Confirmations in Simulation'', \emph{Intelligent Service Robotics}}
+\ifnum\anonymous=1
+\author{\fnm{Anonymous author}}
+\affil{\orgname{Withheld for double-blind review}}
+\else
 \author*{\fnm{Eduardo} \sur{P\'erez Gonz\'alez}}\email{eduperez2000g@gmail.com}
 \affil*{\orgname{Independent Researcher}, \orgaddress{\city{Zaragoza}, \country{Spain}}}
+\fi
 \abstract{Protocols, deviations and execution records of both confirmations; physics sensitivity and the articulated-arm replication; the representation benchmark; secondary confirmatory results; the statistical audit of the first confirmation; the native implementation and its benchmark; GPD details; exploratory analyses that support no claim. Source files: research/phase7 and research/phase7\_extension of the project repository.}
 \maketitle
 
@@ -107,7 +114,7 @@ Rates of every method on the \nxViable{} viable objects: $N_F$ \nxNFMzero{} (M0)
 
 \section{Related work: extended comparison}
 
-Table~\ref{tab:s-sota} extends Table~1 of the article. Each cell records what the version of the paper we read reports; the section or table it rests on is listed in the repository file \texttt{research/phase7\_extension/STATE\_OF\_THE\_ART\_MATRIX.md}. Symbols: \checkmark{} reported; $\circ$ partly (for example a ranking by an analytic metric rather than a learned one, a success or quality score rather than a robustness measure, robustness to pose noise only, a next-best fallback without a bound, or planner calls instead of time); -- not reported in the version read, which is not evidence that the capability is absent; ? not verified in this review; n/a not applicable. For this study, the bound (Guar) is marked $\circ$ because it concerns the number of examined candidates only. ``Development only'' covers the components studied during development and not used by the final method: frozen foundation-model features (evaluated, no gain) and deep kernel learning and ADKF-IFT (studied through an ordering-ceiling analysis, not run). Bayesian optimisation belongs to the author's earlier thesis and is not part of this study. No number in this table is comparable across rows. Columns: Ord, learned order over a candidate set; Feas, learned feasibility; Dyn, physical or dynamic robustness in the ranking; MFr, several friction values; FB, fallback; Guar, mathematical guarantee; BO, Bayesian optimisation; DKL, deep kernel learning; Trf, transfer across objects, tasks or grippers; Time, time including the learned inference; Unseen, evaluation on objects not used for design; Sim, simulation; Real, real robot; Code, public code or data.
+Table~\ref{tab:s-sota} extends Table~1 of the article. Each cell records what the version of the paper we read reports; the section or table it rests on is listed in the repository file \texttt{research/phase7\_extension/STATE\_OF\_THE\_ART\_MATRIX.md}. Symbols: \checkmark{} reported; $\circ$ partly (for example a ranking by an analytic metric rather than a learned one, a success or quality score rather than a robustness measure, robustness to pose noise only, a next-best fallback without a bound, or planner calls instead of time); -- not reported in the version read, which is not evidence that the capability is absent; ? not verified in this review; n/a not applicable. For this study, the bound (Guar) is marked $\circ$ because it concerns the number of examined candidates only. ``Development only'' covers the components studied during development and not used by the final method: frozen foundation-model features (evaluated, no gain) and deep kernel learning and ADKF-IFT (studied through an ordering-ceiling analysis, not run). Bayesian optimisation belongs to \anon{an}{the author's} earlier thesis and is not part of this study. No number in this table is comparable across rows. Columns: Ord, learned order over a candidate set; Feas, learned feasibility; Dyn, physical or dynamic robustness in the ranking; MFr, several friction values; FB, fallback; Guar, mathematical guarantee; BO, Bayesian optimisation; DKL, deep kernel learning; Trf, transfer across objects, tasks or grippers; Time, time including the learned inference; Unseen, evaluation on objects not used for design; Sim, simulation; Real, real robot; Code, public code or data.
 
 \begin{sidewaystable}
 \caption{Extended comparison with related work. $^\dagger$ preprint, not peer reviewed.}\label{tab:s-sota}

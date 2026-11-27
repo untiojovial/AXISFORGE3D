@@ -39,6 +39,23 @@ Anything produced after 26 November 2026 is outside it. That includes:
 
 The author has to approve these before submission. Any result added later also needs the author's approval.
 
+## Approval of the material produced on 27 November 2026
+
+| Field | Value |
+|---|---|
+| Date | 27 November 2026 |
+| Source | The author's written reply to Claude Code, asked to approve the material produced after the review of 26 November: "ya está revisado" ("it has already been reviewed") |
+| Material it answered | The final literature review; the rewritten introduction and related work; the comparison tables; the figure moved to the supplement; the corrections of the final technical review (`FINAL_CORRECTIONS_REGISTER.md`, section I); the Optuna exploratory analysis (`OPTUNA_EXPLORATORY.md`). The new title had been approved separately the same day |
+| Scope | As for the first review, the author did not state which checks were made, and none is inferred |
+
+**Later editorial changes.** These were made the same day, after this approval, to follow the journal's submission
+guidelines as relayed by the author. They change no result or claim:
+
+- the supplement named and cited as Online Resource 1;
+- a double-blind copy of the manuscript and of Online Resource 1;
+- the date and commit in the cover letter;
+- a few shortened phrases to stay within 16 pages.
+
 ## Roles and responsibility
 
 - **Author.** The final scientific decisions, the acceptance or rejection of methodological proposals, every

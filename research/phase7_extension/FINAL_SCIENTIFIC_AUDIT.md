@@ -6,7 +6,8 @@ results file, the statistics of both confirmations, and the residual risks.
 **This audit is a self-check by the AI system that assisted with the work.** It is not independent peer review.
 The author carried out a personal review of the research on 26 November 2026 (`HUMAN_REVIEW_RECORD.md`). That review
 is the author's own, not independent peer review, and it does not cover material produced afterwards (the Optuna
-exploratory analysis and the final literature review), which the author has to approve.
+exploratory analysis and the final literature review). The author approved that material on 27 November 2026
+(`HUMAN_REVIEW_RECORD.md`).
 
 **Optuna (2026-11-27).** The exploratory search finished after this audit's main text was written. It changes no
 claim: no tuned MLP family beat its fixed counterpart or gradient boosting, and no tuned visual family met the

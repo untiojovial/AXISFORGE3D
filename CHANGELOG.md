@@ -50,6 +50,20 @@ found by checking the text against the results, the code and the protocols, amon
 - the denominators of Table S1;
 - typographic minus signs in the generated numbers.
 
+**Submission preparation (2026-11-27).**
+
+- **Approval.** The author approved the material of 27 November (`HUMAN_REVIEW_RECORD.md`).
+- **Cover letter.** Dated 27 November 2026; code and results of the submitted version at `10e4eb0`.
+- **Journal guidelines** (relayed by the author):
+  - the supplement is Online Resource 1 (`ESM_1.pdf`) and is cited that way;
+  - a double-blind copy of the manuscript and of Online Resource 1 (`main_anonymous.tex`,
+    `supplementary_anonymous.tex`), with a title page;
+  - a few phrases shortened to keep 16 pages.
+- **DINOv3 licence.** The DINOv3 licence copy and a notice were added to `research/axisforge-phase6-fortis-r`
+  (`b56f75c`, fast-forward, as authorised).
+- **Zenodo or DOI.** Declined by the author.
+- **Not done.** Nothing was submitted, released or paid.
+
 **Optuna (exploratory)** finished on 2026-11-27 (`research/phase7_extension/OPTUNA_EXPLORATORY.md`): 900 trials, 45
 outer-fold selections, 225 refitted models. No tuned MLP family examined fewer candidates than its fixed counterpart
 (0.995–1.075) or than gradient boosting (1.11–1.22); no tuned visual family met the development rule. It supports no

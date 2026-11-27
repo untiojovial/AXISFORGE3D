@@ -50,7 +50,7 @@ acknowledge the use of DINO Materials (clause 1.b.ii). The licence includes trad
 
 **This applies to every commit and branch.** Every DINOv3-derived file in any commit or branch of this repository
 is governed by the DINOv3 License; this includes the commits before the licence copy was added (`75bec22` to
-`fd982a9`) and the branch `research/axisforge-phase6-fortis-r`, whose head has no copy. The copy is
+`fd982a9`) and the branch `research/axisforge-phase6-fortis-r`, whose head received the copy on 2026-11-27 (`b56f75c`). The copy is
 `LICENSES/DINOv3-License.md` on the working branches. Scope and remedies are in
 `research/phase7_extension/results/history_licence_audit.json`. The reproducibility package
 (`axisforge3d-research-reproducibility`) contains no DINOv3 embeddings.

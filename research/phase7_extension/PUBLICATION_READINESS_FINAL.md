@@ -1,6 +1,6 @@
 # Publication readiness: final verdict (updated 2026-11-27)
 
-## Verdict: SCIENTIFICALLY AND EDITORIALLY READY, PENDING THE AUTHOR'S APPROVAL OF THE 27 NOVEMBER CHANGES AND THE AUTHORISATION TO SUBMIT
+## Verdict: READY FOR SUBMISSION BY THE AUTHOR (approved by the author on 27 November 2026)
 
 **Done.**
 
@@ -10,20 +10,14 @@
 - The literature review is complete and verified; the introduction and related work state the gap and the
   contributions against it.
 - The author's data and the editorial declarations are final, as confirmed by the author on 27 November 2026.
-- The author carried out a human review of the research on 26 November 2026 (`HUMAN_REVIEW_RECORD.md`).
-- The manuscript meets the relayed format limits (16 pages).
-
-**Why not "ready for submission".**
-
-- The material produced after the author's review needs the author's approval:
-  - the final literature review;
-  - the rewritten introduction and related work;
-  - the comparison tables;
-  - the figure moved to the supplement for length;
-  - the Optuna exploratory analysis (`OPTUNA_EXPLORATORY.md`, completed on 27 November);
-  - the corrections of the final technical review (`FINAL_CORRECTIONS_REGISTER.md`, section I). The new title it
-    proposed was approved by the author.
-- Submitting needs the author's explicit authorisation.
+- **Human review and approval.**
+  - The author reviewed the research on 26 November 2026.
+  - On 27 November the author approved the material produced afterwards (`HUMAN_REVIEW_RECORD.md`): the literature
+    review, the introduction and related work, the tables, the technical-review corrections, the Optuna analysis
+    and the new title.
+- **Format.** The manuscript and its double-blind copy have 16 pages. The supplement is Online Resource 1
+  (`ESM_1.pdf`). The cover letter is dated 27 November 2026.
+- The author submits. Files and steps are in `publication/intelligent_service_robotics/submission_checklist.md`.
 
 Nothing has been submitted, released or registered: no submission, no release, no DOI, no payment.
 
@@ -84,10 +78,10 @@ Nothing has been submitted, released or registered: no submission, no release, n
 | **Experiments completed** | Development; first confirmation; second confirmation; native validation; timing; articulated v2 (exploratory, failed a positive control); Optuna search (exploratory) |
 | **Results pending** | None. The Optuna exploratory search finished on 27 November 2026 and supports no claim (`OPTUNA_EXPLORATORY.md`) |
 | **Scientific limitations** | Simulation only; uncalibrated contact; one object family (EGAD) for both confirmations; one planner, cell and gripper; robustness and time gains not established (`LIMITATIONS.md`) |
-| **Editorial rights questions** | The DINOv3 licence copy on the branch `research/axisforge-phase6-fortis-r` (remedy needs authorisation). The manuscript-licence wording window (`RIGHTS.md`) was decided by the author on 2026-11-27: not raised with the editor; the cover letter discloses the public drafts as a preprint |
-| **Human checks done** | The author's personal review of the research on 26 November 2026 (scope as communicated; no specific check is recorded beyond the author's statement) |
-| **Human approvals still needed** | (1) the 27 November changes listed above; (2) the Optuna summary (`OPTUNA_EXPLORATORY.md`) and the final technical review (`FINAL_CORRECTIONS_REGISTER.md`, section I); (3) the authorisation to submit, including the exclusive-submission statement, the date and the submitted commit in the cover letter; (4) the decisions on the phase6 branch remedy and on any Zenodo deposit or DOI (neither is required for submission) |
-| **Not verified from this environment** | The ISR submission page (login redirect): figure-format rules, supplementary size limit, review model, reviewer suggestions. To be checked on the official page at submission |
+| **Editorial rights questions** | None open. The DINOv3 licence copy was added to `research/axisforge-phase6-fortis-r` on 2026-11-27 (`b56f75c`, as authorised; nothing removed or rewritten). The manuscript-licence wording window (`RIGHTS.md`) was decided by the author on 2026-11-27: not raised with the editor; the cover letter discloses the public drafts as a preprint |
+| **Human checks done** | The author's personal review of the research on 26 November 2026, and the approval of the 27 November material on 27 November (scope as communicated; no specific check is recorded beyond the author's statements) |
+| **Human approvals still needed** | None. Zenodo deposit or DOI: declined by the author. At submission the author confirms the review model in Editorial Manager and, by submitting, the exclusive-submission sentence |
+| **Not verified from this environment** | The ISR page redirects to a login here. The figure, supplementary-file and review-model rules were relayed by the author on 2026-11-27 (`JOURNAL_REQUIREMENTS_VERIFIED.md`). Still open: the review model (double-blind copies prepared) and the upload limits for PDF and ZIP |
 
 ## 4. Not to do
 
