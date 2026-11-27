@@ -37,3 +37,12 @@ deposit or DOI needs the author's authorisation). Nothing here rewrites Git hist
 - **DINOv3.** Offering the embeddings under the DINOv3 License, with a copy of it, satisfies clause 1.b.i whether
   or not the embeddings are derivative works. This register therefore needs no legal opinion on that question,
   and the embeddings are not relicensed.
+- **Optuna search (exploratory, 2026-11-27).** The committed outputs are own statistics:
+  - `results/optuna_mlp.json`, `results/optuna_contrasts.json` and `results/optuna_trials.json.gz` (Apache-2.0);
+  - they contain trial parameters, metrics and SHA-256 digests, and no embedding.
+- **Optuna checkpoints and predictions.** These are not committed, because some of the models were trained on DINOv3
+  embeddings (about 590 MB in all):
+  - the 225 refitted checkpoints;
+  - the out-of-fold predictions.
+
+  They can be regenerated with `tools/research/phase7_extension/optuna_mlp.py` (`OPTUNA_EXPLORATORY.md`).

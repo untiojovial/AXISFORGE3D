@@ -3,7 +3,7 @@
     python tools/research/phase7_extension/optuna_mlp.py --catalogues cat80/ --store store.json \
         --library research/phase5/library_parts.txt --test research/phase6/dev_parts.json \
         --openclip a.npz --openclip b.npz --out-dir optuna/ --trials 30 --families geometry dinov3 ... --jobs 3
-    python tools/research/phase7_extension/optuna_mlp.py ... --summarise --mlp-dir MLP_DIR \
+    python tools/research/phase7_extension/optuna_mlp.py ... --summarise --mlp-ref research/phase7/results/mlp_benchmark.json \
         --out research/phase7_extension/results/optuna_mlp.json
 
 Design (fixed before running; budgets reduced from the request for compute and stated here):
@@ -12,7 +12,7 @@ Design (fixed before running; budgets reduced from the request for compute and s
 - outer CV: the same 5 folds grouped by product name as the Phase VII MLP benchmark;
 - inner: within each outer training set, one grouped hold-out (15 % of the name groups, seed 2000+k)
   for early stopping and the objective; nothing of the outer test fold is seen by the search;
-- search (Optuna 4.1 TPE, seed 20261212, MedianPruner after 5 trials and 3 epochs), per family and
+- search (Optuna 4.1 TPE, seed 20261212 + k for outer fold k, MedianPruner after 5 trials and 3 epochs), per family and
   outer fold, --trials trials over: latent 8-256 (log), width 16-512 (log), hidden layers 1-3,
   activation ReLU/GELU/SiLU, dropout 0-0.3, learning rate 1e-5-3e-3 (log), weight decay 1e-6-1e-2 (log),
   batch 1024/2048/4096/8192, Adam/AdamW, residual connections yes/no;

@@ -248,6 +248,15 @@ def main():
                        f"{q(pv(v['holm_p']))} & {q('yes' if v['supported'] else 'no')} \\\\")
         tab += ['\\bottomrule', '\\end{tabular}']
         (out/'tab_x_confirmation.tex').write_text('\n'.join(tab) + '\n')
+    # exploratory Optuna search (supplement only; supports no claim)
+    oc, om = load('optuna_contrasts.json'), load('optuna_mlp.json')
+    if oc and om:
+        tf = [r['ratio'] for r in oc['contrasts']['tuned vs fixed'].values()]
+        tl = [r['ratio'] for r in oc['contrasts']['tuned vs L0'].values()]
+        M.add('optFamilies', len(om['families'])); M.add('optTrials', sum(v['trials']['total'] for v in om['families'].values()))
+        M.add('optTrialsPerUnit', sum(v['trials']['total'] for v in om['families'].values()) // (5*len(om['families'])))
+        M.add('optFixedMin', f(min(tf), 3)); M.add('optFixedMax', f(max(tf), 3))
+        M.add('optLzeroMin', f(min(tl), 2)); M.add('optLzeroMax', f(max(tl), 2))
     (out/'numbers_x.tex').write_text(minus('\n'.join(M.lines)) + '\n')
     for t in out.glob('tab_x_*.tex'):
         t.write_text(minus(t.read_text()))

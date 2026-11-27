@@ -102,7 +102,7 @@ The proof: by step 2k − 1 the first k candidates of X have been examined, and 
 | Development selection | `results/v3_models.json` |
 | Native implementation, benchmark, memory, ceiling, fallback | `results/native_inference_validation{,_x}.json`, `integrated_runtime_benchmark.json`, `memory_benchmark.json`, `ordering_ceiling.json`, `fallback_audit.json` |
 | GPD | `results/external_baselines_v2.json`, `results/gpd_variability.json` |
-| Exploratory | `results/articulated2_development.json`, `results/optuna_mlp.json` |
+| Exploratory | `results/articulated2_development.json`; Optuna: `OPTUNA_EXPLORATORY.md`, `results/optuna_mlp.json`, `results/optuna_contrasts.json`, `results/optuna_trials.json.gz` |
 
 The summary verdicts are in `PUBLICATION_READINESS_FINAL.md`. Second confirmation in one line: C1, C2 and C3 were
 supported (N_F ratio 0.449; robustness +3.3 pp, non-inferior; 0.992 against M1); C4 (time) was not (0.998); S1 was

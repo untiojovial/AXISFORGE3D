@@ -20,7 +20,9 @@
   - the rewritten introduction and related work;
   - the comparison tables;
   - the figure moved to the supplement for length;
-  - the Optuna exploratory analysis, still running when this was written.
+  - the Optuna exploratory analysis (`OPTUNA_EXPLORATORY.md`, completed on 27 November);
+  - the corrections of the final technical review (`FINAL_CORRECTIONS_REGISTER.md`, section I). The new title it
+    proposed was approved by the author.
 - Submitting needs the author's explicit authorisation.
 
 Nothing has been submitted, released or registered: no submission, no release, no DOI, no payment.
@@ -46,8 +48,8 @@ Nothing has been submitted, released or registered: no submission, no release, n
 | GPD (ranking-controlled) | development 1.28× M0; second confirmation 6.33× M0, load −7.3 pp; stochastic | `external_baselines_v2.json`, `gpd_variability.json`, `confirmation_x.json` | descriptive; Dex-Net and Contact-GraspNet closed |
 | Representations | no gain from frozen DINOv2, DINOv3 or OpenCLIP (H5 not supported) | Phase VII | bounded negative result |
 | DKL, ADKF-IFT | a perfect order would save ≈1.4 ms per object | `ordering_ceiling.json`, `DKL_ADKF_DECISION.md` | line closed |
-| Optuna (exploratory) | reduced budget (20 trials per family and fold); still running on 2026-11-27, summary pending (`results/optuna_mlp.json`) | — | exploratory only; no inclusion |
-| Tests | fmt and clippy clean; 368 Rust tests, 512 Python tests pass; 65 skips investigated (external Phase III and IV bundles, optional numpyro) | `TEST_RESULTS.md` | pass |
+| Optuna (exploratory) | 900 trials (20 per family and fold). No tuned MLP family examined fewer candidates than its fixed counterpart (ratios 0.995–1.075) or than gradient boosting (1.11–1.22); no tuned visual family met the development rule | `OPTUNA_EXPLORATORY.md`, `results/optuna_mlp.json`, `results/optuna_contrasts.json` | exploratory only; no inclusion; not improved by a limited search (not equivalence) |
+| Tests | fmt and clippy clean; 368 Rust tests, 513 Python tests pass (Python re-run on 2026-11-27); 65 skips investigated (external Phase III and IV bundles, optional numpyro) | `TEST_RESULTS.md` | pass |
 | Licences | Apache-2.0 for own code (NOTICE); third-party material keeps its licences; the manuscript is not Apache; YCB conservative; no DINOv3 in the package | `LICENSE_COMPLIANCE_REPORT.md` | compliant. Open: the phase6 branch remedy. The manuscript wording window was decided by the author (not raised; public drafts disclosed as a preprint) |
 | Reproducibility | statistical and partial levels in a clean container (510 / 510 decisions); full pipeline once in the development environment | `REPRODUCIBILITY.md`, `reproducibility/DOCKER_VALIDATION_RECORD.md` | partial reproduction verified; full reproduction not repeated |
 | Editorial format (as relayed) | 16 pages ≤ 16 (iicol, template unchanged); abstract 235 words; 6 keywords; 52 numbered references; editable sources and PDF; supplement 11 pages | `publication/intelligent_service_robotics/` | meets the relayed limits |
@@ -79,12 +81,12 @@ Nothing has been submitted, released or registered: no submission, no release, n
 | Category | Status |
 |---|---|
 | **Tasks completed** | Both confirmations; audits and corrections; native implementation and benchmarks; GPD comparison; literature review and verification; introduction, related work and comparison tables; author data and declarations; AI-use records; human-review record; manuscript (16 pages) and supplement (11 pages); reproducibility package test build |
-| **Experiments completed** | Development; first confirmation; second confirmation; native validation; timing; articulated v2 (exploratory, failed a positive control) |
-| **Results pending** | Optuna exploratory summary (running; supports no claim whatever its outcome) |
+| **Experiments completed** | Development; first confirmation; second confirmation; native validation; timing; articulated v2 (exploratory, failed a positive control); Optuna search (exploratory) |
+| **Results pending** | None. The Optuna exploratory search finished on 27 November 2026 and supports no claim (`OPTUNA_EXPLORATORY.md`) |
 | **Scientific limitations** | Simulation only; uncalibrated contact; one object family (EGAD) for both confirmations; one planner, cell and gripper; robustness and time gains not established (`LIMITATIONS.md`) |
 | **Editorial rights questions** | The DINOv3 licence copy on the branch `research/axisforge-phase6-fortis-r` (remedy needs authorisation). The manuscript-licence wording window (`RIGHTS.md`) was decided by the author on 2026-11-27: not raised with the editor; the cover letter discloses the public drafts as a preprint |
 | **Human checks done** | The author's personal review of the research on 26 November 2026 (scope as communicated; no specific check is recorded beyond the author's statement) |
-| **Human approvals still needed** | (1) the 27 November changes listed above; (2) the Optuna summary when it exists; (3) the authorisation to submit, including the exclusive-submission statement, the date and the submitted commit in the cover letter; (4) the decisions on the phase6 branch remedy and on any Zenodo deposit or DOI (neither is required for submission) |
+| **Human approvals still needed** | (1) the 27 November changes listed above; (2) the Optuna summary (`OPTUNA_EXPLORATORY.md`) and the final technical review (`FINAL_CORRECTIONS_REGISTER.md`, section I); (3) the authorisation to submit, including the exclusive-submission statement, the date and the submitted commit in the cover letter; (4) the decisions on the phase6 branch remedy and on any Zenodo deposit or DOI (neither is required for submission) |
 | **Not verified from this environment** | The ISR submission page (login redirect): figure-format rules, supplementary size limit, review model, reviewer suggestions. To be checked on the official page at submission |
 
 ## 4. Not to do

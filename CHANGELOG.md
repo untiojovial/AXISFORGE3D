@@ -50,6 +50,12 @@ found by checking the text against the results, the code and the protocols, amon
 - the denominators of Table S1;
 - typographic minus signs in the generated numbers.
 
+**Optuna (exploratory)** finished on 2026-11-27 (`research/phase7_extension/OPTUNA_EXPLORATORY.md`): 900 trials, 45
+outer-fold selections, 225 refitted models. No tuned MLP family examined fewer candidates than its fixed counterpart
+(0.995–1.075) or than gradient boosting (1.11–1.22); no tuned visual family met the development rule. It supports no
+claim and changes none. The supplement summarises it in one paragraph. The script's docstring was corrected (TPE seed
+20261212 + k; `--mlp-ref`); the code that ran is unchanged.
+
 **Title** (approved by the author on 2026-11-27): "Learned Grasp Candidate Ordering with Feasibility Priors and
 Bounded Fallback: Two Prospective Confirmations in Simulation". It replaces "Data-Efficient ...": the study measures
 examined candidates, not data efficiency.

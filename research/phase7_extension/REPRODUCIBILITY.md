@@ -54,7 +54,7 @@ python tools/research/phase7_extension/confirm_x.py analyse --pool NEW_POOL --ou
 | Freeze of X | `freeze_x.py`, `power_new.py`, `make_freeze_x.py` | `frozen/*`, `power/*`, `PHASE7X_FREEZE.json` |
 | GPD | `gpd_baseline.py score`, `gpd_evaluate.py`, `gpd_variability.py` | `results/external_baselines_v2.json`, `results/gpd_variability.json` |
 | Articulated v2 | `articulated2_dev.py run` / `report` | `results/articulated2_development.json` |
-| Optuna (exploratory) | `optuna_mlp.py`, then `--summarise` | `results/optuna_mlp.json` |
+| Optuna (exploratory) | `optuna_mlp.py`, then `--summarise`; `optuna_compare.py` | `results/optuna_mlp.json`, `results/optuna_contrasts.json`, `results/optuna_trials.json.gz` (`OPTUNA_EXPLORATORY.md`) |
 | Second confirmation | `build_newset.py`; `confirm_x.py prepare`; `gpd_baseline.py score`; `confirm_x.py orders`, `physics`, `timing`, `analyse` | `results/confirmation_x.json` and the per-object outputs |
 | Manuscript numbers | `make_tables_x.py --out publication/intelligent_service_robotics/tables` | `numbers_x.tex`, `tab_x_*.tex` |
 | Package | `tools/package/build_package.py`, `verify_package.py` | `axisforge3d-research-reproducibility/` (local) |

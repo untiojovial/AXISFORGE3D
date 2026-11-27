@@ -117,7 +117,7 @@ Table~\ref{tab:s-sota} extends Table~1 of the article. Each cell records what th
 
 \section{Exploratory analyses that support no claim}
 
-\textbf{Hyperparameter search.} An Optuna search over the MLP families of the representation benchmark (reduced budget: 20 trials per family and outer fold) was run on development data only and was not used for any selection or confirmatory claim; its results are in \texttt{optuna\_mlp.json}.
+\textbf{Hyperparameter search.} An exploratory Optuna search (TPE, \optTrialsPerUnit{} trials per family and outer fold, \optTrials{} in all; one grouped inner hold-out; development data only) tuned the \optFamilies{} MLP families of the representation benchmark. No tuned family examined fewer candidates than the fixed-architecture MLP with the same inputs, where one exists ($N_F$ ratios \optFixedMin--\optFixedMax, no interval below 1), every tuned family examined more than gradient boosting (ratios \optLzeroMin--\optLzeroMax, every interval above 1), and no tuned visual family met the development rule. The negative result for frozen features and the advantage of gradient boosting are therefore not changed by a limited search; this does not show that no MLP could do better. The search was not used for any selection or confirmatory claim; design, execution and results are in \texttt{OPTUNA\_EXPLORATORY.md}, \texttt{optuna\_mlp.json} and \texttt{optuna\_contrasts.json}.
 
 \textbf{Articulated replication, second version.} An updated articulated-arm run on the development first grasps is reported in \texttt{articulated2\_development.json}; it is not calibrated and does not change any hypothesis.
 

@@ -47,8 +47,9 @@ stated in the manuscript or in the supplement.
     N_FR (candidates until the first robust one) is computed over simulated candidates only.
 11. **Foundation-model features** were tested only as frozen descriptors of grey renders and patch tokens at
     contacts. The negative result is bounded to that use.
-12. **The Optuna search** (exploratory, reduced budget) was not used for any selection or claim. Its absence of
-    a gain is not evidence of equivalence.
+12. **The Optuna search** (exploratory; 20 trials per family and outer fold, one inner hold-out) was not used for
+    any selection or claim. No tuned family beat its fixed counterpart or gradient boosting. That absence of a gain
+    is not evidence of equivalence, and a larger search could differ (`OPTUNA_EXPLORATORY.md`).
 
 ## Statistics
 

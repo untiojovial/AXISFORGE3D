@@ -8,6 +8,11 @@ The author carried out a personal review of the research on 26 November 2026 (`H
 is the author's own, not independent peer review, and it does not cover material produced afterwards (the Optuna
 exploratory analysis and the final literature review), which the author has to approve.
 
+**Optuna (2026-11-27).** The exploratory search finished after this audit's main text was written. It changes no
+claim: no tuned MLP family beat its fixed counterpart or gradient boosting, and no tuned visual family met the
+development rule (`OPTUNA_EXPLORATORY.md`). The supplement describes it as not improved by a limited search, not as
+equivalence.
+
 **Literature (2026-11-27).** The claims in §1 were checked against the final literature review. Two claims are now
 worded as known ideas, not contributions: the learned feasibility order (precedents: Qin et al. 2026, Liu et al. 2025)
 and the round-robin bound (a parallel-execution property: van den Brand et al. 2024, Gomes and Selman 2001). See

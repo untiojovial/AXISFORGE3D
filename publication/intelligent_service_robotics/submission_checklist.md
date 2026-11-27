@@ -47,7 +47,7 @@ These were verified by ChatGPT on 2026-11-26 and relayed. They could not be read
 | Human review of the research | **done**, 26 November 2026 (`research/phase7_extension/HUMAN_REVIEW_RECORD.md`) |
 | Author data, funding, competing interests, CRediT, AI statement, thesis record | **done** (confirmed 27 November 2026) |
 | Repository visibility | **public** (checked 2026-11-27) |
-| Approve the material produced after the review: literature review, rewritten introduction and related work, comparison tables, the figure moved to the supplement, and the Optuna summary when it exists | **to do** |
+| Approve the material produced after the review: literature review, rewritten introduction and related work, comparison tables, the figure moved to the supplement, the Optuna summary (`OPTUNA_EXPLORATORY.md`) and the final technical review (`FINAL_CORRECTIONS_REGISTER.md`, section I; the new title is already approved) | **to do** |
 | At submission: date, submitted commit and the exclusive-submission confirmation in the cover letter; re-read the official guideline page | **to do** |
 | Manuscript-licence wording window (`RIGHTS.md`) | **decided** (2026-11-27): not raised with the editor; the cover letter discloses the public drafts as a preprint; the history stays in `RIGHTS.md` |
 | Remedy for the DINOv3 licence copy on `research/axisforge-phase6-fortis-r` | **to authorise** (or decline) |

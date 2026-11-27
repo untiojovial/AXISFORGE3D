@@ -1,0 +1,352 @@
+{
+ "note": "    python tools/research/phase7_extension/optuna_compare.py --optuna-dir optuna/ --mlp-dir mlp/         --catalogues cat80/ --out research/phase7_extension/results/optuna_contrasts.json  Defined after the search had started and before any out-of-fold metric of the tuned models was computed. It is descriptive: it supports no selection and no claim. Conventions follow tools/research/phase7/mlp_eval.py, so the numbers are comparable with mlp_benchmark.json:  - each part is ordered as M1 orders it (preliminary + 2 p/max) with the exact planner-order simulator; - N_F is the 1-based position of the first feasible candidate; parts without a feasible candidate are left out; - per-part log N_F is averaged over seeds (5 for the tuned families, 3 for the fixed MLPs, 1 for L0); - a contrast A / B is the geometric mean of the per-part N_F ratios, paired by part, with the percentile   bootstrap of research_grasping.phase5.stats (same seed and draws), the counts of parts better and worse, a   Wilcoxon signed-rank p and Holm's adjustment within each group of contrasts.  Groups:  - tuned vs fixed: each tuned family against the fixed-architecture MLP with the same inputs (OpenCLIP has no   fixed counterpart with the same inputs: L11 also has the geometry block); - tuned vs L0: each tuned family against gradient boosting, the model family of the final method; - visual vs control, tuned: each tuned family with frozen features against the tuned family without them, and the   tuned combined family against its tuned permuted and untrained-ViT controls.",
+ "development_only": true,
+ "exploratory": true,
+ "families_complete": [
+  "candidate-only",
+  "combined",
+  "dinov2",
+  "dinov3",
+  "geometry",
+  "linear",
+  "openclip",
+  "permuted",
+  "random-vit"
+ ],
+ "N_F_gmean": {
+  "candidate-only": 1.6036,
+  "geometry": 1.5169,
+  "dinov2": 1.4902,
+  "dinov3": 1.5157,
+  "openclip": 1.5085,
+  "combined": 1.5263,
+  "linear": 1.499,
+  "random-vit": 1.4641,
+  "permuted": 1.5109,
+  "L0": 1.3165,
+  "L10": 1.4251,
+  "L2": 1.4941,
+  "L2v": 1.4913,
+  "L5": 1.4175,
+  "L6": 1.465,
+  "L8": 1.5156,
+  "L8p": 1.5177,
+  "L9": 1.4716
+ },
+ "viable_parts": {
+  "candidate-only": 239,
+  "geometry": 239,
+  "dinov2": 239,
+  "dinov3": 239,
+  "openclip": 239,
+  "combined": 239,
+  "linear": 239,
+  "random-vit": 239,
+  "permuted": 239,
+  "L0": 239,
+  "L10": 239,
+  "L2": 239,
+  "L2v": 239,
+  "L5": 239,
+  "L6": 239,
+  "L8": 239,
+  "L8p": 239,
+  "L9": 239
+ },
+ "contrasts": {
+  "tuned vs fixed": {
+   "candidate-only / L2v": {
+    "ratio": 1.0753,
+    "ci95": [
+     1.0224,
+     1.1341
+    ],
+    "parts": 239,
+    "better": 30,
+    "worse": 53,
+    "wilcoxon_p": 0.011434721804922098,
+    "holm_p": 0.09147777443937678
+   },
+   "geometry / L2": {
+    "ratio": 1.0153,
+    "ci95": [
+     0.9559,
+     1.0776
+    ],
+    "parts": 239,
+    "better": 44,
+    "worse": 59,
+    "wilcoxon_p": 0.23093732938325007,
+    "holm_p": 0.9237493175330003
+   },
+   "dinov2 / L5": {
+    "ratio": 1.0513,
+    "ci95": [
+     1.0027,
+     1.1059
+    ],
+    "parts": 239,
+    "better": 39,
+    "worse": 54,
+    "wilcoxon_p": 0.04953471409232172,
+    "holm_p": 0.346742998646252
+   },
+   "dinov3 / L6": {
+    "ratio": 1.0346,
+    "ci95": [
+     0.9924,
+     1.0812
+    ],
+    "parts": 239,
+    "better": 32,
+    "worse": 59,
+    "wilcoxon_p": 0.08795748680030703,
+    "holm_p": 0.4607144431961191
+   },
+   "combined / L8": {
+    "ratio": 1.007,
+    "ci95": [
+     0.9539,
+     1.0633
+    ],
+    "parts": 239,
+    "better": 50,
+    "worse": 51,
+    "wilcoxon_p": 0.8481850322845916,
+    "holm_p": 1.0
+   },
+   "linear / L10": {
+    "ratio": 1.0518,
+    "ci95": [
+     1.0029,
+     1.1054
+    ],
+    "parts": 239,
+    "better": 35,
+    "worse": 56,
+    "wilcoxon_p": 0.07678574053268651,
+    "holm_p": 0.4607144431961191
+   },
+   "random-vit / L9": {
+    "ratio": 0.9949,
+    "ci95": [
+     0.9495,
+     1.041
+    ],
+    "parts": 239,
+    "better": 35,
+    "worse": 47,
+    "wilcoxon_p": 0.9502329934282793,
+    "holm_p": 1.0
+   },
+   "permuted / L8p": {
+    "ratio": 0.9955,
+    "ci95": [
+     0.9441,
+     1.0498
+    ],
+    "parts": 239,
+    "better": 39,
+    "worse": 48,
+    "wilcoxon_p": 0.989868104201609,
+    "holm_p": 1.0
+   }
+  },
+  "tuned vs L0": {
+   "candidate-only / L0": {
+    "ratio": 1.2181,
+    "ci95": [
+     1.116,
+     1.3352
+    ],
+    "parts": 239,
+    "better": 20,
+    "worse": 57,
+    "wilcoxon_p": 4.5007467339898176e-05,
+    "holm_p": 0.0004050672060590836
+   },
+   "geometry / L0": {
+    "ratio": 1.1523,
+    "ci95": [
+     1.064,
+     1.2535
+    ],
+    "parts": 239,
+    "better": 24,
+    "worse": 73,
+    "wilcoxon_p": 0.00014664165565904605,
+    "holm_p": 0.0011731332452723684
+   },
+   "dinov2 / L0": {
+    "ratio": 1.132,
+    "ci95": [
+     1.0407,
+     1.2354
+    ],
+    "parts": 239,
+    "better": 23,
+    "worse": 68,
+    "wilcoxon_p": 0.000943482423364461,
+    "holm_p": 0.005325885894709324
+   },
+   "dinov3 / L0": {
+    "ratio": 1.1513,
+    "ci95": [
+     1.0611,
+     1.2557
+    ],
+    "parts": 239,
+    "better": 22,
+    "worse": 62,
+    "wilcoxon_p": 0.0010504443400005325,
+    "holm_p": 0.005325885894709324
+   },
+   "openclip / L0": {
+    "ratio": 1.1459,
+    "ci95": [
+     1.0558,
+     1.2482
+    ],
+    "parts": 239,
+    "better": 22,
+    "worse": 63,
+    "wilcoxon_p": 0.0008876476491182206,
+    "holm_p": 0.005325885894709324
+   },
+   "combined / L0": {
+    "ratio": 1.1594,
+    "ci95": [
+     1.0655,
+     1.2648
+    ],
+    "parts": 239,
+    "better": 23,
+    "worse": 65,
+    "wilcoxon_p": 0.00045528632514154125,
+    "holm_p": 0.0031870042759907886
+   },
+   "linear / L0": {
+    "ratio": 1.1387,
+    "ci95": [
+     1.041,
+     1.2494
+    ],
+    "parts": 239,
+    "better": 24,
+    "worse": 62,
+    "wilcoxon_p": 0.0033517190402248664,
+    "holm_p": 0.00834827703980934
+   },
+   "random-vit / L0": {
+    "ratio": 1.1122,
+    "ci95": [
+     1.0214,
+     1.2128
+    ],
+    "parts": 239,
+    "better": 24,
+    "worse": 53,
+    "wilcoxon_p": 0.016990139132927184,
+    "holm_p": 0.016990139132927184
+   },
+   "permuted / L0": {
+    "ratio": 1.1476,
+    "ci95": [
+     1.0564,
+     1.2525
+    ],
+    "parts": 239,
+    "better": 22,
+    "worse": 61,
+    "wilcoxon_p": 0.00278275901326978,
+    "holm_p": 0.00834827703980934
+   }
+  },
+  "visual vs control, tuned": {
+   "dinov2 / candidate-only": {
+    "ratio": 0.9293,
+    "ci95": [
+     0.8834,
+     0.9738
+    ],
+    "parts": 239,
+    "better": 54,
+    "worse": 44,
+    "wilcoxon_p": 0.0355371278387368,
+    "holm_p": 0.22204364799678603
+   },
+   "dinov3 / candidate-only": {
+    "ratio": 0.9452,
+    "ci95": [
+     0.903,
+     0.9864
+    ],
+    "parts": 239,
+    "better": 49,
+    "worse": 42,
+    "wilcoxon_p": 0.031720521142398005,
+    "holm_p": 0.22204364799678603
+   },
+   "openclip / candidate-only": {
+    "ratio": 0.9407,
+    "ci95": [
+     0.8904,
+     0.9893
+    ],
+    "parts": 239,
+    "better": 49,
+    "worse": 41,
+    "wilcoxon_p": 0.1375698014449848,
+    "holm_p": 0.5502792057799392
+   },
+   "combined / geometry": {
+    "ratio": 1.0062,
+    "ci95": [
+     0.955,
+     1.0588
+    ],
+    "parts": 239,
+    "better": 47,
+    "worse": 54,
+    "wilcoxon_p": 0.9432638930711885,
+    "holm_p": 1.0
+   },
+   "linear / geometry": {
+    "ratio": 0.9882,
+    "ci95": [
+     0.9437,
+     1.0367
+    ],
+    "parts": 239,
+    "better": 58,
+    "worse": 45,
+    "wilcoxon_p": 0.3846834849005786,
+    "holm_p": 1.0
+   },
+   "combined / permuted": {
+    "ratio": 1.0102,
+    "ci95": [
+     0.9656,
+     1.056
+    ],
+    "parts": 239,
+    "better": 47,
+    "worse": 49,
+    "wilcoxon_p": 0.4329289665065128,
+    "holm_p": 1.0
+   },
+   "combined / random-vit": {
+    "ratio": 1.0424,
+    "ci95": [
+     0.9865,
+     1.1016
+    ],
+    "parts": 239,
+    "better": 37,
+    "worse": 54,
+    "wilcoxon_p": 0.09800157484328724,
+    "holm_p": 0.4900078742164362
+   }
+  }
+ }
+}
