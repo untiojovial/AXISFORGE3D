@@ -109,6 +109,15 @@ def test_macro_names_are_latex_safe():
         M('dev2Parts', 1)
 
 
+def test_minus_typesets_negative_numbers_but_not_exponents():
+    mt = tool('make_tables')
+    assert mt.minus(r'\newcommand{\a}{-2.6}') == r'\newcommand{\a}{$-$2.6}'
+    assert mt.minus('+0.0 {[}-2.3, 2.3{]}') == '+0.0 {[}$-$2.3, 2.3{]}'
+    assert mt.minus('[-1.0, -0.5] (-3)') == '[$-$1.0, $-$0.5] ($-$3)'
+    assert mt.minus('$<10^{-4}$ and x_{-1}') == '$<10^{-4}$ and x_{-1}'
+    assert mt.minus('$-$1.8 and well-known 3-axis') == '$-$1.8 and well-known 3-axis'
+
+
 def test_articulated_model_builds_the_project_chain():
     mujoco = pytest.importorskip('mujoco')
     from research_grasping.phase7 import articulated as art

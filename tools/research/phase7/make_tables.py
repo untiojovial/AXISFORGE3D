@@ -32,8 +32,9 @@ def ci(c, scale=1, d=3):
 
 
 def minus(text):
-    """Typographic minus for negative numbers in text (a hyphen before a digit at the start or after a space, '[' or '(')."""
-    return re.sub(r'(^|[\s\[(,])-(?=\d)', r'\1$-$', text, flags=re.M)
+    """Typographic minus for negative numbers in text: a hyphen before a digit at the start of a line, after a space,
+    '[', '(', ',' or '}' (as in '{[}-2.3'), or at the start of a macro body ('{-2.6}'; not an exponent such as '^{-4}')."""
+    return re.sub(r'(^|[\s\[(,}]|(?<![\^_])\{)-(?=\d)', r'\1$-$', text, flags=re.M)
 
 
 class Macros:
@@ -98,6 +99,7 @@ def dev(res, M, out):
     M('artTrackMax', f"{ar['controller']['max_tracking_error_rad']['max']:.3f}")
     vi = mb['variants']
     M('repAUCLzero', f"{vi['L0']['auc']:.4f}"); M('repNFLzero', f"{vi['L0']['N_F_gmean']:.3f}")
+    M('repViable', mb['viable_parts'])
     M('repNFLtwo', f"{vi['L2']['N_F_gmean']:.3f}"); M('repNFLten', f"{vi['L10']['N_F_gmean']:.3f}")
     allc = {(x['a'], x['b']): x for src in (va['contrasts']['N_F'], mb['contrasts']['N_F'], lf['contrasts']['N_F'], rk['contrasts']['N_F'])
             for x in src}

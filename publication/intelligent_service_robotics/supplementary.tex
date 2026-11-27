@@ -32,10 +32,12 @@ Verdict changes relative to torsion 0.005~m: \devFlipLow\% (0.001), \devFlipMid\
 
 \section{Development: representation benchmark}
 
+\textbf{Development rule} (fixed before the benchmark): a visual representation adds value only if the upper 95\% CI of its $N_F$ ratio to the geometry MLP (L2) is below 1 and it beats its permuted control. The benchmark applied it to L7, L8 and L11, none of which met it; L10's permuted control (L10p) was added after L10's result was seen (deviation D2, Sect.~\ref{sec:s-conf1}).
+
 Gradient boosting (L0), logistic regression and a three-branch MLP (candidate, geometry---log extents and the D2 shape distribution---and vision) with frozen DINOv2, DINOv3 and OpenCLIP descriptors (unit mean of 16 grey renders), an untrained ViT, permuted embeddings and linear visual branches. The geometry MLP needed \repLtwoLzero{} times as many candidates as gradient boosting \repLtwoLzeroCI. DINOv3 through a nonlinear branch: \repLeightLtwo{} \repLeightLtwoCI{} vs the geometry MLP, \repLeightPerm{} \repLeightPermCI{} vs its permuted control. Linear DINOv3 branch (L10): \repLtenLtwo{} \repLtenLtwoCI{} vs the geometry MLP; \repLtenPerm{} \repLtenPermCI{} vs its permuted control, a control added after L10's result was seen. Patch tokens at the contacts (\repVisibleShare\% of contacts visible) and classical local geometry: \repLDLtwo{} and \repLGLtwo. Listwise ranking loss: \repRankLtwo{} \repRankLtwoCI. Zero-shot gripper transfer: \crossForty{} \crossFortyCI{} (40~mm, \crossFortyViable{} viable parts) and \crossHundredtwenty{} \crossHundredtwentyCI{} (120~mm, \crossHundredtwentyViable{} parts) relative to models trained for those grippers.
 
 \begin{table}[h]
-\caption{All representation variants (316 parts, out of fold; MLPs averaged over three seeds).}\label{tab:s-rep}
+\caption{All representation variants (out of fold; MLPs averaged over three seeds). $N_F$: geometric mean over the \repViable{} parts with a viable candidate; S@1: share of all \devAllParts{} parts; Robust: share of first grasps robust under the previous (v2) criterion on the \devParts{} parts with dynamics. $^\dagger$ Control added after L10's development result was seen.}\label{tab:s-rep}
 \centering\scriptsize
 \input{tables/tab_dev_representation}
 \end{table}
@@ -43,10 +45,10 @@ Gradient boosting (L0), logistic regression and a three-branch MLP (candidate, g
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/fig_dev_representation.pdf}
-\caption{Development: $N_F$ ratios between representation variants (geometric mean over \devAllParts{} parts, out of fold, 95\% bootstrap CIs, unadjusted).}\label{fig:s-rep}
+\caption{Development: $N_F$ ratios between representation variants (geometric mean over the \repViable{} parts with a viable candidate, out of fold, 95\% bootstrap CIs, unadjusted).}\label{fig:s-rep}
 \end{figure}
 
-\section{First confirmation: protocol, secondary results and audit}
+\section{First confirmation: protocol, secondary results and audit}\label{sec:s-conf1}
 
 \textbf{Freeze and deviations.} The development protocol was committed before the development experiments; the confirmatory protocol, the hypotheses, the frozen models and the test manifest were committed together (commit \texttt{de22a8a}) before any confirmatory object was planned, with SHA-256 digests in \texttt{PHASE7\_MODEL\_FREEZE.json} (a Git freeze, not signatures). Disclosed deviations: (D1) the cells of two primary objects (positions 0 and 1) were built, geometry only, during pipeline development; (D2) the H5 target became the linear-branch variant L10 and its controls were added after L10's development result; (D3) load tolerance was moved from the primary to the secondary family after the articulated development pilot; (D4) the collision decomposition settings were chosen on excluded objects (positions 500--502). The container restarted once during the physics stage; stages write one file per completed object and the run was resumed with the same frozen code and inputs. No object was re-run because of its outcome.
 
@@ -87,7 +89,7 @@ Gradient boosting (L0), logistic regression and a three-branch MLP (candidate, g
 
 The tree ensembles are exported to JSON with every threshold and leaf value stored as its 64-bit pattern, and the planner evaluates them on its own candidates with the same 19 features. Equivalence: features and probabilities identical to scikit-learn over \natCandidates{} candidates of \natObjects{} objects; first grasp and $N_F$ identical on \natDecisionObjects{} viable objects for the historical models and on \natXDecisionObjects{} for Joint-multi. The model file is \modelMB~MB; the learned stage (bounds, features, inference, ordering) takes \benchLearnedMs~ms per object, model loading \benchModelLoadMs~ms. Peak memory (VmHWM) is \memMzeroMiB~MiB for the original planner and \memExtraMiB~MiB more with the learned models.
 
-\textbf{Benchmark.} Hardware: \benchCPU, one pinned CPU, one thread; three fresh processes per object and order in a seeded random order. Other processes used about \benchOtherLoad\% of one CPU on the other cores when the run started, so the machine was not idle. The objects were not new (development and Phase VII EGAD objects), so the benchmark is not confirmatory (Table~\ref{tab:s-bench}). A perfect order would save \ceilDevMs~ms (development) and \ceilEgadMs~ms (EGAD) per object on average.
+\textbf{Benchmark.} Hardware: \benchCPU, one pinned CPU, one thread; three fresh processes per object and order in a seeded random order. Other processes used about \benchOtherLoad\% of one CPU on the other cores when the run started, so the machine was not idle. The objects were not new (development parts and EGAD objects of the first confirmation), so the benchmark is not confirmatory (Table~\ref{tab:s-bench}). A perfect order would save, relative to Joint, \ceilDevMs~ms (development) and \ceilEgadMs~ms (EGAD) per object on average.
 
 \begin{table}[h]
 \caption{Integrated implementation: geometric-mean ratio of cold-process wall time to the original planner, with 95\% $t$ CIs, objects faster/slower, warm-process ratio and median cold time.}\label{tab:s-bench}
@@ -97,7 +99,7 @@ The tree ensembles are exported to JSON with every threshold and leaf value stor
 
 \section{GPD}
 
-GPD (official code, unmodified, CPU) scores each catalogue candidate converted to a GPD hand pose on a point cloud rendered from the part; the adapter is a small C++ program that calls GPD's own classifier. GPD's hand geometry is its own, not the 80~mm jaw. GPD's shadow computation draws random points (\texttt{std::random\_device}), so two runs on the same input differ: on \gpdVarObjects{} development parts the median score correlation between runs was \gpdVarCorr{} and the first-ranked candidate changed in all of them. On the \gpdDevObjects{} development parts, GPD+gate needed \gpdVsMzeroNF{} \gpdVsMzeroNFCI{} times M0's candidates, and its first grasps were \gpdVsMzeroLoad{} \gpdVsMzeroLoadCI{} points less load tolerant than M0's and \gpdVsJointLoad{} \gpdVsJointLoadCI{} than Joint's. The exploratory scoring of the Phase VII EGAD objects was stopped after 21 of 255 objects and is not reported. Dex-Net 2.0 (all official weight links return HTTP 404) and Contact-GraspNet (CUDA required) were not run; no reimplementation or unofficial weights were used.
+GPD (official code, unmodified, CPU) scores each catalogue candidate converted to a GPD hand pose on a point cloud rendered from the part; the adapter is a small C++ program that calls GPD's own classifier. GPD's hand geometry is its own, not the 80~mm jaw. GPD's shadow computation draws random points (\texttt{std::random\_device}), so two runs on the same input differ: on \gpdVarObjects{} development parts the median score correlation between runs was \gpdVarCorr{} and the first viable grasp changed in all of them. On the \gpdDevObjects{} development parts, GPD+gate needed \gpdVsMzeroNF{} \gpdVsMzeroNFCI{} times M0's candidates, and the load tolerance of its first grasps differed from M0's by \gpdVsMzeroLoad{} \gpdVsMzeroLoadCI{} points and from Joint's by \gpdVsJointLoad{} \gpdVsJointLoadCI. The exploratory scoring of the EGAD objects of the first confirmation was stopped after 21 of 255 objects and is not reported. Dex-Net 2.0 (all official weight links return HTTP 404) and Contact-GraspNet (CUDA required) were not run; no reimplementation or unofficial weights were used.
 
 \section{Second confirmation: additional results}
 

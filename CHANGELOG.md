@@ -38,6 +38,20 @@ the author's approval.
 - 16 pages. For length, the first confirmation's contrast figure moved to the supplement (Fig. S6). The conclusion was
   shortened.
 
+**Final technical review** (`FINAL_CORRECTIONS_REGISTER.md`, section I). Sixteen wording and reporting corrections
+found by checking the text against the results, the code and the protocols, among them:
+
+- the C1 ties;
+- the training label of Joint's robustness model;
+- how the fused orders use the prior;
+- the definitions of robust and load tolerant;
+- the description of the visual-value rule;
+- the reference order of the ordering ceiling;
+- the denominators of Table S1;
+- typographic minus signs in the generated numbers.
+
+The manuscript stays at 16 pages.
+
 **No change** to any result, protocol, freeze or analysis.
 
 ## Phase VII extension (2026-11-26)

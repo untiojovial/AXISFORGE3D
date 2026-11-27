@@ -13,6 +13,10 @@
 | Rust tests | `cargo test --workspace --release --no-fail-fast` | **368 passed, 0 failed, 0 ignored** (28 test binaries, including `learned_fixture` and the fallback-bound property tests) |
 | Python tests | `pytest tests -q -rs` | **512 passed, 65 skipped, 0 failed**, 1 warning |
 
+**Re-run on 2026-11-27** after the final technical review, which added one test of the table scripts' minus
+handling (`tests/phase7/test_phase7.py`) and changed no other code: Python tests **513 passed, 65 skipped, 0 failed**,
+1 warning (same skips). The Rust code was not changed, so the Rust suites were not re-run.
+
 The extension's own tests (`tests/phase7_extension`, 12 tests) pass in the clean Docker container as well
 (`reproducibility/DOCKER_VALIDATION_RECORD.md`).
 

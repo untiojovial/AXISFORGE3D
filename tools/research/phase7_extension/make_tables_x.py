@@ -7,6 +7,7 @@ ordering ceiling, v3 models, external baselines v2, GPD variability, fallback au
 confirmation_x.json if present). Outputs: numbers_x.tex (one \\newcommand per number) and tab_x_confirmation.tex.
 """
 import argparse
+import gzip
 import re
 import json
 from pathlib import Path
@@ -16,8 +17,9 @@ R = ROOT/'research/phase7_extension/results'
 
 
 def minus(text):
-    """Typographic minus for negative numbers in text (a hyphen before a digit at the start or after a space, '[' or '(')."""
-    return re.sub(r'(^|[\s\[(,])-(?=\d)', r'\1$-$', text, flags=re.M)
+    """Typographic minus for negative numbers in text: a hyphen before a digit at the start of a line, after a space,
+    '[', '(', ',' or '}' (as in '{[}-2.3'), or at the start of a macro body ('{-2.6}'; not an exponent such as '^{-4}')."""
+    return re.sub(r'(^|[\s\[(,}]|(?<![\^_])\{)-(?=\d)', r'\1$-$', text, flags=re.M)
 
 
 class Macros:
@@ -158,6 +160,11 @@ def main():
         for k in ('C1', 'C3', 'C4'):
             v = cx['primary'][k]; t = word[k]
             M.add(f'nx{t}Fewer', v['fewer']); M.add(f'nx{t}More', v['more']); M.add(f'nx{t}Ties', v['ties']); M.add(f'nx{t}N', v['n'])
+        od = R/'confirmation_x'/'orders.json.gz'  # per-object orders: how many C1 ties are at the first candidate
+        if od.exists():
+            ob = json.loads(gzip.open(od).read())
+            nfs = [(v['methods']['Joint-multi'].get('nf'), v['methods']['M0'].get('nf')) for v in ob.values()]
+            M.add('nxConeTiesFirst', sum(1 for a, b in nfs if a == b == 1))
         M.add('nxCthreeUpper', f(cx['primary']['C3']['upper_97_5'], 3))
         M.add('nxConeWilcoxonP', pv(cx['primary']['C1']['wilcoxon']['p_one_sided']))
         M.add('nxCfourWilcoxonP', pv(cx['primary']['C4']['wilcoxon']['p_one_sided']))
@@ -199,7 +206,7 @@ def main():
         M.add('nxClusterCfour', ci(cl['C4_gmean_ratio'], 3))
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     # development table on the 151 dynamic parts: v3 labels, identical population for every row
-    rows = [('M0 (original planner)', o['M0']), ('M1 (learned feasibility)', o['M1']), ('Joint (Phase VII)', o['Joint']),
+    rows = [('M0 (original planner)', o['M0']), ('M1 (learned feasibility)', o['M1']), ('Joint (first confirmation)', o['Joint']),
             ('Joint-multi (X)', o['Joint-multi'])]
     tab = ['\\begin{tabular}{lrrrr}', '\\toprule', 'Order & $N_F$ & Robust & All 3 torsions & Load \\\\', '\\midrule']
     for name, r in rows:
