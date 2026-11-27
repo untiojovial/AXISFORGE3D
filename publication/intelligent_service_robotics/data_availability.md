@@ -15,7 +15,7 @@ The meshes are not redistributed.
 
 ## Results and protocols (public repository)
 
-Repository: https://github.com/untiojovial/axisforge3d (renamed from `Colegio-Rumareda` on 27 November 2026; the old address, cited in the submitted manuscript, redirects here).
+Repository: https://github.com/untiojovial/AXISFORGE3D (renamed from `Colegio-Rumareda` on 27 November 2026; the old address, cited in the submitted manuscript, redirects here).
 
 | Content | Location | Commits |
 |---|---|---|

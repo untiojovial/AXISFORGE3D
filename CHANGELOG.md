@@ -5,7 +5,7 @@ result listed here stays in the repository unchanged, negative ones included.
 
 ## Repository renamed (2026-11-27)
 
-The GitHub repository was renamed from `untiojovial/Colegio-Rumareda` to `untiojovial/axisforge3d` after the
+The GitHub repository was renamed from `untiojovial/Colegio-Rumareda` to `untiojovial/AXISFORGE3D` after the
 submission. GitHub redirects the old address, which the submitted manuscript, cover letter and title page cite;
 commits and branches are unchanged. The address was updated in `CITATION.cff`, `Cargo.toml`, the code and data
 availability notes, the Colab link of Phase 4 and the draft Zenodo metadata. The submitted documents keep the old
