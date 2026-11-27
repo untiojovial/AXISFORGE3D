@@ -49,8 +49,8 @@ with guarantees) from what this study adds.
 
 **Why it fits the journal.** We report mixed and negative results deliberately, because we believe they are useful to
 practitioners who add learned components to classical grasp planners. Code, protocols, frozen models and per-object
-results are in the public repository https://github.com/untiojovial/Colegio-Rumareda. The code, frozen models and results of the
-submitted version are at commit `10e4eb0` (branch `research/axisforge-phase7-final-publication`).
+results are in the public repository https://github.com/untiojovial/Colegio-Rumareda. The code, frozen models, results and figure scripts
+of the submitted version are at commit `1b1c5eb` (branch `research/axisforge-phase7-final-publication`).
 Later commits on that branch change only documentation and submission files.
 
 **Relation to the author's master's thesis.**
