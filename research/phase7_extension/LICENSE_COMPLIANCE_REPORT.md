@@ -55,7 +55,7 @@
 | YCB (conservative) | keep aggregated statistics, tables, conclusions and identifiers; exclude per-object descriptors, geometry and individual data from the new package | `tools/package/build_package.py` drops YCB rows from `.npz` and JSON, and excludes files it cannot separate; `verify_package.py` finds no YCB row. The repository keeps the historical files. `pybullet-object-models` stays pinned at `57cc400` for regeneration (`tools/verify/ycb_pick.sh`); attribution kept. |
 | DINOv3 | no embeddings in the main package | Mixed files (for example `research/phase5/results/descriptors.npz`) are cleaned in the package (the `dinov3*` arrays dropped); DINOv3 folders are excluded except their README, summary, reproduction and index files. The historical originals stay in the repository under the DINOv3 License. |
 | OpenCLIP e31 | MIT evidence; weights not redistributed; reproducible download | model card `license: mit`; checkpoint SHA-256 pinned; `fetch_openclip.py`. |
-| Manuscript | not Apache; previously granted licence checked; no revocation claimed | `RIGHTS.md` records the statement history: no licence at `5b08627`; ambiguous README wording ("own code, documentation and results … Apache") from `fd982a9` until the correction; excluded afterwards. Whether a licence was granted on the public versions in that window is an **editorial consultation item**; nothing is claimed to be revoked. |
+| Manuscript | not Apache; previously granted licence checked; no revocation claimed | `RIGHTS.md` records the statement history: no licence at `5b08627`; ambiguous README wording ("own code, documentation and results … Apache") from `fd982a9` until the correction; excluded afterwards. The window lasted 40 minutes (`fd982a9` to `cbab6c5`). The author decided on 2026-11-27 not to raise it with the editor and to disclose the public drafts as a preprint; nothing is claimed to be revoked. |
 
 ## Public-history audit (DINOv3)
 
@@ -106,8 +106,9 @@ given commit.
 
 1. **D-release.** Any release, Zenodo deposit or DOI. None was created.
 2. **D-phase6-branch.** The remedy for `research/axisforge-phase6-fortis-r` (above).
-3. **D-manuscript-window.** Editorial consultation on the ambiguous licence wording in the public versions
-   between `fd982a9` and the correction (`RIGHTS.md`).
+3. **D-manuscript-window.** Decided by the author on 2026-11-27: the ambiguous wording between `fd982a9` and
+   `cbab6c5` (40 minutes) is not raised with the editor. The public drafts are disclosed as a preprint in the cover
+   letter, and the history stays in `RIGHTS.md`.
 4. **D-YCB residual.** Whether LGPL-2.1 terms of `pybullet-object-models` attach to derived numbers. It is
    moot for the new package, which excludes per-object YCB data. It remains relevant only to the historical
    files in the repository.

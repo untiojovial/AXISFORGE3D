@@ -67,11 +67,8 @@ results are in the public repository https://github.com/untiojovial/Colegio-Ruma
   - The thesis supervisor did not take part directly in it.
 - **Status.** The thesis is a degree work deposited in the university repository, not a peer-reviewed publication.
 
-**Public drafts.** The repository is public, so draft versions of the manuscript have been publicly visible since 26
-November 2026. For about 40 minutes on that day, the repository's README contained wording that could be read as an
-Apache-2.0 grant covering the manuscript (the commit remains in the public history); the manuscript has since been
-explicitly excluded from that licence. We would be grateful for
-the editor's guidance on whether this needs any action under the journal's preprint policy.
+**Preprint.** Draft versions of the manuscript have been publicly available in the project repository since 26
+November 2026.
 
 **Use of AI.**
 

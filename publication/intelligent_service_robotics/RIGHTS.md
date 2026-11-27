@@ -14,7 +14,16 @@ holds rights to. See NOTICE.
 | 2026-11-26 17:47 UTC (commit `fd982a9`) to 18:27 UTC (commit `cbab6c5`, which adds this file) | `README.md`: "AxisForge3D's own code, documentation and results are licensed under the Apache License 2.0" | Ambiguous: the word "documentation" can be read as covering this directory. Copies obtained in that window may carry that reading, and an Apache-2.0 grant is not revoked by a later change (licence, §2). |
 | From this commit | `README.md`, `NOTICE` and this file exclude `publication/` from Apache-2.0 | — |
 
-**Editorial point to raise at submission (author).** The repository is public, so draft versions of the
-manuscript have been publicly visible since 2026-11-26. For about 40 minutes (commit `fd982a9`, 17:47 UTC, to commit `cbab6c5`, 18:27 UTC, both on 2026-11-26), the root README contained wording that could be read as an Apache-2.0 grant. Commit `fd982a9` remains in the public history. Whether this is compatible with the journal's preprint and licensing
-policy has to be confirmed with Springer. It is listed in `PUBLICATION_READINESS_FINAL.md` as an author item.
-Nothing here states that the later wording revokes rights already granted.
+**Editorial point (decided by the author on 2026-11-27).** The repository is public, so draft versions of the
+manuscript have been publicly visible since 2026-11-26. For about 40 minutes (commit `fd982a9`, 17:47 UTC, to commit `cbab6c5`, 18:27 UTC, both on 2026-11-26), the root README contained wording that could be read as an Apache-2.0 grant. Commit `fd982a9` remains in the public history. The author judged the risk to be low and decided not to raise the
+licence wording with the editor. The reasons recorded:
+
+- the window lasted 40 minutes;
+- the wording was ambiguous;
+- it concerned a draft: about 72 % of the current text is new or rewritten since `fd982a9` (8-word shingle
+  comparison, 2026-11-27);
+- results are not protected text.
+
+The cover letter discloses only that draft versions have been publicly available since 26 November 2026, as a
+preprint. This record is kept in case the question is ever asked. Nothing here states that the later wording revokes
+rights already granted.

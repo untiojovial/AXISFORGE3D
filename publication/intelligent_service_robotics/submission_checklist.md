@@ -49,7 +49,7 @@ These were verified by ChatGPT on 2026-11-26 and relayed. They could not be read
 | Repository visibility | **public** (checked 2026-11-27) |
 | Approve the material produced after the review: literature review, rewritten introduction and related work, comparison tables, the figure moved to the supplement, and the Optuna summary when it exists | **to do** |
 | At submission: date, submitted commit and the exclusive-submission confirmation in the cover letter; re-read the official guideline page | **to do** |
-| Editorial question on the manuscript-licence wording window (`RIGHTS.md`); it is raised in the cover letter | **to do** at submission |
+| Manuscript-licence wording window (`RIGHTS.md`) | **decided** (2026-11-27): not raised with the editor; the cover letter discloses the public drafts as a preprint; the history stays in `RIGHTS.md` |
 | Remedy for the DINOv3 licence copy on `research/axisforge-phase6-fortis-r` | **to authorise** (or decline) |
 | Archival release (Zenodo or DOI) | **not created**; optional; needs authorisation |
 | Authorisation to submit | **to give** |
