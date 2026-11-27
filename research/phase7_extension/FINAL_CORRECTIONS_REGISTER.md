@@ -244,6 +244,37 @@ To keep 16 pages, text that repeated a table, Online Resource 1 or another secti
   - The negative-transfer sentence in the fallback paragraph was removed; the Introduction states it.
 - **Conclusion.** The first sentence was condensed.
 
+## K. Figure quality control (27 November 2026)
+
+All eight figures were checked with a script and by eye, at 300 dpi and inside the compiled documents.
+
+**Checks.**
+
+- nothing touches the canvas edge;
+- fonts are embedded;
+- the printed type size is about right;
+- the thinnest stroked line is at least 0.3 pt;
+- each figure fits its column or text width;
+- no label collides with another or with data.
+
+**Article figures.**
+
+- Grid and tick lines of Fig. 2 were 0.2 pt and are now 0.4 pt.
+- A 1.5-pt border was added to both figures.
+
+**Online Resource 1 figures** (`tools/research/phase7/make_figures.py`, regenerated from the same results):
+
+| Figure | Problem | Fix |
+|---|---|---|
+| S1 | Note "value used in Phases VI-VII" (internal term), crowding the x-axis label; legend close to the data | Note above the panels, "torsion used for all main results (0.005 m)"; legend in the empty corner of the left panel |
+| S2 | Right panel in proportions while the text uses percentage points; two ticks only | Percentage points, ticks at −20, −10, 0, 10; left tick labels rotated 45° |
+| S3 | Subtitle "316 parts" (N_F is over the 239 with a viable candidate); "N_F" printed with an underscore | "239 parts with a viable candidate"; $N_F$ typeset; included at the full text width |
+| S4 | Type about 6.7 pt as included | Included at 0.75 of the text width (about 7.5 pt) |
+| S6 | Tick labels 0.70 and 0.80 overlapped; the P3 value touched the 1.25 margin line; difference in proportions | Tick 0.70 removed; P3 value written left of its interval; percentage points with a −5 margin line |
+| all | DejaVu Sans; drawn wider than included | Liberation Sans (metrically Arial), each drawn at its included width so the type prints at 7–8 pt |
+
+No value changed. Online Resource 1 now has 12 pages.
+
 ## P2 statistical audit (section 11)
 
 Recomputed from `confirmation_orders.json` and `confirmation_trials.json.gz`

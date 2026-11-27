@@ -19,7 +19,7 @@
 | `code_availability.md`, `data_availability.md` | Availability statements (full versions of the declarations) |
 | `submission_checklist.md`, `reproducibility_checklist.md`, `reviewer_response_template.md`, `JOURNAL_REQUIREMENTS_VERIFIED.md` | Checklists, relayed journal requirements, template |
 | `RIGHTS.md` | Rights in the manuscript: **not** under Apache-2.0; all rights reserved pending publication |
-| `manuscript.pdf`, `supplementary.pdf`, `manuscript_anonymous.pdf`, `supplementary_anonymous.pdf` | Compiled from these sources (16, 11, 16 and 11 pages) |
+| `manuscript.pdf`, `supplementary.pdf`, `manuscript_anonymous.pdf`, `supplementary_anonymous.pdf` | Compiled from these sources (16, 12, 16 and 12 pages) |
 
 ## Template
 

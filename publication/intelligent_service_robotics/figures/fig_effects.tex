@@ -2,7 +2,7 @@
 %% results by tools/research/phase7_extension/make_figures_x.py; nothing here is typed by hand except the margins
 %% fixed by the protocols (N_F ratio 1.25, robustness -5 points, load tolerance -10 points).
 %% Built at the column width of the template (76 mm), Helvetica 8 pt.
-\documentclass[border=0.5pt]{standalone}
+\documentclass[border=1.5pt]{standalone}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{helvet}
@@ -19,7 +19,9 @@
   eff/.style={scale only axis, width=44mm, height=18mm, ymin=0.45, ymax=3.55, ytick={1,2,3},
     major y tick style={draw=none}, yticklabel style={align=right, text width=20mm, inner sep=1.5pt},
     tick label style={font=\sansmath\fontsize{8}{9}\selectfont}, label style={font=\sansmath\fontsize{8}{9}\selectfont},
-    axis line style={black!70}, xmajorgrids, grid style={black!12}, clip=false, xlabel style={yshift=2pt}},
+    axis line style={black!70, line width=0.4pt}, xmajorgrids, grid style={black!12, line width=0.4pt}, clip=false,
+    every tick/.style={black!70, line width=0.4pt}, every minor tick/.style={black!70, line width=0.4pt},
+    xlabel style={yshift=2pt}},
   c1/.style={only marks, mark=*, mark size=1.7pt, color=first, mark options={fill=first},
     error bars/.cd, x dir=both, x explicit, error bar style={line width=0.9pt, color=first}, error mark=none},
   c2/.style={only marks, mark=square*, mark size=1.5pt, color=second, mark options={fill=second},

@@ -11,7 +11,7 @@ recorded as information from the official source, relayed. They were not verifie
 
 | Requirement (verified by ChatGPT on 2026-11-26 and relayed) | How the submission meets it | Status |
 |---|---|---|
-| At most **16 pages**, everything included | `manuscript.pdf`: 16 pages, figures, tables and references included; secondary material in the supplement (11 pages) | met |
+| At most **16 pages**, everything included | `manuscript.pdf`: 16 pages, figures, tables and references included; secondary material in the supplement (12 pages) | met |
 | Official Springer Nature LaTeX template; `iicol` recommended | `sn-jnl` with `[pdflatex,sn-mathphys-num,iicol]`; no margin or font changes | met |
 | Editable sources plus PDF | `.tex`, `.bib`, tables and figures in this folder; `manuscript.pdf`, `supplementary.pdf` | met |
 | Abstract of 150–250 words | 235 words (counted from the PDF text) | met |

@@ -9,7 +9,7 @@ payment has been made, and none will be (the author declined a Zenodo deposit).
 |---|---|
 | Template | Springer Nature LaTeX template (`sn-jnl`, `sn-mathphys-num`), option `iicol`, margins and fonts unchanged. The class and `.bst` come from Springer's template package and are not redistributed. The class's `\orcidlogo` is redefined to print the ORCID iD as text, because its logo file is not among the files used (`README.md`) |
 | Length | `manuscript.pdf` and `manuscript_anonymous.pdf`: **16 pages** each, figures, tables and references included (limit 16). Two figures in the article (Fig. 1 overview, Fig. 2 confirmatory effects); six more in Online Resource 1 |
-| Online Resource 1 | `supplementary.pdf` (upload as `ESM_1.pdf`), 11 pages, with its own reference list; cited in the article as "Online Resource 1"; its heading gives the title and the journal. Double-blind copy: `supplementary_anonymous.pdf` |
+| Online Resource 1 | `supplementary.pdf` (upload as `ESM_1.pdf`), 12 pages, with its own reference list; cited in the article as "Online Resource 1"; its heading gives the title and the journal. Double-blind copy: `supplementary_anonymous.pdf` |
 | Title page | name; affiliation "Independent Researcher, Zaragoza, Spain"; corresponding author; e-mail eduperez2000g@gmail.com; ORCID 0009-0007-0303-8839 (linked) |
 | Abstract | 235 words (limit 150–250); no undefined abbreviations |
 | Keywords | 6: grasp planning, parallel-jaw grippers, candidate ordering, feasibility prediction, dynamic robustness, confirmatory evaluation |

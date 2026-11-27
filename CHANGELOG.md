@@ -50,6 +50,13 @@ found by checking the text against the results, the code and the protocols, amon
 - the denominators of Table S1;
 - typographic minus signs in the generated numbers.
 
+**Figure quality control (2026-11-27).**
+
+- All eight figures were checked: margins, fonts, type size, line width, fit and collisions.
+- Fixes: thin lines in Fig. 2; label collisions in S6; jargon and spacing in S1; units in S2 and S6; the
+  denominator in S3; type size in S4; one font (Liberation Sans) in the supplementary figures.
+- Details are in `FINAL_CORRECTIONS_REGISTER.md`, section K.
+
 **Figures in the article (2026-11-27, at the author's request).** Fig. 1 (method overview, TikZ) and Fig. 2
 (confirmatory effects of both confirmations, pgfplots, data from `make_figures_x.py`). Helvetica 8 pt at the column
 width. Repeated text was shortened to keep 16 pages (`FINAL_CORRECTIONS_REGISTER.md`, section J).
