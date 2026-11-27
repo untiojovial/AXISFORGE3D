@@ -1,7 +1,7 @@
 # Disclosure of the use of generative AI tools
 
-**Draft for the author to review, edit and confirm.** It must match what actually happened. The full record,
-including commit counts per system, is in the repository's `AI_USAGE.md`.
+This disclosure matches what is documented in the repository. The full record, with commit counts per system, is in
+the repository's `AI_USAGE.md`. The base text of the declaration was provided by the author on 27 November 2026.
 
 ## Journal policy
 
@@ -9,68 +9,55 @@ As verified by ChatGPT and relayed by the author (`JOURNAL_REQUIREMENTS_VERIFIED
 
 - language models cannot be authors;
 - substantive use of a large language model must be documented in the Methods section and declared;
-- the copy-editing exception does not cover this project.
+- the exception for AI-assisted copy editing does not apply, because the use here was substantive.
 
-## Tools
+## Roles
 
-### Claude Code (Anthropic)
+| Who | Role |
+|---|---|
+| **Eduardo Pérez González (human author)** | Directed the research. Defined and approved the scientific objectives. Selected and authorised the methodologies. Supervised the development. Carried out a human review (26 November 2026). Took the final decisions. Holds the scientific and editorial responsibility |
+| **Claude Code (Anthropic)** | Programming assistance and technical implementation; running the experiments; automating the simulations; assistance with the statistical analysis; generating documentation; assistance with scientific writing, including the literature search and its verification |
+| **ChatGPT (OpenAI)** | Technical and methodological assistance; literature consultation; questions about editorial requirements and licences; review and proposals for improvement; support for the critical evaluation of the work |
+| **Codex (OpenAI)** | 3 commits on the AxisForgeBO Bayesian-optimisation library (2026-11-25), confined to that library. No documented contribution to the robotics study |
 
-An agentic coding assistant, run in the claude.ai cloud environment, from 2026-11-12 to 2026-11-26. Its use
-was substantial:
+The AI tools did not make decisions on their own, did not direct the research and are not authors. Their use was
+technical and scientific assistance under human supervision. It was substantive, and it is not presented as language
+editing.
 
-- **Implementation.**
-  - the Rust planner's native learned ordering, model export and timing;
-  - the Python research tools and tests.
-- **Experiments.** All Phase IV–VII and extension runs: planner runs, catalogues, MuJoCo simulations, model
-  training, GPD scoring, timing, and both confirmations.
-- **Analysis.** Statistics, audits and power analyses.
-- **Writing.** Protocols, audits, registers and the manuscript. Tables and figures are generated from stored
-  results by scripts.
-- **References.** Checked against primary sources where they were reachable; unverifiable references were
-  not used.
+## Declaration (as in the manuscript)
 
-### ChatGPT (OpenAI)
+> The author directed the research, approved the experimental methodologies, made the final scientific decisions, and
+> conducted a human review of the work. Generative AI tools were used substantially under the author's supervision:
+> Claude Code (Anthropic) for software implementation, execution of the simulations and experiments, assistance with
+> statistical analysis, documentation and manuscript drafting; ChatGPT (OpenAI) for methodological and technical
+> consultation, literature consultation, questions on editorial requirements and licences, and critical review with
+> proposals for improvement. Codex (OpenAI) contributed only to a separate Bayesian-optimisation library in the same
+> repository, which the method of this article does not use. No figure was produced by a generative image model. The
+> author retains full responsibility for the scientific content, conclusions, and final submission. No AI system is
+> listed as an author.
 
-Used by the author for:
+**How the base text was adapted.** The author's base text was kept. Three sentences were added, each one a fact
+documented in the repository:
 
-- ideas;
-- experimental design and review of the instructions given to Claude Code;
-- review of results;
-- detection of methodological problems;
-- statistical proposals;
-- literature and editorial review;
-- licence review, including reading the ISR guidelines and official licence sources.
+- the sentence on Codex;
+- the sentence on images;
+- the itemised split between Claude Code and ChatGPT.
 
-### Codex (OpenAI)
+## Human review
 
-3 commits on the AxisForgeBO library (2026-11-25), which the article's method does not use. **[Author:
-confirm whether it contributed to the grasping study.]**
-
-## What the AI tools did not do
-
-- They are not authors.
-- They cannot take responsibility for the work.
-- The research questions and every external action (licences, publication decisions) come from the author's
-  instructions.
-
-## What remains with the author
-
-The author must still:
-
-- review every result against the repository;
-- decide the final wording;
-- confirm the statement of responsibility;
-- decide whether to submit.
-
-**None of this has been recorded as done.**
+The author's review of 26 November 2026 is recorded in `research/phase7_extension/HUMAN_REVIEW_RECORD.md`, with the
+limits of what it covers. Work produced after that date needs the author's approval before submission, for example
+the Optuna exploratory analysis and the final literature review.
 
 ## Safeguards against AI-induced errors
 
-- **Numbers.** Every number in the manuscript is a macro generated from result files
-  (`tools/research/phase7/make_tables.py`, `tools/research/phase7_extension/make_tables_x.py`). Figures are
-  generated by `make_figures.py`, and nothing was edited by hand.
-- **Frozen confirmations.** The protocols, models, analysis code and, for the second confirmation, the
-  compiled planner binary were frozen in Git with SHA-256 digests before the test objects were opened
-  (`research/phase7/PHASE7_MODEL_FREEZE.json`, `research/phase7_extension/PHASE7X_FREEZE.json`). These are
-  digests, not signatures, and not a registry preregistration.
-- **Internal reviews.** They were written by AI systems. They are self-checks, **not** independent peer review.
+- **Numbers.** Every number in the manuscript is a macro generated from result files (`make_tables.py`,
+  `make_tables_x.py`). Figures are generated by `make_figures.py`; nothing was edited by hand.
+- **Frozen confirmations.** The protocols, models and analysis code were frozen in Git with SHA-256 digests before
+  the test objects were opened; for the second confirmation the freeze also covers the compiled planner binary
+  (`research/phase7/PHASE7_MODEL_FREEZE.json`, `research/phase7_extension/PHASE7X_FREEZE.json`). These are digests,
+  not signatures, and not a registry preregistration.
+- **References.** Every reference was matched against a primary record (Crossref, arXiv, the publisher's or the
+  repository's page). Preprints are marked as such (`research/phase7_extension/REFERENCES_VERIFIED_FINAL.json`).
+- **Reviews.** The internal reviews were written by AI systems and are self-checks. The author's review is the
+  author's own. Neither is independent peer review.

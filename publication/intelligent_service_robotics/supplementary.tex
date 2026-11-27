@@ -7,8 +7,8 @@
 \renewcommand{\thetable}{S\arabic{table}}
 \begin{document}
 \title{Supplementary material: Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded Fallback}
-\author{\fnm{Eduardo} \sur{P\'erez Gonz\'alez}}
-\affil{\orgname{Independent Researcher}, \orgaddress{\city{Zaragoza}, \country{Spain}}}
+\author*{\fnm{Eduardo} \sur{P\'erez Gonz\'alez}}\email{eduperez2000g@gmail.com}
+\affil*{\orgname{Independent Researcher}, \orgaddress{\city{Zaragoza}, \country{Spain}}}
 \abstract{Protocols, deviations and execution records of both confirmations; physics sensitivity and the articulated-arm replication; the representation benchmark; secondary confirmatory results; the statistical audit of the first confirmation; the native implementation and its benchmark; GPD details; exploratory analyses that support no claim. Source files: research/phase7 and research/phase7\_extension of the project repository.}
 \maketitle
 
@@ -76,6 +76,13 @@ Gradient boosting (L0), logistic regression and a three-branch MLP (candidate, g
 \caption{First confirmation: share of first viable grasps that are robust and load tolerant (v3, torsion 0.005~m) for every method.}\label{fig:s-rates}
 \end{figure}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_conf_primary.pdf}
+\caption{First confirmation: primary confirmatory contrasts on EGAD (moved from the article for length). Left: $N_F$ ratios (P1: Joint vs original planner; P3: Joint vs M1, dashed line = non-inferiority margin 1.25). Right: robustness difference Joint$-$M0 (dashed line = margin $-5$ percentage points).}\label{fig:s-conf}
+\end{figure}
+
+
 \section{Native implementation}
 
 The tree ensembles are exported to JSON with every threshold and leaf value stored as its 64-bit pattern, and the planner evaluates them on its own candidates with the same 19 features. Equivalence: features and probabilities identical to scikit-learn over \natCandidates{} candidates of \natObjects{} objects; first grasp and $N_F$ identical on \natDecisionObjects{} viable objects for the historical models and on \natXDecisionObjects{} for Joint-multi. The model file is \modelMB~MB; the learned stage (bounds, features, inference, ordering) takes \benchLearnedMs~ms per object, model loading \benchModelLoadMs~ms. Peak memory (VmHWM) is \memMzeroMiB~MiB for the original planner and \memExtraMiB~MiB more with the learned models.
@@ -96,6 +103,16 @@ GPD (official code, unmodified, CPU) scores each catalogue candidate converted t
 
 Rates of every method on the \nxViable{} viable objects: $N_F$ \nxNFMzero{} (M0), \nxNFMone{} (M1), \nxNFJhist{} (Joint), \nxNFX{} (X), \nxNFGPD{} (GPD+gate); robust \nxRobMzero, \nxRobMone, \nxRobJhist, \nxRobX, \nxRobGPD\%; all three torsions \nxAllMzero, \nxAllMone, \nxAllJhist, \nxAllX\%; load tolerant \nxLoadMzero, \nxLoadMone, \nxLoadJhist, \nxLoadX, \nxLoadGPD\%. Timing: median cold time \nxTimeMzero~s (M0) and \nxTimeX~s (X), 95th percentiles \nxTimeMzeroPninetyfive{} and \nxTimeXPninetyfive~s; median load average before each object \nxLoadBefore. Full per-object outputs, the freeze record and the stage logs are in research/phase7\_extension.
 
+\section{Related work: extended comparison}
+
+Table~\ref{tab:s-sota} extends Table~1 of the article. Each cell records what the version of the paper we read reports; the section or table it rests on is listed in the repository file \texttt{research/phase7\_extension/STATE\_OF\_THE\_ART\_MATRIX.md}. Symbols: \checkmark{} reported; $\circ$ partly (for example a ranking by an analytic metric rather than a learned one, robustness to pose noise rather than dynamic robustness, a next-best fallback without a bound, or planner calls instead of time); -- not reported in the version read, which is not evidence that the capability is absent; ? not verified in this review; n/a not applicable. For this study, the bound (Guar) is marked $\circ$ because it concerns the number of examined candidates only. ``Development only'' covers the components studied during development and not used by the final method: frozen foundation-model features (evaluated, no gain) and deep kernel learning and ADKF-IFT (studied through an ordering-ceiling analysis, not run). Bayesian optimisation belongs to the author's earlier thesis and is not part of this study. No number in this table is comparable across rows. Columns: Ord, learned order over a candidate set; Feas, learned feasibility; Dyn, physical or dynamic robustness in the ranking; MFr, several friction values; FB, fallback; Guar, mathematical guarantee; BO, Bayesian optimisation; DKL, deep kernel learning; Trf, transfer across objects, tasks or grippers; Time, time including the learned inference; Unseen, evaluation on objects not used for design; Sim, simulation; Real, real robot; Code, public code or data.
+
+\begin{table}[h]
+\caption{Extended comparison with related work. $^\dagger$ preprint, not peer reviewed.}\label{tab:s-sota}
+\centering\scriptsize
+\input{tables/tab_sota_full}
+\end{table}
+
 \section{Exploratory analyses that support no claim}
 
 \textbf{Hyperparameter search.} An Optuna search over the MLP families of the representation benchmark (reduced budget: 20 trials per family and outer fold) was run on development data only and was not used for any selection or confirmatory claim; its results are in \texttt{optuna\_mlp.json}.
@@ -103,5 +120,7 @@ Rates of every method on the \nxViable{} viable objects: $N_F$ \nxNFMzero{} (M0)
 \textbf{Articulated replication, second version.} An updated articulated-arm run on the development first grasps is reported in \texttt{articulated2\_development.json}; it is not calibrated and does not change any hypothesis.
 
 \textbf{Deep kernel learning and adaptation.} Given the ordering ceiling above, deep kernel learning, ADKF-IFT and few-shot adaptation were not run; the AxisForgeBO modules remain in the repository for other uses.
+
+\bibliography{references}
 
 \end{document}

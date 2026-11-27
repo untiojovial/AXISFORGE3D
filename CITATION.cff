@@ -5,7 +5,9 @@ type: software
 authors:
   - family-names: "Pérez González"
     given-names: "Eduardo"
-    # ORCID and affiliation: to be provided by the author (not invented here)
+    affiliation: "Independent Researcher, Zaragoza, Spain"
+    email: "eduperez2000g@gmail.com"
+    orcid: "https://orcid.org/0009-0007-0303-8839"
 license: Apache-2.0
 repository-code: "https://github.com/untiojovial/Colegio-Rumareda"
 version: "0.2.0"
@@ -26,7 +28,13 @@ references:
     authors:
       - family-names: "Pérez González"
         given-names: "Eduardo"
+        orcid: "https://orcid.org/0009-0007-0303-8839"
     institution:
       name: "Universidad de Zaragoza"
     year: 2025
-    notes: "Master's thesis (TFM) that preceded this work; title and year as provided by the author, not verified here."
+    thesis-type: "Master's thesis"
+    identifiers:
+      - type: other
+        value: "TAZ-TFM-2025-047"
+    url: "https://zaguan.unizar.es/record/152263"
+    notes: "Master's thesis that preceded this independent work; record read from the Zaguan repository on 2026-11-27."

@@ -1,4 +1,4 @@
-# Code availability (draft)
+# Code availability
 
 **Repository.**
 
@@ -10,8 +10,8 @@
   - the research tools and analysis scripts (`tools/research/phase7/`, `tools/research/phase7_extension/`,
     `research_grasping/`);
   - the tests.
-- **Visibility.** Whether the repository is public or private must be checked by the author before
-  submission.
+- **Visibility.** Public: the GitHub repository listing reported `"visibility": "public"` on 2026-11-27.
+- **URL.** https://github.com/untiojovial/Colegio-Rumareda
 
 **Licence.**
 
@@ -27,9 +27,16 @@ authorisation.
   `tools/package/build_package.py`. It comes with inclusion and exclusion manifests, and draft Zenodo
   metadata is in `research/phase7_extension/package/zenodo_metadata.json`.
 - The commits that matter are:
-  - the Phase VII freeze, `de22a8a`;
-  - the extension freeze, `b478289` (`PHASE7X_FREEZE.json`);
-  - the final commit of the submission.
+
+  | Version | Commit |
+  |---|---|
+  | Phase VII development design | `8e470c0` |
+  | First confirmation: freeze | `de22a8a` |
+  | First confirmation: results | `5a821dc` |
+  | Second confirmation: selection rule | `49eb5bb` |
+  | Second confirmation: freeze, including the planner binary's digest | `b478289` |
+  | Second confirmation: results | `040cde7` |
+  | Final version | the head of `research/axisforge-phase7-final-publication` when the article is submitted; the commit is written into the cover letter at that point |
 
 **What each part reproduces.**
 

@@ -1,0 +1,18 @@
+% Hand-written comparison of the closest works (no result numbers). Source of every cell:
+% research/phase7_extension/STATE_OF_THE_ART_MATRIX.md, which gives the section of each paper read.
+\begin{tabular}{@{}llcccccccc@{}}
+\toprule
+Work & Setting & (a) & (b) & (c) & (d) & (e) & (f) & (g) & (h)\\
+\midrule
+Qin et al.\ 2026 \cite{qin2026planned} & pick-and-place, shared grasps & \checkmark & \checkmark & -- & -- & -- & \checkmark & \checkmark & \checkmark\\
+Liu et al.\ 2025$^\dagger$ \cite{liu2025placement} & grasp--place ranking, one cuboid & \checkmark & \checkmark & -- & -- & -- & $\circ$ & \checkmark & --\\
+Ansari et al.\ 2026$^\dagger$ \cite{ansari2026feasibility} & motion-feasibility classifiers & -- & \checkmark & -- & -- & -- & $\circ$ & \checkmark & --\\
+GraRe 2026$^\dagger$ \cite{yuan2026grare} & re-ranking frozen detectors & \checkmark & -- & $\circ$ & $\circ$ & -- & \checkmark & \checkmark & \checkmark\\
+Matak et al.\ 2026 \cite{matak2026fpte} & generator--evaluator--planner & $\circ$ & -- & $\circ$ & -- & $\circ$ & $\circ$ & \checkmark & \checkmark\\
+GraspGen 2026 \cite{murali2026graspgen} & diffusion generator + discriminator & $\circ$ & -- & $\circ$ & -- & -- & \checkmark & \checkmark & \checkmark\\
+FIRMGrasp 2026$^\dagger$ \cite{enwerem2026firmgrasp} & analytic margin under friction & $\circ$ & -- & \checkmark & \checkmark & $\circ$ & -- & -- & --\\
+MPNet 2021 \cite{qureshi2021mpnet} & learned motion planner & n/a & n/a & n/a & n/a & \checkmark & \checkmark & \checkmark & --\\
+This study & ordering in a complete planner & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & no\\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize $^\dagger$ preprint, not peer reviewed.

@@ -4,12 +4,35 @@
     "upload_type": "software",
     "title": "axisforge3d-research-reproducibility",
     "description": "Research code, frozen protocols, models and per-object results of the AxisForge3D learned grasp-candidate ordering study (Phases V-VII and the Phase VII extension), packaged without DINOv3-derived data, without YCB per-object descriptors or geometry and without the manuscript. MANIFEST_INCLUDED.json and MANIFEST_EXCLUDED.json list every file with its SHA-256, licence and, for exclusions, the reason and the regeneration route.",
-    "creators": [{"name": "Pérez González, Eduardo", "affiliation": "[author to confirm]", "orcid": "[author to provide]"}],
+    "creators": [
+      {
+        "name": "Pérez González, Eduardo",
+        "affiliation": "Independent Researcher, Zaragoza, Spain",
+        "orcid": "0009-0007-0303-8839"
+      }
+    ],
     "license": "Apache-2.0",
     "access_right": "open",
-    "keywords": ["grasp planning", "learned candidate ordering", "simulation", "reproducibility", "robotics"],
-    "notes": "Third-party material keeps its own licence (THIRD_PARTY_NOTICES.md). Simulation results only; no real-robot experiment.",
-    "related_identifiers": [{"identifier": "https://github.com/untiojovial/Colegio-Rumareda", "relation": "isSupplementTo", "scheme": "url"}],
+    "keywords": [
+      "grasp planning",
+      "learned candidate ordering",
+      "simulation",
+      "reproducibility",
+      "robotics"
+    ],
+    "notes": "Third-party material keeps its own licence (THIRD_PARTY_NOTICES.md). Simulation results only; no real-robot experiment. Independent research; no funding; the author declares no competing interests.",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/untiojovial/Colegio-Rumareda",
+        "relation": "isSupplementTo",
+        "scheme": "url"
+      },
+      {
+        "identifier": "https://zaguan.unizar.es/record/152263",
+        "relation": "continues",
+        "scheme": "url"
+      }
+    ],
     "version": "[set at release]"
   }
 }

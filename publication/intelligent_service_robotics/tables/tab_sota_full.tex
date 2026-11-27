@@ -1,0 +1,32 @@
+% Hand-written extended comparison (no result numbers). Each cell and the section of the paper it rests on are in
+% research/phase7_extension/STATE_OF_THE_ART_MATRIX.md.
+\setlength{\tabcolsep}{1.6pt}
+\begin{tabular}{@{}lp{2.4cm}cccccccccccccc@{}}
+\toprule
+Work & Candidates & Ord & Feas & Dyn & MFr & FB & Guar & BO & DKL & Trf & Time & Unseen & Sim & Real & Code\\
+\midrule
+\multicolumn{16}{@{}l}{\emph{Learned feasibility to save planning work}}\\
+Jiang et al.\ 2022 \cite{jiang2022suction} & pixel-wise suction map & $\circ$ & \checkmark & -- & -- & -- & -- & -- & -- & ? & \checkmark & ? & \checkmark & ? & ?\\
+Qin et al.\ 2026 \cite{qin2026planned} & precomputed grasp set & \checkmark & \checkmark & -- & -- & -- & -- & -- & -- & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & ?\\
+Liu et al.\ 2025$^\dagger$ \cite{liu2025placement} & precomputed grasp--place pool & \checkmark & \checkmark & -- & -- & -- & -- & -- & -- & -- & $\circ$ & $\circ$ & \checkmark & -- & ?\\
+Ansari et al.\ 2026$^\dagger$ \cite{ansari2026feasibility} & labelled grasps in scenes & -- & \checkmark & -- & -- & -- & -- & -- & -- & \checkmark & $\circ$ & \checkmark & \checkmark & ? & ?\\
+\multicolumn{16}{@{}l}{\emph{Ranking candidates for quality and robustness}}\\
+GraRe 2026$^\dagger$ \cite{yuan2026grare} & frozen detectors' candidates & \checkmark & -- & -- & $\circ$ & -- & -- & -- & -- & \checkmark & \checkmark & \checkmark & -- & \checkmark & \checkmark\\
+Matak et al.\ 2026 \cite{matak2026fpte} & learned generator & $\circ$ & -- & $\circ$ & -- & $\circ$ & -- & -- & -- & \checkmark & $\circ$ & \checkmark & \checkmark & \checkmark & ?\\
+GraspGen 2026 \cite{murali2026graspgen} & diffusion generator & $\circ$ & -- & $\circ$ & -- & -- & -- & -- & -- & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+FIRMGrasp 2026$^\dagger$ \cite{enwerem2026firmgrasp} & grasp synthesis (hands) & $\circ$ & -- & $\circ$ & \checkmark & -- & \checkmark & -- & -- & -- & -- & ? & \checkmark & -- & ?\\
+\multicolumn{16}{@{}l}{\emph{Fallbacks and guarantees for learned guidance}}\\
+MPNet 2021 \cite{qureshi2021mpnet} & n/a (motion planning) & n/a & n/a & n/a & n/a & \checkmark & \checkmark & -- & -- & \checkmark & \checkmark & \checkmark & \checkmark & ? & ?\\
+PLOI 2021 \cite{silver2021ploi} & n/a (object sets) & n/a & n/a & n/a & n/a & \checkmark & \checkmark & -- & -- & \checkmark & \checkmark & \checkmark & \checkmark & -- & \checkmark\\
+van den Brand et al.\ 2024 \cite{vandenbrand2024dynamic} & n/a (theory) & n/a & n/a & n/a & n/a & \checkmark & \checkmark & n/a & n/a & n/a & n/a & n/a & n/a & n/a & n/a\\
+\multicolumn{16}{@{}l}{\emph{Bayesian optimisation, deep kernels and foundation models}}\\
+Nogueira et al.\ 2016 \cite{nogueira2016unscented} & BO queries & n/a & -- & $\circ$ & -- & -- & -- & \checkmark & -- & -- & ? & ? & \checkmark & -- & ?\\
+Lechuz-Sierra et al.\ 2024 \cite{lechuzsierra2024bo} & BO queries & n/a & -- & $\circ$ & -- & -- & -- & \checkmark & -- & -- & ? & \checkmark & ? & \checkmark & ?\\
+ADKF-IFT 2023 \cite{chen2023adkfift} & n/a (molecules) & n/a & n/a & n/a & n/a & n/a & -- & ? & \checkmark & \checkmark & n/a & \checkmark & n/a & n/a & ?\\
+P\'erez Gonz\'alez 2025 (thesis) \cite{perezgonzalez2025tfm} & BO queries & n/a & -- & ? & -- & -- & -- & \checkmark & \checkmark & \checkmark & ? & ? & \checkmark & -- & --\\
+ORACLE-Grasp 2026 \cite{giuili2026oracle} & image regions & $\circ$ & -- & -- & -- & -- & -- & -- & -- & \checkmark & $\circ$ & \checkmark & -- & ? & ?\\
+\midrule
+This study, final method & fixed planner catalogue & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & $\circ$ & -- & -- & $\circ$ & \checkmark & \checkmark & \checkmark & no & \checkmark\\
+This study, development only & same & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & $\circ$ & -- & $\circ$ & $\circ$ & \checkmark & \checkmark & \checkmark & no & \checkmark\\
+\bottomrule
+\end{tabular}

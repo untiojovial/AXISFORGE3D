@@ -1,6 +1,7 @@
-% Every entry is taken from research/phase7/references_verified.json (checked against publisher,
-% proceedings, arXiv, DBLP or an institutional repository during Phases VI-VII). Do not add an entry
-% that is not in that file.
+% Every entry is taken from a verification register: research/phase7/references_verified.json (Phases VI-VII),
+% research/phase7_extension/references_added.json and research/phase7_extension/REFERENCES_VERIFIED_FINAL.json
+% (final literature review, 2026-11-27: Crossref, arXiv API or the publisher's or repository's record).
+% Do not add an entry that is not in one of these files. Preprints are marked as such in the note field.
 
 @article{bohg2014survey,
   author  = {Bohg, Jeannette and Morales, Antonio and Asfour, Tamim and Kragic, Danica},
@@ -10,7 +11,7 @@
   doi     = {10.1109/TRO.2013.2289018}}
 
 @article{newbury2023review,
-  author  = {Newbury, Rhys and Gu, Morris and Chumbley, Lachlan and Mousavian, Arsalan and Eppner, Clemens and Leitner, J{\"u}rgen and Bohg, Jeannette and Morales, Antonio and Asfour, Tamim and Kragic, Danica and Fox, Dieter and Cosgun, Akansel},
+  author  = {Newbury, Rhys and Gu, Morris and Chumbley, Lachlan and others},
   title   = {Deep Learning Approaches to Grasp Synthesis: A Review},
   journal = {IEEE Transactions on Robotics},
   volume  = {39}, number = {5}, pages = {3994--4015}, year = {2023},
@@ -24,17 +25,18 @@
   doi       = {10.1109/ICRA40945.2020.9197413}}
 
 @inproceedings{akinola2021dynamic,
-  author    = {Akinola, Iretiayo and others},
+  author    = {Akinola, Iretiayo and Xu, Jingxi and Song, Shuran and Allen, Peter K.},
   title     = {Dynamic Grasping with Reachability and Motion Awareness},
   booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  year      = {2021},
-  note      = {arXiv:2103.10562}}
+  pages     = {9422--9429}, year = {2021},
+  doi       = {10.1109/IROS51168.2021.9636057}}
 
-@misc{qin2025planned,
-  author = {Qin, Liang and Wan, Weiwei and Takahashi, Jun and Negishi, Ryo and Matsushita, Masaki and Harada, Kensuke},
-  title  = {Learning from Planned Data to Improve Robotic Pick-and-Place Planning Efficiency},
-  year   = {2025},
-  note   = {arXiv preprint arXiv:2506.15920}}
+@article{qin2026planned,
+  author  = {Qin, Liang and Wan, Weiwei and Takahashi, Jun and Negishi, Ryo and Matsushita, Masaki and Harada, Kensuke},
+  title   = {Learning From Planned Data to Improve Robotic Pick-and-Place Planning Efficiency},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {11}, number = {2}, pages = {2026--2033}, year = {2026},
+  doi     = {10.1109/LRA.2025.3645512}}
 
 @inproceedings{ferrari1992planning,
   author    = {Ferrari, Carlo and Canny, John},
@@ -70,7 +72,7 @@
   doi       = {10.1109/IROS.2016.7759310}}
 
 @inproceedings{mahler2017dexnet2,
-  author    = {Mahler, Jeffrey and Liang, Jacky and Niyaz, Sherdil and Laskey, Michael and Doan, Richard and Liu, Xinyu and Aparicio Ojea, Juan and Goldberg, Ken},
+  author    = {Mahler, Jeffrey and Liang, Jacky and Niyaz, Sherdil and others},
   title     = {Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics},
   booktitle = {Robotics: Science and Systems (RSS)},
   year      = {2017},
@@ -86,7 +88,7 @@
   author    = {Sundermeyer, Martin and Mousavian, Arsalan and Triebel, Rudolph and Fox, Dieter},
   title     = {Contact-{GraspNet}: Efficient 6-{DoF} Grasp Generation in Cluttered Scenes},
   booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
-  year      = {2021},
+  pages     = {13438--13444}, year = {2021},
   doi       = {10.1109/ICRA48506.2021.9561877}}
 
 @inproceedings{fang2020graspnet,
@@ -237,7 +239,7 @@
   pages     = {8026--8037}, year = {2019}}
 
 @inproceedings{downs2022gso,
-  author    = {Downs, Laura and Francis, Anthony and Koenig, Nate and Kinman, Brandon and Hickman, Ryan and Reymann, Krista and McHugh, Thomas B. and Vanhoucke, Vincent},
+  author    = {Downs, Laura and Francis, Anthony and Koenig, Nate and others},
   title     = {Google Scanned Objects: A High-Quality Dataset of {3D} Scanned Household Items},
   booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
   year      = {2022},
@@ -279,8 +281,10 @@
   author = {P{\'e}rez Gonz{\'a}lez, Eduardo},
   title  = {Robot grasping with {Bayesian} optimization informed with foundational models},
   school = {Universidad de Zaragoza},
+  type   = {Master's thesis},
   year   = {2025},
-  note   = {TAZ-TFM-2025-047}}
+  note   = {TAZ-TFM-2025-047},
+  url    = {https://zaguan.unizar.es/record/152263}}
 
 @article{tango1998,
   author  = {Tango, Toshiro},
@@ -301,3 +305,225 @@
   pages   = {2635--2650},
   year    = {1998},
   doi     = {10.1002/(SICI)1097-0258(19981130)17:22<2635::AID-SIM954>3.0.CO;2-C}}
+
+
+% ---- Final literature review (2026-11-27); register: research/phase7_extension/REFERENCES_VERIFIED_FINAL.json ----
+
+@article{wells2019feasibility,
+  author  = {Wells, Andrew M. and Dantam, Neil T. and Shrivastava, Anshumali and Kavraki, Lydia E.},
+  title   = {Learning Feasibility for Task and Motion Planning in Tabletop Environments},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {4}, number = {2}, pages = {1255--1262}, year = {2019},
+  doi     = {10.1109/LRA.2019.2894861}}
+
+@inproceedings{driess2020dvh,
+  author    = {Driess, Danny and Oguz, Ozgur and Ha, Jung-Su and Toussaint, Marc},
+  title     = {Deep Visual Heuristics: Learning Feasibility of Mixed-Integer Programs for Manipulation Planning},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {9563--9569}, year = {2020},
+  doi       = {10.1109/ICRA40945.2020.9197291}}
+
+@inproceedings{lou2021carp,
+  author    = {Lou, Xibai and Yang, Yang and Choi, Changhyun},
+  title     = {Collision-Aware Target-Driven Object Grasping in Constrained Environments},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {6364--6370}, year = {2021},
+  doi       = {10.1109/ICRA48506.2021.9561473}}
+
+@article{shanthi2024pickplace,
+  author  = {Shanthi, Mohanraj Devendran and Hermans, Tucker},
+  title   = {Pick and Place Planning is Better Than Pick Planning Then Place Planning},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {9}, number = {3}, pages = {2790--2797}, year = {2024},
+  doi     = {10.1109/LRA.2024.3360892}}
+
+@misc{liu2025placement,
+  author = {Liu, Tianyuan and Dazeley, Richard and Champion, Benjamin and Cosgun, Akan},
+  title  = {Optimizing Robotic Placement via Grasp-Dependent Feasibility Prediction},
+  year   = {2025},
+  note   = {arXiv preprint arXiv:2512.18922 (not peer reviewed)}}
+
+@misc{ansari2026feasibility,
+  author = {Ansari, Sajid and Arthi and Varma, Girish and Thomas, Antony},
+  title  = {Learning Motion Feasibility from Point Clouds in Cluttered Environments},
+  year   = {2026},
+  note   = {arXiv preprint arXiv:2606.26700 (not peer reviewed)}}
+
+@article{jiang2022suction,
+  author  = {Jiang, Ping and Oaki, Junji and Ishihara, Yoshiyuki and others},
+  title   = {Learning Suction Graspability Considering Grasp Quality and Robot Reachability for Bin-Picking},
+  journal = {Frontiers in Neurorobotics},
+  volume  = {16}, pages = {806898}, year = {2022},
+  doi     = {10.3389/fnbot.2022.806898}}
+
+@article{matak2026fpte,
+  author  = {Matak, Martin and Shanthi, Mohanraj Devendran and Van Wyk, Karl and Hermans, Tucker},
+  title   = {First Plan Then Evaluate: Multi-Target Planning With Post-Planning Success Evaluation Improves Learning-Based Grasping Pipelines},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {11}, number = {9}, pages = {10911--10918}, year = {2026},
+  doi     = {10.1109/LRA.2026.3713725}}
+
+@misc{yuan2026grare,
+  author = {Yuan, Jibao and Zhao, Yuhui and Lv, Yinzhen and Xu, Chao and Li, Shun and Deng, Chenxi and Chen, Shaofei},
+  title  = {{GraRe}: Grasp Candidate Re-Ranking for Frozen 6-{DoF} Grasp Detectors},
+  year   = {2026},
+  note   = {arXiv preprint arXiv:2608.00946 (not peer reviewed)}}
+
+@inproceedings{murali2026graspgen,
+  author    = {Murali, Adithyavairavan and Sundaralingam, Balakumar and Chao, Yu-Wei and others},
+  title     = {{GraspGen}: A Diffusion-based Framework for 6-{DOF} Grasping with On-Generator Training},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {16704--16711}, year = {2026},
+  doi       = {10.1109/ICRA57385.2026.11696426}}
+
+@article{giuili2026oracle,
+  author  = {Giuili, Avihai and Atari, Rotem and Sintov, Avishai},
+  title   = {{ORACLE-Grasp}: Zero-Shot Affordance-Aligned Robotic Grasping Using Large Multimodal Models},
+  journal = {Intelligent Service Robotics},
+  volume  = {19}, number = {3}, pages = {46}, year = {2026},
+  doi     = {10.1007/s11370-026-00707-4}}
+
+@inproceedings{ichter2018sampling,
+  author    = {Ichter, Brian and Harrison, James and Pavone, Marco},
+  title     = {Learning Sampling Distributions for Robot Motion Planning},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {7087--7094}, year = {2018},
+  doi       = {10.1109/ICRA.2018.8460730}}
+
+@article{qureshi2021mpnet,
+  author  = {Qureshi, Ahmed Hussain and Miao, Yinglong and Simeonov, Anthony and Yip, Michael C.},
+  title   = {Motion Planning Networks: Bridging the Gap Between Learning-Based and Classical Motion Planners},
+  journal = {IEEE Transactions on Robotics},
+  volume  = {37}, number = {1}, pages = {48--66}, year = {2021},
+  doi     = {10.1109/TRO.2020.3006716}}
+
+@inproceedings{silver2021ploi,
+  author    = {Silver, Tom and Chitnis, Rohan and Curtis, Aidan and Tenenbaum, Joshua B. and Lozano-P{\'e}rez, Tom{\'a}s and Kaelbling, Leslie Pack},
+  title     = {Planning with Learned Object Importance in Large Problem Instances using Graph Neural Networks},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {35}, number = {13}, pages = {11962--11971}, year = {2021},
+  doi       = {10.1609/aaai.v35i13.17421}}
+
+@inproceedings{orseau2021phs,
+  author    = {Orseau, Laurent and Lelis, Levi H. S.},
+  title     = {Policy-Guided Heuristic Search with Guarantees},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {35}, number = {14}, pages = {12382--12390}, year = {2021},
+  doi       = {10.1609/aaai.v35i14.17469}}
+
+@article{mitzenmacher2022predictions,
+  author  = {Mitzenmacher, Michael and Vassilvitskii, Sergei},
+  title   = {Algorithms with Predictions},
+  journal = {Communications of the ACM},
+  volume  = {65}, number = {7}, pages = {33--35}, year = {2022},
+  doi     = {10.1145/3528087}}
+
+@inproceedings{vandenbrand2024dynamic,
+  author    = {van den Brand, Jan and Forster, Sebastian and Nazari, Yasamin and Polak, Adam},
+  title     = {On Dynamic Graph Algorithms with Predictions},
+  booktitle = {Proceedings of the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},
+  pages     = {3534--3557}, year = {2024},
+  doi       = {10.1137/1.9781611977912.126}}
+
+@article{gomes2001portfolios,
+  author  = {Gomes, Carla P. and Selman, Bart},
+  title   = {Algorithm portfolios},
+  journal = {Artificial Intelligence},
+  volume  = {126}, number = {1--2}, pages = {43--62}, year = {2001},
+  doi     = {10.1016/S0004-3702(00)00081-3}}
+
+@article{luby1993speedup,
+  author  = {Luby, Michael and Sinclair, Alistair and Zuckerman, David},
+  title   = {Optimal speedup of {Las Vegas} algorithms},
+  journal = {Information Processing Letters},
+  volume  = {47}, number = {4}, pages = {173--180}, year = {1993},
+  doi     = {10.1016/0020-0190(93)90029-9}}
+
+@inproceedings{eppner2021acronym,
+  author    = {Eppner, Clemens and Mousavian, Arsalan and Fox, Dieter},
+  title     = {{ACRONYM}: A Large-Scale Grasp Dataset Based on Simulation},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {6222--6227}, year = {2021},
+  doi       = {10.1109/ICRA48506.2021.9560844}}
+
+@misc{enwerem2026firmgrasp,
+  author = {Enwerem, Clinton and Baras, John S. and Belta, Calin},
+  title  = {{FIRMGrasp}: A Friction-Informed Risk Margin for Robust Grasp Synthesis},
+  year   = {2026},
+  note   = {arXiv preprint arXiv:2607.25049 (not peer reviewed)}}
+
+@inproceedings{noseworthy2024amortized,
+  author    = {Noseworthy, Michael and Shaw, Seiji and Kessens, Chad C. and Roy, Nicholas},
+  title     = {Amortized Inference for Efficient Grasp Model Adaptation},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {1886--1892}, year = {2024},
+  doi       = {10.1109/ICRA57147.2024.10610789}}
+
+@article{firoozi2025foundation,
+  author  = {Firoozi, Roya and Tucker, Johnathan and Tian, Stephen and others},
+  title   = {Foundation models in robotics: Applications, challenges, and the future},
+  journal = {The International Journal of Robotics Research},
+  volume  = {44}, number = {5}, pages = {701--739}, year = {2025},
+  doi     = {10.1177/02783649241281508}}
+
+@inproceedings{shen2023f3rm,
+  author    = {Shen, William and Yang, Ge and Yu, Alan and Wong, Jansen and Kaelbling, Leslie Pack and Isola, Phillip},
+  title     = {Distilled Feature Fields Enable Few-Shot Language-Guided Manipulation},
+  booktitle = {Proceedings of the 7th Conference on Robot Learning (CoRL)},
+  series    = {PMLR}, volume = {229}, year = {2023},
+  note      = {arXiv:2308.07931}}
+
+@inproceedings{rashid2023lerftogo,
+  author    = {Rashid, Adam and Sharma, Satvik and Kim, Chung Min and Kerr, Justin and Chen, Lawrence Yunliang and Kanazawa, Angjoo and Goldberg, Ken},
+  title     = {Language Embedded Radiance Fields for Zero-Shot Task-Oriented Grasping},
+  booktitle = {Proceedings of the 7th Conference on Robot Learning (CoRL)},
+  series    = {PMLR}, volume = {229}, year = {2023},
+  note      = {arXiv:2309.07970}}
+
+@inproceedings{dipalo2024dinobot,
+  author    = {Di Palo, Norman and Johns, Edward},
+  title     = {{DINOBot}: Robot Manipulation via Retrieval and Alignment with Vision Foundation Models},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {2798--2805}, year = {2024},
+  doi       = {10.1109/ICRA57147.2024.10610923}}
+
+@inproceedings{castanheira2018finding,
+  author    = {Castanheira, Joao and Vicente, Pedro and Martinez-Cantin, Ruben and Jamone, Lorenzo and Bernardino, Alexandre},
+  title     = {Finding safe {3D} robot grasps through efficient haptic exploration with unscented {Bayesian} optimization and collision penalty},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages     = {1643--1648}, year = {2018},
+  doi       = {10.1109/IROS.2018.8594009}}
+
+@article{lechuzsierra2024bo,
+  author  = {Lechuz-Sierra, Juan G. and Martin, Ana Elvira H. and Sundaram, Ashok M. and Martinez-Cantin, Ruben and Roa, M{\'a}ximo A.},
+  title   = {{Bayesian} Optimization for Robust Robotic Grasping Using a Sensorized Compliant Hand},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {9}, number = {11}, pages = {10503--10510}, year = {2024},
+  doi     = {10.1109/LRA.2024.3475914}}
+
+@inproceedings{wistuba2021fsbo,
+  author    = {Wistuba, Martin and Grabocka, Josif},
+  title     = {Few-Shot {Bayesian} Optimization with Deep Kernel Surrogates},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2021},
+  note      = {arXiv:2101.07667}}
+
+@misc{kressgazit2024empirical,
+  author = {Kress-Gazit, Hadas and Hashimoto, Kunimatsu and Kuppuswamy, Naveen and others},
+  title  = {Robot Learning as an Empirical Science: Best Practices for Policy Evaluation},
+  year   = {2024},
+  note   = {arXiv preprint arXiv:2409.09491 (not peer reviewed)}}
+
+@inproceedings{wang2019negative,
+  author    = {Wang, Zirui and Dai, Zihang and P{\'o}czos, Barnab{\'a}s and Carbonell, Jaime},
+  title     = {Characterizing and Avoiding Negative Transfer},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages     = {11285--11294}, year = {2019},
+  doi       = {10.1109/CVPR.2019.01155}}
+
+@article{zhang2023negative,
+  author  = {Zhang, Wen and Deng, Lingfei and Zhang, Lei and Wu, Dongrui},
+  title   = {A Survey on Negative Transfer},
+  journal = {IEEE/CAA Journal of Automatica Sinica},
+  volume  = {10}, number = {2}, pages = {305--329}, year = {2023},
+  doi     = {10.1109/JAS.2022.106004}}
