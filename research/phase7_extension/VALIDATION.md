@@ -72,7 +72,7 @@ concerns examined candidates only.
 
 | Check | Result |
 |---|---|
-| `tools/package/verify_package.py` on the built package: DINOv3 arrays, YCB rows, YCB geometry, manuscript files, hashes, unlisted files | 895 files, no findings |
+| `tools/package/verify_package.py` on the built package: DINOv3 arrays, YCB rows, YCB geometry, manuscript files, hashes, unlisted files | 895 files, no findings; rebuilt at `4b74d46` on 2026-11-27: 958 files, no findings (the name-based DINOv3 cleaning also drops the `dinov3` entries of the Optuna summaries in the package copy) |
 
 ## Not validated
 

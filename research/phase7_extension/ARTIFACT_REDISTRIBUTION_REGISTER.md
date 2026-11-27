@@ -25,7 +25,7 @@ deposit or DOI needs the author's authorisation). Nothing here rewrites Git hist
   D2 descriptors in one file. Because it contains DINOv3 embeddings, the repository file is offered only under
   the DINOv3 License. The package carries a copy produced by `tools/package/build_package.py`: the `dinov3*`
   arrays and the YCB rows are dropped, and the copy's SHA-256 is in `MANIFEST_INCLUDED.json`. The package was
-  built locally and verified (895 files, no findings). Nothing was uploaded.
+  built locally and verified (895 files, no findings); rebuilt on 2026-11-27 at `4b74d46` and verified again (958 files, no findings). Nothing was uploaded.
 - **Public history.** Excluding files from the package does not remove them from the Git history or from
   existing copies. The DINOv3 history audit is in `results/history_licence_audit.json` and
   `LICENSE_COMPLIANCE_REPORT.md`.
