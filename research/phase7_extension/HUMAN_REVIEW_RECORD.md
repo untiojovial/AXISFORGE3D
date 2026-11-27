@@ -72,6 +72,6 @@ guidelines as relayed by the author. They change no result or claim:
 |---|---|---|
 | Internal audits, corrections registers, the final scientific audit | Claude Code, and ChatGPT through the author's instructions | No: automated self-checks of the work the systems helped produce |
 | This review (26 November 2026) | The author | No: the author's own review of the work |
-| Peer review | Reviewers chosen by the journal | Yes. Not yet done; the article has not been submitted |
+| Peer review | Reviewers chosen by the journal | Yes. In progress: the article was submitted on 27 November 2026 |
 
 `EXTERNAL_REVIEW_PACKAGE.md` is prepared for an independent reviewer, should the author want one before submission.

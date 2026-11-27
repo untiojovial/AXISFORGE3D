@@ -1,6 +1,6 @@
 # Manuscript package — Intelligent Service Robotics (Springer)
 
-**Status: final. Approved by the author on 27 November 2026; the author submits. Not submitted yet.**
+**Status: submitted.** Submitted by the author to *Intelligent Service Robotics* through Editorial Manager on 27 November 2026 (double-blind review, subscription route, no APC). The manuscript number is not recorded in this public repository.
 
 ## Contents
 

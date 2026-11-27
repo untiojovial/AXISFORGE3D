@@ -1,6 +1,8 @@
 # Publication readiness: final verdict (updated 2026-11-27)
 
-## Verdict: READY FOR SUBMISSION BY THE AUTHOR (approved by the author on 27 November 2026)
+## Verdict: SUBMITTED BY THE AUTHOR (27 November 2026)
+
+Submitted by the author to *Intelligent Service Robotics* through Editorial Manager on 27 November 2026 (double-blind review, subscription route, no APC). The manuscript number is not recorded in this public repository.
 
 **Done.**
 
@@ -18,9 +20,9 @@
 - **Format.** The manuscript and its double-blind copy have 16 pages, with two figures (method overview and
   confirmatory effects). The supplement is Online Resource 1
   (`ESM_1.pdf`). The cover letter is dated 27 November 2026.
-- The author submits. Files and steps are in `publication/intelligent_service_robotics/submission_checklist.md`.
+- The author submitted it. Files and steps are in `publication/intelligent_service_robotics/submission_checklist.md`.
 
-Nothing has been submitted, released or registered: no submission, no release, no DOI, no payment.
+Nothing has been released or registered: no release, no DOI, no payment.
 
 ## 1. Verdict table
 

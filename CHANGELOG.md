@@ -3,6 +3,11 @@
 Research history of AxisForge3D's learned grasp-candidate ordering. Engineering history is in Git. Every
 result listed here stays in the repository unchanged, negative ones included.
 
+## Submission (2026-11-27)
+
+Submitted by the author to *Intelligent Service Robotics* through Editorial Manager on 27 November 2026 (double-blind review, subscription route, no APC). The manuscript number is not recorded in this public repository. Uploaded: the anonymised manuscript, the title page, an ethics statement for the
+"IRB Document" item and Online Resource 1 (anonymised); the cover letter went in the comments to the editorial office.
+
 ## Editorial closing (2026-11-27)
 
 **Author data and declarations** (confirmed by the author):

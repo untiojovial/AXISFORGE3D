@@ -1,7 +1,9 @@
 # Submission checklist
 
-**Status: approved by the author on 27 November 2026; the author submits.** Not submitted yet. No release, DOI or
-payment has been made, and none will be (the author declined a Zenodo deposit).
+**Status: submitted.** Submitted by the author to *Intelligent Service Robotics* through Editorial Manager on 27 November 2026 (double-blind review, subscription route, no APC). The manuscript number is not recorded in this public repository.
+No release, DOI or payment has been made, and none will be (the author declined a Zenodo deposit). Uploaded: the
+anonymised manuscript, the title page (cover page), the ethics statement (IRB document) and Online Resource 1
+(anonymised); the cover letter was pasted in the comments to the editorial office.
 
 ## Manuscript
 
