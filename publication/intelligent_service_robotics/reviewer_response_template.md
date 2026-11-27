@@ -1,6 +1,6 @@
 # Response to reviewers — template
 
-Manuscript: *Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded Fallback*
+Manuscript: *Learned Grasp Candidate Ordering with Feasibility Priors and Bounded Fallback: Two Prospective Confirmations in Simulation*
 (provisional title)
 
 Dear Editor,

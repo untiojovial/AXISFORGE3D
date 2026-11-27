@@ -11,7 +11,7 @@ been made.
 | Length | `manuscript.pdf`: **16 pages** including figures, tables and references (limit 16, as relayed). The first confirmation's contrast figure moved to the supplement (Fig. S6) for length |
 | Supplement | `supplementary.pdf`: 11 pages, with its own reference list; Table S5 is the extended comparison with related work |
 | Title page | name; affiliation "Independent Researcher, Zaragoza, Spain"; corresponding author; e-mail eduperez2000g@gmail.com; ORCID 0009-0007-0303-8839 (linked) |
-| Abstract | 240 words (limit 150–250); no undefined abbreviations |
+| Abstract | 235 words (limit 150–250); no undefined abbreviations |
 | Keywords | 6: grasp planning, parallel-jaw grippers, candidate ordering, feasibility prediction, dynamic robustness, confirmatory evaluation |
 | Headings | numbered sections with run-in paragraph headings; no deeper levels |
 | Introduction and related work | research questions RQ1–RQ4; contributions with their evidence and outcomes; related work by family; Table 1 compares the closest works |

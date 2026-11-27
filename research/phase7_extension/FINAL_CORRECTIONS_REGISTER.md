@@ -34,7 +34,7 @@ of when each correction was registered.
 | F, p-values stored as 0 | full precision from `corrections_addendum.json` and `confirmation_x.json`; the macro formatter never prints 0 or 1 |
 | G, margins vs signs | `confirmation.tex` (S5 and torsion sensitivity worded as specified); `confirmation_x.tex` (C2 superiority not claimed; C4 not read as equal cost) |
 | H1, H2, "pre-registered" / "hash-signed" | removed from the manuscript, the cover letter and the reviewer template. The historical Phase VII documents keep their wording, with a note pointing here |
-| H3, title | new title, "Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded Fallback"; robustness is not in the title |
+| H3, title | new title, "Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded Fallback"; robustness is not in the title (superseded on 2026-11-27, see I17) |
 | H4, cost estimate | replaced by the measured native cost (Sect. 8) and C4; the historical figure is kept as history |
 | H5, P2 audit | main text of the first confirmation (Tango, Newcombe, fragility) and supplement |
 | H6, H7 | `research/phase7_extension/LIMITATIONS.md`; the new abstract does not describe the articulated model as a replication |
@@ -197,8 +197,12 @@ scripts; the only new macros are counts already in the stored results (`repViabl
 To keep the 16-page limit, the model size and memory, and the reasons Dex-Net 2.0 and Contact-GraspNet could not
 be run, now appear only in the supplement, which already gave them.
 
-**For the author (not changed).** The title begins "Data-Efficient", but the study does not measure data
-efficiency (no learning curve or training-set-size analysis is reported); it measures examined candidates.
+**Title (I17, approved by the author on 2026-11-27).** The title began "Data-Efficient", but the study does not
+measure data efficiency (no learning curve or training-set-size analysis is reported); it measures examined
+candidates. New title: "Learned Grasp Candidate Ordering with Feasibility Priors and Bounded Fallback: Two Prospective Confirmations in Simulation".
+The longer title takes one more line. To stay within 16 pages, the abstract drops "All experiments are in
+simulation" (now in the title; abstract 235 words) and a few redundant phrases were shortened. The reasons Dex-Net 2.0
+and Contact-GraspNet could not be run are back in the main text in short form.
 
 ## P2 statistical audit (section 11)
 

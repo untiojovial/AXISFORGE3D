@@ -11,8 +11,8 @@ To the Editor-in-Chief, *Intelligent Service Robotics*
 
 Dear Editor,
 
-Please consider the manuscript *"Data-Efficient Grasp Candidate Ordering with Learned Feasibility Priors and Bounded
-Fallback"* for publication as an original research article, through the subscription route.
+Please consider the manuscript *"Learned Grasp Candidate Ordering with Feasibility Priors and Bounded Fallback: Two Prospective
+Confirmations in Simulation"* for publication as an original research article, through the subscription route.
 
 **Question.** Service robots that pick unfamiliar objects must plan grasps quickly, and the grasps must hold. A
 learned feasibility prior can make a sampling-based planner examine far fewer candidates. The order, however, also

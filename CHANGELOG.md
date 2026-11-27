@@ -50,6 +50,10 @@ found by checking the text against the results, the code and the protocols, amon
 - the denominators of Table S1;
 - typographic minus signs in the generated numbers.
 
+**Title** (approved by the author on 2026-11-27): "Learned Grasp Candidate Ordering with Feasibility Priors and
+Bounded Fallback: Two Prospective Confirmations in Simulation". It replaces "Data-Efficient ...": the study measures
+examined candidates, not data efficiency.
+
 The manuscript stays at 16 pages.
 
 **No change** to any result, protocol, freeze or analysis.
