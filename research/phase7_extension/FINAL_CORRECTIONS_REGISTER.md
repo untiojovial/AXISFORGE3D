@@ -194,6 +194,14 @@ scripts; the only new macros are counts already in the stored results (`repViabl
 | I15 | `confirmation_x.tex`, `discussion.tex` | Power figures not tied to their scenario; "five discordant objects" typed by hand | "with the observed effects"; macro `nxCtwoFav` |
 | I16 | `confirmation_x.tex`, GPD | "as robust" for a difference of 0.0 points with a ±5-point interval | "the same robustness rate" |
 
+| I18 | `main.tex`, physics and development | "earlier phases" and "the earlier phase's" (internal project terms) | "earlier versions", "earlier stages of this work" |
+| I19 | `main.tex`, planner | "In the original study" (ambiguous) | "Before the integrated implementation" |
+| I20 | `main.tex`, Data availability | "No archival copy with a DOI exists yet", after the author declined a deposit | "No archival copy with a DOI was made" |
+| I21 | `main.tex`, Data availability | The reproducibility package, which is not published, was named as if readers could obtain it | "the reproducibility package that the repository scripts build" |
+
+Items I18–I21 come from the final read-through of 27 November 2026, after the author's approval. They are wording
+only.
+
 To keep the 16-page limit, the model size and memory, and the reasons Dex-Net 2.0 and Contact-GraspNet could not
 be run, now appear only in the supplement, which already gave them.
 

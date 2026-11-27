@@ -119,7 +119,8 @@ statement). He is not a co-author, and the article has no acknowledgements secti
 - **Negative results kept.** No experiment, negative result or historical result was removed. Corrections are logged
   in `research/phase7_extension/FINAL_CORRECTIONS_REGISTER.md`.
 - **Later work needs approval.** Results and text produced after the author's review need the author's approval
-  before submission, for example the Optuna exploratory analysis and the final literature review.
+  before submission, for example the Optuna exploratory analysis and the final literature review. The author
+  approved that material on 27 November 2026 (`research/phase7_extension/HUMAN_REVIEW_RECORD.md`).
 
 ## Text for the manuscript
 

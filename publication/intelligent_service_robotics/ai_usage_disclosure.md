@@ -46,8 +46,8 @@ documented in the repository:
 ## Human review
 
 The author's review of 26 November 2026 is recorded in `research/phase7_extension/HUMAN_REVIEW_RECORD.md`, with the
-limits of what it covers. Work produced after that date needs the author's approval before submission, for example
-the Optuna exploratory analysis and the final literature review.
+limits of what it covers. Work produced after that date needed the author's approval before submission, for example
+the Optuna exploratory analysis and the final literature review; the author approved it on 27 November 2026.
 
 ## Safeguards against AI-induced errors
 

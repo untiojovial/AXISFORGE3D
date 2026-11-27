@@ -17,6 +17,6 @@
 | Per-object outputs | Yes | `research/phase7/results/`; `research/phase7_extension/results/confirmation_x/` |
 | Hardware and compute | Yes | 4-core Intel Xeon at 2.30 GHz cloud container, no GPU; timing pinned to one CPU, one thread; load recorded |
 | Clean-environment reproduction | Partial | slim Docker image: statistics and planner decisions (`reproducibility/DOCKER_VALIDATION_RECORD.md`). The full pipeline was not repeated in a clean environment |
-| Tests | Yes | `research/phase7_extension/TEST_RESULTS.md` (368 Rust, 512 Python, 65 skips explained) |
+| Tests | Yes | `research/phase7_extension/TEST_RESULTS.md` (368 Rust, 513 Python, 65 skips explained) |
 | Real-robot validation | **No** | simulation only (limitations) |
 | Archived release with DOI | **No** | requires the author's authorisation; draft metadata in `research/phase7_extension/package/zenodo_metadata.json` |
