@@ -89,3 +89,25 @@ sellable product.
 The independent Python research package supports Bayesian optimization of external objectives. Installation, examples, scientific evidence and limitations are in the [AxisForgeBO guide](docs/axisforge-bo/README.md).
 
 The [phase II research dossier](research/README.md) contains the thesis reconstruction, transfer experiments, and an AxisForge3D–MuJoCo pilot.
+
+## Licence of the DINOv3-derived files on this branch
+
+This is a historical branch. Current work is on `research/axisforge-phase7-final-publication`.
+
+**What the DINOv3 License covers.** The DINOv3 embeddings on this branch, and the values derived from them, are
+distributed only under the [DINOv3 License](LICENSES/DINOv3-License.md), never under Apache-2.0. The licence copy
+was added to this branch after the files themselves, and the notice applies to every earlier commit of the branch as
+well. The files include:
+
+- `research/phase4/embedding_experiment/dinov3/`;
+- the `dinov3*.npz` files under `research/phase4/grasp_prior/`;
+- the DINOv3 columns of mixed descriptor files.
+
+**What the licence requires.**
+
+- Publications using these files must acknowledge the use of DINO Materials (clause 1.b.ii).
+- The licence's trade-control and use restrictions (clauses 1.b.iii–1.b.v) bind every recipient.
+
+**What else on this branch is not Apache-2.0.** The DINOv3 weights are not in the repository, and no third-party
+mesh or model weight is redistributed. The other licences are described in `THIRD_PARTY_NOTICES.md` on the working
+branches.
