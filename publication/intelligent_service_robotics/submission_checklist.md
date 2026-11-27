@@ -63,7 +63,7 @@ These were verified by ChatGPT on 2026-11-26 and relayed. They could not be read
 | Author data, funding, competing interests, CRediT, AI statement, thesis record | **done** (confirmed 27 November 2026) |
 | Repository visibility | **public** (checked 2026-11-27) |
 | Approve the material produced after the review (literature review, introduction and related work, comparison tables, figure moved, final technical review, Optuna summary, new title) | **done**, 27 November 2026 (`HUMAN_REVIEW_RECORD.md`) |
-| Cover letter: date and submitted commit | **done** (27 November 2026; code, results and figure scripts at `1b1c5eb`) |
+| Cover letter: date and submitted commit | **done** (27 November 2026; code, results and figure scripts at `b8768bf`) |
 | Exclusive-submission sentence | confirmed by the author when submitting |
 | At submission: confirm the review model and choose the files above | **to do** (author) |
 | Manuscript-licence wording window (`RIGHTS.md`) | **decided** (2026-11-27): not raised with the editor; the cover letter discloses the public drafts as a preprint; the history stays in `RIGHTS.md` |
