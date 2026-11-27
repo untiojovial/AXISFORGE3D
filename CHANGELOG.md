@@ -50,6 +50,10 @@ found by checking the text against the results, the code and the protocols, amon
 - the denominators of Table S1;
 - typographic minus signs in the generated numbers.
 
+**Figures in the article (2026-11-27, at the author's request).** Fig. 1 (method overview, TikZ) and Fig. 2
+(confirmatory effects of both confirmations, pgfplots, data from `make_figures_x.py`). Helvetica 8 pt at the column
+width. Repeated text was shortened to keep 16 pages (`FINAL_CORRECTIONS_REGISTER.md`, section J).
+
 **Submission preparation (2026-11-27).**
 
 - **Approval.** The author approved the material of 27 November (`HUMAN_REVIEW_RECORD.md`).

@@ -32,7 +32,7 @@ Read from the official page and secondary sources by ChatGPT on 2026-11-27, and 
 
 | Requirement | How the submission meets it | Status |
 |---|---|---|
-| Artwork: EPS (vector) or TIFF (photographs); 300, 600 or 1200 dpi; Helvetica or Arial at 8–12 pt; lines ≥ 0.3 pt; RGB; figures embedded; captions in the text | The article has no figures; the six figures are in Online Resource 1 | not applicable to the article |
+| Artwork: EPS (vector) or TIFF (photographs); 300, 600 or 1200 dpi; Helvetica or Arial at 8–12 pt; lines ≥ 0.3 pt; RGB; figures embedded; captions in the text | Fig. 1 and Fig. 2: vector PDF (EPS copies in the upload bundle), Helvetica 8 pt at the final column width (76 mm), lines ≥ 0.4 pt, RGB, embedded with captions in the text. The six supplementary figures are in Online Resource 1 | met |
 | Supplementary files named `ESM_1.pdf`, ... and cited as "Online Resource 1"; size limit stated only for video and audio (2 GB) | `supplementary.pdf`, uploaded as `ESM_1.pdf`; the article cites "Online Resource 1"; its heading gives the title and the journal | met |
 | Submission through Editorial Manager; peer review | — | at submission |
 | Review model | Not stated on the official page; two secondary sources say double-blind. `manuscript_anonymous.pdf`, `supplementary_anonymous.pdf` and `title_page.pdf` are prepared | confirm in Editorial Manager |

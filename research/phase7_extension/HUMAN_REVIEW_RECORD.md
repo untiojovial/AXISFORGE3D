@@ -54,7 +54,9 @@ guidelines as relayed by the author. They change no result or claim:
 - the supplement named and cited as Online Resource 1;
 - a double-blind copy of the manuscript and of Online Resource 1;
 - the date and commit in the cover letter;
-- a few shortened phrases to stay within 16 pages.
+- a few shortened phrases to stay within 16 pages;
+- at the author's request, two figures in the article (method overview and confirmatory effects), with text that
+  repeated tables or Online Resource 1 shortened to keep 16 pages (`FINAL_CORRECTIONS_REGISTER.md`, section J).
 
 ## Roles and responsibility
 

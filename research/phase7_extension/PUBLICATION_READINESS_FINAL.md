@@ -15,7 +15,8 @@
   - On 27 November the author approved the material produced afterwards (`HUMAN_REVIEW_RECORD.md`): the literature
     review, the introduction and related work, the tables, the technical-review corrections, the Optuna analysis
     and the new title.
-- **Format.** The manuscript and its double-blind copy have 16 pages. The supplement is Online Resource 1
+- **Format.** The manuscript and its double-blind copy have 16 pages, with two figures (method overview and
+  confirmatory effects). The supplement is Online Resource 1
   (`ESM_1.pdf`). The cover letter is dated 27 November 2026.
 - The author submits. Files and steps are in `publication/intelligent_service_robotics/submission_checklist.md`.
 
