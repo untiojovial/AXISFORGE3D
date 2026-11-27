@@ -71,8 +71,9 @@ Later commits on that branch change only documentation and submission files.
 **Preprint.** Draft versions of the manuscript have been publicly available in the project repository since 26
 November 2026.
 
-**Files.** The manuscript (PDF and LaTeX sources) and Online Resource 1 (ESM_1.pdf). Copies with the author's details
-withheld are available should the review be double-blind.
+**Files.** For the double-blind review: the anonymised manuscript (PDF, with Figs. 1 and 2 embedded), Online
+Resource 1 (ESM_1.pdf, anonymised), the title page with the author's details and the withheld declarations, and an
+ethics statement. The LaTeX sources and EPS copies of the figures are available on request.
 
 **Use of AI.**
 
