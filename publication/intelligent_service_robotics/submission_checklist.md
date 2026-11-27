@@ -33,6 +33,7 @@ payment has been made, and none will be (the author declined a Zenodo deposit).
 | Manuscript (PDF) | `manuscript.pdf` | `manuscript_anonymous.pdf` |
 | LaTeX sources | `main.tex`, `confirmation.tex`, `confirmation_x.tex`, `discussion.tex`, `conclusion.tex`, `tables/`, `figures/fig_overview.pdf`, `figures/fig_effects.pdf`, `references.bib` and the generated `.bbl`, with `sn-jnl.cls` and `sn-mathphys-num.bst` from Springer's template | the same, with `main_anonymous.tex` |
 | Title page | not needed (on the manuscript) | `title_page.pdf` (author details and the withheld declarations) |
+| Ethics (IRB) document, if Editorial Manager requires it | `irb_statement.pdf` (no human participants or animals; no approval required) | the same (it carries no author detail) |
 | Online Resource 1 | `supplementary.pdf`, renamed `ESM_1.pdf` | `supplementary_anonymous.pdf`, renamed `ESM_1.pdf` |
 | Cover letter | `cover_letter.md` (text dated 27 November 2026) | the same |
 
