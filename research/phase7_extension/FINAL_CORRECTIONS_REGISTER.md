@@ -193,7 +193,6 @@ scripts; the only new macros are counts already in the stored results (`repViabl
 | I14 | `make_tables.py`, `make_tables_x.py` | Negative values at the start of a macro or after `{[}` were typeset with a hyphen instead of a minus (for example −1.8, −6.4, −2.0) | `minus()` also converts those; regenerated |
 | I15 | `confirmation_x.tex`, `discussion.tex` | Power figures not tied to their scenario; "five discordant objects" typed by hand | "with the observed effects"; macro `nxCtwoFav` |
 | I16 | `confirmation_x.tex`, GPD | "as robust" for a difference of 0.0 points with a ±5-point interval | "the same robustness rate" |
-
 | I18 | `main.tex`, physics and development | "earlier phases" and "the earlier phase's" (internal project terms) | "earlier versions", "earlier stages of this work" |
 | I19 | `main.tex`, planner | "In the original study" (ambiguous) | "Before the integrated implementation" |
 | I20 | `main.tex`, Data availability | "No archival copy with a DOI exists yet", after the author declined a deposit | "No archival copy with a DOI was made" |
